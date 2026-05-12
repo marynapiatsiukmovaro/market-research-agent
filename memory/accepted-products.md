@@ -8,6 +8,7 @@ Read this file at the START of every session to avoid duplicates.
 | Date | Product | Category | Score | Key Hook | Source |
 |------|---------|----------|-------|----------|--------|
 | 2026-05-12 | Posture Corrector Back Brace | Health | 82 | Visible posture transformation in seconds | TikTok Ads Library |
+| 2026-05-12 | WellnessBaby Fetal Doppler | Health | 83 | OB-GYN endorsed, 31K+ customers — pregnancy anxiety relief via heartbeat monitoring | wellnessbaby.co product page |
 
 ## How to Update (end of each session)
 Add one row per accepted product:

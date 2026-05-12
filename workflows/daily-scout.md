@@ -4,7 +4,7 @@
 - Scan: 15–20 product candidates
 - Filter: apply mandatory filters (fast reject)
 - Score: score remaining candidates
-- Output: 5 best products in Scout Mode format (minimum 3, quality over quantity)
+- Output: 2–5 best products in Scout Mode format (quality over quantity — never force weak products to fill quota)
 
 ## Step-by-Step
 
@@ -43,8 +43,9 @@ For each candidate scoring 65+:
 ### STEP 5 — Select Top Products
 - Rank by score
 - Minimum score to include: 65+
-- Target 5 products. If fewer than 5 score 65+, output what genuinely qualifies — do NOT lower the bar to fill the quota
-- If fewer than 3 qualify → note this in the report and explain why
+- Target 2–5 products. If fewer than 2 score 65+, output what genuinely qualifies — do NOT lower the bar to fill the quota
+- If nothing qualifies → note this in the report and explain why
+- If more than 5 score strongly → include all of them (no hard upper limit)
 
 ### STEP 6 — Output Scout Mode Reports
 - One report per product (use `brain/system.md` output format)
@@ -54,18 +55,31 @@ For each candidate scoring 65+:
 - Follow `workflows/notion-update.md`
 - One Notion entry per accepted product
 
-### STEP 8 — Update Memory (mandatory, do not skip)
-After every session, update memory files:
+### STEP 8 — End-of-Session Checklist (mandatory, do not skip)
 
-**`memory/accepted-products.md`** — add each reported product:
-- Date, Product name, Category, Score, Key hook, Source
+**1. Save accepted products** → `memory/accepted-products.md`
+- Add one row per reported product: Date, Product, Category, Score, Key Hook, Source
 
-**`memory/rejected-products.md`** — add notable rejections:
-- Date, Product name, Reason rejected
+**2. Save notable rejections** → `memory/rejected-products.md`
+- Add products that looked promising but failed for a non-obvious reason
+- Skip trivially weak products — only log rejections with a lesson
 
-**`memory/successful-patterns.md`** — if you noticed a recurring winning trait, add it
+**3. Update patterns if new insight emerged**
+- `memory/successful-patterns.md` — recurring winning trait found today
+- `memory/failed-patterns.md` — recurring weak pattern found today
+- Only update if something new was discovered — don't repeat existing entries
 
-**`memory/failed-patterns.md`** — if you noticed a recurring weak pattern, add it
+**4. Mark unverified links**
+- Any product missing real source links → set Verification to "Needs Verification ⚠️"
+- Do not leave blank link fields — write "Not found" explicitly
+
+**5. Save session report**
+- Save output to `outputs/daily-reports/YYYY-MM-DD.md`
+- Include product count, top scorer, and any notable patterns
+
+**6. Prevent duplicates in next session**
+- Confirm accepted-products.md is updated before closing
+- Next session STEP 0 will read this file — it must be current
 
 Memory update is not optional. It is what makes the agent smarter over time.
 
