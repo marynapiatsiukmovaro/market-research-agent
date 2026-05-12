@@ -28,13 +28,16 @@ Follow `workflows/notion-update.md`.
 Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO HQ)
 
 ## Key Rules
+- START every session by reading memory/accepted-products.md — never report duplicates
 - Apply mandatory filters BEFORE scoring — never waste tokens scoring weak products
 - No competitor ads + no organic momentum = do not include in output
 - Always output Score + Recommendation + Source for every product
 - Every product needs 2 real links: where found + where it sells
-- Missing links → mark "Needs Verification", do not treat as strong recommendation
-- Never invent or guess URLs — only attach links you actually found
+- NEVER invent or guess URLs — if not found after real search, write "Not found"
+- A fake URL is worse than no URL — it wastes the user's time
+- Quality over quota — output 3 strong products over 5 weak ones
 - Save every accepted product (65+) to Notion after each session
+- END every session by updating all 4 memory files — this is non-negotiable
 - Deep analysis only for products scoring 85+ or when explicitly requested
 
 ## File Map

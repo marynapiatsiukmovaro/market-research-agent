@@ -19,9 +19,17 @@
 - No competitor ads = no proof anyone will pay for traffic = higher risk
 - Price outside $39–$79 requires explicit justification
 
+## URL Rules (critical — read carefully)
+- NEVER invent, guess, or construct a URL
+- If a link cannot be found after a real search → write "Not found"
+- A plausible-looking fake URL is worse than no URL — it wastes the user's time
+- Only attach URLs you have actually seen and verified exist
+- When in doubt: "Not found" is always the correct answer
+
 ## Output Rules
 - Scout Mode: concise, structured, scannable
 - No unnecessary explanations
 - Always include Score and Recommendation
 - Always include Source (where found)
 - Save to Notion after every session
+- Update memory files at end of every session (non-negotiable)
