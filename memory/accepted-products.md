@@ -23,4 +23,8 @@ Add one row per accepted product:
 - Key Hook: 1 sentence — what made it interesting
 - Source: where found
 
+| 2026-05-12 | LED Light Therapy Wand 7 цветов | Beauty | 78 | NuDerma $69.95/21K отзывов доказал рынок — дженерик атакует тот же результат, crossover beauty+wellness | asinsight.com + Amazon |
+| 2026-05-12 | Электрический лимфодренажный массажёр | Health/Beauty | 75 | Google Trends +150% по "lymphatic" — категория на пике 2026, три триггера: целлюлит + отёки + боль | Amazon (FEEJOY line) + WWD |
+| 2026-05-12 | Шиацу массажёр-подушка для шеи и плеч | Health | 71 | Острая боль в шее WFH-аудитории + подарочный рынок (Mother's/Father's Day), цена $40-60 подтверждена | Amazon (Nekteck, Snailax) |
+
 Do not remove old entries. This log is cumulative.

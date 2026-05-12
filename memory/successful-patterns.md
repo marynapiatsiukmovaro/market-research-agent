@@ -26,6 +26,15 @@ Recurring traits of high-scoring products. Update as patterns emerge.
 - Пример: массажёр для ног (медсёстры + беременные + спортсмены + пожилые)
 - Пример: маска для глаз (мигрень + усталость глаз + сон)
 
+## Multi-Function = Высокая воспринимаемая ценность (обнаружено 2026-05-12, сессия 2)
+- Продукты с 3+ функциями (тепло + вибрация + LED) воспринимаются как premium при цене $45-65
+- Примеры: LED wand (7 цветов + вибрация + тепло), лимфодренаж (микроток + свет + вибрация)
+
+## Breakout Category Entry Timing (обнаружено 2026-05-12, сессия 2)
+- Войти в категорию когда Google Trends показывает взрывной рост (>100% за год) — до насыщения
+- Пример: lymphatic drainage +150% по "lymphatic", +3100% по "vibration plates for lymphatic"
+- Сигнал: mainstream media пишет о тренде (WWD "Amazon Taps Into Lymphatic Drainage Trend")
+
 ## Premium Brand Proves Market Strategy (обнаружено 2026-05-12)
 - Если дорогой бренд ($200+) активно рекламируется → рынок доказан
 - Generic версия за $49-69 может атаковать тот же результат дешевле
