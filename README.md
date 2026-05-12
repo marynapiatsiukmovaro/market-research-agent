@@ -1,84 +1,118 @@
-# Market Research Agent
+# Product Discovery Scout Agent
 
-An AI-powered market research system that autonomously gathers, analyzes, and synthesizes competitive intelligence, market trends, and industry insights.
+An autonomous AI agent for identifying high-potential e-commerce products suitable for rapid MVP testing through paid traffic (Meta, TikTok).
 
-## Overview
+## Purpose
 
-Market Research Agent is a modular AI system built on top of Claude that performs deep market research on demand. It breaks complex research tasks into structured workflows, applies evaluation criteria, and produces actionable reports.
+Not here to find perfect businesses.
+Here to find products with a high probability of successful market validation and scalable paid advertising performance.
+
+**Daily target:** 5 qualified products/day from scanning 15–20 candidates.
+
+## How It Works
+
+```
+Scan 15–20 candidates
+        ↓
+Apply Mandatory Filters (fast reject)
+        ↓
+Score remaining products (0–100)
+        ↓
+Output top 5 in Scout Mode format
+        ↓
+Save to Notion database
+```
 
 ## Architecture
 
 ```
 market-research-agent/
-├── brain/          # Core reasoning and orchestration logic
-├── criteria/       # Evaluation frameworks and scoring rubrics
-├── prompts/        # System and task-specific prompt templates
-├── skills/         # Modular capability units (search, scrape, summarize)
-├── workflows/      # Multi-step research pipeline definitions
-├── memory/         # Persistent context, findings, and knowledge base
-└── research/       # Output reports and research artifacts
+├── brain/               # Core identity, mindset, operating rules
+│   ├── system.md        # Main system prompt (lean, ~50 lines)
+│   ├── mindset.md       # Agent thinking style
+│   ├── autonomy-rules.md
+│   └── token-efficiency.md
+├── criteria/            # Product evaluation logic
+│   ├── mandatory-filters.md   # Hard reject rules (apply before scoring)
+│   ├── scoring-system.md      # 100-point weighted scoring
+│   ├── rejection-rules.md
+│   └── product-requirements.md
+├── skills/              # Modular intelligence blocks
+│   ├── product-discovery.md
+│   ├── paid-traffic-analysis.md
+│   ├── wow-factor-analysis.md
+│   ├── trend-analysis.md
+│   ├── ugc-analysis.md
+│   ├── sourcing-analysis.md
+│   └── shophunter-analysis.md
+├── workflows/           # Operational procedures
+│   ├── daily-scout.md         # Main daily loop
+│   ├── product-validation.md  # Deep validation for 85+ products
+│   ├── notion-update.md       # How to save findings to Notion
+│   └── telegram-report.md     # Daily summary format
+├── prompts/             # Reusable task prompts
+│   ├── find-products.md
+│   ├── analyze-tiktok-ads.md
+│   ├── validate-product.md
+│   └── daily-report.md
+├── memory/              # Learning layer
+│   ├── accepted-products.md
+│   ├── rejected-products.md
+│   ├── successful-patterns.md
+│   └── failed-patterns.md
+├── config/              # Settings and integrations
+│   ├── sources.md             # Research sources list
+│   ├── notion-config.md       # Notion database schema
+│   └── agent-rules.md         # Core operating rules
+└── outputs/             # Generated reports
+    ├── daily-reports/
+    ├── high-potential-products/
+    └── telegram-summaries/
 ```
 
-## Modules
+## Scoring System
 
-### /brain
-The central orchestrator. Manages task decomposition, agent routing, and synthesis of results from multiple sources into coherent insights.
+| Category | Points |
+|----------|--------|
+| Problem-Solving Strength | 20 |
+| Wow-Effect / Scroll-Stopping | 20 |
+| Paid Ads Viability | 15 |
+| Emotional Trigger Strength | 10 |
+| Market Size / Scalability | 10 |
+| Margin Potential | 10 |
+| Logistics Simplicity | 5 |
+| UGC Potential | 5 |
+| Evergreen Potential | 5 |
+| **Total** | **100** |
 
-### /criteria
-Evaluation frameworks used to score and filter information — relevance rubrics, source credibility checks, market signal scoring, and competitive threat matrices.
+**Thresholds:**
+- 85–100 → High Priority Winning Product
+- 70–84 → Worth Testing
+- 55–69 → Medium Potential
+- Below 55 → Reject
 
-### /prompts
-Prompt templates for each research phase: query generation, source evaluation, competitive analysis, trend detection, and final report synthesis.
+## Product Requirements
 
-### /skills
-Atomic capability modules:
-- **search** — web and academic search
-- **scrape** — structured data extraction from websites
-- **summarize** — compress and distill long-form content
-- **compare** — side-by-side competitor analysis
-- **trend** — time-series signal detection
+- Price range: **$39–$79** (hard filter — under $38 fails paid traffic economics)
+- Competitor ad activity on Meta or TikTok (proof of market)
+- Minimum **3 creative angles** (single-angle products die under ad fatigue)
+- Sourceable from China (Alibaba/AliExpress, 5+ suppliers)
+- Lightweight shipping (under 1kg preferred)
+- Low return risk
 
-### /workflows
-Orchestrated research pipelines:
-- `competitor-analysis.yaml` — full competitive landscape scan
-- `market-sizing.yaml` — TAM/SAM/SOM estimation workflow
-- `trend-report.yaml` — emerging trend identification
-- `customer-persona.yaml` — ICP and buyer persona research
+## Notion Integration
 
-### /memory
-Persistent storage for research findings, entity knowledge graphs, and source credibility scores. Enables the agent to build cumulative knowledge over time.
+All accepted products (score 65+) are saved to the **Product Tracker** database in Notion with fields:
+Score, Category, Recommendation, Problem Solved, Emotional Trigger, Why It May Work, Price Range, Competitor Ads, Ad Platform, Creative Angles, Saturation, Supplier, Source.
 
-### /research
-Final output artifacts: reports, summaries, raw data exports, and visualizations produced by completed research runs.
+## Operating Modes
 
-## Quick Start
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run a research workflow
-python run.py --workflow competitor-analysis --topic "AI coding assistants"
-
-# Output will be saved to /research/
-```
-
-## Configuration
-
-Copy `.env.example` to `.env` and set your API keys:
-
-```env
-ANTHROPIC_API_KEY=your_key_here
-SERP_API_KEY=your_key_here
-```
+- **Scout Mode** (default): concise outputs, fast filtering, 5 products/session
+- **Deep Validation Mode**: triggered only for 85+ products or explicit request
 
 ## Tech Stack
 
-- **AI Model** — Claude (Anthropic)
-- **Orchestration** — Custom multi-agent framework
-- **Storage** — Local filesystem + optional vector DB
-- **Search** — SerpAPI / Tavily
-
-## License
-
-MIT
+- AI: Claude (Anthropic) via Claude Code
+- Output storage: Notion database
+- Version control: GitHub
+- Sources: TikTok Ads Library, Meta Ads Library, Amazon Movers & Shakers, AliExpress, Alibaba
