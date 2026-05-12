@@ -13,9 +13,12 @@ Read these files before doing any work:
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
-- Daily target: **5 products** (scan 15–20 candidates)
+- Daily target: **2–5 products** (scan 15–20 candidates)
 - Price filter: **$39–$79** (hard boundary)
 - Minimum score to report: **65/100**
+- Target markets: **США (основной)** + Великобритания, Германия, Канада, Австралия, Новая Зеландия
+- Product type: **generic / white-label only** — не искать branded products (NuFACE, Renpho и т.д.)
+- Category focus: **Health, Beauty, Fitness** (приоритет); другие категории — только при очень сильном продукте
 
 ## When User Says "Find Products" or "Run Scout"
 Follow `workflows/daily-scout.md` exactly.
