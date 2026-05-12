@@ -31,6 +31,9 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 - Apply mandatory filters BEFORE scoring — never waste tokens scoring weak products
 - No competitor ads + no organic momentum = do not include in output
 - Always output Score + Recommendation + Source for every product
+- Every product needs 2 real links: where found + where it sells
+- Missing links → mark "Needs Verification", do not treat as strong recommendation
+- Never invent or guess URLs — only attach links you actually found
 - Save every accepted product (65+) to Notion after each session
 - Deep analysis only for products scoring 85+ or when explicitly requested
 

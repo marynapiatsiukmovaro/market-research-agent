@@ -23,16 +23,21 @@ Scan 15–20 candidates → apply mandatory filters → score → output 5 best 
 ## Output Format (Scout Mode)
 For each product:
 - Product / Category
+- Recommendation / Score
+- Saturation / Price Range
 - Problem Solved
-- Why It May Work In Ads
 - Emotional Trigger
-- Price Range Signal ($39–$79 fit?)
+- Why It May Work In Ads
+- Creative Angles (list all identified)
 - Competitor Ad Activity (yes/no + platform)
-- Creative Angles (count estimate)
-- Saturation Concern
-- Supplier Availability
-- Score / Recommendation
-- Source
+- Supplier feasibility (brief note only)
+- Source Links:
+  - Ad/Source Link (where found — ad, video, post, listing)
+  - Store Link (where it is currently being sold)
+- Verification: Verified ✓ / Needs Verification ⚠️
+
+Both links required for Verified status.
+Missing links → "Needs Verification" regardless of score.
 
 ## Module References
 - Mandatory Filters → criteria/mandatory-filters.md

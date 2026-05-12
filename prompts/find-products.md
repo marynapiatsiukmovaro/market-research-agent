@@ -1,20 +1,44 @@
 # FIND PRODUCTS PROMPT
 
-Scan today's sources and find 5 product candidates for MVP testing via paid traffic.
+Scan today's sources and find 5 verified product candidates for MVP testing via paid traffic.
 
-Requirements:
+## Requirements
 - Strong wow-factor and paid ads potential
 - Scalable audience, strong emotional triggers
-- Good sourcing feasibility (China suppliers available)
+- Sourceable from China (general feasibility check only)
 - Strong impulse-buy capability
 - Price suitable for direct response: $39–$79
-- Competitor ad activity visible on Meta or TikTok
+- Competitor ad activity on Meta/TikTok OR strong organic momentum
 - Minimum 3 creative angles identifiable
 
-Process:
-1. Scan 15–20 candidates from primary sources
+## Mandatory Source Links (2 required per product)
+For every product you report, attach:
+
+1. **Source Link** — where you found it:
+   - TikTok Ads Library ad URL
+   - Meta/Facebook Ads Library ad URL
+   - TikTok organic video or profile URL
+   - Amazon product listing URL
+   - Reddit/blog/article URL
+   - Instagram post or Reel URL
+   - (whatever is most relevant to how it was found)
+
+2. **Store Link** — where the product is being sold:
+   - Brand's Shopify store
+   - Amazon product page
+   - Brand website
+   - Any active online store selling it
+
+If you cannot find both links → mark Recommendation as "Needs Verification" (⚠️).
+Do NOT invent or guess URLs. Only real, working links.
+
+## Process
+1. Scan 15–20 candidates from primary sources (config/sources.md)
 2. Apply mandatory filters (criteria/mandatory-filters.md)
 3. Score remaining (criteria/scoring-system.md)
-4. Return top 5 in Scout Mode output format
+4. For each of top 5: find and attach Source Link + Store Link
+5. If links missing → set "Needs Verification"
+6. Output in Scout Mode format (brain/system.md)
+7. Save each to Notion (workflows/notion-update.md)
 
-Return Scout Mode outputs only. No deep analysis unless score is 85+.
+No deep analysis unless score is 85+.
