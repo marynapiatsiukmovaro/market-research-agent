@@ -19,3 +19,14 @@ Recurring traits of high-scoring products. Update as patterns emerge.
 - Convenience / time saving
 - Appearance / confidence
 - Home improvement / organization
+- Pregnancy anxiety / parental fear (мощнейший триггер — WellnessBaby 83)
+
+## Multi-Audience Products (обнаружено 2026-05-12)
+- Продукты с 3-4 независимыми аудиториями масштабируются лучше — каждая аудитория = отдельная кампания
+- Пример: массажёр для ног (медсёстры + беременные + спортсмены + пожилые)
+- Пример: маска для глаз (мигрень + усталость глаз + сон)
+
+## Premium Brand Proves Market Strategy (обнаружено 2026-05-12)
+- Если дорогой бренд ($200+) активно рекламируется → рынок доказан
+- Generic версия за $49-69 может атаковать тот же результат дешевле
+- Примеры: NuFACE ($200) → generic microcurrent ($59), UPRIGHT GO ($69) → generic posture sensor
