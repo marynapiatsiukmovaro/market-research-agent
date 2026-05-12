@@ -17,7 +17,7 @@ For each accepted product (score 65+), create one Notion database entry.
 - Supplier Availability (text: Alibaba/AliExpress availability)
 - Source (text: where found)
 - Date Added (date)
-- Status (select: New / Under Review / Testing / Rejected / Winner)
+- Status (select: Not started / In progress / Done)
 
 ## Formatting Rules
 - Keep all fields concise — scannable in under 10 seconds
