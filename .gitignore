@@ -1,0 +1,33 @@
+# Environment
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Research outputs (optional: remove if you want to track reports)
+research/*.pdf
+research/*.csv
+research/*.json
+
+# Memory / cache
+memory/*.db
+memory/*.pkl
+memory/cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
