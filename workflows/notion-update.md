@@ -25,7 +25,10 @@ For each accepted product (score 65+), create one Notion database entry with two
 | Saturation | Low / Medium / High / Extreme |
 | Supplier | Short feasibility note (e.g. "Available on Alibaba") |
 | Ad Link | Direct URL to ad or original source |
+| Social Link | TikTok / Instagram profile or post URL |
 | Store Link | URL of store/site where product is sold |
+| Supplier Link | Alibaba / AliExpress listing URL (if found) |
+| Notes | Any extra observations |
 | Source | Platform where found (e.g. "TikTok Ads Library") |
 | Date Added | Today's date |
 | Status | Not started / In progress / Done |
