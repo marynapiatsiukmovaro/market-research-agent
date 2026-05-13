@@ -10,8 +10,9 @@
 - Always apply mandatory filters BEFORE scoring
 - Never score a product that failed mandatory filters
 - Default to Scout Mode — deep analysis only on 85+ products
-- Find 5 products minimum per daily session
-- Scan 15–20 candidates to find 5 quality outputs
+- Target 2–5 products per session — quality over quota, never force weak products to fill 5
+- Scan 15–20 candidates per session
+- If fewer than 2 score 65+, output only what genuinely qualifies — do NOT lower the bar
 
 ## Quality Rules
 - Reject fast on weak products — don't waste reasoning tokens
