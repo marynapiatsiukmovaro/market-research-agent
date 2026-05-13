@@ -156,15 +156,42 @@ def parse_ad_cards(page) -> list[dict]:
 
             lines = [ln.strip() for ln in raw.split("\n") if ln.strip()]
 
-            # Advertiser name: first non-"Active"/"Library ID" line after skipping metadata
+            # Card structure (confirmed from DOM inspection):
+            # Active → Library ID → Started running → Platforms → See ad details
+            # → ADVERTISER NAME → Sponsored → AD COPY → DOMAIN.COM → Shop now
+
+            # Advertiser: first non-empty line after "See ad details" / "See summary details"
             advertiser = ""
+            ad_copy = ""
+            store_domain = ""
+            found_details = False
+            found_sponsored = False
+            copy_lines = []
+
             for line in lines:
-                if line.startswith("Library ID:") or line in ("Active", "Inactive"):
+                if line in ("See ad details", "See summary details"):
+                    found_details = True
                     continue
-                if len(line) > 2:
+                if found_details and not advertiser:
                     advertiser = line
-                    break
+                    continue
+                if found_details and advertiser and line == "Sponsored":
+                    found_sponsored = True
+                    continue
+                if found_sponsored:
+                    # Store domain: ALL-CAPS line that looks like a domain
+                    if line.isupper() and "." in line and len(line) < 40:
+                        store_domain = line
+                        break
+                    # Skip UI buttons
+                    if line in ("Shop now", "Shop Now", "Learn more", "Get offer", "Sign up"):
+                        continue
+                    copy_lines.append(line)
+
             ad["advertiser"] = advertiser
+            ad["ad_copy"] = " ".join(copy_lines)[:300]
+            ad["store_domain"] = store_domain
+            ad["store_url"] = f"https://{store_domain.lower()}" if store_domain else "Not found"
 
             # Start date — "Started running on DD Month YYYY"
             date_match = re.search(
@@ -217,10 +244,10 @@ def parse_ad_cards(page) -> list[dict]:
 
             ads.append(ad)
             print(
-                f"  [{i+1}] {ad.get('advertiser', 'unknown')[:40]} | "
-                f"active_ads: {ad.get('active_ads_count', '?')} | "
+                f"  [{i+1}] {ad.get('advertiser', '?')[:35]} | "
                 f"started: {ad.get('started_running', '?')} | "
-                f"platforms: {ad.get('platforms', [])}",
+                f"active_ads: {ad.get('active_ads_count', '?')} | "
+                f"domain: {ad.get('store_domain', '?')}",
                 flush=True,
             )
 
@@ -362,11 +389,10 @@ if __name__ == "__main__":
         print("\n=== ADS FOR CLAUDE ===", flush=True)
         for i, ad in enumerate(results, 1):
             print(f"\n[{i}] Advertiser: {ad.get('advertiser', '?')}", flush=True)
-            print(f"     Keyword: {ad.get('keyword', '?')}", flush=True)
-            print(f"     Started: {ad.get('started_running', '?')}", flush=True)
-            print(f"     Active ads: {ad.get('active_ads_count', '?')}", flush=True)
-            print(f"     Platforms: {ad.get('platforms', [])}", flush=True)
-            print(f"     Offer: {ad.get('offer_text', 'N/A')}", flush=True)
-            print(f"     Store: {ad.get('store_url', 'N/A')}", flush=True)
+            print(f"     Keyword:   {ad.get('keyword', '?')}", flush=True)
+            print(f"     Started:   {ad.get('started_running', '?')}", flush=True)
+            print(f"     Active ads:{ad.get('active_ads_count', '?')}", flush=True)
+            print(f"     Store:     {ad.get('store_url', 'N/A')}", flush=True)
+            print(f"     Ad copy:   {ad.get('ad_copy', 'N/A')[:120]}", flush=True)
     else:
         print("[!] No ads found — check logs/screenshots/", flush=True)
