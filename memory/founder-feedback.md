@@ -15,6 +15,8 @@ Read alongside founder-taste.md. Founder feedback overrides raw scoring.
 
 ---
 
+| 2026-05-13 | High-Frequency Facial Wand | 77 | "Понимаю принцип, вижу как можно показать" — понятный контент-угол, одобрено. | Видимый результат (акне) + понятная демонстрация = YES. |
+
 ## Maybe — Marina is not sure (Жёлтый в Notion)
 
 | Date | Product | Score | Concern | What would tip it to YES |
