@@ -22,6 +22,9 @@ Read this file at the START of every session to avoid duplicates.
 | 2026-05-13 | Wireless TENS Pain Relief Patch | Health | 71 | Clinically proven, wireless = freedom angle; ⚠️ HIGH saturation — only with strong creative | Amazon (iReliev) May 2026 |
 | 2026-05-13 | Ultrasonic Skin Scrubber Spatula | Beauty | 71 | "Gunk extraction" content goes viral; TikTok Shop presence strong; ⚠️ mixed expert reviews risk | TikTok Shop May 2026 |
 
+| 2026-05-13 | High-Frequency Facial Wand | Beauty | 77 | 1M TikTok views/week, NuDerma $79.95 proves market; kills acne bacteria visibly + 3 angles (acne/anti-aging/hair) | WebSearch / TikTok + Amazon |
+| 2026-05-13 | Electric Lip Plumper Device (with heat) | Beauty | 76 | Beambo Lip Gizmo $65 viral on TikTok/Huda; electric upgrade with heat, instant visible result in 30 sec, UGC-perfect | WebSearch / TikTok + Amazon |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per accepted product at the end of each session.

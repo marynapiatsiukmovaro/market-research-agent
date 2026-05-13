@@ -48,6 +48,12 @@ Read patterns here before scanning — skip similar products faster.
 - Products that look identical to 50 other Amazon listings
 - Single creative angle products — will fatigue within 2 weeks
 
+| 2026-05-13 | Minea Meta Ads batch (10 products) | Mixed | No category/geo filter in scraper — pulled global ads (jewelry, clothing, pet food, socks) | filtered |
+| 2026-05-13 | SAEGE jewelry | Accessories | £15-45 jewelry — wrong category + below price floor | filtered |
+| 2026-05-13 | Réglo (dog kibble €26.80) | Pet | Dog food, EU market only, price €26 | filtered |
+| 2026-05-13 | Infrared Sauna Blanket | Health | Price starts $94 for generic — above $79 hard limit | filtered |
+| 2026-05-13 | Electric Gua Sha (EMS face) | Beauty | Same category as rejected Microcurrent Device — "везде" risk, rejected pre-scoring | filtered |
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.
