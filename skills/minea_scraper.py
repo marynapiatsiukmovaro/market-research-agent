@@ -100,7 +100,7 @@ def apply_filters(page):
 
     if category_opened:
         time.sleep(1)
-        try_click(page, [
+        category_selected = try_click(page, [
             'li:has-text("Health & Beauty")',
             'li:has-text("Health and Beauty")',
             'option:has-text("Health & Beauty")',
@@ -113,15 +113,19 @@ def apply_filters(page):
         ], "select Health & Beauty")
         time.sleep(1)
 
-        # Apply or close
-        applied = try_click(page, [
-            'button:has-text("Apply")',
-            'button:has-text("OK")',
-            'button:has-text("Confirm")',
-        ], "apply category")
-        if not applied:
+        if category_selected:
+            applied = try_click(page, [
+                'button:has-text("Apply")',
+                'button:has-text("OK")',
+                'button:has-text("Confirm")',
+            ], "apply category")
+            if not applied:
+                page.keyboard.press("Escape")
+                time.sleep(1)
+        else:
             page.keyboard.press("Escape")
             time.sleep(1)
+            print("[FILTER] Category not selected — closed dropdown without applying", flush=True)
 
     save_screenshot(page, "04_after_category_filter")
 
@@ -148,7 +152,7 @@ def apply_filters(page):
         except Exception:
             pass
 
-        try_click(page, [
+        country_selected = try_click(page, [
             'li:has-text("United States")',
             'option:has-text("United States")',
             '[data-value="US"]',
@@ -159,14 +163,19 @@ def apply_filters(page):
         ], "select United States")
         time.sleep(1)
 
-        applied = try_click(page, [
-            'button:has-text("Apply")',
-            'button:has-text("OK")',
-            'button:has-text("Confirm")',
-        ], "apply country")
-        if not applied:
+        if country_selected:
+            applied = try_click(page, [
+                'button:has-text("Apply")',
+                'button:has-text("OK")',
+                'button:has-text("Confirm")',
+            ], "apply country")
+            if not applied:
+                page.keyboard.press("Escape")
+                time.sleep(1)
+        else:
             page.keyboard.press("Escape")
             time.sleep(1)
+            print("[FILTER] Country not selected — closed dropdown without applying", flush=True)
 
     save_screenshot(page, "05_after_country_filter")
     page.wait_for_load_state("networkidle", timeout=10000)
