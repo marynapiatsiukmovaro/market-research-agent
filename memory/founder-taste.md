@@ -38,17 +38,35 @@ The goal is not hitting the score threshold. The goal is finding products Marina
 ### Strong YES — Marina's taste
 - **Eye Massager with Heat and Vibration (84)** — visible relief, premium feel, 3 clear audiences, instant hook
 - **WellnessBaby Fetal Doppler (83)** — extremely specific anxiety relief, emotional trigger is pregnancy fear
-- **Red Light Laser Hair Cap (80)** — dramatic before/after potential, premium brand proves market, scroll-stopping concept
+- **Smart Posture Corrector Vibration Sensor (75)** — approved because of Apple-like minimal design. Design differentiator can override generic scoring.
+- **High-Frequency Facial Wand (77)** — "Понимаю принцип, вижу как можно показать." Visible result (kills acne bacteria, blue light arc), clear demo angle. Approved despite medium score.
 
 ### Maybe — acceptable but not exciting
 - **LED Light Therapy Wand 7 Colors (78)** — good but category getting crowded, requires beauty/wellness cross
-- **Air Compression Leg Massager (75)** — good multi-audience, but looks bulky, harder UGC
-- **Smart Posture Corrector Vibration Sensor (75)** — clever tech, but requires explanation
+- **Air Compression Leg Massager (75)** — good multi-audience, but looks bulky, harder UGC. Marina called it "narrow market" — founder intuition overrides data.
+- **Electric Scalp Massager with Heat (77)** — seen often. Market exists but not fresh. Would need Minea data showing low ad saturation.
 
 ### Weak — passed scoring but below Marina's bar
 - **Shiatsu Neck Massager Pillow (71)** — commodity, saturated, no differentiation
 - **Wireless TENS Pain Relief Patch (71)** — HIGH saturation, clinically proven but dozens of identical products
 - **Ultrasonic Skin Scrubber Spatula (71)** — viral content but mixed reviews, risky returns
+- **Red Light Laser Hair Cap (80)** — rejected despite score 80. "Недоказуемый результат — не хочу продавать пустышки." Result cannot be verified on camera.
+- **Red Light Therapy Wearable Body Belt (78)** — rejected. "Рынок перегрет." Score 78 means nothing if market already saturated.
+
+### Session 2 Key Calibrations Added (2026-05-13)
+
+**Design rule:** Apple-like minimal aesthetics can tip a borderline product to YES.
+When two similar products compete, recommend the one with cleaner, more premium visual design.
+
+**"Пустышки" rule (HARDEST RULE):** Marina will not sell unverifiable results.
+Result must be visible, demonstrable on camera, fast, and real.
+Pre-score filter: if result cannot be shown clearly in a video, reject before scoring.
+
+**"Везде" = instant NO:** If Marina has already seen the product everywhere (Instagram, Facebook, stores),
+it is auto-rejected regardless of score. LED Wand (78), Microcurrent (74) both failed here.
+
+**Рынок уже создан = wrong timing:** Need to enter a market at the start of a trend, not after.
+Lymphatic Drainage Massager (75) rejected because the market wave already peaked.
 
 ## Update Rule
 This file is updated when Marina gives explicit feedback on products.
