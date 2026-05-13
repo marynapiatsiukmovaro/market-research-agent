@@ -14,8 +14,9 @@ Read these files before doing any work:
 6. `memory/rejected-products.md` — failure patterns to skip faster (read BEFORE scanning)
 7. `memory/founder-taste.md` — Marina's personal quality bar (read BEFORE scoring)
 8. `memory/founder-feedback.md` — Marina's direct product feedback and calibration examples
-9. `config/sources.md` — where to search for candidates
-10. `config/session-health-rules.md` — monitor session quality, self-report degradation
+9. `memory/founder-goals.md` — who Marina is, what she's building, winner product definition
+10. `config/sources.md` — where to search for candidates
+11. `config/session-health-rules.md` — monitor session quality, self-report degradation
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
