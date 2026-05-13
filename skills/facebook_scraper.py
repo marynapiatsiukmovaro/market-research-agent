@@ -88,46 +88,83 @@ def build_search_url(keyword: str, country: str = "US", active_only: bool = True
 # ── Core scraping ──────────────────────────────────────────────────────────────
 
 def parse_ad_cards(page) -> list[dict]:
-    """Extract structured data from visible ad cards."""
+    """
+    Extract structured data from visible ad cards using JS DOM traversal.
+    Facebook uses auto-generated CSS classes that change — content-based extraction is reliable.
+    Strategy: find all 'Library ID:' text nodes, walk up DOM to the card container,
+    extract full card text.
+    """
     ads = []
 
-    # Primary selector used by Facebook Ads Library (as of 2026)
-    card_selectors = [
-        '[data-testid="ad_archive_results"] > div',
-        'div[class*="AdLibraryResultsItem"]',
-        'div[class*="x1lliihq"]',  # common FB class pattern
-        'div[data-ad-preview]',
-    ]
+    # JS: find each 'Library ID:' span, walk up until we find the card root
+    # (identified by also containing 'See ad details' or 'See summary details')
+    raw_cards = page.evaluate("""
+        () => {
+            const results = [];
+            const spans = Array.from(document.querySelectorAll('span, div'));
+            const libSpans = spans.filter(el =>
+                el.childNodes.length === 1 &&
+                el.childNodes[0].nodeType === Node.TEXT_NODE &&
+                el.textContent.trim().startsWith('Library ID:')
+            );
 
-    cards = []
-    for sel in card_selectors:
-        cards = page.locator(sel).all()
-        if cards:
-            print(f"[PARSE] Found {len(cards)} cards via: {sel}", flush=True)
-            break
+            for (const span of libSpans) {
+                let el = span;
+                let card = null;
+                for (let i = 0; i < 25; i++) {
+                    el = el.parentElement;
+                    if (!el || el === document.body) break;
+                    const txt = el.innerText || '';
+                    if (txt.includes('See ad details') || txt.includes('See summary details')) {
+                        card = el;
+                        break;
+                    }
+                }
+                if (card) {
+                    // Get store links from within the card
+                    const links = Array.from(card.querySelectorAll('a[href]'))
+                        .map(a => a.href)
+                        .filter(h => h && !h.includes('facebook.com') && h.startsWith('http'));
+                    results.push({
+                        text: (card.innerText || '').substring(0, 1200),
+                        links: links.slice(0, 3)
+                    });
+                }
+            }
+            return results;
+        }
+    """)
 
-    if not cards:
-        # Fallback: grab all large divs that contain ad metadata text
-        raw_text = page.inner_text("body")
-        print(f"[PARSE] No card selector matched. Page text length: {len(raw_text)}", flush=True)
+    print(f"[PARSE] JS extracted {len(raw_cards)} ad cards", flush=True)
+
+    if not raw_cards:
+        print("[PARSE] No cards found — check screenshot for page state", flush=True)
         return []
 
-    for i, card in enumerate(cards[:25]):
+    for i, card_data in enumerate(raw_cards[:25]):
         try:
-            raw = card.inner_text().strip()
-            if len(raw) < 20:
+            raw = card_data.get("text", "").strip()
+            if len(raw) < 30:
                 continue
 
             ad = {
                 "raw_text": raw[:1000],
                 "source": "Facebook Ads Library",
                 "search_url": page.url,
+                "store_links": card_data.get("links", []),
             }
 
             lines = [ln.strip() for ln in raw.split("\n") if ln.strip()]
 
-            # Advertiser name (usually first non-empty line)
-            ad["advertiser"] = lines[0] if lines else ""
+            # Advertiser name: first non-"Active"/"Library ID" line after skipping metadata
+            advertiser = ""
+            for line in lines:
+                if line.startswith("Library ID:") or line in ("Active", "Inactive"):
+                    continue
+                if len(line) > 2:
+                    advertiser = line
+                    break
+            ad["advertiser"] = advertiser
 
             # Start date — "Started running on DD Month YYYY"
             date_match = re.search(
@@ -167,16 +204,9 @@ def parse_ad_cards(page) -> list[dict]:
             if ad_copy_match:
                 ad["offer_text"] = ad_copy_match.group(0).strip()
 
-            # Store URL from card links
-            try:
-                links = card.locator("a[href]").all()
-                for link in links:
-                    href = link.get_attribute("href") or ""
-                    if href and "facebook.com" not in href and href.startswith("http"):
-                        ad["store_url"] = href
-                        break
-            except Exception:
-                pass
+            # Store URL — already extracted via JS
+            store_links = ad.get("store_links", [])
+            ad["store_url"] = store_links[0] if store_links else "Not found"
 
             # Running duration signal
             run_match = re.search(
