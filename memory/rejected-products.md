@@ -48,12 +48,24 @@ Read patterns here before scanning — skip similar products faster.
 - Products that look identical to 50 other Amazon listings
 - Single creative angle products — will fatigue within 2 weeks
 
+### Keyword strategy failures (Session 3, 2026-05-13)
+- Broad emotional trigger phrases ("struggling with", "tired of", "finally") → attract SERVICES, apps, supplements — NOT physical products
+- "Travel organizer" → 80% Amazon affiliate accounts, not direct brands
+- "Kitchen gadget" → mostly affiliates + products outside price range ($15-25 or $150+)
+- Better keywords: category-specific ("travel pillow", "car organizer") yield direct brand advertisers
+- Premium brand signal: many travel brands have products $100-500 — validates category but fails price filter
+
 | 2026-05-13 | Minea Meta Ads batch (10 products) | Mixed | No category/geo filter in scraper — pulled global ads (jewelry, clothing, pet food, socks) | filtered |
 | 2026-05-13 | SAEGE jewelry | Accessories | £15-45 jewelry — wrong category + below price floor | filtered |
 | 2026-05-13 | Réglo (dog kibble €26.80) | Pet | Dog food, EU market only, price €26 | filtered |
 | 2026-05-13 | Infrared Sauna Blanket | Health | Price starts $94 for generic — above $79 hard limit | filtered |
 | 2026-05-13 | Electric Gua Sha (EMS face) | Beauty | Same category as rejected Microcurrent Device — "везде" risk, rejected pre-scoring | filtered |
 | 2026-05-13 | Electric Lip Plumper (Beambo Lip Gizmo) | Beauty | beambo.com помечен Chrome как ОПАСНЫЙ (фишинг/malware). Store link нерабочий. Урок: всегда проверять магазин перед репортом. | filtered |
+| 2026-05-13 | Nobl Travel Bag (carry-on 2-in-1) | Travel | 3+ ad campaigns 8+ months, innovative design — but price $279-799 → way above $79 limit | filtered |
+| 2026-05-13 | Chef Preserve (food vacuum sealer) | Kitchen | 2 separate ad campaigns (May 2025 + Dec 2025), visual demo "seal in 5 sec" = strong hook — but $159 main product → fails price filter | filtered |
+| 2026-05-13 | Sondur Travel Lumbar Cushion | Travel | 15+ months advertising (Feb 2025), genuine back/tailbone pain angle — main products $112-182, only $55 variant in range but not hero product | filtered |
+| 2026-05-13 | Condition 1 Cases (hard travel cases) | Travel | 8+ campaigns Oct 2025–Mar 2026, strong persistence — but professional-grade cases $170-510 → way above $79 | filtered |
+| 2026-05-13 | Travel pillow category (generic entry) | Travel | 7 brands simultaneously active: Wander Plus, Trtl, Cabeau, Sleeper Hold, FlyHugz, WoodenCrew, Traveler Pillow. Proven market but HIGH saturation — generic entry needs strong visual differentiator | high saturation |
 
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.

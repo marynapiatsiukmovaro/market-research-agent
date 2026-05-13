@@ -76,6 +76,24 @@ Recommendation for next session:
 
 ---
 
+## Keyword Quality Rule (added 2026-05-13)
+
+After Round 1 results arrive, check keyword quality before launching Round 2:
+
+**Abort a keyword if:**
+- 70%+ of results are services, apps, supplements, or educational programs
+- 50%+ of results are Amazon affiliate accounts (advertiser name contains "with Amazon")
+- 0 physical products found after scanning 25 ads
+
+**Replace with a more specific keyword:**
+- Broad emotional ("struggling with") → replace with product-level ("neck pain relief pad")
+- Generic category ("kitchen gadget") → replace with specific feature ("vegetable chopper", "food sealer")
+- Report to Marina: "Keyword X yielded 0 physical products — replacing with Y for Round 2"
+
+**Never run 3 rounds with same keyword quality just to fill the session quota.**
+
+---
+
 ## Context Management Rule
 
 One scout session = one clear task.

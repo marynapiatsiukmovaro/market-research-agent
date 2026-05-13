@@ -23,6 +23,9 @@ Read this file at the START of every session to avoid duplicates.
 | 2026-05-13 | Ultrasonic Skin Scrubber Spatula | Beauty | 71 | "Gunk extraction" content goes viral; TikTok Shop presence strong; ⚠️ mixed expert reviews risk | TikTok Shop May 2026 |
 
 | 2026-05-13 | High-Frequency Facial Wand | Beauty | 77 | 1M TikTok views/week, NuDerma $79.95 proves market; kills acne bacteria visibly + 3 angles (acne/anti-aging/hair) | WebSearch / TikTok + Amazon |
+| 2026-05-13 | Hidden Camera Detector | Tech | 73 | The 8th Street running FB ads 13+ months; fear trigger (hidden cameras in Airbnb/hotels); demo-able in 3 sec; AliExpress COGS $5-15 | Facebook Ads Library / keyword "travel gadget" |
+| 2026-05-13 | Wander Plus Travel Pillow | Travel | 72 | 14 months FB ads (2 campaigns), BUY 2 GET 1 FREE signal, massive market — ⚠️ HIGH saturation (7 brands in category) | Facebook Ads Library / keyword "travel pillow" |
+| 2026-05-13 | Traveler Pillow Face Cradle Design | Travel | 67 | Unique face-cradle mechanism (forward-leaning sleep on tray table) differentiates from standard neck pillows; $66.95 premium price | Facebook Ads Library / keyword "travel pillow" |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.

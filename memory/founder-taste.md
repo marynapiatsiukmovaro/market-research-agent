@@ -53,6 +53,19 @@ The goal is not hitting the score threshold. The goal is finding products Marina
 - **Red Light Laser Hair Cap (80)** — rejected despite score 80. "Недоказуемый результат — не хочу продавать пустышки." Result cannot be verified on camera.
 - **Red Light Therapy Wearable Body Belt (78)** — rejected. "Рынок перегрет." Score 78 means nothing if market already saturated.
 
+### Session 3 Keyword Intelligence Added (2026-05-13)
+
+**Facebook scraper keyword strategy:**
+- Broad emotional phrases ("struggling with", "tired of") = service/app trap, not for physical products
+- Category-specific terms ("travel pillow", "car organizer") yield direct brand advertisers
+- When 5-7 brands appear for one keyword = proven market + high saturation (need differentiator to enter)
+- Long-running campaigns (13+ months) = strongest individual brand signal
+
+**Travel category note:**
+- Travel pillow market is active (7 brands) but crowded — only unique mechanism OR price differentiation works
+- Hidden camera detector: low saturation niche + strong fear trigger = clean entry opportunity
+- Travel brands often price $100-500 → validates the NEED exists, but price limits white-label entry
+
 ### Session 2 Key Calibrations Added (2026-05-13)
 
 **Design rule:** Apple-like minimal aesthetics can tip a borderline product to YES.

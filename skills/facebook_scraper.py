@@ -3,6 +3,17 @@
 Facebook Ads Library Scraper — stealth browser automation
 Searches for active ads by keyword, country=US, status=active.
 Outputs JSON list of advertisers + ad data for Claude to analyze.
+
+CLI flags:
+  --since=YYYY-MM-DD    Only ads started on or after this date (fresher brands)
+  --deep                Scroll 20-30x per keyword (~150-200 ads) instead of 5-7x (~25 ads)
+  --seen=FILE           Path to seen-advertisers.md — skip already-analyzed store domains
+  --video               Only video ads (better for demo products)
+
+Examples:
+  python3 skills/facebook_scraper.py "travel pillow" "car organizer"
+  python3 skills/facebook_scraper.py --deep "travel pillow"
+  python3 skills/facebook_scraper.py --since=2026-01-01 --seen=memory/seen-advertisers.md "desk organizer"
 """
 
 import json
@@ -14,6 +25,91 @@ from datetime import datetime
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
+
+
+# ── Affiliate noise detection ──────────────────────────────────────────────────
+
+# Patterns that identify pure affiliate noise (no product to extract)
+AFFILIATE_NOISE_PATTERNS = [
+    r"comment\s+[\"']?\w+[\"']?\s+and\s+(i'?ll|i will)\s+(send|dm|message)\s+you",
+    r"comment\s+[\"']?\w+[\"']?\s+and\s+i'?ll\s+send",
+    r"drop\s+[\"']?\w+[\"']?\s+and\s+i'?ll\s+(send|dm)",
+]
+
+# Advertiser name suffixes that identify Amazon affiliate accounts
+AFFILIATE_ADVERTISER_SUFFIXES = [
+    "with amazon.com",
+    "with amazon associates",
+    "with amazon home",
+    "with markable creators",
+    "with markable",
+    "with shoptemu",
+    "with ftl",
+]
+
+
+def is_affiliate_noise(ad: dict) -> tuple[bool, str]:
+    """
+    Detect pure affiliate noise vs. real product ads.
+    Returns (is_noise, reason).
+
+    Rule: skip if it's a comment-for-link affiliate AND has no extractable product.
+    Keep if the ad shows a specific product even if sold on Amazon.
+    """
+    advertiser = (ad.get("advertiser") or "").lower().strip()
+    ad_copy = (ad.get("ad_copy") or "").lower()
+    store_url = (ad.get("store_url") or "").lower()
+
+    # Check for Amazon affiliate account name pattern
+    for suffix in AFFILIATE_ADVERTISER_SUFFIXES:
+        if advertiser.endswith(suffix):
+            # Still keep if specific product is visible in copy (not just "comment for link")
+            has_comment_pattern = any(
+                re.search(p, ad_copy) for p in AFFILIATE_NOISE_PATTERNS
+            )
+            if has_comment_pattern:
+                return True, f"affiliate noise: '{suffix}' + comment-for-link pattern"
+            else:
+                # Amazon affiliate but shows a specific product — keep it
+                return False, ""
+
+    # Pure comment-for-link without product context
+    for pattern in AFFILIATE_NOISE_PATTERNS:
+        if re.search(pattern, ad_copy):
+            if "amazon.com" in store_url or "amzlink" in store_url or "markable" in store_url:
+                return True, "comment-for-link affiliate with Amazon store"
+
+    return False, ""
+
+
+# ── Seen advertisers filter ────────────────────────────────────────────────────
+
+def load_seen_domains(filepath: str) -> set:
+    """Load previously-analyzed store domains from seen-advertisers.md."""
+    seen = set()
+    try:
+        with open(filepath) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or line.startswith("Format:") or line.startswith("---") or line.startswith("##") or line.startswith("Pass") or line.startswith("Scraper"):
+                    continue
+                domain = line.split("|")[0].strip().lower()
+                if domain and "." in domain:
+                    seen.add(domain)
+        print(f"[SEEN] Loaded {len(seen)} known domains to skip", flush=True)
+    except FileNotFoundError:
+        print(f"[SEEN] File not found: {filepath} — running without seen filter", flush=True)
+    return seen
+
+
+def is_seen(ad: dict, seen_domains: set) -> bool:
+    """Check if this ad's store domain was already analyzed."""
+    store_url = (ad.get("store_url") or "").lower()
+    store_domain = (ad.get("store_domain") or "").lower()
+    for domain in seen_domains:
+        if domain in store_url or domain in store_domain:
+            return True
+    return False
 
 
 def save_screenshot(page, name):
@@ -28,12 +124,20 @@ def human_delay(min_s=0.8, max_s=2.5):
     time.sleep(random.uniform(min_s, max_s))
 
 
-def human_scroll(page, steps=5):
-    """Scroll down incrementally like a human, not jump to bottom."""
-    for _ in range(steps):
+def human_scroll(page, steps=5, deep=False):
+    """Scroll down incrementally like a human, not jump to bottom.
+    Deep mode: 20-30 steps to load 150-200 ads instead of the default 25.
+    """
+    actual_steps = random.randint(20, 30) if deep else steps
+    for i in range(actual_steps):
         scroll_amount = random.randint(300, 700)
         page.mouse.wheel(0, scroll_amount)
-        time.sleep(random.uniform(0.4, 1.2))
+        # Slightly longer pauses in deep mode to let lazy-loaded cards appear
+        pause = random.uniform(0.6, 1.5) if deep else random.uniform(0.4, 1.2)
+        time.sleep(pause)
+        # Brief extra pause every 5 scrolls in deep mode (let content catch up)
+        if deep and (i + 1) % 5 == 0:
+            time.sleep(random.uniform(1.0, 2.0))
 
 
 def accept_cookies(page):
@@ -57,9 +161,11 @@ def accept_cookies(page):
             continue
 
 
-def build_search_url(keyword: str, country: str = "US", active_only: bool = True, since_date: str = "") -> str:
+def build_search_url(keyword: str, country: str = "US", active_only: bool = True,
+                     since_date: str = "", video_only: bool = False) -> str:
     active_status = "active" if active_only else "all"
     keyword_encoded = keyword.replace(" ", "+")
+    media_type = "video" if video_only else "all"
     url = (
         f"https://www.facebook.com/ads/library/"
         f"?active_status={active_status}"
@@ -67,7 +173,7 @@ def build_search_url(keyword: str, country: str = "US", active_only: bool = True
         f"&country={country}"
         f"&q={keyword_encoded}"
         f"&search_type=keyword_search"
-        f"&media_type=all"
+        f"&media_type={media_type}"
     )
     if since_date:
         url += f"&start_date[min]={since_date}"
@@ -278,6 +384,9 @@ def scrape_facebook_ads(
     country: str = "US",
     max_per_keyword: int = 20,
     since_date: str = "",
+    deep: bool = False,
+    seen_domains: set = None,
+    video_only: bool = False,
 ) -> list[dict]:
     """
     Scrape Facebook Ads Library for each keyword.
@@ -325,9 +434,12 @@ def scrape_facebook_ads(
 
         page = context.new_page()
 
+        seen_domains = seen_domains or set()
+
         for keyword in keywords:
-            print(f"\n[KEYWORD] Searching: '{keyword}' | country={country}", flush=True)
-            url = build_search_url(keyword, country=country, active_only=True, since_date=since_date)
+            print(f"\n[KEYWORD] Searching: '{keyword}' | country={country} | deep={deep}", flush=True)
+            url = build_search_url(keyword, country=country, active_only=True,
+                                   since_date=since_date, video_only=video_only)
             print(f"[URL] {url}", flush=True)
             try:
                 # Navigate with realistic timeout
@@ -344,20 +456,40 @@ def scrape_facebook_ads(
                     print("[WARN] Login wall detected — results may be limited", flush=True)
                     save_screenshot(page, "blocked_login_wall")
 
-                # Human-like scroll to load more cards
-                human_scroll(page, steps=random.randint(4, 7))
+                # Scroll: deep mode loads 150-200 ads, normal loads ~25
+                human_scroll(page, steps=random.randint(4, 7), deep=deep)
                 human_delay(1.5, 3)
                 save_screenshot(page, f"02_scrolled_{keyword.replace(' ', '_')[:20]}")
 
                 # Parse cards
                 ads = parse_ad_cards(page)
-                print(f"[RESULT] {len(ads)} ads found for '{keyword}'", flush=True)
+                print(f"[RESULT] {len(ads)} raw ads found for '{keyword}'", flush=True)
 
-                # Tag with keyword
+                # Apply filters: seen domains + affiliate noise
+                filtered = []
+                skipped_seen = 0
+                skipped_affiliate = 0
                 for ad in ads:
                     ad["keyword"] = keyword
 
-                all_ads.extend(ads[:max_per_keyword])
+                    # Skip already-seen advertisers
+                    if seen_domains and is_seen(ad, seen_domains):
+                        skipped_seen += 1
+                        continue
+
+                    # Skip pure affiliate noise (but keep Amazon ads with real products)
+                    noise, reason = is_affiliate_noise(ad)
+                    if noise:
+                        skipped_affiliate += 1
+                        print(f"  [SKIP affiliate] {ad.get('advertiser', '?')[:30]} — {reason}", flush=True)
+                        continue
+
+                    filtered.append(ad)
+
+                print(f"[FILTER] Skipped {skipped_seen} seen + {skipped_affiliate} affiliate noise "
+                      f"→ {len(filtered)} remain for '{keyword}'", flush=True)
+
+                all_ads.extend(filtered[:max_per_keyword])
 
                 # Human-like pause between keywords
                 if keyword != keywords[-1]:
@@ -379,19 +511,47 @@ def scrape_facebook_ads(
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    # Keywords: CLI args. Optional --since=YYYY-MM-DD as first arg.
+    # Parse CLI flags before keywords
     since_date = ""
+    deep = False
+    seen_file = ""
+    video_only = False
     args = sys.argv[1:]
-    if args and args[0].startswith("--since="):
-        since_date = args[0].split("=", 1)[1]
-        args = args[1:]
-    keywords = args if args else ["free shipping"]
+
+    remaining = []
+    for arg in args:
+        if arg.startswith("--since="):
+            since_date = arg.split("=", 1)[1]
+        elif arg == "--deep":
+            deep = True
+        elif arg.startswith("--seen="):
+            seen_file = arg.split("=", 1)[1]
+        elif arg == "--video":
+            video_only = True
+        else:
+            remaining.append(arg)
+
+    keywords = remaining if remaining else ["free shipping"]
+
+    # Load seen domains if file provided
+    seen_domains = load_seen_domains(seen_file) if seen_file else set()
 
     print(f"=== Facebook Ads Library Scraper ===", flush=True)
     print(f"Keywords: {keywords}", flush=True)
     print(f"Country: US | Status: Active only | Since: {since_date or 'all time'}", flush=True)
+    print(f"Mode: {'DEEP (~150-200 ads/keyword)' if deep else 'Normal (~25 ads/keyword)'}", flush=True)
+    print(f"Seen filter: {f'{len(seen_domains)} domains' if seen_domains else 'off'}", flush=True)
+    print(f"Video only: {video_only}", flush=True)
 
-    results = scrape_facebook_ads(keywords=keywords, country="US", max_per_keyword=20, since_date=since_date)
+    results = scrape_facebook_ads(
+        keywords=keywords,
+        country="US",
+        max_per_keyword=200 if deep else 20,
+        since_date=since_date,
+        deep=deep,
+        seen_domains=seen_domains,
+        video_only=video_only,
+    )
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
     output_path = Path(f"/opt/market-research-agent/logs/facebook_ads_{timestamp}.json")
