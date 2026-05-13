@@ -1,41 +1,49 @@
 # SUCCESSFUL PATTERNS
 
-Recurring traits of high-scoring products. Update as patterns emerge.
+Recurring traits of high-scoring products that Marina approves. Update as patterns emerge.
 
-## High-Performing Product Traits (update as discovered)
-- [ ] Strong before/after transformation visible on camera
-- [ ] Solves embarrassing or very common everyday problem
-- [ ] Priced $39–$69 with visible quality
-- [ ] Multiple competitor ads active (proof of market, not oversaturated)
-- [ ] Found trending on TikTok organic before Meta ads appeared
+## Confirmed Winning Product Traits
 
-## High-Performing Ad Patterns (update as discovered)
-- [ ] Hook: showing problem first, solution second
-- [ ] UGC-style content outperforming studio ads
-- [ ] Short-form (15–30s) outperforming longer formats
+- **Confirmed Facebook/Meta ad activity** — Marina manually checked Eye Massager and found active ads → immediate YES signal. Real ad data > estimated ad data.
+- **Immediate visual understanding** — value obvious within 2 seconds, no explanation needed
+- **Solves embarrassing or very common everyday problem** — migraine, posture, pregnancy anxiety, hair loss fear
+- **Priced $45–$69 with visible quality** — sweet spot for impulse buy
+- **Premium brand proves market** — if NuFACE ($200+) or iRestore ($400) advertises heavily, generic at $59 can win
+- **Apple-like minimal design** — Marina approved Smart Posture Sensor specifically because of aesthetic. Design differentiates even in commodity-adjacent categories.
+- **Multi-audience product** — same product, 3-4 independent buyer groups = more scalable paid traffic
+- **Visible, fast, demonstrable result** — result must be shown on camera within 15–30 seconds
 
-## Strong Emotional Trigger Categories (update as discovered)
-- Pain relief / physical discomfort
-- Convenience / time saving
-- Appearance / confidence
-- Home improvement / organization
-- Pregnancy anxiety / parental fear (мощнейший триггер — WellnessBaby 83)
+## Confirmed Winning Ad Patterns
 
-## Multi-Audience Products (обнаружено 2026-05-12)
-- Продукты с 3-4 независимыми аудиториями масштабируются лучше — каждая аудитория = отдельная кампания
-- Пример: массажёр для ног (медсёстры + беременные + спортсмены + пожилые)
-- Пример: маска для глаз (мигрень + усталость глаз + сон)
+- **UGC reaction format** — "I tried this for 7 days" outperforms polished ads
+- **Problem first, solution second** — show the pain before the product
+- **Before/after transformation** — visible change in the frame drives CTR
 
-## Multi-Function = Высокая воспринимаемая ценность (обнаружено 2026-05-12, сессия 2)
-- Продукты с 3+ функциями (тепло + вибрация + LED) воспринимаются как premium при цене $45-65
-- Примеры: LED wand (7 цветов + вибрация + тепло), лимфодренаж (микроток + свет + вибрация)
+## Strong Emotional Trigger Categories
 
-## Breakout Category Entry Timing (обнаружено 2026-05-12, сессия 2)
-- Войти в категорию когда Google Trends показывает взрывной рост (>100% за год) — до насыщения
-- Пример: lymphatic drainage +150% по "lymphatic", +3100% по "vibration plates for lymphatic"
-- Сигнал: mainstream media пишет о тренде (WWD "Amazon Taps Into Lymphatic Drainage Trend")
+- Pain relief / physical discomfort (neck, back, legs, eyes)
+- Pregnancy anxiety — first-time mothers, heartbeat monitoring
+- Hair loss fear — affects 80M+ Americans, strong vanity trigger
+- Appearance / aging — but only with provable visible result
+- WFH posture — desk workers, remote employees, 35–55 age group
 
-## Premium Brand Proves Market Strategy (обнаружено 2026-05-12)
-- Если дорогой бренд ($200+) активно рекламируется → рынок доказан
-- Generic версия за $49-69 может атаковать тот же результат дешевле
-- Примеры: NuFACE ($200) → generic microcurrent ($59), UPRIGHT GO ($69) → generic posture sensor
+## Entry Timing Pattern (CRITICAL)
+
+- Best entry: 5–30 active ads on Meta/TikTok = market proven but not saturated
+- Too early: 0–3 ads = unproven market, high risk
+- Too late: 100+ ads, product visible everywhere = Marina rejects as "везде"
+- Minea signal: products with growing ad spend over 30+ days = strong entry signal
+
+## Multi-Function = High Perceived Value
+
+- Products with 3+ functions (heat + vibration + LED) perceived as premium at $45–65
+- Examples: Eye Massager (heat + air compression + vibration), Smart Posture Sensor (sensor + vibration feedback + app)
+
+## Discovery Type → Win Rate (update as data accumulates)
+
+| Discovery Type | Sessions | Approvals | Notes |
+|----------------|----------|-----------|-------|
+| Amazon signal | 3 | 3/14 | Confirmed demand but often late-stage |
+| WebSearch mention | 3 | 0/14 | Too generic, finds saturated products |
+| Minea ad data | 0 | TBD | Expected to be highest quality signal |
+| Founder intuition | 0 | TBD | Will track after Minea sessions |
