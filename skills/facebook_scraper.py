@@ -7,27 +7,13 @@ Outputs JSON list of advertisers + ad data for Claude to analyze.
 
 import json
 import re
-import os
 import sys
 import time
 import random
+from datetime import datetime
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-
-
-# ── Helpers ───────────────────────────────────────────────────────────────────
-
-def load_env():
-    env_path = Path(__file__).parent.parent / ".env"
-    env = {}
-    if env_path.exists():
-        for line in env_path.read_text().splitlines():
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip()
-    return env
 
 
 def save_screenshot(page, name):
@@ -71,10 +57,10 @@ def accept_cookies(page):
             continue
 
 
-def build_search_url(keyword: str, country: str = "US", active_only: bool = True) -> str:
+def build_search_url(keyword: str, country: str = "US", active_only: bool = True, since_date: str = "") -> str:
     active_status = "active" if active_only else "all"
     keyword_encoded = keyword.replace(" ", "+")
-    return (
+    url = (
         f"https://www.facebook.com/ads/library/"
         f"?active_status={active_status}"
         f"&ad_type=all"
@@ -83,6 +69,9 @@ def build_search_url(keyword: str, country: str = "US", active_only: bool = True
         f"&search_type=keyword_search"
         f"&media_type=all"
     )
+    if since_date:
+        url += f"&start_date[min]={since_date}"
+    return url
 
 
 # ── Core scraping ──────────────────────────────────────────────────────────────
@@ -264,10 +253,31 @@ def parse_ad_cards(page) -> list[dict]:
 
 # ── Main scrape flow ───────────────────────────────────────────────────────────
 
+def deduplicate(ads: list[dict]) -> list[dict]:
+    """Remove duplicate advertisers across keywords — keep the one with more data."""
+    seen = {}
+    for ad in ads:
+        key = (ad.get("advertiser", "").lower().strip() or
+               ad.get("store_domain", "").lower().strip())
+        if not key or key in ("?", ""):
+            continue
+        if key not in seen:
+            seen[key] = ad
+        else:
+            existing = seen[key]
+            # Keep whichever has more fields filled
+            if len([v for v in ad.values() if v]) > len([v for v in existing.values() if v]):
+                seen[key] = ad
+    unique = list(seen.values())
+    print(f"[DEDUP] {len(ads)} ads → {len(unique)} unique advertisers", flush=True)
+    return unique
+
+
 def scrape_facebook_ads(
     keywords: list[str],
     country: str = "US",
     max_per_keyword: int = 20,
+    since_date: str = "",
 ) -> list[dict]:
     """
     Scrape Facebook Ads Library for each keyword.
@@ -317,9 +327,8 @@ def scrape_facebook_ads(
 
         for keyword in keywords:
             print(f"\n[KEYWORD] Searching: '{keyword}' | country={country}", flush=True)
-            url = build_search_url(keyword, country=country, active_only=True)
+            url = build_search_url(keyword, country=country, active_only=True, since_date=since_date)
             print(f"[URL] {url}", flush=True)
-
             try:
                 # Navigate with realistic timeout
                 page.goto(url, wait_until="domcontentloaded", timeout=30000)
@@ -364,29 +373,32 @@ def scrape_facebook_ads(
 
         browser.close()
 
-    return all_ads
+    return deduplicate(all_ads)
 
 
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    # Keywords to search — passed as CLI args or use defaults
-    if len(sys.argv) > 1:
-        keywords = sys.argv[1:]
-    else:
-        keywords = ["free shipping"]  # default first query
+    # Keywords: CLI args. Optional --since=YYYY-MM-DD as first arg.
+    since_date = ""
+    args = sys.argv[1:]
+    if args and args[0].startswith("--since="):
+        since_date = args[0].split("=", 1)[1]
+        args = args[1:]
+    keywords = args if args else ["free shipping"]
 
     print(f"=== Facebook Ads Library Scraper ===", flush=True)
     print(f"Keywords: {keywords}", flush=True)
-    print(f"Country: US | Status: Active only", flush=True)
+    print(f"Country: US | Status: Active only | Since: {since_date or 'all time'}", flush=True)
 
-    results = scrape_facebook_ads(keywords=keywords, country="US", max_per_keyword=20)
+    results = scrape_facebook_ads(keywords=keywords, country="US", max_per_keyword=20, since_date=since_date)
 
-    output_path = Path("/opt/market-research-agent/logs/facebook_ads_results.json")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
+    output_path = Path(f"/opt/market-research-agent/logs/facebook_ads_{timestamp}.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2))
 
-    print(f"\n=== Done: {len(results)} ads total ===", flush=True)
+    print(f"\n=== Done: {len(results)} unique ads total ===", flush=True)
     print(f"Saved to: {output_path}", flush=True)
 
     if results:
