@@ -1,11 +1,14 @@
 # PRODUCT REQUIREMENTS
 
 ## Price Range
-Target: $39–$79 retail
-- Under $38: margins typically fail with paid traffic CPMs
-- $39–$79: sweet spot for impulse buy + healthy margins
-- $80–$99: acceptable if wow-factor is exceptional
-- $100+: requires social proof, not suitable for cold traffic MVP
+Sweet spot: **$45–$79** retail (prioritize these)
+Extended acceptable: **$39–$100** (with conditions)
+
+- Under $39: margins typically fail with paid traffic CPMs — reject
+- $39–$44: acceptable only if margins are confirmed and wow-effect is strong
+- $45–$79: ideal range for impulse buy + healthy margins → prioritize
+- $80–$100: acceptable only if: perceived value is high, wow-effect is strong, margin is healthy, problem-solving is clear
+- $100+: requires strong existing social proof — not suitable for cold traffic MVP
 
 ## Core Requirements
 Prioritize products with:

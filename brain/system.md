@@ -28,6 +28,8 @@ Scan 15–20 candidates → apply mandatory filters → score → output 2–5 b
 For each product:
 - Product / Category
 - Recommendation / Score
+- **Confidence: High / Medium / Low** (High = multiple validated sources; Medium = good signals, incomplete validation; Low = hypothesis, weak confirmation)
+- **Discovery Type: Amazon signal / TikTok signal / Minea ad data / Trend-based / Problem-solving / Viral creative / Founder intuition**
 - Saturation / Price Range
 - Problem Solved
 - Emotional Trigger

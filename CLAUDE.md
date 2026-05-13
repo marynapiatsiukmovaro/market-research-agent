@@ -12,7 +12,10 @@ Read these files before doing any work:
 4. `criteria/scoring-system.md` — how to score products
 5. `memory/accepted-products.md` — anti-duplicate check (read BEFORE scanning anything)
 6. `memory/rejected-products.md` — failure patterns to skip faster (read BEFORE scanning)
-7. `config/sources.md` — where to search for candidates
+7. `memory/founder-taste.md` — Marina's personal quality bar (read BEFORE scoring)
+8. `memory/founder-feedback.md` — Marina's direct product feedback and calibration examples
+9. `config/sources.md` — where to search for candidates
+10. `config/session-health-rules.md` — monitor session quality, self-report degradation
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
