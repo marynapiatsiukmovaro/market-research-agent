@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Minea Scraper — grabs winning product data from Minea.com
+Minea Scraper — grabs winning product data from Minea.com Meta Ads Library
 Outputs JSON list of products for Claude to analyze.
 """
 
 import json
+import re
 import os
 import sys
 import time
@@ -12,7 +13,7 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
 
-# Load credentials
+
 def load_env():
     env_path = Path(__file__).parent.parent / ".env"
     env = {}
@@ -22,26 +23,53 @@ def load_env():
             if line and not line.startswith("#") and "=" in line:
                 k, v = line.split("=", 1)
                 env[k.strip()] = v.strip()
-    # Also check environment variables (override .env)
     for key in ["MINEA_EMAIL", "MINEA_PASSWORD"]:
         if key in os.environ:
             env[key] = os.environ[key]
     return env
 
-def save_debug_screenshot(page, name):
+
+def save_screenshot(page, name):
     screenshots_dir = Path("/opt/market-research-agent/logs/screenshots")
     screenshots_dir.mkdir(parents=True, exist_ok=True)
     path = screenshots_dir / f"{name}.png"
     page.screenshot(path=str(path))
-    print(f"[DEBUG] Screenshot saved: {path}", flush=True)
+    print(f"[DEBUG] Screenshot: {path}", flush=True)
 
-def scrape_minea(max_products=20, category="health", market="US"):
+
+def login(page, email, password):
+    page.goto("https://app.minea.com/login", wait_until="networkidle", timeout=30000)
+    page.locator('input[type="email"]').first.fill(email)
+    page.locator('input[type="password"]').first.fill(password)
+    save_screenshot(page, "01_credentials_filled")
+    page.locator('button[type="submit"]').first.click()
+
+    try:
+        page.wait_for_url(lambda url: "login" not in url, timeout=15000)
+    except PlaywrightTimeout:
+        pass
+
+    page.wait_for_load_state("networkidle", timeout=15000)
+    time.sleep(3)
+
+    current_url = page.url
+    print(f"[INFO] Post-login URL: {current_url}", flush=True)
+    if "login" in current_url.lower():
+        print("[ERROR] Login failed — still on login page", flush=True)
+        save_screenshot(page, "login_failed")
+        sys.exit(1)
+
+    print("[OK] Login successful", flush=True)
+    save_screenshot(page, "02_dashboard")
+
+
+def scrape_minea(max_products=20):
     env = load_env()
     email = env.get("MINEA_EMAIL", "")
     password = env.get("MINEA_PASSWORD", "")
 
     if not email or not password:
-        print("[ERROR] MINEA_EMAIL or MINEA_PASSWORD not found in .env", flush=True)
+        print("[ERROR] MINEA_EMAIL or MINEA_PASSWORD not set", flush=True)
         sys.exit(1)
 
     products = []
@@ -52,162 +80,88 @@ def scrape_minea(max_products=20, category="health", market="US"):
             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
         )
         context = browser.new_context(
-            viewport={"width": 1280, "height": 900},
+            viewport={"width": 1440, "height": 900},
             user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         )
         page = context.new_page()
 
         try:
-            # ── Step 1: Login ──────────────────────────────────────────────
-            print("[1/5] Navigating to Minea login...", flush=True)
-            page.goto("https://app.minea.com/login", wait_until="networkidle", timeout=30000)
-            save_debug_screenshot(page, "01_login_page")
+            # ── Step 1: Login ──────────────────────────────────────────
+            print("[1/4] Logging in to Minea...", flush=True)
+            login(page, email, password)
 
-            # Fill email
-            page.wait_for_selector('input[type="email"], input[name="email"], input[placeholder*="mail"]', timeout=10000)
-            email_input = page.locator('input[type="email"], input[name="email"], input[placeholder*="mail"]').first
-            email_input.fill(email)
-            time.sleep(0.5)
+            # ── Step 2: Navigate to Meta Ads Library ───────────────────
+            print("[2/4] Opening Meta Ads Library...", flush=True)
+            # Sort by publication date (most recent active ads)
+            page.goto(
+                "https://app.minea.com/en/ads/meta-library?sort_by=-publication_date",
+                wait_until="networkidle",
+                timeout=30000
+            )
+            time.sleep(5)
+            save_screenshot(page, "03_meta_ads")
+            print(f"[INFO] Ads page URL: {page.url}", flush=True)
 
-            # Fill password
-            password_input = page.locator('input[type="password"]').first
-            password_input.fill(password)
-            time.sleep(0.5)
+            # ── Step 3: Scroll to load more cards ─────────────────────
+            print("[3/4] Loading product cards...", flush=True)
+            for _ in range(4):
+                page.keyboard.press("End")
+                time.sleep(2)
 
-            save_debug_screenshot(page, "02_credentials_filled")
+            save_screenshot(page, "04_after_scroll")
 
-            # Submit
-            submit_btn = page.locator('button[type="submit"], button:has-text("Login"), button:has-text("Sign in"), button:has-text("Se connecter")').first
-            submit_btn.click()
-
-            print("[2/5] Logging in...", flush=True)
-            page.wait_for_load_state("networkidle", timeout=20000)
-            time.sleep(2)
-            save_debug_screenshot(page, "03_after_login")
-
-            current_url = page.url
-            print(f"[INFO] After login URL: {current_url}", flush=True)
-
-            if "login" in current_url.lower():
-                print("[ERROR] Still on login page — check credentials or CAPTCHA", flush=True)
-                save_debug_screenshot(page, "03_login_failed")
-                sys.exit(1)
-
-            # ── Step 2: Navigate to Facebook Ads / Products ───────────────
-            print("[3/5] Navigating to winning products...", flush=True)
-
-            # Try Facebook ads section (most ad data)
-            try:
-                page.goto("https://app.minea.com/facebook-ads", wait_until="networkidle", timeout=20000)
-            except PlaywrightTimeout:
-                page.goto("https://app.minea.com/products", wait_until="networkidle", timeout=20000)
-
-            time.sleep(2)
-            save_debug_screenshot(page, "04_products_page")
-            print(f"[INFO] Products page URL: {page.url}", flush=True)
-
-            # ── Step 3: Apply filters ─────────────────────────────────────
-            print("[4/5] Applying filters...", flush=True)
-
-            # Try to set market to US
-            try:
-                country_filter = page.locator('[data-testid="country-filter"], button:has-text("Country"), select[name="country"]').first
-                if country_filter.is_visible(timeout=3000):
-                    country_filter.click()
-                    time.sleep(1)
-                    us_option = page.locator('li:has-text("United States"), option[value="US"], [data-value="US"]').first
-                    if us_option.is_visible(timeout=3000):
-                        us_option.click()
-                        time.sleep(1)
-            except Exception:
-                print("[INFO] Country filter not found or already set", flush=True)
-
-            # Sort by most recent or trending
-            try:
-                sort_btn = page.locator('button:has-text("Sort"), button:has-text("Trier"), [data-testid="sort"]').first
-                if sort_btn.is_visible(timeout=3000):
-                    sort_btn.click()
-                    time.sleep(0.5)
-                    trending = page.locator('li:has-text("Trending"), li:has-text("Popular"), li:has-text("Recent")').first
-                    if trending.is_visible(timeout=2000):
-                        trending.click()
-                        time.sleep(1)
-            except Exception:
-                print("[INFO] Sort filter not found, using default order", flush=True)
-
-            save_debug_screenshot(page, "05_filters_applied")
-            page.wait_for_load_state("networkidle", timeout=10000)
-
-            # ── Step 4: Scrape products ───────────────────────────────────
-            print("[5/5] Scraping product cards...", flush=True)
-            time.sleep(2)
-
-            # Try multiple possible card selectors
-            card_selectors = [
-                ".product-card",
-                "[data-testid='product-card']",
-                ".ad-card",
-                ".product-item",
-                "[class*='ProductCard']",
-                "[class*='product-card']",
-                "[class*='AdCard']",
-                "article",
-            ]
-
-            cards = []
-            for selector in card_selectors:
-                found = page.locator(selector).all()
-                if found:
-                    cards = found
-                    print(f"[INFO] Found {len(cards)} cards with selector: {selector}", flush=True)
-                    break
+            # ── Step 4: Extract card data ──────────────────────────────
+            print("[4/4] Extracting product data...", flush=True)
+            cards = page.locator(".virtuoso-grid-item").all()
+            print(f"[INFO] Found {len(cards)} ad cards", flush=True)
 
             if not cards:
-                print("[WARN] No product cards found — saving full page HTML for debug", flush=True)
-                html_path = Path("/opt/market-research-agent/logs/minea_page.html")
-                html_path.write_text(page.content())
-                save_debug_screenshot(page, "06_no_cards_found")
-                browser.close()
-                return []
+                # Fallback: try articles or generic containers
+                cards = page.locator("article, [class*='AdCard'], [class*='ad-card']").all()
+                print(f"[INFO] Fallback: {len(cards)} cards", flush=True)
 
             for i, card in enumerate(cards[:max_products]):
                 try:
-                    product = {}
+                    raw = card.inner_text().strip()
+                    if len(raw) < 10:
+                        continue
 
-                    # Product name / title
-                    title_el = card.locator("h2, h3, h4, [class*='title'], [class*='name'], [class*='Title']").first
-                    product["name"] = title_el.inner_text().strip() if title_el.count() > 0 else ""
+                    product = {"raw_text": raw[:800], "source": "Minea Meta Ads"}
 
-                    # Price
-                    price_el = card.locator("[class*='price'], [class*='Price'], span:has-text('$')").first
-                    product["price"] = price_el.inner_text().strip() if price_el.count() > 0 else ""
+                    # Store/product link — extract from raw text (Minea wraps in JS)
+                    url_matches = [u for u in re.findall(r'https?://[^\s\n<]+', raw) if 'minea.com' not in u]
+                    if url_matches:
+                        product["store_url"] = url_matches[0]
 
-                    # Ad metrics (likes, shares, views)
-                    metrics_text = card.inner_text()
-                    product["raw_text"] = metrics_text[:500]  # first 500 chars for Claude analysis
+                    # Brand / store name (first non-empty text line)
+                    lines = [ln.strip() for ln in raw.split("\n") if ln.strip()]
+                    product["brand"] = lines[0] if lines else ""
 
-                    # Store/brand link
-                    link_el = card.locator("a").first
-                    product["link"] = link_el.get_attribute("href") if link_el.count() > 0 else ""
+                    # Active ads count signal
+                    for line in lines:
+                        if "active ads" in line.lower():
+                            product["active_ads_signal"] = line
+                            break
 
-                    # Image
-                    img_el = card.locator("img").first
-                    product["image"] = img_el.get_attribute("src") if img_el.count() > 0 else ""
+                    # Impression count
+                    for line in lines:
+                        if any(x in line for x in ["k", "M"]) and any(c.isdigit() for c in line):
+                            product["impressions"] = line
+                            break
 
-                    if product.get("name") or product.get("raw_text"):
-                        products.append(product)
-                        print(f"  [{i+1}] Scraped: {product.get('name', 'no-name')[:50]}", flush=True)
+                    products.append(product)
+                    print(f"  [{i+1}] {product.get('brand', 'no-name')[:50]} | ads: {product.get('active_ads_signal', '?')} | url: {product.get('store_url', 'N/A')[:60]}", flush=True)
 
                 except Exception as e:
-                    print(f"  [{i+1}] Error scraping card: {e}", flush=True)
+                    print(f"  [{i+1}] Error: {e}", flush=True)
                     continue
 
         except PlaywrightTimeout as e:
             print(f"[ERROR] Timeout: {e}", flush=True)
-            save_debug_screenshot(page, "error_timeout")
+            save_screenshot(page, "error_timeout")
         except Exception as e:
-            print(f"[ERROR] Unexpected error: {e}", flush=True)
-            save_debug_screenshot(page, "error_unexpected")
+            print(f"[ERROR] {e}", flush=True)
+            save_screenshot(page, "error_unexpected")
         finally:
             browser.close()
 
@@ -215,23 +169,23 @@ def scrape_minea(max_products=20, category="health", market="US"):
 
 
 if __name__ == "__main__":
-    print("=== Minea Scraper ===", flush=True)
+    print("=== Minea Scraper v2 ===", flush=True)
     results = scrape_minea(max_products=20)
 
     output_path = Path("/opt/market-research-agent/logs/minea_results.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2))
 
-    print(f"\n=== Done: {len(results)} products scraped ===", flush=True)
-    print(f"Results saved to: {output_path}", flush=True)
+    print(f"\n=== Done: {len(results)} products ===", flush=True)
+    print(f"Saved to: {output_path}", flush=True)
 
-    # Print summary for Claude to read
     if results:
-        print("\n=== PRODUCT LIST FOR CLAUDE ANALYSIS ===", flush=True)
+        print("\n=== PRODUCTS FOR CLAUDE ===", flush=True)
         for i, p in enumerate(results, 1):
-            print(f"\n[{i}] {p.get('name', 'Unknown')}", flush=True)
-            print(f"    Price: {p.get('price', 'N/A')}", flush=True)
-            print(f"    Link: {p.get('link', 'N/A')}", flush=True)
-            print(f"    Data: {p.get('raw_text', '')[:200]}", flush=True)
+            print(f"\n[{i}] Brand: {p.get('brand', '?')}", flush=True)
+            print(f"     Active ads: {p.get('active_ads_signal', '?')}", flush=True)
+            print(f"     Impressions: {p.get('impressions', '?')}", flush=True)
+            print(f"     Store: {p.get('store_url', 'N/A')}", flush=True)
+            print(f"     Raw: {p.get('raw_text', '')[:200]}", flush=True)
     else:
-        print("\n[!] No products found — check screenshots in logs/screenshots/", flush=True)
+        print("[!] No products — check logs/screenshots/", flush=True)
