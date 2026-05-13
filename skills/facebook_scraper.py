@@ -231,9 +231,13 @@ def parse_ad_cards(page) -> list[dict]:
             if ad_copy_match:
                 ad["offer_text"] = ad_copy_match.group(0).strip()
 
-            # Store URL — already extracted via JS
+            # Store URL: prefer JS-extracted href links, fallback to domain text from ad copy
             store_links = ad.get("store_links", [])
-            ad["store_url"] = store_links[0] if store_links else "Not found"
+            if store_links:
+                ad["store_url"] = store_links[0]
+            elif ad.get("store_domain"):
+                ad["store_url"] = f"https://{ad['store_domain'].lower()}"
+            # else: store_url already set in parsing block above
 
             # Running duration signal
             run_match = re.search(
