@@ -107,11 +107,21 @@ fi
 # ── Step 3: Run Claude analysis ───────────────────────────────────────────────
 echo "[3/3] Running Claude analysis..." | tee -a "$LOG_FILE"
 
-# claude --dangerously-skip-permissions cannot run as root — use scout user
+# claude --dangerously-skip-permissions cannot run as root — use scout user via sudo
 if [ "$(whoami)" = "root" ]; then
     chown scout:scout "$PROMPT_FILE" 2>/dev/null || true
-    PFILE="$PROMPT_FILE"
-    su - scout -c "cd /opt/market-research-agent && source venv/bin/activate && export \$(grep -v '^#' .env | xargs) && claude --dangerously-skip-permissions -p \"\$(cat '$PFILE')\"" 2>&1 | tee -a "$LOG_FILE"
+    RUNNER="/tmp/run_claude_$$.sh"
+    cat > "$RUNNER" << RUNSCRIPT
+#!/bin/bash
+cd /opt/market-research-agent
+source venv/bin/activate
+export \$(grep -v '^#' .env | grep -v '^\$' | xargs)
+claude --dangerously-skip-permissions -p "\$(cat '$PROMPT_FILE')"
+RUNSCRIPT
+    chmod +x "$RUNNER"
+    chown scout:scout "$RUNNER"
+    sudo -u scout -H bash "$RUNNER" 2>&1 | tee -a "$LOG_FILE"
+    rm -f "$RUNNER"
 else
     claude --dangerously-skip-permissions -p "$(cat "$PROMPT_FILE")" 2>&1 | tee -a "$LOG_FILE"
 fi
