@@ -53,6 +53,7 @@ Read patterns here before scanning — skip similar products faster.
 | 2026-05-13 | Réglo (dog kibble €26.80) | Pet | Dog food, EU market only, price €26 | filtered |
 | 2026-05-13 | Infrared Sauna Blanket | Health | Price starts $94 for generic — above $79 hard limit | filtered |
 | 2026-05-13 | Electric Gua Sha (EMS face) | Beauty | Same category as rejected Microcurrent Device — "везде" risk, rejected pre-scoring | filtered |
+| 2026-05-13 | Electric Lip Plumper (Beambo Lip Gizmo) | Beauty | beambo.com помечен Chrome как ОПАСНЫЙ (фишинг/malware). Store link нерабочий. Урок: всегда проверять магазин перед репортом. | filtered |
 
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
