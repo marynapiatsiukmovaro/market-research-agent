@@ -73,3 +73,14 @@ Score each product that passes mandatory filters.
 - **Below 55** → Rejected
 
 Think probabilistically. Never assume certainty.
+
+---
+
+## Saturation Assessment
+Use for Saturation field in Notion (Low / Medium / High / Extreme):
+- **Low:** few active ads, growing organically → good entry opportunity
+- **Medium:** active ads, multiple sellers, no dominant winner → acceptable
+- **High:** dominated by 1–2 major brands with large budgets → avoid unless strong differentiator
+- **Extreme:** generic product sold by everyone, margins squeezed → reject
+
+→ For market-stage semantics (Competitor Signal field): see `config/notion-config.md`

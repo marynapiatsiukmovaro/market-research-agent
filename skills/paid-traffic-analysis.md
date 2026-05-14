@@ -31,5 +31,5 @@
 ## Competitor Ad Activity Check
 Search Meta Ads Library + TikTok Ads Library:
 - Are competitors actively running ads? (positive signal)
-- How many active ads? (1–20 = early, 20–100 = growing, 100+ = saturated)
+- How many active ads? (5–30 = sweet spot / 30–100 = growing, caution / 100+ = saturated)
 - What hooks are they using? (avoid copying, find gaps)

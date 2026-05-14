@@ -6,32 +6,26 @@ Update as new failure patterns emerge.
 
 ## Marina's Hard Rejections (confirmed from real feedback)
 
+Key patterns with one illustrative example each. Full product log: `memory/founder-feedback.md`.
+
 ### "Везде" Pattern — Auto-Reject
-Products Marina has seen widely on social media → automatic rejection regardless of score.
-- LED Light Therapy Wand (78) → rejected: "не вызывает вау, везде"
-- Microcurrent Face Device (74) → rejected: "везде, нет вау-эффекта"
+- Example: LED Light Therapy Wand (78) → "не вызывает вау, везде"
 - **Rule:** If product is visible on Facebook/Instagram feeds regularly → do not propose
 
 ### "Пустышки" Pattern — Auto-Reject
-Results that cannot be visually proven or demonstrated.
-- Red Light Laser Hair Cap (80) → rejected: "недоказуемый результат, не хочу продавать пустышки"
+- Example: Red Light Laser Hair Cap (80) → "недоказуемый результат, не хочу продавать пустышки"
 - **Rule:** Hair regrowth, circulation improvement, immune boost, vague wellness = reject
 
 ### Late Market Entry — Auto-Reject
-Products where market is already created and ad costs are high.
-- Lymphatic Drainage Massager (75) → rejected: "рынок уже создан, нужно заходить на старте"
-- Red Light Body Belt (78) → rejected: "рынок перегрет"
-- Shiatsu Neck Pillow (71) → rejected: "перегретый рынок"
-- **Rule:** If Marina or agent observes 100+ active ads and product visible everywhere → late entry, reject
+- Example: Lymphatic Drainage Massager (75) → "рынок уже создан, нужно заходить на старте"
+- **Rule:** If 100+ active ads and product visible everywhere → too late to enter
 
 ### Long Explanation Required — Auto-Reject
-Products where the mechanism needs education before purchase.
-- Wireless TENS Patch (71) → rejected: "слишком долго объяснять"
+- Example: Wireless TENS Patch (71) → "слишком долго объяснять"
 - **Rule:** If customer needs to understand HOW it works before wanting it → reject for cold traffic
 
 ### Old Category — Auto-Reject
-Products that have been around for years with no fresh angle.
-- Ultrasonic Skin Scrubber (71) → rejected: "старый товар, нет вау-эффекта"
+- Example: Ultrasonic Skin Scrubber (71) → "старый товар, нет вау-эффекта"
 - **Rule:** If product concept is 3+ years old and has no new differentiator → reject
 
 ---
