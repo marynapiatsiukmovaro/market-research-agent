@@ -45,6 +45,37 @@ travelerpillow.com | ACCEPTED score 67 | 2026-05-13
 
 ---
 
+## Session 4 — 2026-05-14
+
+### ACCEPTED — Already in Notion (do not re-add)
+kittyspout.com | ACCEPTED score 77 — cat water fountain, stainless steel wireless | 2026-05-14
+
+### REJECTED — Price too low (below $49)
+uprootclean.com | pet hair remover $16.99 hero product | 2026-05-14
+purepathshop.ca | pet hair glove $24.99 | 2026-05-14
+north-alpine.com | men compression tank $29.90 | 2026-05-14
+
+### REJECTED — Price too high (above $99)
+enjuvie.com | magnetic lashes $120-235 | 2026-05-14
+
+### REJECTED — Wrong category / noise
+coregadgetry.com | general dropship store, multiple unrelated gadgets | 2026-05-14
+trovetraders.com | general dropship store, multiple categories | 2026-05-14
+shoplarke.com | general dropship store $12-30 items | 2026-05-14
+copenrain.com | general dropship store | 2026-05-14
+livowish.com | redirects to shoplarke, dropship | 2026-05-14
+
+### REJECTED — Established brand / saturated
+jolieskinco.com | shower filter 650K customers — too established | 2026-05-14
+everstridesocks.com | compression socks since 2024, established | 2026-05-14
+koprez.com | plantar fasciitis sleeve 200K customers, established | 2026-05-14
+
+### REJECTED — Unverifiable result / пустышка
+comfrt.com | weighted hoodie — "not proven in clinical trials" disclaimer | 2026-05-14
+auroraskin.us | LED facial sculptor — Marina rejected LED face devices as "везде" | 2026-05-14
+
+---
+
 ## How to Use
 
 Pass to scraper:

@@ -28,6 +28,8 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-13 | Wander Plus Travel Pillow | Travel | 72 | 14 months FB ads (2 campaigns), BUY 2 GET 1 FREE signal, massive market — ⚠️ HIGH saturation (7 brands in category) | Facebook Ads Library / keyword "travel pillow" |
 | 2026-05-13 | Traveler Pillow Face Cradle Design | Travel | 67 | Unique face-cradle mechanism (forward-leaning sleep on tray table) differentiates from standard neck pillows; $66.95 premium price | Facebook Ads Library / keyword "travel pillow" |
 
+| 2026-05-14 | Stainless Steel Cat Water Fountain (Faucet-Style) | Pets | 77 | KittySpout 6+ FB campaigns since Mar 2026 — 3 brands in category; flowing water prevents cat kidney disease; 50M+ US cat households | Facebook Ads Library / kittyspout.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

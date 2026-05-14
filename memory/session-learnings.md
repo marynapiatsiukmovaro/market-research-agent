@@ -25,7 +25,46 @@ This focus applies until Marina says otherwise or 7 sessions complete.
 
 ## Active Learnings
 
-*No learnings yet. First entries will be added after Session 1.*
+### [2026-05-14] Session 4 — Dead Keywords to Avoid
+**Type:** Warning
+**Severity:** HIGH (affects keyword strategy)
+**Confidence:** HIGH (confirmed across 5 rounds in one session)
+**Evidence count:** 5 keywords confirmed useless
+**Observation:** These keywords yield 80%+ noise, services, or affiliates — never physical products in $49-99 range:
+- "home organizer" → Amazon affiliate spam
+- "dog camera" → 0 actual dog cameras, random content
+- "facial steamer" → salons + B2B manufacturers
+- "under desk bike" → 0 relevant products, random keyword match
+- "food chopper" → grocery stores, musicians, farms used the keyword
+**Applies to:** Facebook Ads Library scraper keyword selection
+**Expires after:** Session 11 or founder-promoted
+
+### [2026-05-14] Session 4 — Pets Vertical: Price Floor Issue
+**Type:** Pattern
+**Severity:** MEDIUM
+**Confidence:** HIGH (3 products confirmed below $49)
+**Evidence count:** Uproot Clean $16.99, PurePath $24.99, North Alpine $29.90
+**Observation:** Pet accessories and most "pet tools" (hair removers, basic gadgets) are priced $15-30. Hero products fail the $49 price floor. Exception: premium/tech pet products (automatic feeders, smart fountains, cameras) CAN reach $49-99. Always check price before analysis.
+**Applies to:** Pet vertical products
+**Expires after:** Session 11
+
+### [2026-05-14] Session 4 — Cat Water Fountain Category Signal
+**Type:** Signal
+**Severity:** MEDIUM
+**Confidence:** MEDIUM (FB confirmed, Notion pending Marina approval)
+**Evidence count:** 3 brands active (KittySpout 6+ campaigns, Elfin Fountain, Try Pure)
+**Observation:** Stainless steel wireless cat fountain with faucet-style stream is a growing DTC category. KittySpout started March 2026 with aggressive creative testing (6+ campaigns, vet influencers, UGC). Score 77. Reported to Marina. Multiple Chinese ODM suppliers available.
+**Applies to:** Pets vertical future sessions
+**Expires after:** Session 11 or founder-approved
+
+### [2026-05-14] Session 4 — Wide Exploration Strategy Note
+**Type:** Tactical
+**Severity:** LOW
+**Confidence:** MEDIUM
+**Evidence count:** 5 rounds, 120+ candidates
+**Observation:** Broad consumer verticals (kitchen, home, car) mostly yield products priced $15-40 — below $49 threshold. Higher price-point products ($49-99) concentrate in: health devices, premium pet care (tech products), beauty tools (crowded), cleaning appliances. When exploring new verticals, check price range FIRST before full evaluation.
+**Applies to:** All future wide exploration rounds
+**Expires after:** Session 11
 
 ---
 

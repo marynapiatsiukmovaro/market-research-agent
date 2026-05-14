@@ -50,6 +50,23 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 | 2026-05-13 | Condition 1 Cases (hard travel cases) | Travel | 8+ campaigns Oct 2025–Mar 2026, strong persistence — but professional-grade cases $170-510 → way above $79 | filtered |
 | 2026-05-13 | Travel pillow category (generic entry) | Travel | 7 brands simultaneously active: Wander Plus, Trtl, Cabeau, Sleeper Hold, FlyHugz, WoodenCrew, Traveler Pillow. Proven market but HIGH saturation — generic entry needs strong visual differentiator | high saturation |
 
+### Session 4 keyword failures (2026-05-14)
+- "home organizer" → CONFIRMED affiliate hell (80%+ Amazon affiliates, amzlink.to) — never use again
+- "food chopper" → noise (grocery stores, musicians, farm equipment used keyword) — too broad
+- "dog camera" → 0 actual dog camera products — keyword too ambiguous
+- "facial steamer" → 90% salon services + B2B Chinese manufacturers
+- "under desk bike" → 0 relevant products — topic too niche, wrong keyword
+- "beauty tool" → mostly established brands (Shark, Revlon) + wrong-category noise
+
+| 2026-05-14 | Pet hair remover category (Uproot Clean, PurePath) | Pets | Hero price $15-25 — too cheap despite strong ad presence | filtered |
+| 2026-05-14 | Compression socks / foot sleeves (Koprez $39.99 sale) | Health | Sale price below $49 threshold; established 200K+ customer brand | filtered |
+| 2026-05-14 | Comfrt weighted hoodie | Lifestyle | Disclaimer: "not proven in clinical trials" — пустышка risk per Marina's rule | filtered |
+| 2026-05-14 | Enjuvie magnetic lashes | Beauty | $120-235 — above $99 threshold | filtered |
+| 2026-05-14 | Aurora Skin LED Facial Sculptor | Beauty | Same "везде" LED face device territory Marina already rejected | filtered |
+| 2026-05-14 | North Alpine compression tank | Men | $29.90 — below $49 threshold | filtered |
+| 2026-05-14 | Steam And Go 10-in-1 ($99.99) | Cleaning | Bulky logistics + Tineco/Shark/Bissell dominate category; borderline score ~69 | 69 |
+| 2026-05-14 | Flown/Numoya GoBrush PRO ($59) | Beauty | Hair dryer brush category crowded (Dyson, Revlon, L'ange, RevAir all active); ~68 | 68 |
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.
