@@ -4,13 +4,11 @@ Score each product that passes mandatory filters AND the Marina Veto Checklist b
 
 ## Marina Veto Checklist (run BEFORE scoring — any YES = do not score, reject immediately)
 
-- [ ] Result is NOT visually verifiable within 30 seconds on camera? → reject (пустышка)
+- [ ] Result is NOT visually verifiable on camera — OR — core mechanism is unprovable (hair regrowth, circulation, immunity)? → reject (пустышка)
 - [ ] Product requires >10 seconds of explanation to create desire? → reject (education load)
-- [ ] Category has 100+ active competitor ads on Meta/TikTok? → reject (too late)
 - [ ] Marina has likely seen this product repeatedly in her own social feed? → reject (везде)
-- [ ] Core mechanism is unverifiable (hair regrowth, circulation, immunity)? → reject (пустышка)
 
-If all five are NO → proceed to scoring.
+If all three are NO → proceed to scoring.
 
 ---
 

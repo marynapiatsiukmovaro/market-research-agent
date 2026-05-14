@@ -24,7 +24,6 @@ Reject immediately (do not score) if ANY of these are true:
 - Cannot generate 3+ distinct creative angles
 - No market validation signal at all: no competitor ads on Meta/TikTok AND no strong organic momentum on TikTok/Instagram (either signal is acceptable, both missing = reject)
 - Product requires long customer education before purchase decision
-- Result is unverifiable or unprovable — cannot be demonstrated visually (e.g. "improves circulation", "boosts immunity", vague wellness claims with no visible outcome) → founder will not sell products that feel like empty promises
 - Product is visibly oversaturated from founder's perspective — if Marina has seen it widely on social media and it no longer creates curiosity → reject regardless of score
 
 If product passes all filters → run Marina Veto Checklist in scoring-system.md → proceed to scoring.

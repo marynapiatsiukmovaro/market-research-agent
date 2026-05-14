@@ -78,20 +78,7 @@ Auto-announce pivot to Marina when any of these occur:
 
 ---
 
-## 5. Session Type Separation
-
-| Type | Do | Do NOT |
-|------|-----|-------|
-| Scout | Scan, filter, score, checkpoint | Memory updates, Notion, git (if >70% context) |
-| Validation | Deep dive one product | Open new product candidates |
-| Memory | Update files, git commit | Scoring or analysis |
-| Analysis | Systems review | Product exploration |
-
-One session = one type. If overloaded (>70% context before STEP 8): save critical files first, defer Notion/git.
-
----
-
-## 6. Context Management Rules
+## 5. Context Management Rules
 
 - Load only files changed since last session (check git diff), not all brain/ files every time
 - brain/ and criteria/ files change rarely — skip re-reading unless prompted
@@ -105,9 +92,9 @@ One session = one type. If overloaded (>70% context before STEP 8): save critica
 
 Current date defines "fresh." Recalculate at session start.
 
-- **Ideal:** brand launched in current year (2026 as of May 2026)
-- **Acceptable:** launched in previous year (2025)
-- **Old / skip:** 2024 or earlier — unless confirmed aggressive scaling in current year
+- **Ideal:** brand launched in current year (recalculate at session start)
+- **Acceptable:** launched in previous year
+- **Old / skip:** 2+ years ago — unless confirmed aggressive scaling in current year
 - **Check via:** whois domain age, About page, first Amazon ASIN date, first press release
 
 ---
