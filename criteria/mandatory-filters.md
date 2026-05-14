@@ -1,5 +1,14 @@
 # MANDATORY FILTERS
 
+Apply in this order — fastest filters first. Stop at first match.
+
+**FILTER GROUP A — Pre-check (run before anything else)**
+- Result is NOT visually verifiable within 30 seconds on camera (hair regrowth, circulation, immunity, "improves wellbeing") → reject (пустышка rule)
+- Product has 100+ active competitor ads on Meta/TikTok → reject (market closed)
+- Product is a branded proprietary product (NuFACE, Renpho, Furbo, etc.) → reject — Marina sells generic/white-label only
+
+**FILTER GROUP B — Standard filters**
+
 Reject immediately (do not score) if ANY of these are true:
 
 - Value proposition unclear within 3 seconds
@@ -18,4 +27,4 @@ Reject immediately (do not score) if ANY of these are true:
 - Result is unverifiable or unprovable — cannot be demonstrated visually (e.g. "improves circulation", "boosts immunity", vague wellness claims with no visible outcome) → founder will not sell products that feel like empty promises
 - Product is visibly oversaturated from founder's perspective — if Marina has seen it widely on social media and it no longer creates curiosity → reject regardless of score
 
-If product passes all filters → proceed to scoring.
+If product passes all filters → run Marina Veto Checklist in scoring-system.md → proceed to scoring.

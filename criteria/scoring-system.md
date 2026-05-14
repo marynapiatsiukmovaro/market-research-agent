@@ -1,18 +1,31 @@
 # SCORING SYSTEM
 
-Score each product that passes mandatory filters.
+Score each product that passes mandatory filters AND the Marina Veto Checklist below.
+
+## Marina Veto Checklist (run BEFORE scoring — any YES = do not score, reject immediately)
+
+- [ ] Result is NOT visually verifiable within 30 seconds on camera? → reject (пустышка)
+- [ ] Product requires >10 seconds of explanation to create desire? → reject (education load)
+- [ ] Category has 100+ active competitor ads on Meta/TikTok? → reject (too late)
+- [ ] Marina has likely seen this product repeatedly in her own social feed? → reject (везде)
+- [ ] Core mechanism is unverifiable (hair regrowth, circulation, immunity)? → reject (пустышка)
+
+If all five are NO → proceed to scoring.
+
+---
 
 | # | Category | Max Points |
 |---|----------|-----------|
 | 1 | Problem-Solving Strength | 20 |
 | 2 | Wow-Effect / Scroll-Stopping Potential | 20 |
-| 3 | Paid Ads Viability | 15 |
-| 4 | Emotional Trigger Strength | 10 |
-| 5 | Market Size / Scalability | 10 |
+| 3 | Entry Window (market timing) | 10 |
+| 4 | Paid Ads Viability | 12 |
+| 5 | Emotional Trigger Strength | 10 |
 | 6 | Margin Potential | 10 |
-| 7 | Logistics Simplicity | 5 |
-| 8 | UGC Potential | 5 |
-| 9 | Evergreen Potential | 5 |
+| 7 | Market Size / Scalability | 6 |
+| 8 | Logistics Simplicity | 5 |
+| 9 | UGC Potential | 5 |
+| 10 | Evergreen Potential | 2 |
 | **Total** | | **100** |
 
 ---
@@ -29,20 +42,29 @@ Score each product that passes mandatory filters.
 - **8–15:** Product is useful but needs some explanation. Visual hook exists but is not instantly powerful.
 - **0–7:** Value is slow to understand. Product looks ordinary. Weak or no ad hook.
 
-### Paid Ads Viability (15)
-- **12–15:** Strong hook communicable in under 3 seconds. Clear impulse-buy at $39–79. 3+ creative angles. No major ad policy risks.
-- **6–11:** Good hook but some friction (price, policy risk, or needs more explanation).
-- **0–5:** Weak hook, high policy risk, or price outside impulse range.
+### Entry Window / Market Timing (10)
+- **8–10:** 5–30 active competitor ads on Meta/TikTok — market proven, not crowded. Entry window open.
+- **4–7:** 1–4 ads (unproven) OR 30–100 ads (crowding). Higher risk either way.
+- **0–3:** 0 ads (no validation) OR 100+ ads (too late). Do not enter.
+
+Use the Competitor Signal field to document the observed count range.
+
+### Paid Ads Viability (12)
+- **10–12:** Strong hook under 3 seconds. Clear impulse-buy at $39–79. 3+ creative angles. No major ad policy risks.
+- **5–9:** Good hook but some friction (price, policy risk, or needs more explanation).
+- **0–4:** Weak hook, high policy risk, or price outside impulse range.
 
 ### Emotional Trigger (10)
 - **8–10:** Fear, shame, or deep desire. Viewer feels it instantly. Pregnancy anxiety, pain relief, embarrassment, vanity.
 - **4–7:** Convenience or mild desire. Viewer interested but not emotionally hooked.
 - **0–3:** Purely rational appeal. No emotional response.
 
-### Market Size / Scalability (10)
-- **8–10:** Broad audience (millions of potential buyers). Works across age, gender, or lifestyle segments.
-- **4–7:** Clear audience but limited in size or geography.
-- **0–3:** Very niche — hard to scale paid traffic profitably.
+### Market Size / Scalability (6)
+- **5–6:** Broad audience (millions of potential buyers in the US). Works across segments.
+- **2–4:** Clear but limited audience.
+- **0–1:** Very niche — hard to scale.
+
+Note: Multi-audience count alone does NOT qualify for high score. Each audience must be independently payable via cold traffic (>5M US buyers each).
 
 ### Margin Potential (10)
 - **8–10:** Price $39–79, COGS under 25%, room for 3x+ ROAS.
@@ -59,10 +81,10 @@ Score each product that passes mandatory filters.
 - **2–3:** Can be filmed but requires effort or staging.
 - **0–1:** Hard to demonstrate visually, private use, or boring on camera.
 
-### Evergreen Potential (5)
-- **4–5:** Year-round demand, not trend-dependent.
-- **2–3:** Seasonal or semi-evergreen (e.g. pregnant women — always a new cohort).
-- **0–1:** Clear trend peak, declining, or very seasonal.
+### Evergreen Potential (2)
+- **2:** Year-round demand, not trend-dependent.
+- **1:** Seasonal or semi-evergreen.
+- **0:** Clear trend peak or very seasonal.
 
 ---
 

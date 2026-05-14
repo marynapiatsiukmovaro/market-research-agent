@@ -8,11 +8,18 @@
 
 ## Step-by-Step
 
+### STEP -1 — Pre-Session Context (run before loading memory)
+Ask Marina (or check prior session notes for):
+- "Are there any categories you've been seeing a lot in your own social feed lately?" → log as potential везде risk
+- Confirm current date and freshness threshold (ideal = current year, acceptable = current year -1)
+- Confirm session type: Scout / Validation / Analysis / Memory-only
+
 ### STEP 0 — Load Memory (before scanning anything)
 Read these files BEFORE scanning anything:
 1. `memory/reported-products.md` — do NOT report any product already logged here
 2. `memory/rejected-products.md` — use patterns to skip similar weak products faster
 3. `memory/session-learnings.md` — apply active temporary guidance; if a Current Focus is set, it overrides default source priority for this session
+4. `memory/agent-operating-rules.md` — core operating principles (verification hierarchy, signal tiers, pivot rules)
 
 ### STEP 1 — Scan Sources (15–20 candidates)
 - TikTok Ads Library: search trending categories
@@ -132,6 +139,38 @@ Test next session: [specific keyword / angle / category to explore]
 ```
 
 Memory update is not optional. It is what makes the agent smarter over time.
+
+**9. Generate HANDOFF block** (mandatory, paste into daily report)
+
+```
+## HANDOFF FOR SESSION [N+1]
+
+Critical context:
+- Last unresolved hypothesis: [what remains open]
+- Highest priority action: [1 specific action]
+- Active candidates needing verification: [product + specific check]
+- Closed hypotheses (do not reopen): [list]
+
+Memory state:
+- Files updated this session: [list]
+- Open Notion items: [links if any]
+
+Recommended next session type: [Scout / Memory / Validation / Analysis]
+Next session startup prompt: [verbatim prompt to paste]
+```
+
+## Session Type Separation
+
+One session = one task type. Do not mix.
+
+| Type | Purpose | Output |
+|------|---------|--------|
+| Scout | Product discovery and scoring | Daily report + reported-products.md update |
+| Validation | Deep dive on one product (85+ score only, or explicit request) | Validation report |
+| Memory | Update memory files only | Updated files + git commit |
+| Analysis | Systems review (like post-mortem) | Framework document |
+
+If session becomes overloaded (>70% context used before STEP 8): save critical files first, defer Notion/git to next Memory session.
 
 ## Frequency
 Daily. Run each morning before market activity increases.
