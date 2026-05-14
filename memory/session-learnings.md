@@ -166,6 +166,38 @@ This focus applies until Marina says otherwise or 7 sessions complete.
 **Applies to:** Pet Tech keyword selection
 **Expires after:** Session 12
 
+### [2026-05-14] Session 6 — Dog Fountain: Amazon-Dominated, DTC Cycle Behind Cat Fountain
+**Type:** Pattern
+**Severity:** HIGH (affects future dog fountain round planning)
+**Confidence:** HIGH (confirmed across 15+ brands checked in sessions 5+6)
+**Evidence count:** 10+ brands eliminated; only WagWells viable DTC candidate
+**Observation:** Dog water fountain категория реальна и растёт ($39-79 range confirmed), но DTC Facebook advertising significantly less developed чем cat fountain. Cat fountain: KittySpout + 2 others = 3+ active FB campaigns. Dog fountain: WagWells = единственный DTC candidate с "try-" domain + CET operator pattern; остальные либо Amazon-native, либо established pre-2025, либо AU market. Категория примерно на 1-2 года позади cat fountain в DTC цикле. Это ВОЗМОЖНОСТЬ (early entry) но также РИСК (no proven FB DTC playbook yet).
+**WagWells signals:** Amazon April 2026 listing, "try-" prefix domain, CET timezone support (European operator → US market), no history on About page = fresh brand, $74.95 hero price, biofilm/kidney health angle.
+**Applies to:** Pet vertical dog fountain keyword decisions
+**Expires after:** Session 13
+
+### [2026-05-14] Session 6 — Smart Feeder: Structurally Not Viable for DTC FB Model
+**Type:** Pattern
+**Severity:** HIGH (prevents wasted sessions)
+**Confidence:** HIGH (structural analysis confirmed across 2 rounds)
+**Evidence count:** 78 Amazon brands, 5 established leaders, 0 fresh DTC FB advertisers found
+**Observation:** Automatic/smart pet feeder категория закрыта для Marina's DTC FB model по структурным причинам: (1) Amazon-saturated — 78+ brands, PETKIT + Petlibro + PAPIFEED dominate с 92-306% growth; (2) no fresh 2025-2026 DTC Facebook advertiser found despite deep search; (3) tech complexity = customer education requirement → cold traffic death; (4) branded innovative products (Cheerble Match G1 $259, AI feeders) above ceiling. НЕ исследовать снова без конкретного нового сигнала (new DTC brand name, confirmed FB ads).
+**Applies to:** Pet vertical — smart feeder keyword decisions
+**Expires after:** Session 13
+
+### [2026-05-14] Session 6 — Freshness Logic Calibration: 2025-2026, Not 2024-2025
+**Type:** Tactical
+**Severity:** MEDIUM (affects brand freshness filter every session)
+**Confidence:** HIGH (Marina confirmed explicitly)
+**Evidence count:** Marina correction at session start
+**Observation:** Текущая дата — май 2026. "Fresh" DTC brand означает:
+- Ideal: запущен в 2026
+- Acceptable: запущен в 2025
+- Old / less interesting: 2024 и раньше — пропускать, если нет явного 2026 ad scaling
+Это НЕ статичное правило — нужно пересматривать каждый год. Применять ДО оценки любого бренда.
+**Applies to:** All verticals — brand freshness evaluation
+**Expires after:** Session 13
+
 ---
 
 ## Expired / Promoted

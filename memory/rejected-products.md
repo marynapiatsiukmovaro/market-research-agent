@@ -89,6 +89,26 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **Legacy saturation** kills: ball launchers (iFetch), GPS (Tractive), cameras (Furbo)
 - **Pre-launch / Kickstarter** = never report (no white-label sourcing, no proven demand at scale)
 
+### Session 6 Rejections — 2026-05-14 (Dog Fountain + Smart Feeder)
+
+| 2026-05-14 | Uahpet wireless dog fountain | Pet | Founded 2019 — too established; Amazon + Chewy distributed | filtered |
+| 2026-05-14 | PET MARVEL cordless dog fountain | Pet | Founded July 2019; Chewy + Amazon retail; misleading ads (plastic marketed as stainless) | filtered |
+| 2026-05-14 | Voluas wireless dog fountain | Pet | Founded 2021 — too established; Chewy distributed | filtered |
+| 2026-05-14 | Pokpet wireless dog fountain | Pet | Amazon + Chewy only — no DTC site or FB presence | filtered |
+| 2026-05-14 | HydroPaws (tryhydropaws.com) | Pet | AUD pricing (AU market); 37,135 reviews > 24,000 customers = inflated/fake review signal | filtered |
+| 2026-05-14 | HydraPaw (shophydrapaw.com) | Pet | No founding date, no FB signal, third-party reselling on Shopify = white-label only, not DTC advertiser | filtered |
+| 2026-05-14 | Cheerble Elfin D1 Pro (dog fountain) | Pet | $95.99 sale / $119.99 regular — branded product, can't white-label; NOTED as category proof (pumpless tech + $95 dog AOV validates market) | branded |
+| 2026-05-14 | SMARTPAW Gen 3 feeder | Pet | .sg domain + +65 phone = Singapore market brand; "8000+ reviews" header vs 49 actual = suspicious | filtered |
+| 2026-05-14 | Arf Pets smart feeder | Pet | Multi-category store (furniture, gates, feeders, mats); not specialist DTC; sold out with 0 reviews | filtered |
+| 2026-05-14 | HomeRunPET feeder | Pet | Founded 2015 — too established; Amazon distributed | filtered |
+| 2026-05-14 | Smart pet feeder category (general) | Pet | Amazon-saturated (78+ competing brands); tech complexity (app/WiFi setup = customer education); no fresh 2025-2026 DTC FB advertiser found | structural |
+
+### Session 6 Pattern Summary — Why Smart Feeder Failed
+- **Amazon saturation** — 78+ brands competing, dominated by PETKIT, Petlibro, PAPIFEED
+- **Tech complexity** — WiFi setup + app = customer education requirement → cold traffic death
+- **No DTC FB pioneer** — unlike cat/dog fountain where KittySpout created the DTC playbook, smart feeder has no equivalent fresh DTC advertiser
+- **Established players locked** — PETKIT 306% growth, PAPIFEED 92% YoY = late entry, not early opportunity
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

@@ -29,6 +29,7 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-13 | Traveler Pillow Face Cradle Design | Travel | 67 | Unique face-cradle mechanism (forward-leaning sleep on tray table) differentiates from standard neck pillows; $66.95 premium price | Facebook Ads Library / keyword "travel pillow" |
 
 | 2026-05-14 | Stainless Steel Cat Water Fountain (Faucet-Style) | Pets | 77 | KittySpout 6+ FB campaigns since Mar 2026 — 3 brands in category; flowing water prevents cat kidney disease; 50M+ US cat households | Facebook Ads Library / kittyspout.com |
+| 2026-05-14 | Stainless Steel Dog Water Fountain (WagWells) | Pets | 76 | "try-" DTC domain + CET operator + Amazon April 2026; biofilm→kidney disease fear angle; direct dog extension of cat fountain category | Amazon (B0GVYQB84Q) + trywagwells.com |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.

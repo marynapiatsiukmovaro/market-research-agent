@@ -105,6 +105,31 @@ linkmypet.com | smart collar — subscription | 2026-05-14
 ### NOTED — Confirmed mechanism, not reportable
 heusom.com | nail grinder $39.95/$66.60 — "validated mechanism, commoditized execution"; flashy ads confirmed but same product $20-39 on Amazon | 2026-05-14
 
+## Session 6 — 2026-05-14 (Dog Fountain + Smart Feeder)
+
+### CANDIDATE — Needs FB verification
+trywagwells.com | CANDIDATE score 76 — dog water fountain, stainless, $74.95, CET operator, April 2026 Amazon | 2026-05-14
+
+### REJECTED — Too established (pre-2025)
+uahpet.com | founded 2019, Amazon + Chewy distributed | 2026-05-14
+petmarvel.com | founded 2019, Chewy + Amazon, misleading ads | 2026-05-14
+voluas.com | founded 2021, Chewy distributed | 2026-05-14
+homerunpet.com | founded 2015, Amazon native | 2026-05-14
+
+### REJECTED — Amazon-native only / no DTC site
+pokpet.com | Amazon + Chewy only, no DTC FB presence | 2026-05-14
+arfpets.com | multi-category pet store, not specialist DTC feeder | 2026-05-14
+
+### REJECTED — Wrong market / fake signals
+tryhydropaws.com | AUD pricing = Australia market; 37K reviews > 24K customers = inflated | 2026-05-14
+sgsmartpaw.com | .sg domain + +65 phone = Singapore market; suspicious review count | 2026-05-14
+
+### REJECTED — Branded (can't white-label)
+cheerble.com | Elfin D1 Pro dog fountain $95.99 — confirmed FB advertiser but branded product; useful as category signal only | 2026-05-14
+
+### NOTED — Minimal signal, white-label candidate
+shophydrapaw.com | dog fountain $69.95 — no founding date, no FB signal, white-label pattern; resold by third parties | 2026-05-14
+
 ## How to Use
 
 Pass to scraper:
