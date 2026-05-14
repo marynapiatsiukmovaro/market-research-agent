@@ -19,7 +19,7 @@ Trigger only for:
 **Paid Traffic Viability**
 - 3+ creative angles identified?
 - Hook communicable in under 3 seconds?
-- Price in $39–$79 range?
+- Price in preferred range ($45–$79)? If $39–$44 or $80–$100 — justification provided?
 - Realistic ROAS: 2.5x+ achievable?
 
 **Market Validation**

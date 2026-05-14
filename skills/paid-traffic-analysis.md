@@ -14,7 +14,7 @@
 
 **Impulse-Buy Capability**
 - Can a viewer decide to buy within 15–30 seconds?
-- Is the price point in the impulse range ($39–$79)?
+- Is the price point in the impulse range ($45–$79 preferred; $39–$100 extended with justification)?
 - Is no lengthy research required before purchase?
 
 **Ad Survivability**
@@ -23,7 +23,7 @@
 - Can it sustain a 4–8 week test without creative fatigue?
 
 **Economics Check**
-- Realistic selling price: $39–$79
+- Realistic selling price: $45–$79 preferred; $39–$100 acceptable with justification
 - Target COGS (landed): under 30% of retail
 - Expected ROAS needed to be profitable: 2.5–3x
 - CPM environment: Meta $15–$30, TikTok $8–$20

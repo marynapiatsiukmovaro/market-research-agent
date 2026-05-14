@@ -6,7 +6,7 @@ Include:
 - Date
 - Total candidates scanned
 - Total passed mandatory filters
-- Top 5 products with scores
+- All qualifying products (2–5) with scores
 - Highest-scoring product (brief highlight)
 - Emerging patterns observed today
 - Categories showing momentum

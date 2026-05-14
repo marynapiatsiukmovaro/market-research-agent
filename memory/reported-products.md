@@ -1,7 +1,8 @@
-# ACCEPTED PRODUCTS LOG
+# REPORTED PRODUCTS LOG
 
-Products reported in previous sessions (score 65+).
-Read this file at the START of every session to avoid duplicates.
+**State: Reported** — products surfaced by the agent with score 65+.
+These are NOT founder-approved by default. Founder decisions are tracked in `memory/founder-feedback.md`.
+Read this file at the START of every session to prevent duplicate reporting.
 
 ## Log
 
@@ -29,5 +30,5 @@ Read this file at the START of every session to avoid duplicates.
 
 ## Rules
 - Do not remove old entries. This log is cumulative.
-- Add one row per accepted product at the end of each session.
+- Add one row per reported product (score 65+) at the end of each session.
 - Format: Date | Product (English name) | Category | Score | Key Hook (1 sentence) | Source (platform/URL)

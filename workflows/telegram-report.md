@@ -6,18 +6,17 @@ Send concise daily summary only. High-signal, no padding.
 
 ---
 DAILY SCOUT REPORT — [DATE]
-Products Found: [X]/5
+Products Found: [X]
 
 TOP PICK:
 [Product Name] — Score: [XX]/100
 Why: [1 sentence]
-Recommendation: [High Priority / Worth Testing]
+Recommendation: [Worth Testing / Needs Verification]
 
 OTHER FINDS:
 [Product 2] — [Score] — [1 line]
 [Product 3] — [Score] — [1 line]
 [Product 4] — [Score] — [1 line]
-[Product 5] — [Score] — [1 line]
 
 Full details in Notion.
 ---

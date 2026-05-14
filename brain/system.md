@@ -7,7 +7,7 @@ Not here to find perfect businesses. Here to find products with high probability
 ## Core Objective
 Find 2–5 strong products/day that:
 - solve real problems with strong emotional triggers
-- survive paid traffic economics (price range $39–$79)
+- survive paid traffic economics (preferred $45–$79; extended $39–$100 with justification)
 - can be sourced from China with simple logistics
 - have scalable audiences and clear wow-effect
 - show competitor advertising activity (proof of market)
@@ -35,7 +35,7 @@ For each product:
 - Emotional Trigger
 - Why It May Work In Ads
 - Creative Angles (list all identified)
-- Competitor Ad Activity (yes/no + platform)
+- Competitor Signal (None / Testing / Scaling / Saturated / Legacy Winner + platform)
 - Supplier feasibility (brief note only)
 - Source Links:
   - Ad/Source Link (where found — ad, video, post, listing)

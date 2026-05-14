@@ -1,177 +1,180 @@
 # WINNER DETECTION ALGORITHM
-# Как найти продукт который уже продаётся — но ещё не пересыщен
+# How to find a product that is already selling — but not yet saturated
 
-Цель: найти продукт, который УЖЕ ПРОДАЁТСЯ и кто-то на нём ЗАРАБАТЫВАЕТ —
-но он ещё не стал везде, и у нас есть окно чтобы зайти.
+Goal: find a product that IS ALREADY SELLING and someone IS ALREADY MAKING MONEY from it —
+but it has not spread everywhere yet, and there is still an entry window.
 
-НЕ нужно изобретать новый продукт. НЕ нужно искать то чего ещё нет на рынке.
-Нужно найти то, что работает — до того как это стало насыщенным.
-
----
-
-## Главный принцип: рекламный бюджет = доказательство
-
-**Если кто-то запустил рекламу 2 недели назад и она до сих пор крутится —**
-**значит продукт КОНВЕРТИТ. Иначе бы уже остановили.**
-
-Это самый надёжный сигнал в ecommerce. Никто не сливает деньги 2 недели подряд
-без возврата. Активная реклама = работающий продукт = можно заходить.
-
-## Зона входа
-
-| Активных реклам | Срок работы | Что это значит | Действие |
-|-----------------|-------------|----------------|----------|
-| 1–5 | < 1 недели | Тест, ещё не ясно | Наблюдать |
-| **5–30** | **1–4 недели** | **Конвертит, ещё не насыщен** | **ЗАХОДИТЬ** |
-| 30–100 | > 1 месяца | Работает, но конкуренция растёт | С осторожностью |
-| 100+ | Любой | Насыщен, CPM высокий | Поздно |
-
-**Sweet spot Marina: 5–30 активных реклам, запущены 1–4 недели назад.**
+Do NOT invent new products. Do NOT look for what does not exist yet.
+Find what is already working — before it becomes saturated.
 
 ---
 
-## Сигналы winner — в порядке надёжности
+## Core Principle: Ad budget = proof of market
 
-### Сигнал 1 (СИЛЬНЕЙШИЙ): Активные объявления 2+ недели подряд
+**If someone launched ads 2 weeks ago and they are still running —**
+**the product CONVERTS. Otherwise they would have stopped.**
 
-**Логика:** рекламодатель платит деньги каждый день → значит получает продажи.
-Это не гипотеза. Это факт подтверждённый чужим бюджетом.
+This is the strongest signal in ecommerce. Nobody burns money for 2 weeks straight without returns.
+Active ads = working product = entry is viable.
 
-**Как читать в Minea:**
+## Entry Zone
+
+| Active Ads | Runtime | What It Means | Action |
+|------------|---------|---------------|--------|
+| 1–5 | < 1 week | Test, still unclear | Watch |
+| **5–30** | **1–4 weeks** | **Converts, not yet saturated** | **ENTER** |
+| 30–100 | > 1 month | Working but competition growing | Enter with caution |
+| 100+ | Any | Saturated, CPMs high | Too late |
+
+**Marina's sweet spot: 5–30 active ads, launched 1–4 weeks ago.**
+
+---
+
+## Winner Signals — In Order of Reliability
+
+### Signal 1 (STRONGEST): Active ads running 2+ weeks straight
+
+**Logic:** advertiser pays every day → they are getting sales.
+This is not a hypothesis. This is a fact confirmed by someone else's budget.
+
+**How to read in Minea:**
 ```
-[Бренд]
-15 active ads       ← количество (5-30 = хорошо)
-/ 3.2k              ← impressions (растут = масштабируют)
-14d Active          ← 14 дней крутится БЕЗ остановки = КОНВЕРТИТ
-28 Apr 2026         ← дата старта (2-4 недели назад = sweet spot)
+[Brand]
+15 active ads        ← count (5–30 = good)
+/ 3.2k               ← impressions (growing = scaling)
+14d Active           ← running 14 days WITHOUT stopping = CONVERTS
+28 Apr 2026          ← launch date (2–4 weeks ago = sweet spot)
 ```
 
-**Дата старта:** чем раньше запущено, тем дольше работает без остановки.
-14 дней непрерывно = сильный сигнал. 30+ дней = очень сильный, но смотреть на насыщение.
-
-### Сигнал 2: TikTok органика растёт параллельно
-
-**Временное окно:** Органика → реклама = обычно 3-8 недель. Это твоё окно.
-
-**Пример паттерна:** продукт появился на TikTok как DIY/review → 500K просмотров → через месяц дропшипперы запускают рекламу → через 2 месяца насыщение.
+**Launch date:** the longer it has run without stopping, the stronger the signal.
+14 days continuous = strong. 30+ days = very strong, but check for saturation.
 
 ---
 
-### Сигнал 2: Amazon BSR Velocity (продукт быстро растёт в рейтинге)
+### Signal 2: TikTok organic growing in parallel
 
-**Что ищем:** продукт за последние 30 дней вырос с позиции #200+ в категории до топ-50.
+**Time window:** Organic momentum → paid ads = typically 3–8 weeks. This is your entry window.
 
-**Как проверить сейчас (без Jungle Scout):**
-- Поиск: `site:amazon.com [product] bestseller [category]`
-- Смотреть на: "Best Seller" badge, "#1 New Release"
-- "X bought in past month" — если цифра растёт быстро
-
-**Триггер:** `#1 New Release` в категории Health/Beauty + <6 месяцев продаётся = ранний сигнал.
+**Example pattern:** product appears on TikTok as DIY/review → 500K views → one month later dropshippers launch ads → two months later: saturation.
 
 ---
 
-### Сигнал 3: Minea Sweet Spot (5-30 активных реклам)
+### Signal 3: Amazon BSR Velocity (product climbing rank fast)
 
-**Правило Marina (из founder-feedback.md):**
+**What we look for:** product moved from position #200+ in category to top 50 within the last 30 days.
+
+**How to check (without Jungle Scout):**
+- Search: `site:amazon.com [product] bestseller [category]`
+- Look for: "Best Seller" badge, "#1 New Release"
+- "X bought in past month" — if this number is rising fast
+
+**Trigger:** `#1 New Release` in Health/Beauty + on sale <6 months = early signal.
+
+---
+
+### Signal 4: Minea Sweet Spot (5–30 active ads)
+
+**Marina's rule (from founder-feedback.md):**
 > "Нужно заходить на старте тренда, не после." — Marina, 2026-05-13
+> ("Enter at the start of the trend, not after.")
 
-**Фильтр в Minea:**
-- Активных реклам: **5-30** = заходи. 30-100 = осторожно. 100+ = поздно.
-- Impressions растут за последние 7 дней: признак активного масштабирования
-- Реклама запущена недавно (<30 дней) + уже масштабируется
+**Minea filter:**
+- Active ads: **5–30** = enter. 30–100 = caution. 100+ = too late.
+- Impressions growing over last 7 days = active scaling signal
+- Ad launched recently (<30 days) + already scaling
 
-**Как читать Minea карточку:**
+**How to read a Minea card:**
 ```
-[Бренд]
-30 active ads        ← от 5 до 30 = хорошо
-/ 5k                 ← impressions (чем выше при малом кол-ве реклам — тем лучше)
-1d Active            ← реклама активна
-13 May 2026          ← дата старта (недавно = хорошо)
+[Brand]
+30 active ads        ← 5 to 30 = good
+/ 5k                 ← impressions (higher per fewer ads = more efficient)
+1d Active            ← ad is active
+13 May 2026          ← launch date (recent = good)
 ```
 
 ---
 
-### Сигнал 4: Премиум бренд доказывает рынок, дженерик атакует
+### Signal 5: Premium brand proves the market, generic attacks from below
 
-**Паттерн:**
-1. Существует бренд с ценой $150-400 (NuFACE, Renpho, iRestore)
-2. Они продают это годами = рынок ДОКАЗАН
-3. Дженерик с той же функцией за $49-69 = ты атакуешь снизу
-4. Главное: дженерик должен выглядеть ЛУЧШЕ, не просто дешевле
+**Pattern:**
+1. A premium brand exists at $150–400 (NuFACE, Renpho, iRestore)
+2. They have been selling for years = market is PROVEN
+3. Generic with same function at $49–69 = attack from below
+4. Key: the generic must LOOK BETTER, not just cost less
 
-**Примеры из базы:**
-- Eye massager (84): Renpho $69 → наш дженерик $49 ✅ WINNER
-- HF Wand (77): NuDerma $79 → наш дженерик $49-59 ✅ Approved
-- Laser Hair Cap (80): iRestore $200 → дженерик $69 ❌ Rejected (пустышка)
+**Examples from product log:**
+- Eye massager (84): Renpho $69 → our generic $49 ✅ WINNER
+- HF Wand (77): NuDerma $79 → our generic $49–59 ✅ Approved
+- Laser Hair Cap (80): iRestore $200 → generic $69 ❌ Rejected (unverifiable result)
 
-**Правило:** Результат должен быть видимым и верифицируемым. Без этого — не заходить.
+**Rule:** Result must be visible and verifiable on camera. Without this — do not enter.
 
 ---
 
-## Алгоритм сессии: правильная последовательность
+## Session Algorithm: Correct Sequence
 
 ```
-СТАРТ СЕССИИ
+SESSION START
 │
-├── 1. Читаю memory/ (что уже найдено, что отклонено, вкус Marina)
+├── 1. Read memory/ (what was found, what was rejected, Marina's taste)
 │
-├── 2. TikTok органика — что вирально СЕЙЧАС?
+├── 2. TikTok organic — what is viral RIGHT NOW?
 │   └── WebSearch: "[category] TikTok viral May 2026 trending"
-│   └── Ищу: органика без рекламы, свежие хештеги
+│   └── Look for: organic without ads, fresh hashtags
 │
-├── 3. Minea — фильтр 5-30 активных реклам + Health/Beauty + US
-│   └── Отклоняю всё с 100+ активных реклам немедленно
-│   └── Фокус на: новые бренды (<90 дней рекламы), растущий impression
+├── 3. Minea — filter 5–30 active ads + Health/Beauty + US
+│   └── Reject everything with 100+ active ads immediately
+│   └── Focus on: new brands (<90 days of ads), growing impressions
 │
-├── 4. Amazon New Releases — что появилось за последние 30-90 дней?
-│   └── Категории: Health/Beauty, Sports & Outdoors, Personal Care
-│   └── Фильтр: 4+ stars, 50-500 reviews (не пусто и не пересыщено)
+├── 4. Amazon New Releases — what appeared in last 30–90 days?
+│   └── Categories: Health/Beauty, Sports & Outdoors, Personal Care
+│   └── Filter: 4+ stars, 50–500 reviews (not empty and not oversaturated)
 │
-├── 5. Для каждого кандидата:
-│   ├── Проверить: Store URL открывается? Chrome не ругается?
-│   ├── Проверить: есть ли конкурентные объявления?
-│   ├── Проверить: цена укладывается в $39-79?
-│   └── Применить обязательные фильтры (criteria/mandatory-filters.md)
+├── 5. For each candidate:
+│   ├── Check: does Store URL open? No browser warnings?
+│   ├── Check: are there competitor ads?
+│   ├── Check: price fits $45–79 (priority) or $39–100 with justification?
+│   └── Apply mandatory filters (criteria/mandatory-filters.md)
 │
-├── 6. Скорировать прошедших (criteria/scoring-system.md)
-│   └── Наложить founder-taste.md поверх числа
+├── 6. Score those that passed (criteria/scoring-system.md)
+│   └── Apply founder-taste.md layer on top of the number
 │
-└── 7. Репортовать только 65+. Качество > количество.
+└── 7. Report only 65+. Quality over quantity.
 ```
 
 ---
 
-## Что делать при КАЖДОМ новом источнике
+## What To Do With Every New Source
 
-Перед тем как брать данные из любого источника — ответь:
+Before pulling data from any source — answer:
 
-1. **Это данные в реальном времени или кто-то написал статью?**
-   - Статья → атрибутировать "WebSearch mention of [source]"
-   - Прямые данные (Minea карточка) → атрибутировать "Minea Meta Ads"
+1. **Is this real-time data or an article written by someone?**
+   - Article → attribute as "WebSearch mention of [source]"
+   - Direct data (Minea card) → attribute as "Minea Meta Ads"
 
-2. **Сколько активных реклам у этого продукта прямо сейчас?**
-   - Неизвестно → Confidence: Low
-   - 5-30 → Confidence: High (если другие сигналы тоже есть)
+2. **How many active ads does this product have right now?**
+   - Unknown → Confidence: Low
+   - 5–30 → Confidence: High (if other signals also present)
 
-3. **Store Link работает и безопасен?**
-   - НЕ репортовать если не проверено
-
----
-
-## Красные флаги — отклонять немедленно (не тратить время)
-
-- "Везде" на первый взгляд → стоп, не скоришь
-- 100+ активных реклам → поздно
-- Результат непроверяемый ("улучшает циркуляцию") → стоп
-- Цена вне $39-79 → стоп
-- Store URL недоступен или опасен → стоп
-- Продукт из прошлых сессий → стоп (дубликат)
+3. **Does the Store Link open and is it safe?**
+   - Do NOT report if not verified
 
 ---
 
-## Для мультиагентной архитектуры (будущее)
+## Red Flags — Reject Immediately (do not spend time)
 
-Каждый агент должен возвращать JSON:
+- Looks "everywhere" at first glance → stop, do not score
+- 100+ active ads → too late
+- Unverifiable result ("improves circulation") → stop
+- Price under $39 → stop; over $100 without strong social proof → stop
+- Store URL inaccessible or flagged as dangerous → stop
+- Product already in past sessions → stop (duplicate)
+
+---
+
+## For Multi-Agent Architecture (future)
+
+Each agent should return JSON:
 
 ```json
 {
@@ -190,4 +193,4 @@
 }
 ```
 
-Connector Agent берёт JSON от всех агентов, применяет фильтры Marina, сортирует по score, отправляет в Notion.
+Connector Agent takes JSON from all agents, applies Marina's filters, sorts by score, sends to Notion.

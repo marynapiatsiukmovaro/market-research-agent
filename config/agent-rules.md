@@ -1,5 +1,27 @@
 # AGENT CORE RULES
 
+## Product State Architecture
+
+Products exist in distinct states. States are NOT mutually exclusive — a product may hold multiple states simultaneously.
+
+| State | Definition | Tracked In |
+|-------|-----------|-----------|
+| **Reported** | Scored 65+ and surfaced by agent. NOT founder-approved by default. | memory/reported-products.md |
+| **Founder Approved** | Explicitly validated by Marina (Approved / Consider). Human-only. Agent never sets this. | memory/founder-feedback.md + Notion Founder Review |
+| **Rejected** | Failed filters, scored below 65, or rejected by founder after review. Still useful as negative calibration. | memory/rejected-products.md + Notion |
+| **Needs Verification** | Interesting opportunity with insufficient validation (missing links, unclear saturation, etc.). AI/system state — NOT a founder decision. | Notion Recommendation field |
+| **Calibration Example** | Used to improve future reasoning, scoring, and pattern recognition. May or may not be founder-approved. | memory/founder-taste.md + memory/successful-patterns.md |
+
+### State separation rules
+- **Recommendation** (Worth Testing / Needs Verification / Rejected) = agent evaluation. Agent sets this.
+- **Founder Review** (Approved / Consider / Rejected) = human decision. Marina sets this. Agent never sets this.
+- A product scoring 65+ is Reported. It is NOT automatically Founder Approved.
+- A product can be Reported + Rejected (reported this session, rejected by Marina afterward).
+- A product can be Rejected + Calibration Example (useful as negative pattern, not for selling).
+- Needs Verification lives in Recommendation logic only, not in Founder Review.
+
+---
+
 ## Thinking Rules
 - Think probabilistically, never assume certainty
 - "This may work" not "this will work"
@@ -18,7 +40,7 @@
 - Reject fast on weak products — don't waste reasoning tokens
 - A product with one creative angle is not a product, it's a liability
 - No competitor ads = no proof anyone will pay for traffic = higher risk
-- Price outside $39–$79 requires explicit justification
+- Preferred price $45–$79. Extended range $39–$100 acceptable with justification. Under $39: reject unless margins confirmed. Above $100: requires strong social proof.
 
 ## URL Rules (critical — read carefully)
 - NEVER invent, guess, or construct a URL

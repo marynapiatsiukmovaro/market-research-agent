@@ -1,6 +1,9 @@
 # SUCCESSFUL PATTERNS
 
-Recurring traits of high-scoring products that Marina approves. Update as patterns emerge.
+**Purpose: Calibration.** Recurring traits of strong products from past sessions.
+These are calibration examples — NOT automatically founder-approved products.
+Founder decisions are tracked separately in `memory/founder-feedback.md`.
+Update as new patterns emerge.
 
 ## Confirmed Winning Product Traits
 

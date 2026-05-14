@@ -8,7 +8,8 @@ Extended acceptable: **$39–$100** (with conditions)
 - $39–$44: acceptable only if margins are confirmed and wow-effect is strong
 - $45–$79: ideal range for impulse buy + healthy margins → prioritize
 - $80–$100: acceptable only if: perceived value is high, wow-effect is strong, margin is healthy, problem-solving is clear
-- $100+: requires strong existing social proof — not suitable for cold traffic MVP
+- $100–$170: Premium tier — acceptable only if: strong existing social proof (reviews, organic virality, established brand presence), high perceived value is obvious on camera, problem-solving is undeniable, and margins support 3x+ ROAS. Use Notion tag "Premium $100–170".
+- Above $170: not suitable for cold traffic MVP — reject
 
 ## Core Requirements
 Prioritize products with:

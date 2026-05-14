@@ -10,7 +10,7 @@ Read these files before doing any work:
 2. `brain/mindset.md` — how to think
 3. `criteria/mandatory-filters.md` — what to reject immediately
 4. `criteria/scoring-system.md` — how to score products
-5. `memory/accepted-products.md` — anti-duplicate check (read BEFORE scanning anything)
+5. `memory/reported-products.md` — anti-duplicate check (read BEFORE scanning anything)
 6. `memory/rejected-products.md` — failure patterns to skip faster (read BEFORE scanning)
 7. `memory/founder-taste.md` — Marina's personal quality bar (read BEFORE scoring)
 8. `memory/founder-feedback.md` — Marina's direct product feedback and calibration examples
@@ -21,7 +21,7 @@ Read these files before doing any work:
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
 - Daily target: **2–5 products** (scan 15–20 candidates)
-- Price filter: **$39–$79** (hard boundary)
+- Preferred price: **$45–$79** | Extended acceptable: **$39–$100** with explicit justification
 - Minimum score to report: **65/100**
 - Target markets: **США (основной)** + Великобритания, Германия, Канада, Австралия, Новая Зеландия
 - Product type: **generic / white-label only** — не искать branded products (NuFACE, Renpho и т.д.)
@@ -38,7 +38,7 @@ Follow `workflows/notion-update.md`.
 Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO HQ)
 
 ## Key Rules
-- START every session by reading memory/accepted-products.md AND memory/rejected-products.md — both required
+- START every session by reading memory/reported-products.md AND memory/rejected-products.md — both required
 - Apply mandatory filters BEFORE scoring — never waste tokens scoring weak products
 - No competitor ads + no organic momentum = do not include in output
 - Always output Score + Recommendation + Source for every product
@@ -47,7 +47,7 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 - A fake URL is worse than no URL — it wastes the user's time
 - Quality over quota — output 3 strong products over 5 weak ones. Never force.
 - When using WebSearch: attribute source as "WebSearch" or "WebSearch mention of [platform]" — NOT as "TikTok Ads Library" or "Meta Ads Library" unless you accessed those databases directly
-- Save every accepted product (65+) to Notion after each session
+- Save every reported product (score 65+) to Notion after each session — "reported" = scored 65+, NOT founder-approved (founder decisions tracked in memory/founder-feedback.md)
 - END every session by updating ALL 4 memory files — this is non-negotiable
 - Deep analysis only for products scoring 85+ or when explicitly requested
 

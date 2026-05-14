@@ -1,191 +1,192 @@
 # SOURCES CAPABILITY MAP
-# Что агент РЕАЛЬНО может делать с каждым источником
+# What the agent can ACTUALLY do with each source
 
-Этот файл — честная карта возможностей агента по каждому источнику.
-Читать перед каждой сессией. Обновлять после каждого нового опыта.
+Honest map of agent capabilities per source.
+Read before each session. Update after new experiences.
 
 ---
 
 ## MINEA
 
-### Что умеем
-- Логин через Playwright (headless Chromium) ✅
-- Навигация на Meta Ads Library: `https://app.minea.com/en/ads/meta-library` ✅
-- Чтение карточек объявлений как текст (`.virtuoso-grid-item`) ✅
-- Извлечение: бренд, кол-во активных реклам, impressions, store URL ✅
-- Сохранение скриншотов для отладки ✅
+### Capabilities
+- Login via Playwright (headless Chromium) ✅
+- Navigate to Meta Ads Library: `https://app.minea.com/en/ads/meta-library` ✅
+- Read ad cards as text (`.virtuoso-grid-item`) ✅
+- Extract: brand, active ad count, impressions, store URL ✅
+- Save screenshots for debugging ✅
 
-### Что НЕ умеем
-- Фильтр по категории через UI (кнопки фильтров) — ещё не реализован
-- Фильтр по гео (US) — ещё не реализован
-- Видеть сами рекламные видео — только текст карточки
-- Получать CTR, CPM, spend данные — Minea не показывает это бесплатно
-- Скроллить глубоко (сейчас только ~10 карточек в одном загрузе)
+### Limitations
+- Category filter via UI (filter buttons) — not yet implemented
+- Geo filter (US) — not yet implemented
+- Cannot view actual ad videos — text card only
+- Cannot get CTR, CPM, spend data — Minea does not expose this on free tier
+- Cannot scroll deep (currently ~10 cards per load)
 
-### Ключевые уроки (Session 2, 2026-05-13)
-- БЕЗ категориального фильтра скрапер тянет ВСЁ: украшения, одежду, еду для собак
-- 10 продуктов = 0 прошли фильтры именно по этой причине
-- URL для категории Health/Beauty нужно найти и закодировать в скрапере
-- Virtual scroll: карточки грузятся постепенно — нужен скролл для 20+ карточек
+### Key Lessons (Session 2, 2026-05-13)
+- WITHOUT a category filter, scraper pulls EVERYTHING: jewelry, clothing, dog food
+- 10 products scanned = 0 passed filters for exactly this reason
+- Health/Beauty category URL parameter needs to be found and hardcoded in scraper
+- Virtual scroll: cards load progressively — scrolling required for 20+ cards
 
-### Что нужно сделать (backlog)
-- [ ] Найти URL параметр для фильтра Health & Beauty в Minea
-- [ ] Добавить фильтр US market (country=US)
-- [ ] Увеличить скролл для загрузки 20+ карточек
-- [ ] Добавить проверку store URL на доступность перед репортом
+### Backlog
+- [ ] Find URL parameter for Health/Beauty category filter in Minea
+- [ ] Add US market filter (country=US)
+- [ ] Increase scroll depth for 20+ cards
+- [ ] Add store URL availability check before reporting
 
-### Как читать карточку Minea — ключевые поля
+### How to Read a Minea Card — Key Fields
 
 ```
-[Название бренда]
-15 active ads        ← кол-во активных реклам (ФИЛЬТР: 5-30 = sweet spot)
-/ 3.2k               ← суммарные impressions
-14d Active           ← сколько дней реклама работает без остановки
-28 Apr 2026          ← дата запуска (считаем: сколько дней назад?)
-Today                ← последняя активность
+[Brand name]
+15 active ads        ← active ad count (FILTER: 5–30 = sweet spot)
+/ 3.2k               ← total impressions
+14d Active           ← days the ad has run without stopping
+28 Apr 2026          ← launch date (calculate: how many days ago?)
+Today                ← last activity
 ```
 
-**Главное правило (от Marina, 2026-05-13):**
-> Если реклама работает 2 недели подряд — продукт КОНВЕРТИТ.
-> Никто не тратит деньги на рекламу 2 недели подряд без продаж.
-> Это доказательство рынка чужим бюджетом.
+**Marina's core rule (2026-05-13):**
+> "Если реклама работает 2 недели подряд — продукт КОНВЕРТИТ."
+> ("If an ad runs 2 weeks straight — the product CONVERTS.")
+> Nobody spends money on ads for 2 weeks without sales.
+> Active running ad = proof of market via someone else's budget.
 
-**Приоритет фильтрации:**
-1. Сначала смотрим: сколько дней активна? (≥7 дней = интересно, ≥14 = сильно)
-2. Потом: сколько активных реклам? (5-30 = sweet spot)
-3. Потом: категория (Health/Beauty/Fitness + US рынок)
-4. Потом: store URL проверить
+**Filtering priority:**
+1. First: how many days active? (≥7 days = interesting, ≥14 = strong)
+2. Then: how many active ads? (5–30 = sweet spot)
+3. Then: category (Health/Beauty/Fitness + US market)
+4. Then: verify store URL
 
-### Статус логина (2026-05-13)
-- Email: mylovee.store22@gmail.com (из .env)
-- Логин: РАБОТАЕТ ✅
-- Проблема решена: `wait_for_url` redirect detection добавлен
+### Login Status (2026-05-13)
+- Email: mylovee.store22@gmail.com (from .env)
+- Login: WORKING ✅
+- Issue resolved: `wait_for_url` redirect detection added
 
 ---
 
-## WEBSEARCH (Браузерный поиск)
+## WEBSEARCH (Browser Search)
 
-### Что умеем
-- Поиск по любому запросу — возвращает заголовки + сниппеты сайтов ✅
-- Находить статьи типа "Best products 2026", "trending TikTok 2026" ✅
-- Получать цифры: просмотры, reviews count, цены — из цитат в статьях ✅
-- Работает быстро (секунды)
+### Capabilities
+- Search any query — returns page titles + snippets ✅
+- Find articles like "Best products 2026", "trending TikTok 2026" ✅
+- Extract figures: view counts, review counts, prices from article quotes ✅
+- Fast (seconds)
 
-### Что НЕ умеем
-- Открывать TikTok, Instagram, Facebook напрямую (требуют авторизации)
-- Видеть реальные объявления в Meta/TikTok Ads Library
-- Проверять "сколько сейчас активных реклам" — только то, что написано в статьях
-- Смотреть видео
+### Limitations
+- Cannot open TikTok, Instagram, Facebook directly (require login)
+- Cannot view real ads in Meta/TikTok Ads Library
+- Cannot check "how many active ads right now" — only what articles report
+- Cannot watch videos
 
-### Честность атрибуции — КРИТИЧНО
-Когда WebSearch находит статью, которая УПОМИНАЕТ TikTok Ads Library:
-- НЕ ПИСАТЬ: "по данным TikTok Ads Library, продукт имеет X просмотров"
-- ПИСАТЬ: "WebSearch mention — статья сообщает о X просмотрах"
-Разница принципиальная: мы не были в TikTok Ads Library, мы читали чужую статью.
+### Attribution Honesty — CRITICAL
+When WebSearch finds an article that MENTIONS TikTok Ads Library:
+- DO NOT WRITE: "according to TikTok Ads Library, the product has X views"
+- WRITE: "WebSearch mention — article reports X views"
+Distinction is fundamental: we were not in TikTok Ads Library, we read someone else's article.
 
-### Хорошие поисковые паттерны (работало в Session 2)
+### Good Search Patterns (worked in Session 2)
 - `"[product] TikTok viral 2026 Facebook ads reviews Amazon"`
 - `"[brand] price Amazon reviews 2026 competitors"`
 - `"winning beauty device 2026 $49 $59 $69"`
 - `site:amazon.com [product] reviews bestseller`
 
-### Плохие поисковые паттерны (не работало)
-- Слишком общие запросы ("health product winning") — дают SEO-мусор
-- Поиск "active ads count" — эта информация не в открытом доступе
-- Запросы с "NOT saturated" — Google игнорирует NOT
+### Bad Search Patterns (did not work)
+- Too generic ("health product winning") — returns SEO junk
+- Searching "active ads count" — this data is not publicly indexed
+- Queries with "NOT saturated" — Google ignores the NOT operator
 
 ---
 
-## WEBFETCH (Открытие конкретного URL)
+## WEBFETCH (Opening a Specific URL)
 
-### Что умеем
-- Читать текст конкретной страницы (Amazon product page, brand site, review article) ✅
-- Извлекать: цена, rating, review count, key features ✅
+### Capabilities
+- Read text from a specific page (Amazon product page, brand site, review article) ✅
+- Extract: price, rating, review count, key features ✅
 
-### Что НЕ умеем
-- Amazon product pages часто дают 500 error — не работает надёжно
-- Страницы с авторизацией (TikTok, Instagram, Meta) — не открываются
-- Видео на любой странице
+### Limitations
+- Amazon product pages often return 500 error — unreliable
+- Pages requiring login (TikTok, Instagram, Meta) — will not open
+- Cannot access video content on any page
 
-### Обязательная проверка (урок из Session 2)
-ВСЕГДА проверять Store Link через WebFetch перед репортом:
-- Страница открывается? → OK
-- Ошибка/redirect на странную страницу? → WARNING, проверить вручную
-- Chrome Safe Browsing flag (опасный сайт)? → REJECT немедленно
+### Mandatory Check (lesson from Session 2)
+ALWAYS verify Store Link via WebFetch before reporting:
+- Page opens cleanly? → OK
+- Error / redirect to strange page? → WARNING, verify manually
+- Chrome Safe Browsing flag (dangerous site)? → REJECT immediately
 
 ---
 
 ## META ADS LIBRARY (facebook.com/ads/library)
 
-### Статус: НЕ ДОСТУПНА напрямую
-- Требует авторизацию Facebook
-- Playwright может теоретически логиниться, но риск блокировки аккаунта
-- Пока не реализовано
+### Status: NOT DIRECTLY ACCESSIBLE
+- Requires Facebook login
+- Playwright can theoretically log in but risks account ban
+- Not implemented
 
-### Как получать данные косвенно
-- WebSearch: `site:facebook.com/ads/library [product]` — иногда работает
-- Minea — агрегирует Meta ads (наш основной путь)
-- AdSpy, BigSpy — альтернативы (не подключены)
+### How to Get Data Indirectly
+- WebSearch: `site:facebook.com/ads/library [product]` — sometimes works
+- Minea — aggregates Meta ads (primary path)
+- AdSpy, BigSpy — alternatives (not connected)
 
 ---
 
 ## TIKTOK ADS / TIKTOK SHOP
 
-### Статус: НЕ ДОСТУПНА напрямую
-- TikTok требует авторизацию
-- TikTok Creative Center (частично открытый) — можно попробовать
+### Status: NOT DIRECTLY ACCESSIBLE
+- TikTok requires login
+- TikTok Creative Center (partially public) — worth exploring
 
-### Как получать данные косвенно
-- WebSearch: `site:tiktok.com [product]` — показывает публичные видео
-- WebSearch: `[product] TikTok views viral 2026` — статьи с цифрами
-- Минея включает TikTok ads (Business план)
+### How to Get Data Indirectly
+- WebSearch: `site:tiktok.com [product]` — shows public videos
+- WebSearch: `[product] TikTok views viral 2026` — articles with figures
+- Minea includes TikTok ads on Business plan
 
 ---
 
 ## AMAZON
 
-### Что умеем (частично)
-- WebSearch: `site:amazon.com [product] reviews bestseller` — работает ✅
-- Amazon Best Sellers страницы открываются через WebFetch (иногда)
-- Получать: review count, rating, price range, product names
+### Capabilities (partial)
+- WebSearch: `site:amazon.com [product] reviews bestseller` — works ✅
+- Amazon Best Sellers pages open via WebFetch (sometimes)
+- Can extract: review count, rating, price range, product names
 
-### Что НЕ умеем
-- Прямые product pages часто дают 500 error
-- Нет доступа к Sales Rank history
-- Нет доступа к "Bought in last month" данным
-
----
-
-## ОЦЕНКА СЕССИИ 2 (2026-05-13) — честная
-
-| Аспект | Оценка | Комментарий |
-|--------|--------|-------------|
-| Minea технически | 7/10 | Логин исправлен, данные получены. Но нет фильтра |
-| Minea данные | 2/10 | 0/10 продуктов прошли фильтры из-за отсутствия категории |
-| WebSearch поиск | 6/10 | Нашёл 2 кандидата. Один оказался с опасным сайтом |
-| Верификация URL | 3/10 | Не проверил beambo.com до репорта — ошибка |
-| Итоговые продукты | 1 одобрен (HF Wand 77) из 2 | Acceptable |
-| Время сессии | Долго | Много ушло на fix технических проблем |
+### Limitations
+- Direct product pages often return 500 error
+- No access to Sales Rank history
+- No access to "Bought in last month" data
 
 ---
 
-## ЧТО НУЖНО ДЛЯ ИДЕАЛЬНОЙ СЛЕДУЮЩЕЙ СЕССИИ
+## Session 2 Evaluation (2026-05-13) — Honest Assessment
 
-### Технические фиксы (backlog)
-1. Minea: добавить Health/Beauty категориальный фильтр в URL
-2. Minea: добавить US market фильтр
-3. Minea: увеличить скролл до 20+ карточек
-4. run_scout.sh: протестировать su-scout claude вызов end-to-end
-5. Store URL checker: WebFetch каждого найденного URL перед репортом
+| Aspect | Score | Notes |
+|--------|-------|-------|
+| Minea technical | 7/10 | Login fixed, data received. No category filter yet. |
+| Minea data quality | 2/10 | 0/10 products passed filters — no category filter |
+| WebSearch | 6/10 | Found 2 candidates. One had dangerous store URL. |
+| URL verification | 3/10 | Did not check beambo.com before reporting — error |
+| Final products | 1 approved (HF Wand 77) out of 2 | Acceptable |
+| Session duration | Long | Much time lost fixing technical issues |
 
-### Документация (что создать)
-- [ ] `config/search-patterns.md` — лучшие поисковые запросы по категориям
-- [ ] `config/url-blacklist.md` — домены с проблемами (beambo.com и др.)
-- [ ] `memory/successful-patterns.md` — что реально работало
+---
 
-### Для агентов-специалистов (будущая архитектура)
-- **Facebook Agent** — нужен Playwright логин FB, доступ к Ads Library
-- **TikTok Agent** — нужен TikTok Creative Center скрапер
-- **Minea Agent** — текущий скрапер + категориальный фильтр
-- **Discovery Agent** — WebSearch + новые источники
-- **Connector Agent** — агрегирует результаты от всех, применяет фильтры Marina
+## Requirements for an Ideal Next Session
+
+### Technical Fixes (backlog)
+1. Minea: add Health/Beauty category filter to URL
+2. Minea: add US market filter
+3. Minea: increase scroll depth to 20+ cards
+4. run_scout.sh: test su-scout claude call end-to-end
+5. Store URL checker: WebFetch every found URL before reporting
+
+### Documentation (to create)
+- [ ] `config/search-patterns.md` — best search queries by category
+- [ ] `config/url-blacklist.md` — domains with known issues (beambo.com, etc.)
+- [ ] `memory/successful-patterns.md` — what actually worked
+
+### Specialist Agents (future architecture)
+- **Facebook Agent** — Playwright FB login, Ads Library access
+- **TikTok Agent** — TikTok Creative Center scraper
+- **Minea Agent** — current scraper + category filter
+- **Discovery Agent** — WebSearch + new sources
+- **Connector Agent** — aggregates results from all agents, applies Marina's filters, sorts by score, sends to Notion

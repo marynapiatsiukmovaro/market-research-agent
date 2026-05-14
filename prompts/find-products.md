@@ -7,7 +7,7 @@ Scan today's sources and find 5 verified product candidates for MVP testing via 
 - Scalable audience, strong emotional triggers
 - Sourceable from China (general feasibility check only)
 - Strong impulse-buy capability
-- Price suitable for direct response: $39–$79
+- Price suitable for direct response: preferred $45–$79, extended $39–$100 with justification
 - Competitor ad activity on Meta/TikTok OR strong organic momentum
 - Minimum 3 creative angles identifiable
 
@@ -36,7 +36,7 @@ Do NOT invent or guess URLs. Only real, working links.
 1. Scan 15–20 candidates from primary sources (config/sources.md)
 2. Apply mandatory filters (criteria/mandatory-filters.md)
 3. Score remaining (criteria/scoring-system.md)
-4. For each of top 5: find and attach Source Link + Store Link
+4. For each qualifying product (2–5 expected): find and attach Source Link + Store Link
 5. If links missing → set "Needs Verification"
 6. Output in Scout Mode format (brain/system.md)
 7. Save each to Notion (workflows/notion-update.md)

@@ -1,6 +1,8 @@
 # FAILED PATTERNS
 
-Patterns to avoid. Update as failures accumulate.
+**Purpose: Negative calibration.** Patterns that predict product failure or founder rejection.
+These inform filter logic and scoring calibration — not founder approval status.
+Update as new failure patterns emerge.
 
 ## Marina's Hard Rejections (confirmed from real feedback)
 

@@ -67,9 +67,9 @@ Score each product that passes mandatory filters.
 ---
 
 ## Recommendation Thresholds
-- **85–100** → High Priority Winning Product
+- **85–100** → Worth Testing (exceptional — note in Notes field as top candidate)
 - **70–84** → Worth Testing
-- **55–69** → Medium Potential (proceed with caution)
-- **Below 55** → Reject
+- **55–69** → Worth Testing with caution, or Rejected if saturation / founder-taste concerns present
+- **Below 55** → Rejected
 
 Think probabilistically. Never assume certainty.

@@ -9,9 +9,9 @@
 ## Step-by-Step
 
 ### STEP 0 — Load Memory (before scanning anything)
-Read `memory/accepted-products.md` and `memory/rejected-products.md`.
+Read `memory/reported-products.md` and `memory/rejected-products.md`.
 - Note all product names and categories already found
-- Do NOT report any product already in accepted-products.md
+- Do NOT report any product already in reported-products.md
 - Use rejected-products.md patterns to skip similar weak products faster
 - This step prevents duplicates across sessions
 
@@ -53,11 +53,19 @@ For each candidate scoring 65+:
 
 ### STEP 7 — Save to Notion
 - Follow `workflows/notion-update.md`
-- One Notion entry per accepted product
+- One Notion entry per reported product (score 65+)
+- Set Recommendation: Worth Testing / Needs Verification / Rejected
+- Set Competitor Signal: None / Testing / Scaling / Saturated / Legacy Winner
+- Set Source: standardized value only (Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Minea / Web Search / AliExpress / Alibaba)
+- Set Discovery Keyword: exact search query used to find this product
+- Fill Notes: short risk flags or observations (1 sentence each, no analysis)
+- Fill Rejection Reason only when Founder Review = Rejected (not just Recommendation = Rejected)
+- Leave Founder Review blank — Marina sets this manually, never the agent
+- Leave Founder Notes blank — Marina's field only
 
 ### STEP 8 — End-of-Session Checklist (mandatory, do not skip)
 
-**1. Save accepted products** → `memory/accepted-products.md`
+**1. Save reported products** → `memory/reported-products.md`
 - Add one row per reported product: Date, Product, Category, Score, Key Hook, Source
 
 **2. Save notable rejections** → `memory/rejected-products.md`
@@ -78,7 +86,7 @@ For each candidate scoring 65+:
 - Include product count, top scorer, and any notable patterns
 
 **6. Prevent duplicates in next session**
-- Confirm accepted-products.md is updated before closing
+- Confirm reported-products.md is updated before closing
 - Next session STEP 0 will read this file — it must be current
 
 Memory update is not optional. It is what makes the agent smarter over time.

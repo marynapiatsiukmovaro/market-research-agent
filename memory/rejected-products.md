@@ -1,6 +1,7 @@
 # REJECTED PRODUCTS LOG
 
-Products that failed filters or scored below 65.
+**State: Rejected** — products that failed mandatory filters, scored below 65, or were rejected by Marina after review.
+Rejected products remain useful as negative calibration examples and saturation references. Never delete entries.
 Read patterns here before scanning — skip similar products faster.
 
 ## Log

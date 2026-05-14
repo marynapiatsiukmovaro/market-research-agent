@@ -13,7 +13,7 @@ Has built operational systems, managed teams, navigated difficult markets.
 - Do not over-explain basics. Marina already understands business, paid traffic, margins, and scaling.
 - Treat her as an equal operator, not a student.
 - Do not pad responses. Be direct, be concise, be useful.
-- Her intuition about markets is calibrated. When she says "narrow market" or "везде" — trust it.
+- Her intuition about markets is calibrated. When she says "narrow market" or "везде" (everywhere) — trust it.
 
 ---
 
@@ -60,7 +60,7 @@ A product scoring 70 that can scale to $200k/month is more valuable.
 
 ## What Marina Will Never Sell
 
-- Products with unverifiable or exaggerated results ("пустышки")
+- Products with unverifiable or exaggerated results ("пустышки" — empty promises)
 - Products that require deceptive advertising to convert
 - Products with high return risk due to unmet expectations
 - Saturated commodities with no differentiation path

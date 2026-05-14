@@ -1,11 +1,12 @@
 # FOUNDER FEEDBACK LOG
 
-Marina's direct feedback on found products. This is the primary calibration source.
-Read alongside founder-taste.md. Founder feedback overrides raw scoring.
+**Source of Truth for: Founder Review decisions (Approved / Consider / Rejected) and calibration rules.**
+Marina's direct feedback on reported products. Founder feedback overrides raw agent scoring.
+Read alongside `memory/founder-taste.md` before scoring any session.
 
 ---
 
-## Approved — Marina said YES (Зелёный в Notion)
+## Approved — Marina said YES (Green in Notion)
 
 | Date | Product | Score | Why it worked | Signal to keep |
 |------|---------|-------|---------------|----------------|
@@ -15,9 +16,9 @@ Read alongside founder-taste.md. Founder feedback overrides raw scoring.
 
 ---
 
-| 2026-05-13 | High-Frequency Facial Wand | 77 | "Понимаю принцип, вижу как можно показать" — понятный контент-угол, одобрено. | Видимый результат (акне) + понятная демонстрация = YES. |
+| 2026-05-13 | High-Frequency Facial Wand | 77 | "Понимаю принцип, вижу как можно показать" ("I get the principle, I can see how to show it") — clear content angle, approved. | Visible result (acne) + clear demo angle = YES. |
 
-## Maybe — Marina is not sure (Жёлтый в Notion)
+## Consider — Marina is not sure (Yellow in Notion)
 
 | Date | Product | Score | Concern | What would tip it to YES |
 |------|---------|-------|---------|--------------------------|
@@ -26,37 +27,37 @@ Read alongside founder-taste.md. Founder feedback overrides raw scoring.
 
 ---
 
-## Rejected — Marina said NO (Красный в Notion)
+## Rejected — Marina said NO (Red in Notion)
 
 | Date | Product | Score | Marina's reason | Critical lesson |
 |------|---------|-------|-----------------|-----------------|
-| 2026-05-13 | Air Compression Leg Massager | 75 | "Узкий рынок" — narrow market despite 4 audiences | Marina's market read can override multi-audience scoring. Trust founder intuition. |
-| 2026-05-13 | Microcurrent Face Lifting Device | 74 | "Везде, не вызывает вау-эффекта" — everywhere, no wow | Везде = auto-reject regardless of score |
-| 2026-05-13 | LED Light Therapy Wand 7 Colors | 78 | "Везде, не вызывает вау" — everywhere | Even score 78 rejected if product feels commodity |
-| 2026-05-13 | Electric Lymphatic Drainage Massager | 75 | "Рынок уже создан" — need to enter at the START of a trend, not after | Market timing is #1 priority. Late entry = expensive ads. |
-| 2026-05-13 | Shiatsu Neck Massager Pillow | 71 | "Перегретый рынок" — overheated market | Confirms: 71 + HIGH saturation = always reject |
-| 2026-05-13 | Red Light Laser Hair Cap | 80 | "Недоказуемый результат — не хочу продавать пустышки" | CRITICAL: Marina will NOT sell products with unverifiable results. No "maybe it works." |
-| 2026-05-13 | Red Light Therapy Wearable Body Belt | 78 | "Рынок перегрет" — even score 78 rejected | Score 78 means nothing if market is already saturated |
-| 2026-05-13 | Wireless TENS Pain Relief Patch | 71 | "Слишком долго объяснять" — customer needs too much education | Complex mechanism = auto-reject for cold traffic |
-| 2026-05-13 | Ultrasonic Skin Scrubber Spatula | 71 | "Старый товар, нет вау-эффекта" — old product, no wow | Old category = automatic rejection |
+| 2026-05-13 | Air Compression Leg Massager | 75 | Narrow market despite 4 audiences | Marina's market read can override multi-audience scoring. Trust founder intuition. |
+| 2026-05-13 | Microcurrent Face Lifting Device | 74 | Everywhere, no wow | "Везде" = auto-reject regardless of score |
+| 2026-05-13 | LED Light Therapy Wand 7 Colors | 78 | Everywhere, no wow | Even score 78 rejected if product feels commodity |
+| 2026-05-13 | Electric Lymphatic Drainage Massager | 75 | Market already created — enter at the START of a trend, not after | Market timing is #1 priority. Late entry = expensive ads. |
+| 2026-05-13 | Shiatsu Neck Massager Pillow | 71 | Overheated market | Confirms: 71 + HIGH saturation = always reject |
+| 2026-05-13 | Red Light Laser Hair Cap | 80 | "Недоказуемый результат — не хочу продавать пустышки" ("Unverifiable result — I won't sell empty promises") | CRITICAL: Marina will NOT sell products with unverifiable results. No "maybe it works." |
+| 2026-05-13 | Red Light Therapy Wearable Body Belt | 78 | Overheated market — even score 78 rejected | Score 78 means nothing if market is already saturated |
+| 2026-05-13 | Wireless TENS Pain Relief Patch | 71 | Customer needs too much education | Complex mechanism = auto-reject for cold traffic |
+| 2026-05-13 | Ultrasonic Skin Scrubber Spatula | 71 | Old product, no wow | Old category = automatic rejection |
 
 ---
 
 ## Critical Calibration Rules (derived from feedback above)
 
-### Rule 1: "Пустышки" rule (HARDEST RULE)
+### Rule 1: "Пустышки" (Empty Promises) Rule — HARDEST RULE
 Marina will not sell products with unproven, unverifiable, or vague results.
 The result must be: visible, demonstrable, fast, and real.
-→ Red Light Hair Cap rejected at score 80 because "недоказуемый результат"
+→ Red Light Hair Cap rejected at score 80 because of unverifiable result ("недоказуемый результат")
 → Apply before scoring: if result cannot be shown clearly on camera, reject early.
 
 ### Rule 2: Market timing is the #1 filter
 Marina needs to enter a market BEFORE it's fully created, not after.
-→ Lymphatic massager rejected: "рынок уже создан, нужно заходить на старте"
+→ Lymphatic massager rejected: market already created, must enter at the start ("рынок уже создан, нужно заходить на старте")
 → When Minea/Facebook data shows a product has 100+ active ads: likely too late
-→ Sweet spot: 5-30 active ads = growing but not saturated
+→ Sweet spot: 5–30 active ads = growing but not saturated
 
-### Rule 3: "Везде" = instant reject
+### Rule 3: "Везде" (Everywhere) = instant reject
 If Marina has seen the product widely (on Instagram, Facebook, in stores):
 → Auto-reject regardless of score
 → LED Wand (78), Microcurrent (74) both rejected on this basis
@@ -69,7 +70,7 @@ A product with Apple-like minimal design has an advantage over functional-but-ug
 
 ### Rule 5: Explanation complexity = cold traffic death
 If a customer needs more than 15 seconds to understand why they want it → reject.
-→ TENS patch rejected: "слишком долго объяснять"
+→ TENS patch rejected: too much explanation needed ("слишком долго объяснять")
 → Mandatory filter candidate: "Can the hook be communicated in 3 seconds without text?"
 
 ### Rule 6: Founder intuition on market size can override scoring
@@ -80,6 +81,14 @@ If a customer needs more than 15 seconds to understand why they want it → reje
 ---
 
 ## How to Update
-After each session, Marina reviews products and gives YES / Maybe / NO.
+After each session, Marina reviews products and gives YES / Consider / NO.
 Record the exact reason — it becomes a calibration rule.
 This file is the most important memory in the system.
+
+---
+
+## File Role in Product State Architecture
+- This file tracks **Founder Review** decisions only.
+- "Reported" state is tracked in `memory/reported-products.md`.
+- Calibration patterns are distilled into `memory/founder-taste.md` and `memory/successful-patterns.md`.
+- Agent never writes to Approved/Consider/Rejected sections without Marina's explicit decision.
