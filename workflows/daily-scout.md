@@ -9,11 +9,10 @@
 ## Step-by-Step
 
 ### STEP 0 — Load Memory (before scanning anything)
-Read `memory/reported-products.md` and `memory/rejected-products.md`.
-- Note all product names and categories already found
-- Do NOT report any product already in reported-products.md
-- Use rejected-products.md patterns to skip similar weak products faster
-- This step prevents duplicates across sessions
+Read these files BEFORE scanning anything:
+1. `memory/reported-products.md` — do NOT report any product already logged here
+2. `memory/rejected-products.md` — use patterns to skip similar weak products faster
+3. `memory/session-learnings.md` — apply active temporary guidance; if a Current Focus is set, it overrides default source priority for this session
 
 ### STEP 1 — Scan Sources (15–20 candidates)
 - TikTok Ads Library: search trending categories
@@ -81,13 +80,41 @@ For each candidate scoring 65+:
 - Any product missing real source links → set Verification to "Needs Verification ⚠️"
 - Do not leave blank link fields — write "Not found" explicitly
 
-**5. Save session report**
+**5. Run Learning Protocol**
+
+Append to `memory/session-learnings.md` if any of these were observed:
+- new keyword behavior (what yielded products vs noise)
+- new ad signal pattern (entry window, ad count sweet spot, duration)
+- search path that consistently failed or worked
+- product category signal worth tracking next session
+
+Append to `memory/proposed-core-updates.md` if a learning was confirmed in 2+ sessions and may deserve permanent status.
+
+NEVER edit existing entries in either file. NEVER modify brain/, criteria/, or config/ files.
+
+**6. Save session report**
 - Save output to `outputs/daily-reports/YYYY-MM-DD.md`
 - Include product count, top scorer, and any notable patterns
 
-**6. Prevent duplicates in next session**
+**7. Prevent duplicates in next session**
 - Confirm reported-products.md is updated before closing
 - Next session STEP 0 will read this file — it must be current
+
+**8. Deliver Session Learning Report** (add after Session Status block)
+
+```
+---
+## SESSION LEARNING REPORT
+
+New product findings: [X products scored 65+ / none]
+Repeated patterns: [pattern if seen 2+ times this session, or "none"]
+Failed search paths: [keyword or source that yielded nothing useful, or "none"]
+Potential new rules: [hypothesis worth testing next session, or "none"]
+
+Added to session-learnings.md: [item titles] / Nothing added
+Added to proposed-core-updates.md: [item titles] / Nothing added
+Waiting for founder review: [items needing Marina's decision] / None
+```
 
 Memory update is not optional. It is what makes the agent smarter over time.
 

@@ -17,6 +17,7 @@ Read these files before doing any work:
 9. `memory/founder-goals.md` — who Marina is, what she's building, winner product definition
 10. `config/sources.md` — where to search for candidates
 11. `config/session-health-rules.md` — monitor session quality, self-report degradation
+12. `memory/session-learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
@@ -48,8 +49,10 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 - Quality over quota — output 3 strong products over 5 weak ones. Never force.
 - When using WebSearch: attribute source as "WebSearch" or "WebSearch mention of [platform]" — NOT as "TikTok Ads Library" or "Meta Ads Library" unless you accessed those databases directly
 - Save every reported product (score 65+) to Notion after each session — "reported" = scored 65+, NOT founder-approved (founder decisions tracked in memory/founder-feedback.md)
-- END every session by updating ALL 4 memory files — this is non-negotiable
+- END every session by running the full Learning Protocol in workflows/daily-scout.md STEP 8 — this is non-negotiable
 - Deep analysis only for products scoring 85+ or when explicitly requested
+- Agent MAY append new entries to memory/session-learnings.md and memory/proposed-core-updates.md after a session — never edit or delete existing entries
+- Agent must NEVER modify brain/, criteria/, or config/ files during a scout session — core rules only change when Marina explicitly instructs it
 
 ## File Map
 ```
