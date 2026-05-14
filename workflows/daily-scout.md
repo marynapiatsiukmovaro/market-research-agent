@@ -88,7 +88,7 @@ Append to `memory/session-learnings.md` if any of these were observed:
 - search path that consistently failed or worked
 - product category signal worth tracking next session
 
-Append to `memory/proposed-core-updates.md` if a learning was confirmed in 2+ sessions and may deserve permanent status.
+Append to `memory/proposed-core-updates.md` only if a learning was confirmed across **3 sessions** OR explicitly approved by Marina — never after one session alone.
 
 NEVER edit existing entries in either file. NEVER modify brain/, criteria/, or config/ files.
 
@@ -106,14 +106,29 @@ NEVER edit existing entries in either file. NEVER modify brain/, criteria/, or c
 ---
 ## SESSION LEARNING REPORT
 
-New product findings: [X products scored 65+ / none]
-Repeated patterns: [pattern if seen 2+ times this session, or "none"]
-Failed search paths: [keyword or source that yielded nothing useful, or "none"]
-Potential new rules: [hypothesis worth testing next session, or "none"]
+Products found: [X scored 65+] | Strongest signal: [product + key reason]
+False positives: [products that looked strong but failed + why] / None
+Repeated patterns: [pattern seen 2+ times this session] / None
 
-Added to session-learnings.md: [item titles] / Nothing added
-Added to proposed-core-updates.md: [item titles] / Nothing added
-Waiting for founder review: [items needing Marina's decision] / None
+### A. Product Intelligence
+- Saturation: [market saturation signals found]
+- Pricing: [price range observations]
+- Hooks: [creative / hook patterns that appeared]
+- Market proof: [premium brands, ad duration, review velocity]
+- Rejection reasons: [non-obvious failure patterns]
+
+### B. Discovery Intelligence
+- Keywords that worked: [specific queries that yielded real products]
+- Keywords that failed: [queries → noise / affiliates / wrong category]
+- Filters that helped: [ad duration, country, media type, date range]
+- Search paths to repeat next session:
+- Search paths to abandon:
+- Launch-stage signals seen: [ad behavior patterns = new entrant]
+
+Failed paths summary: [1 sentence] / None
+Proposed core updates: [items added to proposed-core-updates.md] / None
+Founder review needed: [items requiring Marina's decision] / None
+Test next session: [specific keyword / angle / category to explore]
 ```
 
 Memory update is not optional. It is what makes the agent smarter over time.
