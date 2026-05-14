@@ -43,40 +43,16 @@ Read alongside `memory/founder-taste.md` before scoring any session.
 
 ---
 
-## Critical Calibration Rules (derived from feedback above)
+## Critical Calibration Rules
 
-### Rule 1: "Пустышки" (Empty Promises) Rule — HARDEST RULE
-Marina will not sell products with unproven, unverifiable, or vague results.
-The result must be: visible, demonstrable, fast, and real.
-→ Red Light Hair Cap rejected at score 80 because of unverifiable result ("недоказуемый результат")
-→ Apply before scoring: if result cannot be shown clearly on camera, reject early.
-
-### Rule 2: Market timing is the #1 filter
-Marina needs to enter a market BEFORE it's fully created, not after.
-→ Lymphatic massager rejected: market already created, must enter at the start ("рынок уже создан, нужно заходить на старте")
-→ When Minea/Facebook data shows a product has 100+ active ads: likely too late
-→ Sweet spot: 5–30 active ads = growing but not saturated
-
-### Rule 3: "Везде" (Everywhere) = instant reject
-If Marina has seen the product widely (on Instagram, Facebook, in stores):
-→ Auto-reject regardless of score
-→ LED Wand (78), Microcurrent (74) both rejected on this basis
-→ Agent must ask: "Is this product visible everywhere already?"
-
-### Rule 4: Design matters, not just function
-A product with Apple-like minimal design has an advantage over functional-but-ugly alternatives.
-→ Smart Posture Sensor approved specifically because of aesthetics
-→ When two similar products exist: recommend the one with better visual design
-
-### Rule 5: Explanation complexity = cold traffic death
-If a customer needs more than 15 seconds to understand why they want it → reject.
-→ TENS patch rejected: too much explanation needed ("слишком долго объяснять")
-→ Mandatory filter candidate: "Can the hook be communicated in 3 seconds without text?"
-
-### Rule 6: Founder intuition on market size can override scoring
-→ Air Compression Leg Massager scored 75 with 4 audiences, rejected as "narrow market"
-→ Marina has real market experience — her intuition on addressable market is calibrated
-→ If she says narrow, trust it even if data suggests broad
+| Rule | Trigger | Action | Example |
+|------|---------|--------|---------|
+| **Пустышки** (hardest) | Unverifiable result | Reject BEFORE scoring | Red Light Hair Cap (80): "недоказуемый результат" |
+| **Market Timing** | 100+ active ads = too late | Sweet spot: 5–30 active ads | Lymphatic massager: "рынок уже создан, нужно заходить на старте" |
+| **Везде** | Marina has seen it widely | Auto-reject regardless of score | LED Wand (78), Microcurrent (74) |
+| **Design** | Apple-like minimal aesthetic differentiates | Prefer better-designed version | Smart Posture Sensor approved for aesthetics |
+| **15-Second Rule** | Hook needs >15s to land | Cold traffic death → reject | TENS patch: "слишком долго объяснять" |
+| **Founder Intuition** | Marina says "narrow market" | Trust it over data | Air Compression (75, 4 audiences) |
 
 ---
 

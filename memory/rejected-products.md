@@ -27,34 +27,16 @@ Read patterns here before scanning — skip similar products faster.
 | 2026-05-12 | Press-on Nails (premium sets) | Beauty | Price too low for paid traffic, high return risk (color match) | filtered |
 | 2026-05-12 | Vibrating Foam Roller | Fitness | Price $80+ for quality version — above $79 threshold | filtered |
 
-## Rejection Pattern Summary (update as patterns emerge)
+## Rejection Pattern Summary
 
-### Price failures (most common)
-- Anything priced $15-35 fails paid traffic math automatically
-- "Premium" versions of basic products ($80+) fail cold traffic requirement
-- Price sweet spot $39-79 is narrow — most generic products fall outside it
-
-### Policy risk (Meta/TikTok)
-- EMS / electrical muscle stimulation — high ban risk on Meta
-- Medical claims (cellulite reduction, fat loss) — requires careful copy, major risk
-- LED full-face masks with medical claims — policy grey area
-
-### Saturation failures
-- Basic fitness accessories (resistance bands, hand grippers, foam rollers) — extreme commodity
-- Generic home gadgets (humidifiers, projectors) — no differentiator possible
-- Standard skincare (serums, gua sha, rollers) — oversaturated, price too low
-
-### Weak hook failures
-- Products that need >10 seconds to explain the value
-- Products that look identical to 50 other Amazon listings
-- Single creative angle products — will fatigue within 2 weeks
+Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk** (EMS, medical claims, LED full-face) · **saturation/hooks** → see `memory/failed-patterns.md` for full pattern library.
 
 ### Keyword strategy failures (Session 3, 2026-05-13)
-- Broad emotional trigger phrases ("struggling with", "tired of", "finally") → attract SERVICES, apps, supplements — NOT physical products
+- Broad emotional phrases ("struggling with", "tired of", "finally") → attract SERVICES, apps, supplements — NOT physical products
 - "Travel organizer" → 80% Amazon affiliate accounts, not direct brands
 - "Kitchen gadget" → mostly affiliates + products outside price range ($15-25 or $150+)
 - Better keywords: category-specific ("travel pillow", "car organizer") yield direct brand advertisers
-- Premium brand signal: many travel brands have products $100-500 — validates category but fails price filter
+- Premium brand signal: travel brands at $100-500 validates category but fails price filter
 
 | 2026-05-13 | Minea Meta Ads batch (10 products) | Mixed | No category/geo filter in scraper — pulled global ads (jewelry, clothing, pet food, socks) | filtered |
 | 2026-05-13 | SAEGE jewelry | Accessories | £15-45 jewelry — wrong category + below price floor | filtered |

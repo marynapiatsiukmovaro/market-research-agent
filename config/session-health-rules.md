@@ -1,60 +1,35 @@
 # SESSION HEALTH RULES
 
-The agent must monitor its own reasoning quality throughout the session.
-Silent execution is not acceptable — proactive communication is required.
+## Degradation Signals
 
----
+If 2+ of these are true, session is degrading:
+- Products in last 3 searches are weaker than first 3
+- Scoring feels uncertain — hard to differentiate scores
+- Same product types keep appearing (repetitive discovery)
+- Source quality dropping (less direct links, more generic mentions)
+- Confidence on recent products is Low
+- Context has many partial conclusions or contradictions
 
-## Degradation Signals (watch for these)
+## When Degrading — Notify Marina Immediately
 
-If 2+ of the following are true, the session is degrading:
+> "⚠️ Session health warning: I'm noticing [X]. Recommendation: [option]"
 
-- Products found in the last 3 searches are weaker than the first 3
-- Scoring feels uncertain — hard to differentiate between 68 and 74
-- The same product types keep appearing (repetitive discovery)
-- Source quality is dropping (less direct links, more generic mentions)
-- Confidence level on recent products is Low
-- Context contains many partial conclusions and contradictions
-- Output summaries are getting longer and less clear
-
----
-
-## What to Do When Degradation Is Detected
-
-**Immediately notify Marina:**
-
-> "⚠️ Session health warning: I'm noticing [X]. Current results may be less reliable.
-> Recommendation: [option below]"
-
-**Options to recommend:**
+Options:
 1. **Wrap up and save** — stop scanning, save what's found, close session cleanly
-2. **Summarize and continue fresh** — compact current findings, reload core files, restart scan
-3. **End session now** — if degradation is severe, stop immediately and note in report
+2. **Compact and continue** — save findings, reload core files, restart scan
+3. **End session now** — if degradation is severe
 
-**Never:**
-- Continue scanning weak products silently to fill the quota
-- Lower the quality bar to appear productive
-- Pretend confidence that doesn't exist
-
----
+Never: continue scanning weak products silently / lower the quality bar / pretend confidence
 
 ## Self-Reporting Rule
 
-Proactively communicate at any point in the session:
+Communicate proactively at any point in the session:
+- "Scanned 18 candidates, only 1 passes filters — continue or wrap up?"
+- "Last 3 products are 71–73 range with warnings. Quality declining. Recommend ending."
 
-- "I've scanned 18 candidates, only 1 passes filters so far — should I continue or wrap up?"
-- "My last 3 products are all 71–73 range with warnings. Quality is declining. Recommend ending session."
-- "Context is getting long. Recommending I save current findings and start fresh next session."
-- "I found only 1 strong product today. Quality over quota — reporting 1, not padding with weak ones."
+Goal: collaborative optimization, not silent execution. Marina should always know what's happening.
 
-The goal is **collaborative optimization, not silent execution.**
-Marina should always know what's happening and why.
-
----
-
-## Session Status Output (mandatory at end of each session)
-
-Add this block at the very end of every scout report:
+## Session Status Output (mandatory at end of every scout report)
 
 ```
 ---
@@ -74,34 +49,22 @@ Recommendation for next session:
 - [ ] Prioritize: [category or product type showing strong signals today]
 ```
 
----
+## Keyword Quality Rule
 
-## Keyword Quality Rule (added 2026-05-13)
+After Round 1 results, check keyword quality before Round 2:
 
-After Round 1 results arrive, check keyword quality before launching Round 2:
-
-**Abort a keyword if:**
-- 70%+ of results are services, apps, supplements, or educational programs
-- 50%+ of results are Amazon affiliate accounts (advertiser name contains "with Amazon")
-- 0 physical products found after scanning 25 ads
+**Abort a keyword if:** 70%+ results are services/apps/supplements, 50%+ Amazon affiliates, or 0 physical products in 25 ads.
 
 **Replace with a more specific keyword:**
-- Broad emotional ("struggling with") → replace with product-level ("neck pain relief pad")
-- Generic category ("kitchen gadget") → replace with specific feature ("vegetable chopper", "food sealer")
-- Report to Marina: "Keyword X yielded 0 physical products — replacing with Y for Round 2"
+- Broad emotional ("struggling with") → product-level ("neck pain relief pad")
+- Generic category ("kitchen gadget") → specific feature ("vegetable chopper", "food sealer")
 
-**Never run 3 rounds with same keyword quality just to fill the session quota.**
+Report to Marina: "Keyword X yielded 0 physical products — replacing with Y for Round 2"
 
----
+Never run 3 rounds with same keyword quality to fill the session quota.
 
-## Context Management Rule
+## Context Management
 
-One scout session = one clear task.
-If a session starts covering multiple tasks (setup + scouting + memory update + Notion + debugging) — quality drops.
+One scout session = one task type. If session covers multiple tasks (scouting + memory update + Notion + debugging) — quality drops.
 
-Best practice: one session per task type.
-- Scout session: find products only
-- Memory session: update memory files only
-- Validation session: deep-dive on specific product
-
-If session becomes overloaded → flag it and recommend splitting.
+Best practice: one task per session (scout / memory update / validation). Flag and recommend splitting if overloaded.
