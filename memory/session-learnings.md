@@ -57,6 +57,33 @@ This focus applies until Marina says otherwise or 7 sessions complete.
 **Applies to:** Pets vertical future sessions
 **Expires after:** Session 11 or founder-approved
 
+### [2026-05-14] Session 4 — Category Price Map (быстрая справка)
+**Type:** Pattern
+**Severity:** HIGH (предотвращает потерянные раунды)
+**Confidence:** HIGH (подтверждено 5 раундами, 120+ кандидатов)
+**Evidence count:** Session 4 — multiple categories verified
+**Observation:** Быстрая справка по ценовым диапазонам вертикалей. Проверяй ДО запуска раунда.
+
+❌ Обычно $15-35 — НЕ исследовать (не дотягивают до $39):
+- Pet accessories (brushes, hair removers, basic toys)
+- Car organizers, seat gap fillers, basic holders
+- Kitchen choppers, peelers, basic gadgets
+- Home organizers, drawer dividers
+- Basic compression wear (socks, basic sleeves)
+- Reusable bags, silicone products
+
+✅ Обычно $39+ — исследовать:
+- Pet tech (water fountains, auto feeders, cameras, GPS trackers)
+- Kitchen appliances (blenders, steamers, electric cookers)
+- Beauty devices (powered: sonic cleansers, LED, microcurrent)
+- Car tech (dash cams, wireless charging mounts, air purifiers)
+- Health devices (massagers, posture sensors, TENS)
+- Sleep tech (sunrise alarms, cooling pads, smart masks)
+- Home appliances (steam mops, robot vacuums)
+
+**Applies to:** Keyword selection перед каждым раундом
+**Expires after:** Session 11 или founder-promoted
+
 ### [2026-05-14] Session 4 — Wide Exploration Strategy Note
 **Type:** Tactical
 **Severity:** LOW
