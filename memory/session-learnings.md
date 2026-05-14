@@ -93,6 +93,79 @@ This focus applies until Marina says otherwise or 7 sessions complete.
 **Applies to:** All future wide exploration rounds
 **Expires after:** Session 11
 
+### [2026-05-14] Session 5 — Pet Tech Price Ceiling Relaxation (Founder Calibration)
+**Type:** Pattern
+**Severity:** HIGH (affects scoring and rejection logic)
+**Confidence:** HIGH (founder-explicit instruction)
+**Evidence count:** Marina confirmed mid-session 5
+**Observation:** The $79 hard ceiling does NOT apply rigidly in Pet Tech. Marina accepts up to ~$120 AOV if: visual demo exceptionally strong, emotional attachment high (pet owners), premium DTC positioning viable, Meta economics still viable. Pet owners tolerate higher AOV than most verticals. Evaluate case-by-case rather than hard-reject at $80+.
+**Applies to:** Pet vertical product scoring and rejection
+**Expires after:** Session 12 or founder-promoted
+
+### [2026-05-14] Session 5 — Pet Tech Structural Constraints Map
+**Type:** Pattern
+**Severity:** HIGH (prevents wasted rounds)
+**Confidence:** HIGH (confirmed across 4 exploration cycles, 20+ brands reviewed)
+**Evidence count:** Session 5 — entire vertical scan
+**Observation:** Pet Tech вертикаль имеет жёсткие структурные ограничения. Большинство sub-categories либо subscription-dependent, либо Amazon-dominated, либо за пределами ценового диапазона. Только 2 sub-categories рабочие для нашей DTC модели (см. ниже). Это важно знать ДО входа в вертикаль.
+
+МЁРТВЫЕ SUB-CATEGORIES (не исследовать снова без нового сигнала):
+- Dog/Cat GPS tracker → legacy brands (Tractive, Fi, Garmin) + subscription = DEAD
+- Pet camera / treat dispenser → Furbo/Petcube legacy + subscription = DEAD
+- Cat calming (pheromone) → price floor $15-30 = DEAD
+- Pet activity tracker / smart collar → subscription model + established (Maven, FitBark) = DEAD
+- Automatic cat feeder (basic) → Amazon-dominated (Petlibro, Oneisall) = DEAD для DTC FB play
+- Automatic cat feeder (camera/wifi) → $95-138 выше ceiling = DEAD
+- Pet grooming vacuum → $84-200 выше ceiling = DEAD (Neakasa, Bissell, etc.)
+- Interactive / automatic laser cat toy → price floor $25-35 = DEAD
+- Automatic dog ball launcher → iFetch/Hyper Pet legacy = SATURATED
+- Self-cleaning litter box → $149-500+ = DEAD (PetPivot $179, Litter-Robot $500)
+
+ЖИВЫЕ SUB-CATEGORIES (worth exploring):
+- Wireless stainless steel cat/dog water fountain → $39-79 ✅, KittySpout validated (session 4), dog segment unexplored
+- Pet nail grinder → "validated mechanism, commoditized execution" (см. отдельный learning)
+
+ПОТЕНЦИАЛЬНО ЖИВЫЕ (требуют проверки с relaxed ceiling):
+- Smart automatic feeder with unique mechanism at $79-99 → if visual demo exceptional
+- Mid-range self-cleaning litter box $79-119 → none confirmed yet, worth one targeted round
+
+**Applies to:** Pet vertical sessions — ключевики, раунды, отбор
+**Expires after:** Session 12
+
+### [2026-05-14] Session 5 — Pet Nail Grinder: Validated Mechanism, Commoditized Execution
+**Type:** Pattern
+**Severity:** MEDIUM
+**Confidence:** MEDIUM (indirect signals: confirmed paid ads, 3+ Amazon clones, 2239 reviews)
+**Evidence count:** Heusom brand + 3 Amazon clone sellers (Ayland, Tasunte) + YouTube counterfeit review
+**Observation:** "Silent Groom Pro" quiet pet nail grinder = рабочий психологический механизм (guilt + stress relief, visual before/after calm pet). Активная платная реклама подтверждена косвенно ("kept seeing flashy ads"). Но продукт commoditized: тот же generic grinder на Amazon за $20-39, на AliExpress ещё дешевле. Без сильного бренда и ценового позиционирования не выживет на холодном трафике. Статус: НЕ репортить как winner, НЕ reject — зафиксировать как подтверждённый механизм. Может стать viable если найти DTC бренд с сильным creativeным позиционированием и ценой $49-59.
+**Applies to:** Pet grooming tech sub-category
+**Expires after:** Session 12
+
+### [2026-05-14] Session 5 — Dog Water Fountain: Unresolved Hypothesis
+**Type:** Signal
+**Severity:** MEDIUM
+**Confidence:** LOW (1 indirect signal — Bella&Pal + category logic)
+**Evidence count:** Bella&Pal (established 2021) sells wireless stainless dog fountain; category review articles exist
+**Observation:** Беспроводные stainless steel фонтаны для собак — прямое расширение KittySpout категории (cat fountain, score 77, session 4). Категория существует ($39-59 price range), но свежих DTC брендов с FB рекламой не найдено в сессии 5. Bella&Pal (2021) подтвердила категорию, но слишком established. Следует проверить в следующей сессии: Wag Wells, Voluas, Smartoo — есть ли среди них DTC FB play 2024-2025.
+**Applies to:** Pet vertical — dog water fountain keyword
+**Expires after:** Session 12
+
+### [2026-05-14] Session 5 — Dead Keywords (Pet Tech Specific)
+**Type:** Warning
+**Severity:** HIGH
+**Confidence:** HIGH
+**Evidence count:** Session 5 — confirmed across multiple searches
+**Observation:** Следующие ключевики для Pet Tech дают noise, legacy brands или price floor fails — не использовать:
+- "dog GPS tracker" → Tractive/Fi/Garmin только
+- "pet camera" → Furbo/Petcube только
+- "cat calming" → pheromone products $15-30
+- "pet activity tracker" → subscription model
+- "cat grooming vacuum" / "pet grooming vacuum" → $84-200
+- "automatic laser cat toy" → $25-35
+- "automatic dog ball launcher" → iFetch/Hyper Pet legacy
+**Applies to:** Pet Tech keyword selection
+**Expires after:** Session 12
+
 ---
 
 ## Expired / Promoted

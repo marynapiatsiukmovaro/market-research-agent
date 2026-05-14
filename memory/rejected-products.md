@@ -67,6 +67,28 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 | 2026-05-14 | Steam And Go 10-in-1 ($99.99) | Cleaning | Bulky logistics + Tineco/Shark/Bissell dominate category; borderline score ~69 | 69 |
 | 2026-05-14 | Flown/Numoya GoBrush PRO ($59) | Beauty | Hair dryer brush category crowded (Dyson, Revlon, L'ange, RevAir all active); ~68 | 68 |
 
+| 2026-05-14 | Interactive / automatic laser cat toy (PawsPik, Potaroma) | Pet | Price floor fail: $29.99 — entire sub-category $25-35 | filtered |
+| 2026-05-14 | Pet grooming vacuum (Neakasa P2 Pro) | Pet | $84-200 — above ceiling even with Pet Tech relaxation | filtered |
+| 2026-05-14 | Automatic dog ball launcher (iFetch, Hyper Pet) | Pet | Legacy brands dominate; iFetch 10+ years in market — SATURATED | filtered |
+| 2026-05-14 | PetPivot self-cleaning litter box | Pet | $179 — above ceiling; also on Amazon + Walmart (not DTC-native) | filtered |
+| 2026-05-14 | Sphinx Cat Feeder | Pet | Kickstarter only — product not shipped, no white-label sourcing possible | filtered |
+| 2026-05-14 | BistroCat automatic feeder | Pet | $95 + food subscription — above ceiling + subscription model | filtered |
+| 2026-05-14 | Penthouse Paws Smart HD Feeder | Pet | $138 — above ceiling | filtered |
+| 2026-05-14 | Bella & Pal wireless fountain | Pet | Founded 2021, multi-category store (harness/leash/bed/fountain) — not specialist DTC play | filtered |
+| 2026-05-14 | Rellaty pet water fountain | Pet | Founded 2019 — too established; only 3 visible reviews; no FB ad signal | filtered |
+| 2026-05-14 | Pet activity tracker / smart collar (Maven, FitBark, Link) | Pet | All subscription-based ($6-10/mo) + established brands with VC | filtered |
+| 2026-05-14 | Dog GPS tracker (Tractive, Fi, Garmin) | Pet | Legacy brands 100%; subscription model required; hardware too complex for white-label | filtered |
+| 2026-05-14 | Cat calming pheromone collar (FurLife) | Pet | $29.99 — price floor fail; pheromone-only (no tech) | filtered |
+| 2026-05-14 | Oneisall automatic cat feeder | Pet | Amazon/retail-distributed; no confirmed fresh DTC FB ads despite $39-79 price range | filtered |
+
+### Session 5 Pattern Summary — Pet Tech Structural Rejection Patterns
+- **Subscription dependency** kills: GPS, camera, activity tracker, smart collar
+- **Amazon-dominated** kills: basic feeders, basic grooming tools, basic accessories
+- **Price ceiling** kills: grooming vacuums ($84-200), smart feeders with camera ($95-138), litter boxes ($149-500)
+- **Price floor** kills: laser toys ($25-35), pheromone collars ($15-30), basic accessories
+- **Legacy saturation** kills: ball launchers (iFetch), GPS (Tractive), cameras (Furbo)
+- **Pre-launch / Kickstarter** = never report (no white-label sourcing, no proven demand at scale)
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

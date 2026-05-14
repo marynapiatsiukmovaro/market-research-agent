@@ -76,6 +76,35 @@ auroraskin.us | LED facial sculptor — Marina rejected LED face devices as "в�
 
 ---
 
+## Session 5 — 2026-05-14 (Pet Tech Vertical Deep Dive)
+
+### REJECTED — Price too high (above ceiling)
+neakasa.com | pet grooming vacuum $84-200 | 2026-05-14
+penthousepaws.com | smart HD feeder $138 | 2026-05-14
+petpivot.com | self-cleaning litter box $179 | 2026-05-14
+getbistrocat.com | BistroCat feeder $95+subscription | 2026-05-14
+
+### REJECTED — Price too low (below floor)
+pawspik.com | interactive cat toy $29.99 | 2026-05-14
+potaroma.com | smart sensor cat laser toy $29.99 | 2026-05-14
+getfurlife.com | pheromone calming collar $29.99 | 2026-05-14
+
+### REJECTED — Established brand / pre-2024
+goifetch.com | iFetch ball launcher — legacy brand 10+ years | 2026-05-14
+rellaty.com | pet water fountain — founded 2019, too established | 2026-05-14
+bellanpal.com | multi-category pet store — founded 2021 | 2026-05-14
+sphinxcatfeeder.com | Kickstarter only, not shipped | 2026-05-14
+oneisall.com | automatic feeder — Amazon/retail distributed, not fresh DTC FB | 2026-05-14
+
+### REJECTED — Subscription model / wrong structure
+tractive.com | GPS tracker — subscription $6-10/mo | 2026-05-14
+fitbark.com | activity tracker — subscription | 2026-05-14
+maven.pet | dog health tracker — subscription | 2026-05-14
+linkmypet.com | smart collar — subscription | 2026-05-14
+
+### NOTED — Confirmed mechanism, not reportable
+heusom.com | nail grinder $39.95/$66.60 — "validated mechanism, commoditized execution"; flashy ads confirmed but same product $20-39 on Amazon | 2026-05-14
+
 ## How to Use
 
 Pass to scraper:

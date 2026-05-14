@@ -53,6 +53,8 @@ Read alongside `memory/founder-taste.md` before scoring any session.
 | **Design** | Apple-like minimal aesthetic differentiates | Prefer better-designed version | Smart Posture Sensor approved for aesthetics |
 | **15-Second Rule** | Hook needs >15s to land | Cold traffic death → reject | TENS patch: "слишком долго объяснять" |
 | **Founder Intuition** | Marina says "narrow market" | Trust it over data | Air Compression (75, 4 audiences) |
+| **Pet Tech AOV Ceiling** | Pet vertical products $80-120 | Don't hard-reject — evaluate case by case | Session 5: "pet owners tolerate higher AOV than other verticals" — exceptional visual + emotional = viable |
+| **Validated mechanism ≠ winner** | Same mechanism sold as commodity | Save as pattern, NOT as reported product | Nail grinder session 5: right mechanism, too commoditized execution |
 
 ---
 
