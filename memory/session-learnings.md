@@ -373,6 +373,70 @@ Action: Статус изменён с "open issue" на "resolved". Прове�
 **Applies to:** КАЖДАЯ сессия перед запуском
 **Expires after:** Never — это постоянное правило (кандидат в core rules)
 
+### [2026-05-15] Session 8 (Part 2) — Оптимальная глубина сканирования: 400-600 ads/keyword
+**Type:** Tactical
+**Severity:** HIGH (определяет архитектуру всех будущих сессий)
+**Confidence:** HIGH (подтверждено эмпирически: 576 raw ads → 78 unique advertisers)
+**Evidence count:** 2 keywords: baby carrier (561 ads, 74 advertisers), baby monitor (576 ads, 78 advertisers)
+**Observation:** Закон убывающей отдачи для FB Ads Library depth:
+- 576 raw ads → 78 unique advertisers (ratio ~7.4 ads/advertiser)
+- После 500 ads те же рекламодатели появляются повторно в новых вариантах объявлений
+- 1 keyword × 1000 ads ≈ 100-110 unique advertisers
+- 2 keywords × 500 ads ≈ 150-160 unique advertisers + 2 ниши покрыты
+ВЫВОД: Масштабировать через breadth (больше keywords), НЕ через depth (глубже 600).
+Текущий sweet spot: 400-600 ads/keyword. Цель 500 в --deep режиме оптимальна.
+**Applies to:** Все будущие VPS scraper сессии — keyword planning
+**Expires after:** Session 20
+
+### [2026-05-15] Session 8 (Part 2) — Risk Map: глубина сканирования vs FB detection
+**Type:** Warning
+**Severity:** HIGH (защита от потери сессии)
+**Confidence:** MEDIUM (логический анализ + паттерны anti-bot; требует эмпирической проверки)
+**Evidence count:** Архитектурный анализ + наблюдения из сессий
+**Observation:** Уровни риска при увеличении depth:
+- 400-600 ads: LOW — "heavy researcher" поведение, реалистично для живого пользователя
+- 600-800 ads: LOW-MEDIUM — приемлемо при human-like delays
+- 800-1000 ads: MEDIUM — FB anomaly detection фиксирует сессию; human-like delays критичны
+- 1000-2000 ads: HIGH — реален hidden throttling (те же результаты, меньше diversity)
+- 2000-3000 ads: VERY HIGH — CAPTCHA при следующем логине, soft session ban
+HIDDEN THROTTLING: FB не выдаёт ошибку — просто повторяет те же объявления по кругу. Детектируется по резкому падению `new_count` в batch logs (инкрементальный парсер уже логирует это).
+Если пойти на 1000+: сначала проверить на отдельном keyword, смотреть на new_count в batch 10-20.
+**Applies to:** Все VPS scraper runs с deep режимом
+**Expires after:** Session 20 или до эмпирического stress test
+
+### [2026-05-15] Session 8 (Part 2) — Нерелевантные категории в результатах: post-filter нужен
+**Type:** Warning
+**Severity:** MEDIUM (влияет на качество research signal)
+**Confidence:** HIGH (подтверждено на baby monitor: фармацевтика, услуги, случайные бренды)
+**Evidence count:** baby monitor run: NUBEQA (онко-препарат), KESIMPTA (MS-препарат), Bethany Monaco Smith (романтика), Effortless Touch Miami (медспа)
+**Observation:** FB keyword matching поверхностное — "baby monitor" даёт фармацевтические "monitor"-препараты, медицинские бренды, lifestyle content. Это норма для keyword search, не баг скрапера. Но загрязняет выдачу. Нужен ручной или автоматический post-filter перед анализом. Быстрый ручной фильтр: пропустить если domain содержит медицинский disclaimer или ad copy содержит "prescription", "mg", "FDA". Или фильтровать на уровне исследования по category relevance.
+**Applies to:** Kids/Baby vertical keyword runs + любые keywords с dual-meaning терминами
+**Expires after:** Session 15 или до реализации авто-фильтра
+
+### [2026-05-15] Session 8 (Part 2) — Сломанные поля парсера: started + active_ads
+**Type:** Warning
+**Severity:** HIGH (Tier-1 сигналы недоступны — замедляет scoring)
+**Confidence:** HIGH (подтверждено в обоих verification runs)
+**Evidence count:** baby carrier (74 advertisers), baby monitor (78 advertisers) — >60% показывают "started: ?" и "active_ads: ?"
+**Observation:** Поля `started` (дата начала кампании) и `active_ads` (количество активных объявлений) не извлекаются у 60%+ рекламодателей. Это Tier-1 сигналы:
+- `started` = как долго кампания работает = proxy для профитабельности
+- `active_ads` = масштаб инвестиций рекламодателя
+Без этих полей scoring неполный. Причина: CSS/XPath selectors в парсере не соответствуют текущей структуре FB Ads Library. Требует debugging сессии: запустить scraper с --debug, посмотреть raw HTML карточки, обновить selectors.
+**Applies to:** Все будущие runs — починить ДО большой Kids вертикальной сессии
+**Expires after:** До починки (после починки — заменить этот entry)
+
+### [2026-05-15] Session 8 (Part 2) — JSON output необходим для эффективного агентного анализа
+**Type:** Tactical
+**Severity:** HIGH (ускорит research-фазу в 2x)
+**Confidence:** HIGH
+**Evidence count:** baby monitor run: 3057 строк txt лога на 1 keyword
+**Observation:** Текущий скрапер пишет plaintext лог (~3000 строк на keyword). При 20 keywords/сессии = 60,000+ строк — читать в агенте неэффективно. Нужен `--output results.json` флаг: структурированный JSON со списком advertiser объектов. Это позволит агенту читать 1-2 страницы JSON вместо 3000 строк txt. Аналогично нужно сохранять метаданные: keyword, timestamp, total_raw_ads, total_unique_advertisers, runtime_seconds.
+Приоритет: HIGH — реализовать до большой Kids сессии.
+**Applies to:** VPS scraper архитектура
+**Expires after:** До реализации JSON output
+
+---
+
 ## Expired / Promoted
 
 *Empty — no items expired or promoted yet.*
