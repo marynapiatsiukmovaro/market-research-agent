@@ -80,9 +80,9 @@ Auto-announce pivot to Marina when any of these occur:
 
 ## 5. Context Management Rules
 
-- Load only files changed since last session (check git diff), not all brain/ files every time
-- brain/ and criteria/ files change rarely — skip re-reading unless prompted
-- Always read: reported-products.md, rejected-products.md, session-learnings.md
+- Load only files changed since last session (check git diff), not all core/ files every time
+- core/ files change rarely — skip re-reading unless prompted
+- Always read: shared/reported-products.md, shared/rejected-products.md, departments/facebook-ads-library/operational-memory/learnings.md
 - Never carry more than 3 "maybe" candidates across rounds without a written checkpoint
 - If context usage >60% at start of Round 3 → alert Marina before proceeding
 

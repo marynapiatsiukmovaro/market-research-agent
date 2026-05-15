@@ -22,11 +22,8 @@ Read these files BEFORE scanning anything:
 4. `core/operating-rules.md` — core operating principles (verification hierarchy, signal tiers, pivot rules)
 
 ### STEP 1 — Scan Sources (15–20 candidates)
-- TikTok Ads Library: search trending categories
-- Meta Ads Library: check active ads in target niches
-- Amazon Movers & Shakers: top gainers today
-- AliExpress trending: new arrivals with momentum
-- TikTok organic: #tiktokmademebuyit, trending products
+- Facebook Ads Library via VPS scraper (primary discovery source)
+- Other sources (Amazon, AliExpress, TikTok organic) — secondary verification only
 - Skip any product already in memory
 
 ### STEP 2 — Apply Mandatory Filters

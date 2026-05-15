@@ -3,7 +3,7 @@
 **Active temporary guidance — read at session start, before scanning anything.**
 
 These are working hypotheses and tactical discoveries from recent sessions.
-They are NOT core rules. They do not override brain/, criteria/, or config/.
+They are NOT core rules. They do not override core/.
 Items here expire after 7 sessions or after Marina promotes/rejects them via proposed-core-updates.md.
 
 Agent may APPEND new entries. Agent must NEVER edit or delete existing entries.
