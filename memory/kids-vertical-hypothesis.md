@@ -72,10 +72,11 @@
 - Sort A: **Newest first** (по убыванию даты запуска) → ловит свежих entrants
 - Sort B: **Most active / longest running** → ловит proven winners
 
-**Глубина сканирования:**
-- Минимум: 300 объявлений на keyword per sort
-- Цель: 500+ объявлений на keyword per sort
-- Максимум за сессию: определить эмпирически в Session 8
+**Глубина сканирования (подтверждено Session 8 Part 2):**
+- Стандарт: target 500, реальный диапазон 500–580 raw ads/keyword (hard cap 600)
+- После дедупликации по рекламодателю: 150–200+ unique advertisers/keyword
+- Скрапер сам останавливается после первого batch, пересёкшего 500 (overshoot нормален)
+- Масштабировать через breadth (больше keywords), НЕ через depth (выше 600 — detection risk)
 
 ---
 
@@ -131,7 +132,14 @@
 
 ## Важные Ограничения
 
-1. **VPS обязателен** — без прямого FB Ads Library доступа алгоритм не работает
+1. **VPS обязателен + 4 обязательные проверки перед каждым запуском:**
+   ```bash
+   ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "echo OK"
+   ls /opt/market-research-agent/cookies/fb_session.json
+   grep 'window.scrollBy' /opt/market-research-agent/skills/facebook_scraper.py
+   ps aux | grep facebook_scraper | grep -v grep
+   ```
+   Если любая из четырёх не прошла → остановиться, не продолжать. Без fb_session.json = 28 ads/keyword (бесполезно).
 2. **Обязательно проверять freshness** — ideal 2026, acceptable 2025, old = 2024+
 3. **Mandatory filters применять ДО scoring** — не тратить время на нежизнеспособные
 4. **Максимум 3 active candidates за раз** — не накапливать "maybe" пул без checkpoint

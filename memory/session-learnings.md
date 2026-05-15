@@ -384,7 +384,7 @@ Action: Статус изменён с "open issue" на "resolved". Прове�
 - 1 keyword × 1000 ads ≈ 100-110 unique advertisers
 - 2 keywords × 500 ads ≈ 150-160 unique advertisers + 2 ниши покрыты
 ВЫВОД: Масштабировать через breadth (больше keywords), НЕ через depth (глубже 600).
-Текущий sweet spot: 400-600 ads/keyword. Цель 500 в --deep режиме оптимальна.
+УСТАНОВЛЕННЫЙ СТАНДАРТ: target = 500, hard cap = 600. Это не произвольная пара — скрапер проверяет total >= target только ПОСЛЕ батча (~50-90 новых ads), поэтому естественно останавливается на 500-580. Результат 576 в тесте — норма, не превышение. Выше 600 = diminishing returns + detection risk растёт.
 **Applies to:** Все будущие VPS scraper сессии — keyword planning
 **Expires after:** Session 20
 

@@ -14,16 +14,26 @@
 ssh -i ~/.ssh/market_research_vps root@5.78.217.133
 ```
 
-После подключения — pre-run safety check:
+После подключения — обязательные 4 проверки (все должны пройти):
 
 ```bash
-ps aux | grep claude    # если есть живой процесс — сообщить Марине, НЕ запускать новый
-ps aux | grep python3   # то же самое
-ls /opt/market-research-agent/skills/facebook_scraper.py   # убедиться что scraper есть
+# 1. Нет параллельных процессов
+ps aux | grep claude | grep -v grep     # если есть — сообщить Марине, НЕ запускать
+ps aux | grep facebook_scraper | grep -v grep   # то же самое
+
+# 2. FB сессия существует (без неё лимит 28 ads — бесполезно)
+ls -la /opt/market-research-agent/cookies/fb_session.json
+
+# 3. Скрапер использует JS scroll (не mouse.wheel)
+grep 'window.scrollBy' /opt/market-research-agent/skills/facebook_scraper.py
+
+# 4. Scraper файл на месте
+ls /opt/market-research-agent/skills/facebook_scraper.py
+
 cd /opt/market-research-agent/
 ```
 
-Если VPS недоступен → сообщить Марине точную ошибку. НЕ заменять WebSearch-ом. НЕ продолжать.
+Если любая из 4 проверок не прошла → сообщить Марине точную ошибку. НЕ продолжать. НЕ заменять WebSearch-ом.
 
 ---
 
@@ -73,6 +83,7 @@ nohup python3 skills/facebook_scraper.py \
   --sort=recent \
   --since=2026-01-01 \
   --seen=memory/seen-advertisers.md \
+  --output=/tmp/r1_baby_recent.json \
   "baby" \
   > logs/fb_s8_r1_baby_recent.log 2>&1 &
 
@@ -82,11 +93,18 @@ echo "Round 1 PID: $!"
 Мониторинг прогресса:
 ```bash
 tail -f logs/fb_s8_r1_baby_recent.log
+# ключевые строки для мониторинга: [SCROLL] Batch N/60: +X new → Y unique ads
 ```
 
-Когда завершится:
+Когда завершится — читать JSON (не stdout лог):
 ```bash
-cat logs/facebook_ads_$(ls -t logs/facebook_ads_*.json | head -1 | xargs basename)
+# Метаданные запуска (сколько собрано, время, keyword)
+ssh -i ~/.ssh/market_research_vps root@5.78.217.133 \
+  "python3 -c \"import json; d=json.load(open('$(ls -t /opt/market-research-agent/logs/facebook_ads_*.json | head -1)')); print('META:', d['meta'])\""
+
+# Полный список рекламодателей
+ssh -i ~/.ssh/market_research_vps root@5.78.217.133 \
+  "cat \$(ls -t /opt/market-research-agent/logs/facebook_ads_*.json | head -1)"
 ```
 
 ### Fast Filter (5-10 сек на объявление)
@@ -94,17 +112,22 @@ cat logs/facebook_ads_$(ls -t logs/facebook_ads_*.json | head -1 | xargs basenam
 **REJECT немедленно если:**
 - Цена явно < $30 или > $120
 - Одежда, еда, подписка
-- Бренд очевидно legacy (Amazon, Walmart, Carter's, Graco, Chicco)
+- Бренд очевидно legacy (Amazon, Walmart, Carter's, Graco, Chicco, Owlet, Nanit, Boppy)
 - Услуга, не физический продукт
 - Уже в `reported-products.md` или `rejected-products.md`
 - Нет visual hook (скучное изображение без wow-элемента)
 - Аффилиат (comment-for-link паттерн)
+- `started_running` = 2023 или раньше → слишком established (исключение: если active_ads_count ≥ 5 → category validator, не для входа)
 
 **KEEP для дальнейшего анализа если:**
 - Физический продукт $30-120
 - Свежий бренд (домен не узнаваем)
+- `started_running` = 2026 → fresh entrant, приоритет
+- `started_running` = 2025 + `active_ads_count` ≥ 2 → проверен временем
 - Wow-элемент или визуальная трансформация
 - Эмоциональный триггер очевиден (страх, безопасность, развитие ребёнка)
+
+**Примечание по keyword "baby":** ожидать 50-70% noise (фарма, FMCG, приложения, legacy retail). Это нормально для широкого keyword — задача fast filter именно в том, чтобы это вычистить быстро.
 
 Логировать: `domain | price signal | first seen date | keep/reject | reject reason`
 
@@ -113,13 +136,15 @@ cat logs/facebook_ads_$(ls -t logs/facebook_ads_*.json | head -1 | xargs basenam
 Отчитаться Марине:
 ```
 ROUND 1 CHECKPOINT
-Keyword: baby | Sort: Most recent | Scanned: [N] ads
+Keyword: baby | Sort: Most recent | Raw ads collected: [N] | Unique advertisers: [N]
 Passed fast filter: [N] ([%])
 Categories observed: [list — что рекламируется в Kids прямо сейчас]
-Notable candidates: [domain + price + hook, 1 строка каждый]
+Notable candidates: [domain | started: MMM YYYY | active_ads: N | price | hook]
 Patterns: [что повторяется?]
 → Готов к Round 2? [да/нет + причина]
 ```
+
+Ожидаемые цифры: 500-580 raw ads → 150-200 unique advertisers → 20-40% noise (фарма, legacy, услуги) → 80-120 чистых рекламодателей для fast filter.
 
 ---
 
@@ -135,6 +160,7 @@ nohup python3 skills/facebook_scraper.py \
   --sort=impressions \
   --since=2026-01-01 \
   --seen=memory/seen-advertisers.md \
+  --output=/tmp/r2_baby_impressions.json \
   "baby" \
   > logs/fb_s8_r2_baby_impressions.log 2>&1 &
 
@@ -164,6 +190,7 @@ nohup python3 skills/facebook_scraper.py \
   --sort=recent \
   --since=2026-01-01 \
   --seen=memory/seen-advertisers.md \
+  --output=/tmp/r3_toddler_recent.json \
   "toddler" \
   > logs/fb_s8_r3_toddler_recent.log 2>&1 &
 
