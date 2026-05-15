@@ -58,6 +58,15 @@ Append to Pending Review using this format:
 **Added:** 2026-05-14, Session 5
 **Source learnings:** session-learnings.md "[2026-05-14] Session 5 — Pet Tech Price Ceiling Relaxation"
 
+### [Новый алгоритм discovery: Keyword-First Deep Scan]
+**Observation:** Текущий алгоритм (product hypothesis → поиск) ограничен кругозором агента. Marina предложила принципиально другой подход: выбрать нишу → определить 20 ключевых слов → FB Ads Library с фильтром (English, Active, Jan 2026–now, sort by newest) → 200-500 объявлений на keyword → быстрый фильтр → детальный анализ выживших. Это позволяет находить продукты, которые нельзя было предсказать заранее.
+**Why it matters:** Фундаментально меняет step 1 и step 2 в daily-scout.md. Без этого изменения агент ищет в пространстве своего кругозора, а не в пространстве рынка.
+**Affected file(s):** workflows/daily-scout.md (STEP 1 — Scan Sources), config/sources.md
+**Confidence:** High — прямой фидбек от Марины, Session 7, подтверждён неудачей противоположного подхода
+**Recommendation:** Promote — после проверки в 1-2 сессиях с VPS scraper
+**Added:** 2026-05-15, Session 7
+**Source learnings:** session-learnings.md "[2026-05-15] Session 7 — КРИТИЧНО: Новый алгоритм поиска"
+
 ---
 
 ## Decided

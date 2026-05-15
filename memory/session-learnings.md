@@ -198,6 +198,64 @@ This focus applies until Marina says otherwise or 7 sessions complete.
 **Applies to:** All verticals — brand freshness evaluation
 **Expires after:** Session 13
 
+### [2026-05-15] Session 7 — Home/Kitchen: Structurally Weak for DTC FB Model
+**Type:** Pattern
+**Severity:** HIGH (prevents wasted sessions in retail-dominated categories)
+**Confidence:** HIGH (confirmed across all 3 subcategories in one session)
+**Evidence count:** 15+ brands checked, 3 subcategories explored
+**Observation:** Home/Kitchen вертикаль показала структурное сопротивление DTC FB модели по трём причинам: (1) Retail-first ДНК — кухонные категории исторически идут через big box (Walmart, Target, Home Depot), не через DTC Facebook; (2) Amazon commodity trap — большинство продуктов либо <$35, либо Amazon-native без DTC play; (3) FoodSaver-эффект — legacy retail brands блокируют DTC innovation в потребительском сознании.
+Конкретные паттерны: Spin scrubber = Amazon-native (45% ASINs в $20-50, 126 конкурирующих брендов); Food sealer = FoodSaver доминирует retail; Self-wringing mop = O-Cedar retail giant, 0 DTC FB advertisers.
+Единственный частичный кандидат: Dovety ($59.99, FB confirmed) — но запущен 2023 (B0C ASIN), не проходит freshness filter.
+**Applies to:** Home/Kitchen keyword selection — проверяй структуру канала перед входом в вертикаль
+**Expires after:** Session 14
+
+### [2026-05-15] Session 7 — КРИТИЧНО: Новый алгоритм поиска (Marina's insight)
+**Type:** Tactical
+**Severity:** CRITICAL (меняет фундаментальный подход к discovery)
+**Confidence:** HIGH (Marina явно подтвердила как правильный направление)
+**Evidence count:** Прямой фидбек от Марины, Session 7
+**Observation:** Старый алгоритм (product hypothesis → deep dive) ограничен кругозором агента — можно найти только то, что уже можно представить. Марина предложила кардинально другой подход:
+
+НОВЫЙ АЛГОРИТМ — Keyword-First Deep Scan:
+1. Выбрать нишу (например, Kids)
+2. Определить 20 широких ключевых слов для этой ниши
+3. Открыть FB Ads Library → фильтр: English, Active ads, Jan 1 2026 – текущая дата, сортировка по убыванию (новые сначала)
+4. Один раунд = 1-2 ключевых слова, анализировать 200-500 объявлений на каждое
+5. Быстрый фильтр (5-10 сек на объявление) → keep/reject
+6. Детальный анализ только тех, кто прошёл mandatory filters
+7. Повторить для следующего ключевого слова
+
+ПОЧЕМУ ЭТО ЛУЧШЕ: Система сама показывает, что рынок тестирует прямо сейчас — обнаруживаются продукты, которые нельзя было предсказать заранее. Именно здесь живут winners.
+
+КЛЮЧЕВОЕ ТРЕБОВАНИЕ: Этот алгоритм требует прямого доступа к FB Ads Library (VPS scraper). WebSearch = Tier 3 сигналы, недостаточны для полноценного выполнения.
+
+Сессионная структура: 5-15 сессий на одну нишу. Глубина важнее ширины.
+**Applies to:** Все будущие scout сессии — это новый baseline алгоритм
+**Expires after:** Session 20 или до замены новым подтверждённым алгоритмом
+
+### [2026-05-15] Session 7 — Next Vertical: Kids (не Home/Kitchen)
+**Type:** Signal
+**Severity:** HIGH (устанавливает приоритет Session 8)
+**Confidence:** HIGH (Marina явно указала)
+**Evidence count:** Прямой фидбек от Марины, Session 7
+**Observation:** Session 8 переключается на вертикаль KIDS (не Home/Kitchen). Причины: (1) Родительские триггеры сильнее (страх, любовь, безопасность ребёнка); (2) Готовность платить $39-99 для детских продуктов высокая; (3) DTC FB реклама активна в baby/kids пространстве; (4) Белый лейбл реален для большинства продуктов; (5) Множество под-аудиторий (newborn, toddler, school age, pregnancy).
+Стартовые ключевые слова для Session 8: baby, kids, toddler, infant, newborn, mom, child, nursery, stroller, baby monitor, potty, teething, feeding, breastfeeding, sleep baby, bath baby, baby carrier, diaper, learning toy, pregnancy.
+**Applies to:** Session 8 keyword planning
+**Expires after:** Session 10
+
+### [2026-05-15] Session 7 — Мёртвые ключевые слова: Home/Kitchen
+**Type:** Warning
+**Severity:** HIGH
+**Confidence:** HIGH (подтверждено в сессии)
+**Evidence count:** 3 субкатегории, 15+ брендов
+**Observation:** Следующие ключевики для Home/Kitchen дают retail brands, Amazon-native commodity, или ценовой пол — не использовать:
+- "self wringing mop" / "spin mop" → O-Cedar retail dominance, 0 DTC FB advertisers
+- "handheld vacuum sealer" / "food sealer" → FoodSaver retail giant, 0 fresh DTC FB advertisers
+- "home organizer" → (уже был в Session 4) Amazon affiliate spam
+Spin scrubber = возможен при наличии свежего 2025-2026 DTC бренда, но требует VPS верификации.
+**Applies to:** Home/Kitchen keyword selection
+**Expires after:** Session 14
+
 ---
 
 ## Expired / Promoted

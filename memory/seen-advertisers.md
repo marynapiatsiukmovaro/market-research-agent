@@ -130,6 +130,24 @@ cheerble.com | Elfin D1 Pro dog fountain $95.99 — confirmed FB advertiser but 
 ### NOTED — Minimal signal, white-label candidate
 shophydrapaw.com | dog fountain $69.95 — no founding date, no FB signal, white-label pattern; resold by third parties | 2026-05-14
 
+## Session 7 — 2026-05-15 (Home/Kitchen Vertical)
+
+### REJECTED — Too established (pre-2025)
+dovety.com | electric spin scrubber $59.99 — B0C ASIN = 2023 launch, 3 years old | 2026-05-15
+leebein.com | electric spin scrubber — founded 2020, 10M+ families, too established | 2026-05-15
+gladwellclean.com | cordless electric mop — B08 ASIN = 2020, 6 years old | 2026-05-15
+
+### REJECTED — Retail-distributed (not DTC-first)
+hombrand.com | electric spin scrubber $54.99 — sold at Best Buy, Target, Home Depot | 2026-05-15
+foodsaver.com | handheld vacuum sealer $100-170 — retail giant (Newell Brands) | 2026-05-15
+
+### REJECTED — Site credibility / broken
+sonixpack.com | handheld vacuum sealer $79.99 — HTTP 402 error on main page | 2026-05-15
+technoant.co | self-wringing mop — trust score 10/100, WHOIS hidden, dropship store pattern | 2026-05-15
+
+### REJECTED — Amazon-only (no DTC site)
+grazie-mop (no domain confirmed) | spin mop — B0FX ASIN (fresh 2025) but no DTC site found | 2026-05-15
+
 ## How to Use
 
 Pass to scraper:

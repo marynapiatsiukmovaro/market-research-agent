@@ -9,11 +9,21 @@ CLI flags:
   --deep                Scroll 20-30x per keyword (~150-200 ads) instead of 5-7x (~25 ads)
   --seen=FILE           Path to seen-advertisers.md — skip already-analyzed store domains
   --video               Only video ads (better for demo products)
+  --sort=recent         Sort by "Most recent" (newest launches first) — USE THIS FIRST
+  --sort=impressions    Sort by "Impressions: high to low" (proven winners) — run second
+  (default: no sort click = FB default which is "Impressions: high to low")
+
+Sort option UI labels verified on live FB Ads Library 2026-05-15:
+  "Most recent"            → newest ad launches first (catches fresh 2026 DTC entrants)
+  "Impressions: high to low" → highest impression count first (proven winners, longest running)
+If UI labels have changed — scraper will print a warning and proceed without sorting.
 
 Examples:
   python3 skills/facebook_scraper.py "travel pillow" "car organizer"
   python3 skills/facebook_scraper.py --deep "travel pillow"
   python3 skills/facebook_scraper.py --since=2026-01-01 --seen=memory/seen-advertisers.md "desk organizer"
+  python3 skills/facebook_scraper.py --deep --sort=recent --since=2026-01-01 "baby"
+  python3 skills/facebook_scraper.py --deep --sort=impressions --since=2026-01-01 "baby"
 """
 
 import json
@@ -110,6 +120,56 @@ def is_seen(ad: dict, seen_domains: set) -> bool:
         if domain in store_url or domain in store_domain:
             return True
     return False
+
+
+def apply_sort(page, sort_mode: str):
+    """
+    Click the FB Ads Library 'Sort by' dropdown and select a sort option.
+    sort_mode: 'recent' → 'Most recent' | 'impressions' → 'Impressions: high to low'
+    Verified UI labels: 2026-05-15. If labels changed, logs warning and skips.
+    """
+    SORT_LABELS = {
+        "recent": "Most recent",
+        "impressions": "Impressions: high to low",
+    }
+    target_label = SORT_LABELS.get(sort_mode)
+    if not target_label:
+        print(f"[SORT] Unknown sort mode '{sort_mode}' — skipping", flush=True)
+        return
+
+    try:
+        # Find Sort by button (must be in top-right of results area)
+        sort_btn = None
+        elements = page.locator('div:text-is("Sort by")').all()
+        for el in elements:
+            bb = el.bounding_box()
+            if bb and bb['x'] > 900 and bb['y'] < 400:
+                sort_btn = el
+                break
+
+        if not sort_btn:
+            print(f"[SORT] 'Sort by' button not found — proceeding without sort", flush=True)
+            return
+
+        sort_btn.click()
+        time.sleep(1.5)
+
+        # Click the target sort option
+        option = page.locator(f'text="{target_label}"').first
+        if option.is_visible(timeout=3000):
+            option.click()
+            time.sleep(2)
+            print(f"[SORT] Applied: '{target_label}'", flush=True)
+        else:
+            # UI labels may have changed
+            print(f"[SORT] WARNING: Option '{target_label}' not found in dropdown.", flush=True)
+            print(f"[SORT] UI labels may have changed — screenshot saved, proceeding without sort.", flush=True)
+            save_screenshot(page, "sort_label_changed")
+            # Close dropdown by pressing Escape
+            page.keyboard.press("Escape")
+
+    except Exception as e:
+        print(f"[SORT] Error applying sort: {e} — proceeding without sort", flush=True)
 
 
 def save_screenshot(page, name):
@@ -387,6 +447,7 @@ def scrape_facebook_ads(
     deep: bool = False,
     seen_domains: set = None,
     video_only: bool = False,
+    sort_mode: str = "",
 ) -> list[dict]:
     """
     Scrape Facebook Ads Library for each keyword.
@@ -449,6 +510,11 @@ def scrape_facebook_ads(
                 # Accept cookies on first visit
                 accept_cookies(page)
                 save_screenshot(page, f"01_loaded_{keyword.replace(' ', '_')[:20]}")
+
+                # Apply sort if requested (after page load, before scrolling)
+                if sort_mode:
+                    apply_sort(page, sort_mode)
+                    human_delay(1, 2)
 
                 # Check for blocking / login wall
                 page_text = page.inner_text("body")
@@ -516,6 +582,7 @@ if __name__ == "__main__":
     deep = False
     seen_file = ""
     video_only = False
+    sort_mode = ""
     args = sys.argv[1:]
 
     remaining = []
@@ -528,6 +595,8 @@ if __name__ == "__main__":
             seen_file = arg.split("=", 1)[1]
         elif arg == "--video":
             video_only = True
+        elif arg.startswith("--sort="):
+            sort_mode = arg.split("=", 1)[1]
         else:
             remaining.append(arg)
 
@@ -540,6 +609,7 @@ if __name__ == "__main__":
     print(f"Keywords: {keywords}", flush=True)
     print(f"Country: US | Status: Active only | Since: {since_date or 'all time'}", flush=True)
     print(f"Mode: {'DEEP (~150-200 ads/keyword)' if deep else 'Normal (~25 ads/keyword)'}", flush=True)
+    print(f"Sort: {sort_mode or 'default (FB default = Impressions: high to low)'}", flush=True)
     print(f"Seen filter: {f'{len(seen_domains)} domains' if seen_domains else 'off'}", flush=True)
     print(f"Video only: {video_only}", flush=True)
 
@@ -551,6 +621,7 @@ if __name__ == "__main__":
         deep=deep,
         seen_domains=seen_domains,
         video_only=video_only,
+        sort_mode=sort_mode,
     )
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")

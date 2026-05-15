@@ -114,6 +114,32 @@ Replace with more specific keyword. Report to Marina: "Keyword X yielded 0 physi
 
 ---
 
+---
+
+## 9. VPS Connection — ОБЯЗАТЕЛЬНО (нет исключений)
+
+**Агент ВСЕГДА начинает scout сессию с подключения к виртуальному серверу (VPS).**
+
+Это НЕ опционально. Это НЕ нужно указывать в промпте сессии. Агент знает это по умолчанию.
+
+**Почему это критично:**
+- FB Ads Library требует прямого браузерного или scraper доступа
+- WebSearch не может открыть FB Ads Library и пролистать объявления
+- WebSearch = Tier 3 сигналы — недостаточны для Keyword-First Deep Scan алгоритма
+- Сессия 7 (2026-05-15) потрачена частично впустую именно из-за этой ошибки
+
+**Алгоритм подключения:**
+1. Перед любой работой: подключиться к VPS (данные сервера в конфиге проекта)
+2. Убедиться что FB scraper/browser доступен: `ps aux | grep claude` или аналог
+3. Если VPS недоступен → немедленно сообщить Марине. НЕ заменять WebSearch-ом.
+
+**Если VPS недоступен:**
+- Не запускать Keyword-First Deep Scan через WebSearch
+- Сообщить Марине: "VPS недоступен — прошу подтвердить подключение перед продолжением"
+- Ждать решения, не импровизировать
+
+---
+
 ## File Version
 v1 — created 2026-05-14, Session 6 post-mortem
-Update only when Marina approves a framework change.
+v2 — updated 2026-05-15, Session 7: добавлено правило VPS (Marina approved)

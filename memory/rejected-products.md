@@ -109,6 +109,24 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **No DTC FB pioneer** — unlike cat/dog fountain where KittySpout created the DTC playbook, smart feeder has no equivalent fresh DTC advertiser
 - **Established players locked** — PETKIT 306% growth, PAPIFEED 92% YoY = late entry, not early opportunity
 
+### Session 7 Rejections — 2026-05-15 (Home/Kitchen Vertical)
+
+| 2026-05-15 | Dovety electric spin scrubber | Home/Cleaning | Amazon ASIN B0CLLT39X6 (B0C prefix = 2023 launch) — 3 years old, fails freshness filter; multi-channel (Amazon+eBay+Newegg+DTC) | filtered |
+| 2026-05-15 | TechnoAnt self-wringing mop | Home/Cleaning | Trust score 10/100 (gridinsoft), WHOIS hidden, no verifiable company info, dropship store pattern | filtered |
+| 2026-05-15 | Sonix Pack handheld vacuum sealer | Kitchen | HTTP 402 on homepage — broken/gated/suspicious site; no Facebook ads confirmed | filtered |
+| 2026-05-15 | Gladwell cordless electric mop | Home/Cleaning | Amazon ASIN B08JHB5X7S (B08 = 2020 launch) — 6 years old, sold via StackSocial/DailySale/Woot deal sites | filtered |
+| 2026-05-15 | Leebein electric spin scrubber | Home/Cleaning | Founded 2020 (confirmed on site), 10M+ families claim — too established | filtered |
+| 2026-05-15 | HOM Brand electric scrubber | Home/Cleaning | $54.99 price OK — but retail-distributed: Best Buy, Target, Home Depot — not DTC-first | filtered |
+| 2026-05-15 | FoodSaver handheld vacuum sealer | Kitchen | Retail giant (Newell Brands), $100-170 price range — above ceiling and retail-only | filtered |
+| 2026-05-15 | Grazie spin mop | Home/Cleaning | Amazon-only listing (B0FX prefix = fresh but no DTC site found, no FB ads confirmed) | filtered |
+
+### Session 7 Pattern Summary — Home/Kitchen Structural Rejection Patterns
+- **Retail-first ДНК** — Home/Kitchen идёт через big box (Walmart, Target, Home Depot), не DTC FB
+- **Amazon commodity** — spin scrubbers: 126 products first 3 pages, 45% в $20-50 → не наш диапазон
+- **Legacy retail giants** — FoodSaver (food sealer), O-Cedar (mops) → legacy brands блокируют DTC входящих
+- **Старые бренды** — большинство DTC spin scrubber брендов запущены 2020-2023 → не свежие
+- **Чистого DTC FB advertiser** в 2025-2026 ни в одной из 3 категорий не найдено через WebSearch
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.
