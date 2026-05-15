@@ -237,6 +237,116 @@ freevair.com | Freevair anti-choking device — same category, price not disclos
 ### REJECTED — Wrong market (UK brand / GBP pricing)
 safehero.us | SafeHero emergency tools £19-79 — UK brand (GBP pricing), 150K+ families too established | 2026-05-15
 
+## Session 9 — Rounds 7-8 (2026-05-15, post-compact)
+
+### KEYWORD: "Montessori toy" — 81 unique advertisers, scroll stall at 253 raw
+
+#### REJECTED — Dropship network (same "Montessori Fishing Set" copy, different domains)
+formerline.com | dropship clone — Montessori Fishing Set | 2026-05-15
+terrificaday.com | dropship clone — Montessori Fishing Set | 2026-05-15
+circumstancen.com | dropship clone — Montessori Fishing Set | 2026-05-15
+undertakely.com | dropship clone — Montessori Fishing Set | 2026-05-15
+extensiveh.com | dropship clone — Montessori Fishing Set | 2026-05-15
+circulatem.com | dropship clone — Montessori Fishing Set | 2026-05-15
+reinforcea.com | dropship clone — Montessori Caterpillar / Fishing Set network | 2026-05-15
+
+#### REJECTED — Established brands / retail-distributed
+leyadoll.com | personalized dolls — founded 2018, 100K+ customers | 2026-05-15
+montessoriparadise.com | multi-product Montessori store | 2026-05-15
+montessorikidsmart.com | multi-product Montessori store | 2026-05-15
+robud.com | play kitchen — multi-product, appears in multiple keywords | 2026-05-15
+sarahssilks.com | premium Montessori silks — established retail brand | 2026-05-15
+
+#### REJECTED — Non-US market
+bycubby.com | personalised busy books — UK brand (British spelling "Personalised") | 2026-05-15
+toddla.co | Montessori busy board — AUD pricing / AEDT support hours = Australian brand | 2026-05-15
+vivatrend.no | Norwegian domain (.no) | 2026-05-15
+
+#### REJECTED — Demo site / fake store
+bloomellokids.com | "© 2026 Bloomello Kids Demo" — template demo site, not real brand | 2026-05-15
+
+#### REJECTED — Dropship general store
+itemmatter.com | general gadget store (cable clips, ice ball maker, rings) — domain mismatches ads | 2026-05-15
+passioninbuy.com | Montessori Busy Board — dropship store, same copy as multiple others | 2026-05-15
+hicooo.com | general educational toys dropship | 2026-05-15
+alppibaby.com | general baby toy dropship | 2026-05-15
+yourbabyshop.store | general baby store dropship | 2026-05-15
+kiddie-corner.com | general Montessori toy dropship | 2026-05-15
+briefconcise.com | square busy board — generic dropship | 2026-05-15
+endeavoried.com | screw-tightening busy board — dropship | 2026-05-15
+swiftzenx.com | MagicBook — dropship | 2026-05-15
+crishine.com | same busy board copy as tibatoes — dropship | 2026-05-15
+formerline.com | Montessori Fishing Set clone | 2026-05-15
+
+#### REJECTED — Unverifiable / suspicious
+tibatoes.com | trust score 39/100, dropship signals, UK couple, "junk from China" complaints | 2026-05-15
+minilabbies.com | Digiscope™ $78 — DIGISCOPE trademark (USPTO 99491168) blocks white-label; fake reviews suspected; China shipping delays | 2026-05-15
+toddsiq.com | Drawing Robot — no web presence found | 2026-05-15
+toddleready.com | speech therapist toy — no price or founding date found, weak signal | 2026-05-15
+playnesttoys.com | multi-category toy retailer — parent co. Jewelias est. 2019 | 2026-05-15
+sundaymom.com | faith-based content, not product brand | 2026-05-15
+
+### KEYWORD: "sensory toy" — 198 unique advertisers, 515 raw ads
+
+#### REJECTED — Adult stress relief, not kids (dominant category in this keyword)
+itsblossom.com | adult sensory cube + squishy hamster stress toys | 2026-05-15
+ancienflow.com | adult stress ice cream squeeze toy | 2026-05-15
+sangboxs.com | magnetic exploding stress-relief spinner — adult | 2026-05-15
+owlandgoosegifts.com | squishy toys — general gift store | 2026-05-15
+hooktasy.com | digital crochet patterns, not physical toy brand | 2026-05-15
+doldols.com | 3D-printed D20 squishy fidget — adult/gaming niche | 2026-05-15
+reshline.com | Lava Squish Flow Toy — adult | 2026-05-15
+moonycozy.com | lava squish + squishy ice cubes — adult stress | 2026-05-15
+
+#### REJECTED — Dropship networks (each group = same product, many domains)
+frequentlyk.com | jelly squishes network node | 2026-05-15
+graciousk.com | jelly squishes network node | 2026-05-15
+blstdispse.com | jelly squishes network node | 2026-05-15
+clockwisei.com | jelly squishes network node | 2026-05-15
+accurateg.com | jelly squishes network node | 2026-05-15
+whenevertime.com | jelly squishes network node | 2026-05-15
+interferek.com | jelly squishes network node | 2026-05-15
+nifyanifest.com | jelly squishes network node | 2026-05-15
+nominateh.com | jelly squishes network node | 2026-05-15
+admissioni.com | jelly squishes network node | 2026-05-15
+coincidem.com | jelly squishes network node | 2026-05-15
+freedomty.com | jelly squishes network node | 2026-05-15
+enjoyaitlife.com | jelly squishes network node | 2026-05-15
+forttender.com | Easter squishy bundle network node | 2026-05-15
+foundatioy.com | Easter squishy bundle network node | 2026-05-15
+northwestl.com | Easter squishy bundle network node | 2026-05-15
+reflexionm.com | Easter squishy bundle network node | 2026-05-15
+professionay.com | Easter squishy bundle network node | 2026-05-15
+flowarmth.com | Kids Phonograph 99 Cards network node | 2026-05-15
+transferk.com | Kids Phonograph 99 Cards network node | 2026-05-15
+howeveryet.com | stroller hanging sensory toy — dropship network | 2026-05-15
+afterdoubt.com | stroller hanging sensory toy — dropship network | 2026-05-15
+idealbless.com | stroller hanging sensory toy — dropship network | 2026-05-15
+doneforth.com | "Interactive Sensory Garden Baby Toy Set" — used by doneforth + ampleidea = dropship | 2026-05-15
+ampleidea.com | same Sensory Garden copy as doneforth = dropship clone | 2026-05-15
+naivetu.com | lava flow toy dropship | 2026-05-15
+convergeas.com | interactive music plush network node | 2026-05-15
+inlikewise.com | interactive music plush network node | 2026-05-15
+tyiiplus.com | interactive music plush network node | 2026-05-15
+
+#### REJECTED — Non-US market
+laylaylabels.com | AUD pricing = Australian brand | 2026-05-15
+wrapango.com | based in Bulgaria, hero product $17.99 | 2026-05-15
+tiny-dreams.uk | UK domain | 2026-05-15
+chillzones.co.uk | UK domain | 2026-05-15
+sunnyo.com.au | Australian domain | 2026-05-15
+
+#### REJECTED — Wrong price or category
+brainrichkids.com | climbing play gym $1499-2399, ~10 years old | 2026-05-15
+junglejumparoo.com | jumping toy $449-498 — above ceiling, established brand | 2026-05-15
+pandadrum.com | Panda Drum® $89-259 — trademarked, not white-label | 2026-05-15
+thelovingegg.com | silicone Easter eggs — seasonal product | 2026-05-15
+123babybox.com | subscription baby box — service model | 2026-05-15
+sensorytheraplaybox.com | subscription sensory box — service model | 2026-05-15
+
+#### NOTED — Insufficient signal, not recommended
+blemory.com | mibbo musical plush toy $39.95 — touch-activated music concept interesting; sold out, no reviews visible, 404 on product page, zero external presence — too fragile | 2026-05-15
+
 ## How to Use
 
 Pass to scraper:

@@ -701,6 +701,95 @@ MamaCoco swaddle, Toucan sleep sack (из "sleep baby") — единственн
 
 ---
 
+---
+
+### [2026-05-15] Session 9 Post-Compact R7 — "Montessori toy" = medium signal, scroll stall early
+
+**Type:** Pattern
+**Severity:** MEDIUM (влияет на ожидания от keyword)
+**Confidence:** HIGH (81 unique advertisers проверено)
+**Evidence count:** Round 7 — 253 raw → 81 unique, scroll stall batch 5
+**Observation:** Keyword "Montessori toy" дал scroll stall уже на batch 5 (253 raw → 81 unique). По сравнению с другими keywords это небольшой пул. Структура:
+- Dropship networks: минимум 2 крупные сети (Montessori Fishing Set — 7 доменов; Electric Drill Kit — 3+ домена)
+- Marketplace/retail: Etsy, Amazon, Target, IKEA-style stores — ~15%
+- Multi-product Montessori stores (не специализированные DTC): MontessoriParadise, MontessoriKidSmart — ~10%
+- Established/non-US: LeYaDoll (founded 2018), Toddla.co (Australian AUD), ByCubby (UK "Personalised")
+- Suspicious quality: TibaToes (trust 39/100), Minilabbies (fake review claims, shipping from China)
+- 0 qualifying DTC candidates
+
+KEY FINDING: Keyword "Montessori toy" = low yield. FB позиционирует Montessori как "attribute" keyword — много generic dropship, мало specialty DTC. Лучше тестировать конкретные продукты: "busy board", "montessori busy book", "wooden stacking toy".
+
+**Applies to:** Kids vertical keyword selection
+**Expires after:** Session 18
+
+---
+
+### [2026-05-15] Session 9 Post-Compact R8 — "sensory toy" = взрослый рынок доминирует (60%+)
+
+**Type:** Pattern
+**Severity:** HIGH (меняет ожидания от категории "sensory toy")
+**Confidence:** HIGH (198 advertisers, 515 raw ads проанализировано)
+**Evidence count:** Round 8 — 515 raw → 198 unique advertisers
+**Observation:** Keyword "sensory toy" при FB impressions sort показал структуру, неожиданно близкую к взрослому рынку:
+- ~45% — adult stress relief (NeeDoh knockoffs, lava flow toys, squishy cubes, fidget spinners) — БОЛЬШИНСТВО
+- ~20% — dropship сети для squishies (12 доменов для jelly squishes, 6 для Easter squishy bundle)
+- ~15% — baby/toddler sensory (bath toys, stroller toys, teether rattles) — ЦЕЛЕВОЙ сегмент
+- ~10% — services (therapy practices, sensory play cafes)
+- ~10% — non-US brands (Австралия, Болгария, UK)
+
+DROPSHIP NETWORKS IDENTIFIED (7 кластеров):
+1. "Jelly squishes / NeeDoh" — 12 доменов
+2. "Easter squishy bundle" — 6 доменов
+3. "Stroller hanging sensory toy" — 3 домена (howeveryet, afterdoubt, idealbless)
+4. "Interactive Sensory Garden Baby Set" — 2 домена (doneforth, ampleidea)
+5. "Interactive Music Plush" — 3 домена (tyiiplus, convergeas, inlikewise)
+6. "Kids Phonograph 99 Cards" — 3 домена
+7. "Lava Flow Toy" — 3 домена
+
+ЕДИНСТВЕННЫЙ ИНТЕРЕСНЫЙ ПРОДУКТ (недостаточно сигнала): blemory.com/mibbo — musical plush toy $39.95 с механизмом "музыка только при прикосновении". Концепция интересная (screen-time replacement hook), но: sold out, 404 на product page, нет внешних reviews, нет Amazon presence — слишком слабый сигнал.
+
+ВЫВОД: "sensory toy" = не детский keyword. Для baby/toddler sensory нужны: "baby sensory toy", "toddler sensory toy", "infant sensory". Двухслойная проблема: (1) keyword захвачен взрослым рынком; (2) детский сенсорный рынок = dropship + established brands.
+
+**Applies to:** Kids vertical keyword selection
+**Expires after:** Session 18
+
+---
+
+### [2026-05-15] Session 9 Full Session — ИТОГ: 10 Keywords Done, Pattern Map
+
+**Type:** Signal
+**Severity:** HIGH (стратегический итог 9 sessions в Kids вертикали)
+**Confidence:** HIGH (10 keywords analyzed, 3000+ ads total)
+**Evidence count:** 10 keywords: baby, toddler, sleep baby, baby carrier, baby monitor, kids, mom life, child safety, Montessori toy, sensory toy
+
+**KIDS VERTICAL — KEYWORD SCORECARD (по 10 проверенным keywords):**
+
+| Keyword | Ads | Yield | Verdict |
+|---------|-----|-------|---------|
+| baby carrier (S8) | 561 | HIGH — Bambora score 73 | ✅ Use again |
+| baby monitor (S8) | 576 | LOW — legacy tech brands | ❌ Dead |
+| sleep baby (S9) | 267 | MEDIUM — 2 borderline | ⚠️ Narrow to "sleep sack" |
+| baby (S9) | 349 | LOW — big brand noise | ❌ Last resort |
+| toddler (S9) | 327 | LOW — 0 reportable | ❌ Replace with specific |
+| child safety (S9) | 327 | ZERO — service-dominated | ❌ Dead |
+| mom life (S9) | 375 | ZERO — UGC/affiliate | ❌ Dead |
+| kids (S9) | 53 | ZERO — scroll stall + FMCG | ❌ Dead |
+| Montessori toy (S9) | 81 | ZERO — dropship/established | ❌ Replace with specific |
+| sensory toy (S9) | 198 | ZERO — adult market | ❌ Replace with specific |
+
+**РЕКОМЕНДОВАННЫЕ СЛЕДУЮЩИЕ KEYWORDS (в порядке приоритета):**
+1. "baby swaddle" — прямое развитие sleep signal (MamaCoco, Toucan Baby validated)
+2. "baby bouncer" — конкретный product, активный рынок
+3. "diaper bag" — Emmafy, Mina Baie ждут верификации
+4. "baby gate" — safety mechanism, specific product
+5. "feeding bottle" / "baby bottle" — feeding sub-category
+6. "baby wrap" — carrier category, альтернативный механизм к baby carrier
+7. "nursing pillow" — Session 8 short test, нужен full run
+8. "infant" — 0-12 months focused, more specific than "baby"
+
+**Applies to:** Kids vertical — Session 10+ keyword planning
+**Expires after:** Session 20
+
 ## Expired / Promoted
 
 *Empty — no items expired or promoted yet.*
