@@ -18,7 +18,7 @@ Reject immediately (do not score) if ANY of these are true:
 - Product is obviously oversaturated (generic fidget toys, basic phone cases, etc.)
 - Logistics are difficult (heavy, fragile, oversized, requires cold chain)
 - Sourcing from China is not feasible
-- Expected margins are poor (retail price under $38 = likely fails paid traffic math)
+- Expected margins are poor (retail price under $39 = likely fails paid traffic math)
 - Retail price over $100 = requires strong social proof, not suitable for cold traffic MVP
 - Product quality risk is high (electronics with high failure rate, medical claims)
 - Cannot generate 3+ distinct creative angles
