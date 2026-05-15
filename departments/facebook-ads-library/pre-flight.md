@@ -54,8 +54,9 @@ python3 skills/facebook_scraper.py \
 # /opt/market-research-agent/logs/screenshots/
 ```
 
-**Current deep mode capacity:** ~150-200 ads per keyword (20-30 scroll steps).
-**Target for Session 8+:** 300-500 ads. May require increasing scroll steps in scraper — test and calibrate.
+**Confirmed capacity:** 500–580 ads/keyword (target 500, hard cap 600).
+Requires: fb_session.json (logged-in session) + window.scrollBy fix in scraper.
+Do NOT increase beyond 600 — diminishing returns + FB detection risk.
 
 ---
 

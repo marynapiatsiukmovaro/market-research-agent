@@ -35,28 +35,28 @@
 
 ## 20 Ключевых Слов (в приоритетном порядке)
 
-| # | Keyword | Ожидаемый тип продуктов | Приоритет |
-|---|---------|------------------------|-----------|
-| 1 | baby | всё для младенцев — широкий вход | ★★★ |
-| 2 | kids | школьный возраст, игрушки, гаджеты | ★★★ |
-| 3 | toddler | 1-3 года, развитие, безопасность | ★★★ |
-| 4 | infant | новорождённые 0-12 мес | ★★ |
-| 5 | newborn | первые недели | ★★ |
-| 6 | mom | продукты через маму (не ребёнка) | ★★ |
-| 7 | nursery | комната ребёнка, декор, безопасность | ★★ |
-| 8 | stroller | коляски, аксессуары к коляскам | ★★ |
-| 9 | baby monitor | наблюдение за ребёнком | ★★ |
-| 10 | potty | приучение к горшку | ★ |
-| 11 | teething | прорезывание зубов | ★ |
-| 12 | feeding | кормление, бутылочки, слюнявчики | ★★ |
-| 13 | breastfeeding | молокоотсосы, подушки, аксессуары | ★★ |
-| 14 | sleep baby | сон ребёнка, пеленание, белый шум | ★★★ |
-| 15 | bath baby | купание, термометры, ванночки | ★ |
-| 16 | baby carrier | слинги, эрго-рюкзаки | ★★ |
-| 17 | diaper | подгузники, аксессуары | ★ |
-| 18 | learning toy | развивающие игрушки, Монтессори | ★★ |
-| 19 | pregnancy | до рождения, для беременных | ★★ |
-| 20 | child safety | защита дома, розетки, углы | ★ |
+| # | Keyword | Ожидаемый тип продуктов | Приоритет | Verified Status (S8–S9) |
+|---|---------|------------------------|-----------|------------------------|
+| 1 | baby | всё для младенцев — широкий вход | ★★★ | ❌ Last resort (349 ads, 0 reportable — big brand noise) |
+| 2 | kids | школьный возраст, игрушки, гаджеты | ★★★ | ❌ Dead (53 ads, scroll stall, FMCG-dominated) |
+| 3 | toddler | 1-3 года, развитие, безопасность | ★★★ | ❌ Replace (327 ads, 0 reportable — use specific product keywords) |
+| 4 | infant | новорождённые 0-12 мес | ★★ | — Not tested |
+| 5 | newborn | первые недели | ★★ | — Not tested |
+| 6 | mom | продукты через маму (не ребёнка) | ★★ | ⚠️ Weak (tested via "mom life": 375 ads, UGC/affiliate-heavy, 0 reportable) |
+| 7 | nursery | комната ребёнка, декор, безопасность | ★★ | — Not tested |
+| 8 | stroller | коляски, аксессуары к коляскам | ★★ | ⚠️ Partial (S8: signal found — Hoppie score 65; retry with full session) |
+| 9 | baby monitor | наблюдение за ребёнком | ★★ | ❌ Dead (S8: legacy tech brands — Owlet, Nanit dominate) |
+| 10 | potty | приучение к горшку | ★ | ⚠️ Price floor (S9 via "toddler": 3 DTC brands active, but $7–37 — below $39) |
+| 11 | teething | прорезывание зубов | ★ | — Not tested |
+| 12 | feeding | кормление, бутылочки, слюнявчики | ★★ | — Not tested |
+| 13 | breastfeeding | молокоотсосы, подушки, аксессуары | ★★ | — Not tested |
+| 14 | sleep baby | сон ребёнка, пеленание, белый шум | ★★★ | ⚠️ Narrow (267 ads, 2 borderline at 66–67 — retry as "baby swaddle" or "sleep sack") |
+| 15 | bath baby | купание, термометры, ванночки | ★ | — Not tested |
+| 16 | baby carrier | слинги, эрго-рюкзаки | ★★ | ✅ Best signal (S8: Bambora score 73, 561 ads — use again) |
+| 17 | diaper | подгузники, аксессуары | ★ | — Not tested |
+| 18 | learning toy | развивающие игрушки, Монтессори | ★★ | ⚠️ Weak (S9 via "Montessori toy": 81 ads, dropship/established — use specific: "busy board") |
+| 19 | pregnancy | до рождения, для беременных | ★★ | — Not tested |
+| 20 | child safety | защита дома, розетки, углы | ★ | ❌ Dead (S9: 327 ads, 60% local services, regulatory space) |
 
 ---
 

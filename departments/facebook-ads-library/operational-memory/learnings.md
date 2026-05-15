@@ -13,13 +13,13 @@ Marina promotes or rejects items manually via `review/promotion-queue.md`.
 
 ## Current Focus
 
-**Sessions 1–7: Facebook Ads Library as primary discovery source**
+**Sessions 1+: Facebook Ads Library as primary discovery source (ongoing)**
 
 - **Primary:** Facebook Ads Library (via VPS scraper) — all broad discovery here
 - **Secondary:** Amazon, TikTok, AliExpress — for verification, or when a very strong external signal appears naturally; do not actively expand into other source systems yet
 - **Why:** deepening Facebook Ads Library methodology — finding the right keywords, reading ad signals, calibrating entry windows — before diversifying sources
 
-This focus applies until Marina says otherwise or 7 sessions complete.
+This focus applies until Marina says otherwise.
 
 ---
 
