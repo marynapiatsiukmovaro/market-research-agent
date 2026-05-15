@@ -26,7 +26,7 @@ Read these files before doing any work:
 - Minimum score to report: **65/100**
 - Target markets: **США (основной)** + Великобритания, Германия, Канада, Австралия, Новая Зеландия
 - Product type: **generic / white-label only** — не искать branded products (NuFACE, Renpho и т.д.)
-- Category focus: **Health, Beauty, Fitness** (приоритет); другие категории — только при очень сильном продукте
+- Current pilot vertical: **Kids** (Sessions 8+). Health/Beauty/Fitness — secondary focus after Kids vertical completes.
 
 ## When User Says "Find Products" or "Run Scout"
 Follow `departments/facebook-ads-library/workflow.md` exactly.
