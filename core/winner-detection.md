@@ -113,10 +113,12 @@ This is not a hypothesis. This is a fact confirmed by someone else's budget.
 
 ## Session Algorithm: Correct Sequence
 
+Note: see departments/facebook-ads-library/workflow.md for current algorithm. The sequence below is the original multi-source version, kept as strategic reference.
+
 ```
 SESSION START
 │
-├── 1. Read memory/ (what was found, what was rejected, Marina's taste)
+├── 1. Read shared/ + departments/facebook-ads-library/operational-memory/ (what was found, what was rejected, Marina's taste)
 │
 ├── 2. TikTok organic — what is viral RIGHT NOW?
 │   └── WebSearch: "[category] TikTok viral May 2026 trending"
