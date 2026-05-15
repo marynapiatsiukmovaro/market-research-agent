@@ -132,15 +132,38 @@
 
 ## Важные Ограничения
 
-1. **VPS обязателен + 4 обязательные проверки перед каждым запуском:**
+1. **VPS обязателен + 5 обязательных проверок перед каждым запуском:**
    ```bash
+   # Проверка 1: VPS доступен
    ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "echo OK"
-   ls /opt/market-research-agent/cookies/fb_session.json
-   grep 'window.scrollBy' /opt/market-research-agent/skills/facebook_scraper.py
-   ps aux | grep facebook_scraper | grep -v grep
+   
+   # Проверка 2: fb_session.json существует
+   ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "ls /opt/market-research-agent/cookies/fb_session.json"
+   
+   # Проверка 3: скрапер использует window.scrollBy (не mouse.wheel)
+   ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "grep 'window.scrollBy' /opt/market-research-agent/skills/facebook_scraper.py"
+   
+   # Проверка 4: нет уже запущенного scraper процесса
+   ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "ps aux | grep facebook_scraper | grep -v grep"
+   
+   # Проверка 5 (КРИТИЧНО — добавлена Session 9): сессия ещё действительна
+   ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "python3 /tmp/check_session.py"
+   # Должно вернуть: "SESSION OK: Logged in" + имя Mikhail Piatsiuk
+   # Если "SESSION EXPIRED" → нужно обновить cookies (см. ниже)
    ```
-   Если любая из четырёх не прошла → остановиться, не продолжать. Без fb_session.json = 28 ads/keyword (бесполезно).
+   Если любая из пяти не прошла → остановиться, не продолжать.
+   **Без действующей сессии = 19-32 ads/keyword (бесполезно). Без fb_session.json = то же самое.**
+
+   **Если Проверка 5 показала SESSION EXPIRED — процесс обновления cookies:**
+   1. Marina открывает Chrome → facebook.com → убеждается, что залогинена как Mikhail Piatsiuk
+   2. DevTools (F12) → Network tab → нажать любой запрос к facebook.com → Headers → Request Headers → Cookie → скопировать всю строку (начинается с "datr=...")
+   3. Передать строку агенту
+   4. Агент создаёт fb_session.json и загружает на VPS:
+      `scp -i ~/.ssh/market_research_vps /tmp/fb_session.json root@5.78.217.133:/opt/market-research-agent/cookies/fb_session.json`
+   5. Повторить Проверку 5 → SESSION OK → можно запускать
+
 2. **Обязательно проверять freshness** — ideal 2026, acceptable 2025, old = 2024+
 3. **Mandatory filters применять ДО scoring** — не тратить время на нежизнеспособные
 4. **Максимум 3 active candidates за раз** — не накапливать "maybe" пул без checkpoint
 5. **Honest zero-product раунд приемлем** — не форсировать. Качество > квота.
+6. **Price >$100 = НЕ автоматический reject** — смотреть mandatory-filters.md: если есть strong social proof (Shark Tank, 10K+ reviews, viral) → score продукт с ценовым штрафом. Reject только если score < 65.

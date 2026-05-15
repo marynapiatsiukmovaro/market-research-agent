@@ -34,6 +34,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-15 | Baby Ring Sling Carrier (white-label) | Kids/Baby | 73 | Bambora (bamboraco.com) validated category: 13+ FB ad units, $59 price, mixed Trustpilot reviews = white-label quality opportunity | Facebook Ads Library / bamboraco.com |
 | 2026-05-15 | Stroller Hammock Seat for 2nd Child (Hoppie-validated) | Kids/Baby | 65 | Hoppie (hoppie.kids) $79, 1032 reviews at 4.9★ — solves "two kids, one stroller" problem; single active DTC advertiser = early entry | Facebook Ads Library / hoppie.kids |
 
+| 2026-05-15 | Toucan Baby Sleep Sack with Lovey | Kids/Baby | 67 | Sleep sack со встроенным lovey для self-soothing — "in their hands"; Walker версия для тоддлеров; $44-85, GOTS organic, Dec 2025 DTC | Facebook Ads Library / toucanbaby.com |
+| 2026-05-15 | MamaCoco Fastener-Free Cocoon Swaddle | Kids/Baby | 66 | Swaddle без застёжек "Two simple steps. Then goodnight"; 656 reviews 4.92★ на DTC сайте; bamboo organic cotton; March 2026 FB ads | Facebook Ads Library / buymamacoco.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

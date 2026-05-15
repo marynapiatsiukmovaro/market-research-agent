@@ -413,6 +413,109 @@ HIDDEN THROTTLING: FB не выдаёт ошибку — просто повто
 **Applies to:** Kids/Baby vertical keyword runs + любые keywords с dual-meaning терминами
 **Expires after:** Session 15 или до реализации авто-фильтра
 
+---
+
+### [2026-05-15] Session 9 — КРИТИЧНО: FB Session истекает между сессиями — обязательный re-export
+
+**Type:** Warning
+**Severity:** CRITICAL (без этого весь сеанс = 19-32 ads вместо 500+)
+**Confidence:** HIGH (подтверждено боевым опытом Session 9)
+**Evidence count:** Session expired between Session 8 Part 2 (09:12) и Session 9 (11:00) — тот же день
+**Observation:** FB session cookie истекает быстро (может быть несколько часов). Это НЕ зависит от того, работал ли VPS — просто FB invalidates cookie. Признак истечения: python3 /tmp/check_session.py → "SESSION EXPIRED: Shows login page" вместо "SESSION OK: Logged in".
+
+**Процесс обновления session (Marina выполняет):**
+1. Открыть Chrome → зайти на facebook.com (убедиться, что залогинена как Mikhail Piatsiuk)
+2. DevTools → Network tab → любой запрос к facebook.com → Headers → Request Headers → Cookie → скопировать полную строку (начинается с "datr=...")
+3. Передать агенту строку cookies
+4. Агент создаёт /tmp/fb_session.json из строки и заливает на VPS через SCP:
+   `scp -i ~/.ssh/market_research_vps /tmp/fb_session.json root@5.78.217.133:/opt/market-research-agent/cookies/fb_session.json`
+5. Проверить: `python3 /tmp/check_session.py` → "SESSION OK: Logged in"
+
+**Обязательные ключевые cookies в строке (если нет любого — сессия не работает):**
+- c_user (user ID)
+- xs (session token)
+- fr (Flash cookie)
+- datr (device auth)
+- sb (browser session)
+
+**Когда давать cookies:** в начале каждой новой сессии, если прошло более 2-3 часов с момента последнего успешного run. Просто дай агенту строку из DevTools Network вкладки.
+
+**Applies to:** КАЖДЫЙ SESSION START — проверка обязательна
+**Expires after:** Never — постоянное правило (кандидат в core rules)
+
+---
+
+### [2026-05-15] Session 9 — Почему НЕ нужно идти глубже 600 объявлений
+
+**Type:** Tactical
+**Severity:** HIGH (предотвращает потерю сессии и трату времени)
+**Confidence:** HIGH (подтверждено Session 8 Part 2 + Session 9 эмпирически)
+**Evidence count:** "baby" keyword: остановился на 349 (FB исчерпал уникальный контент); "baby carrier" Session 8: 561 ads достаточно
+**Observation:** Два разных сценария:
+
+**Сценарий А: Широкий keyword (baby, kids) при impressions sort**
+→ FB исчерпывает уникальных рекламодателей до 500. "baby" = 349 unique advertisers max (natural stop).
+→ Идти дальше = те же advertisers повторяются. Бессмысленно и по времени, и по сигналу.
+
+**Сценарий Б: Специфический keyword (baby carrier, stroller) при impressions sort**
+→ FB может дать 500-580 unique advertisers. Scraper сам останавливается при target=500.
+→ Выше 600 = detection risk (anti-bot) + hidden throttling (повторяющийся контент).
+
+**Правило: 500 = target, 600 = hard cap. Никогда не увеличивать.**
+Масштабировать через больше keywords, НЕ через глубже на одном keyword.
+
+**Applies to:** Все VPS scraper сессии
+**Expires after:** Session 20
+
+---
+
+### [2026-05-15] Session 9 — "baby" keyword при impressions sort = доминируют big brands (≠ DTC signal)
+
+**Type:** Pattern
+**Severity:** HIGH (влияет на ожидания от keyword "baby")
+**Confidence:** HIGH (349 ads проанализировано вручную)
+**Evidence count:** Round 1 Session 9 = 349 ads, 0 reportable products
+**Observation:** Keyword "baby" при FB default sort (impressions high to low) даёт массированный noise:
+- ~35% — крупные бренды с бюджетом (Pampers, Graco, Carter's, Huggies, Samsung, NUK, Pottery Barn Kids)
+- ~10% — фармацевтика (KEYTRUDA, BOTOX, Mounjaro, RINVOQ и ещё ~15 препаратов)
+- ~10% — apps/games (Baby Photo Editor, pregnancy apps, Survivor.io, Dragon City)
+- ~20% — food CPG, финансы, услуги, Amazon affiliates, charity
+- ~25% — реальные DTC физические продукты, но из них: большинство либо Walmart-distributed, либо established (2021-2023), либо цена вне диапазона
+
+Ни один из кандидатов Session 9 Round 1 не прошёл mandatory filters:
+- Obvira teething roller: $25 (ниже ценового пола)
+- Dreamland Baby weighted swaddle: $109 (нужна доп. оценка, см. ниже)
+- MimiBelt pregnancy belt: Walmart retail
+- Blumi Baby swim goggles: Amazon + Walmart, UK brand, established
+- Canopy bath tub filter: $89 + subscription + Babylist retail
+- Mommy & Me pack & play mattress: Walmart, recall упоминание
+
+**ВЫВОД ДЛЯ БУДУЩИХ СЕССИЙ:** Keyword "baby" при impressions sort — плохой старт для discovery. Работает только при recent sort (показывает свежих advertisers). Специфические keywords (baby carrier, teething, sleep baby, nursing pillow) дают чище сигнал. Использовать "baby" как последний keyword, не первый.
+
+**Applies to:** Kids/Baby vertical keyword ordering
+**Expires after:** Session 16
+
+---
+
+### [2026-05-15] Session 9 — ИСПРАВЛЕНИЕ: Price >$100 — НЕ автоматический reject
+
+**Type:** Warning (correction of agent error)
+**Severity:** HIGH (агент неправильно применял mandatory filters)
+**Confidence:** HIGH (Marina явно указала + подтверждено re-reading mandatory-filters.md)
+**Evidence count:** Dreamland Baby ($109) отклонён только по цене без scoring — ошибка агента
+**Observation:** Mandatory filter гласит: "Retail price over $100 = requires strong social proof, not suitable for cold traffic MVP". Это УСЛОВНЫЙ фильтр, а не жёсткий reject.
+
+**Правильный процесс для product >$100:**
+1. Проверить: есть ли strong social proof? (10K+ reviews, viral TikTok, Shark Tank, mainstream press)
+2. Если есть social proof → перейти к scoring, учесть цену как ШТРАФ в scoring (−5 to −10 баллов), но не reject
+3. Если нет social proof → reject (cold traffic conversion крайне сложна при $100+ без validation)
+4. Результат scoring < 65 при $100+ = reject. Но дать продукту шанс на scoring.
+
+**Пример Dreamland Baby ($109):** Shark Tank brand, dreamlandbabyco.com, weighted swaddle — нужно было score, а не reject сразу. Даже если score < 65 из-за established brand + price, процесс должен был быть полным.
+
+**Applies to:** Все продукты с ценой $100-150 при наличии strong социального proof
+**Expires after:** Session 16 или до Marina confirmation
+
 ### [2026-05-15] Session 8 (Part 2) — Сломанные поля парсера: started + active_ads
 **Type:** Warning
 **Severity:** HIGH (Tier-1 сигналы недоступны — замедляет scoring)
@@ -434,6 +537,72 @@ HIDDEN THROTTLING: FB не выдаёт ошибку — просто повто
 Приоритет: HIGH — реализовать до большой Kids сессии.
 **Applies to:** VPS scraper архитектура
 **Expires after:** До реализации JSON output
+
+### [2026-05-15] Session 9 — Kids/Baby Sleep: Доминируют Established Brands + Tech
+
+**Type:** Pattern
+**Severity:** HIGH (предотвращает растрату раундов на saturated sub-category)
+**Confidence:** HIGH (267 ads проанализировано по keyword "sleep baby")
+**Evidence count:** Round 3 Session 9 — 267 unique advertisers, 0 reportable
+**Observation:** Keyword "sleep baby" показал жёсткую структуру рынка:
+- Established brands заняли весь топ: Owlet ($100+, FDA-cleared), Nanit (legacy), SNOO ($1695 smart bassinet), Hatch (sound machine), Dreamland Baby ($109, уже проверен — reject), Nested Bean (since 2015), Love To Dream (since 2007)
+- Baby tech ($200-1700): smart bassinets, sleep tracking monitors = выше ceiling и/или subscription
+- Adult sleep overlap: ~40% результатов — взрослые матрасы (Casper, Cozy Earth), adult supplements, sleep apps
+- Baby sleep apps/courses: Taking Cara Babies, Huckleberry, Tinyhood — не физические продукты
+- Weighted products: FDA advisory 2022 → regulatory риск для всей "weighted infant" категории
+
+РАБОЧАЯ НИША: Только swaddles/sleep sacks без weighted claims находятся в рабочем диапазоне. Найдено 2 borderline кандидата (score 66-67): MamaCoco ($44, 656 reviews), Toucan Baby ($44-85, lovey механизм). Оба добавлены в Notion.
+
+РЕКОМЕНДАЦИЯ ДЛЯ БУДУЩИХ СЕССИЙ: Не использовать "sleep baby" — слишком широко. Заменить на: "sleep sack baby", "baby swaddle", "baby white noise machine".
+
+**Applies to:** Kids/Baby vertical — sleep keyword selection
+**Expires after:** Session 16
+
+---
+
+### [2026-05-15] Session 9 — Potty Training Category: Demand Validated, Price Floor Issue
+
+**Type:** Pattern
+**Severity:** MEDIUM (категория реальна, но цена мешает)
+**Confidence:** HIGH (3 независимых DTC бренда с одинаковым hook)
+**Evidence count:** UpAiry, Kid Confident, My Carry Potty — из keyword "toddler"
+**Observation:** Potty training — реальная боль (родители). Три разных DTC бренда используют ОДИНАКОВЫЙ hook: "7 accidents in 1 day". Подтверждает: боль настоящая, рынок активный.
+
+НО — price floor проблема:
+- Training underwear (UpAiry, Kid Confident): $7-15 за штуку → пачка $29-45 → ниже $39 floor
+- Portable potty (My Carry Potty): $36.99 individual (ниже $39), $74.97 bundle ✓
+- My Carry Potty = UK established brand since ~2014, 1M+ families = не white-label opportunity
+
+ИТОГ: Potty training category существует и активна на FB, НО продукты либо слишком дешёвые, либо established branded. Если найдётся DTC potty training продукт в $49-79 диапазоне → может быть интересно.
+
+KEYWORD ДЛЯ СЛЕДУЮЩЕГО РАУНДА: "potty training" вместо "toddler" — более специфично.
+
+**Applies to:** Kids vertical — potty training sub-category
+**Expires after:** Session 16
+
+---
+
+### [2026-05-15] Session 9 — Три Broad Keywords Проверены: Все = Высокий Шум
+
+**Type:** Pattern
+**Severity:** HIGH (финальное подтверждение broad keyword стратегии)
+**Confidence:** HIGH (3 keywords, 943 ads total)
+**Evidence count:** baby (349 ads, 0 reportable), toddler (327 ads, 0 reportable), sleep baby (267 ads, 2 borderline)
+**Observation:** Все три broad keyword сессии показали одинаковый паттерн:
+- Pass rate: 3-5% (ручной fast filter)
+- 0 продуктов с score 65+ из "baby" и "toddler"
+- 2 borderline (66-67) из "sleep baby" — и те требуют verification
+
+ПОДТВЕРЖДЁН ЗАКОН: чем уже keyword → тем чище сигнал. Сравнение:
+- "baby" (broad): 3% pass rate, 0 reportable
+- "sleep baby" (2 слова): 5% pass rate, 2 borderline
+- "baby carrier" Session 8 (2 слова, product-specific): 15%+ pass, 1 confirmed (Bambora score 73)
+
+СТРАТЕГИЯ ДЛЯ РАУНДА 4+: только 2-словные product-specific keywords.
+Рекомендуемые: "baby carrier", "nursing pillow", "baby monitor" (specific product), "baby wrap", "baby teether".
+
+**Applies to:** Все будущие Kids/Baby keyword runs
+**Expires after:** Session 17
 
 ---
 

@@ -187,6 +187,31 @@ hoppie.kids | ACCEPTED score 65 — already logged above | 2026-05-15
 babybub.com | multi-product brand (pregnancy + nursing $49-75); weak signal, needs domain check | 2026-05-15
 skaldoandmalin.com | baby arm feeding pillow + general baby accessories $9-45 — low prices for most items | 2026-05-15
 
+## Session 9 — 2026-05-15 (Kids Vertical: baby, toddler, sleep baby keywords)
+
+### ACCEPTED — Already in Notion (do not re-add)
+toucanbaby.com | ACCEPTED score 67 — sleep sack with self-soothing lovey, $44-85, Dec 2025 DTC | 2026-05-15
+buymamacoco.com | ACCEPTED score 66 — fastener-free cocoon swaddle, $44, 656 reviews, March 2026 | 2026-05-15
+
+### REJECTED — Price too low (below $39)
+upairy.com | potty training underwear $7/pair, 100K+ parents = established | 2026-05-15
+kidconfident.co | potty training pants $7/pair — below price floor | 2026-05-15
+floatbuds.shop | swim floatsuit $37 sale / $44 regular — seasonal + below floor effective price | 2026-05-15
+
+### REJECTED — Established brand / branded product
+us.mycarrypotty.com | UK brand since ~2014, "1M+ families", patented leakproof seal — not white-label | 2026-05-15
+lovetodream.com | baby sleep bags — Australian brand since 2007, established retail | 2026-05-15
+nestedbean.com | Zen Swaddle — established since 2015, branded "weighted chest" tech | 2026-05-15
+woolino.com | premium wool sleep bag — Canadian brand ~2013, established | 2026-05-15
+
+### REJECTED — Price borderline / regulatory risk
+copacalmer.com | teething roller with essential oils — safety risk (EOs on infant skin), price not disclosed | 2026-05-15
+aed.us | LifeVac anti-choking device — under $40, primarily B2B/professional channel | 2026-05-15
+
+### REJECTED — Wrong category / noise
+top5methods.com | AirwayClear anti-choking device — under $40, borderline price | 2026-05-15
+cradle-cuties.com | BabyHug pillow — dropship pattern signals, 404 on product page, suspicious social proof | 2026-05-15
+
 ## How to Use
 
 Pass to scraper:
