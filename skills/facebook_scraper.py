@@ -6,11 +6,12 @@ Outputs JSON list of advertisers + ad data for Claude to analyze.
 
 CLI flags:
   --since=YYYY-MM-DD    Only ads started on or after this date (fresher brands)
-  --deep                Scroll 20-30x per keyword (~150-200 ads) instead of 5-7x (~25 ads)
+  --deep                Scroll to ~500-580 ads/keyword (target 500, hard cap 600)
   --seen=FILE           Path to seen-advertisers.md — skip already-analyzed store domains
   --video               Only video ads (better for demo products)
-  --sort=recent         Sort by "Most recent" (newest launches first) — USE THIS FIRST
-  --sort=impressions    Sort by "Impressions: high to low" (proven winners) — run second
+  --sort=recent         Sort by "Most recent" (newest launches first)
+  --sort=impressions    Sort by "Impressions: high to low" (proven winners)
+  --output=PATH         Save JSON output to this path (default: logs/facebook_ads_TIMESTAMP.json)
   (default: no sort click = FB default which is "Impressions: high to low")
 
 Sort option UI labels verified on live FB Ads Library 2026-05-15:
@@ -23,7 +24,7 @@ Examples:
   python3 skills/facebook_scraper.py --deep "travel pillow"
   python3 skills/facebook_scraper.py --since=2026-01-01 --seen=memory/seen-advertisers.md "desk organizer"
   python3 skills/facebook_scraper.py --deep --sort=recent --since=2026-01-01 "baby"
-  python3 skills/facebook_scraper.py --deep --sort=impressions --since=2026-01-01 "baby"
+  python3 skills/facebook_scraper.py --deep --output=/tmp/results.json "baby carrier"
 """
 
 import json
@@ -185,19 +186,17 @@ def human_delay(min_s=0.8, max_s=2.5):
 
 
 def human_scroll(page, steps=5, deep=False):
-    """Scroll down incrementally like a human, not jump to bottom.
-    Deep mode: 20-30 steps to load 150-200 ads instead of the default 25.
+    """Scroll down using JS window.scrollBy — triggers FB lazy-load unlike mouse.wheel.
+    Deep mode: 20-30 steps; normal: steps param.
     """
     actual_steps = random.randint(20, 30) if deep else steps
     for i in range(actual_steps):
-        scroll_amount = random.randint(300, 700)
-        page.mouse.wheel(0, scroll_amount)
-        # Slightly longer pauses in deep mode to let lazy-loaded cards appear
-        pause = random.uniform(0.6, 1.5) if deep else random.uniform(0.4, 1.2)
+        scroll_amount = random.randint(600, 1000)
+        page.evaluate(f"window.scrollBy(0, {scroll_amount})")
+        pause = random.uniform(0.8, 1.8) if deep else random.uniform(0.5, 1.2)
         time.sleep(pause)
-        # Brief extra pause every 5 scrolls in deep mode (let content catch up)
         if deep and (i + 1) % 5 == 0:
-            time.sleep(random.uniform(1.0, 2.0))
+            time.sleep(random.uniform(1.2, 2.0))
 
 
 def accept_cookies(page):
@@ -296,7 +295,7 @@ def parse_ad_cards(page) -> list[dict]:
         print("[PARSE] No cards found — check screenshot for page state", flush=True)
         return []
 
-    for i, card_data in enumerate(raw_cards[:25]):
+    for i, card_data in enumerate(raw_cards):
         try:
             raw = card_data.get("text", "").strip()
             if len(raw) < 30:
@@ -311,7 +310,7 @@ def parse_ad_cards(page) -> list[dict]:
 
             lines = [ln.strip() for ln in raw.split("\n") if ln.strip()]
 
-            # Card structure (confirmed from DOM inspection):
+            # Card structure (confirmed from DOM inspection 2026-05-15):
             # Active → Library ID → Started running → Platforms → See ad details
             # → ADVERTISER NAME → Sponsored → AD COPY → DOMAIN.COM → Shop now
 
@@ -348,10 +347,15 @@ def parse_ad_cards(page) -> list[dict]:
             ad["store_domain"] = store_domain
             ad["store_url"] = f"https://{store_domain.lower()}" if store_domain else "Not found"
 
-            # Start date — "Started running on DD Month YYYY"
+            # Start date — FB format: "Jun 12, 2024" (Mon DD, YYYY)
             date_match = re.search(
-                r"[Ss]tarted running on\s+(\d{1,2}\s+\w+\s+\d{4})", raw
+                r"[Ss]tarted running on\s+(\w{3,9}\s+\d{1,2},\s+\d{4})", raw
             )
+            if not date_match:
+                # Fallback: "12 Jun 2024" format (DD Mon YYYY)
+                date_match = re.search(
+                    r"[Ss]tarted running on\s+(\d{1,2}\s+\w+\s+\d{4})", raw
+                )
             if date_match:
                 ad["started_running"] = date_match.group(1)
 
@@ -365,12 +369,14 @@ def parse_ad_cards(page) -> list[dict]:
                     platforms.append(platform)
             ad["platforms"] = platforms
 
-            # Number of active ads by this advertiser
-            count_match = re.search(r"(\d+)\s+ads?\s+use this", raw, re.IGNORECASE)
+            # Number of ads using this creative: "2 ads use this creative" or "1 ad uses this"
+            count_match = re.search(r"(\d+)\s+ad[s]?\s+uses?\s+this", raw, re.IGNORECASE)
             if not count_match:
                 count_match = re.search(r"(\d+)\s+active ads?", raw, re.IGNORECASE)
             if count_match:
                 ad["active_ads_count"] = int(count_match.group(1))
+            elif re.search(r"this ad has multiple versions", raw, re.IGNORECASE):
+                ad["active_ads_count"] = "2+"
 
             # Country signals in ad text
             for country in ["United States", "United Kingdom", "Canada", "Australia"]:
@@ -415,6 +421,62 @@ def parse_ad_cards(page) -> list[dict]:
             continue
 
     return ads
+
+
+# ── Incremental scroll + collect (handles FB virtual DOM recycling) ────────────
+
+def incremental_scroll_collect(page, target: int = 500, deep: bool = False) -> list[dict]:
+    """
+    Scroll and parse in batches. FB removes old cards from DOM as you scroll down —
+    parsing only at the end loses them. This captures every card before it disappears.
+    Returns deduplicated list of ad dicts (keyed by Library ID).
+    """
+    collected = {}          # library_id (or fallback key) → ad dict
+    batch_size = 5          # scroll steps between each parse
+    max_batches = 60 if deep else 12   # deep → up to 300 scroll steps; normal → 60
+    no_new_streak = 0
+
+    for batch in range(max_batches):
+        # Scroll one batch of steps using JS (triggers FB lazy-load; mouse.wheel does not)
+        for _ in range(batch_size):
+            scroll_amount = random.randint(600, 1000)
+            page.evaluate(f"window.scrollBy(0, {scroll_amount})")
+            time.sleep(random.uniform(0.8, 1.8) if deep else random.uniform(0.5, 1.2))
+
+        # Extra pause every 3 batches so FB can lazy-load more content
+        if (batch + 1) % 3 == 0:
+            time.sleep(random.uniform(1.5, 2.5))
+
+        # Parse whatever is currently in the DOM
+        batch_ads = parse_ad_cards(page)
+        new_count = 0
+        for ad in batch_ads:
+            raw = ad.get("raw_text", "")
+            lib_match = re.search(r"Library ID:\s*(\d+)", raw)
+            key = lib_match.group(1) if lib_match else (ad.get("advertiser", "") + f"_b{batch}")
+            if key and key not in collected:
+                collected[key] = ad
+                new_count += 1
+
+        total = len(collected)
+        print(
+            f"[SCROLL] Batch {batch + 1}/{max_batches}: +{new_count} new → {total} unique ads",
+            flush=True,
+        )
+
+        if new_count == 0:
+            no_new_streak += 1
+            if no_new_streak >= 2:
+                print(f"[SCROLL] No new cards in 2 consecutive batches — stopping at {total}", flush=True)
+                break
+        else:
+            no_new_streak = 0
+
+        if total >= target:
+            print(f"[SCROLL] Target {target} reached — stopping", flush=True)
+            break
+
+    return list(collected.values())
 
 
 # ── Main scrape flow ───────────────────────────────────────────────────────────
@@ -469,7 +531,16 @@ def scrape_facebook_ads(
             ],
         )
 
+        # Load saved FB session if available (enables full 500+ ad access)
+        session_file = Path("/opt/market-research-agent/cookies/fb_session.json")
+        session_kwargs = {"storage_state": str(session_file)} if session_file.exists() else {}
+        if session_file.exists():
+            print(f"[SESSION] Loaded FB session from {session_file}", flush=True)
+        else:
+            print("[SESSION] No session file — running without login (limited to ~28 ads)", flush=True)
+
         context = browser.new_context(
+            **session_kwargs,
             viewport={"width": 1440, "height": 900},
             user_agent=(
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -522,13 +593,10 @@ def scrape_facebook_ads(
                     print("[WARN] Login wall detected — results may be limited", flush=True)
                     save_screenshot(page, "blocked_login_wall")
 
-                # Scroll: deep mode loads 150-200 ads, normal loads ~25
-                human_scroll(page, steps=random.randint(4, 7), deep=deep)
-                human_delay(1.5, 3)
+                # Scroll incrementally and collect cards before FB virtual DOM removes them
+                target_ads = 500 if deep else 50
+                ads = incremental_scroll_collect(page, target=target_ads, deep=deep)
                 save_screenshot(page, f"02_scrolled_{keyword.replace(' ', '_')[:20]}")
-
-                # Parse cards
-                ads = parse_ad_cards(page)
                 print(f"[RESULT] {len(ads)} raw ads found for '{keyword}'", flush=True)
 
                 # Apply filters: seen domains + affiliate noise
@@ -557,9 +625,11 @@ def scrape_facebook_ads(
 
                 all_ads.extend(filtered[:max_per_keyword])
 
-                # Human-like pause between keywords
+                # Anti-detection pause between keywords: 30-60s (was 3-6s)
                 if keyword != keywords[-1]:
-                    human_delay(3, 6)
+                    pause = random.uniform(30, 60)
+                    print(f"[PAUSE] {pause:.0f}s between keywords (anti-detection)...", flush=True)
+                    time.sleep(pause)
 
             except PlaywrightTimeout as e:
                 print(f"[ERROR] Timeout on '{keyword}': {e}", flush=True)
@@ -583,6 +653,7 @@ if __name__ == "__main__":
     seen_file = ""
     video_only = False
     sort_mode = ""
+    output_file = ""
     args = sys.argv[1:]
 
     remaining = []
@@ -597,6 +668,8 @@ if __name__ == "__main__":
             video_only = True
         elif arg.startswith("--sort="):
             sort_mode = arg.split("=", 1)[1]
+        elif arg.startswith("--output="):
+            output_file = arg.split("=", 1)[1]
         else:
             remaining.append(arg)
 
@@ -608,28 +681,45 @@ if __name__ == "__main__":
     print(f"=== Facebook Ads Library Scraper ===", flush=True)
     print(f"Keywords: {keywords}", flush=True)
     print(f"Country: US | Status: Active only | Since: {since_date or 'all time'}", flush=True)
-    print(f"Mode: {'DEEP (~150-200 ads/keyword)' if deep else 'Normal (~25 ads/keyword)'}", flush=True)
+    print(f"Mode: {'DEEP (target 500, ~500-580 ads/keyword)' if deep else 'Normal (~25-50 ads/keyword)'}", flush=True)
     print(f"Sort: {sort_mode or 'default (FB default = Impressions: high to low)'}", flush=True)
     print(f"Seen filter: {f'{len(seen_domains)} domains' if seen_domains else 'off'}", flush=True)
     print(f"Video only: {video_only}", flush=True)
 
+    start_time = time.time()
     results = scrape_facebook_ads(
         keywords=keywords,
         country="US",
-        max_per_keyword=200 if deep else 20,
+        max_per_keyword=600 if deep else 50,
         since_date=since_date,
         deep=deep,
         seen_domains=seen_domains,
         video_only=video_only,
         sort_mode=sort_mode,
     )
+    runtime = int(time.time() - start_time)
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
-    output_path = Path(f"/opt/market-research-agent/logs/facebook_ads_{timestamp}.json")
+    output_path = Path(output_file) if output_file else Path(f"/opt/market-research-agent/logs/facebook_ads_{timestamp}.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2))
+
+    output_data = {
+        "meta": {
+            "keywords": keywords,
+            "run_at": datetime.now().isoformat(),
+            "total_unique_advertisers": len(results),
+            "runtime_seconds": runtime,
+            "mode": "deep" if deep else "normal",
+            "sort": sort_mode or "default",
+            "since_date": since_date or "all time",
+            "target_ads_per_keyword": 500 if deep else 50,
+        },
+        "advertisers": results,
+    }
+    output_path.write_text(json.dumps(output_data, ensure_ascii=False, indent=2))
 
     print(f"\n=== Done: {len(results)} unique ads total ===", flush=True)
+    print(f"Runtime: {runtime}s", flush=True)
     print(f"Saved to: {output_path}", flush=True)
 
     if results:
