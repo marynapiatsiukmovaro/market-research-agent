@@ -218,7 +218,7 @@ cradle-cuties.com | BabyHug pillow — dropship pattern signals, 404 on product 
 getfootstr.com | kids orthotics insoles $34.99 (on sale) — below $39 floor + branded Footstr™ | 2026-05-15
 
 ### REJECTED — Price borderline + white-label impossible (patented)
-kaizenkidz.com | 3-2-1 Swim Pack $99.99 — patented twist-and-lock buoyancy system, cannot white-label | 2026-05-15
+kaizenkidz.com | ACCEPTED score 65 — 3-2-1 Swim Pack $99.99, patent on mechanism (not concept), Needs Verification | 2026-05-15
 
 ### REJECTED — Established brand (1M+ customers / too large)
 natpat.com | BuzzPatch/SleepyPatch essential oil patches — 1M+ customers, Australian brand, AromaWeave™ technology | 2026-05-15

@@ -37,6 +37,8 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-15 | Toucan Baby Sleep Sack with Lovey | Kids/Baby | 67 | Sleep sack со встроенным lovey для self-soothing — "in their hands"; Walker версия для тоддлеров; $44-85, GOTS organic, Dec 2025 DTC | Facebook Ads Library / toucanbaby.com |
 | 2026-05-15 | MamaCoco Fastener-Free Cocoon Swaddle | Kids/Baby | 66 | Swaddle без застёжек "Two simple steps. Then goodnight"; 656 reviews 4.92★ на DTC сайте; bamboo organic cotton; March 2026 FB ads | Facebook Ads Library / buymamacoco.com |
 
+| 2026-05-15 | Kaizen Kidz 3-2-1 Swim Pack | Kids/Baby — Swim Safety | 65 | Прогрессивное снижение плавучести: 3 слоя → 2 → 1 → 0. Floaties держат вертикально — ребёнок никогда не учится плавать. Jan 2026 FB ads. ⚠️ Патент на twist-lock mechanism, нужен Alibaba-аналог | Facebook Ads Library / kaizenkidz.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
