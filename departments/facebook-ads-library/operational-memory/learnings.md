@@ -528,6 +528,15 @@ HIDDEN THROTTLING: FB не выдаёт ошибку — просто повто
 **Applies to:** Все будущие runs — починить ДО большой Kids вертикальной сессии
 **Expires after:** До починки (после починки — заменить этот entry)
 
+[CORRECTION 2026-05-16]
+Original learning: [2026-05-15] Session 8 (Part 2) — Сломанные поля парсера: started + active_ads
+Why it was wrong / updated: Проблема была частично диагностирована неверно.
+- `started` = работает корректно с залогиненной сессией ✓
+- `active_ads` = "?" НЕ баг парсера. FB показывает число только для multi-version ads ("See summary details"). Single-version ads ("See ad details") не имеют счётчика по дизайну FB UI.
+- 71% "?" = это legitimately single-version ads, не ошибка парсинга.
+Fix applied 2026-05-16: добавлен fallback `active_ads_count = 1` для single-version ads (когда "See ad details" в raw и нет "See summary details"). Теперь: single ad → 1, multiple versions → actual count или "2+".
+Action: Статус изменён с "broken" на "RESOLVED". Парсер работает корректно.
+
 ### [2026-05-15] Session 8 (Part 2) — JSON output необходим для эффективного агентного анализа
 **Type:** Tactical
 **Severity:** HIGH (ускорит research-фазу в 2x)
@@ -835,6 +844,137 @@ DROPSHIP NETWORKS IDENTIFIED (7 кластеров):
 
 **Applies to:** ВСЕ будущие сессии — базовый фильтр логики
 **Expires after:** Never — постоянное правило (кандидат в core rules)
+
+---
+
+### [2026-05-16] Session 10 — "screen time" keyword: MEDIUM yield, category map utility
+
+**Type:** Pattern
+**Severity:** MEDIUM (влияет на keyword strategy для Screen-Free категории)
+**Confidence:** HIGH (313 ads проанализировано)
+**Evidence count:** 313 unique advertisers, 2 candidates scored 65+
+**Observation:** Keyword "screen time" дал 313 уникальных рекламодателей за 85 секунд. Структура:
+- 60%+ — services, apps, pharma, FMCG (Pampers, Google, Walmart, BOTOX)
+- ~15% — физические продукты с "screen-free" hook (camera, toys, STEM kits)
+- ~25% — другое (религия, финансы, авто, туризм)
+
+YIELD: 2 candidates (77 и 67) из 313 — лучше, чем broad keywords типа "baby" (0/349), но хуже чем product-specific "baby carrier" (1 strong).
+
+ПАТТЕРН: "Screen-free alternative" toy/device category существует и растёт в Kids вертикали. Keyword "screen time" = хороший entry point для поиска этой ниши.
+
+**Applies to:** Kids vertical — screen-free product discovery
+**Expires after:** Session 17
+
+---
+
+### [2026-05-16] Session 10 — Camp Snap Camera: Категория "screen-free kids camera" VALIDATED
+
+**Type:** Signal
+**Severity:** HIGH (конкретный category signal с мощным ad count)
+**Confidence:** HIGH (50+ influencer campaigns verified across Jan–May 2026)
+**Evidence count:** 50+ FB ad variants в keyword "camp snap", running Nov 2025 – May 2026
+**Observation:** Camp Snap Camera (campsnapcamera.com) = единственный DTC бренд в категории "screen-free digital camera for kids". $69.95 hero price. Работает на FB с November 2025 (6 месяцев). Aggressive influencer/UGC scaling с десятками creator campaigns.
+
+SIGNAL QUALITY: HIGH — 6-месячное scaling = market validation confirmed.
+WHITE-LABEL RISK: Camp Snap имеет компаньон-платформу campsnapphoto.com — возможно проприетарная экосистема. Нужна проверка Alibaba на "screen-free point-and-shoot kids camera" (без LCD-экрана на задней панели).
+
+SOURCING HYPOTHESIS: Такие камеры существуют на Alibaba как "retro film digital camera" или "point-and-shoot no screen" — но нужна прямая верификация.
+
+CATEGORY STATUS: "Screen-free kids camera" = новая DTC категория, Camp Snap = pioneer. Конкурировать возможно при наличии white-label источника и дифференцированном позиционировании ($59 vs $69.95, или travel vs camp).
+
+**Applies to:** Kids/Tech vertical — screen-free camera keyword decisions
+**Expires after:** Session 17
+
+---
+
+### [2026-05-16] Session 10 — Multi-brand dropship операторы = исследовательский актив
+
+**Type:** Tactical
+**Severity:** HIGH (влияет на то, как использовать dropship-операторов в research)
+**Confidence:** HIGH (Marina явно подтвердила — она сама делает branding dropshipping)
+**Evidence count:** Прямой фидбек от Marina, Session 10; пример: DBO Networks LLC (Wonder Quest, другие бренды)
+
+**Observation:** Когда в FB Ads Library встречается бренд типа Wonder Quest с футером "Operated by DBO Networks LLC" — это не red flag и не сигнал для reject. Это исследовательский актив: такие операторы уже потратили значительный ad spend на product testing. Их активный каталог = список продуктов с доказанным спросом.
+
+**Как использовать:**
+1. При виде "Operated by [Company LLC]" → проверить их АКТИВНЫЙ каталог (не только текущий бренд)
+2. 404 на продукт = оператор убрал его с теста (не выжил) → нам тоже не нужен
+3. Продукт активен 6+ месяцев у оператора → demand validated → кандидат для white-label валидации
+4. НЕ тратить время на маркетинговые тактики (таймеры, BOGO, fake reviews) — интересует только ЧТО продают и КАК ДОЛГО
+5. НЕ снижать confidence за то что это dropship — Marina тоже dropshipper
+
+**Почему это важно:** DBO Networks и аналоги = бесплатная "pre-validation service". Они уже сделали тест спроса. Если их продукт жив — значит конвертирует.
+
+**Applies to:** Все сессии — отношение к multi-brand dropship операторам
+**Expires after:** Session 20 или до Marina override
+
+---
+
+### [2026-05-16] Session 10 — "Screen-free alternative" toy pattern: emerging trend
+
+**Type:** Pattern
+**Severity:** MEDIUM (влияет на product angle discovery в Kids вертикали)
+**Confidence:** MEDIUM (4 advertisers использовали этот angle в одном keyword scan)
+**Evidence count:** Camp Snap, Thoson Kids, BlockBlaster, ArtCreativity — все advertising против screen time
+**Observation:** В keyword "screen time" несколько рекламодателей использовали hook "tired of your kid on the tablet?" как главный триггер для своих toy/device продуктов. Это сигнал: "screen-time replacement" angle = очень сильный parental trigger в 2026.
+
+PRODUCTS ЧТО РАБОТАЮТ с этим angle:
+- Cameras/devices без экрана (Camp Snap — сильный)
+- Magnetic/building toys (Thoson — средний)
+- Art/craft kits (TobioShop — слабый)
+- STEM exploration kits (Wonder Quest — слабый, dropship)
+
+ВЫВОД: При scoring любого kids toy — проверить можно ли использовать "screen-free" angle. Если да — +2-3 балла к Wow-Effect и Emotional Trigger.
+
+**Applies to:** Kids vertical — all toy/activity products
+**Expires after:** Session 17
+
+### [2026-05-16] Session 10 — "learning toy" keyword: LOW yield, слишком широкий атрибут
+
+**Type:** Pattern
+**Severity:** HIGH (предотвращает повторный запуск этого keyword)
+**Confidence:** HIGH (247 advertisers проверено)
+**Evidence count:** 247 unique advertisers, 0 reportable products (0/247)
+
+**Observation:** Keyword "learning toy" дал 247 advertisers за 63 сек, но структура крайне неудобная:
+- ~30% — established retail (Scholastic, Target, Amazon, MAGNA-TILES, Stapelstein $119-259)
+- ~20% — сервисы (школы, OT-практики, репетиторство)
+- ~20% — multi-product dropship stores (Kariney = random gadgets, Broadcasth = clothing store с magnetic car в ad copy — мисматч!)
+- ~15% — subscription/tech (ibrick = LEGO-kit subscription, Bondu = AI-плюш с проприетарным чипом)
+- ~5% — потенциально интересные физические DTC
+
+ЕДИНСТВЕННЫЙ ВОЗМОЖНЫЙ КОНЦЕПТ: DiyAtive "Little Engineer Toolbox" $62.99 — реальные инструменты (safe drill + 90+ tools + bench). Но: multi-product dropship store, категория children's toy toolset глубоко commoditized на Amazon. Оценочно ~58-62, не репортован.
+
+ПРИЧИНА СЛАБОГО YIELD: "learning toy" = атрибут, не product-category. FB матчит любой ad с "learning" + "toy" — слишком широко. В отличие от "baby carrier" или "screen time" которые дают реальный product-cluster.
+
+DOMAIN MISMATCH ПАТТЕРН: Broadcasth показал в FB ad "Magnetic Transform Engineering Car", но сайт broadcasth.com = clothing store (Jacket/Pants/Skirt/Socks). Это сигнал: domain в FB ad не всегда соответствует реальному сайту продавца. При fast-filter — WebFetch обязателен для подтверждения.
+
+**Applies to:** Kids vertical keyword selection — не использовать "learning toy"
+**Expires after:** Session 20
+
+---
+
+### [2026-05-16] Session 10 — Keyword Audit Database: концепция еженедельного мониторинга
+
+**Type:** Tactical
+**Severity:** HIGH (стратегическая ценность для долгосрочного research)
+**Confidence:** HIGH (Marina явно подтвердила ценность, Session 10)
+**Evidence count:** 12 keywords протестировано за Sessions 8-10, паттерны устойчивы
+
+**Observation:** После 12 протестированных keywords формируется устойчивый Keyword Scorecard. Marina предложила идею: построить базу ~50 топ-keywords и делать по ним аудит раз в неделю. Это создаст Market Pulse Monitor — системный способ отслеживать новых FB advertisers без повторного полного сканирования.
+
+ТЕКУЩИЙ SCORECARD (12 keywords):
+- ✅ Рабочие: baby carrier (Bambora 73), screen time (Camp Snap 77)
+- ❌ Мёртвые: baby monitor, child safety, mom life, kids, learning toy
+- ⚠️ Требуют сужения: sleep baby → "sleep sack", Montessori toy → "busy board", sensory toy → "toddler sensory"
+- 🔄 Не проверены из priority list: baby swaddle, diaper bag, kids camera, baby bouncer, baby wrap, nursing pillow, baby gate, stem kit
+
+ЦЕННОСТЬ БАЗЫ: раз в неделю прогнать 10-15 рабочих keywords → посмотреть новых advertisers → зафиксировать кто появился/исчез. Экономит часы исследований в долгосроке.
+
+**Applies to:** Session planning — долгосрочная стратегия
+**Expires after:** Session 25 или до реализации системы
+
+---
 
 ## Expired / Promoted
 

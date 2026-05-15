@@ -40,6 +40,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-15 | Kaizen Kidz 3-2-1 Swim Pack | Kids/Baby — Swim Safety | 65 | Прогрессивное снижение плавучести: 3 слоя → 2 → 1 → 0. Floaties держат вертикально — ребёнок никогда не учится плавать. Jan 2026 FB ads. ⚠️ Патент на twist-lock mechanism, нужен Alibaba-аналог | Facebook Ads Library / kaizenkidz.com |
 | 2026-05-15 | Montessori Busy Board (Category Validator) | Kids/Baby | 65 | 5-6 независимых FB рекламодателей в $39-69 диапазоне; COGS $8-15 Alibaba; hook "screen-free play"; ⚠️ HIGH saturation — BusyPuzzle 800K+ orders, Amazon $20-35 commodity; нужна дифференциация (personalized/travel/sensory) | Facebook Ads Library / keyword "Montessori toy" (TibaToes, Toddla, Crishine) — ⚠️ карточка в Notion создана без конкретного FB-кандидата, подлежит переработке в следующей сессии через скрапер |
 
+| 2026-05-16 | Camp Snap Camera (Screen-Free Kids Digital Camera) | Kids/Tech | 77 | Screen-free point-and-shoot $69.95 — 50+ active influencer FB campaigns Nov 2025–May 2026; Camp Snap = category pioneer; white-label sourcing needs Alibaba verification | Facebook Ads Library / keyword "screen time" / campsnapcamera.com |
+| 2026-05-16 | Thoson Kids MagTrack (Magnetic Track + Motorized Car Toy) | Kids/Other | 67 | Magnetic tracks + motorized car $69 — hook "tired of just 5 more minutes on the tablet?"; Thoson = multi-product dropship store, weaker signal than Camp Snap; concept white-label viable | Facebook Ads Library / keyword "screen time" / thoson.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
