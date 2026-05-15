@@ -6,18 +6,18 @@ This is not a general assistant. This is a specialized product research agent.
 
 ## Load On Every Session Start
 Read these files before doing any work:
-1. `brain/system.md` — your role, objective, output format
-2. `brain/mindset.md` — how to think
-3. `criteria/mandatory-filters.md` — what to reject immediately
-4. `criteria/scoring-system.md` — how to score products
-5. `memory/reported-products.md` — anti-duplicate check (read BEFORE scanning anything)
-6. `memory/rejected-products.md` — failure patterns to skip faster (read BEFORE scanning)
-7. `memory/founder-taste.md` — Marina's personal quality bar (read BEFORE scoring)
-8. `memory/founder-feedback.md` — Marina's direct product feedback and calibration examples
-9. `memory/founder-goals.md` — who Marina is, what she's building, winner product definition
-10. `config/sources.md` — where to search for candidates
-11. `config/session-health-rules.md` — monitor session quality, self-report degradation
-12. `memory/session-learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
+1. `core/identity.md` — your role, objective, output format
+2. `core/mindset.md` — how to think
+3. `core/mandatory-filters.md` — what to reject immediately
+4. `core/scoring-system.md` — how to score products
+5. `shared/reported-products.md` — anti-duplicate check (read BEFORE scanning anything)
+6. `shared/rejected-products.md` — failure patterns to skip faster (read BEFORE scanning)
+7. `departments/facebook-ads-library/operational-memory/founder-taste.md` — Marina's personal quality bar (read BEFORE scoring)
+8. `departments/facebook-ads-library/operational-memory/founder-feedback.md` — Marina's direct product feedback and calibration examples
+9. `core/founder.md` — who Marina is, what she's building, winner product definition
+10. `shared/sources-overview.md` — where to search for candidates
+11. `core/session-health-rules.md` — monitor session quality, self-report degradation
+12. `departments/facebook-ads-library/operational-memory/learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
@@ -29,17 +29,17 @@ Read these files before doing any work:
 - Category focus: **Health, Beauty, Fitness** (приоритет); другие категории — только при очень сильном продукте
 
 ## When User Says "Find Products" or "Run Scout"
-Follow `workflows/daily-scout.md` exactly.
+Follow `departments/facebook-ads-library/workflow.md` exactly.
 
 ## When User Says "Validate This Product"
-Follow `workflows/product-validation.md`.
+Follow `shared/product-validation.md`.
 
 ## When Saving to Notion
-Follow `workflows/notion-update.md`.
+Follow `shared/notion-workflow.md`.
 Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO HQ)
 
 ## Key Rules
-- START every session by reading memory/reported-products.md AND memory/rejected-products.md — both required
+- START every session by reading shared/reported-products.md AND shared/rejected-products.md — both required
 - Apply mandatory filters BEFORE scoring — never waste tokens scoring weak products
 - No competitor ads + no organic momentum = do not include in output
 - Always output Score + Recommendation + Source for every product
@@ -48,20 +48,20 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 - A fake URL is worse than no URL — it wastes the user's time
 - Quality over quota — output 3 strong products over 5 weak ones. Never force.
 - When using WebSearch: attribute source as "WebSearch" or "WebSearch mention of [platform]" — NOT as "TikTok Ads Library" or "Meta Ads Library" unless you accessed those databases directly
-- Save every reported product (score 65+) to Notion after each session — "reported" = scored 65+, NOT founder-approved (founder decisions tracked in memory/founder-feedback.md)
-- END every session by running the full Learning Protocol in workflows/daily-scout.md STEP 8 — this is non-negotiable
+- Save every reported product (score 65+) to Notion after each session — "reported" = scored 65+, NOT founder-approved (founder decisions tracked in departments/facebook-ads-library/operational-memory/founder-feedback.md)
+- END every session by running the full Learning Protocol in departments/facebook-ads-library/workflow.md STEP 8 — this is non-negotiable
 - Deep analysis only for products scoring 85+ or when explicitly requested
-- Agent MAY append new entries to memory/session-learnings.md and memory/proposed-core-updates.md after a session — never edit or delete existing entries
+- Agent MAY append new entries to departments/facebook-ads-library/operational-memory/learnings.md and review/promotion-queue.md after a session — never edit or delete existing entries
 - Agent must NEVER modify brain/, criteria/, or config/ files during a scout session — core rules only change when Marina explicitly instructs it
 
 ## File Map
 ```
-brain/          → who you are and how you think
-criteria/       → what to reject and how to score
-skills/         → modular analysis tools (use when evaluating)
-workflows/      → step-by-step operational procedures
-prompts/        → ready-made task prompts
-memory/         → patterns from past sessions (read + update)
-config/         → sources list, Notion schema, rules
-outputs/        → save daily reports here
+core/         → company-level rules (identity, mindset, filters, scoring, founder, operating rules)
+departments/  → channel-specific operations (currently only facebook-ads-library/)
+shared/       → channel-agnostic resources (Notion, product logs, patterns, analysis skills)
+review/       → promotion queue for moving operational learnings into core
+prompts/      → ready-made session prompts
+outputs/      → generated daily reports
+research/     → research outputs
+archive/      → archived versions and original files
 ```
