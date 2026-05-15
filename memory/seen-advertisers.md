@@ -212,6 +212,31 @@ aed.us | LifeVac anti-choking device — under $40, primarily B2B/professional c
 top5methods.com | AirwayClear anti-choking device — under $40, borderline price | 2026-05-15
 cradle-cuties.com | BabyHug pillow — dropship pattern signals, 404 on product page, suspicious social proof | 2026-05-15
 
+## Session 9 Post-Compact — Rounds 4-6 (2026-05-15)
+
+### REJECTED — Price too low / below floor
+getfootstr.com | kids orthotics insoles $34.99 (on sale) — below $39 floor + branded Footstr™ | 2026-05-15
+
+### REJECTED — Price borderline + white-label impossible (patented)
+kaizenkidz.com | 3-2-1 Swim Pack $99.99 — patented twist-and-lock buoyancy system, cannot white-label | 2026-05-15
+
+### REJECTED — Established brand (1M+ customers / too large)
+natpat.com | BuzzPatch/SleepyPatch essential oil patches — 1M+ customers, Australian brand, AromaWeave™ technology | 2026-05-15
+
+### REJECTED — Price too low / wrong structure
+mimibelt.com | pregnancy seatbelt adapter $35.99 — below $39 floor, branded, 1,472 reviews | 2026-05-15
+cocoseat.com | portable baby seat cover $44 — commoditized mechanism (shopping cart covers $15-30 on Amazon), score ~62 below threshold | 2026-05-15
+
+### REJECTED — Multi-product / wide price range
+mammabump.com | maternity recovery brand $19-330 — multi-product, too wide range, Momcozy competition | 2026-05-15
+
+### REJECTED — Anti-choking category (regulatory/patent risk)
+rescueseal.store | RescueSeal emergency kit $59 — anti-choking category, patented competitor (LifeVac) | 2026-05-15
+freevair.com | Freevair anti-choking device — same category, price not disclosed | 2026-05-15
+
+### REJECTED — Wrong market (UK brand / GBP pricing)
+safehero.us | SafeHero emergency tools £19-79 — UK brand (GBP pricing), 150K+ families too established | 2026-05-15
+
 ## How to Use
 
 Pass to scraper:

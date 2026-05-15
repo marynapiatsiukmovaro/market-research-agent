@@ -606,6 +606,101 @@ KEYWORD ДЛЯ СЛЕДУЮЩЕГО РАУНДА: "potty training" вместо 
 
 ---
 
+### [2026-05-15] Session 9 Post-Compact — "kids" keyword = scroll stall + big brand dominance
+
+**Type:** Pattern
+**Severity:** HIGH (влияет на ожидания от keyword "kids")
+**Confidence:** HIGH (53 ads, fast filter выполнен)
+**Evidence count:** Round 4 Session 9 — 53 unique advertisers за 35 сек (vs 327-375 для других keywords)
+**Observation:** Keyword "kids" дал аномально мало advertisers (53). Причина: FB lazy-load стоп после batch 5 (59 карточек → 53 unique после dedup). Признак: "[SCROLL] No new cards in 2 consecutive batches". Контент: Bank of America, PediaSure, Hiya Health, Pottery Barn Kids, Guardian Bikes, fairlife, iHerb Spanish — всё крупные бренды. 0 DTC стартапов. Единственный borderline: GetFootStr.com (детские ортопедические стельки $34.99 — ниже floor + branded).
+
+ВЫВОД: "kids" = dead keyword для нашего discovery процесса. FB Ads Library не индексирует широко по "kids" в нашем target (US, Active, English). Заменить на product-specific 2-слова.
+
+**Applies to:** Kids vertical keyword selection — не использовать "kids"
+**Expires after:** Session 17
+
+---
+
+### [2026-05-15] Session 9 Post-Compact — "mom life" = UGC/affiliate тяжёлый keyword
+
+**Type:** Pattern
+**Severity:** MEDIUM (количество хорошее, но signal слабый)
+**Confidence:** HIGH (375 ads analyzed)
+**Evidence count:** Round 5 Session 9 — 375 unique advertisers за 91 сек
+**Observation:** Keyword "mom life" даёт хорошую плотность (375 advertisers), но структура другая:
+- ~30% — UGC creators / affiliate accounts (Amazon "mom finds", Walmart partnership, brand ambassadors)
+- ~25% — established FMCG (Pampers, Olay, Dove, Native, Secret, Puffs, Vaseline, fairlife)
+- ~15% — services (Teladoc, Connections Academy, Tempo.fit, financial)
+- ~15% — pharma/medical
+- ~15% — реальные DTC продукты, но mostly established или wrong category
+
+Кандидаты проверены: CocoSeat.com ($44, portable baby seat cover — commoditized, ~62 score), NatPat.com (1M+ customers, Australian brand, reject), MimiBelt.com ($35.99 — ниже floor, branded), Mammabump.com (multi-product, wide range).
+
+ВЫВОД: "mom life" = больше UGC-пространство, чем product-discovery пространство. Работает для категорийного понимания, не для finding winners. Если делать следующий раз — смотреть на domainless ads с конкретными механизмами.
+
+**Applies to:** Kids vertical — "mom life" keyword evaluation
+**Expires after:** Session 17
+
+---
+
+### [2026-05-15] Session 9 Post-Compact — "child safety" = service-dominated keyword
+
+**Type:** Pattern
+**Severity:** HIGH (предотвращает потрату rounds на service-heavy keyword)
+**Confidence:** HIGH (327 ads analyzed)
+**Evidence count:** Round 6 Session 9 — 327 unique advertisers за 70 сек
+**Observation:** Keyword "child safety" даёт хорошую плотность (327), но структура неподходящая:
+- ~60% — local services (D1 Training, swim schools, daycares, martial arts — repeating multiple cities)
+- ~15% — pharma/medical (JORNAY PM, SKYTROFA, VOXZOGO, OPZELURA — pediatric drugs)
+- ~10% — anti-choking devices (NexBreath, RescueSeal, AirwayClear, Freevair, NovaCare — все reject: патенты/регуляторика)
+- ~5% — digital safety apps (Bark, Canopy, MMGuardian — не физические продукты)
+- ~10% — прочие (юридические услуги, charity, романтические истории)
+
+Единственный интересный product mechanism: Kaizen Kidz 3-2-1 Swim Pack ($99.99 — патентованная технология, white-label невозможен).
+Swim safety как категория: доминируют swim schools + NexBreath anti-choking (reject). SafeHero.us = UK brand (GBP pricing).
+
+ВЫВОД: "child safety" НЕ подходит для product discovery — это service и regulatory space. Избегать.
+
+**Applies to:** Kids vertical keyword selection — не использовать "child safety"
+**Expires after:** Session 17
+
+---
+
+### [2026-05-15] Session 9 Post-Compact — Broad Emotional Keywords: Discovery Map (Summary)
+
+**Type:** Pattern
+**Severity:** HIGH (итог 6-round strategy из трёх broad keywords)
+**Confidence:** HIGH (6 rounds + 1698+ total ads analyzed in Session 9)
+**Evidence count:** kids(53), mom life(375), child safety(327) — итог Марининой стратегии
+
+**ИТОГ ЭКСПЕРИМЕНТАЛЬНОЙ СТРАТЕГИИ (Раунды 4-6):**
+Marina правильно поставила гипотезу: broad emotional keywords дают discovery map, а не прямых winners. Карта категорий Kids по типам advertisers:
+
+CATEGORY LANDSCAPE INSIGHTS:
+1. "kids" → крупные FMCG + retail (PediaSure, Hiya, Guardian Bikes) — покупательская категория ≠ DTC category
+2. "mom life" → UGC creator economy + established brands + convenience/lifestyle products
+3. "child safety" → service industry (swim schools, daycares) + regulatory/pharma space
+
+ПРОДУКТЫ, КОТОРЫХ НЕТ В BROAD KEYWORDS НО ЕСТЬ В SPECIFIC:
+Bambora baby carrier (из "baby carrier") — лучший signal за все 6 rounds.
+MamaCoco swaddle, Toucan sleep sack (из "sleep baby") — единственные borderline winners.
+
+ИТОГ ДЛЯ СТРАТЕГИИ: Broad keywords подтвердили category landscape, но НЕ дали winners. Narrow product-specific keywords = путь к winners. Рекомендация: следующие раунды использовать только 2-словные product keywords из ещё неизученного списка.
+
+**Неизученные high-priority keywords для Kids vertical:**
+- "baby swaddle" (продолжение sleep сигнала)
+- "baby wrap" (альтернативный carrier механизм)
+- "learning toy" / "montessori toy" (развивающие)
+- "nursing pillow" (Session 8 дал 25 ads — повторить с full session)
+- "baby gate" (safety mechanism, конкретный продукт)
+- "diaper bag" (bag category, Emmafy ждёт верификации)
+- "baby bouncer" / "baby swing" (baby gear sub-category)
+
+**Applies to:** Kids vertical strategy — следующие 3-7 сессий
+**Expires after:** Session 18
+
+---
+
 ## Expired / Promoted
 
 *Empty — no items expired or promoted yet.*
