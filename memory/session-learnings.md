@@ -790,6 +790,52 @@ DROPSHIP NETWORKS IDENTIFIED (7 кластеров):
 **Applies to:** Kids vertical — Session 10+ keyword planning
 **Expires after:** Session 20
 
+---
+
+### [2026-05-15] Session 9 — КРИТИЧНО: Дропшип-бренд = сигнал спроса, НЕ причина reject
+
+**Type:** Warning (correction of persistent agent error)
+**Severity:** CRITICAL (агент систематически неправильно применял фильтр)
+**Confidence:** HIGH (Marina явно указала — она сама дропшиппер)
+**Evidence count:** Прямая коррекция от Marina, Session 9, 2026-05-15
+
+**Observation:** Агент ошибочно rejecting-ил продукты на основании того, кто их продаёт (дропшиппер, зарубежный бренд), вместо оценки самого ПРОДУКТА.
+
+**ПРАВИЛЬНАЯ ЛОГИКА:**
+
+Несколько доменов продают ОДИН продукт → это СИГНАЛ СПРОСА, не red flag.
+Дропшиппер, который крутит FB рекламу = такая же компания, как у Марины.
+Зарубежный бренд (UK, Australia, Canada) продаёт продукт → продукт СУЩЕСТВУЕТ.
+
+**ПРАВИЛЬНЫЙ ФИЛЬТР:**
+```
+СМОТРИ НА ПРОДУКТ:
+✅ Цена в диапазоне $39-99?
+✅ COGS реальный (Alibaba/AliExpress)?
+✅ Механизм/hook внятный?
+✅ White-label возможен (нет патента на концепт)?
+✅ US рынок применим?
+→ Если всё ДА → Score продукт, как обычно
+
+❌ НЕ фильтровать по:
+- "это дропшиппер" → НЕ причина reject
+- "это зарубежный бренд" → НЕ причина reject (проверь US applicability)
+- "много продавцов продают" → НЕ причина reject (это validation!)
+```
+
+**Когда НЕ подходит ПРОДУКТ:**
+- Цена розничная ниже $39 → reject по цене
+- Commodity настолько глубокая, что дифференциация невозможна
+- Патент на КОНЦЕПТ (не механизм) блокирует white-label
+
+**Примеры ошибок, которые нужно исправить:**
+- "Stroller Arch Hanging Toy" — отклонил как "dropship сеть". Правильно: проверить цену ($14-30 = ниже floor → reject по ЦЕНЕ)
+- "Busy Board" — отклонил как "dropship/established". Правильно: Category Validator score 65
+- "Montessori Fishing Set" — отклонил как "dropship". Правильно: проверить цену (DTC $49-59 → в диапазоне, но высокая saturated → score ~58)
+
+**Applies to:** ВСЕ будущие сессии — базовый фильтр логики
+**Expires after:** Never — постоянное правило (кандидат в core rules)
+
 ## Expired / Promoted
 
 *Empty — no items expired or promoted yet.*

@@ -38,6 +38,7 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-15 | MamaCoco Fastener-Free Cocoon Swaddle | Kids/Baby | 66 | Swaddle без застёжек "Two simple steps. Then goodnight"; 656 reviews 4.92★ на DTC сайте; bamboo organic cotton; March 2026 FB ads | Facebook Ads Library / buymamacoco.com |
 
 | 2026-05-15 | Kaizen Kidz 3-2-1 Swim Pack | Kids/Baby — Swim Safety | 65 | Прогрессивное снижение плавучести: 3 слоя → 2 → 1 → 0. Floaties держат вертикально — ребёнок никогда не учится плавать. Jan 2026 FB ads. ⚠️ Патент на twist-lock mechanism, нужен Alibaba-аналог | Facebook Ads Library / kaizenkidz.com |
+| 2026-05-15 | Montessori Busy Board (Category Validator) | Kids/Baby | 65 | 5-6 независимых FB рекламодателей в $39-69 диапазоне; COGS $8-15 Alibaba; hook "screen-free play"; ⚠️ HIGH saturation — BusyPuzzle 800K+ orders, Amazon $20-35 commodity; нужна дифференциация (personalized/travel/sensory) | Facebook Ads Library / keyword "Montessori toy" (TibaToes, Toddla, Crishine) |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.
