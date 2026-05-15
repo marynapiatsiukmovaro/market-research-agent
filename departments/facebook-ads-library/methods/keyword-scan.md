@@ -10,8 +10,8 @@
 
 1. Убедиться, что работаешь на VPS (не локально)
 2. Проверить: scraper/browser запущен, FB Ads Library доступна
-3. Прочитать `memory/reported-products.md` — дубли не искать
-4. Прочитать `memory/rejected-products.md` — пропускать похожие паттерны
+3. Прочитать `shared/reported-products.md` — дубли не искать
+4. Прочитать `shared/rejected-products.md` — пропускать похожие паттерны
 
 ---
 
@@ -68,7 +68,7 @@ KEEP если:
 
 ### ШАГ 3 — ОБЯЗАТЕЛЬНЫЕ ФИЛЬТРЫ (для KEEP кандидатов)
 
-Применить `criteria/mandatory-filters.md` ко всем прошедшим fast filter:
+Применить `core/mandatory-filters.md` ко всем прошедшим fast filter:
 
 ```
 FILTER GROUP A (самые быстрые):
@@ -87,7 +87,7 @@ FILTER GROUP B (если прошли A):
 
 ### ШАГ 4 — SCORING (только для прошедших все фильтры)
 
-Применить `criteria/scoring-system.md`.
+Применить `core/scoring-system.md`.
 Минимальный порог для репорта: 65/100.
 
 ### ШАГ 5 — FIND REAL LINKS

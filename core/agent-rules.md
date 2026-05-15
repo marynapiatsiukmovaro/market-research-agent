@@ -6,11 +6,11 @@ Products exist in distinct states. States are NOT mutually exclusive — a produ
 
 | State | Definition | Tracked In |
 |-------|-----------|-----------|
-| **Reported** | Scored 65+ and surfaced by agent. NOT founder-approved by default. | memory/reported-products.md |
-| **Founder Approved** | Explicitly validated by Marina (Approved / Consider). Human-only. Agent never sets this. | memory/founder-feedback.md + Notion Founder Review |
-| **Rejected** | Failed filters, scored below 65, or rejected by founder after review. Still useful as negative calibration. | memory/rejected-products.md + Notion |
+| **Reported** | Scored 65+ and surfaced by agent. NOT founder-approved by default. | shared/reported-products.md |
+| **Founder Approved** | Explicitly validated by Marina (Approved / Consider). Human-only. Agent never sets this. | departments/facebook-ads-library/operational-memory/founder-feedback.md + Notion Founder Review |
+| **Rejected** | Failed filters, scored below 65, or rejected by founder after review. Still useful as negative calibration. | shared/rejected-products.md + Notion |
 | **Needs Verification** | Interesting opportunity with insufficient validation (missing links, unclear saturation, etc.). AI/system state — NOT a founder decision. | Notion Recommendation field |
-| **Calibration Example** | Used to improve future reasoning, scoring, and pattern recognition. May or may not be founder-approved. | memory/founder-taste.md + memory/successful-patterns.md |
+| **Calibration Example** | Used to improve future reasoning, scoring, and pattern recognition. May or may not be founder-approved. | departments/facebook-ads-library/operational-memory/founder-taste.md + shared/successful-patterns.md |
 
 ### State separation rules
 - **Recommendation** (Worth Testing / Needs Verification / Rejected) = agent evaluation. Agent sets this.

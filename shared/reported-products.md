@@ -1,7 +1,7 @@
 # REPORTED PRODUCTS LOG
 
 **State: Reported** — products surfaced by the agent with score 65+.
-These are NOT founder-approved by default. Founder decisions are tracked in `memory/founder-feedback.md`.
+These are NOT founder-approved by default. Founder decisions are tracked in `departments/facebook-ads-library/operational-memory/founder-feedback.md`.
 Read this file at the START of every session to prevent duplicate reporting.
 
 ## Log

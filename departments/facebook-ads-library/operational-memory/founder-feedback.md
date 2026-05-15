@@ -2,7 +2,7 @@
 
 **Source of Truth for: Founder Review decisions (Approved / Consider / Rejected) and calibration rules.**
 Marina's direct feedback on reported products. Founder feedback overrides raw agent scoring.
-Read alongside `memory/founder-taste.md` before scoring any session.
+Read alongside `departments/facebook-ads-library/operational-memory/founder-taste.md` before scoring any session.
 
 ---
 
@@ -67,6 +67,6 @@ This file is the most important memory in the system.
 
 ## File Role in Product State Architecture
 - This file tracks **Founder Review** decisions only.
-- "Reported" state is tracked in `memory/reported-products.md`.
-- Calibration patterns are distilled into `memory/founder-taste.md` and `memory/successful-patterns.md`.
+- "Reported" state is tracked in `shared/reported-products.md`.
+- Calibration patterns are distilled into `departments/facebook-ads-library/operational-memory/founder-taste.md` and `shared/successful-patterns.md`.
 - Agent never writes to Approved/Consider/Rejected sections without Marina's explicit decision.

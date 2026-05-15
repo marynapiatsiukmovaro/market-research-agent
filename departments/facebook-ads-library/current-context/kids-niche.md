@@ -105,7 +105,7 @@
 
 ## Что Фиксировать После Каждой Сессии
 
-В `memory/session-learnings.md`:
+В `departments/facebook-ads-library/operational-memory/learnings.md`:
 - Какие ключевые слова дали больше viable candidates?
 - Какие категории появляются чаще всего?
 - Какие продукты прошли mandatory filter?

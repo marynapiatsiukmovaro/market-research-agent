@@ -263,7 +263,7 @@ ALWAYS verify Store Link via WebFetch before reporting:
 ### Documentation (to create)
 - [ ] `config/search-patterns.md` — best search queries by category
 - [ ] `config/url-blacklist.md` — domains with known issues (beambo.com, etc.)
-- [ ] `memory/successful-patterns.md` — what actually worked
+- [ ] `shared/successful-patterns.md` — what actually worked
 
 ### Specialist Agents (future architecture)
 - **Facebook Agent** — Playwright FB login, Ads Library access

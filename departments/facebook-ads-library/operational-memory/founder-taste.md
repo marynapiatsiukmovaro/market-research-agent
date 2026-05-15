@@ -4,11 +4,11 @@
 This file contains scoring calibration rules. It overrides raw scoring when there is a conflict.
 
 **What this file is NOT:**
-- Not a list of founder-approved products (that's `memory/founder-feedback.md`)
-- Not a decision log (that's `memory/founder-feedback.md`)
-- Not a product log (that's `memory/reported-products.md`)
+- Not a list of founder-approved products (that's `departments/facebook-ads-library/operational-memory/founder-feedback.md`)
+- Not a decision log (that's `departments/facebook-ads-library/operational-memory/founder-feedback.md`)
+- Not a product log (that's `shared/reported-products.md`)
 
-Read every session alongside `criteria/scoring-system.md`.
+Read every session alongside `core/scoring-system.md`.
 
 ## What Marina Responds To — Strong YES
 
@@ -42,7 +42,7 @@ The goal is not hitting the score threshold. The goal is finding products Marina
 
 ## Key Calibration Examples
 
-Highest-signal examples only. Full decisions log: `memory/founder-feedback.md`.
+Highest-signal examples only. Full decisions log: `departments/facebook-ads-library/operational-memory/founder-feedback.md`.
 
 **Approved:**
 - **Eye Massager with Heat & Vibration (84)** — visual relief, premium feel, multi-audience (migraine / screen / sleep). Instant hook.

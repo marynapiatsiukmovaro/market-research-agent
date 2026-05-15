@@ -103,4 +103,4 @@ Use for Saturation field in Notion (Low / Medium / High / Extreme):
 - **High:** dominated by 1–2 major brands with large budgets → avoid unless strong differentiator
 - **Extreme:** generic product sold by everyone, margins squeezed → reject
 
-→ For market-stage semantics (Competitor Signal field): see `config/notion-config.md`
+→ For market-stage semantics (Competitor Signal field): see `shared/notion-schema.md`

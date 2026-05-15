@@ -2,7 +2,7 @@
 
 **Purpose: Calibration.** Recurring traits of strong products from past sessions.
 These are calibration examples — NOT automatically founder-approved products.
-Founder decisions are tracked separately in `memory/founder-feedback.md`.
+Founder decisions are tracked separately in `departments/facebook-ads-library/operational-memory/founder-feedback.md`.
 Update as new patterns emerge.
 
 ## Confirmed Winning Product Traits

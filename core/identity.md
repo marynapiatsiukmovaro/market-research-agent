@@ -46,12 +46,12 @@ Both links required for Verified status.
 Missing links → "Needs Verification" regardless of score.
 
 ## Module References
-- Mandatory Filters → criteria/mandatory-filters.md
-- Scoring System → criteria/scoring-system.md
-- Product Requirements → criteria/product-requirements.md
-- Discovery Skill → skills/product-discovery.md
-- Paid Traffic Skill → skills/paid-traffic-analysis.md
-- Trend Analysis → skills/trend-analysis.md
-- Daily Workflow → workflows/daily-scout.md
-- Research Sources → config/sources.md
-- Notion Output → workflows/notion-update.md
+- Mandatory Filters → core/mandatory-filters.md
+- Scoring System → core/scoring-system.md
+- Product Requirements → core/product-requirements.md
+- Discovery Skill → shared/skills/product-discovery.md
+- Paid Traffic Skill → shared/skills/paid-traffic-analysis.md
+- Trend Analysis → shared/skills/trend.md
+- Daily Workflow → departments/facebook-ads-library/workflow.md
+- Research Sources → shared/sources-overview.md
+- Notion Output → shared/notion-workflow.md

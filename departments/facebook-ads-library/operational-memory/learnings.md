@@ -7,7 +7,7 @@ They are NOT core rules. They do not override brain/, criteria/, or config/.
 Items here expire after 7 sessions or after Marina promotes/rejects them via proposed-core-updates.md.
 
 Agent may APPEND new entries. Agent must NEVER edit or delete existing entries.
-Marina promotes or rejects items manually via `memory/proposed-core-updates.md`.
+Marina promotes or rejects items manually via `review/promotion-queue.md`.
 
 ---
 
