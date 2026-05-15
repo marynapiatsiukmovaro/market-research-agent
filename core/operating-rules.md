@@ -1,5 +1,5 @@
 # AGENT OPERATING RULES v1
-**Derived from Sessions 1–6 post-mortem. Read at session start alongside session-learnings.md.**
+**Derived from Sessions 1–6 post-mortem. Read at session start alongside departments/facebook-ads-library/operational-memory/learnings.md.**
 
 ---
 

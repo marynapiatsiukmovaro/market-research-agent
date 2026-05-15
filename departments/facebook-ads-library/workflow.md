@@ -101,7 +101,7 @@ NEVER edit existing entries in either file. NEVER modify brain/, criteria/, or c
 - Include product count, top scorer, and any notable patterns
 
 **7. Prevent duplicates in next session**
-- Confirm reported-products.md is updated before closing
+- Confirm shared/reported-products.md is updated before closing
 - Next session STEP 0 will read this file — it must be current
 
 **8. Deliver Session Learning Report** (add after Session Status block)
@@ -130,7 +130,7 @@ Repeated patterns: [pattern seen 2+ times this session] / None
 - Launch-stage signals seen: [ad behavior patterns = new entrant]
 
 Failed paths summary: [1 sentence] / None
-Proposed core updates: [items added to proposed-core-updates.md] / None
+Proposed core updates: [items added to review/promotion-queue.md] / None
 Founder review needed: [items requiring Marina's decision] / None
 Test next session: [specific keyword / angle / category to explore]
 ```
@@ -162,7 +162,7 @@ One session = one task type. Do not mix.
 
 | Type | Purpose | Output |
 |------|---------|--------|
-| Scout | Product discovery and scoring | Daily report + reported-products.md update |
+| Scout | Product discovery and scoring | Daily report + shared/reported-products.md update |
 | Validation | Deep dive on one product (85+ score only, or explicit request) | Validation report |
 | Memory | Update memory files only | Updated files + git commit |
 | Analysis | Systems review (like post-mortem) | Framework document |

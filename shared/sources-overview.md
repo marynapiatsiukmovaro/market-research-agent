@@ -261,8 +261,8 @@ ALWAYS verify Store Link via WebFetch before reporting:
 5. Store URL checker: WebFetch every found URL before reporting
 
 ### Documentation (to create)
-- [ ] `config/search-patterns.md` — best search queries by category
-- [ ] `config/url-blacklist.md` — domains with known issues (beambo.com, etc.)
+- [ ] `shared/search-patterns.md` — best search queries by category
+- [ ] `shared/url-blacklist.md` — domains with known issues (beambo.com, etc.)
 - [ ] `shared/successful-patterns.md` — what actually worked
 
 ### Specialist Agents (future architecture)

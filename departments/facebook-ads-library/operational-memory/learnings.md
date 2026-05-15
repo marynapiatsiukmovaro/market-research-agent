@@ -4,7 +4,7 @@
 
 These are working hypotheses and tactical discoveries from recent sessions.
 They are NOT core rules. They do not override core/.
-Items here expire after 7 sessions or after Marina promotes/rejects them via proposed-core-updates.md.
+Items here expire after 7 sessions or after Marina promotes/rejects them via review/promotion-queue.md.
 
 Agent may APPEND new entries. Agent must NEVER edit or delete existing entries.
 Marina promotes or rejects items manually via `review/promotion-queue.md`.
@@ -871,9 +871,9 @@ Action: Update confidence / Invalidate / Replace with new entry
 
 ## Promotion Rules
 
-A learning may be added to `proposed-core-updates.md` only if:
+A learning may be added to `review/promotion-queue.md` only if:
 - confirmed across **3 sessions**, OR
 - **explicitly approved by Marina**
 
-After one session only → stay in session-learnings.md regardless of signal strength.
+After one session only → stay in departments/facebook-ads-library/operational-memory/learnings.md regardless of signal strength.
 Never self-promote into brain/, criteria/, or config/ files.

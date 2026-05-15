@@ -3,7 +3,7 @@
 **Marina reviews this file and decides. Agent only adds items — never promotes automatically.**
 
 Items here are candidates for promotion into core documents.
-They come from session-learnings.md when a pattern is confirmed across multiple sessions.
+They come from departments/facebook-ads-library/operational-memory/learnings.md when a pattern is confirmed across multiple sessions.
 
 Agent may APPEND new items. Agent must NEVER self-promote items into core files.
 Marina sets each item to: **Promote → Wait → Reject**
@@ -46,7 +46,7 @@ Append to Pending Review using this format:
 **Confidence:** High / Medium / Low
 **Recommendation:** Promote / Wait / Reject
 **Added:** [YYYY-MM-DD], Session [N]
-**Source learnings:** session-learnings.md entries [list dates]
+**Source learnings:** operational-memory/learnings.md entries [list dates]
 ```
 
 ### [Pet vertical AOV ceiling — не жёсткий $79]

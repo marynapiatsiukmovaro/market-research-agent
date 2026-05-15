@@ -112,7 +112,7 @@
 - Новые паттерны (ценовые, визуальные, аудиторные)
 - Сколько объявлений реалистично за раунд и за сессию
 
-В `memory/kids-vertical-patterns.md` (создать после Session 8):
+В `departments/facebook-ads-library/operational-memory/kids-vertical-patterns.md` (создать после Session 8):
 - Emerging categories in Kids
 - Price clusters ($39-49, $50-69, $70-99)
 - Top hooks/triggers observed

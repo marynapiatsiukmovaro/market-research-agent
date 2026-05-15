@@ -74,7 +74,7 @@ This is not a hypothesis. This is a fact confirmed by someone else's budget.
 
 ### Signal 4: Minea Sweet Spot (5–30 active ads)
 
-**Marina's rule (from founder-feedback.md):**
+**Marina's rule (from departments/facebook-ads-library/operational-memory/founder-feedback.md):**
 > "Нужно заходить на старте тренда, не после." — Marina, 2026-05-13
 > ("Enter at the start of the trend, not after.")
 
@@ -137,7 +137,7 @@ SESSION START
 │   └── Apply mandatory filters (core/mandatory-filters.md)
 │
 ├── 6. Score those that passed (core/scoring-system.md)
-│   └── Apply founder-taste.md layer on top of the number
+│   └── Apply operational-memory/founder-taste.md layer on top of the number
 │
 └── 7. Report only 65+. Quality over quantity.
 ```
