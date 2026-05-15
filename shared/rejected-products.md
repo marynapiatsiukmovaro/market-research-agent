@@ -29,7 +29,7 @@ Read patterns here before scanning — skip similar products faster.
 
 ## Rejection Pattern Summary
 
-Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk** (EMS, medical claims, LED full-face) · **saturation/hooks** → see `memory/failed-patterns.md` for full pattern library.
+Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk** (EMS, medical claims, LED full-face) · **saturation/hooks** → see `shared/failed-patterns.md` for full pattern library.
 
 ### Keyword strategy failures (Session 3, 2026-05-13)
 - Broad emotional phrases ("struggling with", "tired of", "finally") → attract SERVICES, apps, supplements — NOT physical products

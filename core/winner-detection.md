@@ -134,9 +134,9 @@ SESSION START
 │   ├── Check: does Store URL open? No browser warnings?
 │   ├── Check: are there competitor ads?
 │   ├── Check: price fits $45–79 (priority) or $39–100 with justification?
-│   └── Apply mandatory filters (criteria/mandatory-filters.md)
+│   └── Apply mandatory filters (core/mandatory-filters.md)
 │
-├── 6. Score those that passed (criteria/scoring-system.md)
+├── 6. Score those that passed (core/scoring-system.md)
 │   └── Apply founder-taste.md layer on top of the number
 │
 └── 7. Report only 65+. Quality over quantity.

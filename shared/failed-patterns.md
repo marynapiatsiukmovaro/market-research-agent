@@ -6,7 +6,7 @@ Update as new failure patterns emerge.
 
 ## Marina's Hard Rejections (confirmed from real feedback)
 
-Key patterns with one illustrative example each. Full product log: `memory/founder-feedback.md`.
+Key patterns with one illustrative example each. Full product log: `departments/facebook-ads-library/operational-memory/founder-feedback.md`.
 
 ### "Везде" Pattern — Auto-Reject
 - Example: LED Light Therapy Wand (78) → "не вызывает вау, везде"

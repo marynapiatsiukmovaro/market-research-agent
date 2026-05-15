@@ -16,10 +16,10 @@ Ask Marina (or check prior session notes for):
 
 ### STEP 0 — Load Memory (before scanning anything)
 Read these files BEFORE scanning anything:
-1. `memory/reported-products.md` — do NOT report any product already logged here
-2. `memory/rejected-products.md` — use patterns to skip similar weak products faster
-3. `memory/session-learnings.md` — apply active temporary guidance; if a Current Focus is set, it overrides default source priority for this session
-4. `memory/agent-operating-rules.md` — core operating principles (verification hierarchy, signal tiers, pivot rules)
+1. `shared/reported-products.md` — do NOT report any product already logged here
+2. `shared/rejected-products.md` — use patterns to skip similar weak products faster
+3. `departments/facebook-ads-library/operational-memory/learnings.md` — apply active temporary guidance; if a Current Focus is set, it overrides default source priority for this session
+4. `core/operating-rules.md` — core operating principles (verification hierarchy, signal tiers, pivot rules)
 
 ### STEP 1 — Scan Sources (15–20 candidates)
 - TikTok Ads Library: search trending categories
@@ -30,12 +30,12 @@ Read these files BEFORE scanning anything:
 - Skip any product already in memory
 
 ### STEP 2 — Apply Mandatory Filters
-- Check each candidate against `criteria/mandatory-filters.md`
+- Check each candidate against `core/mandatory-filters.md`
 - Reject fast — do not over-analyze weak products
 - Target: 8–10 pass filters out of 15–20 scanned
 
 ### STEP 3 — Score Filtered Products
-- Apply `criteria/scoring-system.md`
+- Apply `core/scoring-system.md`
 - Add competitor ad activity check
 - Add creative angle count estimate
 
@@ -54,11 +54,11 @@ For each candidate scoring 65+:
 - If more than 5 score strongly → include all of them (no hard upper limit)
 
 ### STEP 6 — Output Scout Mode Reports
-- One report per product (use `brain/system.md` output format)
+- One report per product (use `core/identity.md` output format)
 - Save to `outputs/daily-reports/YYYY-MM-DD.md`
 
 ### STEP 7 — Save to Notion
-- Follow `workflows/notion-update.md`
+- Follow `shared/notion-workflow.md`
 - One Notion entry per reported product (score 65+)
 - Set Recommendation: Worth Testing / Needs Verification / Rejected
 - Set Competitor Signal: None / Testing / Scaling / Saturated / Legacy Winner
@@ -71,16 +71,16 @@ For each candidate scoring 65+:
 
 ### STEP 8 — End-of-Session Checklist (mandatory, do not skip)
 
-**1. Save reported products** → `memory/reported-products.md`
+**1. Save reported products** → `shared/reported-products.md`
 - Add one row per reported product: Date, Product, Category, Score, Key Hook, Source
 
-**2. Save notable rejections** → `memory/rejected-products.md`
+**2. Save notable rejections** → `shared/rejected-products.md`
 - Add products that looked promising but failed for a non-obvious reason
 - Skip trivially weak products — only log rejections with a lesson
 
 **3. Update patterns if new insight emerged**
-- `memory/successful-patterns.md` — recurring winning trait found today
-- `memory/failed-patterns.md` — recurring weak pattern found today
+- `shared/successful-patterns.md` — recurring winning trait found today
+- `shared/failed-patterns.md` — recurring weak pattern found today
 - Only update if something new was discovered — don't repeat existing entries
 
 **4. Mark unverified links**
@@ -89,13 +89,13 @@ For each candidate scoring 65+:
 
 **5. Run Learning Protocol**
 
-Append to `memory/session-learnings.md` if any of these were observed:
+Append to `departments/facebook-ads-library/operational-memory/learnings.md` if any of these were observed:
 - new keyword behavior (what yielded products vs noise)
 - new ad signal pattern (entry window, ad count sweet spot, duration)
 - search path that consistently failed or worked
 - product category signal worth tracking next session
 
-Append to `memory/proposed-core-updates.md` only if a learning was confirmed across **3 sessions** OR explicitly approved by Marina — never after one session alone.
+Append to `review/promotion-queue.md` only if a learning was confirmed across **3 sessions** OR explicitly approved by Marina — never after one session alone.
 
 NEVER edit existing entries in either file. NEVER modify brain/, criteria/, or config/ files.
 
