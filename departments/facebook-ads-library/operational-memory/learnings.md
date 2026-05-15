@@ -876,4 +876,4 @@ A learning may be added to `review/promotion-queue.md` only if:
 - **explicitly approved by Marina**
 
 After one session only → stay in departments/facebook-ads-library/operational-memory/learnings.md regardless of signal strength.
-Never self-promote into brain/, criteria/, or config/ files.
+Never self-promote into core/ files.

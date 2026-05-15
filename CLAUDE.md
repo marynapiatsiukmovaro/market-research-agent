@@ -52,7 +52,7 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 - END every session by running the full Learning Protocol in departments/facebook-ads-library/workflow.md STEP 8 — this is non-negotiable
 - Deep analysis only for products scoring 85+ or when explicitly requested
 - Agent MAY append new entries to departments/facebook-ads-library/operational-memory/learnings.md and review/promotion-queue.md after a session — never edit or delete existing entries
-- Agent must NEVER modify brain/, criteria/, or config/ files during a scout session — core rules only change when Marina explicitly instructs it
+- Agent must NEVER modify core/ files during a scout session — core rules only change when Marina explicitly instructs it
 
 ## File Map
 ```

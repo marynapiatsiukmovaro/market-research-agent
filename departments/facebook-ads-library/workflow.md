@@ -94,7 +94,7 @@ Append to `departments/facebook-ads-library/operational-memory/learnings.md` if 
 
 Append to `review/promotion-queue.md` only if a learning was confirmed across **3 sessions** OR explicitly approved by Marina — never after one session alone.
 
-NEVER edit existing entries in either file. NEVER modify brain/, criteria/, or config/ files.
+NEVER edit existing entries in either file. NEVER modify core/ files.
 
 **6. Save session report**
 - Save output to `outputs/daily-reports/YYYY-MM-DD.md`
