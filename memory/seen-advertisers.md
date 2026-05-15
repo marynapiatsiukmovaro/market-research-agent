@@ -148,6 +148,45 @@ technoant.co | self-wringing mop — trust score 10/100, WHOIS hidden, dropship 
 ### REJECTED — Amazon-only (no DTC site)
 grazie-mop (no domain confirmed) | spin mop — B0FX ASIN (fresh 2025) but no DTC site found | 2026-05-15
 
+## Session 8 — 2026-05-15 (Kids Vertical, Keyword-First Deep Scan)
+
+### ACCEPTED — Category validators (do not re-add to Notion, use as market signals)
+bamboraco.com | ACCEPTED score 73 — baby ring sling carrier, $59, 13+ active FB ad units; Category Validator | 2026-05-15
+hoppie.kids | ACCEPTED score 65 — stroller hammock seat for 2nd child, $79, 1032 reviews; Category Validator | 2026-05-15
+
+### REJECTED — Legacy / retail-distributed
+potterybarnkids.com | retail brand, luxury baby items $200+ | 2026-05-15
+uppababy.com | luxury stroller brand $600-1200 — retail | 2026-05-15
+doona.com | car seat + stroller combo $500+ — retail brand | 2026-05-15
+lovevery.com | premium play kits $36-120/month — subscription; established brand | 2026-05-15
+babylist.com | baby registry platform — service, not physical product | 2026-05-15
+owletcare.com | baby monitor — established brand, FDA-cleared, $100-350 | 2026-05-15
+cradlewise.com | smart baby bed $1000+ — above ceiling | 2026-05-15
+boppy.com | nursing pillow — retail giant (Walmart), established brand | 2026-05-15
+nuk-usa.com | pacifiers/baby gear — established FMCG brand | 2026-05-15
+momcozy.com | nursing/maternity brand — established, retail distributed | 2026-05-15
+
+### REJECTED — Wrong category / noise
+wildbird.co | ring sling $69 — NOW IN TARGET RETAIL, DTC play over | 2026-05-15
+totesbabies.com | stroller bag add-on — founded 2021, too established | 2026-05-15
+mama-roo.com | baby carrier quiz site — founded 2023, low signal | 2026-05-15
+austlen.com | premium multi-child stroller $500+ — above ceiling | 2026-05-15
+stroleebaby.com | lightweight stroller — started Jul 2025, price unconfirmed (likely $200+) | 2026-05-15
+emmafy.com | mom crossbody bag — started Sep 2025, BUY 1 GET 1 (price TBD, possibly below floor) | 2026-05-15
+minabaie.com | diaper bag — started Mar 2026, price TBD | 2026-05-15
+tacticalbabygear.com | tactical/military-style dad gear — niche, contest-based ads | 2026-05-15
+kiddofinds.com | general baby product aggregator — affiliate/curator | 2026-05-15
+butterr.co | natural nursing pillow — founded 2023, too established | 2026-05-15
+designdua.com | multi-category baby/home brand — founded 2022 | 2026-05-15
+kinderpack.com | USA-made ergonomic carrier — founded 2022, retail | 2026-05-15
+zoberloco.com | baby carrier — founded 2023, too established | 2026-05-15
+mykinderpack.com | USA-made carrier — founded 2022 | 2026-05-15
+hoppie.kids | ACCEPTED score 65 — already logged above | 2026-05-15
+
+### NOTED — Needs follow-up verification
+babybub.com | multi-product brand (pregnancy + nursing $49-75); weak signal, needs domain check | 2026-05-15
+skaldoandmalin.com | baby arm feeding pillow + general baby accessories $9-45 — low prices for most items | 2026-05-15
+
 ## How to Use
 
 Pass to scraper:

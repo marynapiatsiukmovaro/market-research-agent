@@ -258,6 +258,121 @@ Spin scrubber = возможен при наличии свежего 2025-2026 
 
 ---
 
+### [2026-05-15] Session 8 — КРИТИЧНО: --sort=recent → Login Wall → 0 Results
+**Type:** Warning
+**Severity:** CRITICAL (делает sort=recent полностью нерабочим)
+**Confidence:** HIGH (подтверждено на двух keyword в одной сессии)
+**Evidence count:** "baby monitor" + "baby" — оба failed с sort
+**Observation:** Применение --sort=recent через playwright вызывает FB login wall detection и возвращает 0 результатов. Без sort (FB default = impressions high to low) работает нормально и возвращает 18-28 ads. Причина: sort interaction меняет страницу и FB определяет автоматизацию.
+Workaround: всегда запускать без --sort. Impressions default = уже показывает proven winners.
+Fix: нужен залогиненный FB аккаунт на VPS для полноценного sort.
+**Applies to:** Все VPS scraper сессии
+**Expires after:** Session 15 или до решения VPS login
+
+### [2026-05-15] Session 8 — Deep Mode Реальная Ёмкость: 25-30 ads/keyword
+**Type:** Pattern
+**Severity:** HIGH (меняет ожидания по capacity)
+**Confidence:** HIGH (подтверждено на 6 keywords подряд)
+**Evidence count:** baby(21), baby monitor(18), baby carrier(25), nursing pillow(25), stroller(25), baby sleep(25)
+**Observation:** --deep mode даёт 25-30 ads per keyword, НЕ 150-200 как заявлено в скрипте. Причины: (1) специфичные keywords (2+ слова) имеют ограниченный пул advertisers в FB library; (2) широкие keywords (baby, kids) тоже дают ~21 ads из-за date filter или page rendering. Реальный planning: 6 keywords/session × 25 ads = 150 total. Это НОРМАЛЬНО — не признак поломки, а реальная ёмкость FB Ads Library для наших параметров.
+**Applies to:** Все keyword runs на VPS scraper
+**Expires after:** Session 15
+
+### [2026-05-15] Session 8 — Keywords: Broad = Noise, Specific = Signal
+**Type:** Pattern
+**Severity:** HIGH (влияет на keyword selection strategy)
+**Confidence:** HIGH (6 keywords протестировано)
+**Evidence count:** 6 keywords, два broad (baby, baby sleep) vs четыре specific
+**Observation:** Keyword формула для Kids/Baby вертикали:
+❌ ШУМНЫЕ (1 слово или common word): "baby", "baby sleep" → 80%+ noise (apps, pharma, FMCG giants, unrelated)
+✅ ЧИСТЫЕ (2 слова, category-defining): "baby carrier", "nursing pillow", "stroller" → прямые DTC advertisers
+Практическое правило: использовать 2-3 слова, описывающих конкретную продуктовую категорию.
+**Applies to:** Kids vertical keyword selection
+**Expires after:** Session 15
+
+### [2026-05-15] Session 8 — Kids Vertical: Категорийная Карта (первичная)
+**Type:** Signal
+**Severity:** MEDIUM (первые данные, требуют подтверждения)
+**Confidence:** MEDIUM (1 сессия, ~150 ads)
+**Evidence count:** 6 keywords, 5 категорий проанализированы
+**Observation:** Первичная карта Kids/Baby вертикали после Session 8:
+
+ОТКРЫТЫЕ НИШИ (активные DTC, < saturated):
+- Baby ring sling / soft carrier: Bambora ($59, 13+ ads, bamboraco.com) → OPEN entry window
+- Stroller attachment/seat для 2го ребёнка: Hoppie ($79, 1 player) → VERY EARLY entry
+
+ЗАКРЫТЫЕ / НЕРЕАЛИСТИЧНЫЕ (legacy or price):
+- Baby monitor: Owlet ($100+), Nanit (legacy brands dominate)
+- Smart baby bed/bassinet: Cradlewise $1000 → too expensive
+- Premium stroller: Doona, UPPAbaby ($300-800) → luxury retail
+- Nursing pillow: Boppy→Walmart, retail-dominant category
+
+СРЕДНЯЯ ЗОНА (требуют доп. сессий):
+- Diaper bag / mom bag: Emmafy, MINA BAIE, Tactical Baby Gear — активны, но цены не проверены
+- Pregnancy pillow: babybub $49-75 — multi-product brand, слабый сигнал
+- Nursing arm pillow: CozyArm (no domain found), multiple 2026 campaigns — нужна проверка
+
+СЛЕДУЮЩИЕ KEYWORDS (не изучены):
+- "pregnancy pillow" → проверить цены и валидацию
+- "postpartum" → recovery products
+- "baby wrap" → может дать другие sling brands
+- "diaper bag" → проверить price range для Emmafy/MINA BAIE
+- "toddler" → дошкольный возраст, другие категории
+
+**Applies to:** Kids vertical — следующие сессии
+**Expires after:** Session 15
+
+### [2026-05-15] Session 8 — Bambora: Валидатор Baby Sling Carrier Категории
+**Type:** Signal
+**Severity:** HIGH (конкретный market signal с ценой и ad count)
+**Confidence:** HIGH (found across 2 keywords, 13+ ad units confirmed)
+**Evidence count:** "baby carrier" + "stroller" keywords, bamboraco.com verified
+**Observation:** Bambora (bamboraco.com) — активный DTC FB advertiser для baby ring sling carrier. $59 retail, множество цветовых вариантов, accessory upsells. 13+ ad units across multiple campaigns starting Nov 2025. Trustpilot: mixed reviews (quality/fulfillment complaints) → white-label с лучшим контролем качества может конкурировать. WildBird ($69+ ring sling) ушёл в Target retail → DTC ниша частично освобождается. Bambora = Category Validator (как KittySpout для cat fountain).
+**Applies to:** Baby carrier / sling sub-category для будущих сессий
+**Expires after:** Session 15
+
+### [2026-05-15] Session 8 (Part 2) — РЕШЕНО: FB Login + JS Scroll = 500+ ads/keyword
+**Type:** Tactical
+**Severity:** CRITICAL (полностью меняет capacity скрапера)
+**Confidence:** HIGH (подтверждено живым тестом: 561 карточка по "baby carrier")
+**Evidence count:** 1 тест, результат: 561 raw ads → 74 unique advertisers
+**Observation:** Два исправления в facebook_scraper.py разблокировали полный доступ:
+1. SCROLL FIX: `page.mouse.wheel()` НЕ тригерил FB lazy-load. Замена на `page.evaluate('window.scrollBy(0, N)')` — мгновенный результат: 28 → 174 карточек за 10 скроллов.
+2. LIMIT FIX: Убран `[:25]` hard cap в parse_ad_cards (строка ~299). Без него парсятся все карточки.
+3. SESSION: fb_session.json сохранён на VPS навсегда. Scraper автозагружает при каждом старте.
+БЫЛО: 28 ads/keyword. СТАЛО: 500+ ads/keyword (target 500, тест дал 561).
+Инкрементальный парсинг (каждые 5 scroll-шагов → парсинг → деdup по Library ID) решает virtual DOM recycling.
+**Applies to:** Все будущие VPS scraper сессии
+**Expires after:** Session 20 или до изменения архитектуры скрапера
+
+[CORRECTION 2026-05-15]
+Original learning: [2026-05-15] Session 8 — Deep Mode Реальная Ёмкость: 25-30 ads/keyword
+Why it was wrong: Лимит 25-30 был следствием двух багов в коде (mouse.wheel + [:25] cap), а НЕ реальной ёмкостью FB Ads Library.
+Replacement: Реальная ёмкость с залогиненной сессией и JS scroll = 500+ ads/keyword в --deep режиме. Планирование: 1 keyword/session = 500 ads достаточно для глубокого анализа.
+Action: Инвалидировать старый entry. Новый baseline = 500+ ads/keyword.
+
+[CORRECTION 2026-05-15]
+Original learning: [2026-05-15] Session 8 — КРИТИЧНО: --sort=recent → Login Wall → 0 Results
+Why it was wrong / updated: Fix ("нужен залогиненный FB аккаунт на VPS") теперь ВЫПОЛНЕН. fb_session.json для аккаунта Mikhail Piatsiuk сохранён в /opt/market-research-agent/cookies/fb_session.json. Sort=recent можно попробовать снова в следующей сессии — с сессией FB может работать без login wall.
+Action: Статус изменён с "open issue" на "resolved". Проверить sort=recent в Session 9.
+
+### [2026-05-15] Session 8 (Part 2) — КРИТИЧНО: Три обязательных условия для работы скрапера
+**Type:** Warning
+**Severity:** CRITICAL (без любого из трёх — агент работает вхолостую)
+**Confidence:** HIGH (подтверждено болезненным опытом Sessions 1-8)
+**Evidence count:** Весь путь Sessions 1-8
+**Observation:** Три условия, без которых запускать скрапер бессмысленно:
+1. VPS ОБЯЗАТЕЛЕН: без VPS FB Ads Library недоступна (WebSearch = Tier 3, шум).
+   Проверка: `ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "echo OK"` — должно вернуть OK.
+2. СЕССИЯ ОБЯЗАТЕЛЬНА: без fb_session.json лимит = 28 ads/keyword (бесполезно).
+   Проверка: `ls /opt/market-research-agent/cookies/fb_session.json` — должен существовать.
+   Если сессия истекла (FB разлогинит через несколько недель/месяцев): экспортировать куки снова через DevTools → Network → cookie header.
+3. JS SCROLL ОБЯЗАТЕЛЕН: без window.scrollBy FB lazy-load не тригерится.
+   Проверка: grep в скрапере должен содержать `window.scrollBy`, НЕ `mouse.wheel`.
+   Если скрапер даёт < 50 ads в --deep режиме → это ошибка, не норма.
+**Applies to:** КАЖДАЯ сессия перед запуском
+**Expires after:** Never — это постоянное правило (кандидат в core rules)
+
 ## Expired / Promoted
 
 *Empty — no items expired or promoted yet.*

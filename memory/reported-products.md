@@ -31,6 +31,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-14 | Stainless Steel Cat Water Fountain (Faucet-Style) | Pets | 77 | KittySpout 6+ FB campaigns since Mar 2026 — 3 brands in category; flowing water prevents cat kidney disease; 50M+ US cat households | Facebook Ads Library / kittyspout.com |
 | 2026-05-14 | Stainless Steel Dog Water Fountain (WagWells) | Pets | 76 | "try-" DTC domain + CET operator + Amazon April 2026; biofilm→kidney disease fear angle; direct dog extension of cat fountain category | Amazon (B0GVYQB84Q) + trywagwells.com |
 
+| 2026-05-15 | Baby Ring Sling Carrier (white-label) | Kids/Baby | 73 | Bambora (bamboraco.com) validated category: 13+ FB ad units, $59 price, mixed Trustpilot reviews = white-label quality opportunity | Facebook Ads Library / bamboraco.com |
+| 2026-05-15 | Stroller Hammock Seat for 2nd Child (Hoppie-validated) | Kids/Baby | 65 | Hoppie (hoppie.kids) $79, 1032 reviews at 4.9★ — solves "two kids, one stroller" problem; single active DTC advertiser = early entry | Facebook Ads Library / hoppie.kids |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
