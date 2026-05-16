@@ -44,6 +44,10 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-16 | Thoson Kids MagTrack (Magnetic Track + Motorized Car Toy) | Kids/Other | 67 | Magnetic tracks + motorized car $69 — hook "tired of just 5 more minutes on the tablet?"; Thoson = multi-product dropship store, weaker signal than Camp Snap; concept white-label viable | Facebook Ads Library / keyword "screen time" / thoson.com |
 | 2026-05-16 | Kids Travel Sleep Nest (Seat to Sleep) | Kids/Other | 72 | UK DTC brand advertising to US — inflatable nest for toddlers (3-10 yrs) to sleep flat on flights ~$62 USD; 1 active DTC FB advertiser in US; Amazon category exists but no dominant FB player | Facebook Ads Library / keyword "long flight" / seattosleep.co.uk |
 
+| 2026-05-16 | Wonder Quest 4K Discovery Microscope | Kids/Tech | 70 | 1 active Meta advertiser Jan 2026; 4K microscope $49.99 — "kids team up instead of fight" sibling hook; white-label viable $69-79 | Facebook Ads Library / keyword "bored kids" / thewonderquest.net |
+
+| 2026-05-16 | The Little Potion Co — Mindful Magic Potion Kits | Kids/Craft | 68 | US market open; $78 bundle = gifting + magical play + screen-free; 4 themed variants; stunning visual hook for FB/TikTok | Facebook Ads Library / keyword "screen free" / thelittlepotionco.com.au |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
