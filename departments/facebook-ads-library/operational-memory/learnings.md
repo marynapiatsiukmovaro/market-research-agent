@@ -1070,6 +1070,27 @@ Yield сравнение: "long flight" (situation) → 1/314 (0.3%) vs "baby ca
 
 ---
 
+### [2026-05-16] Session 10/11 — OPERATIONAL: Candidate list output — НЕ выводить в чат полностью
+**Type:** Operational
+**Severity:** HIGH (прямо влияет на расход контекста и остаток окна для analysis/feedback)
+**Confidence:** HIGH (Marina явно подтвердила, Session 10/11)
+**Evidence count:** Session 10/11 "rainy day": 229 кандидатов в чат = ~8-10% контекста за один вывод
+
+**Observation:** Текущий filter script выводил всех кандидатов в чат (229 записей). Это крупный блок текста, который сжигает контекст без необходимости — агент всё равно анализирует только топ-10-15.
+
+**Правило:** При fast filter на candidate list — всегда делать так:
+1. Полный список → сохранить в файл на VPS (`/tmp/{keyword}_candidates.json` или `_candidates.txt`)
+2. В чат выводить ТОЛЬКО топ shortlist (15-20 наиболее перспективных по сигналам)
+3. Сообщить путь к полному файлу: "Full list saved: /tmp/rd_candidates.txt (116 candidates)"
+4. Если нужен дополнительный кандидат — прочитать из файла на VPS точечно
+
+**Цель:** снизить расход контекста per keyword session с ~25% до ~15%. Оставить достаточно контекста для: анализа кандидатов, обратной связи Марины, добавления в Notion, финального summary, commit.
+
+**Applies to:** Все sessions с fast filter stage — применять с следующей сессии
+**Expires after:** Never — постоянное операционное правило (кандидат в core rules)
+
+---
+
 ### [2026-05-16] Session 10/11 — СТРАТЕГИЧЕСКОЕ: Situation keywords = hidden intersection discovery mode
 **Type:** Tactical
 **Severity:** HIGH (меняет то, КАК интерпретировать situation keyword results)
@@ -1100,6 +1121,51 @@ Kids Travel Sleep Nest не появился бы в keyword "baby product" ил
 
 **Applies to:** Все сессии с situation/moment keywords
 **Expires after:** Session 25 или до замены более точным алгоритмом
+
+---
+
+### [2026-05-16] Session 10/11 — "rainy day" keyword: ZERO yield, слабая специфичность
+**Type:** Warning
+**Severity:** HIGH (предотвращает повторный запуск без новой причины)
+**Confidence:** HIGH (370 advertisers проанализировано, 116 filtered, 12+ verified — 0 reportable)
+**Evidence count:** 370 advertisers, 0 products ≥65
+
+**Observation:** Keyword "rainy day" дал 370 уникальных advertisers за 66 сек. После двух раундов фильтрации и верификации 12+ кандидатов — 0 reportable products.
+
+Структура результатов:
+- ~35% — rain gear (established brands: Hunter Boots, Vessi, Merry People, BaerskinTactical, Rebel Bro)
+- ~25% — local services (indoor trampoline parks, kids play centers, art studios, venues)
+- ~20% — lifestyle/cozy (candles, blankets — mostly <$30)
+- ~10% — established/retail brands (CHANEL, Raycon, KiwiCo, Honeylove, Nugget)
+- ~10% — реальные DTC кандидаты, но все ниже 65: Declan's Mining (~57), Pippaloo (~58, fails white-label filter)
+
+**Причина слабого yield:** "rainy day" = generic domestic situation без острой боли. В отличие от "long flight" (конкретный момент + captive audience + физический дискомфорт), "rainy day" = размытое ощущение без buying intent. Не создаёт достаточного контекста для DTC физических продуктов.
+
+**Keyword verdict: ❌ Dead-end для product discovery.** Не повторять без конкретной новой причины (например: если появится сигнал о новой Kids indoor activity category).
+
+**Applies to:** Kids vertical keyword selection — situation keywords
+**Expires after:** Session 20
+
+---
+
+### [2026-05-16] Session 10/11 — Честный 0-result = ценный результат, не провал
+**Type:** Tactical
+**Severity:** MEDIUM (влияет на качество решений по keyword strategy)
+**Confidence:** HIGH (Marina явно подтвердила, Session 10/11)
+**Evidence count:** "rainy day" scan — 370 ads, 0 reportable, Marina approved as correct decision
+
+**Observation:** Когда keyword даёт 0 reportable products после честного сканирования и верификации — это ценная информация:
+1. Keyword можно закрыть и не возвращаться
+2. Это освобождает будущие сессии от повторного тестирования
+3. Pattern summary по keyword = долгосрочный актив (keyword scorecard)
+
+**Правило:** НЕ форсировать продукт чтобы сессия "не пропала зря". Качественный 0-result лучше одного слабого reportable.
+- Если keyword дал шум → честный 0 → зафиксировать в scorecard → двигаться дальше
+- Если keyword дал 1-2 borderline кандидата (60-64) → не репортовать → зафиксировать как "weak signal"
+- Правило quality over quota: 3 сильных продукта > 5 слабых. 0 с pattern > 1 forced
+
+**Applies to:** Все scout сессии — оценка результатов keyword scan
+**Expires after:** Never — постоянное правило (уже частично есть в core, reinforcement)
 
 ---
 
