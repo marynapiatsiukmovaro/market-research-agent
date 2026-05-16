@@ -140,6 +140,25 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **Travel comfort = Amazon commodity trap**: inflatable cushions, basic pillows — generic versions $10-25 kill margins unless strong DTC positioning
 - **Open niche found**: Kids travel sleep (inflatable nest for planes) — 1 DTC FB advertiser in US, Amazon crowded but DTC window open
 
+### Session 13 Rejections — 2026-05-16 (Keywords: keep kids busy, screen free)
+
+| 2026-05-16 | BlockBlaster DIY Ops Handle Set | Kids/Toys | LEGO clone ("not endorsed by LEGO Group"); sold out; no reviews; weird pricing ($41.50 regular shown as $99.99 sale) — no social proof | filtered |
+| 2026-05-16 | The Landmark Kids geography kits | Kids/Education | Subscription model ($30-37/box) → wrong business model for one-time DTC MVP; also content-heavy (4 videos + map + recipe per box) | filtered |
+| 2026-05-16 | ArtCreativity multi-toy store | Kids/Toys | Products $11-29 — entire catalog below price floor; wholesale model (B2B listed alongside DTC) | filtered |
+| 2026-05-16 | The Little Potion Co | Kids/Craft | Australian brand, $59 AUD (~$38 USD) → at price floor; 1 FB ad; founder-story brand — not white-label play | filtered |
+
+### Session 13 Keyword Pattern Summary — 2026-05-16
+
+| Keyword | Advertisers | Yield | Verdict |
+|---------|-------------|-------|---------|
+| bored kids | ~150 (after filter) | MEDIUM — Wonder Quest Score 70 | ✅ Productive (1 reportable) |
+| keep kids busy | 362 | LOW — 0 reportable, 1 category signal (Magic Playwall 62) | ⚠️ Too broad — too much noise from non-kids products |
+| screen free | 294 | LOW — 0 new reportable (confirmed Camp Snap 77, Thoson 67, Wonder Quest 70) | ⚠️ Ironic high app noise; useful for validation, not discovery |
+
+**"keep kids busy" pattern:** Situation/emotion keyword attracts broad noise — established brands (Woobles, CrunchLabs), non-kids physical products, affiliate accounts. Too broad for new DTC discovery. Category signal only: magnetic wall boards (Cherrypick/Magic Playwall).
+
+**"screen free" pattern:** Keyword ironically attracts many apps and digital services that use "screen free" in their ad copy as a negative contrast. Camp Snap + Thoson Kids = already reported winners dominate this keyword — confirms their signals but yields no new products.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

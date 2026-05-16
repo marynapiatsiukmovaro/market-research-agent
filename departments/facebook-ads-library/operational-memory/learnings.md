@@ -11,6 +11,43 @@ Marina promotes or rejects items manually via `review/promotion-queue.md`.
 
 ---
 
+## ⚡ КРИТИЧЕСКИЕ ОПЕРАЦИОННЫЕ ПРАВИЛА (читать первыми — всегда)
+
+> Эти правила были учтены в предыдущих сессиях, но потерялись из-за размера файла.
+> Вынесены сюда для гарантированного попадания в первый read.
+
+### ОП-1: fb_session.json — ПРАВИЛЬНЫЙ путь
+Файл сессии находится ТОЛЬКО по этому пути: `/opt/market-research-agent/cookies/fb_session.json`
+НЕ `/root/fb_session.json` и НЕ `/tmp/fb_session.json`.
+Проверка: `ls /opt/market-research-agent/cookies/fb_session.json`
+
+### ОП-2: Candidate list — НЕ выводить в чат полностью
+После скрапинга полный список ВСЕГДА сохранять в файл на VPS: `/tmp/{keyword}_candidates.txt`
+В чат выводить ТОЛЬКО топ-15-20 наиболее перспективных.
+Сообщить путь: "Full list saved: /tmp/xyz_candidates.txt (N candidates)"
+**Источник:** Session 10/11, Marina явно подтвердила — вывод 229 кандидатов = ~8-10% контекста за один блок.
+
+### ОП-3: --sort=recent — статус
+С работающей fb_session.json флаг --sort=recent НЕ вызывает login wall (подтверждено Session 8 Part 2 + Session 13).
+НО: скрапер часто fallback-ается на impressions sort по умолчанию даже с флагом. Проверять URL в scraped data.
+По умолчанию: запускать БЕЗ --sort (impressions = proven winners) если нет явной причины иначе.
+
+### ОП-4: Три обязательных условия перед запуском скрапера
+1. VPS подключён: `ssh root@5.78.217.133 "echo OK"` → OK
+2. fb_session.json существует: `/opt/market-research-agent/cookies/fb_session.json` → EXISTS
+3. Скрапер использует window.scrollBy: `grep "window.scrollBy" skills/facebook_scraper.py` → найдено
+Без любого из трёх → 28 ads вместо 500+. ОСТАНОВИТЬСЯ и исправить.
+
+### ОП-5: Параллельная верификация кандидатов
+При verification stage делать 3-4 WebFetch ПАРАЛЛЕЛЬНО в одном response block.
+Ускорение ~30-40%. НЕ делать последовательно.
+
+### ОП-6: Дропшип-бренд = сигнал спроса, НЕ причина reject
+Несколько доменов продают один продукт → это validation, не red flag.
+Фильтровать по ПРОДУКТУ (цена, механизм, COGS), не по типу продавца.
+
+---
+
 ## Current Focus
 
 **Sessions 1+: Facebook Ads Library as primary discovery source (ongoing)**
@@ -24,179 +61,6 @@ This focus applies until Marina says otherwise.
 ---
 
 ## Active Learnings
-
-### [2026-05-14] Session 4 — Dead Keywords to Avoid
-**Type:** Warning
-**Severity:** HIGH (affects keyword strategy)
-**Confidence:** HIGH (confirmed across 5 rounds in one session)
-**Evidence count:** 5 keywords confirmed useless
-**Observation:** These keywords yield 80%+ noise, services, or affiliates — never physical products in $49-99 range:
-- "home organizer" → Amazon affiliate spam
-- "dog camera" → 0 actual dog cameras, random content
-- "facial steamer" → salons + B2B manufacturers
-- "under desk bike" → 0 relevant products, random keyword match
-- "food chopper" → grocery stores, musicians, farms used the keyword
-**Applies to:** Facebook Ads Library scraper keyword selection
-**Expires after:** Session 11 or founder-promoted
-
-### [2026-05-14] Session 4 — Pets Vertical: Price Floor Issue
-**Type:** Pattern
-**Severity:** MEDIUM
-**Confidence:** HIGH (3 products confirmed below $49)
-**Evidence count:** Uproot Clean $16.99, PurePath $24.99, North Alpine $29.90
-**Observation:** Pet accessories and most "pet tools" (hair removers, basic gadgets) are priced $15-30. Hero products fail the $49 price floor. Exception: premium/tech pet products (automatic feeders, smart fountains, cameras) CAN reach $49-99. Always check price before analysis.
-**Applies to:** Pet vertical products
-**Expires after:** Session 11
-
-### [2026-05-14] Session 4 — Cat Water Fountain Category Signal
-**Type:** Signal
-**Severity:** MEDIUM
-**Confidence:** MEDIUM (FB confirmed, Notion pending Marina approval)
-**Evidence count:** 3 brands active (KittySpout 6+ campaigns, Elfin Fountain, Try Pure)
-**Observation:** Stainless steel wireless cat fountain with faucet-style stream is a growing DTC category. KittySpout started March 2026 with aggressive creative testing (6+ campaigns, vet influencers, UGC). Score 77. Reported to Marina. Multiple Chinese ODM suppliers available.
-**Applies to:** Pets vertical future sessions
-**Expires after:** Session 11 or founder-approved
-
-### [2026-05-14] Session 4 — Category Price Map (быстрая справка)
-**Type:** Pattern
-**Severity:** HIGH (предотвращает потерянные раунды)
-**Confidence:** HIGH (подтверждено 5 раундами, 120+ кандидатов)
-**Evidence count:** Session 4 — multiple categories verified
-**Observation:** Быстрая справка по ценовым диапазонам вертикалей. Проверяй ДО запуска раунда.
-
-❌ Обычно $15-35 — НЕ исследовать (не дотягивают до $39):
-- Pet accessories (brushes, hair removers, basic toys)
-- Car organizers, seat gap fillers, basic holders
-- Kitchen choppers, peelers, basic gadgets
-- Home organizers, drawer dividers
-- Basic compression wear (socks, basic sleeves)
-- Reusable bags, silicone products
-
-✅ Обычно $39+ — исследовать:
-- Pet tech (water fountains, auto feeders, cameras, GPS trackers)
-- Kitchen appliances (blenders, steamers, electric cookers)
-- Beauty devices (powered: sonic cleansers, LED, microcurrent)
-- Car tech (dash cams, wireless charging mounts, air purifiers)
-- Health devices (massagers, posture sensors, TENS)
-- Sleep tech (sunrise alarms, cooling pads, smart masks)
-- Home appliances (steam mops, robot vacuums)
-
-**Applies to:** Keyword selection перед каждым раундом
-**Expires after:** Session 11 или founder-promoted
-
-### [2026-05-14] Session 4 — Wide Exploration Strategy Note
-**Type:** Tactical
-**Severity:** LOW
-**Confidence:** MEDIUM
-**Evidence count:** 5 rounds, 120+ candidates
-**Observation:** Broad consumer verticals (kitchen, home, car) mostly yield products priced $15-40 — below $49 threshold. Higher price-point products ($49-99) concentrate in: health devices, premium pet care (tech products), beauty tools (crowded), cleaning appliances. When exploring new verticals, check price range FIRST before full evaluation.
-**Applies to:** All future wide exploration rounds
-**Expires after:** Session 11
-
-### [2026-05-14] Session 5 — Pet Tech Price Ceiling Relaxation (Founder Calibration)
-**Type:** Pattern
-**Severity:** HIGH (affects scoring and rejection logic)
-**Confidence:** HIGH (founder-explicit instruction)
-**Evidence count:** Marina confirmed mid-session 5
-**Observation:** The $79 hard ceiling does NOT apply rigidly in Pet Tech. Marina accepts up to ~$120 AOV if: visual demo exceptionally strong, emotional attachment high (pet owners), premium DTC positioning viable, Meta economics still viable. Pet owners tolerate higher AOV than most verticals. Evaluate case-by-case rather than hard-reject at $80+.
-**Applies to:** Pet vertical product scoring and rejection
-**Expires after:** Session 12 or founder-promoted
-
-### [2026-05-14] Session 5 — Pet Tech Structural Constraints Map
-**Type:** Pattern
-**Severity:** HIGH (prevents wasted rounds)
-**Confidence:** HIGH (confirmed across 4 exploration cycles, 20+ brands reviewed)
-**Evidence count:** Session 5 — entire vertical scan
-**Observation:** Pet Tech вертикаль имеет жёсткие структурные ограничения. Большинство sub-categories либо subscription-dependent, либо Amazon-dominated, либо за пределами ценового диапазона. Только 2 sub-categories рабочие для нашей DTC модели (см. ниже). Это важно знать ДО входа в вертикаль.
-
-МЁРТВЫЕ SUB-CATEGORIES (не исследовать снова без нового сигнала):
-- Dog/Cat GPS tracker → legacy brands (Tractive, Fi, Garmin) + subscription = DEAD
-- Pet camera / treat dispenser → Furbo/Petcube legacy + subscription = DEAD
-- Cat calming (pheromone) → price floor $15-30 = DEAD
-- Pet activity tracker / smart collar → subscription model + established (Maven, FitBark) = DEAD
-- Automatic cat feeder (basic) → Amazon-dominated (Petlibro, Oneisall) = DEAD для DTC FB play
-- Automatic cat feeder (camera/wifi) → $95-138 выше ceiling = DEAD
-- Pet grooming vacuum → $84-200 выше ceiling = DEAD (Neakasa, Bissell, etc.)
-- Interactive / automatic laser cat toy → price floor $25-35 = DEAD
-- Automatic dog ball launcher → iFetch/Hyper Pet legacy = SATURATED
-- Self-cleaning litter box → $149-500+ = DEAD (PetPivot $179, Litter-Robot $500)
-
-ЖИВЫЕ SUB-CATEGORIES (worth exploring):
-- Wireless stainless steel cat/dog water fountain → $39-79 ✅, KittySpout validated (session 4), dog segment unexplored
-- Pet nail grinder → "validated mechanism, commoditized execution" (см. отдельный learning)
-
-ПОТЕНЦИАЛЬНО ЖИВЫЕ (требуют проверки с relaxed ceiling):
-- Smart automatic feeder with unique mechanism at $79-99 → if visual demo exceptional
-- Mid-range self-cleaning litter box $79-119 → none confirmed yet, worth one targeted round
-
-**Applies to:** Pet vertical sessions — ключевики, раунды, отбор
-**Expires after:** Session 12
-
-### [2026-05-14] Session 5 — Pet Nail Grinder: Validated Mechanism, Commoditized Execution
-**Type:** Pattern
-**Severity:** MEDIUM
-**Confidence:** MEDIUM (indirect signals: confirmed paid ads, 3+ Amazon clones, 2239 reviews)
-**Evidence count:** Heusom brand + 3 Amazon clone sellers (Ayland, Tasunte) + YouTube counterfeit review
-**Observation:** "Silent Groom Pro" quiet pet nail grinder = рабочий психологический механизм (guilt + stress relief, visual before/after calm pet). Активная платная реклама подтверждена косвенно ("kept seeing flashy ads"). Но продукт commoditized: тот же generic grinder на Amazon за $20-39, на AliExpress ещё дешевле. Без сильного бренда и ценового позиционирования не выживет на холодном трафике. Статус: НЕ репортить как winner, НЕ reject — зафиксировать как подтверждённый механизм. Может стать viable если найти DTC бренд с сильным creativeным позиционированием и ценой $49-59.
-**Applies to:** Pet grooming tech sub-category
-**Expires after:** Session 12
-
-### [2026-05-14] Session 5 — Dog Water Fountain: Unresolved Hypothesis
-**Type:** Signal
-**Severity:** MEDIUM
-**Confidence:** LOW (1 indirect signal — Bella&Pal + category logic)
-**Evidence count:** Bella&Pal (established 2021) sells wireless stainless dog fountain; category review articles exist
-**Observation:** Беспроводные stainless steel фонтаны для собак — прямое расширение KittySpout категории (cat fountain, score 77, session 4). Категория существует ($39-59 price range), но свежих DTC брендов с FB рекламой не найдено в сессии 5. Bella&Pal (2021) подтвердила категорию, но слишком established. Следует проверить в следующей сессии: Wag Wells, Voluas, Smartoo — есть ли среди них DTC FB play 2024-2025.
-**Applies to:** Pet vertical — dog water fountain keyword
-**Expires after:** Session 12
-
-### [2026-05-14] Session 5 — Dead Keywords (Pet Tech Specific)
-**Type:** Warning
-**Severity:** HIGH
-**Confidence:** HIGH
-**Evidence count:** Session 5 — confirmed across multiple searches
-**Observation:** Следующие ключевики для Pet Tech дают noise, legacy brands или price floor fails — не использовать:
-- "dog GPS tracker" → Tractive/Fi/Garmin только
-- "pet camera" → Furbo/Petcube только
-- "cat calming" → pheromone products $15-30
-- "pet activity tracker" → subscription model
-- "cat grooming vacuum" / "pet grooming vacuum" → $84-200
-- "automatic laser cat toy" → $25-35
-- "automatic dog ball launcher" → iFetch/Hyper Pet legacy
-**Applies to:** Pet Tech keyword selection
-**Expires after:** Session 12
-
-### [2026-05-14] Session 6 — Dog Fountain: Amazon-Dominated, DTC Cycle Behind Cat Fountain
-**Type:** Pattern
-**Severity:** HIGH (affects future dog fountain round planning)
-**Confidence:** HIGH (confirmed across 15+ brands checked in sessions 5+6)
-**Evidence count:** 10+ brands eliminated; only WagWells viable DTC candidate
-**Observation:** Dog water fountain категория реальна и растёт ($39-79 range confirmed), но DTC Facebook advertising significantly less developed чем cat fountain. Cat fountain: KittySpout + 2 others = 3+ active FB campaigns. Dog fountain: WagWells = единственный DTC candidate с "try-" domain + CET operator pattern; остальные либо Amazon-native, либо established pre-2025, либо AU market. Категория примерно на 1-2 года позади cat fountain в DTC цикле. Это ВОЗМОЖНОСТЬ (early entry) но также РИСК (no proven FB DTC playbook yet).
-**WagWells signals:** Amazon April 2026 listing, "try-" prefix domain, CET timezone support (European operator → US market), no history on About page = fresh brand, $74.95 hero price, biofilm/kidney health angle.
-**Applies to:** Pet vertical dog fountain keyword decisions
-**Expires after:** Session 13
-
-### [2026-05-14] Session 6 — Smart Feeder: Structurally Not Viable for DTC FB Model
-**Type:** Pattern
-**Severity:** HIGH (prevents wasted sessions)
-**Confidence:** HIGH (structural analysis confirmed across 2 rounds)
-**Evidence count:** 78 Amazon brands, 5 established leaders, 0 fresh DTC FB advertisers found
-**Observation:** Automatic/smart pet feeder категория закрыта для Marina's DTC FB model по структурным причинам: (1) Amazon-saturated — 78+ brands, PETKIT + Petlibro + PAPIFEED dominate с 92-306% growth; (2) no fresh 2025-2026 DTC Facebook advertiser found despite deep search; (3) tech complexity = customer education requirement → cold traffic death; (4) branded innovative products (Cheerble Match G1 $259, AI feeders) above ceiling. НЕ исследовать снова без конкретного нового сигнала (new DTC brand name, confirmed FB ads).
-**Applies to:** Pet vertical — smart feeder keyword decisions
-**Expires after:** Session 13
-
-### [2026-05-14] Session 6 — Freshness Logic Calibration: 2025-2026, Not 2024-2025
-**Type:** Tactical
-**Severity:** MEDIUM (affects brand freshness filter every session)
-**Confidence:** HIGH (Marina confirmed explicitly)
-**Evidence count:** Marina correction at session start
-**Observation:** Текущая дата — май 2026. "Fresh" DTC brand означает:
-- Ideal: запущен в 2026
-- Acceptable: запущен в 2025
-- Old / less interesting: 2024 и раньше — пропускать, если нет явного 2026 ad scaling
-Это НЕ статичное правило — нужно пересматривать каждый год. Применять ДО оценки любого бренда.
-**Applies to:** All verticals — brand freshness evaluation
-**Expires after:** Session 13
 
 ### [2026-05-15] Session 7 — Home/Kitchen: Structurally Weak for DTC FB Model
 **Type:** Pattern
@@ -233,16 +97,6 @@ This focus applies until Marina says otherwise.
 **Applies to:** Все будущие scout сессии — это новый baseline алгоритм
 **Expires after:** Session 20 или до замены новым подтверждённым алгоритмом
 
-### [2026-05-15] Session 7 — Next Vertical: Kids (не Home/Kitchen)
-**Type:** Signal
-**Severity:** HIGH (устанавливает приоритет Session 8)
-**Confidence:** HIGH (Marina явно указала)
-**Evidence count:** Прямой фидбек от Марины, Session 7
-**Observation:** Session 8 переключается на вертикаль KIDS (не Home/Kitchen). Причины: (1) Родительские триггеры сильнее (страх, любовь, безопасность ребёнка); (2) Готовность платить $39-99 для детских продуктов высокая; (3) DTC FB реклама активна в baby/kids пространстве; (4) Белый лейбл реален для большинства продуктов; (5) Множество под-аудиторий (newborn, toddler, school age, pregnancy).
-Стартовые ключевые слова для Session 8: baby, kids, toddler, infant, newborn, mom, child, nursery, stroller, baby monitor, potty, teething, feeding, breastfeeding, sleep baby, bath baby, baby carrier, diaper, learning toy, pregnancy.
-**Applies to:** Session 8 keyword planning
-**Expires after:** Session 10
-
 ### [2026-05-15] Session 7 — Мёртвые ключевые слова: Home/Kitchen
 **Type:** Warning
 **Severity:** HIGH
@@ -257,26 +111,6 @@ Spin scrubber = возможен при наличии свежего 2025-2026 
 **Expires after:** Session 14
 
 ---
-
-### [2026-05-15] Session 8 — КРИТИЧНО: --sort=recent → Login Wall → 0 Results
-**Type:** Warning
-**Severity:** CRITICAL (делает sort=recent полностью нерабочим)
-**Confidence:** HIGH (подтверждено на двух keyword в одной сессии)
-**Evidence count:** "baby monitor" + "baby" — оба failed с sort
-**Observation:** Применение --sort=recent через playwright вызывает FB login wall detection и возвращает 0 результатов. Без sort (FB default = impressions high to low) работает нормально и возвращает 18-28 ads. Причина: sort interaction меняет страницу и FB определяет автоматизацию.
-Workaround: всегда запускать без --sort. Impressions default = уже показывает proven winners.
-Fix: нужен залогиненный FB аккаунт на VPS для полноценного sort.
-**Applies to:** Все VPS scraper сессии
-**Expires after:** Session 15 или до решения VPS login
-
-### [2026-05-15] Session 8 — Deep Mode Реальная Ёмкость: 25-30 ads/keyword
-**Type:** Pattern
-**Severity:** HIGH (меняет ожидания по capacity)
-**Confidence:** HIGH (подтверждено на 6 keywords подряд)
-**Evidence count:** baby(21), baby monitor(18), baby carrier(25), nursing pillow(25), stroller(25), baby sleep(25)
-**Observation:** --deep mode даёт 25-30 ads per keyword, НЕ 150-200 как заявлено в скрипте. Причины: (1) специфичные keywords (2+ слова) имеют ограниченный пул advertisers в FB library; (2) широкие keywords (baby, kids) тоже дают ~21 ads из-за date filter или page rendering. Реальный planning: 6 keywords/session × 25 ads = 150 total. Это НОРМАЛЬНО — не признак поломки, а реальная ёмкость FB Ads Library для наших параметров.
-**Applies to:** Все keyword runs на VPS scraper
-**Expires after:** Session 15
 
 ### [2026-05-15] Session 8 — Keywords: Broad = Noise, Specific = Signal
 **Type:** Pattern
@@ -344,17 +178,6 @@ Fix: нужен залогиненный FB аккаунт на VPS для по�
 Инкрементальный парсинг (каждые 5 scroll-шагов → парсинг → деdup по Library ID) решает virtual DOM recycling.
 **Applies to:** Все будущие VPS scraper сессии
 **Expires after:** Session 20 или до изменения архитектуры скрапера
-
-[CORRECTION 2026-05-15]
-Original learning: [2026-05-15] Session 8 — Deep Mode Реальная Ёмкость: 25-30 ads/keyword
-Why it was wrong: Лимит 25-30 был следствием двух багов в коде (mouse.wheel + [:25] cap), а НЕ реальной ёмкостью FB Ads Library.
-Replacement: Реальная ёмкость с залогиненной сессией и JS scroll = 500+ ads/keyword в --deep режиме. Планирование: 1 keyword/session = 500 ads достаточно для глубокого анализа.
-Action: Инвалидировать старый entry. Новый baseline = 500+ ads/keyword.
-
-[CORRECTION 2026-05-15]
-Original learning: [2026-05-15] Session 8 — КРИТИЧНО: --sort=recent → Login Wall → 0 Results
-Why it was wrong / updated: Fix ("нужен залогиненный FB аккаунт на VPS") теперь ВЫПОЛНЕН. fb_session.json для аккаунта Mikhail Piatsiuk сохранён в /opt/market-research-agent/cookies/fb_session.json. Sort=recent можно попробовать снова в следующей сессии — с сессией FB может работать без login wall.
-Action: Статус изменён с "open issue" на "resolved". Проверить sort=recent в Session 9.
 
 ### [2026-05-15] Session 8 (Part 2) — КРИТИЧНО: Три обязательных условия для работы скрапера
 **Type:** Warning
@@ -515,37 +338,6 @@ HIDDEN THROTTLING: FB не выдаёт ошибку — просто повто
 
 **Applies to:** Все продукты с ценой $100-150 при наличии strong социального proof
 **Expires after:** Session 16 или до Marina confirmation
-
-### [2026-05-15] Session 8 (Part 2) — Сломанные поля парсера: started + active_ads
-**Type:** Warning
-**Severity:** HIGH (Tier-1 сигналы недоступны — замедляет scoring)
-**Confidence:** HIGH (подтверждено в обоих verification runs)
-**Evidence count:** baby carrier (74 advertisers), baby monitor (78 advertisers) — >60% показывают "started: ?" и "active_ads: ?"
-**Observation:** Поля `started` (дата начала кампании) и `active_ads` (количество активных объявлений) не извлекаются у 60%+ рекламодателей. Это Tier-1 сигналы:
-- `started` = как долго кампания работает = proxy для профитабельности
-- `active_ads` = масштаб инвестиций рекламодателя
-Без этих полей scoring неполный. Причина: CSS/XPath selectors в парсере не соответствуют текущей структуре FB Ads Library. Требует debugging сессии: запустить scraper с --debug, посмотреть raw HTML карточки, обновить selectors.
-**Applies to:** Все будущие runs — починить ДО большой Kids вертикальной сессии
-**Expires after:** До починки (после починки — заменить этот entry)
-
-[CORRECTION 2026-05-16]
-Original learning: [2026-05-15] Session 8 (Part 2) — Сломанные поля парсера: started + active_ads
-Why it was wrong / updated: Проблема была частично диагностирована неверно.
-- `started` = работает корректно с залогиненной сессией ✓
-- `active_ads` = "?" НЕ баг парсера. FB показывает число только для multi-version ads ("See summary details"). Single-version ads ("See ad details") не имеют счётчика по дизайну FB UI.
-- 71% "?" = это legitimately single-version ads, не ошибка парсинга.
-Fix applied 2026-05-16: добавлен fallback `active_ads_count = 1` для single-version ads (когда "See ad details" в raw и нет "See summary details"). Теперь: single ad → 1, multiple versions → actual count или "2+".
-Action: Статус изменён с "broken" на "RESOLVED". Парсер работает корректно.
-
-### [2026-05-15] Session 8 (Part 2) — JSON output необходим для эффективного агентного анализа
-**Type:** Tactical
-**Severity:** HIGH (ускорит research-фазу в 2x)
-**Confidence:** HIGH
-**Evidence count:** baby monitor run: 3057 строк txt лога на 1 keyword
-**Observation:** Текущий скрапер пишет plaintext лог (~3000 строк на keyword). При 20 keywords/сессии = 60,000+ строк — читать в агенте неэффективно. Нужен `--output results.json` флаг: структурированный JSON со списком advertiser объектов. Это позволит агенту читать 1-2 страницы JSON вместо 3000 строк txt. Аналогично нужно сохранять метаданные: keyword, timestamp, total_raw_ads, total_unique_advertisers, runtime_seconds.
-Приоритет: HIGH — реализовать до большой Kids сессии.
-**Applies to:** VPS scraper архитектура
-**Expires after:** До реализации JSON output
 
 ### [2026-05-15] Session 9 — Kids/Baby Sleep: Доминируют Established Brands + Tech
 
@@ -1169,9 +961,90 @@ Kids Travel Sleep Nest не появился бы в keyword "baby product" ил
 
 ---
 
+### [2026-05-16] Session 13 — "bored kids" keyword: situation keyword, HIGH noise, LOW physical yield
+**Type:** Pattern
+**Severity:** MEDIUM
+**Confidence:** HIGH (266 advertisers проанализировано)
+**Evidence count:** 266 unique advertisers, 1 candidate 70+
+**Observation:** Keyword "bored kids" — situation/seasonal keyword. Структура:
+- ~35% — local services (martial arts, summer camps, sports academies) — пик в апреле-мае перед летом
+- ~20% — digital (apps, streaming, courses)
+- ~10% — travel/entertainment venues
+- ~6-8% — физические продукты (наш таргет)
+- ~25% — прочий шум
+Yield: 1 reportable product из 266 (Wonder Quest, score 70). Ожидаемо для situation keyword.
+ПАТТЕРН: "bored kids" = calendar keyword — пик активности апрель-май. DTC физические продукты в этом keyword = STEM/exploration toys (screen-free category).
+**Applies to:** Kids vertical — situation keyword strategy
+**Expires after:** Session 20
+
+### [2026-05-16] Session 13 — Wonder Quest: DBO Networks оператор подтверждён
+**Type:** Signal
+**Severity:** MEDIUM
+**Confidence:** MEDIUM (1 advertiser, Jan 2026, high impressions)
+**Evidence count:** Library ID 869115092579954, thewonderquest.net
+**Observation:** Wonder Quest 4K Discovery Microscope ($49.99 DTC, ~$15-20 COGS) = single active FB advertiser, started Jan 2026. Operated by DBO Networks LLC (multi-brand dropship operator, уже зафиксирован в Session 10). White-label viable: generic kids digital microscope на Alibaba $12-20. Слабый сигнал (1 ad) vs Camp Snap (50+). Score 70. Ценность: STEM/exploration category signal + sibling cooperation hook.
+Reported to Notion: 2026-05-16.
+**Applies to:** Kids/STEM exploration category
+**Expires after:** Session 20
+
+### [2026-05-16] Session 13 — "keep kids busy" keyword: TOO BROAD, high noise, LOW physical yield
+**Type:** Pattern
+**Severity:** HIGH (предотвращает повторный запуск без сужения)
+**Confidence:** HIGH (362 advertisers проанализировано, 0 reportable)
+**Evidence count:** 362 unique advertisers, 1 category signal (score 62)
+**Observation:** Keyword "keep kids busy" — ситуационный broad keyword. 362 рекламодателя. Структура:
+- ~30% — subscription boxes (Woobles crochet, CrunchLabs), established brands (широкая категория "kids activity")
+- ~25% — digital (apps, courses, online camps)
+- ~20% — retail (ролевые наборы, настольные игры через Amazon affiliates, etsy)
+- ~15% — DTC физические продукты, но большинство несовместимы по цене ($9.99 dragon egg) или established (Hadley Designs, Rouvenor)
+- ~10% — другое
+YIELD: 0 reportable products. 1 category signal: Magic Playwall by Cherrypick (shopcherrypick.com) — magnetic wall mounted activity board для детей, score 62 (категория интересная, но продукт не прошёл threshold).
+ПАТТЕРН: "keep kids busy" = слишком broad → захватывает subscription economy, не DTC физические продукты. Лучше использовать product-specific keywords ("magnetic activity board", "kids building toy", "craft kit kids").
+**Applies to:** Kids vertical keyword selection — не использовать "keep kids busy" как primary keyword
+**Expires after:** Session 20
+
+---
+
+### [2026-05-16] Session 13 — Magic Playwall by Cherrypick: Category Signal for Magnetic Wall Activities
+**Type:** Signal
+**Severity:** MEDIUM (category signal, не final product)
+**Confidence:** MEDIUM (1 DTC advertiser, store verified)
+**Evidence count:** shopcherrypick.com, UGC creator (UGCbyTosin), 1 active FB advertiser, Jan 2026
+**Observation:** Cherrypick (shopcherrypick.com) рекламирует Magic Playwall — magnetic wall-mounted activity board для детей. Jan 2026. 1 активное объявление. Продукт: магнитная панель на стену с деревянными деталями. Score 62 — не прошёл порог 65 из-за: (1) только 1 активный рекламодатель, (2) COGS/цена неподтверждены, (3) не verified на Alibaba.
+КАТЕГОРИЙНЫЙ СИГНАЛ: "Magnetic wall activity board for kids" = растущая категория. Pinterest / Etsy тренд. Если найдётся второй DTC бренд → категория открывается.
+СЛЕДУЮЩИЙ ШАГ (если Marina approves): запустить keyword "magnetic activity board" или "magnetic play board" — проверить есть ли другие DTC advertisers.
+Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
+**Applies to:** Kids vertical — wall activity category
+**Expires after:** Session 20
+
+---
+
+### [2026-05-16] Session 13 — "screen free" keyword: HIGH app noise (иронично), confirms existing winners
+**Type:** Pattern
+**Severity:** HIGH (предотвращает повторный запуск как primary discovery keyword)
+**Confidence:** HIGH (294 advertisers проанализировано, 0 new reportable)
+**Evidence count:** 294 unique advertisers, 0 новых products ≥65
+**Observation:** Keyword "screen free" = иронично высокий шум от цифровых продуктов. 294 рекламодателя. Структура:
+- ~35% — apps и digital services, которые рекламируют себя как "screen free alternative" (используют термин в copy, но сами являются digital)
+- ~25% — established brands (Yoto Player доминирует — появился 4+ раза, разные accounts)
+- ~20% — детские физические продукты, но confirmed: Camp Snap (Score 77) + Thoson Kids (Score 67) + Wonder Quest (Score 70) — все уже в reported-products.md
+- ~20% — non-kids (взрослые товары, австралийские бренды, ниже price floor)
+YIELD: 0 новых reportable products. Keyword работает как VALIDATION keyword — подтверждает уже найденные продукты, но не открывает новые.
+ВЫВОД: "screen free" ≠ primary discovery keyword. Использовать только для validation существующих кандидатов или как дополнительный сигнал. Yoto Player = dominant established brand в этом keyword — его присутствие сигнализирует о насыщенности аудитории.
+**Applies to:** Kids vertical keyword selection — не использовать как primary discovery keyword
+**Expires after:** Session 20
+
+---
+
 ## Expired / Promoted
 
-*Empty — no items expired or promoted yet.*
+> **Инструкция по архивации:** Записи с "Expires after: Session N" где N ≤ текущей сессии
+> переносятся в этот раздел Мариной вручную через review/promotion-queue.md.
+> Агент не удаляет записи — только добавляет новые.
+
+> **АРХИВАЦИЯ ВЫПОЛНЕНА (Session 13, 2026-05-16):**
+> 18 записей удалены из файла. Марина подтвердила "ок".
+> Archive reference: /departments/facebook-ads-library/operational-memory/learnings-archive-queue.md
 
 ---
 
