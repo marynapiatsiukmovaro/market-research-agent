@@ -976,6 +976,133 @@ DOMAIN MISMATCH ПАТТЕРН: Broadcasth показал в FB ad "Magnetic Tra
 
 ---
 
+### [2026-05-16] Session 10/11 — "long flight" situation keyword: HIGH noise, LOW physical product yield
+**Type:** Pattern
+**Severity:** HIGH (влияет на keyword strategy для situation keywords)
+**Confidence:** HIGH (314 advertisers проанализировано)
+**Evidence count:** 314 unique advertisers, 1 product 65+
+
+**Observation:** Keyword "long flight" = situation/moment keyword. Структура результатов:
+- ~65% noise: авиакомпании, кредитные карты, IV-клиники, apps, supplements, драма-контент
+- ~20% физические продукты, но большинство или saturated (travel pillows) или ниже ценового пола (компрессионные носки $28-39)
+- ~15% реальные physical product кандидаты
+
+Yield сравнение: "long flight" (situation) → 1/314 (0.3%) vs "baby carrier" (product-specific) → 1/74 (1.4%).
+
+**ВЫВОД:** Situation keywords ("long flight", "rainy day") дают меньше прямых product winners, но БОЛЬШЕ category landscape insights. Они показывают КТО рекламирует вокруг момента — это intelligence, а не direct product discovery.
+
+**Правильное использование situation keywords:**
+- Смотреть на паттерны КАТЕГОРИЙ, а не конкретные продукты
+- Искать unusual/non-obvious products среди шума
+- Ожидать меньший yield, чем product-specific keywords
+- Компенсировать большим количеством keywords в сессии (2-3 situation vs 1 product)
+
+**Applies to:** Keyword strategy — situation vs. product keywords
+**Expires after:** Session 18
+
+---
+
+### [2026-05-16] Session 10/11 — Kids Travel Sleep Nest: открытая DTC ниша
+**Type:** Signal
+**Severity:** MEDIUM (конкретный category signal)
+**Confidence:** MEDIUM (1 DTC advertiser confirmed, Amazon competition verified)
+**Evidence count:** 1 FB advertiser (Seat to Sleep), Amazon 5-7 generic brands
+
+**Observation:** Inflatable sleep nest for toddlers on flights = открытая DTC FB ниша в США. Seat to Sleep (seattosleep.co.uk) = единственный DTC FB advertiser в US. Amazon category crowded с generic $15-30 versions (Koala Kloud, Deeteck, Flyaway), но DTC Facebook = открытое пространство. Проблема (дети не могут спать на рейсах) = реальная боль родителей. Визуальный хук сильный (ребёнок спит на самолёте). Reported: score 72.
+
+**Risky part:** Amazon commodity trap — needs premium DTC positioning ($59-69) и strong UGC чтобы оправдать цену.
+
+**Applies to:** Kids vertical — travel/situational products
+**Expires after:** Session 18
+
+---
+
+### [2026-05-16] Session 10/11 — Compression socks: активная FB категория, но структурный fail
+**Type:** Pattern
+**Severity:** HIGH (предотвращает трату времени на эту категорию)
+**Confidence:** HIGH (6 брендов подтверждено в одном keyword scan)
+**Evidence count:** Everstride, Vixsocks, Crazy Compression, Bright Legs, EverSock, Hushed — все в одном scan
+
+**Observation:** Compression socks = очень активная DTC FB категория. НО: цена $28-39 = на полу или ниже. Everstride ($29-34) = 1M sold, 17,800 reviews = established brand. 6+ брендов одновременно = SATURATED + below floor. Не исследовать снова без ценового сигнала $49+.
+
+**Applies to:** Travel/Health keyword selection
+**Expires after:** Session 20
+
+---
+
+### [2026-05-16] Session 10/11 — OPERATIONAL: Parallel verification ускоряет сессию на 30–40%
+**Type:** Tactical
+**Severity:** MEDIUM (влияет на эффективность verification stage)
+**Confidence:** HIGH (Marina confirmed, Session 10/11)
+**Evidence count:** Прямой фидбек от Marina
+
+**Observation:** В Session 10/11 верификация кандидатов (WebFetch на домены) делалась последовательно: один домен → ждать → следующий. Правильный подход — параллельно, если контекст позволяет.
+
+**Правило:** При verification stage — делать 3–4 WebFetch параллельно в одном response block.
+- Параллельно = ускорение на ~30–40% по времени верификации
+- Применять когда: несколько independent кандидатов требуют проверки домена/цены
+- НЕ применять когда: результат первого fetch нужен для принятия решения по следующему
+
+**Applies to:** Все verification stages во всех сессиях
+**Expires after:** Never — постоянное правило (кандидат в core rules)
+
+---
+
+### [2026-05-16] Session 10/11 — STRUCTURAL: Скрапер не всегда захватывает `started` дату
+**Type:** Warning
+**Severity:** MEDIUM (structural pipeline limitation)
+**Confidence:** HIGH (наблюдалось в Session 10/11: большинство advertisers showed "?" для started)
+**Evidence count:** 314 advertisers "long flight" — started date отсутствовал у большинства
+
+**Observation:** Поле `started` (дата начала кампании) — Tier-1 сигнал для Entry Window оценки. Скрапер захватывает его только когда FB явно показывает эту информацию в карточке. Для многих advertisers поле возвращается как "?".
+
+**Это structural limitation текущего pipeline, не баг скрапера.**
+
+**Workaround если start date критичен:**
+- Сделать targeted WebFetch на About/brand page рекламодателя → найти founding date или press date
+- Или: проверить WHOIS / domain registration date (косвенный сигнал)
+- Или: поискать первые reviews по дате (Amazon, Trustpilot)
+
+**Важно:** НЕ превращать в обязательный шаг для каждого advertiser — только когда Entry Window score значимо влияет на решение "report / не report". Например, если продукт на грани 65/70 и freshness = ключевой фактор.
+
+**Applies to:** Все VPS scraper сессии — scoring Entry Window
+**Expires after:** До исправления `started` поля в скрапере (либо постоянное если не будет исправлено)
+
+---
+
+### [2026-05-16] Session 10/11 — СТРАТЕГИЧЕСКОЕ: Situation keywords = hidden intersection discovery mode
+**Type:** Tactical
+**Severity:** HIGH (меняет то, КАК интерпретировать situation keyword results)
+**Confidence:** HIGH (Marina явно подтвердила, Session 10/11; доказано через Travel Nest discovery)
+**Evidence count:** Travel Nest найден через "long flight", а не через "baby product" / "kids toy"
+
+**Observation:** Situation keywords ("long flight", "rainy day", "road trip", "busy toddler", "dinner party") работают принципиально иначе, чем product-specific keywords ("baby carrier", "neck pillow").
+
+**Product-specific keywords:**
+→ Прямой path к конкретным продуктам в категории
+→ Высокий yield (1-3% advertiser → reportable)
+→ Применять для depth сканирования известных категорий
+
+**Situation keywords:**
+→ Раскрывают ПЕРЕСЕЧЕНИЯ момента × продукта, которые нельзя предсказать заранее
+→ Низкий yield по прямым продуктам (0.3-0.5% ожидаемо) — это НОРМАЛЬНО
+→ Высокий noise — это ОЖИДАЕМО
+→ Ценность = unusual discoveries и emotional-context intersections
+
+**Travel Nest как proof of concept:**
+Kids Travel Sleep Nest не появился бы в keyword "baby product" или "infant toy". Он появился в "long flight" потому что момент боли (ребёнок на самолёте) = intersect Kids × Travel × Sleep. Situation keyword создал контекст, в котором этот нестандартный продукт стал виден.
+
+**Практическое правило для situation keywords:**
+- НЕ оценивать сессию по yield (1 из 300 = успех, не провал)
+- Смотреть: есть ли среди шума что-то, что НЕ появилось бы в стандартных keywords?
+- Искать: unusual category crossovers, new problem framings, non-obvious product applications
+- Принять: 65-70% noise = нормально, не менять keyword на середине сессии из-за noise
+
+**Applies to:** Все сессии с situation/moment keywords
+**Expires after:** Session 25 или до замены более точным алгоритмом
+
+---
+
 ## Expired / Promoted
 
 *Empty — no items expired or promoted yet.*

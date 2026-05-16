@@ -42,6 +42,7 @@ Read this file at the START of every session to prevent duplicate reporting.
 
 | 2026-05-16 | Camp Snap Camera (Screen-Free Kids Digital Camera) | Kids/Tech | 77 | Screen-free point-and-shoot $69.95 — 50+ active influencer FB campaigns Nov 2025–May 2026; Camp Snap = category pioneer; white-label sourcing needs Alibaba verification | Facebook Ads Library / keyword "screen time" / campsnapcamera.com |
 | 2026-05-16 | Thoson Kids MagTrack (Magnetic Track + Motorized Car Toy) | Kids/Other | 67 | Magnetic tracks + motorized car $69 — hook "tired of just 5 more minutes on the tablet?"; Thoson = multi-product dropship store, weaker signal than Camp Snap; concept white-label viable | Facebook Ads Library / keyword "screen time" / thoson.com |
+| 2026-05-16 | Kids Travel Sleep Nest (Seat to Sleep) | Kids/Other | 72 | UK DTC brand advertising to US — inflatable nest for toddlers (3-10 yrs) to sleep flat on flights ~$62 USD; 1 active DTC FB advertiser in US; Amazon category exists but no dominant FB player | Facebook Ads Library / keyword "long flight" / seattosleep.co.uk |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.

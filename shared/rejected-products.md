@@ -127,6 +127,19 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **Старые бренды** — большинство DTC spin scrubber брендов запущены 2020-2023 → не свежие
 - **Чистого DTC FB advertiser** в 2025-2026 ни в одной из 3 категорий не найдено через WebSearch
 
+### Session 10/11 Rejections — 2026-05-16 (keyword: long flight)
+
+| 2026-05-16 | Compression socks category (Everstride, Vixsocks, Crazy Compression, Bright Legs, EverSock, Hushed) | Health/Travel | 6+ active DTC brands on FB + price mostly $28-39 = at or below floor + category saturated | filtered |
+| 2026-05-16 | AusAir AirWeave Mask | Health | Founded 2017 = too established; AUD pricing = AU market; general-purpose mask not flight-specific | filtered |
+| 2026-05-16 | Sereni Calming Vest (sereniparenting.com) | Kids/Health | Regular price $81 > $79 ceiling; weighted vest = behavioral/psychological claims = пустышка risk; "calming" non-verifiable on camera in 3 sec | filtered |
+| 2026-05-16 | Cushy Bum Inflatable Seat Cushion (cushy-travel.com) | Health/Travel | Score 62; Amazon commodity generics $10-20; AU brand; no verified reviews despite "10K+ customers" claim; domain instability (redirect) | 62 |
+
+### Session 10/11 Pattern Summary — "long flight" keyword
+- **Situation keywords = high noise ratio**: 65%+ results are services (airlines, credit cards, IV clinics), entertainment, supplements — not physical products
+- **Compression socks = active but structural fail**: 6 DTC brands simultaneously, but category mostly $28-39 = at/below price floor
+- **Travel comfort = Amazon commodity trap**: inflatable cushions, basic pillows — generic versions $10-25 kill margins unless strong DTC positioning
+- **Open niche found**: Kids travel sleep (inflatable nest for planes) — 1 DTC FB advertiser in US, Amazon crowded but DTC window open
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

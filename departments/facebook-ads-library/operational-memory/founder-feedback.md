@@ -17,6 +17,7 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 ---
 
 | 2026-05-13 | High-Frequency Facial Wand | 77 | "Понимаю принцип, вижу как можно показать" ("I get the principle, I can see how to show it") — clear content angle, approved. | Visible result (acne) + clear demo angle = YES. |
+| 2026-05-16 | Kids Travel Sleep Nest (Seat to Sleep) | 72 | "Буду тестировать" — Marina confirmed she will test. Found via situation keyword "long flight" (cross-category intersection: Kids × Travel × Sleep). | Situation keyword discovery = validates the approach. Score 72 sufficient for testing. Kids + specific situational pain = works. |
 
 ## Consider — Marina is not sure (Yellow in Notion)
 
