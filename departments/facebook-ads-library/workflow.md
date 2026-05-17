@@ -86,15 +86,31 @@ For each candidate scoring 65+:
 
 **5. Run Learning Protocol**
 
-Append to `departments/facebook-ads-library/operational-memory/learnings.md` if any of these were observed:
-- new keyword behavior (what yielded products vs noise)
-- new ad signal pattern (entry window, ad count sweet spot, duration)
-- search path that consistently failed or worked
-- product category signal worth tracking next session
+**5a. Archive expired learnings first:**
+Before adding anything, check every entry in `departments/facebook-ads-library/operational-memory/learnings.md`.
+Any entry with `Expires after: Session N` where N ≤ current session → move to the Expired section at the bottom of learnings.md.
+This is allowed — archiving is not editing. Keep file under 20 active entries total.
 
+**5b. Update keyword map:**
+Add one row to `departments/facebook-ads-library/operational-memory/keyword-map.md` for each keyword tested this session.
+Format: `| keyword | S[N] | [ads] | ✅/❌/⚠️ verdict | [1-line signal or reason dead] |`
+
+**5c. Append new learnings (only what's truly new):**
+Append to `departments/facebook-ads-library/operational-memory/learnings.md` if any of these were observed:
+- new category signal (brand as category validator, open vs closed niche)
+- new behavioral correction (agent error caught and fixed)
+- new situational pattern (unexpected category intersection found)
+- product angle discovery (new hook or trigger worth tracking)
+
+Do NOT append:
+- keyword verdicts → keyword-map.md (step 5b)
+- permanent rules (Expires: Never) → op-rules.md (requires Marina confirmation)
+- trivial confirmations of existing learnings
+
+**5d. Promote if confirmed:**
 Append to `review/promotion-queue.md` only if a learning was confirmed across **3 sessions** OR explicitly approved by Marina — never after one session alone.
 
-NEVER edit existing entries in either file. NEVER modify core/ files.
+NEVER edit non-expired entries. NEVER modify core/ files.
 
 **6. Save session report**
 - Save output to `outputs/daily-reports/YYYY-MM-DD.md`

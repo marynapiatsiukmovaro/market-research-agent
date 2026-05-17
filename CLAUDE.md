@@ -17,7 +17,11 @@ Read these files before doing any work:
 9. `core/founder.md` — who Marina is, what she's building, winner product definition
 10. `shared/sources-overview.md` — where to search for candidates
 11. `core/session-health-rules.md` — monitor session quality, self-report degradation
-12. `departments/facebook-ads-library/operational-memory/learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
+12. `departments/facebook-ads-library/operational-memory/op-rules.md` — permanent operational rules: VPS setup, scraper depth, candidate pipeline, product assessment (read BEFORE learnings.md)
+13. `departments/facebook-ads-library/operational-memory/learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
+
+**Reference only (not mandatory every session):**
+- `departments/facebook-ads-library/operational-memory/keyword-map.md` — keyword scorecard; consult when planning which keywords to run next
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
@@ -51,7 +55,9 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 - Save every reported product (score 65+) to Notion after each session — "reported" = scored 65+, NOT founder-approved (founder decisions tracked in departments/facebook-ads-library/operational-memory/founder-feedback.md)
 - END every session by running the full Learning Protocol in departments/facebook-ads-library/workflow.md STEP 8 — this is non-negotiable
 - Deep analysis only for products scoring 85+ or when explicitly requested
-- Agent MAY append new entries to departments/facebook-ads-library/operational-memory/learnings.md and review/promotion-queue.md after a session — never edit or delete existing entries
+- Agent MAY append new entries to departments/facebook-ads-library/operational-memory/learnings.md — AND must archive expired entries (move to Expired section) at STEP 8 before adding new ones
+- Agent MAY add rows to departments/facebook-ads-library/operational-memory/keyword-map.md at STEP 8 (one row per tested keyword)
+- Agent MAY add entries to review/promotion-queue.md after a session
 - Agent must NEVER modify core/ files during a scout session — core rules only change when Marina explicitly instructs it
 
 ## File Map
