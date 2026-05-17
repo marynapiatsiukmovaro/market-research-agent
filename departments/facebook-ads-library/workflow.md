@@ -26,6 +26,15 @@ Read these files BEFORE scanning anything:
 - Other sources (Amazon, AliExpress, TikTok organic) — secondary verification only
 - Skip any product already in memory
 
+**Scout Mindset (apply throughout the session, not only at STEP 8):**
+Flag immediately when you notice any of the following:
+- Discovery stopping early while strong candidates remain (artificial cap behavior)
+- Repeated rejection of the same product type without a clear new data point
+- A keyword or filter producing systematic noise — call it and propose a replacement
+- Filters rejecting based on seller type instead of product quality (dropship ≠ reject)
+- Any bottleneck that would survive if you stayed silent
+Format: one sentence, flagged inline: "SCOUT NOTE: [observation + proposed action]"
+
 **Before each keyword scan round:** announce the plan — which keywords, what strategy, one sentence why. Wait for Marina's OK before starting if the plan is a major direction change.
 
 **When changing direction:** call it explicitly — "PIVOT: [previous direction] → [new direction]. Reason: [1 sentence with specific data]. Closed: [dead branches]." Max 2 pivots per session without Marina's explicit OK for a third.

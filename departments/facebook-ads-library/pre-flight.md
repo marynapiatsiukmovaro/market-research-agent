@@ -1,7 +1,6 @@
-# VPS CONNECTION CONFIG
+# VPS CONNECTION CHECKLIST
 
-**RULE: Agent reads this file at the START of every scout session. Connects to VPS BEFORE any other work.**
-**WebSearch = secondary verification only. Primary discovery = FB Ads Library via VPS scraper.**
+*Governing rules (why these steps exist, what to do when things fail): `departments/facebook-ads-library/operational-memory/op-rules.md`*
 
 ---
 
@@ -41,7 +40,7 @@ If any claude/python3 process found running → alert Marina BEFORE starting new
 ```bash
 cd /opt/market-research-agent/
 
-# Standard deep scan (150-200 ads per keyword):
+# Standard deep scan (target 500 ads/keyword, hard cap 600):
 python3 skills/facebook_scraper.py \
   --deep \
   --since=2026-01-01 \
@@ -99,10 +98,9 @@ outputs/scans/                             ← processed scan results
 
 ---
 
-## Rules
+## Quick Reminders
 
-1. VPS is MANDATORY before any FB Ads Library work — no exceptions
-2. WebSearch cannot access FB Ads Library — only Tier 3 signals
-3. If VPS unreachable → tell Marina exact error. Do NOT substitute WebSearch.
-4. If scraper process already running → do NOT start second one
-5. Read memory/seen-advertisers.md before each run (--seen flag)
+- VPS unreachable → tell Marina exact error. Do NOT substitute WebSearch.
+- Scraper already running → do NOT start second one (check step 1 above).
+- `--seen` flag: always pass `memory/seen-advertisers.md` to skip repeat advertisers.
+- Full governing rules → `departments/facebook-ads-library/operational-memory/op-rules.md`

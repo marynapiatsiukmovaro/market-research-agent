@@ -1,12 +1,12 @@
 # PRODUCT DISCOVERY SKILL
 
-Goal: Find 5+ viable product candidates per session.
+Goal: Find all viable product candidates per session. Minimum 2 strong candidates — no upper limit.
 
 ## Process
 1. Scan 15–20 candidates from primary sources
 2. Apply mandatory filters (fast reject weak ones)
 3. Score remaining candidates
-4. Output 2–5 best qualifying products by score
+4. Output all candidates scoring 65+
 
 ## Focus
 - problem-solving products with strong wow-factor

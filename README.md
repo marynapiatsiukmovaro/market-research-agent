@@ -7,18 +7,18 @@ An autonomous AI agent for identifying high-potential e-commerce products suitab
 Not here to find perfect businesses.
 Here to find products with a high probability of successful market validation and scalable paid advertising performance.
 
-**Daily target:** 2–5 strong products/day from scanning 15–20 candidates. Quality over quota — never force weak products to fill a number.
+**Daily target:** Minimum 2 strong candidates — no upper limit. Report all products scoring 65+ as long as signal quality holds. Quality over quota — never force weak products.
 
 ## How It Works
 
 ```
-Scan 15–20 candidates
+Scan 15–20 candidates per keyword round
         ↓
 Apply Mandatory Filters (fast reject)
         ↓
 Score remaining products (0–100)
         ↓
-Output 2–5 best products (Scout Mode)
+Output all qualifying products (65+)
         ↓
 Save to Notion database
 ```
@@ -27,48 +27,58 @@ Save to Notion database
 
 ```
 market-research-agent/
-├── brain/               # Core identity, mindset, operating rules
-│   ├── system.md        # Main system prompt (lean, ~50 lines)
-│   ├── mindset.md       # Agent thinking style
-│   ├── autonomy-rules.md
-│   └── token-efficiency.md
-├── criteria/            # Product evaluation logic
-│   ├── mandatory-filters.md   # Hard reject rules (apply before scoring)
-│   ├── scoring-system.md      # 100-point weighted scoring
-│   ├── rejection-rules.md
-│   └── product-requirements.md
-├── skills/              # Modular intelligence blocks
-│   ├── product-discovery.md
-│   ├── paid-traffic-analysis.md
-│   ├── wow-factor-analysis.md
-│   ├── trend-analysis.md
-│   ├── ugc-analysis.md
-│   ├── sourcing-analysis.md
-│   └── shophunter-analysis.md
-├── workflows/           # Operational procedures
-│   ├── daily-scout.md         # Main daily loop
-│   ├── product-validation.md  # Deep validation for 85+ products
-│   ├── notion-update.md       # How to save findings to Notion
-│   └── telegram-report.md     # Daily summary format
-├── prompts/             # Reusable task prompts
-│   ├── find-products.md
-│   ├── analyze-tiktok-ads.md
-│   ├── validate-product.md
-│   └── daily-report.md
-├── memory/              # Learning layer
-│   ├── reported-products.md
-│   ├── rejected-products.md
-│   ├── successful-patterns.md
-│   └── failed-patterns.md
-├── config/              # Settings and integrations
-│   ├── sources.md             # Research sources list
-│   ├── notion-config.md       # Notion database schema
-│   └── agent-rules.md         # Core operating rules
-└── outputs/             # Generated reports
-    ├── daily-reports/
-    ├── high-potential-products/
-    └── telegram-summaries/
+├── core/                        # Universal rules shared by all departments
+│   ├── identity.md              # Role, objective, output format
+│   ├── mindset.md               # How to think and prioritize
+│   ├── mandatory-filters.md     # Hard reject rules (apply before scoring)
+│   ├── scoring-system.md        # 100-point weighted scoring (source of truth)
+│   ├── product-requirements.md  # Product criteria and price logic
+│   ├── founder.md               # Who Marina is, winner product definition
+│   ├── research-framework.md    # 4-layer architecture: Core/Departments/Hypotheses/Learnings
+│   ├── operating-rules.md       # Verification hierarchy, pivot triggers, anti-hallucination
+│   └── session-health-rules.md  # Context monitoring and self-reporting
+│
+├── departments/                 # Per-channel sourcing operations (isolated)
+│   └── facebook-ads-library/    # FB Ads Library via VPS scraper (active)
+│       ├── workflow.md          # Daily scout workflow for this channel
+│       ├── pre-flight.md        # VPS connection and scraper runnable checklist
+│       ├── hypotheses/          # Active and archived research directions
+│       │   ├── _active.md       # Pointer to current research hypothesis
+│       │   ├── broad-horizontal-discovery.md  # Current: Sessions 15+
+│       │   └── kids-vertical.md               # Archived: Sessions 8–14
+│       └── operational-memory/  # Short-lived channel-specific knowledge
+│           ├── op-rules.md      # Permanent rules: VPS setup, scraper depth, pipeline
+│           ├── learnings.md     # Active session learnings (expire per session)
+│           ├── keyword-map.md   # Keyword scorecard
+│           ├── founder-taste.md # Marina's quality bar
+│           ├── founder-feedback.md  # Marina's direct product feedback
+│           └── seen-advertisers.md  # Rolling 20-session dedup window
+│
+├── shared/                      # Channel-agnostic resources
+│   ├── reported-products.md     # Anti-duplicate check (read every session)
+│   ├── rejected-products.md     # Failure patterns (read every session)
+│   ├── successful-patterns.md   # Recurring winner traits
+│   ├── failed-patterns.md       # Recurring weak patterns
+│   ├── sources-overview.md      # Source capability map
+│   ├── notion-workflow.md       # How to save findings to Notion
+│   └── skills/                  # Modular analysis skills
+│       ├── product-discovery.md
+│       ├── paid-traffic-analysis.md
+│       └── trend.md
+│
+├── review/                      # Promotion queue (learnings → core)
+│   └── promotion-queue.md
+│
+├── prompts/                     # Ready-made session startup prompts
+│
+├── outputs/                     # Generated reports
+│   └── daily-reports/           # YYYY-MM-DD.md per session
+│
+└── archive/                     # Historical reference material
 ```
+
+**Department isolation rule:** Logic from one department must never bleed into another. Core files are shared; department files are not.
+See `core/research-framework.md` for the full 4-layer architecture explanation.
 
 ## Scoring System
 
@@ -76,13 +86,14 @@ market-research-agent/
 |----------|--------|
 | Problem-Solving Strength | 20 |
 | Wow-Effect / Scroll-Stopping | 20 |
-| Paid Ads Viability | 15 |
+| Entry Window (market timing) | 10 |
+| Paid Ads Viability | 12 |
 | Emotional Trigger Strength | 10 |
-| Market Size / Scalability | 10 |
 | Margin Potential | 10 |
+| Market Size / Scalability | 6 |
 | Logistics Simplicity | 5 |
 | UGC Potential | 5 |
-| Evergreen Potential | 5 |
+| Evergreen Potential | 2 |
 | **Total** | **100** |
 
 **Thresholds:**
@@ -91,10 +102,14 @@ market-research-agent/
 - 55–69 → Worth Testing with caution / Rejected if saturation concerns
 - Below 55 → Rejected
 
+Full calibration guidance: `core/scoring-system.md`
+
 ## Product Requirements
 
-- Preferred price: **$45–$79** | Extended range: **$39–$100** with justification. Under $39 usually fails paid traffic economics. Above $100 requires strong social proof.
-- Competitor ad activity on Meta or TikTok (proof of market)
+- Preferred price: **$45–$79** | Extended range: **$39–$100** with justification
+- Price $100–$170: score normally, Margin Potential capped at 5/10
+- Price above $170: reject
+- Competitor ad activity on Meta or TikTok required (proof of market)
 - Minimum **3 creative angles** (single-angle products die under ad fatigue)
 - Sourceable from China (Alibaba/AliExpress, 5+ suppliers)
 - Lightweight shipping (under 1kg preferred)
@@ -106,9 +121,11 @@ market-research-agent/
 All reported products (score 65+) are saved to the **Product Tracker** database in Notion with fields:
 Score, Category, Recommendation, Founder Review (blank — Marina sets), Competitor Signal, Price Range, Emotional Trigger, Saturation, Ad Platform, Creative Angles, Source, Discovery Keyword, Notes, Ad Link, Store Link.
 
+See `shared/notion-workflow.md` for the full save protocol.
+
 ## Operating Modes
 
-- **Scout Mode** (default): concise outputs, fast filtering, 2–5 strong products/session
+- **Scout Mode** (default): concise outputs, fast filtering, all 65+ products reported
 - **Deep Validation Mode**: triggered only for 85+ products or explicit request
 
 ## Tech Stack
@@ -116,4 +133,5 @@ Score, Category, Recommendation, Founder Review (blank — Marina sets), Competi
 - AI: Claude (Anthropic) via Claude Code
 - Output storage: Notion database
 - Version control: GitHub
-- Sources: TikTok Ads Library, Meta Ads Library, Amazon Movers & Shakers, AliExpress, Alibaba
+- Primary source: Facebook Ads Library via VPS scraper (5.78.217.133)
+- Secondary sources: Amazon, TikTok organic, AliExpress (verification only)

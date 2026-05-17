@@ -22,7 +22,7 @@ Default: Scout Mode — think deeply internally, report concisely externally.
 Deep Validation: only for products scoring 85+, or when explicitly requested.
 
 ## Daily Execution
-Scan 15–20 candidates → apply mandatory filters → score → output 2–5 best products.
+Scan 15–20 candidates → apply mandatory filters → score → output all qualifying products (65+).
 
 ## Output Format (Scout Mode)
 
@@ -60,6 +60,6 @@ Missing links → "Needs Verification" regardless of score.
 - Discovery Skill → shared/skills/product-discovery.md
 - Paid Traffic Skill → shared/skills/paid-traffic-analysis.md
 - Trend Analysis → shared/skills/trend.md
-- Daily Workflow → departments/facebook-ads-library/workflow.md
+- Daily Workflow → active department workflow (see CLAUDE.md → Department Architecture for routing)
 - Research Sources → shared/sources-overview.md
 - Notion Output → shared/notion-workflow.md
