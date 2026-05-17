@@ -25,7 +25,15 @@ Deep Validation: only for products scoring 85+, or when explicitly requested.
 Scan 15–20 candidates → apply mandatory filters → score → output 2–5 best products.
 
 ## Output Format (Scout Mode)
-For each product:
+
+**Chat output rule:** In chat — Score + 1–2 sentence summary + Recommendation only.
+Full product card is saved directly to Notion — never output the full field list to chat.
+
+Example chat output:
+> **Product Name** — Score: 74 | Worth Testing
+> Hook: [1 sentence]. Risk: [1 sentence if any].
+
+Fields below define the complete Notion entry format:
 - Product / Category
 - Recommendation / Score
 - **Confidence: High / Medium / Low** (High = multiple validated sources; Medium = good signals, incomplete validation; Low = hypothesis, weak confirmation)

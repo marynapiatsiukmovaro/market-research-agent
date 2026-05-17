@@ -26,6 +26,10 @@ Read these files BEFORE scanning anything:
 - Other sources (Amazon, AliExpress, TikTok organic) — secondary verification only
 - Skip any product already in memory
 
+**Before each keyword scan round:** announce the plan — which keywords, what strategy, one sentence why. Wait for Marina's OK before starting if the plan is a major direction change.
+
+**When changing direction:** call it explicitly — "PIVOT: [previous direction] → [new direction]. Reason: [1 sentence with specific data]. Closed: [dead branches]." Max 2 pivots per session without Marina's explicit OK for a third.
+
 ### STEP 2 — Apply Mandatory Filters
 - Check each candidate against `core/mandatory-filters.md`
 - Reject fast — do not over-analyze weak products
