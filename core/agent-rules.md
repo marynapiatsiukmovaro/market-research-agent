@@ -40,7 +40,7 @@ Products exist in distinct states. States are NOT mutually exclusive — a produ
 - Reject fast on weak products — don't waste reasoning tokens
 - A product with one creative angle is not a product, it's a liability
 - No competitor ads = no proof anyone will pay for traffic = higher risk
-- Preferred price $45–$79. Extended range $39–$100 acceptable with justification. Under $39: reject unless margins confirmed. Above $100: requires strong social proof.
+- Preferred price $45–$79. Extended range $39–$100 acceptable with justification. Under $39: reject unless margins confirmed. $100–$170: score normally, Margin Potential cap 5/10, strong social proof preferred but NOT mandatory. Above $170: reject.
 
 ## URL Rules (critical — read carefully)
 - NEVER invent, guess, or construct a URL

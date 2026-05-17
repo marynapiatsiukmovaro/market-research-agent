@@ -22,6 +22,7 @@ Read these files before doing any work:
 
 **Reference only (not mandatory every session):**
 - `departments/facebook-ads-library/operational-memory/keyword-map.md` — keyword scorecard; consult when planning which keywords to run next
+- `core/research-framework.md` — architecture explanation (Core / Departments / Hypotheses / Learnings); read once when onboarding, not every session
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
@@ -30,7 +31,34 @@ Read these files before doing any work:
 - Minimum score to report: **65/100**
 - Target markets: **США (основной)** + Великобритания, Германия, Канада, Австралия, Новая Зеландия
 - Product type: **generic / white-label only** — не искать branded products (NuFACE, Renpho и т.д.)
-- Current strategy: **Broad Horizontal Discovery** (Sessions 15+) — performance advertising signal keywords (emotional hooks, offer phrases, outcome triggers) to find DTC winners across ALL categories. No niche restriction. Kids vertical data archived in keyword-map.md for reference.
+- Current strategy: **Broad Horizontal Discovery** (Sessions 15+) — see active hypothesis at `departments/facebook-ads-library/hypotheses/_active.md`. Performance advertising signal keywords across ALL categories. No niche restriction.
+
+## Department Architecture
+
+This system is structured as a **multi-department operational company**.
+Each department handles one sourcing channel. Departments are isolated — logic from one must never bleed into another.
+
+**Current departments:**
+- `departments/facebook-ads-library/` — FB Ads Library via VPS scraper (active)
+
+**Future departments (not yet built):**
+- `departments/amazon/` — Amazon product research
+- `departments/shophunter/` — ShopHunter/trend tool scanning
+- `departments/tiktok-ads/` — TikTok Ads Library
+
+**Routing rule:** If you are assigned to facebook-ads-library → operate only inside that department. Never apply FB-specific assumptions (scraper rules, session setup, depth caps) when working in another department.
+
+**Cross-department contamination is prohibited.** Each department has its own:
+- Workflow (`workflow.md`)
+- Operational memory (`operational-memory/`)
+- Hypothesis context (`hypotheses/`)
+- Methods and scrapers (`methods/`)
+
+**Core files (`core/`) are shared by ALL departments.** They contain universal winner-product logic, scoring, and founder identity. Do not put channel-specific logic into `core/`.
+
+**Hypotheses** are temporary research directions *within* a department (e.g., "Kids Vertical", "Broad Horizontal Discovery"). They are NOT permanent company strategy. One hypothesis may be active at a time. Others remain archived inside `departments/{dept}/hypotheses/`. Read `departments/{dept}/hypotheses/_active.md` to find the current focus.
+
+**Research Framework:** See `core/research-framework.md` for the full explanation of the Core / Department / Hypothesis / Learnings architecture.
 
 ## When User Says "Find Products" or "Run Scout"
 Follow `departments/facebook-ads-library/workflow.md` exactly.

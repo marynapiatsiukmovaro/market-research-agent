@@ -1,8 +1,9 @@
 # KIDS VERTICAL — MULTI-SESSION HYPOTHESIS
 
 **Created:** 2026-05-15, Session 7 (Marina's direct instruction)
-**Status:** Active — applies to Sessions 8–18+ (estimate 10-20 sessions)
+**Status:** ARCHIVED — superseded by Broad Horizontal Discovery (Session 15, 2026-05-17)
 **Algorithm:** Keyword-First Deep Scan (VPS + FB Ads Library)
+**Archive note:** Keyword verdicts preserved in keyword-map.md. Reported products in shared/reported-products.md. Reactivate only on Marina's explicit instruction.
 
 ---
 

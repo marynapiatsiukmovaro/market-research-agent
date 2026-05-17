@@ -20,7 +20,7 @@ Library scanning via VPS scraper.
 ## Entry points
 - Pre-flight check: `pre-flight.md` (VPS connection, FB session, scraper sanity)
 - Full session workflow: `workflow.md`
-- Current niche being researched: `current-context/kids-niche.md`
+- Active hypothesis: `hypotheses/_active.md` → links to current research direction
 
 ## Rules from core/ that this department must follow
 - `core/mandatory-filters.md` — hard rejection logic
