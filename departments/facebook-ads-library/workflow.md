@@ -127,10 +127,10 @@ NEVER edit non-expired entries. NEVER modify core/ files.
 - Next session STEP 0 will read this file — it must be current
 
 **7b. seen-advertisers.md rotation (check every session, act if needed)**
-- Check if any entries in `operational-memory/seen-advertisers.md` are older than 90 days
-- If yes → move those entries to `operational-memory/seen-advertisers-archive.md` (append, keep headers)
-- If no entries older than 90 days → skip, nothing to do
-- Rule: MOVE, never delete. See op-rules.md RULE 13 for full protocol.
+- Count `## Session` headers in `operational-memory/seen-advertisers.md`
+- If count > 20 → move the oldest session block to `operational-memory/seen-advertisers-archive.md`
+- Repeat until ≤ 20 session blocks remain. If count ≤ 20 → skip, nothing to do.
+- Rule: MOVE entire session block (header + all entries), never delete. See op-rules.md RULE 13.
 
 **8. Deliver Session Learning Report** (add after Session Status block)
 

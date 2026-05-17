@@ -180,16 +180,22 @@ A strong product at $130 with score 72 should be reported. The score accounts fo
 
 ## Memory Management Rules
 
-### RULE 13: seen-advertisers.md — 90-day active window + archive rotation
+### RULE 13: seen-advertisers.md — Rolling 20-session window
 
-`seen-advertisers.md` = active operational file (last 90 days). Scraper uses this via `--seen` flag.
-`seen-advertisers-archive.md` = historical file (older than 90 days). Never loaded by agent. Never used by scraper.
+`seen-advertisers.md` = active operational file (last 20 sessions). Scraper uses this via `--seen` flag.
+`seen-advertisers-archive.md` = historical file (sessions beyond the 20-session window). Never loaded by agent. Never used by scraper.
 
 **Agent rule at STEP 8:**
-Check seen-advertisers.md for entries with date older than 90 days from today.
-If found → move those entries to seen-advertisers-archive.md (append, preserve section headers).
-Do NOT delete — move only.
+1. Count `## Session` headers in seen-advertisers.md
+2. If count > 20 → move the oldest session block (header + all entries) to seen-advertisers-archive.md
+3. Repeat until ≤ 20 session blocks remain in active file
+4. MOVE only — never delete
 
-**Why 90 days:** Domains rejected 3+ months ago may have changed price, strategy, or product mix. Short window = clean active dedup without stale skips.
+**Why rolling sessions (not days or entry count):**
+- At 50+ sessions/month, 90 days would accumulate 4000+ entries before rotation
+- Sessions are the natural unit of work — file is already structured by session blocks
+- Counting headers is instant; rotating one block is atomic
+- Self-calibrating: works at 1 session/day or 5 sessions/day without parameter changes
+- Expected active file size: ~20 sessions × ~40 entries = ~700–900 entries max
 
 **Agent does NOT load seen-advertisers.md at session start.** The scraper reads it on VPS at scrape time — no agent context cost. Only read if explicitly investigating a specific domain.
