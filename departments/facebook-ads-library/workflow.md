@@ -126,6 +126,12 @@ NEVER edit non-expired entries. NEVER modify core/ files.
 - Confirm shared/reported-products.md is updated before closing
 - Next session STEP 0 will read this file — it must be current
 
+**7b. seen-advertisers.md rotation (check every session, act if needed)**
+- Check if any entries in `operational-memory/seen-advertisers.md` are older than 90 days
+- If yes → move those entries to `operational-memory/seen-advertisers-archive.md` (append, keep headers)
+- If no entries older than 90 days → skip, nothing to do
+- Rule: MOVE, never delete. See op-rules.md RULE 13 for full protocol.
+
 **8. Deliver Session Learning Report** (add after Session Status block)
 
 ```

@@ -175,3 +175,21 @@ Process:
 
 Notion already has "Premium $100–170" as a Price Range category — use it.
 A strong product at $130 with score 72 should be reported. The score accounts for price via Margin Potential.
+
+---
+
+## Memory Management Rules
+
+### RULE 13: seen-advertisers.md — 90-day active window + archive rotation
+
+`seen-advertisers.md` = active operational file (last 90 days). Scraper uses this via `--seen` flag.
+`seen-advertisers-archive.md` = historical file (older than 90 days). Never loaded by agent. Never used by scraper.
+
+**Agent rule at STEP 8:**
+Check seen-advertisers.md for entries with date older than 90 days from today.
+If found → move those entries to seen-advertisers-archive.md (append, preserve section headers).
+Do NOT delete — move only.
+
+**Why 90 days:** Domains rejected 3+ months ago may have changed price, strategy, or product mix. Short window = clean active dedup without stale skips.
+
+**Agent does NOT load seen-advertisers.md at session start.** The scraper reads it on VPS at scrape time — no agent context cost. Only read if explicitly investigating a specific domain.
