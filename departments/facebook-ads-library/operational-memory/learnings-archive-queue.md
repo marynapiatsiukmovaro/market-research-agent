@@ -1,10 +1,13 @@
 # LEARNINGS ARCHIVE QUEUE
 
-Записи из learnings.md, готовые к архивации.
-Агент идентифицировал их как истёкшие или resolved.
-**Марина подтверждает архивацию** — после подтверждения можно удалить из основного файла.
+**Status: Historical** — used for mass archival in Session 13 (18 entries). Not an active workflow.
+**Canonical archive process:** inline in `learnings.md` (Expired / Promoted section), per `workflow.md STEP 8`. No approval needed for standard expiry archival.
+**When to use this file again:** only for mass archival (10+ entries) where Marina confirmation is preferable before removal from main file.
 
-Статус: ожидает подтверждения от Марины.
+---
+
+Записи из learnings.md, архивированные в Session 13.
+Агент идентифицировал их как истёкшие или resolved. Марина подтвердила — "ок" (Session 13).
 
 ---
 

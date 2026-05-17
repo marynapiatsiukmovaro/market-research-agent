@@ -22,7 +22,11 @@ Goal: Find all viable product candidates per session. Minimum 2 strong candidate
 - poor logistics (heavy, fragile, regulated)
 - price outside $39–$100 range
 
-## Source Priority
+## Source Capability Reference
+
+*Active source priority is determined by the department workflow, not this file. See `departments/{dept}/workflow.md` for the current discovery sequence.*
+
+Historical capability reference (what each source can signal):
 1. TikTok Ads Library (active spend = market signal)
 2. Facebook/Meta Ads Library (same logic)
 3. Amazon Movers & Shakers (demand signal)

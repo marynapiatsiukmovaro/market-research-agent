@@ -15,11 +15,8 @@ Ask Marina (or check prior session notes for):
 - Confirm session type: Scout / Validation / Analysis / Memory-only
 
 ### STEP 0 — Load Memory (before scanning anything)
-Read these files BEFORE scanning anything:
-1. `shared/reported-products.md` — do NOT report any product already logged here
-2. `shared/rejected-products.md` — use patterns to skip similar weak products faster
-3. `departments/facebook-ads-library/operational-memory/learnings.md` — apply active temporary guidance; if a Current Focus is set, it overrides default source priority for this session
-4. `core/operating-rules.md` — core operating principles (verification hierarchy, signal tiers, pivot rules)
+Load session context per **CLAUDE.md loading contract** (section "Load On Every Session Start") — that file is the canonical source.
+Do not re-derive the file list here. If CLAUDE.md and this file ever conflict, CLAUDE.md wins.
 
 ### STEP 1 — Scan Sources (15–20 candidates)
 - Facebook Ads Library via VPS scraper (primary discovery source)

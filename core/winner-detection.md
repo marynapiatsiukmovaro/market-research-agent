@@ -1,6 +1,11 @@
 # WINNER DETECTION ALGORITHM
 # How to find a product that is already selling — but not yet saturated
 
+**STATUS: Strategic reference.**
+Signal principles and Entry Zone logic are universal and current.
+Signals 2–4 (TikTok organic, Amazon BSR, Minea) reflect the original multi-source architecture — primary discovery is now FB Ads Library via VPS scraper.
+For the current session algorithm, see `departments/facebook-ads-library/workflow.md`.
+
 Goal: find a product that IS ALREADY SELLING and someone IS ALREADY MAKING MONEY from it —
 but it has not spread everywhere yet, and there is still an entry window.
 
@@ -168,7 +173,7 @@ Before pulling data from any source — answer:
 - Looks "everywhere" at first glance → stop, do not score
 - 100+ active ads → too late
 - Unverifiable result ("improves circulation") → stop
-- Price under $39 → stop; over $100 without strong social proof → stop
+- Price under $39 → stop; price $100–170: score normally, Margin Potential cap 5/10; above $170 → reject
 - Store URL inaccessible or flagged as dangerous → stop
 - Product already in past sessions → stop (duplicate)
 

@@ -21,7 +21,10 @@
 - Minea / AdSpy — paid ad intelligence (if access available)
 - Viral product trackers (Ecomhunt, Dropispy) — if access available
 
-## Source Priority Logic
+## Signal Evaluation Logic (channel-agnostic)
+
+*Active source priority is determined by the department workflow, not globally — see `departments/{dept}/workflow.md`. This section evaluates what each signal type means, not which sources to scan first.*
+
 1. Active ads on Meta/TikTok = someone is spending money = market exists
 2. Amazon momentum = real demand beyond ad-driven
 3. TikTok organic = early signal before saturation
