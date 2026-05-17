@@ -50,22 +50,48 @@
 
 ---
 
-## Priority Queue — Not Yet Tested
+## Priority Queue — Sessions 15+ Broad Horizontal Discovery
 
-Keywords planned but never run. Priority may shift with broad keyword strategy pivot.
+**Strategy:** Performance advertising signal keywords — attract DTC/dropship operators across ALL niches.
+These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers), not by product topic.
 
-**Kids vertical (pending):**
-- baby swaddle (sleep sack continuation — strong signal from "sleep baby")
-- baby bouncer / baby swing
-- diaper bag (Emmafy, Mina Baie await verification)
-- baby gate (safety, specific product)
-- baby wrap (carrier category alternative)
-- infant (0-12 months, more specific than "baby")
-- teething (not tested; "baby teether" better)
-- breastfeeding (not tested)
+**30 keywords for broad discovery phase (Sessions 15-25):**
 
-**Broad / cross-category (planned for new strategy phase):**
-- TBD — Marina to provide keyword list for broad emotional/situational discovery
+| # | Keyword | Type | Status |
+|---|---------|------|--------|
+| 1 | struggling with | Pain hook | — Not tested |
+| 2 | tired of | Pain hook | — Not tested |
+| 3 | say goodbye to | Pain hook | — Not tested |
+| 4 | finally a solution | Pain hook | — Not tested |
+| 5 | the secret to | Curiosity hook | — Not tested |
+| 6 | you need this | Desire trigger | — Not tested |
+| 7 | game changer | Outcome phrase | — Not tested |
+| 8 | life changing | Outcome phrase | — Not tested |
+| 9 | must have | Desire trigger | — Not tested |
+| 10 | genius gadget | Product signal | — Not tested |
+| 11 | viral product | Social proof | — Not tested |
+| 12 | as seen on tiktok | Social proof | — Not tested |
+| 13 | tiktok made me buy | Social proof | — Not tested |
+| 14 | 50% off today | Offer signal | — Not tested |
+| 15 | buy 1 get 1 free | Offer signal | — Not tested |
+| 16 | selling out fast | Urgency | — Not tested |
+| 17 | back in stock | Urgency | — Not tested |
+| 18 | before you buy | Pre-purchase hook | — Not tested |
+| 19 | stop wasting money | Pain + offer | — Not tested |
+| 20 | never worry about | Relief hook | — Not tested |
+| 21 | this changed everything | Outcome phrase | — Not tested |
+| 22 | why didn't I know | Discovery hook | — Not tested |
+| 23 | parents are obsessed | Social proof | — Not tested |
+| 24 | everyone is buying | Social proof | — Not tested |
+| 25 | the easiest way to | Outcome phrase | — Not tested |
+| 26 | problem solved | Outcome phrase | — Not tested |
+| 27 | instantly | Outcome phrase | — Not tested |
+| 28 | works in seconds | Outcome phrase | — Not tested |
+| 29 | gift idea | Occasion hook | — Not tested |
+| 30 | perfect gift | Occasion hook | — Not tested |
+
+**Kids vertical (on hold, not active priority):**
+- baby swaddle, baby bouncer, diaper bag, baby gate, baby wrap, infant, teething, breastfeeding
 
 ---
 

@@ -14,11 +14,14 @@ Items expire after the listed session. Marina promotes confirmed patterns via re
 
 ## Current Focus
 
-**Sessions 1+: Facebook Ads Library as primary discovery source (ongoing)**
+**Sessions 15+: Broad Horizontal Discovery — Performance Signal Keywords**
 
 - **Primary:** Facebook Ads Library via VPS scraper — all broad discovery here
-- **Secondary:** Amazon, TikTok, AliExpress — verification only, or when a very strong external signal appears naturally
-- **Strategy shift in progress:** moving from Kids-vertical-first to broad situational/behavioral keywords across all categories. CLAUDE.md update pending Marina's confirmation.
+- **Secondary:** Amazon, TikTok, AliExpress — verification only
+- **Current strategy:** Using "performance advertising signal keywords" — words that attract aggressive DTC/dropship advertisers regardless of niche (offer hooks, emotional triggers, outcome phrases). Examples: "struggling with", "50% off today", "game changer", "works in seconds". These reveal active DTC operators across ALL categories, not tied to one vertical.
+- **Why this works:** Pampers and bloggers don't write "buy 1 get 1 free". DTC operators and dropshippers do. These keywords pre-filter by advertiser TYPE, not topic.
+- **After 30 keywords:** analyse the category landscape that emerges → identify the strongest 2-3 categories → go deep with product-specific keywords in those categories.
+- **Kids vertical:** data preserved in keyword-map.md. Not the active focus.
 
 ---
 

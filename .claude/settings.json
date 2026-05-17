@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ssh -i ~/.ssh/market_research_vps root@5.78.217.133 \"ls -la /tmp/learning_toy_results.json 2>/dev/null && echo 'JSON exists' || echo 'JSON missing'; wc -l /tmp/learning_toy_run.log\")"
+    ]
+  }
+}

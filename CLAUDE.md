@@ -30,7 +30,7 @@ Read these files before doing any work:
 - Minimum score to report: **65/100**
 - Target markets: **США (основной)** + Великобритания, Германия, Канада, Австралия, Новая Зеландия
 - Product type: **generic / white-label only** — не искать branded products (NuFACE, Renpho и т.д.)
-- Current pilot vertical: **Kids** (Sessions 8+). Health/Beauty/Fitness — secondary focus after Kids vertical completes.
+- Current strategy: **Broad Horizontal Discovery** (Sessions 15+) — performance advertising signal keywords (emotional hooks, offer phrases, outcome triggers) to find DTC winners across ALL categories. No niche restriction. Kids vertical data archived in keyword-map.md for reference.
 
 ## When User Says "Find Products" or "Run Scout"
 Follow `departments/facebook-ads-library/workflow.md` exactly.
