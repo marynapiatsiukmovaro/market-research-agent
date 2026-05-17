@@ -189,7 +189,8 @@ A strong product at $130 with score 72 should be reported. The score accounts fo
 1. Count `## Session` headers in seen-advertisers.md
 2. If count > 20 → move the oldest session block (header + all entries) to seen-advertisers-archive.md
 3. Repeat until ≤ 20 session blocks remain in active file
-4. MOVE only — never delete
+4. **Emergency hard cap:** If active file exceeds ~2500 non-comment lines (high-density exploration edge case), archive oldest session block immediately — regardless of session count. Resume normal 20-session rule after.
+5. MOVE only — never delete
 
 **Why rolling sessions (not days or entry count):**
 - At 50+ sessions/month, 90 days would accumulate 4000+ entries before rotation

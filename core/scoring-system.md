@@ -47,6 +47,8 @@ If all three are NO → proceed to scoring.
 
 Use the Competitor Signal field to document the observed count range.
 
+**Incomplete data fallback:** If ad count cannot be confirmed (scraper returned partial results, `started` field = `?`, store verification failed): assign **4/10** as neutral mid-range. Do NOT assign 0–3 without confirmed data — incomplete metadata ≠ no ads.
+
 ### Paid Ads Viability (12)
 - **10–12:** Strong hook under 3 seconds. Clear impulse-buy at $39–79. 3+ creative angles. No major ad policy risks.
 - **5–9:** Good hook but some friction (price, policy risk, or needs more explanation).

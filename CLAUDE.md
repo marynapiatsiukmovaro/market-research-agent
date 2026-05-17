@@ -26,7 +26,7 @@ Read these files before doing any work:
 
 ## Default Behavior
 - Default mode: **Scout Mode** (concise outputs, fast filtering)
-- Daily target: **2–5 products** (scan 15–20 candidates)
+- Minimum output: **2 strong candidates** | No upper limit — report all 65+ as long as signal quality holds
 - Preferred price: **$45–$79** | Extended acceptable: **$39–$100** with explicit justification
 - Minimum score to report: **65/100**
 - Target markets: **США (основной)** + Великобритания, Германия, Канада, Австралия, Новая Зеландия

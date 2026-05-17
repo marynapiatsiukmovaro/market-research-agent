@@ -35,6 +35,11 @@ Read these files BEFORE scanning anything:
 - Reject fast — do not over-analyze weak products
 - Target: 8–10 pass filters out of 15–20 scanned
 
+**Three possible outcomes per candidate:**
+- **PASS** → proceed to scoring
+- **REJECT** → log reason, move on
+- **HOLD** (optional, max 3 per session) → candidate shows promise but is missing one specific verifiable data point (price not confirmed, store temporarily inaccessible, language barrier on site). Revisit at the end of the current keyword round if context allows. Drop all HOLDs if session context exceeds 60%. Never carry HOLDs across sessions. Never log HOLDs to files — session-internal only.
+
 ### STEP 3 — Score Filtered Products
 - Apply `core/scoring-system.md`
 - Add competitor ad activity check
@@ -50,9 +55,10 @@ For each candidate scoring 65+:
 ### STEP 5 — Select Top Products
 - Rank by score
 - Minimum score to include: 65+
-- Target 2–5 products. If fewer than 2 score 65+, output what genuinely qualifies — do NOT lower the bar to fill the quota
+- Minimum 2 products. If fewer than 2 score 65+, output what genuinely qualifies — do NOT lower the bar
 - If nothing qualifies → note this in the report and explain why
-- If more than 5 score strongly → include all of them (no hard upper limit)
+- Include ALL products scoring 65+. No upper limit — signal quality determines quantity, not a fixed cap
+- Do not stop discovery early because several products have already been found
 
 ### STEP 6 — Output Scout Mode Reports
 - One report per product (use `core/identity.md` output format)
@@ -128,8 +134,9 @@ NEVER edit non-expired entries. NEVER modify core/ files.
 
 **7b. seen-advertisers.md rotation (check every session, act if needed)**
 - Count `## Session` headers in `operational-memory/seen-advertisers.md`
-- If count > 20 → move the oldest session block to `operational-memory/seen-advertisers-archive.md`
-- Repeat until ≤ 20 session blocks remain. If count ≤ 20 → skip, nothing to do.
+- If count > 20 → move the oldest session block to `operational-memory/seen-advertisers-archive.md`; repeat until ≤ 20
+- Emergency hard cap: if file exceeds ~2500 non-comment lines → archive oldest block regardless of session count
+- If count ≤ 20 and file is within size → skip, nothing to do
 - Rule: MOVE entire session block (header + all entries), never delete. See op-rules.md RULE 13.
 
 **8. Deliver Session Learning Report** (add after Session Status block)
