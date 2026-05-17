@@ -19,7 +19,8 @@ Reject immediately (do not score) if ANY of these are true:
 - Logistics are difficult (heavy, fragile, oversized, requires cold chain)
 - Sourcing from China is not feasible
 - Expected margins are poor (retail price under $39 = likely fails paid traffic math)
-- Retail price over $100 = requires strong social proof, not suitable for cold traffic MVP
+- Retail price $100–170 = score normally. Apply Margin Potential penalty (max 6/10 for this range). Use "Premium $100–170" in Notion Price Range. Do NOT pre-reject — let the score decide.
+- Retail price over $170 = reject (outside practical cold traffic DTC range)
 - Product quality risk is high (electronics with high failure rate, medical claims)
 - Cannot generate 3+ distinct creative angles
 - No market validation signal at all: no competitor ads on Meta/TikTok AND no strong organic momentum on TikTok/Instagram (either signal is acceptable, both missing = reject)

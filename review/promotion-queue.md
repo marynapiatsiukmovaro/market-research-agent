@@ -29,14 +29,6 @@ Append to Pending Review using this format:
 **Source learnings:** operational-memory/learnings.md entries [list dates]
 ```
 
-### [Pet vertical AOV ceiling — не жёсткий $79]
-**Observation:** В Pet Tech вертикали Marina явно допускает AOV до ~$120 при исключительных условиях: сильный visual demo, высокая эмоциональная привязанность к питомцу, premium DTC positioning, Meta economics viable. Pet owners tolerate higher AOV than most verticals.
-**Why it matters:** Текущий mandatory-filters.md говорит "over $100 = requires strong social proof, not suitable for cold traffic MVP" — это слишком жёстко для Pet Tech где $79-120 = working range.
-**Affected file(s):** core/mandatory-filters.md (price ceiling rule) + core/scoring-system.md (Margin Potential calibration)
-**Confidence:** High — прямой фидбек от Марины, Session 5
-**Recommendation:** Promote (с уточнением: "в Pet vertical, с явным обоснованием")
-**Added:** 2026-05-14, Session 5
-**Source learnings:** session-learnings.md "[2026-05-14] Session 5 — Pet Tech Price Ceiling Relaxation"
 
 ---
 
@@ -47,3 +39,4 @@ Append to Pending Review using this format:
 | 2026-05-17 | Output format — no product card in chat | ✅ Promoted | Implemented in core/identity.md — chat = Score + 1-2 lines + Recommendation only |
 | 2026-05-17 | Pivot communication + round reporting | ✅ Promoted | Implemented in workflow.md STEP 1 — round announcement + pivot format added |
 | 2026-05-17 | Keyword-First Discovery Algorithm | ✅ Promoted | Already in workflow.md STEP 1 + CLAUDE.md strategy — no additional change needed |
+| 2026-05-17 | Pet vertical AOV ceiling $79→$120 | ✅ Promoted (expanded) | Resolved as universal rule: $100–170 = score normally with Margin cap 5/10. Updated mandatory-filters.md + scoring-system.md + op-rules.md RULE 12. Applies to ALL categories, not just Pet. |

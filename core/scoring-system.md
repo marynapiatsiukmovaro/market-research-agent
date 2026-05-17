@@ -66,8 +66,9 @@ Note: Multi-audience count alone does NOT qualify for high score. Each audience 
 
 ### Margin Potential (10)
 - **8–10:** Price $39–79, COGS under 25%, room for 3x+ ROAS.
-- **4–7:** Acceptable margin but tight. Needs efficient ads.
-- **0–3:** Margin too thin for paid traffic to work.
+- **5–7:** Price $79–100 or slim margins. Needs efficient ads.
+- **3–5:** Price $100–170 (Premium range). Higher AOV needs stronger creative and better CVR. Cap at 5/10 for this range.
+- **0–3:** Margin too thin for paid traffic, or price above $170.
 
 ### Logistics Simplicity (5)
 - **4–5:** Under 500g, no restrictions, standard air freight or small packet.

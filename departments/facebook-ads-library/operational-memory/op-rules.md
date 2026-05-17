@@ -163,14 +163,15 @@ When keyword yields 0 reportable products after honest scan → useful intellige
 - Do NOT force weak products to avoid "empty session"
 - Quality 0-result > 1 forced weak product
 
-### RULE 12: Price >$100 — conditional filter, not hard reject
+### RULE 12: Price $100–170 — score normally with Margin Potential penalty
 
-Mandatory filter says: "Retail price over $100 = requires strong social proof."
-This is CONDITIONAL, not automatic reject.
+Products in the $100–170 range are NOT auto-rejected. Score them normally.
 
-Correct process for product >$100:
-1. Check: is there strong social proof? (10K+ reviews, Shark Tank, viral TikTok, mainstream press)
-2. YES → score with price penalty (-5 to -10 pts). Score < 65 → reject.
-3. NO social proof → reject (cold traffic at $100+ without validation = extremely hard)
+Process:
+1. Score all dimensions normally
+2. Margin Potential: cap at 5/10 for this price range (higher AOV = thinner margins for cold traffic)
+3. If total score ≥ 65 → report with Price Range = "Premium $100–170" in Notion
+4. Over $170 → reject (outside practical cold traffic DTC range)
 
-Example error: Dreamland Baby ($109, Shark Tank brand) rejected only by price without scoring — wrong.
+Notion already has "Premium $100–170" as a Price Range category — use it.
+A strong product at $130 with score 72 should be reported. The score accounts for price via Margin Potential.
