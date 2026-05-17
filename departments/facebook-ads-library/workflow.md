@@ -110,6 +110,8 @@ Do NOT append:
 **5d. Promote if confirmed:**
 Append to `review/promotion-queue.md` only if a learning was confirmed across **3 sessions** OR explicitly approved by Marina — never after one session alone.
 
+**Promotion queue check:** Count unreviewed items in `review/promotion-queue.md`. If 3+ unreviewed items exist → mention under "Founder review needed" in the SESSION LEARNING REPORT. Marina initiates a Review session at her discretion — no automatic action by agent.
+
 NEVER edit non-expired entries. NEVER modify core/ files.
 
 **6. Save session report**

@@ -37,10 +37,12 @@
 - Feature-specific: "wireless", "portable", "foldable", "waterproof"
 - Problem-specific (product-level): "neck pain relief", "back support", "car clutter"
 
-### Bad keywords (yield services, apps, supplements — not physical products)
+### Bad keywords for WebSearch-based discovery
 - Broad emotional phrases: "struggling with", "tired of", "finally", "sick of"
-- These attract: debt programs, weight loss apps, clinical studies, online courses
-- Avoid unless combined with a product word (e.g. "tired of neck pain" instead of "tired of")
+- Via WebSearch these attract: debt programs, weight loss apps, clinical studies, online courses
+- For WebSearch: avoid unless combined with a product word (e.g. "tired of neck pain" instead of "tired of")
+
+**Note — FB Ads Library VPS:** These same phrases behave differently in FB Ads Library direct scraping. Used intentionally as "performance advertising signal keywords", they filter by advertiser TYPE (DTC operators, dropshippers) rather than topic — and surface products across all categories. See departments/facebook-ads-library/operational-memory/keyword-map.md Priority Queue for the curated list.
 
 ### Amazon Affiliate Ads — New Rule (updated 2026-05-13)
 Two types of Amazon affiliate ads — treat differently:
@@ -68,11 +70,12 @@ Available parameters to combine with keywords:
 
 Usage: add --since=2026-01-01 to scraper command to filter fresh ads only.
 
-### Scraper Modes
-- Default (Wide): 3-6 keywords × 25 ads = broad category discovery
-- Deep mode (--deep): 1-2 keywords × 150-200 ads = full category map
-  - Use Deep when: category already identified as hot (e.g. travel pillow had 7 brands)
-  - Use Wide when: exploring new session, unknown categories
+### Scraper Modes (Facebook Ads Library VPS — current)
+- Standard: **500 ads/keyword** target, hard cap 600 — never exceed (see op-rules.md RULE 5)
+- Scale by adding more keywords (breadth), not going deeper on one keyword
+- Early abort: if initial batches show 70%+ services/apps with 0 physical products → replace keyword
+
+*Pre-VPS historical reference (Sessions 1–6, now obsolete): Wide = 3–6 keywords × 25 ads; Deep = 150–200 ads/keyword.*
 
 
 ---
@@ -199,14 +202,15 @@ ALWAYS verify Store Link via WebFetch before reporting:
 
 ## META ADS LIBRARY (facebook.com/ads/library)
 
-### Status: NOT DIRECTLY ACCESSIBLE
-- Requires Facebook login
-- Playwright can theoretically log in but risks account ban
-- Not implemented
+### Status: ACCESSIBLE via VPS Scraper (Sessions 8+)
+- VPS scraper (5.78.217.133) uses Playwright + fb_session.json (Mikhail Piatsiuk account)
+- Full access: keyword search, 500+ ads per keyword, active/impressions sort
+- Session cookie required — re-export when expired (see op-rules.md RULE 2)
+- Full setup and operation: departments/facebook-ads-library/operational-memory/op-rules.md
 
-### How to Get Data Indirectly
-- WebSearch: `site:facebook.com/ads/library [product]` — sometimes works
-- Minea — aggregates Meta ads (primary path)
+### Legacy indirect methods (pre-VPS, backup only — Tier 3 signal)
+- WebSearch: `site:facebook.com/ads/library [product]` — surface-level only
+- Minea — aggregates Meta ads (no direct access)
 - AdSpy, BigSpy — alternatives (not connected)
 
 ---

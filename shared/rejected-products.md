@@ -147,6 +147,8 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 | 2026-05-16 | ArtCreativity multi-toy store | Kids/Toys | Products $11-29 — entire catalog below price floor; wholesale model (B2B listed alongside DTC) | filtered |
 | 2026-05-16 | The Little Potion Co | Kids/Craft | Australian brand, $59 AUD (~$38 USD) → at price floor; 1 FB ad; founder-story brand — not white-label play | filtered |
 
+> ⚠️ **RE-EVALUATED:** Above entry was initial Session 13 assessment (price estimated at ~$38 USD). Subsequent evaluation confirmed $78 USD bundle price → passes price floor. Score 68. Now logged in reported-products.md. Do NOT auto-skip this product based on the entry above.
+
 ### Session 13 Keyword Pattern Summary — 2026-05-16
 
 | Keyword | Advertisers | Yield | Verdict |

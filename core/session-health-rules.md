@@ -51,17 +51,15 @@ Recommendation for next session:
 
 ## Keyword Quality Rule
 
-After Round 1 results, check keyword quality before Round 2:
+After a full keyword scan, check keyword quality:
 
-**Abort a keyword if:** 70%+ results are services/apps/supplements, 50%+ Amazon affiliates, or 0 physical products in 25 ads.
+**Abort a keyword if:** 70%+ results are services/apps/supplements, 50%+ Amazon affiliates, or 0 physical products in target price range.
 
-**Replace with a more specific keyword:**
-- Broad emotional ("struggling with") → product-level ("neck pain relief pad")
-- Generic category ("kitchen gadget") → specific feature ("vegetable chopper", "food sealer")
+Report to Marina: "Keyword X yielded 0 physical products — replacing with Y"
 
-Report to Marina: "Keyword X yielded 0 physical products — replacing with Y for Round 2"
+Never run multiple rounds with the same failing keyword to fill the session quota.
 
-Never run 3 rounds with same keyword quality to fill the session quota.
+**Important:** Department-level keyword strategy takes precedence over this rule. Keywords explicitly listed as intentional in the active sourcing channel's keyword-map.md (e.g. broad performance signal keywords) should NOT be replaced based on low yield alone — low yield may be expected and documented behavior for that keyword type.
 
 ## Context Management
 

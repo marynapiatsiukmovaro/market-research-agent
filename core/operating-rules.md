@@ -82,7 +82,7 @@ Auto-announce pivot to Marina when any of these occur:
 
 - Load only files changed since last session (check git diff), not all core/ files every time
 - core/ files change rarely — skip re-reading unless prompted
-- Always read: shared/reported-products.md, shared/rejected-products.md, departments/facebook-ads-library/operational-memory/learnings.md
+- Always read: shared/reported-products.md, shared/rejected-products.md, and department-specific operational memory for the active sourcing channel
 - Never carry more than 3 "maybe" candidates across rounds without a written checkpoint
 - If context usage >60% at start of Round 3 → alert Marina before proceeding
 
@@ -99,47 +99,7 @@ Current date defines "fresh." Recalculate at session start.
 
 ---
 
-## 8. Keyword Quality Rules
-
-Abort a keyword if after 8–10 results: 70%+ are services/apps/affiliates, or 0 physical products in target price range.
-
-Replace with more specific keyword. Report to Marina: "Keyword X yielded 0 physical products — replacing with Y."
-
-**Known dead keywords (do not reuse):**
-- "home organizer" → Amazon affiliate spam
-- "dog camera" → 0 actual dog cameras
-- "facial steamer" → salons + B2B manufacturers
-- "beauty tool" → established brands + wrong category
-- Broad emotional phrases ("struggling with", "tired of") → services, not physical products
-
----
-
----
-
-## 9. VPS Connection — ОБЯЗАТЕЛЬНО (нет исключений)
-
-**Агент ВСЕГДА начинает scout сессию с подключения к виртуальному серверу (VPS).**
-
-Это НЕ опционально. Это НЕ нужно указывать в промпте сессии. Агент знает это по умолчанию.
-
-**Почему это критично:**
-- FB Ads Library требует прямого браузерного или scraper доступа
-- WebSearch не может открыть FB Ads Library и пролистать объявления
-- WebSearch = Tier 3 сигналы — недостаточны для Keyword-First Deep Scan алгоритма
-- Сессия 7 (2026-05-15) потрачена частично впустую именно из-за этой ошибки
-
-**Алгоритм подключения:**
-1. Перед любой работой: подключиться к VPS (данные сервера в конфиге проекта)
-2. Убедиться что FB scraper/browser доступен: `ps aux | grep claude` или аналог
-3. Если VPS недоступен → немедленно сообщить Марине. НЕ заменять WebSearch-ом.
-
-**Если VPS недоступен:**
-- Не запускать Keyword-First Deep Scan через WebSearch
-- Сообщить Марине: "VPS недоступен — прошу подтвердить подключение перед продолжением"
-- Ждать решения, не импровизировать
-
----
-
 ## File Version
 v1 — created 2026-05-14, Session 6 post-mortem
-v2 — updated 2026-05-15, Session 7: добавлено правило VPS (Marina approved)
+v2 — updated 2026-05-15, Session 7: added VPS rule (Marina approved)
+v3 — updated 2026-05-17, Session 15: removed sections 8 (Keyword Quality) and 9 (VPS Connection) — these are Facebook Ads Library department-specific, not universal system rules. Keyword logic → departments/facebook-ads-library/operational-memory/keyword-map.md. VPS/scraper rules → departments/facebook-ads-library/operational-memory/op-rules.md.

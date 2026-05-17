@@ -39,54 +39,6 @@ Session structure: 5-15 sessions per niche. Depth over breadth.
 
 ---
 
-### [2026-05-15] Session 8 — Keywords: Broad = Noise, Specific = Signal
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (6 keywords tested)
-**Observation:** Keyword formula for any vertical:
-- ❌ NOISY (1 word or common attribute): "baby", "kids", "learning toy" → 80%+ noise
-- ✅ CLEAN (2 words, category-defining): "baby carrier", "screen time", "baby swaddle" → direct DTC advertisers
-Practical rule: use 2-3 words describing a specific product category. Test broad keywords only for category landscape mapping.
-**Applies to:** All vertical keyword selection
-**Expires after:** Session 15
-
----
-
-### [2026-05-15] Session 8 — Kids Vertical: Category Map (first pass)
-**Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (1 session, ~150 ads)
-**Observation:**
-OPEN (active DTC, entry window available):
-- Baby ring sling / soft carrier → Bambora ($59, 13+ ads). WildBird went retail → DTC niche opening.
-- Stroller 2nd-child seat → Hoppie ($79, 1 player, very early)
-
-CLOSED (legacy brands or price ceiling):
-- Baby monitor → Owlet, Nanit legacy
-- Smart bassinet → Cradlewise $1000+
-- Premium stroller → Doona, UPPAbaby $300-800
-- Nursing pillow → Boppy retail dominant
-
-PENDING VERIFICATION (next sessions):
-- Diaper bag (Emmafy, MINA BAIE — prices unverified)
-- Baby wrap (different carriers sub-category)
-- Swaddles / sleep sacks (MamaCoco, Toucan Baby — borderline 66-67)
-**Applies to:** Kids vertical — next sessions
-**Expires after:** Session 15
-
----
-
-### [2026-05-15] Session 8 — Bambora: Category Validator for Baby Ring Sling
-**Type:** Signal | **Severity:** HIGH | **Confidence:** HIGH (found across 2 keywords, 13+ ad units)
-**Observation:** Bambora (bamboraco.com) = active DTC FB advertiser for baby ring sling. $59, 13+ ad units Nov 2025. Mixed Trustpilot reviews → white-label quality opportunity. WildBird ($69+) exited to Target retail → DTC space partially freed. Bambora = Category Validator (like KittySpout for cat fountain).
-**Applies to:** Baby carrier / sling sub-category
-**Expires after:** Session 15
-
----
-
-### [2026-05-15] Session 8 — Post-filter needed for dual-meaning keywords
-**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH
-**Observation:** FB keyword matching is shallow — "baby monitor" returns pharma "monitor" drugs (NUBEQA, KESIMPTA). "sleep baby" returns adult sleep brands. This is normal FB behavior, not a scraper bug. Manual or auto post-filter needed: skip if ad copy contains "prescription", "mg", "FDA approved" or domain has medical disclaimer.
-**Applies to:** Keywords with dual meanings (any health-adjacent term)
-**Expires after:** Session 15
-
----
 
 ### [2026-05-15] Session 8 Part 2 — Scraper fix: FB Login + JS Scroll confirmed permanent
 **Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (561 ads confirmed in live test)
@@ -212,6 +164,13 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 > - Session 7 — Home/Kitchen: Structurally Weak (expires S14)
 > - Session 7 — Мёртвые ключевые слова Home/Kitchen (expires S14)
 > Постоянные операционные правила перемещены в op-rules.md. Keyword-паттерны перемещены в keyword-map.md.
+
+> **АРХИВАЦИЯ Session 15 (2026-05-17):** 4 записи архивированы (истекли после Session 15):
+> - Session 8 — Keywords: Broad = Noise, Specific = Signal
+> - Session 8 — Kids Vertical: Category Map (first pass)
+> - Session 8 — Bambora: Category Validator for Baby Ring Sling
+> - Session 8 — Post-filter needed for dual-meaning keywords
+> Устарели с переходом на Broad Horizontal Discovery (Sessions 15+). Kids-specific сигналы сохранены в reported-products.md и keyword-map.md.
 
 ---
 
