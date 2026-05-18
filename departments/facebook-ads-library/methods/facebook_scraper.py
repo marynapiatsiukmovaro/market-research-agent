@@ -377,6 +377,8 @@ def parse_ad_cards(page) -> list[dict]:
                 ad["active_ads_count"] = int(count_match.group(1))
             elif re.search(r"this ad has multiple versions", raw, re.IGNORECASE):
                 ad["active_ads_count"] = "2+"
+            elif "See ad details" in raw and "See summary details" not in raw:
+                ad["active_ads_count"] = 1  # single-version ad
 
             # Country signals in ad text
             for country in ["United States", "United Kingdom", "Canada", "Australia"]:
@@ -466,8 +468,8 @@ def incremental_scroll_collect(page, target: int = 500, deep: bool = False) -> l
 
         if new_count == 0:
             no_new_streak += 1
-            if no_new_streak >= 2:
-                print(f"[SCROLL] No new cards in 2 consecutive batches — stopping at {total}", flush=True)
+            if no_new_streak >= 5:
+                print(f"[SCROLL] No new cards in 5 consecutive batches — stopping at {total}", flush=True)
                 break
         else:
             no_new_streak = 0
@@ -580,6 +582,17 @@ def scrape_facebook_ads(
 
                 # Accept cookies on first visit
                 accept_cookies(page)
+
+                # Dismiss "automated behavior" warning if Facebook shows it
+                try:
+                    dismiss_btn = page.locator('div[role="button"]:has-text("Dismiss")')
+                    if dismiss_btn.count() > 0:
+                        dismiss_btn.first.click()
+                        print("[SESSION] Dismissed automated behavior warning", flush=True)
+                        human_delay(1, 2)
+                except Exception:
+                    pass
+
                 save_screenshot(page, f"01_loaded_{keyword.replace(' ', '_')[:20]}")
 
                 # Apply sort if requested (after page load, before scrolling)
@@ -592,6 +605,15 @@ def scrape_facebook_ads(
                 if "log in" in page_text.lower() and len(page_text) < 1000:
                     print("[WARN] Login wall detected — results may be limited", flush=True)
                     save_screenshot(page, "blocked_login_wall")
+
+                # Warm-up: FB React renders cards lazily — scroll down 3 steps then back
+                # to top before main loop, so first batch always finds loaded cards.
+                print("[SCROLL] Warm-up: triggering FB initial card render...", flush=True)
+                for _ in range(3):
+                    page.evaluate("window.scrollBy(0, 800)")
+                    time.sleep(1.5)
+                page.evaluate("window.scroll(0, 0)")
+                time.sleep(3)
 
                 # Scroll incrementally and collect cards before FB virtual DOM removes them
                 target_ads = 500 if deep else 50

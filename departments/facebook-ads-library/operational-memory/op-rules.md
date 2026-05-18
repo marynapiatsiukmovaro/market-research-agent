@@ -106,6 +106,22 @@ Two scenarios:
 - **Broad keyword** (baby, kids): FB exhausts unique advertisers before 500. Natural stop earlier = normal.
 - **Specific keyword** (baby carrier, screen time): FB can deliver 500-580 unique advertisers. Stop at target.
 
+### RULE 5b: Any keyword has 500+ ads — low count = scraper bug, NOT keyword limit
+
+**FB Ads Library always has 50,000+ ads indexed for any keyword.** If scraper returns <50 ads:
+- This is a scraper/session bug — NOT evidence that the keyword has few advertisers
+- Do NOT record low count as a keyword verdict
+- Do NOT mark keyword as ❌ DEAD based on low ad count alone
+
+**Root cause (confirmed S18):** FB React renders cards lazily. Scraper may start parsing before cards appear → gets 0 in first batches → triggers early stop. Fix: warm-up scroll (already added to scraper) + stop threshold = 5 batches (not 2).
+
+**If <50 ads returned:**
+1. Check session validity first (`check_session.py`)
+2. If session OK → scraper stalled early (warm-up didn't work) → re-run the keyword
+3. Only after a confirmed full run (session OK + no early stall) → accept the count as real
+
+**Keywords with counts affected by this bug (need re-test):** nursing pillow (~25 ads S8), kids (53 ads S9), quality time (44 ads S14), perfect gift (28 ads S18), back in stock (0 ads S18) — all marked in keyword-map.md with ⚠️ BUG flag.
+
 ### RULE 6: Depth risk map
 
 | Depth | Risk level | Notes |
