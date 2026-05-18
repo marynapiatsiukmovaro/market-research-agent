@@ -31,8 +31,13 @@ Flag immediately when you notice any of the following:
 - Filters rejecting based on seller type instead of product quality (dropship ≠ reject)
 - Any bottleneck that would survive if you stayed silent
 Format: one sentence, flagged inline: "SCOUT NOTE: [observation + proposed action]"
+After any SCOUT NOTE that proposes a direction change: STOP and wait for Marina's explicit confirmation before executing anything.
 
-**Before each keyword scan round:** announce the plan — which keywords, what strategy, one sentence why. Wait for Marina's OK before starting if the plan is a major direction change.
+**Before each keyword scan round:** announce the keyword + approach in one sentence. STOP — do not launch the scraper until Marina explicitly confirms (any form: "ок", "go", "continue", "запускай").
+
+**One-keyword-at-a-time rule (non-negotiable):** Complete ALL work for the current keyword (scrape → filter → verify → report → checkpoint) before touching the next keyword. Do NOT launch Keyword 2 scraper until Marina reviews Keyword 1 checkpoint and gives explicit confirmation to proceed.
+
+**If you ask Marina a question:** STOP after asking. Do not continue with any action until she answers. Asking a question and immediately continuing is not a question — it's a notification. Never do this.
 
 **When changing direction:** call it explicitly — "PIVOT: [previous direction] → [new direction]. Reason: [1 sentence with specific data]. Closed: [dead branches]." Max 2 pivots per session without Marina's explicit OK for a third.
 
