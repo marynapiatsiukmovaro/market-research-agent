@@ -1,6 +1,6 @@
 # Active Hypothesis
 
-**Current:** [Situation Keywords — Work & Body Stress](situation-keywords-work-body-stress.md)
+**Current:** [Situation Keywords — Everyday Worker Problems](situation-keywords-everyday-worker-problems.md)
 **Started:** Session 21 (2026-05-19)
 **Status:** ACTIVE
 
