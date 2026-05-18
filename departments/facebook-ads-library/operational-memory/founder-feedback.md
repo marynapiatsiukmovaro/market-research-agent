@@ -18,6 +18,8 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 
 | 2026-05-13 | High-Frequency Facial Wand | 77 | "Понимаю принцип, вижу как можно показать" ("I get the principle, I can see how to show it") — clear content angle, approved. | Visible result (acne) + clear demo angle = YES. |
 | 2026-05-16 | Kids Travel Sleep Nest (Seat to Sleep) | 72 | "Буду тестировать" — Marina confirmed she will test. Found via situation keyword "long flight" (cross-category intersection: Kids × Travel × Sleep). | Situation keyword discovery = validates the approach. Score 72 sufficient for testing. Kids + specific situational pain = works. |
+| 2026-05-18 | Kids Travel Sleep Nest (Seat to Sleep) | 72 | "Strong pain-solution product. Clear parent appeal." — confirmed Approved. | Second confirmation of this product. |
+| 2026-05-18 | Kaizen Kidz 3-2-1 Swim Pack | 65 | "Strong pain-solution product. Excellent advertiser signals." — Approved. | Progressive swim training (removes floaties layer by layer) = clear mechanism + safety problem. Low score 65 approved = hook strength overrides marginal score. |
 
 ## Consider — Marina is not sure (Yellow in Notion)
 
@@ -25,6 +27,9 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 |------|---------|-------|---------|--------------------------|
 | 2026-05-13 | Posture Corrector Back Brace | 82 | No strong reason to reject, but no excitement either. | Strong creative angle or unique visual hook. |
 | 2026-05-13 | Electric Scalp Massager with Heat | 77 | Seen it often. Market exists but not fresh. | Minea data showing low ad saturation would change this. |
+| 2026-05-18 | The Little Potion Co — Mindful Magic Potion Kits | 68 | "Strong concept. Good creative flexibility." — potential but not committed. | Strong gifting angle; creative potential confirmed; needs US market validation and white-label sourcing. |
+| 2026-05-18 | Magic Playwall — Magnetic Art Wall for Kids | 62 | "Beautiful packaging. Small-scale niche potential." — not rejecting but niche concern. | Second DTC advertiser in category would open it. Score was below threshold — Marina sees potential despite low signal. |
+| 2026-05-18 | Camp Snap Camera — Screen-Free Kids Digital Camera | 77 | "Strong aesthetic branding potential." — brand risk concern (Camp Snap = pioneer with strong identity). | White-label sourcing on Alibaba + differentiated branding = could work. Marina sees creative/aesthetic opportunity. |
 
 ---
 
@@ -41,6 +46,10 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | 2026-05-13 | Red Light Therapy Wearable Body Belt | 78 | Overheated market — even score 78 rejected | Score 78 means nothing if market is already saturated |
 | 2026-05-13 | Wireless TENS Pain Relief Patch | 71 | Customer needs too much education | Complex mechanism = auto-reject for cold traffic |
 | 2026-05-13 | Ultrasonic Skin Scrubber Spatula | 71 | Old product, no wow | Old category = automatic rejection |
+| 2026-05-18 | Dermave Electric Trimmer for Women | 69 | "Weak wow-effect. Commodity feel." — Rejected. | Score 69 не спасает если нет четкого wow-механизма. Women's trimmer = commodity category even with strong reviews. |
+| 2026-05-18 | Heusom Silent Groom Pro | 71 | "Low margins. LTV-brand model. Weak DR economics." — Rejected. | Pet grooming vacuum = LTV play (repeat purchase / brand loyalty), not DR one-shot. Wrong model for cold traffic DTC MVP. |
+| 2026-05-18 | Wonder Quest 4K Discovery Microscope | 70 | "Strong educational angle." — Rejected as "Already saturated." | Educational angle is noted as strong — but category saturation overrides. Educational kids tech = crowded. |
+| 2026-05-18 | Thoson Kids MagTrack | 67 | "Strong dropshipping-style toy. Overexposed category." — Rejected. | Dropshipping-style execution = commodity positioning, easily copied; magnetic toy category overexposed. |
 
 ---
 
@@ -56,6 +65,9 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | **Founder Intuition** | Marina says "narrow market" | Trust it over data | Air Compression (75, 4 audiences) |
 | **Pet Tech AOV Ceiling** | Pet vertical products $80-120 | Don't hard-reject — evaluate case by case | Session 5: "pet owners tolerate higher AOV than other verticals" — exceptional visual + emotional = viable |
 | **Validated mechanism ≠ winner** | Same mechanism sold as commodity | Save as pattern, NOT as reported product | Nail grinder session 5: right mechanism, too commoditized execution |
+| **LTV model ≠ DR product** | Pet grooming / subscription / repeat-purchase model | Reject — wrong for cold traffic DTC MVP | Heusom (71): strong product, but LTV economics don't work for single cold traffic acquisition |
+| **Wow-effect is non-negotiable** | Score 65-72 range without clear wow mechanism | Reject — score alone doesn't save a product | Dermave trimmer (69): strong reviews, but commodity feel kills it |
+| **Saturation overrides education** | Educational angle + saturated category | Reject even if angle is compelling | Wonder Quest (70): educational angle confirmed strong but category saturated |
 
 ---
 
