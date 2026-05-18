@@ -27,48 +27,6 @@ Items expire after the listed session. Marina promotes confirmed patterns via re
 
 ## Active Learnings
 
-### [2026-05-15] Session 7 — НОВЫЙ АЛГОРИТМ: Keyword-First Deep Scan
-**Type:** Tactical | **Severity:** CRITICAL | **Confidence:** HIGH (Marina confirmed)
-**Observation:** Old approach (product hypothesis → search) is limited by agent's imagination. New baseline:
-1. Choose category → generate 20 keywords → run FB Ads Library → 200-500 ads/keyword → fast filter
-2. Market shows what it's testing RIGHT NOW. Winners come from here — not from prediction.
-Key requirement: VPS scraper. WebSearch = Tier 3 signal, cannot replace FB direct access.
-Session structure: 5-15 sessions per niche. Depth over breadth.
-**Applies to:** All future scout sessions — this is the baseline algorithm
-**Expires after:** Session 20
-
----
-
-
-### [2026-05-15] Session 8 Part 2 — Scraper fix: FB Login + JS Scroll confirmed permanent
-**Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (561 ads confirmed in live test)
-**Observation:** Two fixes unlocked full scraper capacity (now permanent in code):
-1. SCROLL: `page.mouse.wheel()` did not trigger FB lazy-load. Replaced with `page.evaluate('window.scrollBy(0, N)')` → 28 → 561 ads/keyword.
-2. LIMIT: Removed `[:25]` hard cap in parse_ad_cards. Now parses all cards.
-Incremental parsing (every 5 scroll steps → parse → dedup by Library ID) solves virtual DOM recycling.
-BEFORE: 28 ads/keyword. AFTER: 500+ ads/keyword. This is permanent — do not revert.
-**Applies to:** All VPS scraper sessions — verify these fixes still in place if scraper gives <50 ads
-**Expires after:** Session 20 (or until scraper architecture changes)
-
----
-
----
-
-
-
-### [2026-05-16] Session 10 — Multi-brand dropship operators = research asset
-**Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed, Session 10)
-**Observation:** When brand footer shows "Operated by [Company LLC]" (e.g., DBO Networks) → research asset, not red flag. These operators already spent significant ad budget testing products. How to use:
-1. Find their ACTIVE catalog (not just current brand)
-2. 404 on product = they killed it (failed the test) → skip
-3. Product active 6+ months = demand validated → candidate for white-label evaluation
-4. Don't analyze their marketing tactics — focus on WHAT they sell and HOW LONG
-**Applies to:** All sessions — response to multi-brand dropship operators
-**Expires after:** Session 20
-
----
-
-
 ### [2026-05-16] Session 10 — Keyword Audit Database: ~50 keywords weekly monitor
 **Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed, Session 10)
 **Observation:** Marina proposed building ~50-keyword weekly monitor: run each keyword once per week → track new advertisers appearing/disappearing → Market Pulse Monitor. Current tested: 22 keywords (see keyword-map.md). Build to 50, then weekly pulse scan replaces full discovery sessions for established keywords. Significant long-term research efficiency gain.
@@ -105,14 +63,6 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-16] Session 13 — Wonder Quest: STEM/Exploration category signal
-**Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (1 advertiser, Jan 2026)
-**Observation:** Wonder Quest 4K Discovery Microscope (thewonderquest.net) — operated by DBO Networks LLC. $49.99 DTC, single active FB advertiser Jan 2026, COGS ~$12-20 Alibaba. Hook: "kids team up instead of fight" (sibling cooperation). White-label viable: generic kids digital microscope widely available. Score 70. Weak single signal vs Camp Snap (50+ campaigns), but confirms STEM/exploration category is alive on FB.
-**Applies to:** Kids/STEM exploration category — next sessions
-**Expires after:** Session 20
-
----
-
 ### [2026-05-18] Session 15 — Performance signal keywords: yield baseline established
 **Type:** Tactical | **Severity:** MEDIUM | **Confidence:** HIGH (2 keywords, 738 advertisers total)
 **Observation:** First 2 performance signal keywords tested ("say goodbye to", "game changer"). Baseline yield: ~1 reportable product per 350-420 advertisers. Expected noise: 60-70% services/apps/beauty/supplements. "game changer" showed better DTC physical product density than "say goodbye to". Neither keyword dominated any single category — signals spread across Pet, Beauty, Home.
@@ -134,15 +84,6 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 **Observation:** Marina's strategy: run 30 performance signal keywords across 10 sessions → identify which categories appear 3+ times → pivot to product-specific deep-dive in those categories. Current emerging signals after 2 keywords: Pet (Heusom), Beauty/Personal Care (Dermave). Need to track category distribution across all 30 keywords as they are tested. When any category reaches 3+ products across different keywords → flag for deep-dive in next session block.
 **Applies to:** Sessions 15-25 — at each STEP 8, count category occurrences from reported-products.md
 **Expires after:** Session 25
-
----
-
-### [2026-05-18] Session 15 — Magic Playwall: Magnetic Wall Activity category signal
-**Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (1 advertiser, score 62)
-**Observation:** Cherrypick (shopcherrypick.com) → Magic Playwall — magnetic wall-mounted activity board for kids. Jan 2026, 1 active ad, UGC creator (UGCbyTosin). Score 62 — did not reach threshold. Reason: only 1 FB advertiser, price/COGS unverified, no Alibaba validation. Category signal: "magnetic wall activity board" = growing Pinterest/Etsy trend. If second DTC advertiser found → category opens. Next step: run keyword "magnetic activity board" to check for additional brands.
-Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
-**Applies to:** Kids vertical — wall activity category
-**Expires after:** Session 20
 
 ---
 
@@ -207,6 +148,16 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 
 ---
 
+### [2026-05-18] Session 20 — Broad Horizontal Discovery hypothesis: CLOSED
+**Type:** Pattern
+**Severity:** HIGH
+**Confidence:** HIGH (S15-S20, 29 keywords, ~7900 total advertisers, 2 reportable)
+**Observation:** Hypothesis closed after S20. Total: 29 performance signal keywords tested across Sessions 15-20. Result: 2 reportable products — both from S15 ("game changer" → Dermave 69, "say goodbye to" → Heusom 71). Last 14+ keywords: 0 products. Final S20 sub-class tested — pain/narrative hooks ("if you suffer from" 361 adv., "the worst part of" 262 adv., "the only thing that" 391 adv., "before and after" 344 adv.) → all ❌ DEAD. Multiple keywords blocked by FB (0 ads): "struggling with", "embarrassing", "in seconds", "free shipping over", "sold out". Core finding: broad performance signal phrases are used by ALL advertiser types — pharma, retail, restaurants, services, DTC. They do NOT filter for physical product DTC operators. Hypothesis assumption was wrong. New direction: product-specific or niche-specific keywords only.
+**Applies to:** S21+ — close hypothesis, pivot to product-specific keyword strategy
+**Expires after:** Session 25
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.
@@ -234,6 +185,14 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 > - Session 8 — Bambora: Category Validator for Baby Ring Sling
 > - Session 8 — Post-filter needed for dual-meaning keywords
 > Устарели с переходом на Broad Horizontal Discovery (Sessions 15+). Kids-specific сигналы сохранены в reported-products.md и keyword-map.md.
+
+> **АРХИВАЦИЯ Session 20 (2026-05-18):** 5 записей архивированы (истекли после Session 20):
+> - Session 7 — НОВЫЙ АЛГОРИТМ: Keyword-First Deep Scan
+> - Session 8 Part 2 — Scraper fix: FB Login + JS Scroll confirmed permanent
+> - Session 10 — Multi-brand dropship operators = research asset
+> - Session 13 — Wonder Quest: STEM/Exploration category signal
+> - Session 15 — Magic Playwall: Magnetic Wall Activity category signal
+> Hypothesis "Broad Horizontal Discovery" закрыта. Итог: 29 keywords, ~7900 advertisers, 2 reportable (оба S15).
 
 ---
 

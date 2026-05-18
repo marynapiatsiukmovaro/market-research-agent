@@ -193,6 +193,24 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 
 **Session 17 overall:** 0 products across 3 keywords (1,250+ total advertisers screened). Confirms: broad descriptor keywords ("gadget") and broad emotional triggers ("tired of") = dead classes for DTC physical product discovery. Pain/outcome phrase keywords ("game changer", "say goodbye to") remain the only functional class in the 30-keyword experiment.
 
+### Session 20 Keyword Pattern Summary — 2026-05-18 (Broad Horizontal Discovery CLOSED)
+
+| Keyword | Advertisers | Yield | Verdict |
+|---------|-------------|-------|---------|
+| if you suffer from | 361 | ZERO | ❌ DEAD — supplements/services/pharma dominate |
+| the worst part of | 262 | ZERO | ❌ DEAD — pain narrative = same dead pattern |
+| the only thing that | 391 | ZERO | ❌ DEAD — universal testimonial phrase, all advertiser types |
+| before and after | 344 | ZERO | ❌ DEAD — universal transformation, pharma dominant |
+| struggling with / Embarrassing / in seconds / free shipping over | 0 each | N/A | ❌ BLOCKED — FB returned "No ads match" |
+
+**Session 20 notable sub-threshold candidates:**
+- nasalfreshmd.com — Electric nasal irrigation device, $92, 1 FB advertiser Mar 2026. Price in extended range but only 1 advertiser + medical device territory.
+- glowright.co / Halo Lux — Smart accent light $49.99, Sep 2025, but established brand (Kinotech Inc.) with 1,176 reviews.
+- koprez.com — Compression foot sleeve, $39.99, high saturation, established 200K+ customer brand.
+- hike-footwear.com / HF Stride — Barefoot slip-on shoe $69.95, 2M+ customers, established brand.
+
+**Pattern confirmed:** Broad performance signal keywords (pain hooks, testimonial phrases, transformation phrases) attract ALL advertiser types — pharma, restaurants, automotive, services, DTC. Zero filter for physical DTC products $39-100. This closes the Broad Horizontal Discovery hypothesis. Next approach: product-specific or niche-specific keywords only.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

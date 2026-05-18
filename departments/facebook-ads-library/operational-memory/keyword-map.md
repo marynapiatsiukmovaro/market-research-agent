@@ -66,12 +66,20 @@
 | money back guarantee | S19 | 0 | ⚠️ RETRY | FB "No ads match" — Marina confirmed same from another account; likely FB glitch; re-test S20 |
 | limited time only | S19 | 293 | ❌ DEAD | Universal urgency phrase attracts all categories (fast food, retail, services, apparel); 0 DTC physical products |
 | sold out | S19 | 0 | ⚠️ RETRY | FB "No ads match" — same as "money back guarantee"; likely FB glitch; re-test S20 |
+| if you suffer from | S20 | 361 | ❌ DEAD | Pain hook = supplements/services/pharma dominate; 15+ candidates checked; 0 DTC physical $39-100 |
+| the worst part of | S20 | 262 | ❌ DEAD | Pain narrative = supplements/clinics/services; broad hook attracts all advertiser types |
+| the only thing that | S20 | 391 | ❌ DEAD | Universal testimonial phrase — pharma, pizza chains, automotive, all use it; 0 DTC physical |
+| before and after | S20 | 344 | ❌ DEAD | Universal transformation = pharma dominant + beauty established brands + automotive; not DTC-specific |
+| sold out (retest) | S20 | 0 | ❌ BLOCKED | Retested S20 — same 0-result; FB platform blocks phrase; hypothesis closed; not re-testing |
+| free shipping over / struggling with / Embarrassing / in seconds | S20 | 0 each | ❌ BLOCKED | All 4 returned FB "No ads match" — account-level block for these phrases; hypothesis closed |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
 ---
 
-## Priority Queue — Sessions 15+ Broad Horizontal Discovery
+## Priority Queue — Sessions 15–20 Broad Horizontal Discovery [ЗАКРЫТА]
+
+> ⛔ Hypothesis CLOSED after Session 20. 29 keywords tested → 2 reportable products (both S15). Performance signal keywords do NOT filter for DTC physical product operators. Do NOT continue this queue. New hypothesis TBD.
 
 **Strategy:** Performance advertising signal keywords — attract DTC/dropship operators across ALL niches.
 These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers), not by product topic.

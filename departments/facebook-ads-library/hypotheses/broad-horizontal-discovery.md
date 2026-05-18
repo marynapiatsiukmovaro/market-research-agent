@@ -1,7 +1,8 @@
 # Hypothesis: Broad Horizontal Discovery
 
-**Status:** ACTIVE
+**Status:** ARCHIVED — CLOSED Session 20 (2026-05-18)
 **Started:** Session 15 (2026-05-17)
+**Closed:** Session 20 (2026-05-18)
 **Replaces:** Kids Vertical hypothesis (archived — see kids-vertical.md)
 
 ---
@@ -78,3 +79,24 @@ Hypothesis is successful when:
 - 3+ categories with multiple active DTC advertisers identified
 - 5+ products reported at 65+ score across diverse categories
 - Clear pattern emerges of which performance keywords yield highest signal density
+
+---
+
+## Conclusion — FAILED (Session 20)
+
+**Result:** 29 keywords tested, ~7900 advertisers scanned, **2 reportable products** (both from S15).
+
+**Why it failed:**
+Performance signal phrases ("game changer", "struggling with", "before and after") are used by ALL advertiser types — pharma companies, restaurant chains, automotive brands, service businesses. They do NOT pre-filter for DTC physical product operators. The core hypothesis assumption was wrong.
+
+**Sub-classes tested and results:**
+- Outcome phrases ("game changer") → ✅ 1 product found (Dermave)
+- Pain hooks ("say goodbye to", "if you suffer from", "the worst part of") → ⚠️ 1 product, then 0
+- Universal testimonials ("the only thing that", "before and after") → ❌ 0 products
+- Offer/promo phrases → ❌ 0 products (DEAD class)
+- Social proof phrases → ❌ 0 products (DEAD class)
+- Universal urgency ("sold out", "struggling with") → ❌ FB blocked / 0 products
+
+**Key learning:** Product-specific keywords (Kids vertical S8-S14: 1-3 products/keyword) vastly outperform broad signal keywords. Next hypothesis must use niche-specific or product-specific terms.
+
+**Next hypothesis:** see departments/facebook-ads-library/hypotheses/_active.md
