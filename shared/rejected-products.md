@@ -178,6 +178,21 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **Price floor $39 kills**: Stepprs insoles $27, Auvulis ring $29.90, Marlene's Kitty Kurlz $29.99, Nuvetra hair brush $29.99 — significant pool below floor
 - **Patent trap**: CLIPSTIC (ski clip, patent pending), Axwell Wallet (patent pending), Guardian Bikes (Patented SureStop) — premium-looking products disqualified by IP barrier
 
+### Session 17 Rejections — 2026-05-18 (Keywords: genius gadget, gadget, tired of)
+
+| 2026-05-18 | Scoutlite SparkO (4-in-1 magnetic wearable light) | Tech/Outdoors | $45.99, single FB advertiser, 1 ad; pocket/wearable flashlight = commodity on Amazon; weak emotional trigger; no acute pain solved; score ~59 | 59 |
+| 2026-05-18 | Mostarle 3D Metal Puzzle | Hobby/Gifts | $49-89, visual "quiet your mind" hook, 4.5-4.7★ reviews (30-637/product); but 1 FB ad, hobby purchase (not acute pain), mass 3D metal puzzles saturating TikTok Shop; score ~63 — just below threshold | 63 |
+
+### Session 17 Keyword Pattern Summary — 2026-05-18
+
+| Keyword | Advertisers | Yield | Verdict |
+|---------|-------------|-------|---------|
+| genius gadget | 121 | ZERO — 0 reportable; mass-clone dropship + mosquito affiliate clusters | ❌ DEAD |
+| gadget | 296 | ZERO — 0 reportable; ultra-broad: established brands + cheap commodity + пустышки | ❌ DEAD |
+| tired of | 427 | ZERO — 0 reportable; broad emotional hook = services/apps/clinics/supplements dominate | ❌ DEAD |
+
+**Session 17 overall:** 0 products across 3 keywords (1,250+ total advertisers screened). Confirms: broad descriptor keywords ("gadget") and broad emotional triggers ("tired of") = dead classes for DTC physical product discovery. Pain/outcome phrase keywords ("game changer", "say goodbye to") remain the only functional class in the 30-keyword experiment.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

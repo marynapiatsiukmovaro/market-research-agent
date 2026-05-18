@@ -54,21 +54,7 @@ BEFORE: 28 ads/keyword. AFTER: 500+ ads/keyword. This is permanent — do not re
 
 ---
 
-### [2026-05-15] Session 9 — Broad keywords confirmed: pattern map, not winner map
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (3 keywords, 943 ads total)
-**Observation:** Three broad keywords tested (baby 349, toddler 327, sleep baby 267): pass rate 3-5%, 0 products at 65+ from "baby" and "toddler", 2 borderline from "sleep baby". Confirmed law: narrower keyword = cleaner signal. Broad keywords produce category landscape maps, not direct winners. Use them to understand what audiences exist, then narrow down to product-specific 2-word keywords for actual discovery.
-**Applies to:** All verticals — keyword selection strategy
-**Expires after:** Session 17
 
----
-
-### [2026-05-16] Session 10 — Camp Snap: "Screen-Free Kids Camera" category VALIDATED
-**Type:** Signal | **Severity:** HIGH | **Confidence:** HIGH (50+ influencer campaigns verified)
-**Observation:** Camp Snap Camera (campsnapcamera.com) = pioneer DTC brand in "screen-free digital camera for kids." $69.95, running FB since Nov 2025 (6 months), 50+ influencer/UGC campaigns. Aggressive scaling = market validation confirmed. White-label risk: companion platform campsnapphoto.com may be proprietary ecosystem — verify Alibaba sourcing for "retro point-and-shoot no-screen kids camera" before competing. Category is open but Camp Snap is first mover with strong brand.
-**Applies to:** Kids/Tech — screen-free camera category
-**Expires after:** Session 17
-
----
 
 ### [2026-05-16] Session 10 — Multi-brand dropship operators = research asset
 **Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed, Session 10)
@@ -82,13 +68,6 @@ BEFORE: 28 ads/keyword. AFTER: 500+ ads/keyword. This is permanent — do not re
 
 ---
 
-### [2026-05-16] Session 10 — "Screen-free alternative" = strong parental trigger
-**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** MEDIUM (4 advertisers, one keyword)
-**Observation:** Multiple advertisers in "screen time" keyword used hook "tired of your kid on the tablet?" as primary trigger. Products using this angle: cameras without screen (Camp Snap — strong), magnetic/building toys (Thoson — medium), art kits (weak). When scoring any kids toy/device: if screen-free angle is applicable → +2-3 pts to Wow-Effect and Emotional Trigger dimensions.
-**Applies to:** Kids vertical — all toy/activity/device products
-**Expires after:** Session 17
-
----
 
 ### [2026-05-16] Session 10 — Keyword Audit Database: ~50 keywords weekly monitor
 **Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed, Session 10)
@@ -170,6 +149,14 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 
 ---
 
+### [2026-05-18] Session 17 — "Gadget" descriptor keywords: confirmed dead class for DTC discovery
+**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (2 keywords: "genius gadget" 121 unique adv., "gadget" 296 unique adv., 0 reportable)
+**Observation:** "Genius gadget" = mass-clone dropship networks + mosquito affiliate clusters (minimal ad spend). "Gadget" = ultra-broad, attracts established brands (FIXD, REVO, HexClad), cheap commodities below $39, and пустышки with dubious claims. "Product signal" keyword sub-class in the 30-keyword list (#10 "genius gadget", #11 "viral product", #12 "as seen on tiktok") likely to perform similarly — these phrases attract affiliate/social-proof content, not cold-traffic DTC operators. Deprioritize remaining "product signal" entries from priority queue.
+**Applies to:** Sessions 15-25 — skip remaining "product signal" sub-class from 30-keyword list; focus on pain/outcome phrases
+**Expires after:** Session 25
+
+---
+
 ### [2026-05-18] Session 16 — Offer/promo keywords: confirmed dead class for DTC physical products
 **Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 keywords, 867 advertisers, 0 reportable)
 **Observation:** Tested 4 performance signal keywords with offer/promo language: "tiktok made me buy" (277), "50% off today" (69), "buy 1 get 1 free" (164), "half off" (357) → total 867 advertisers → 0 reportable products. Pattern: promo-phrase keywords attract retail brands with seasonal promotions, jewelry/apparel discounts, supplement brands, subscription services — NOT cold-traffic DTC physical product operators in $39-99. Correct performance signal class = outcome/pain phrases ("say goodbye to", "game changer"). Incorrect class = price/offer phrases. Do NOT test remaining offer keywords from the 30-keyword list (#14 "50% off today" and #15 "buy 1 get 1 free" already confirmed dead).
@@ -198,6 +185,11 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 > - Session 7 — Home/Kitchen: Structurally Weak (expires S14)
 > - Session 7 — Мёртвые ключевые слова Home/Kitchen (expires S14)
 > Постоянные операционные правила перемещены в op-rules.md. Keyword-паттерны перемещены в keyword-map.md.
+
+> **АРХИВАЦИЯ Session 17 (2026-05-18):** 3 записи архивированы (истекли после Session 17):
+> - Session 9 — Broad keywords: pattern map, not winner map (закон "уже" → keyword-map.md)
+> - Session 10 — Camp Snap: Screen-Free Kids Camera VALIDATED (результат в reported-products.md)
+> - Session 10 — "Screen-free alternative" = strong parental trigger (Kids vertical, on hold)
 
 > **АРХИВАЦИЯ Session 16 (2026-05-18):** 1 запись архивирована (истекла после Session 16):
 > - Session 9 — Price >$100 — NOT automatic reject (правило перешло в op-rules.md RULE 12)

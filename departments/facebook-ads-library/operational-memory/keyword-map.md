@@ -53,6 +53,9 @@
 | 50% off today | S16 | 69 | ❌ DEAD | Promo-phrase too narrow (time modifier "today"); FB exhausts phrase in 45s; 0 reportable |
 | buy 1 get 1 free | S16 | 164 | ❌ DEAD | BOGO signal = jewelry/apparel/supplements; Blumi Baby swim goggles ~62 (below threshold); 0 reportable |
 | half off | S16 | 357 | ❌ DEAD | Discount phrase = retail/apparel/seasonal; "50% off" unusable (% breaks URL encoding); 0 reportable |
+| genius gadget | S17 | 121 | ❌ DEAD | Mass-clone dropship networks + mosquito affiliate clusters; no original DTC operators; 0 reportable |
+| gadget | S17 | 296 | ❌ DEAD | Ultra-broad: established brands (FIXD, REVO, HexClad), commodity below $39, пустышки; 0 reportable |
+| tired of | S17 | 427 | ❌ DEAD | Broad emotional hook attracts ALL advertiser types — services, clinics, apps, beauty; 0 DTC physical products; confirms S3 WebSearch pattern |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
@@ -68,7 +71,7 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 | # | Keyword | Type | Status |
 |---|---------|------|--------|
 | 1 | struggling with | Pain hook | — Not tested |
-| 2 | tired of | Pain hook | — Not tested |
+| 2 | tired of | Pain hook | ✅ S17 — ❌ DEAD |
 | 3 | say goodbye to | Pain hook | ✅ S15 — ⚠️ LOW YIELD |
 | 4 | finally a solution | Pain hook | — Not tested |
 | 5 | the secret to | Curiosity hook | — Not tested |
@@ -76,7 +79,7 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 | 7 | game changer | Outcome phrase | ✅ S15 — ✅ USE |
 | 8 | life changing | Outcome phrase | — Not tested |
 | 9 | must have | Desire trigger | — Not tested |
-| 10 | genius gadget | Product signal | — Not tested |
+| 10 | genius gadget | Product signal | ✅ S17 — ❌ DEAD |
 | 11 | viral product | Social proof | — Not tested |
 | 12 | as seen on tiktok | Social proof | — Not tested |
 | 13 | tiktok made me buy | Social proof | ✅ S16 — ❌ DEAD |
