@@ -6,5 +6,5 @@
 
 **Previous:** [Broad Horizontal Discovery](broad-horizontal-discovery.md) — CLOSED Session 20 (2026-05-18). FAILED.
 
-Agent: read the linked hypothesis file for strategy, keyword clusters, and session structure.
-S21 = Cluster 1 (Physical Body Pain). See keyword list in hypothesis file.
+Agent: read the linked hypothesis file for strategy, cluster directions, and noise filter guidance.
+S21 = Cluster 1 (Physical Body Pain). Keywords for each session are provided in the session prompt.
