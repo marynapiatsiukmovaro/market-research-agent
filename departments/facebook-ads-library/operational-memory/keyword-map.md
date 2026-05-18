@@ -61,6 +61,11 @@
 | tired of | S17 | 427 | ❌ DEAD | Broad emotional hook attracts ALL advertiser types — services, clinics, apps, beauty; 0 DTC physical products; confirms S3 WebSearch pattern |
 | why didn't I know | S18 | 364 | ⚠️ LOW YIELD | Discovery hook = broad mix (finance apps, pharma, beauty brands); foot comfort sub-niche signal (Koprez $39.99, Bearefoot $44+, Elliosa £20); 0 scored 65+; apostrophe bug fixed (quote_plus) |
 | the easiest way to | S18 | 0 (throttled) | ⚠️ RETRY | FB content throttle after 2000 ads/day — page blank, not keyword issue; re-run in fresh session |
+| as seen on shark tank | S19 | 584 | ❌ DEAD | Structural: 90%+ genuine Shark Tank alumni = all branded/proprietary/patented; zero white-label opportunity by design |
+| use code | S19 | 368 | ❌ DEAD | Universal promo signal used by all brands (apparel, restaurants, services); same dead class as BOGO/50% off |
+| money back guarantee | S19 | 0 | ⚠️ RETRY | FB "No ads match" — Marina confirmed same from another account; likely FB glitch; re-test S20 |
+| limited time only | S19 | 293 | ❌ DEAD | Universal urgency phrase attracts all categories (fast food, retail, services, apparel); 0 DTC physical products |
+| sold out | S19 | 0 | ⚠️ RETRY | FB "No ads match" — same as "money back guarantee"; likely FB glitch; re-test S20 |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
@@ -92,6 +97,11 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 | 15 | buy 1 get 1 free | Offer signal | ✅ S16 — ❌ DEAD |
 | 16 | selling out fast | Urgency | — Not tested |
 | 17 | back in stock | Urgency | ✅ S18 — ⚠️ SITUATIONAL |
+| — | as seen on shark tank | Social proof | ✅ S19 — ❌ DEAD (structural: branded alumni) |
+| — | use code | Promo signal | ✅ S19 — ❌ DEAD |
+| — | money back guarantee | Credibility phrase | ✅ S19 — ⚠️ RETRY |
+| — | limited time only | Urgency phrase | ✅ S19 — ❌ DEAD |
+| — | sold out | Urgency phrase | ✅ S19 — ⚠️ RETRY |
 | 18 | before you buy | Pre-purchase hook | — Not tested |
 | 19 | stop wasting money | Pain + offer | — Not tested |
 | 20 | never worry about | Relief hook | — Not tested |

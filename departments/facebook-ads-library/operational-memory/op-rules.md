@@ -8,6 +8,20 @@ Updates only when Marina explicitly instructs it.
 
 ---
 
+## Keyword Execution Protocol
+
+### RULE 0: NEVER advance to next keyword without explicit user approval
+
+After each keyword — output checkpoint → STOP → WAIT.
+Do NOT launch next scraper, do NOT start background process, do NOT prep next keyword.
+"Recommendation: next keyword" in checkpoint = suggestion only. Marina decides.
+
+This rule applies even when the recommendation is obvious. Even when the previous keyword yielded 0 results. Even when background launch "seems efficient."
+
+**No exceptions.**
+
+---
+
 ## VPS & Session Setup
 
 ### RULE 1: Five mandatory checks before launching scraper

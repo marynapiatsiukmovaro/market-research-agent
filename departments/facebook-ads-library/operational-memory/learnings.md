@@ -162,11 +162,8 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 
 ---
 
-### [2026-05-18] Session 16 — "%" symbol in FB Ads Library search: URL encoding failure
-**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (direct test: 0 results for "50% off")
-**Observation:** Keyword "50% off" returned 0 ads. Root cause: "%" in URL query string breaks percent-encoding (FB sees malformed URL). Fix: always use word alternatives — "half off" instead of "50% off", "percent" instead of "%", etc. This applies to all future keyword planning. Tested "half off" as proxy → 357 advertisers (working). Rule: if a planned keyword contains "%" → replace with word form before running.
-**Applies to:** All future keyword planning and scraper runs
-**Expires after:** Session 25
+~~### [2026-05-18] Session 16 — "%" symbol in FB Ads Library search: URL encoding failure~~
+> ARCHIVED S19 — superseded by S18 quote_plus fix. Word alternatives no longer needed. See S18 entry below.
 
 ---
 
@@ -183,6 +180,30 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 **Observation:** After 15+ performance signal keywords (S15-S18): only 2 reportable products found — both from S15 ("game changer" → Dermave 69, "say goodbye to" → Heusom 71). All subsequent keywords: 0 reportable. Pattern breakdown by sub-class: Pain hooks ("tired of", "say goodbye to") — ⚠️ LOW YIELD. Discovery hooks ("why didn't I know") — ⚠️ LOW YIELD. Outcome phrases ("game changer") — ✅ only winner so far. Gift/occasion hooks — ❌ DEAD class. Promo hooks — ❌ DEAD class. Product signal hooks — ❌ DEAD class. Broad emotional hooks — ❌ DEAD class. **Contrast:** Kids vertical product-specific keywords (S8-S14) consistently found 1-3 candidates per keyword. Hypothesis: broad hooks filter by advertiser TYPE weakly — too many digital/service advertisers contaminate. Product-specific or niche-specific keywords filter better.
 **Applies to:** Sessions 18-25 — reconsider hypothesis after remaining ~15 keywords; build next hypothesis around product-specific niche keywords
 **Expires after:** Session 25
+
+---
+
+### [2026-05-18] Session 19 — Universal urgency/credibility phrases: confirmed dead class
+**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 keywords, 1245 advertisers, 0 reportable)
+**Observation:** Tested "as seen on shark tank" (584), "use code" (368), "limited time only" (293) → 0 reportable. All attract all advertiser types equally. "as seen on shark tank" structural failure: 90%+ real Shark Tank alumni = all proprietary/patented. "use code" and "limited time only" are universal ad phrases used by restaurants, retailers, services — no DTC physical product filter. New dead class: **universal ad copy phrases** that any advertiser writes regardless of product type.
+**Applies to:** Sessions 20-25 — avoid phrases that restaurants/legal/finance firms also use; prefer pain/problem hooks only physical product advertisers write
+**Expires after:** Session 25
+
+---
+
+### [2026-05-18] Session 19 — FB Ads Library: 0-result anomaly for certain phrases
+**Type:** Warning | **Severity:** MEDIUM | **Confidence:** MEDIUM (2 keywords, Marina confirmed from 2nd account)
+**Observation:** "money back guarantee" and "sold out" both returned FB "No ads match your search criteria" (42-43s runtime). Marina confirmed same result from a separate FB account → not session/scraper issue. Most likely: temporary FB platform glitch. Both marked ⚠️ RETRY. Rule: if 0-result AND FB shows "No ads match" page (not blank) → always retry in next session before declaring dead. A blank page = throttle. "No ads match" page = possible glitch or genuine 0.
+**Applies to:** All future sessions — diagnostic protocol for 0-result keywords
+**Expires after:** Session 21
+
+---
+
+### [2026-05-18] Session 19 — Broad horizontal discovery: hypothesis performance update
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (19 keywords, ~5600 advertisers, 2 total reportable since S15)
+**Observation:** After 19 performance signal keywords (S15-S19): 2 reportable products total, both from S15. Last 12+ keywords: 0 products. Marina confirmed hypothesis is underperforming expectations. Key insight: phrases that service businesses/restaurants also use = not filtering by DTC physical product operator type. Next test (S20-S21): refined sub-class — phrases ONLY physical product DTC advertisers write: "free shipping over", "if you suffer from", "struggling with", "embarrassing". If this sub-class also fails → abandon hypothesis, pivot to product-specific keyword strategy.
+**Applies to:** Sessions 20-21 — decision point after testing refined sub-class
+**Expires after:** Session 22
 
 ---
 
