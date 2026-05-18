@@ -55,7 +55,7 @@
 | half off | S16 | 357 | ❌ DEAD | Discount phrase = retail/apparel/seasonal; "50% off" unusable (% breaks URL encoding); 0 reportable |
 | genius gadget | S17 | 121 | ❌ DEAD [BUG?: S18 scroll fix] | May have stalled early; mass-clone dropship + mosquito affiliates confirmed in visible ads; verdict ❌ likely holds but re-test recommended |
 | gift idea | S18 | 304 | ❌ DEAD | Gift-occasion phrase = personalized/custom gift services dominate; no white-label DTC physical products |
-| perfect gift | S18 | 28 [BUG: scroll fix needed] | ❌ DEAD (low confidence — re-test) | Same gift-occasion dead class; count unreliable due to scroll bug; re-run with fixed scraper |
+| perfect gift | S18 | 313 | ❌ DEAD | Gift-occasion class confirmed (re-tested with fixed scraper); 70% custom/personalized gifts, 20% established brands, 0 white-label DTC $39-99 |
 | back in stock | S18 | 0 [BUG: scroll fix] | ⚠️ RETRY | Scroll bug confirmed — 0 ads = page not loaded, NOT keyword limit; re-run with fixed scraper |
 | gadget | S17 | 296 | ❌ DEAD | Ultra-broad: established brands (FIXD, REVO, HexClad), commodity below $39, пустышки; 0 reportable |
 | tired of | S17 | 427 | ❌ DEAD | Broad emotional hook attracts ALL advertiser types — services, clinics, apps, beauty; 0 DTC physical products; confirms S3 WebSearch pattern |
