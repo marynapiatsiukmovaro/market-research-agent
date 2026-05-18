@@ -161,6 +161,23 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 
 **"screen free" pattern:** Keyword ironically attracts many apps and digital services that use "screen free" in their ad copy as a negative contrast. Camp Snap + Thoson Kids = already reported winners dominate this keyword — confirms their signals but yields no new products.
 
+### Session 15 Rejections — 2026-05-18 (Keywords: say goodbye to, game changer)
+
+| 2026-05-18 | Retronanix handheld retro gaming console | Tech/Gaming | "20,000 pre-installed games from 23 consoles" = pre-loaded ROMs → Nintendo/SEGA copyright risk; price not displayed on site | filtered |
+| 2026-05-18 | Beddy's zipper bedding | Home/Bedroom | Branded proprietary concept ("zipper bedding"), $139-374 — price too high + not white-label | filtered |
+| 2026-05-18 | Guardian Bikes children's bicycle | Kids/Outdoor | Patented SureStop® brake system + "ships from USA factory" — proprietary product, $149-399 | filtered |
+| 2026-05-18 | Cavo Glow Body Oil | Beauty | $54, physically viable, but anti-aging body oil = "везде" category; single ad, Apr 2026; weak wow-effect (liquid absorbed into skin, hard to demo) | ~58 |
+| 2026-05-18 | Jenni Bag travel duffel | Travel | $89, interesting hook ("quietly replacing carry-ons"), but travel bags = saturated + no mechanism-based wow; score below threshold | ~59 |
+| 2026-05-18 | Dermave Electric Foot Callus Remover | Beauty/Health | $39.95 — borderline price, physically viable, but Dermave Electric Trimmer (same brand) scored 69 and was already reported — two products from same brand = redundant | deferred |
+
+### Session 15 Pattern Summary — Performance Signal Keywords (first 2)
+
+- **"say goodbye to" keyword**: ~60% service/app/beauty noise; performance hook does surface DTC operators but diluted with non-physical brands
+- **"game changer" keyword**: better signal quality; more DTC physical product advertisers; mix of all categories → useful for broad discovery
+- **Date filter --since=2026-01-01 test**: did NOT improve signal quality (418 vs 375 advertisers); not recommended as default; adds no filtering benefit
+- **Price floor $39 kills**: Stepprs insoles $27, Auvulis ring $29.90, Marlene's Kitty Kurlz $29.99, Nuvetra hair brush $29.99 — significant pool below floor
+- **Patent trap**: CLIPSTIC (ski clip, patent pending), Axwell Wallet (patent pending), Guardian Bikes (Patented SureStop) — premium-looking products disqualified by IP barrier
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

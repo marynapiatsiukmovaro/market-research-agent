@@ -143,7 +143,31 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-16] Session 13 — Magic Playwall: Magnetic Wall Activity category signal
+### [2026-05-18] Session 15 — Performance signal keywords: yield baseline established
+**Type:** Tactical | **Severity:** MEDIUM | **Confidence:** HIGH (2 keywords, 738 advertisers total)
+**Observation:** First 2 performance signal keywords tested ("say goodbye to", "game changer"). Baseline yield: ~1 reportable product per 350-420 advertisers. Expected noise: 60-70% services/apps/beauty/supplements. "game changer" showed better DTC physical product density than "say goodbye to". Neither keyword dominated any single category — signals spread across Pet, Beauty, Home.
+**Applies to:** Sessions 15-25 broad horizontal discovery — calibrate expectations per keyword
+**Expires after:** Session 22
+
+---
+
+### [2026-05-18] Session 15 — --since=2026-01-01 date filter: no signal improvement
+**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (direct test: 375 vs 418 advertisers, same keyword)
+**Observation:** Tested "say goodbye to" with and without --since=2026-01-01. Result: date filter produced MORE advertisers (418 > 375), not fewer — and 0 vs 1 reportable product. Conclusion: the filter changes which ads FB shows but does not clean up noise. Do NOT add --since=2026-01-01 as default to all runs. Use only when specifically investigating fresh-entry advertisers for Entry Window scoring.
+**Applies to:** All VPS scraper sessions — filter selection
+**Expires after:** Session 22
+
+---
+
+### [2026-05-18] Session 15 — Category tracking: 30-keyword experiment needs a running tally
+**Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed strategy)
+**Observation:** Marina's strategy: run 30 performance signal keywords across 10 sessions → identify which categories appear 3+ times → pivot to product-specific deep-dive in those categories. Current emerging signals after 2 keywords: Pet (Heusom), Beauty/Personal Care (Dermave). Need to track category distribution across all 30 keywords as they are tested. When any category reaches 3+ products across different keywords → flag for deep-dive in next session block.
+**Applies to:** Sessions 15-25 — at each STEP 8, count category occurrences from reported-products.md
+**Expires after:** Session 25
+
+---
+
+### [2026-05-18] Session 15 — Magic Playwall: Magnetic Wall Activity category signal
 **Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (1 advertiser, score 62)
 **Observation:** Cherrypick (shopcherrypick.com) → Magic Playwall — magnetic wall-mounted activity board for kids. Jan 2026, 1 active ad, UGC creator (UGCbyTosin). Score 62 — did not reach threshold. Reason: only 1 FB advertiser, price/COGS unverified, no Alibaba validation. Category signal: "magnetic wall activity board" = growing Pinterest/Etsy trend. If second DTC advertiser found → category opens. Next step: run keyword "magnetic activity board" to check for additional brands.
 Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec

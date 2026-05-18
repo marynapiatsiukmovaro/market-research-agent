@@ -48,6 +48,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 
 | 2026-05-16 | The Little Potion Co — Mindful Magic Potion Kits | Kids/Craft | 68 | US market open; $78 bundle = gifting + magical play + screen-free; 4 themed variants; stunning visual hook for FB/TikTok | Facebook Ads Library / keyword "screen free" / thelittlepotionco.com.au |
 
+| 2026-05-18 | Heusom Silent Groom Pro (Pet Grooming Vacuum) | Pet/Grooming | 71 | All-in-one grooming + vacuum eliminates flying fur; 3.5K+ Trustpilot reviews; $49-69 DTC range; strong emotional hook (pet hair mess) | Facebook Ads Library / keyword "say goodbye to" / heusomshop.com |
+| 2026-05-18 | Dermave Electric Trimmer for Women | Beauty/Personal Care | 69 | "Specifically designed for women" vs razor positioning; 3731+ DTC reviews; Feb 2026 FB start; Finishing Touch Flawless at $18 Walmart validates category | Facebook Ads Library / keyword "game changer" / dermave.co |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

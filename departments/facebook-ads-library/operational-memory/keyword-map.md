@@ -45,6 +45,8 @@
 | quality time | S14 | 44 | ❌ DEAD | Abstract phrase; scroll stall after 2 batches; 0 reportable |
 | connect with your | S14 | 163 | ❌ DEAD | B2B/service keyword; 0 DTC physical products |
 | road trip | S14 | 348 | ⚠️ SITUATIONAL | 2 category signals: baby car sun shade + car seat cushion; retry S21 |
+| say goodbye to | S15 | 375 (no filter) / 418 (--since=2026-01-01) | ⚠️ LOW YIELD | 1 reportable (Heusom 71 pet grooming); ~60% service/beauty/supplement noise; date filter did NOT reduce noise (418 > 375); strong DTC operators present but diluted |
+| game changer | S15 | 363 | ✅ USE | 1 reportable (Dermave 69 women's trimmer); Beddy's zipper bedding category signal; mix of all DTC categories — broad-spectrum performance keyword |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
@@ -61,11 +63,11 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 |---|---------|------|--------|
 | 1 | struggling with | Pain hook | — Not tested |
 | 2 | tired of | Pain hook | — Not tested |
-| 3 | say goodbye to | Pain hook | — Not tested |
+| 3 | say goodbye to | Pain hook | ✅ S15 — ⚠️ LOW YIELD |
 | 4 | finally a solution | Pain hook | — Not tested |
 | 5 | the secret to | Curiosity hook | — Not tested |
 | 6 | you need this | Desire trigger | — Not tested |
-| 7 | game changer | Outcome phrase | — Not tested |
+| 7 | game changer | Outcome phrase | ✅ S15 — ✅ USE |
 | 8 | life changing | Outcome phrase | — Not tested |
 | 9 | must have | Desire trigger | — Not tested |
 | 10 | genius gadget | Product signal | — Not tested |
