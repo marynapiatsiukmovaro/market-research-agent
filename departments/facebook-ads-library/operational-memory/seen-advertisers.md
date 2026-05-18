@@ -347,6 +347,44 @@ sensorytheraplaybox.com | subscription sensory box — service model | 2026-05-1
 #### NOTED — Insufficient signal, not recommended
 blemory.com | mibbo musical plush toy $39.95 — touch-activated music concept interesting; sold out, no reviews visible, 404 on product page, zero external presence — too fragile | 2026-05-15
 
+## Session 16 — 2026-05-18 (Broad Horizontal Discovery: Promo-phrase Keywords)
+
+### KEYWORD: "50% off today" — 69 advertisers, 0 reportable
+
+#### REJECTED — Overheated / commodity
+hugterra.com | hugging pillow $39.99 — Amazon saturated; no DTC angle; established category | 2026-05-18
+revoget.com | knee pillow $29.99 — below price floor + commodity | 2026-05-18
+treatmedy.com | bunion device — retargeting ad ("forgot to checkout"), not cold traffic signal + пустышки risk | 2026-05-18
+
+#### REJECTED — Wrong market
+basedco.ca | Canadian grooming brand — .ca domain, USD price unverifiable | 2026-05-18
+
+### KEYWORD: "buy 1 get 1 free" — 164 advertisers, 0 reportable
+
+#### NOTED — Category signal, below threshold
+blumibaby.com | kids swim goggles $39.99 — 25 active FB ads, 12K reviews 4.83★; score ~62 (below 65); late entry window + price floor + seasonal; Blumi Baby = established brand | 2026-05-18
+
+#### REJECTED — Late entry / established
+peakfootwear.com | barefoot shoes $59-89 — 17 active ads, strong brand, but niche athletic footwear; established market | 2026-05-18
+magicbrush.com | horse grooming brush — equestrian niche, B2B/hobby, mass market too small | 2026-05-18
+spotminders.com | mole/skin spot tracker app — digital service, not physical product | 2026-05-18
+
+### KEYWORD: "half off" — 357 advertisers, 0 reportable (tested as proxy for "50% off")
+
+#### REJECTED — Price too high (above ceiling)
+anleolife.com | raised garden beds $129-$1503 — above $99 ceiling | 2026-05-18
+
+#### REJECTED — Professional niche / wrong audience
+tpobusa.com | "Pissed Off Barber" professional clippers — barber B2B niche, not mass consumer cold traffic | 2026-05-18
+
+#### REJECTED — Пустышки risk
+sinuvox.com | red light sinus device — "clinically studied" claim based on self-reported survey; red light category overheated + unverifiable mechanism | 2026-05-18
+
+#### REJECTED — Price too low / general store
+aneedfamily.com | vacuum storage bags $14.99 — below price floor; multi-category general dropship store | 2026-05-18
+
+---
+
 ## How to Use
 
 Pass to scraper:

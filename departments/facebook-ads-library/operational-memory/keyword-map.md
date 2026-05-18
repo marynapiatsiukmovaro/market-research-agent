@@ -16,6 +16,8 @@
 
 **Attribute keywords:** "learning toy", "Montessori toy" → FB matches any ad containing the words — not a product category. Low yield. Replace with specific product names.
 
+**Offer/promo keywords (DEAD class):** "50% off today", "buy 1 get 1 free", "half off" → ❌ CONFIRMED DEAD for DTC physical products $39-99. Attract retail with seasonal discounts, jewelry, apparel, supplements. S16: 590 advertisers across 3 promo keywords → 0 reportable products. Avoid entire class. Also: "%" symbol breaks FB URL encoding → always use word alternative ("half off" not "50% off").
+
 ---
 
 ## Keyword Scorecard
@@ -47,6 +49,10 @@
 | road trip | S14 | 348 | ⚠️ SITUATIONAL | 2 category signals: baby car sun shade + car seat cushion; retry S21 |
 | say goodbye to | S15 | 375 (no filter) / 418 (--since=2026-01-01) | ⚠️ LOW YIELD | 1 reportable (Heusom 71 pet grooming); ~60% service/beauty/supplement noise; date filter did NOT reduce noise (418 > 375); strong DTC operators present but diluted |
 | game changer | S15 | 363 | ✅ USE | 1 reportable (Dermave 69 women's trimmer); Beddy's zipper bedding category signal; mix of all DTC categories — broad-spectrum performance keyword |
+| tiktok made me buy | S16 | 277 | ❌ DEAD | Social-proof phrase; 90% personal brand/influencer content; 0 DTC physical products |
+| 50% off today | S16 | 69 | ❌ DEAD | Promo-phrase too narrow (time modifier "today"); FB exhausts phrase in 45s; 0 reportable |
+| buy 1 get 1 free | S16 | 164 | ❌ DEAD | BOGO signal = jewelry/apparel/supplements; Blumi Baby swim goggles ~62 (below threshold); 0 reportable |
+| half off | S16 | 357 | ❌ DEAD | Discount phrase = retail/apparel/seasonal; "50% off" unusable (% breaks URL encoding); 0 reportable |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
@@ -73,9 +79,9 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 | 10 | genius gadget | Product signal | — Not tested |
 | 11 | viral product | Social proof | — Not tested |
 | 12 | as seen on tiktok | Social proof | — Not tested |
-| 13 | tiktok made me buy | Social proof | — Not tested |
-| 14 | 50% off today | Offer signal | — Not tested |
-| 15 | buy 1 get 1 free | Offer signal | — Not tested |
+| 13 | tiktok made me buy | Social proof | ✅ S16 — ❌ DEAD |
+| 14 | 50% off today | Offer signal | ✅ S16 — ❌ DEAD |
+| 15 | buy 1 get 1 free | Offer signal | ✅ S16 — ❌ DEAD |
 | 16 | selling out fast | Urgency | — Not tested |
 | 17 | back in stock | Urgency | — Not tested |
 | 18 | before you buy | Pre-purchase hook | — Not tested |

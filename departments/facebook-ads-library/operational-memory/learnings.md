@@ -52,12 +52,6 @@ BEFORE: 28 ads/keyword. AFTER: 500+ ads/keyword. This is permanent — do not re
 
 ---
 
-### [2026-05-15] Session 9 — Price >$100 — NOT automatic reject
-**Type:** Warning (agent error correction) | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed)
-**Observation:** Mandatory filter says "price over $100 = requires strong social proof." This is CONDITIONAL, not hard reject. Correct process: check for social proof (Shark Tank, 10K+ reviews, viral) → if yes, score with -5 to -10 penalty → reject only if final score < 65. Error example: Dreamland Baby ($109, Shark Tank brand) rejected without scoring — wrong. Give every $100-150 product a chance to score.
-**Applies to:** All products priced $100-150
-**Expires after:** Session 16
-
 ---
 
 ### [2026-05-15] Session 9 — Broad keywords confirmed: pattern map, not winner map
@@ -176,6 +170,22 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 
 ---
 
+### [2026-05-18] Session 16 — Offer/promo keywords: confirmed dead class for DTC physical products
+**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 keywords, 867 advertisers, 0 reportable)
+**Observation:** Tested 4 performance signal keywords with offer/promo language: "tiktok made me buy" (277), "50% off today" (69), "buy 1 get 1 free" (164), "half off" (357) → total 867 advertisers → 0 reportable products. Pattern: promo-phrase keywords attract retail brands with seasonal promotions, jewelry/apparel discounts, supplement brands, subscription services — NOT cold-traffic DTC physical product operators in $39-99. Correct performance signal class = outcome/pain phrases ("say goodbye to", "game changer"). Incorrect class = price/offer phrases. Do NOT test remaining offer keywords from the 30-keyword list (#14 "50% off today" and #15 "buy 1 get 1 free" already confirmed dead).
+**Applies to:** Sessions 15-25 keyword strategy — skip remaining offer/promo type keywords
+**Expires after:** Session 25
+
+---
+
+### [2026-05-18] Session 16 — "%" symbol in FB Ads Library search: URL encoding failure
+**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (direct test: 0 results for "50% off")
+**Observation:** Keyword "50% off" returned 0 ads. Root cause: "%" in URL query string breaks percent-encoding (FB sees malformed URL). Fix: always use word alternatives — "half off" instead of "50% off", "percent" instead of "%", etc. This applies to all future keyword planning. Tested "half off" as proxy → 357 advertisers (working). Rule: if a planned keyword contains "%" → replace with word form before running.
+**Applies to:** All future keyword planning and scraper runs
+**Expires after:** Session 25
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.
@@ -188,6 +198,9 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 > - Session 7 — Home/Kitchen: Structurally Weak (expires S14)
 > - Session 7 — Мёртвые ключевые слова Home/Kitchen (expires S14)
 > Постоянные операционные правила перемещены в op-rules.md. Keyword-паттерны перемещены в keyword-map.md.
+
+> **АРХИВАЦИЯ Session 16 (2026-05-18):** 1 запись архивирована (истекла после Session 16):
+> - Session 9 — Price >$100 — NOT automatic reject (правило перешло в op-rules.md RULE 12)
 
 > **АРХИВАЦИЯ Session 15 (2026-05-17):** 4 записи архивированы (истекли после Session 15):
 > - Session 8 — Keywords: Broad = Noise, Specific = Signal
