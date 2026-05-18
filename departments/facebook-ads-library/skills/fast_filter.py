@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """
-fast_filter.py — VPS-side candidate filter for FB Ads Library scraper output.
+fast_filter.py v2 — VPS-side candidate filter for FB Ads Library scraper output.
 Usage: python3 skills/fast_filter.py /tmp/{keyword}_results.json [--top=20]
 Output: prints top N candidates to stdout (for chat); saves full filtered list to /tmp/{keyword}_candidates.txt
+
+v2 changes vs v1:
+- Fixed dead REJECT_COPY_STRICT code (was defined but never called)
+- Added ISP / insurance / med spa / auto service / subscription rejection signals
+- Raised minimum pass threshold from 3 → 5
+- Added monthly-pricing pattern as service signal (penalizes score)
+- Added .io / .net SaaS domain signal
 """
 
 import json
@@ -10,42 +17,77 @@ import sys
 import re
 import os
 
-# ── REJECT SIGNALS ────────────────────────────────────────────────────────────
+# ── REJECT: KNOWN BAD DOMAINS ─────────────────────────────────────────────────
 REJECT_DOMAINS = [
     '.edu', '.gov', 'facebook.com', 'instagram.com', 'youtube.com',
     'amazon.com', 'google.com', 'apple.com', 'spotify.com', 'netflix.com',
     'twitter.com', 'linkedin.com', 'tiktok.com', 'walmart.com', 'target.com',
     'bestbuy.com', 'homedepot.com', 'lowes.com', 'chewy.com', 'petco.com',
     'itunes.apple.com', 'play.google.com', 'apps.apple.com',
+    'fepblue.org', 'bcbs.com', 'vioc.com', 'valvoline.com',
 ]
 
+# ── REJECT: AD COPY PHRASES (exact match, lowercase) ─────────────────────────
 REJECT_COPY_PHRASES = [
+    # App installs
     'download the app', 'available on the app store', 'google play',
+    'download on ios', 'download on android', 'get the app',
+    # Service sign-ups
     'free trial today', 'sign up for free', 'enroll now', 'join our program',
     'schedule a consultation', 'book an appointment', 'call us today',
     'accepting new patients', 'now hiring', 'apply now', 'donate today',
+    # Media/content & sports apps
     'stream now', 'watch now', 'listen now', 'subscribe to our newsletter',
+    'scorekeeping', 'live scoring', 'team management app', 'sports app',
+    'messaging tools', 'live stream your', 'track your stats',
+    # Finance/legal
     'investment advice', 'financial planning', 'mortgage rates',
-    'insurance quote', 'real estate', 'property management',
-    'franchise opportunity', 'business coaching', 'online course',
+    'insurance quote', 'property management', 'franchise opportunity',
+    # Education/coaching
+    'business coaching', 'online course', 'coaching program', 'masterclass',
+    'webinar', 'dog training course', 'parenting coach',
+    # Software/SaaS
+    'saas platform', 'software solution', 'crm tool', 'email marketing',
+    'seo agency', 'digital marketing agency', 'local seo', 'hr software',
+    'payroll software', 'accounting software', 'per user per month',
+    'free demo', 'enterprise plan', 'api access',
+    # ISP / telecom
+    'business internet', 'fiber internet', 'broadband service',
+    'internet plan', 'unlimited data plan', 'built-in security',
+    'business-first internet',
+    # Insurance / healthcare plans
+    'health insurance', 'dental insurance', 'life insurance',
+    'employee program', 'health benefits', 'open enrollment',
+    'copay', 'deductible', 'health plan', 'coverage starts',
+    # Medical / aesthetic services
+    'aesthetic journey', 'med spa', 'medspa', 'botox', 'filler',
+    'laser hair removal', 'coolsculpting', 'lip filler', 'skin clinic',
+    'injectable', 'microneedling service',
+    # Auto services
+    'oil change', 'auto repair', 'car dealership', 'vehicle service',
+    'tire rotation', 'knock off',
+    # Real estate
+    'real estate', 'home for sale', 'list your home', 'property listing',
+    'landlord', 'property manager',
 ]
 
+# ── REJECT: ADVERTISER NAME SIGNALS ──────────────────────────────────────────
 REJECT_NAME_SIGNALS = [
     'chiropractic', 'dental', 'dentist', 'orthodont', 'medical center',
     'hospital', 'clinic', 'plumbing', 'roofing', 'hvac', 'electrician',
     'law firm', 'attorney', 'lawyer', 'university', 'college', 'academy',
     'real estate', 'insurance', 'mortgage', 'financial', 'investment',
     'credit union', 'church', 'nonprofit', 'foundation',
+    'pediatrics', 'optometry', 'vision center', 'urgent care',
+    'auto body', 'dealership', 'ford ', 'toyota ', 'chevrolet',
+    'oil change', 'tire ', 'muffler',
+    'blue cross', 'blue shield', 'aetna', 'cigna', 'humana', 'united health',
+    'state farm', 'allstate', 'geico', 'progressive insurance',
+    'optimum', 'comcast', 'spectrum ', 'at&t', 'verizon', 't-mobile',
+    'valvoline', 'jiffy lube', 'pep boys',
 ]
 
-REJECT_COPY_SIGNALS = [
-    'coaching program', 'online course', 'masterclass', 'webinar',
-    'saas platform', 'software solution', 'crm tool', 'email marketing',
-    'seo agency', 'digital marketing agency', 'local seo',
-    'dog training course', 'parenting coach',
-]
-
-# ── PHYSICAL PRODUCT SIGNALS ──────────────────────────────────────────────────
+# ── PHYSICAL PRODUCT WORDS ────────────────────────────────────────────────────
 PHYSICAL_PRODUCT_WORDS = [
     'device', 'tool', 'kit', 'brace', 'cushion', 'pillow', 'mat', 'bag',
     'case', 'sleeve', 'band', 'wrap', 'roller', 'massager', 'grinder',
@@ -55,18 +97,32 @@ PHYSICAL_PRODUCT_WORDS = [
     'capsule', 'tablet', 'strip', 'sheet', 'mask', 'wand', 'comb',
     'camera', 'watch', 'tracker', 'monitor', 'sensor', 'lamp', 'light',
     'heater', 'cooler', 'fan', 'filter', 'purifier', 'humidifier',
-    'toy', 'game', 'puzzle', 'book', 'planner', 'journal',
+    'toy', 'game', 'puzzle', 'planner', 'journal',
     'shoe', 'insole', 'sock', 'glove', 'hat', 'vest', 'shirt', 'shorts',
-    'collar', 'leash', 'harness', 'feeder', 'fountain', 'bed', 'crate',
-    'ships', 'shipping', 'free shipping', 'order now', 'buy now',
+    'collar', 'leash', 'harness', 'feeder', 'fountain', 'crate',
+    'ships free', 'free shipping', 'order now', 'buy now',
     'in stock', 'back in stock', 'sold out', 'limited stock',
     'money back guarantee', 'day guarantee', 'free returns',
+    'delivery', 'arrives', 'package', 'box includes',
+    'gummies', 'supplement', 'capsules', 'softgel',
+    'razor', 'shaver', 'clipper', 'nail', 'eyelash',
+    'blanket', 'towel', 'robe', 'slipper', 'boot', 'sandal',
+    'ring', 'bracelet', 'necklace', 'earring',
+    'backpack', 'wallet', 'luggage', 'suitcase', 'duffel',
+    'blender', 'grater', 'peeler', 'slicer', 'press',
+    'planter', 'pot ', 'garden', 'hose', 'sprinkler',
+    'bike', 'scooter', 'skateboard', 'helmet',
+    'sauna', 'spa', 'bath', 'shower',
 ]
 
 PRICE_PATTERN = re.compile(r'\$\d{2,3}(?:\.\d{2})?')
+MONTHLY_PRICE_PATTERN = re.compile(r'\$\d+(?:\.\d{2})?\/mo|\bper month\b|\bmonthly\b')
+
 
 def score_candidate(ad: dict) -> int:
-    """Score 0-15. Higher = more likely physical product worth checking."""
+    """Score 0-15. Higher = more likely physical product worth checking.
+    Minimum threshold to pass: 5 (raised from 3 in v1).
+    """
     score = 0
     domain = (ad.get('store_domain') or '').lower().strip()
     copy = (ad.get('ad_copy') or '').lower()
@@ -74,27 +130,34 @@ def score_candidate(ad: dict) -> int:
     started = (ad.get('started_running') or '')
     n_ads = str(ad.get('active_ads_count') or '')
 
-    # Has a real domain
+    # Has a real domain (not 'not found')
     if domain and domain not in ['not found', '?', '']:
         score += 2
 
-    # Fresh launch (2026)
+    # Fresh launch signals
     if '2026' in started:
         score += 4
     elif '2025' in started:
         score += 2
 
     # Multiple active ads (scaling signal)
-    if '5' in n_ads or int(re.search(r'\d+', n_ads).group()) >= 5 if re.search(r'\d+', n_ads) else False:
-        score += 3
-    elif '2+' in n_ads or '3' in n_ads or '4' in n_ads:
-        score += 2
-    elif n_ads == '1':
-        score += 1
+    n_match = re.search(r'\d+', n_ads)
+    if n_match:
+        n = int(n_match.group())
+        if n >= 5 or '5+' in n_ads:
+            score += 3
+        elif n >= 2 or '2+' in n_ads:
+            score += 2
+        else:
+            score += 1
 
-    # Price mentioned in copy
+    # Price mentioned in copy (one-time purchase signal)
     if PRICE_PATTERN.search(copy):
         score += 2
+
+    # Monthly pricing = service penalty
+    if MONTHLY_PRICE_PATTERN.search(copy):
+        score -= 3
 
     # Physical product words
     product_hits = sum(1 for w in PHYSICAL_PRODUCT_WORDS if w in copy)
@@ -124,11 +187,6 @@ def is_rejected(ad: dict) -> tuple[bool, str]:
         if signal in name:
             return True, f"advertiser name: {signal}"
 
-    # Copy signals reject
-    for signal in REJECT_COPY_SIGNALS:
-        if signal in copy:
-            return True, f"copy signal: {signal}"
-
     return False, ''
 
 
@@ -150,11 +208,10 @@ def run(json_path: str, top_n: int = 20):
             rejected_count += 1
             continue
         sc = score_candidate(ad)
-        if sc >= 3:  # minimum physical signal threshold
+        if sc >= 5:  # v2: raised from 3 to 5
             ad['_filter_score'] = sc
             passed.append(ad)
 
-    # Sort by filter score desc
     passed.sort(key=lambda x: x.get('_filter_score', 0), reverse=True)
 
     # Save full filtered list to /tmp/
@@ -200,13 +257,3 @@ if __name__ == '__main__':
             top_n = int(arg.split('=')[1])
 
     run(json_path, top_n)
-
-# ── PATCH: stricter service reject signals ────────────────────────────────────
-# Added post-deploy: catches ISPs, med spas, local professionals missed in v1
-REJECT_COPY_STRICT = [
-    'internet plan', 'business internet', 'fiber internet', 'broadband',
-    'aesthetic journey', 'med spa', 'medspa', 'filler', 'botox',
-    'health insurance', 'dental insurance', 'employee program',
-    'hr software', 'payroll software', 'accounting software',
-    'property manager', 'landlord', 'real estate agent',
-]
