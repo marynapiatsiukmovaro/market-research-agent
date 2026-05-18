@@ -109,11 +109,21 @@ Two scenarios:
 
 ### RULE 7: Candidate list — save to VPS, NOT to chat
 
-After scraping + dedup: full candidate list → save to VPS file: `/tmp/{keyword}_candidates.txt`
-Show in chat: ONLY top 15-20 by signal strength (not full list).
-Report path in chat: "Full list saved: /tmp/xyz_candidates.txt (N candidates)"
+After scraping + dedup: run fast_filter.py on VPS → only top 20 come to chat.
 
-Reason: outputting 229 candidates to chat = ~8-10% of context window burned for zero benefit. Agent analyzes only top 15-20 anyway.
+**Standard pipeline (run on VPS immediately after every scrape):**
+```bash
+python3 skills/fast_filter.py /tmp/{keyword}_results.json --top=20
+```
+- Top 20 candidates → printed to chat (this is ALL that goes to chat)
+- Full filtered list → auto-saved to `/tmp/{keyword}_results_candidates.txt`
+- Script location: `/opt/market-research-agent/skills/fast_filter.py`
+
+**If fast_filter.py fails:** fix the script on VPS first — do NOT fall back to dumping raw advertiser list to chat. A crash is not a reason to bypass the rule.
+
+Report in chat: `"Fast filter: [N] passed / [total] scraped. Full list: /tmp/xyz_results_candidates.txt"`
+
+Reason: outputting 238 raw advertisers to chat = 40-50% of context window burned for zero benefit. Agent analyzes only top 15-20 anyway. Session 15 confirmed this failure mode.
 
 ### RULE 8: Verify ALL candidates above objective threshold — not "top 5"
 
