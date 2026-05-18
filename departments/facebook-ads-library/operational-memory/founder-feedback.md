@@ -16,7 +16,7 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 
 ---
 
-| 2026-05-13 | High-Frequency Facial Wand | 77 | "Понимаю принцип, вижу как можно показать" ("I get the principle, I can see how to show it") — clear content angle, approved. | Visible result (acne) + clear demo angle = YES. |
+⚠️ Moved to Consider (Notion updated by Marina — see Consider section below)
 | 2026-05-16 | Kids Travel Sleep Nest (Seat to Sleep) | 72 | "Буду тестировать" — Marina confirmed she will test. Found via situation keyword "long flight" (cross-category intersection: Kids × Travel × Sleep). | Situation keyword discovery = validates the approach. Score 72 sufficient for testing. Kids + specific situational pain = works. |
 | 2026-05-18 | Kids Travel Sleep Nest (Seat to Sleep) | 72 | "Strong pain-solution product. Clear parent appeal." — confirmed Approved. | Second confirmation of this product. |
 | 2026-05-18 | Kaizen Kidz 3-2-1 Swim Pack | 65 | "Strong pain-solution product. Excellent advertiser signals." — Approved. | Progressive swim training (removes floaties layer by layer) = clear mechanism + safety problem. Low score 65 approved = hook strength overrides marginal score. |
@@ -26,7 +26,15 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | Date | Product | Score | Concern | What would tip it to YES |
 |------|---------|-------|---------|--------------------------|
 | 2026-05-13 | Posture Corrector Back Brace | 82 | No strong reason to reject, but no excitement either. | Strong creative angle or unique visual hook. |
-| 2026-05-13 | Electric Scalp Massager with Heat | 77 | Seen it often. Market exists but not fresh. | Minea data showing low ad saturation would change this. |
+⚠️ Moved to Rejected (Notion updated by Marina — "Seen constantly on TikTok. Overexposed category.")
+| 2026-05-13 | High-Frequency Facial Wand | 77 | "Proven results. Strong anti-aging angle." (Notion). Note: earlier verbal session feedback was stronger — Notion is authoritative. | Anti-aging + proven mechanism = potential, but not a clear YES. |
+| 2026-05-13 | Traveler Pillow — Face Cradle Design | 67 | "Scroll-stopping design. Strong hook potential." | Unique face-cradle mechanism is visually compelling — needs stronger market signal. |
+| 2026-05-13 | Wander Plus Travel Pillow | 72 | "Unique design. Strong travel pain-point." | Travel comfort confirmed as pain point — saturation concern keeps it at Consider. |
+| 2026-05-14 | Levide Heated Shoulder Massager | — | "Strong pain-relief positioning." | Shoulder/neck pain = large audience, strong positioning — needs pricing and saturation verification. |
+| 2026-05-15 | Stroller Hammock Seat for 2nd Child (Hoppie-validated) | 65 | "Strong scroll-stopping effect. Instantly grabs attention visually." | Visual hook confirmed; single advertiser concern. |
+| 2026-05-15 | Toucan Baby — Sleep Sack with Self-Soothing Lovey | 67 | "Strong emotional comfort trigger for moms. Warm tactile bonding angle." | Emotional angle confirmed strong — category saturation is the question. |
+| 2026-05-14 | Stainless Steel Dog Water Fountain (WagWells) | 76 | "Strong premium positioning and packaging. Huge perceived value gap vs Amazon pricing." | Premium DTC positioning in pet fountain = confirmed opportunity. |
+| 2026-05-14 | Stainless Steel Cat Water Fountain (Faucet-Style) | 77 | "Strong branding. Premium positioning." | Cat fountain category validated with strong branding potential. |
 | 2026-05-18 | The Little Potion Co — Mindful Magic Potion Kits | 68 | "Strong concept. Good creative flexibility." — potential but not committed. | Strong gifting angle; creative potential confirmed; needs US market validation and white-label sourcing. |
 | 2026-05-18 | Magic Playwall — Magnetic Art Wall for Kids | 62 | "Beautiful packaging. Small-scale niche potential." — not rejecting but niche concern. | Second DTC advertiser in category would open it. Score was below threshold — Marina sees potential despite low signal. |
 | 2026-05-18 | Camp Snap Camera — Screen-Free Kids Digital Camera | 77 | "Strong aesthetic branding potential." — brand risk concern (Camp Snap = pioneer with strong identity). | White-label sourcing on Alibaba + differentiated branding = could work. Marina sees creative/aesthetic opportunity. |
@@ -46,6 +54,13 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | 2026-05-13 | Red Light Therapy Wearable Body Belt | 78 | Overheated market — even score 78 rejected | Score 78 means nothing if market is already saturated |
 | 2026-05-13 | Wireless TENS Pain Relief Patch | 71 | Customer needs too much education | Complex mechanism = auto-reject for cold traffic |
 | 2026-05-13 | Ultrasonic Skin Scrubber Spatula | 71 | Old product, no wow | Old category = automatic rejection |
+| 2026-05-13 | Electric Scalp Massager with Heat | 77 | "Seen constantly on TikTok. Overexposed category." (Notion, overrides earlier Consider) | TikTok saturation = audience fatigue on FB too. Already везде. |
+| 2026-05-13 | Hidden Camera Detector | 73 | "High-liability electronics. Weak impulse-buy fit." | Score 73 not enough — liability risk + weak impulse angle = reject despite strong ad longevity signal. |
+| 2026-05-13 | Sereva Facial Therapy Massager | — | "Seen everywhere. Zero wow-factor. Oversaturated. No novelty." | Beauty device without novelty = instant reject regardless of score. |
+| 2026-05-13 | Lancya SculptPulse — Facial Sculpting Device | — | "Generic beauty device. Weak differentiation." | Generic positioning in beauty = auto-reject. Needs strong mechanism AND design. |
+| 2026-05-13 | Electric Lip Plumper Device | — | "Commodity product. Weak differentiation. High refund risk." | High refund risk = cold traffic death. Lips = high expectation, hard to satisfy. |
+| 2026-05-15 | Baby Ring Sling Carrier | 73 | "Oversaturated dropshipping category. Widely sold for too long." | Dropship saturation in baby carriers = category too crowded, no DTC angle left. |
+| 2026-05-15 | MamaCoco — Fastener-Free Cocoon Swaddle | 66 | "Feels generic. Weak uniqueness / commodity feel." | Even with organic feature ("no fasteners"), product doesn't differentiate enough visually. |
 | 2026-05-18 | Dermave Electric Trimmer for Women | 69 | "Weak wow-effect. Commodity feel." — Rejected. | Score 69 не спасает если нет четкого wow-механизма. Women's trimmer = commodity category even with strong reviews. |
 | 2026-05-18 | Heusom Silent Groom Pro | 71 | "Low margins. LTV-brand model. Weak DR economics." — Rejected. | Pet grooming vacuum = LTV play (repeat purchase / brand loyalty), not DR one-shot. Wrong model for cold traffic DTC MVP. |
 | 2026-05-18 | Wonder Quest 4K Discovery Microscope | 70 | "Strong educational angle." — Rejected as "Already saturated." | Educational angle is noted as strong — but category saturation overrides. Educational kids tech = crowded. |
