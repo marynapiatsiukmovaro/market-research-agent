@@ -41,7 +41,7 @@ Previous hypothesis (Broad Horizontal Discovery) failed: performance signal phra
 
 **3 criteria for a good situation keyword:**
 1. **Острая проблема в конкретный момент** — not abstract "I'm tired in general" but "I just sat at a desk for 8 hours and can't focus". The more specific the moment, the better.
-2. **Решение стоит $39–99** — pressing enough to buy a product, not serious enough to go to a specialist.
+2. **Проблема решается продуктом** — pressing enough to buy a solution, not serious enough to go to a specialist. (Pricing and margin rules per core/scoring-system.md — products above $100 are still valid with correct scoring.)
 3. **Продукт непредсказуем** — if you can guess the product before searching, the keyword is too obvious. A good situation surprises you with what the market invented.
 
 ---
@@ -57,6 +57,9 @@ Previous hypothesis (Broad Horizontal Discovery) failed: performance signal phra
 **Important framing:**
 This is NOT a wellness/health search. The keyword describes a real daily problem.
 The product solution can be anything — an organizational tool, a gadget, a device, a food product, a comfort item — whatever the market decided solves that problem.
+
+**No category restriction on finds:**
+Keywords are discovery tools, not category filters. If scanning surfaces a strong product outside the work/body theme — a kids product, a pet product, a home product — score it and report it. Strong product (65+) = always reportable, regardless of category.
 
 ---
 
@@ -92,7 +95,7 @@ Expected finds: desk accessories, meal prep tools, work bag organizers, shift wo
 | Pharma / medical brands | Immediate reject |
 | Digital products / apps | Reject |
 | Services (coaching, therapy) | Reject |
-| Physical DTC product $39–100 | Analyze and score |
+| Physical DTC product | Analyze and score per core/scoring-system.md |
 | Physical product with supplement risk (cortisol, brain fog keywords) | Verify it's a device, not ingestible |
 
 ---
