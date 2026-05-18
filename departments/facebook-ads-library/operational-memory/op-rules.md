@@ -12,6 +12,21 @@ Updates only when Marina explicitly instructs it.
 
 ### RULE 1: Five mandatory checks before launching scraper
 
+**STEP 0 — Upload Marina's cookies FIRST (if provided in session prompt)**
+
+If Marina provided a cookie string in the session prompt → upload it to VPS BEFORE running any checks.
+Reason: check_session.py (check #5) must validate Marina's CURRENT session, not the old file.
+Running checks before upload = validating stale data = false SESSION OK.
+
+```bash
+# STEP 0 — only if Marina provided cookies in prompt
+python3 /tmp/update_fb_session.py   # create fb_session_new.json from cookie string
+scp -i ~/.ssh/market_research_vps /tmp/fb_session_new.json root@5.78.217.133:/opt/market-research-agent/cookies/fb_session.json
+# Then proceed to checks 1–5 below
+```
+
+If Marina did NOT provide cookies → skip STEP 0, proceed directly to check 1.
+
 Run ALL five before every scraper run. If ANY fails → STOP and fix first.
 
 ```bash
