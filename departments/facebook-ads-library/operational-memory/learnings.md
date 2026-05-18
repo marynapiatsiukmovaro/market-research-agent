@@ -90,11 +90,8 @@ Rules for situation keywords:
 
 ---
 
-### [2026-05-16] Session 10/11 — Kids Travel Sleep Nest: open DTC niche
-**Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (1 DTC advertiser, Amazon verified)
-**Observation:** Inflatable sleep nest for toddlers on flights (Seat to Sleep, seattosleep.co.uk) = only DTC FB advertiser targeting US. Amazon category exists (Koala Kloud, Deeteck, Flyaway $15-30) but DTC FB window is open. Problem = real (child can't sleep on plane). Visual hook = strong (child sleeping flat on plane seat). Score 72. Risk: Amazon commodity trap — needs premium DTC positioning ($59-69) + strong UGC to justify price vs $15-30 Amazon generics.
-**Applies to:** Kids vertical — travel/situational products
-**Expires after:** Session 18
+~~### [2026-05-16] Session 10/11 — Kids Travel Sleep Nest: open DTC niche~~
+> ARCHIVED S18 — expired. Result in reported-products.md.
 
 ---
 
@@ -169,6 +166,22 @@ Notion: https://www.notion.so/36253ba8196e81bcab5bd8e20a7b81ec
 **Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (direct test: 0 results for "50% off")
 **Observation:** Keyword "50% off" returned 0 ads. Root cause: "%" in URL query string breaks percent-encoding (FB sees malformed URL). Fix: always use word alternatives — "half off" instead of "50% off", "percent" instead of "%", etc. This applies to all future keyword planning. Tested "half off" as proxy → 357 advertisers (working). Rule: if a planned keyword contains "%" → replace with word form before running.
 **Applies to:** All future keyword planning and scraper runs
+**Expires after:** Session 25
+
+---
+
+### [2026-05-18] Session 18 — Scraper URL encoding: quote_plus fix (permanent)
+**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (confirmed: apostrophe → 0 ads, fixed → 364 ads)
+**Observation:** Apostrophes (`'`) and `%` in keywords returned 0 ads due to broken URL encoding. Root cause: scraper used `keyword.replace(" ", "+")` — spaces only. Fix: replaced with `urllib.parse.quote_plus(keyword)` which handles ALL special chars (`'`→`%27`, `%`→`%25`, etc). Confirmed: "why didn't I know" with `'` → 0 ads; without `'` → 364 ads. Now safe to use any keyword text literally. Supersedes S16 "%" warning — word alternatives no longer needed.
+**Applies to:** All future scraper runs — already fixed in code (permanent)
+**Expires after:** Never → candidate for op-rules.md at next promotion review
+
+---
+
+### [2026-05-18] Session 18 — Broad horizontal discovery: pattern after 15+ keywords tested
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (15 keywords, ~5000 advertisers total)
+**Observation:** After 15+ performance signal keywords (S15-S18): only 2 reportable products found — both from S15 ("game changer" → Dermave 69, "say goodbye to" → Heusom 71). All subsequent keywords: 0 reportable. Pattern breakdown by sub-class: Pain hooks ("tired of", "say goodbye to") — ⚠️ LOW YIELD. Discovery hooks ("why didn't I know") — ⚠️ LOW YIELD. Outcome phrases ("game changer") — ✅ only winner so far. Gift/occasion hooks — ❌ DEAD class. Promo hooks — ❌ DEAD class. Product signal hooks — ❌ DEAD class. Broad emotional hooks — ❌ DEAD class. **Contrast:** Kids vertical product-specific keywords (S8-S14) consistently found 1-3 candidates per keyword. Hypothesis: broad hooks filter by advertiser TYPE weakly — too many digital/service advertisers contaminate. Product-specific or niche-specific keywords filter better.
+**Applies to:** Sessions 18-25 — reconsider hypothesis after remaining ~15 keywords; build next hypothesis around product-specific niche keywords
 **Expires after:** Session 25
 
 ---

@@ -222,8 +222,9 @@ def accept_cookies(page):
 
 def build_search_url(keyword: str, country: str = "US", active_only: bool = True,
                      since_date: str = "", video_only: bool = False) -> str:
+    from urllib.parse import quote_plus
     active_status = "active" if active_only else "all"
-    keyword_encoded = keyword.replace(" ", "+")
+    keyword_encoded = quote_plus(keyword)
     media_type = "video" if video_only else "all"
     url = (
         f"https://www.facebook.com/ads/library/"

@@ -44,8 +44,8 @@
 | bored kids | S13 | 266 | ✅ USE | Wonder Quest 70; seasonal peak April-May |
 | keep kids busy | S13 | 362 | ❌ DEAD | Subscription economy dominates; 0 DTC physical products |
 | screen free | S13 | 294 | ⚠️ VALIDATION | Confirms Camp Snap + Thoson; ironic app noise; NOT for new discovery |
-| quality time | S14 | 44 | ❌ DEAD [BUG: S18 scroll fix] | Count unreliable (scroll bug); abstract phrase verdict likely holds but needs re-test with fixed scraper |
-| connect with your | S14 | 163 | ❌ DEAD | B2B/service keyword; 0 DTC physical products |
+| quality time | S14→S18 retest | 44→392 | ❌ DEAD confirmed | BUG fixed: real count 392; abstract lifestyle phrase attracts all advertiser types; verdict unchanged |
+| connect with your | S14→S18 retest | 163→288 | ❌ DEAD confirmed | BUG impact confirmed: real count 288; dominated by apps/B2B/restaurants; conversation card game sub-niche signal ($35-39, below floor) |
 | road trip | S14 | 348 | ⚠️ SITUATIONAL | 2 category signals: baby car sun shade + car seat cushion; retry S21 |
 | say goodbye to | S15 | 375 (no filter) / 418 (--since=2026-01-01) | ⚠️ LOW YIELD | 1 reportable (Heusom 71 pet grooming); ~60% service/beauty/supplement noise; date filter did NOT reduce noise (418 > 375); strong DTC operators present but diluted |
 | game changer | S15 | 363 | ✅ USE | 1 reportable (Dermave 69 women's trimmer); Beddy's zipper bedding category signal; mix of all DTC categories — broad-spectrum performance keyword |
@@ -53,12 +53,14 @@
 | 50% off today | S16 | 69 | ❌ DEAD | Promo-phrase too narrow (time modifier "today"); FB exhausts phrase in 45s; 0 reportable |
 | buy 1 get 1 free | S16 | 164 | ❌ DEAD | BOGO signal = jewelry/apparel/supplements; Blumi Baby swim goggles ~62 (below threshold); 0 reportable |
 | half off | S16 | 357 | ❌ DEAD | Discount phrase = retail/apparel/seasonal; "50% off" unusable (% breaks URL encoding); 0 reportable |
-| genius gadget | S17 | 121 | ❌ DEAD [BUG?: S18 scroll fix] | May have stalled early; mass-clone dropship + mosquito affiliates confirmed in visible ads; verdict ❌ likely holds but re-test recommended |
+| genius gadget | S17→S18 retest | 121→131 | ❌ DEAD confirmed | BUG minimal impact (+10 ads); mass-clone dropship dominates; top products below $39 floor (massager $17, towel holder ~$25) |
 | gift idea | S18 | 304 | ❌ DEAD | Gift-occasion phrase = personalized/custom gift services dominate; no white-label DTC physical products |
 | perfect gift | S18 | 313 | ❌ DEAD | Gift-occasion class confirmed (re-tested with fixed scraper); 70% custom/personalized gifts, 20% established brands, 0 white-label DTC $39-99 |
-| back in stock | S18 | 0 [BUG: scroll fix] | ⚠️ RETRY | Scroll bug confirmed — 0 ads = page not loaded, NOT keyword limit; re-run with fixed scraper |
+| back in stock | S18 | 325 | ⚠️ SITUATIONAL | Urgency signal works; real DTC brands use scarcity; heavy supplement/apparel noise; 282 candidates scanned, 0 scored 65+ |
 | gadget | S17 | 296 | ❌ DEAD | Ultra-broad: established brands (FIXD, REVO, HexClad), commodity below $39, пустышки; 0 reportable |
 | tired of | S17 | 427 | ❌ DEAD | Broad emotional hook attracts ALL advertiser types — services, clinics, apps, beauty; 0 DTC physical products; confirms S3 WebSearch pattern |
+| why didn't I know | S18 | 364 | ⚠️ LOW YIELD | Discovery hook = broad mix (finance apps, pharma, beauty brands); foot comfort sub-niche signal (Koprez $39.99, Bearefoot $44+, Elliosa £20); 0 scored 65+; apostrophe bug fixed (quote_plus) |
+| the easiest way to | S18 | 0 (throttled) | ⚠️ RETRY | FB content throttle after 2000 ads/day — page blank, not keyword issue; re-run in fresh session |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
@@ -89,15 +91,15 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 | 14 | 50% off today | Offer signal | ✅ S16 — ❌ DEAD |
 | 15 | buy 1 get 1 free | Offer signal | ✅ S16 — ❌ DEAD |
 | 16 | selling out fast | Urgency | — Not tested |
-| 17 | back in stock | Urgency | — Not tested |
+| 17 | back in stock | Urgency | ✅ S18 — ⚠️ SITUATIONAL |
 | 18 | before you buy | Pre-purchase hook | — Not tested |
 | 19 | stop wasting money | Pain + offer | — Not tested |
 | 20 | never worry about | Relief hook | — Not tested |
 | 21 | this changed everything | Outcome phrase | — Not tested |
-| 22 | why didn't I know | Discovery hook | — Not tested |
+| 22 | why didn't I know | Discovery hook | ✅ S18 — ⚠️ LOW YIELD |
 | 23 | parents are obsessed | Social proof | — Not tested |
 | 24 | everyone is buying | Social proof | — Not tested |
-| 25 | the easiest way to | Outcome phrase | — Not tested |
+| 25 | the easiest way to | Outcome phrase | ⚠️ S18 — RETRY (throttled) |
 | 26 | problem solved | Outcome phrase | — Not tested |
 | 27 | instantly | Outcome phrase | — Not tested |
 | 28 | works in seconds | Outcome phrase | — Not tested |

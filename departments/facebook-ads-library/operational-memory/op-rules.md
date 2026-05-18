@@ -120,7 +120,11 @@ Two scenarios:
 2. If session OK → scraper stalled early (warm-up didn't work) → re-run the keyword
 3. Only after a confirmed full run (session OK + no early stall) → accept the count as real
 
-**Keywords with counts affected by this bug (need re-test):** nursing pillow (~25 ads S8), kids (53 ads S9), quality time (44 ads S14), perfect gift (28 ads S18), back in stock (0 ads S18) — all marked in keyword-map.md with ⚠️ BUG flag.
+**Keywords with counts affected by this bug (need re-test):** nursing pillow (~25 ads S8), kids (53 ads S9) — still need re-test. quality time, genius gadget, connect with your, back in stock — re-tested S18, verdicts confirmed, keyword-map updated.
+
+### RULE 5c: Special characters in keywords — quote_plus encoding (fixed S18)
+
+Keywords with `'` (apostrophe), `%`, `&`, `#` or other special chars previously returned 0 ads due to broken URL encoding. **Fixed in S18:** `build_search_url()` now uses `urllib.parse.quote_plus(keyword)`. All special characters are now handled automatically — use keyword text literally, no substitutions needed. If a keyword returns 0 ads, check session first (RULE 5b) — do NOT assume special chars are the cause.
 
 ### RULE 6: Depth risk map
 
