@@ -141,8 +141,8 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 
 ## Active Hypothesis S21 — Situation Keywords: Everyday Worker Problems
 
-> **Status:** Cluster 1 ✅ DONE (S21) — 3 products. S22 Worker Context + Sensation — 7 keywords, 1 product (cold office 66). KEY FINDING: situation keywords yield products ONLY when describing PHYSICAL SENSATION (cold office ✅, tired feet ✅, sitting all day ✅) — NOT context/lifestyle (desk job ❌, meal prep ❌, night shift ❌). Next: Cluster 2 pain-state (afternoon crash, too tired to cook) OR Cluster 3 (brain fog at work, can't focus).
-> **Key rule:** Use 3-4 word descriptors with activity context. Avoid 2-word condition terms ("back pain" → blocked; "lower back pain" → 256 ads). Physical sensation keywords outperform context/lifestyle keywords.
+> **Status:** Cluster 1 ✅ DONE (S21) — 3 products. S22 Worker Context + Sensation — 7 keywords, 1 product (cold office 66). S23 Mental Fatigue (burnout/work stress/always tired) — 3 keywords, 0 products. KEY FINDING (corrected S23 by Marina): situation keywords work when creating a SPECIFIC MOMENT of discomfort — physical OR contextual ("long flight" = context, found score 72 ✅). DEAD CLASS: wide psychological/emotional states (burnout, work stress, always tired) → supplements/coaching/apps. Next: exhausted + mentally drained (S24), then consider specific-moment keywords only.
+> **Key rule:** Use 3-4 word descriptors with specific moment context. Avoid wide emotional/psychological states. Avoid 2-word condition terms ("back pain" → FB blocked).
 
 | Cluster | Keyword | S | Ads | Verdict | Signal |
 |---------|---------|---|-----|---------|--------|
@@ -166,9 +166,15 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 ↳ Noise Type: energy supplements | coffee brands | tactical apparel | ↳ Emotional Cluster: physical discomfort (cold) / warmth desire | ↳ Signal Density: Low (~5%) | ↳ Recurring Categories: compression socks, under-desk heaters
 | 3 — Sensation | on your feet all day | S22 | 266 | ❌ DEAD | Footwear-dominated ($99-200+); compression socks below floor; 0 white-label $45-79 |
 ↳ Noise Type: footwear brands ($99-200+) | compression socks ($20-40) | established shoe brands | ↳ Emotional Cluster: foot pain / standing fatigue | ↳ Signal Density: Very Low (<3%) | ↳ Recurring Categories: work shoes ($99-185), compression socks ($20-40)
+| 4 — Mental Fatigue | burnout | S23 | 365 | ❌ DEAD | Wide psychological state: supplements/coaching/apps dominate; orthotics tangential; 0 DTC physical $45-79 |
+↳ Noise Type: supplements/vitamins | therapy/coaching services | skincare ("tired face") | ↳ Emotional Cluster: mental fatigue / burnout recovery | ↳ Signal Density: Very Low (<2%) | ↳ Recurring Categories: orthotics/insoles (cross-keyword tangential, below threshold)
+| 4 — Mental Fatigue | work stress | S23 | 500 | ❌ DEAD | Wide psychological state: HR/corporate wellness, finance, supplements; 0 DTC physical $45-79 |
+↳ Noise Type: HR/corporate wellness services | financial services | supplements/adaptogens | ↳ Emotional Cluster: workplace stress / professional burnout | ↳ Signal Density: Very Low (<2%) | ↳ Recurring Categories: orthotics/nurse shoes (Orthora ~63, below threshold)
+| 4 — Mental Fatigue | always tired | S23 | 504 | ❌ DEAD | Energy supplements dominate; compression socks below floor ($29-34); orthotics ~62 below threshold |
+↳ Noise Type: energy supplements/vitamins | compression socks ($29-34 below floor) | skincare | ↳ Emotional Cluster: fatigue / energy depletion | ↳ Signal Density: Very Low (<2% DTC physical $45+) | ↳ Recurring Categories: compression socks (Everstride 15K reviews $29-34), orthotics (Xstance ~62)
 
 **Cluster 2 candidates (Meal/Energy Problems):** "skipping lunch", "too tired to cook", "no time to eat", "coffee not working", "afternoon crash"
-**Cluster 3 candidates (Mental Fatigue):** "brain fog at work", "can't focus at work", "overwhelmed at work", "deadline stress", "zoom fatigue"
+**Cluster 3 candidates (Mental Fatigue — pending):** exhausted, mentally drained (S24)
 
 ---
 

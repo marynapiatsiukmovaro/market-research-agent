@@ -403,6 +403,20 @@ whisperheat.com | ACCEPTED score 66 — electric heated under-desk mat; cold off
 
 ---
 
+## Session 23 — 2026-05-19 (Situation Keywords: Mental Fatigue Cluster)
+
+### KEYWORDS: burnout / work stress / always tired
+### Result: 0 products (Mental Fatigue cluster = DEAD; wide psychological states attract supplements/coaching/apps)
+
+### REJECTED — Price below floor
+everstride.com | compression socks $29-34 — 15K+ reviews, strong brand; below $39 price floor | 2026-05-19
+
+### REJECTED — Below threshold / category complexity
+orthora-footwear.com | Orthora™ Pro nurse shoes $59.95 — ~63 score; shoes category (sizing/returns complexity) | 2026-05-19
+getxstance.com | The Xstance orthotics $39.57-59.95 — ~62 score; appeared burnout + always tired; no verified review count | 2026-05-19
+
+---
+
 ## How to Use
 
 Pass to scraper:
