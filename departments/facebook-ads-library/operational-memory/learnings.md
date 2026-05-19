@@ -132,11 +132,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-18] Session 19 — FB Ads Library: 0-result anomaly for certain phrases
-**Type:** Warning | **Severity:** MEDIUM | **Confidence:** MEDIUM (2 keywords, Marina confirmed from 2nd account)
-**Observation:** "money back guarantee" and "sold out" both returned FB "No ads match your search criteria" (42-43s runtime). Marina confirmed same result from a separate FB account → not session/scraper issue. Most likely: temporary FB platform glitch. Both marked ⚠️ RETRY. Rule: if 0-result AND FB shows "No ads match" page (not blank) → always retry in next session before declaring dead. A blank page = throttle. "No ads match" page = possible glitch or genuine 0.
-**Applies to:** All future sessions — diagnostic protocol for 0-result keywords
-**Expires after:** Session 21
+~~### [2026-05-18] Session 19 — FB Ads Library: 0-result anomaly for certain phrases~~
+> ARCHIVED S21 — expired. Superseded by S21 finding: "back pain" + "standing all day" consistently blocked (not glitch, but FB policy on certain term types). Updated rule in S21 learning below.
 
 ---
 
@@ -155,6 +152,22 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 **Observation:** Hypothesis closed after S20. Total: 29 performance signal keywords tested across Sessions 15-20. Result: 2 reportable products — both from S15 ("game changer" → Dermave 69, "say goodbye to" → Heusom 71). Last 14+ keywords: 0 products. Final S20 sub-class tested — pain/narrative hooks ("if you suffer from" 361 adv., "the worst part of" 262 adv., "the only thing that" 391 adv., "before and after" 344 adv.) → all ❌ DEAD. Multiple keywords blocked by FB (0 ads): "struggling with", "embarrassing", "in seconds", "free shipping over", "sold out". Core finding: broad performance signal phrases are used by ALL advertiser types — pharma, retail, restaurants, services, DTC. They do NOT filter for physical product DTC operators. Hypothesis assumption was wrong. New direction: product-specific or niche-specific keywords only.
 **Applies to:** S21+ — close hypothesis, pivot to product-specific keyword strategy
 **Expires after:** Session 25
+
+---
+
+### [2026-05-19] Session 21 — FB blocks short health-condition & activity terms in Active ads filter
+**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 attempts across 2 keywords: "back pain" ×2, "standing all day" ×2)
+**Observation:** 2-word health/activity terms consistently return "No ads match" regardless of retry: "back pain" (2 attempts = 0), "standing all day" (2 attempts = 0). NOT a glitch — confirmed by identical behavior across multiple days. Likely cause: FB's Active ads filter treats these as sensitive health terms. Workaround: longer descriptors bypass the block. "lower back pain" (3 words) → 256 ads ✅. "tired feet" ✅. "sitting all day" ✅. "sore legs" ✅. Rule: if a 2-word health/condition term returns 0 → do NOT retry same form; immediately try 3-4 word variant with activity context.
+**Applies to:** All sessions — keyword formulation for health/pain/activity keywords
+**Expires after:** Session 28
+
+---
+
+### [2026-05-19] Session 21 — Situation Keywords Cluster 1 (Physical Discomfort at Work) — verdict
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (5 keywords, S21)
+**Observation:** 5 Cluster 1 keywords tested: "tired feet" ✅ (Score 74 + 70), "sitting all day" ✅ (Score 68), "sore legs" ⚠️ LOW YIELD (compression socks dominate), "back pain" ❌ BLOCKED, "standing all day" ❌ BLOCKED. Yield: 3 products from 3 productive keywords — strong hypothesis performance vs. S15-S20 Broad Horizontal (2 products across 29 keywords). Conclusion: Situation keywords (activity + pain context) outperform generic performance signal phrases. Cluster 2 (Meal/Energy) and Cluster 3 (Mental Fatigue) are next — expected similar yield if keywords are 3-4 words with specific activity context. Skip any 2-word condition terms.
+**Applies to:** S22+ Situation Keywords sessions — continue hypothesis, use 3-4 word activity descriptors
+**Expires after:** Session 28
 
 ---
 

@@ -72,6 +72,16 @@
 | before and after | S20 | 344 | ❌ DEAD | Universal transformation = pharma dominant + beauty established brands + automotive; not DTC-specific |
 | sold out (retest) | S20 | 0 | ❌ BLOCKED | Retested S20 — same 0-result; FB platform blocks phrase; hypothesis closed; not re-testing |
 | free shipping over / struggling with / Embarrassing / in seconds | S20 | 0 each | ❌ BLOCKED | All 4 returned FB "No ads match" — account-level block for these phrases; hypothesis closed |
+| tired feet | S21 | ~280 | ✅ USE | Nuvé Silk 74 (callus remover) + Hugterra 70 (neck massager cross-category) — 2 products; situation keyword spans foot-care + WFH pain |
+↳ Noise Type: compression socks | shoes/footwear | ↳ Emotional Cluster: pain/relief after standing | ↳ Signal Density: Medium (~15% DTC physical) | ↳ Recurring Categories: callus removers, compression socks
+| sore legs | S21 | 258 | ⚠️ LOW YIELD | Compression socks dominate (6+ brands $28-39 below floor); Firefly Recovery patented EMS; established recovery brands; 0 products |
+↳ Noise Type: compression socks (50%+) | established recovery brands (Firefly, Vibit, Hyperice) | ↳ Emotional Cluster: recovery/performance after exertion | ↳ Signal Density: Low (<5% white-label DTC $45+) | ↳ Recurring Categories: compression socks, EMS recovery devices
+| sitting all day | S21 | 320 | ✅ USE | 3-brand convergence (Celinva Jan/Try Alum Dec/EverCushion Mar 2026) on honeycomb seat cushion; Score 68; ⚠️ Amazon saturated $20-35 |
+↳ Noise Type: seat cushions (30%) | WFH ergonomic products | ↳ Emotional Cluster: workplace comfort/chronic sitting pain | ↳ Signal Density: Medium (15-20% DTC physical) | ↳ Recurring Categories: honeycomb gel seat cushion (3 independent brands = category convergence signal)
+| back pain | S21 | 0 (×2) | ❌ BLOCKED | FB "No ads match" both attempts; 2-word health-condition term blocked by FB Active ads filter; use "lower back pain" instead |
+| lower back pain | S21 | 256 | ⚠️ LOW YIELD | Pharma (40%+) + shoes (15%) + established DTC brands (NeuroMD 90K, Chirp) dominate; seat cushion = K4 duplicate; 0 new products |
+↳ Noise Type: pharma/medical (40%) | footwear (15%) | established DTC brands | ↳ Emotional Cluster: pain/recovery (medical-grade) | ↳ Signal Density: Low (<5% new white-label DTC $45+) | ↳ Recurring Categories: seat cushions (K4 duplicate), cervical/neck devices (K2 duplicate), ergonomic pillows
+| standing all day | S21 | 0 (×2) | ❌ BLOCKED | FB "No ads match" both attempts; 2-word activity descriptor blocked; reformulate as "feet hurt from standing" or "on my feet all day" |
 
 **Verdict codes:** ✅ USE | ❌ DEAD | ⚠️ RETRY / NARROW / SITUATIONAL / VALIDATION / PRICE / ADULT
 
@@ -126,6 +136,25 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 
 **Kids vertical (on hold, not active priority):**
 - baby swaddle, baby bouncer, diaper bag, baby gate, baby wrap, infant, teething, breastfeeding
+
+---
+
+## Active Hypothesis S21 — Situation Keywords: Everyday Worker Problems
+
+> **Status:** Cluster 1 COMPLETED (S21). 5 keywords → 3 reportable products. Continue with Cluster 2 or 3 in S22+.
+> **Key rule:** Use 3-4 word descriptors with activity context. Avoid 2-word condition terms ("back pain" → blocked; "lower back pain" → 256 ads).
+
+| Cluster | Keyword | S | Ads | Verdict | Signal |
+|---------|---------|---|-----|---------|--------|
+| 1 — Physical | tired feet | S21 | ~280 | ✅ USE | Nuvé Silk 74 + Hugterra 70 — 2 products |
+| 1 — Physical | sitting all day | S21 | 320 | ✅ USE | Seat cushion 68 — 3-brand convergence Jan-Mar 2026 |
+| 1 — Physical | sore legs | S21 | 258 | ⚠️ LOW YIELD | Compression socks dominate; 0 products |
+| 1 — Physical | lower back pain | S21 | 256 | ⚠️ LOW YIELD | Pharma + established brands dominate; 0 products |
+| 1 — Physical | back pain | S21 | 0×2 | ❌ BLOCKED | 2-word health term → FB blocked |
+| 1 — Physical | standing all day | S21 | 0×2 | ❌ BLOCKED | 2-word activity term → FB blocked |
+
+**Cluster 2 candidates (Meal/Energy Problems):** "skipping lunch", "too tired to cook", "no time to eat", "coffee not working", "afternoon crash"
+**Cluster 3 candidates (Mental Fatigue):** "brain fog at work", "can't focus at work", "overwhelmed at work", "deadline stress", "zoom fatigue"
 
 ---
 

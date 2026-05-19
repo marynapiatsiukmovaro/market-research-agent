@@ -51,6 +51,10 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-18 | Heusom Silent Groom Pro (Pet Grooming Vacuum) | Pet/Grooming | 71 | All-in-one grooming + vacuum eliminates flying fur; 3.5K+ Trustpilot reviews; $49-69 DTC range; strong emotional hook (pet hair mess) | Facebook Ads Library / keyword "say goodbye to" / heusomshop.com |
 | 2026-05-18 | Dermave Electric Trimmer for Women | Beauty/Personal Care | 69 | "Specifically designed for women" vs razor positioning; 3731+ DTC reviews; Feb 2026 FB start; Finishing Touch Flawless at $18 Walmart validates category | Facebook Ads Library / keyword "game changer" / dermave.co |
 
+| 2026-05-19 | Nuvé Silk 3 Pro — Electric Callus Remover | Beauty | 74 | "Skin snow" visual demo: removes calluses in 5 min at home; 250K customers; 1 DTC FB advertiser 13 months = proven converter, open window | Facebook Ads Library / keyword "tired feet" / nuvebrand.com |
+| 2026-05-19 | Hugterra Neck Massager — 4-in-1 Traction + EMS | Health | 70 | 4-in-1 cervical device (EMS+traction+heat+vibration) for herniated disc; 150K customers; 6 months FB ads without ban; ⚠️ EMS policy risk + $139 premium range | Facebook Ads Library / keyword "tired feet" (cross-category) / hugterra.com |
+| 2026-05-19 | Orthopedic Honeycomb Gel Seat Cushion | Health | 68 | 3 DTC brands converged Jan-Mar 2026 (Celinva/Try Alum/EverCushion) — "sitting shouldn't hurt"; WFH+drivers+elderly; chiropractor endorsed; ⚠️ Amazon saturated $20-35 | Facebook Ads Library / keyword "sitting all day" / celinva.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
