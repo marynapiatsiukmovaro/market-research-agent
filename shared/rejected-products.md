@@ -2,6 +2,32 @@
 
 **State: Rejected** — products that failed mandatory filters, scored below 65, or were rejected by Marina after review.
 Rejected products remain useful as negative calibration examples and saturation references. Never delete entries.
+
+---
+
+## Reject Types — Read Before Logging
+
+**HARD REJECT** — do not revisit. Pattern is permanent.
+- Price structurally impossible (entire category below floor or above ceiling with no path to fix)
+- Regulatory/safety risk (FDA territory, Meta policy ban class — EMS, medical claims)
+- Extreme commodity (70+ competing brands, zero positioning angle possible, margins dead)
+- Logistics nightmare (heavy, fragile, cold chain, oversized)
+- Branded/proprietary (patent, trademark — cannot white-label by definition)
+- Subscription-only model (hardware requires monthly fee to function)
+
+**SOFT REJECT** — signal exists, economics wrong today. May revisit.
+- Price was wrong at time of evaluation (sale price, variant pricing issue — verify main price again)
+- Score 60–64 (just below threshold — one strong new advertiser could lift signal)
+- Weak angle but real demand signal (timing issue, category too early or too late right now)
+- Hook unclear but pain is real (format issue, not product issue)
+- Only 1 advertiser seen (not enough validation — retry in 5+ sessions)
+
+**Memory Decay Rule:**
+When logging a SOFT reject — write "`SOFT — retry after Session [current+5]`" in the Reason field.
+At STEP 8: scan the last 5 SOFT entries. If any have passed their retry session → re-evaluate or promote to HARD.
+If a product reappears under a new keyword in a future session → re-evaluate fresh. Do not skip based on old SOFT entry alone.
+
+---
 Read patterns here before scanning — skip similar products faster.
 
 ## Log

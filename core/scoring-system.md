@@ -10,6 +10,11 @@ Score each product that passes mandatory filters AND the Marina Veto Checklist b
 
 If all three are NO → proceed to scoring.
 
+> **IMPORTANT: Competition ≠ Category Rejection**
+> Do not reject a product ONLY because the category is competitive, similar products were seen in previous sessions, or the market already exists.
+> Competition may validate demand. Always evaluate separately: hook quality, advertiser momentum, emotional differentiation, creative scalability.
+> "We saw something like this before" is NOT a rejection reason. A new angle, new hook, new demographic, or new price point can open an already-competitive category.
+
 ---
 
 | # | Category | Max Points |

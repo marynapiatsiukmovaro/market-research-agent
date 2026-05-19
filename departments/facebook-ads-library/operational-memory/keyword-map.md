@@ -138,3 +138,15 @@ At STEP 8 end of each session, add one row per tested keyword:
 ```
 
 If keyword was tested in a prior session and signal changed → add a new row with updated session number, don't edit the old row.
+
+**Extended fields (S21+ — add as footnote below the row when present):**
+
+```
+↳ Noise Type: [dominant noise category — e.g. supplements/pharma | services/apps | retail brands | affiliates | mixed]
+↳ Emotional Cluster: [core emotional territory advertisers used — e.g. pain/recovery | vanity/confidence | convenience | fear/risk | parental concern]
+↳ Signal Density: [physical DTC product density — High (20%+ physical DTC) | Medium (10-19%) | Low (<10%)]
+↳ Recurring Categories: [sub-categories appearing 2+ times independently — e.g. compression socks, foot massagers]
+```
+
+Fill extended fields only for keywords with 100+ ads. Skip for dead keywords with <50 ads.
+These fields feed the Signal Escalation Rule — log them at STEP 8 even if keyword was DEAD, as noise patterns are valuable.

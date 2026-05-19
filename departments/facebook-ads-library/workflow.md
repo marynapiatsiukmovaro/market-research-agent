@@ -33,6 +33,15 @@ Flag immediately when you notice any of the following:
 Format: one sentence, flagged inline: "SCOUT NOTE: [observation + proposed action]"
 After any SCOUT NOTE that proposes a direction change: STOP and wait for Marina's explicit confirmation before executing anything.
 
+**Signal Escalation (apply mid-session, as keywords complete):**
+If 2+ independent keywords surface the same product type, pain angle, or emotional buying pattern from different advertisers — flag it inline as a recurring market signal:
+`SIGNAL: [sub-category or emotional territory] appeared in [keyword A] + [keyword B] — recurring market signal, worth tracking.`
+This is directional intelligence only. Do NOT:
+- Assume category validation from signal alone
+- Create a fixed category hypothesis automatically
+- Deprioritize other keywords to go deeper
+After the session: log recurring categories in keyword-map.md extended fields. Marina decides whether to act on the signal.
+
 **Before each keyword scan round:** announce the keyword + approach in one sentence. STOP — do not launch the scraper until Marina explicitly confirms (any form: "ок", "go", "continue", "запускай").
 
 **One-keyword-at-a-time rule (non-negotiable):** Complete ALL work for the current keyword (scrape → filter → verify → report → checkpoint) before touching the next keyword. Do NOT launch Keyword 2 scraper until Marina reviews Keyword 1 checkpoint and gives explicit confirmation to proceed.
@@ -115,6 +124,14 @@ This is allowed — archiving is not editing. Keep file under 20 active entries 
 **5b. Update keyword map:**
 Add one row to `departments/facebook-ads-library/operational-memory/keyword-map.md` for each keyword tested this session.
 Format: `| keyword | S[N] | [ads] | ✅/❌/⚠️ verdict | [1-line signal or reason dead] |`
+For keywords with 100+ ads: also add extended fields (Noise Type, Emotional Cluster, Signal Density, Recurring Categories) — see keyword-map.md How to Update.
+
+**5b-2. Signal Escalation Check:**
+After updating keyword-map.md, scan all keywords tested this session.
+If 2+ independent keywords surfaced the same product type, pain angle, or emotional buying pattern from different advertisers → log it in the SESSION LEARNING REPORT under "Repeated patterns" as:
+`RECURRING SIGNAL: [description] — appeared in [keyword list]`
+This is directional intelligence only. Do NOT assume category validation. Do NOT open a new hypothesis automatically.
+Marina decides whether to act on the signal in the next session.
 
 **5c. Append new learnings (only what's truly new):**
 Append to `departments/facebook-ads-library/operational-memory/learnings.md` if any of these were observed:
