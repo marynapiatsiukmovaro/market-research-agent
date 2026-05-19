@@ -383,6 +383,24 @@ sinuvox.com | red light sinus device — "clinically studied" claim based on sel
 #### REJECTED — Price too low / general store
 aneedfamily.com | vacuum storage bags $14.99 — below price floor; multi-category general dropship store | 2026-05-18
 
+## Session 22 — 2026-05-19 (Situation Keywords: Worker Context + Sensation)
+
+### KEYWORDS: night shift / desk setup / ergonomic / meal prep / desk job / cold office / on your feet all day
+### Result: 1 product (cold office → heated desk mat 66, whisperheat.com)
+
+### REJECTED — Price too high (above $170)
+suvie.com | Kitchen Robot appliance $649 — automated meal prep machine, way above range | 2026-05-19
+topjob.co | ergonomic furniture $214-999 — AnyDesk Hub/Fold, BISKIT Chair; all above range | 2026-05-19
+snibbs.co | work shoes $99-185 — ultra-comfy slip-resistant; logistics complex + above range | 2026-05-19
+
+### REJECTED — Wrong category / not white-label
+masongenie.com | vacuum jar sealer DTC — "only at masongenie.com", proprietary design; 1 FB ad only | 2026-05-19
+oldbonestherapy.com | knee compression sleeves $40-60 — mechanism veto (pain relief unprovable on camera) + athlete niche | 2026-05-19
+peepclub.com | Heated Eye Wand LED+ $120 — eye care category already closed (Eye Massager S1 score 84); UK brand | 2026-05-19
+
+### ACCEPTED — Already in Notion
+whisperheat.com | ACCEPTED score 66 — electric heated under-desk mat; cold office keyword; seasonal Oct-Apr | 2026-05-19
+
 ---
 
 ## How to Use

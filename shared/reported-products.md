@@ -54,6 +54,7 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-19 | Nuvé Silk 3 Pro — Electric Callus Remover | Beauty | 74 | "Skin snow" visual demo: removes calluses in 5 min at home; 250K customers; 1 DTC FB advertiser 13 months = proven converter, open window | Facebook Ads Library / keyword "tired feet" / nuvebrand.com |
 | 2026-05-19 | Hugterra Neck Massager — 4-in-1 Traction + EMS | Health | 70 | 4-in-1 cervical device (EMS+traction+heat+vibration) for herniated disc; 150K customers; 6 months FB ads without ban; ⚠️ EMS policy risk + $139 premium range | Facebook Ads Library / keyword "tired feet" (cross-category) / hugterra.com |
 | 2026-05-19 | Orthopedic Honeycomb Gel Seat Cushion | Health | 68 | 3 DTC brands converged Jan-Mar 2026 (Celinva/Try Alum/EverCushion) — "sitting shouldn't hurt"; WFH+drivers+elderly; chiropractor endorsed; ⚠️ Amazon saturated $20-35 | Facebook Ads Library / keyword "sitting all day" / celinva.com |
+| 2026-05-19 | Electric Heated Under-Desk Mat | Home | 66 | Silent warmth at desk — cold office/WFH legs+feet pain; white-label $49-59; ⚠️ 1 FB advertiser (weak validation), seasonal Oct-Apr | Facebook Ads Library / keyword "cold office" / whisperheat.com |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.

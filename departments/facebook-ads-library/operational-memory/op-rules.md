@@ -136,6 +136,26 @@ Two scenarios:
 
 **Keywords with counts affected by this bug (need re-test):** nursing pillow (~25 ads S8), kids (53 ads S9) — still need re-test. quality time, genius gadget, connect with your, back in stock — re-tested S18, verdicts confirmed, keyword-map updated.
 
+### RULE 5d: Back-scroll recovery — mid-run stall fix (permanent, Session 22)
+
+FB React lazy-loader can stall mid-scroll at ~200-300 ads: scraper gets 0 new cards for 2 batches → without fix, stop triggers at 5 empty batches → early stop (194 ads instead of 500+).
+
+Fix is permanently added to `skills/facebook_scraper.py` (backup: `facebook_scraper.py.bak_s22`):
+```python
+if no_new_streak == 2:
+    print(f"[SCROLL] Stall — back-scroll recovery (up 3000px then down 2000px)...", flush=True)
+    page.evaluate("window.scrollBy(0, -3000)")
+    time.sleep(2.5)
+    page.evaluate("window.scrollBy(0, 2000)")
+    time.sleep(2.0)
+    no_new_streak = 0  # reset: give 5 more batches after recovery
+```
+
+- Triggers at `streak == 2` (not 5) — recovers before stop threshold
+- Can trigger multiple times per session if multiple stalls occur
+- Confirmed working: ergonomic keyword S22 (recovered at batch 4 → loaded 329 more ads → hit 500 target)
+- Root cause: desk setup S22 returned only 194 ads before fix (first run was valid — sessions expired on 2nd run)
+
 ### RULE 5c: Special characters in keywords — quote_plus encoding (fixed S18)
 
 Keywords with `'` (apostrophe), `%`, `&`, `#` or other special chars previously returned 0 ads due to broken URL encoding. **Fixed in S18:** `build_search_url()` now uses `urllib.parse.quote_plus(keyword)`. All special characters are now handled automatically — use keyword text literally, no substitutions needed. If a keyword returns 0 ads, check session first (RULE 5b) — do NOT assume special chars are the cause.

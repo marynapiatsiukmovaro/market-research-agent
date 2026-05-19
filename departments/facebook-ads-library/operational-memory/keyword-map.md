@@ -141,8 +141,8 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 
 ## Active Hypothesis S21 — Situation Keywords: Everyday Worker Problems
 
-> **Status:** Cluster 1 COMPLETED (S21). 5 keywords → 3 reportable products. Continue with Cluster 2 or 3 in S22+.
-> **Key rule:** Use 3-4 word descriptors with activity context. Avoid 2-word condition terms ("back pain" → blocked; "lower back pain" → 256 ads).
+> **Status:** Cluster 1 ✅ DONE (S21) — 3 products. S22 Worker Context + Sensation — 7 keywords, 1 product (cold office 66). KEY FINDING: situation keywords yield products ONLY when describing PHYSICAL SENSATION (cold office ✅, tired feet ✅, sitting all day ✅) — NOT context/lifestyle (desk job ❌, meal prep ❌, night shift ❌). Next: Cluster 2 pain-state (afternoon crash, too tired to cook) OR Cluster 3 (brain fog at work, can't focus).
+> **Key rule:** Use 3-4 word descriptors with activity context. Avoid 2-word condition terms ("back pain" → blocked; "lower back pain" → 256 ads). Physical sensation keywords outperform context/lifestyle keywords.
 
 | Cluster | Keyword | S | Ads | Verdict | Signal |
 |---------|---------|---|-----|---------|--------|
@@ -152,6 +152,20 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 | 1 — Physical | lower back pain | S21 | 256 | ⚠️ LOW YIELD | Pharma + established brands dominate; 0 products |
 | 1 — Physical | back pain | S21 | 0×2 | ❌ BLOCKED | 2-word health term → FB blocked |
 | 1 — Physical | standing all day | S21 | 0×2 | ❌ BLOCKED | 2-word activity term → FB blocked |
+| 2 — Worker Context | night shift | S22 | 325 | ❌ DEAD | Energy supplements + job platforms; no white-label DTC $45-79 |
+↳ Noise Type: energy supplements | job platforms | nurse accessories | ↳ Emotional Cluster: energy/fatigue | shift worker identity | ↳ Signal Density: Low (<5%) | ↳ Recurring Categories: none
+| 2 — Worker Context | desk setup | S22 | 194 | ❌ DEAD | Premium branded furniture ($200+); aspirational aesthetic — no DTC entry window |
+↳ Noise Type: premium furniture ($200+) | tech accessories | lifestyle content | ↳ Emotional Cluster: productivity/aesthetic | ↳ Signal Density: Very Low (<2%) | ↳ Recurring Categories: ergonomic chairs, standing desks (all above range)
+| 2 — Worker Context | ergonomic | S22 | 316 | ❌ ATTRIBUTE | Attribute descriptor: attracts ergonomic chairs $200+ + seat cushion K4 duplicate |
+↳ Noise Type: premium ergonomic chairs ($200+) | established orthopedic brands | ↳ Emotional Cluster: workplace comfort/health | ↳ Signal Density: Low (<5%) | ↳ Recurring Categories: seat cushions (K4 duplicate), ergonomic chairs ($200+)
+| 2 — Worker Context | meal prep | S22 | 299 | ❌ DEAD | Food delivery services (60%+) + premium appliances ($649 Suvie); no physical product |
+↳ Noise Type: food delivery services (60%+) | pet food subscriptions | premium appliances | ↳ Emotional Cluster: convenience / healthy eating | ↳ Signal Density: Very Low (<2%) | ↳ Recurring Categories: meal delivery brands (HelloFresh, HalalMeals, etc.)
+| 2 — Worker Context | desk job | S22 | 313 | ❌ DEAD | Job listings + B2B services + premium furniture ($214-629 TopJob); no DTC window |
+↳ Noise Type: job listings | B2B services/software | premium furniture ($200+) | ↳ Emotional Cluster: career/work lifestyle | ↳ Signal Density: Very Low (<2%) | ↳ Recurring Categories: ergonomic furniture (TopJob $214-629)
+| 3 — Sensation | cold office | S22 | 217 | ✅ USE | Heated desk mat score 66 (Whisper Heat validator); 1 FB advertiser (weak signal); seasonal Oct-Apr |
+↳ Noise Type: energy supplements | coffee brands | tactical apparel | ↳ Emotional Cluster: physical discomfort (cold) / warmth desire | ↳ Signal Density: Low (~5%) | ↳ Recurring Categories: compression socks, under-desk heaters
+| 3 — Sensation | on your feet all day | S22 | 266 | ❌ DEAD | Footwear-dominated ($99-200+); compression socks below floor; 0 white-label $45-79 |
+↳ Noise Type: footwear brands ($99-200+) | compression socks ($20-40) | established shoe brands | ↳ Emotional Cluster: foot pain / standing fatigue | ↳ Signal Density: Very Low (<3%) | ↳ Recurring Categories: work shoes ($99-185), compression socks ($20-40)
 
 **Cluster 2 candidates (Meal/Energy Problems):** "skipping lunch", "too tired to cook", "no time to eat", "coffee not working", "afternoon crash"
 **Cluster 3 candidates (Mental Fatigue):** "brain fog at work", "can't focus at work", "overwhelmed at work", "deadline stress", "zoom fatigue"

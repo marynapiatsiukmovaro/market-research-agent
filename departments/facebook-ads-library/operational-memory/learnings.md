@@ -63,19 +63,13 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-18] Session 15 — Performance signal keywords: yield baseline established
-**Type:** Tactical | **Severity:** MEDIUM | **Confidence:** HIGH (2 keywords, 738 advertisers total)
-**Observation:** First 2 performance signal keywords tested ("say goodbye to", "game changer"). Baseline yield: ~1 reportable product per 350-420 advertisers. Expected noise: 60-70% services/apps/beauty/supplements. "game changer" showed better DTC physical product density than "say goodbye to". Neither keyword dominated any single category — signals spread across Pet, Beauty, Home.
-**Applies to:** Sessions 15-25 broad horizontal discovery — calibrate expectations per keyword
-**Expires after:** Session 22
+~~### [2026-05-18] Session 15 — Performance signal keywords: yield baseline established~~
+> ARCHIVED S22 — expired.
 
 ---
 
-### [2026-05-18] Session 15 — --since=2026-01-01 date filter: no signal improvement
-**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (direct test: 375 vs 418 advertisers, same keyword)
-**Observation:** Tested "say goodbye to" with and without --since=2026-01-01. Result: date filter produced MORE advertisers (418 > 375), not fewer — and 0 vs 1 reportable product. Conclusion: the filter changes which ads FB shows but does not clean up noise. Do NOT add --since=2026-01-01 as default to all runs. Use only when specifically investigating fresh-entry advertisers for Entry Window scoring.
-**Applies to:** All VPS scraper sessions — filter selection
-**Expires after:** Session 22
+~~### [2026-05-18] Session 15 — --since=2026-01-01 date filter: no signal improvement~~
+> ARCHIVED S22 — expired.
 
 ---
 
@@ -137,11 +131,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-18] Session 19 — Broad horizontal discovery: hypothesis performance update
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (19 keywords, ~5600 advertisers, 2 total reportable since S15)
-**Observation:** After 19 performance signal keywords (S15-S19): 2 reportable products total, both from S15. Last 12+ keywords: 0 products. Marina confirmed hypothesis is underperforming expectations. Key insight: phrases that service businesses/restaurants also use = not filtering by DTC physical product operator type. Next test (S20-S21): refined sub-class — phrases ONLY physical product DTC advertisers write: "free shipping over", "if you suffer from", "struggling with", "embarrassing". If this sub-class also fails → abandon hypothesis, pivot to product-specific keyword strategy.
-**Applies to:** Sessions 20-21 — decision point after testing refined sub-class
-**Expires after:** Session 22
+~~### [2026-05-18] Session 19 — Broad horizontal discovery: hypothesis performance update~~
+> ARCHIVED S22 — expired.
 
 ---
 
@@ -168,6 +159,14 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 **Observation:** 5 Cluster 1 keywords tested: "tired feet" ✅ (Score 74 + 70), "sitting all day" ✅ (Score 68), "sore legs" ⚠️ LOW YIELD (compression socks dominate), "back pain" ❌ BLOCKED, "standing all day" ❌ BLOCKED. Yield: 3 products from 3 productive keywords — strong hypothesis performance vs. S15-S20 Broad Horizontal (2 products across 29 keywords). Conclusion: Situation keywords (activity + pain context) outperform generic performance signal phrases. Cluster 2 (Meal/Energy) and Cluster 3 (Mental Fatigue) are next — expected similar yield if keywords are 3-4 words with specific activity context. Skip any 2-word condition terms.
 **Applies to:** S22+ Situation Keywords sessions — continue hypothesis, use 3-4 word activity descriptors
 **Expires after:** Session 28
+
+---
+
+### [2026-05-19] Session 22 — Situation Keywords: Physical Sensation vs. Context — key distinction
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (7 keywords, S22; confirms S21 pattern)
+**Observation:** 7 situation keywords tested S22. Split result: cold office ✅ (heated mat 66), 6 others ❌ DEAD. Pattern confirmed — situation keywords produce white-label products ONLY when the keyword implies a specific BODY-LEVEL DISCOMFORT a portable product can immediately relieve. Works: "cold office" (body sensation → product), "tired feet" (pain → product), "sitting all day" (pressure → product). Fails: "desk job", "night shift", "meal prep" (context/lifestyle → attract services), "ergonomic" (attribute descriptor → attract premium furniture $200+), "on your feet all day" (implied footwear → attracts shoe brands $99-200+). Rule for S23+: before adding a situation keyword, ask "does this keyword imply a specific body sensation?" If yes → run it. If it's a job context, lifestyle activity, or broad product attribute → skip.
+**Applies to:** S23+ Situation Keywords sessions — keyword selection filter
+**Expires after:** Session 29
 
 ---
 
