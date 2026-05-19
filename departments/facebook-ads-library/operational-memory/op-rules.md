@@ -34,10 +34,14 @@ Running checks before upload = validating stale data = false SESSION OK.
 
 ```bash
 # STEP 0 — only if Marina provided cookies in prompt
-python3 /tmp/update_fb_session.py   # create fb_session_new.json from cookie string
+# Script is at: scripts/update_fb_session.py (permanent, in repo — NOT /tmp)
+python3 /Users/marinapetuk/Desktop/АГЕНТЫ/market-research-agent/scripts/update_fb_session.py "<cookie_string>"
 scp -i ~/.ssh/market_research_vps /tmp/fb_session_new.json root@5.78.217.133:/opt/market-research-agent/cookies/fb_session.json
 # Then proceed to checks 1–5 below
 ```
+
+**CRITICAL: fb_session.json required format** — `{"cookies": [...]}` (dict with 'cookies' key, NOT a plain list)
+check_session.py line: `context.add_cookies(session['cookies'])` → requires dict access.
 
 If Marina did NOT provide cookies → skip STEP 0, proceed directly to check 1.
 
@@ -104,6 +108,31 @@ if dismiss_btn.count() > 0:
 Backup saved: `skills/facebook_scraper.py.bak_s14`
 
 Appears after intense scraping (>300-400 ads per session). Detection: keyword 1 gives normal count, keyword 2 gives 0 — suspect this warning first.
+
+---
+
+## Scraper Invocation — Correct Syntax (RULE 4b)
+
+**CRITICAL: The scraper uses POSITIONAL arguments for keywords, NOT `--keyword=`**
+
+```bash
+# CORRECT — keyword is a positional argument
+cd /opt/market-research-agent
+nohup python3 skills/facebook_scraper.py 'burnout' --deep --output=/tmp/burnout_results.json > /tmp/burnout_scraper.log 2>&1 &
+echo PID:$!
+
+# Run fast filter after completion
+python3 skills/fast_filter.py /tmp/burnout_results.json --top=20
+```
+
+**Supported flags:** `--deep` (500 target) | `--output=FILE` | `--since=YYYY-MM-DD` | `--seen=FILE` | `--sort=recent`
+**NOT supported:** `--keyword=`, `--max=`, `--country=`, `--status=` → these become literal keywords to search!
+
+**CRITICAL: Single process rule** — before launching, always:
+```bash
+ps aux | grep facebook_scraper | grep -v grep || echo NO_SCRAPERS
+```
+If ANY process found → STOP, kill first → then launch one. Never launch multiple scrapers.
 
 ---
 
