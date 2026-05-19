@@ -162,10 +162,13 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-19] Session 22 — Situation Keywords: Physical Sensation vs. Context — key distinction
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (7 keywords, S22; confirms S21 pattern)
-**Observation:** 7 situation keywords tested S22. Split result: cold office ✅ (heated mat 66), 6 others ❌ DEAD. Pattern confirmed — situation keywords produce white-label products ONLY when the keyword implies a specific BODY-LEVEL DISCOMFORT a portable product can immediately relieve. Works: "cold office" (body sensation → product), "tired feet" (pain → product), "sitting all day" (pressure → product). Fails: "desk job", "night shift", "meal prep" (context/lifestyle → attract services), "ergonomic" (attribute descriptor → attract premium furniture $200+), "on your feet all day" (implied footwear → attracts shoe brands $99-200+). Rule for S23+: before adding a situation keyword, ask "does this keyword imply a specific body sensation?" If yes → run it. If it's a job context, lifestyle activity, or broad product attribute → skip.
-**Applies to:** S23+ Situation Keywords sessions — keyword selection filter
+### [2026-05-19] Session 22/23 — Situation Keywords: что работает, что не работает
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** MEDIUM (S21-S23 data; S23 correction by Marina)
+**Observation:** S21-S22 данные: "cold office" ✅, "tired feet" ✅, "sitting all day" ✅ — все физические ощущения. S22 мёртвые: "desk job", "night shift", "meal prep", "ergonomic", "on your feet all day". S23 мёртвые: burnout, work stress, always tired.
+НО: "long flight" (S11) — контекстный keyword, НЕ физическое ощущение — дал Kids Travel Sleep Nest score 72 ✅.
+ВЫВОД (исправлен Marina S23): ситуационные keywords работают когда создают СПЕЦИФИЧНЫЙ МОМЕНТ боли/дискомфорта — неважно физический или контекстуальный. Не работают: слишком широкие эмоциональные/психологические состояния ("burnout", "work stress", "always tired") → притягивают supplements/coaching/apps. Работают: конкретный момент ("long flight", "cold office", "tired feet") → продукт решает именно этот момент.
+Ошибочное правило из черновика S22 ("физическое ощущение = сигнал; контекст = мёртво") ОТОЗВАНО как чрезмерная генерализация.
+**Applies to:** S23+ Situation Keywords sessions — keyword selection
 **Expires after:** Session 29
 
 ---
