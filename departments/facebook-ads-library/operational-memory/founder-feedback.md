@@ -38,6 +38,9 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | 2026-05-18 | The Little Potion Co — Mindful Magic Potion Kits | 68 | "Strong concept. Good creative flexibility." — potential but not committed. | Strong gifting angle; creative potential confirmed; needs US market validation and white-label sourcing. |
 | 2026-05-18 | Magic Playwall — Magnetic Art Wall for Kids | 62 | "Beautiful packaging. Small-scale niche potential." — not rejecting but niche concern. | Second DTC advertiser in category would open it. Score was below threshold — Marina sees potential despite low signal. |
 | 2026-05-18 | Camp Snap Camera — Screen-Free Kids Digital Camera | 77 | "Strong aesthetic branding potential." — brand risk concern (Camp Snap = pioneer with strong identity). | White-label sourcing on Alibaba + differentiated branding = could work. Marina sees creative/aesthetic opportunity. |
+| 2026-05-23 | Rechargeable Heated Eye Mask (Blinkjoy-validated) | 67 | "Strong pain-solving angle. Clean design." | Pain-solving + clean design = Consider; confirm white-label sourcing + build quality (Blinkjoy 72% 5★ = return risk). |
+| 2026-05-23 | Ivy Gen 2 — Smart Companion Planter (PlantsIO) | 72 | "Unique emotional product. Stylish and memorable." | Emotional uniqueness + style + memorability = strong Consider. Validates companion-gadget emotional angle. |
+| 2026-05-23 | Cordless Self-Heating Lunch Box (Luncheaze-validated) | 73 | "Strong everyday problem solver. Big branding potential." — Marina changed Approved → Consider (not yet committed). | Positive read, held at Consider; tip to YES: confirm white-label sourcing + Li-battery shipping economics. |
 
 ---
 
@@ -66,6 +69,12 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | 2026-05-18 | Wonder Quest 4K Discovery Microscope | 70 | "Strong educational angle." — Rejected as "Already saturated." | Educational angle is noted as strong — but category saturation overrides. Educational kids tech = crowded. |
 | 2026-05-18 | Thoson Kids MagTrack | 67 | "Strong dropshipping-style toy. Overexposed category." — Rejected. | Dropshipping-style execution = commodity positioning, easily copied; magnetic toy category overexposed. |
 | 2026-05-23 | Weighted Comfort Animal (pulseofpotential — Sunnie Sloth / Pookie Panda) | 71 | "Уже видела подобные игрушки везде, нет вау-эффекта, сложно продавать." + пустышка-claim (calm nervous system / cortisol). | Third weighted-calming reject (Comfrt hoodie, Sereni vest, now this) → weighted-calming = saturated + пустышка + no wow. |
+| 2026-05-23 | Itaki Bento PRO — Portable Electric Cooking Lunchbox | 63 | "Interesting portable concept." → Smell + durability concerns. | Cook-at-desk gadget: smell (cooking odor) + durability = return risk; concept interest doesn't override product-quality risk. |
+| 2026-05-23 | Candle Warmer Lamp | 70 | "Very unique aesthetic product." → Fragile shipping risk. | NEW reject lever: fragility/breakable = shipping & returns risk → reject even when aesthetic is strong. (Logistics fragility, not the везде-flag I raised.) |
+| 2026-05-23 | Electric Heated Under-Desk Mat | 66 | "Clean execution but weak differentiation." → Missing strong wow-factor. | Clean build ≠ enough; no wow + commodity differentiation → reject. Confirms wow-effect non-negotiable. |
+| 2026-05-23 | Orthopedic Honeycomb Gel Seat Cushion | 68 | "Saturated category. Weak unit economics potential." → Overexposed product type. | Confirms saturation override + unit-economics concern (Amazon $20-35 floor) → reject the convergence I flagged. |
+| 2026-05-23 | Hugterra Neck Massager — 4-in-1 Traction + EMS | 70 | "Complicated value communication." → Hard conversion product. | Multi-function device = too much to explain for cold traffic → reject. Confirms 15-second / education-load rule. |
+| 2026-05-23 | Nuvé Silk 3 Pro — Electric Callus Remover | 74 | "Excellent packaging and presentation." → Low-price economics. | HIGHEST score this batch (74) still rejected: low price-point economics can't support paid traffic. Score never overrides weak unit economics. |
 
 ---
 

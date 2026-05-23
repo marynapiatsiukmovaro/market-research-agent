@@ -284,6 +284,20 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **New/expanding NOISE classes on plant/wellness keywords:** (1) pharma "doctor-story" spam (fake cardiologist/kidney/menopause/hair/gut, NO DOMAIN, single ad) — heavy on "office plant". (2) micro-drama spam story-accounts (MYNVWIBCN ×8 "fighter pilot", Passion Novels) — heaviest on "desk pet". (3) "scratched writing desk" repost-spam ×3. (4) plant-care SERVICES (interior plantscaping) flood "office plant". (5) outdoor landscaping/real-estate/lawn-retail flood "smart garden".
 - **Pre-launch/Kickstarter confirmed never-report:** SENSO (CES 2026) running 9 FB ads to drive Kickstarter signups — strong category signal, but no product to source/test.
 
+### Session 27 Rejections — 2026-05-23 (Office × Positive Emotion / Situation: tired eyes, eye strain, heated lunch box, office lunch, on the go)
+
+| 2026-05-23 | Lunisk Correction Glasses | Eyewear/Health | пустышка — "rely less on glasses over time / gradual vision enhancement" = unverifiable result (Marina #1 hard reject) + FDA disclaimer "not intended to treat"; sale $37.95 below floor | filtered |
+| 2026-05-23 | Blue-light glasses class (Lockt $89, Slickweare 60%off, Moonighty $19.99 BOGO, AZZARI, EyeQLenz, TechSpecs, Ocushield, TwentyFourth) | Eyewear | пустышка (efficacy scientifically debated — ads themselves admit "clear blue light glasses don't work") + везде + mostly price-floor; 8+ advertisers = hot commodity but wrong taste/economics | class reject |
+| 2026-05-23 | Quntis Monitor Light Bar | Tech/Desk | ~62 sub-threshold: physical eye-care desk lamp ($60, white-label-able) but Amazon-crowded + BenQ ScreenBar везде-risk on desk-aesthetic content; moderate problem/emotion | ~62 |
+| 2026-05-23 | Rarely Co (new.rarely.co) | Marketplace | Curated multi-merchant marketplace (artisan goods $30-42: cutlery case, water bottle, pottery cup) — not a single white-label DTC product | filtered |
+| 2026-05-23 | Itaki Bento PRO (Magic Itaki Co) | Kitchen | ~63 sub-threshold — Marina flagged to KEEP + added to Notion. Portable electric COOKING lunchbox ($69.95 sale/$140), strong wow + 1yr active, BUT mixed/poor reviews (durability "thin bowl dented", bad customer service = return risk) + trademark Magic Itaki® + cook-at-desk = narrower behavior than warming | ~63 |
+
+### Session 27 Pattern Summary — eye/screen + lunch clusters
+
+- **Eye/screen keywords (tired eyes 262, eye strain 229) = near-mirrors, dominated by commodity classes:** (1) blue-light glasses (8+ advertisers, пустышка/везде/price-floor); (2) vision-correction пустышки + eye supplements (Lunisk, Visiovance lutein ×3, "$39 see clearly") + Rx pharma (Lynkuet, Xiidra) + vision-surgery services (EVO ICL, RLE). The ONLY white-label physical eye-relief signals = heated eye mask (Blinkjoy 67, reported) + eye massager (Sakerplus = duplicate of approved S1 product). TV-backlight/cinema-lights (Trendora/Orbis/Orvinos cloned copy) + car sun-visor-extender dropship-clones (Flowarmth 20 ads, Forttender 8) = off-theme commodity.
+- **Lunch keywords confirm S24/S25 discriminating principle (3rd+ confirmation):** specific PRODUCT phrase "heated lunch box" (30 adv, thin but real) → Luncheaze Cordless Self-Heating Lunch Box 73. Broad SITUATION phrases "office lunch" (247) + "on the go" (377) → 0 reportable: dominated by food-delivery/catering services, job-recruitment, established mega-brands (Lovevery/Coleman/Carpe/Nature Made), supplements, banks, apps. Physical lunch territory = "portable powered meal device" only (Luncheaze warmer + Itaki cooker).
+- **Micro-drama/fiction story-spam NO-DOMAIN noise class now dominates even narrow product keywords:** "I lost my job and home" / romantasy clusters (×7 shell accounts) + "Chapter 1: Rock Bottom" (×3) appeared heavily on "heated lunch box" (30 adv) — this spam class is no longer confined to broad lifestyle keywords.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

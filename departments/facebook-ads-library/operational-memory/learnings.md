@@ -150,11 +150,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-23] Session 24 — S25 direction note (non-binding)
-**Type:** Tactical | **Severity:** MEDIUM | **Confidence:** MEDIUM (one discussion, Marina S24)
-**Observation:** After Cluster 2 closed, Marina + agent discussed where to look next. Leaning: deepen the **Kids & Parenting vertical** using the Vertical product-category keyword model (historically highest yield: "baby carrier", "screen time" → 1-3 products/keyword) + possible advertiser-catalog mining. This is a DIRECTION for where to search, NOT a filter — scoring/filters stay unchanged, all categories still eligible. Final hypothesis + keyword list to be confirmed with Marina at S25 start.
-**Applies to:** S25 keyword planning
-**Expires after:** Session 27
+~~### [2026-05-23] Session 24 — S25 direction note (non-binding)~~
+> ARCHIVED S27 — expired. Superseded: S25/S26/S27 followed the Office×Positive Emotion direction (per _active.md S24 PIVOT + session prompts), NOT the Kids vertical floated in this note.
 
 ---
 
@@ -198,10 +195,29 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-23] Session 27 — Eye/screen cluster: heated eye mask = the lone white-label signal; blue-light glasses = hot-but-unsuitable class
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** MEDIUM (2 keywords S27)
+**Observation:** "tired eyes" (262) + "eye strain" (229) are near-mirrors. The eye/screen-relief landscape splits into: (a) white-label physical = heated eye mask (Blinkjoy reported 67; warm-compress, legit mechanism) + eye massager (Sakerplus = duplicate of approved S1 product) + monitor light bar (Quntis ~62 sub-threshold); (b) NON-reportable but high-money classes = blue-light glasses (8+ advertisers Lockt/Slickweare/Moonighty/AZZARI/EyeQLenz/TechSpecs/Ocushield — пустышка [efficacy debated, ads themselves admit "clear ones don't work"] + везде + mostly price-floor), vision-correction пустышки (Lunisk "rely less on glasses"), eye supplements (Visiovance lutein), Rx pharma (Lynkuet/Xiidra), vision-surgery services. 2-word health term "tired eyes" was NOT FB-blocked (vs S21 "back pain"/"standing all day" blocked) → blocking is term-specific, not all 2-word health terms. Directional: blue-light glasses is a recurring large commodity cluster to skip fast on any eye keyword.
+**Applies to:** S28+ — eye/screen/vision keyword sessions; noise rejection
+**Expires after:** Session 33
+
+---
+
+### [2026-05-23] Session 27 — Lunch cluster reconfirms specific-product-phrase >> broad-situation-phrase; "portable powered meal device" territory
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** HIGH (3 keywords S27 + consistent with S24/S25)
+**Observation:** Specific PRODUCT phrase "heated lunch box" (30 unique adv — thin but real, 563 scroll→30 = heavy ad-repeat + spam, NOT a bug) → Cordless Self-Heating Lunch Box (Luncheaze-validated, score 73). Broad SITUATION phrases "office lunch" (247) + "on the go" (377) → 0 reportable: food-delivery/catering services, job-recruitment, established mega-brands, supplements, banks, apps. This is the Nth confirmation of the S24/S25 discriminating principle (concrete physical-object phrasing wins; broad situation/lifestyle phrasing = service/brand noise). New territory surfaced: "portable powered meal device" — Luncheaze (cordless WARMER, $119-240, white-label $49-69) + Itaki Bento PRO (portable COOKER, $69.95/$140, ~63 sub-threshold, Marina-kept, quality-risk). Both validate that powered lunch gadgets convert; warmer (broad use) > cooker (narrower cook-at-desk behavior + durability concerns). NOTE: micro-drama/fiction NO-DOMAIN story-spam ("I lost my job and home" romantasy ×7, "Chapter 1: Rock Bottom" ×3) now dominates even narrow product keywords (heated lunch box), not just broad lifestyle ones.
+**Applies to:** S28+ — keyword selection (prefer specific product phrases); meal-gadget category
+**Expires after:** Session 33
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.
 > Do NOT delete archived entries — keep as historical record.
+
+> **АРХИВАЦИЯ Session 27 (2026-05-23):** 1 запись архивирована (истекла после Session 27):
+> - Session 24 — S25 direction note (non-binding) — Kids-vertical lean не реализовался; S25-S27 шли по Office×Positive направлению. Tombstone оставлен в Active секции.
 
 > **АРХИВАЦИЯ Session 25 (2026-05-23):** 8 записей архивированы (истекли после Session 25):
 > - Session 10 — Keyword Audit Database (50-keyword monitor)

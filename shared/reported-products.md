@@ -59,6 +59,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-23 | Ivy Gen 2 (Smart Companion Planter) | Home/Tech | 72 | AI-face smart planter "desk bestie" — reacts/expresses + 9 sensors + app; 164 reviews 91% 5★ (Gen 2 = proven converter); Tuya/Smart-Life base = white-label path; surfaced in "desk plant" + "cozy office" | Facebook Ads Library / keyword "desk plant" / store.plantsio.com |
 | 2026-05-23 | Candle Warmer Lamp (design-differentiated) | Home/Decor | 70 | Flame-free top-down lamp melts candle = cozy glow + fragrance + no-flame safety; 5+ fresh 2026 DTC (MEVA $119-170, Glenbrookhome $68, Docos); ⚠️ ВЕЗДЕ-risk (TikTok-trended 2023-24) — founder call needed | Facebook Ads Library / keyword "candle warmer" / bymeva.com + glenbrookhome.com |
 
+| 2026-05-23 | Rechargeable Heated Eye Mask (Blinkjoy-validated white-label) | Health | 67 | Warm-compress relief for screen-induced dry/tired eyes; Blinkjoy premium $150 (optometrist-rec, ~9mo active) proves market → white-label generic $49-69; ⚠️ 72% 5★/176 reviews (return risk) + adjacent to approved Eye Massager S1 (distinct: passive mask, no massage) | Facebook Ads Library / keyword "tired eyes" / blinkjoy.com |
+| 2026-05-23 | Cordless Self-Heating Lunch Box (Luncheaze-validated white-label) | Kitchen | 73 | Battery lunch box auto-heats food, no microwave — blue-collar/office/commuter/student; Luncheaze $119-240 (4.7★/1343 rev) + HeatsBox prove premium tier → white-label $49-69; ⚠️ Li-battery logistics (weight/air-freight) + plug-in commodity floor | Facebook Ads Library / keyword "heated lunch box" / luncheaze.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
