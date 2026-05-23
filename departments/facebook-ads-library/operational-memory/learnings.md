@@ -27,24 +27,13 @@ Items expire after the listed session. Marina promotes confirmed patterns via re
 
 ## Active Learnings
 
-### [2026-05-16] Session 10 — Keyword Audit Database: ~50 keywords weekly monitor
-**Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed, Session 10)
-**Observation:** Marina proposed building ~50-keyword weekly monitor: run each keyword once per week → track new advertisers appearing/disappearing → Market Pulse Monitor. Current tested: 22 keywords (see keyword-map.md). Build to 50, then weekly pulse scan replaces full discovery sessions for established keywords. Significant long-term research efficiency gain.
-**Applies to:** Long-term session planning
-**Expires after:** Session 25
+~~### [2026-05-16] Session 10 — Keyword Audit Database: ~50 keywords weekly monitor~~
+> ARCHIVED S25 — expired. Idea preserved in memory project_keyword_audit_system.md + keyword-map.md.
 
 ---
 
-### [2026-05-16] Session 10/11 — Situation keywords = hidden intersection discovery mode
-**Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed; Travel Nest proof of concept)
-**Observation:** Situation keywords work differently than product keywords. "Long flight" found Kids Travel Sleep Nest (score 72) — a product that would NEVER appear in "baby product" or "infant toy" keywords. Reason: the moment of pain (child on plane) creates context where Kids × Travel × Sleep intersect. This is the VALUE of situation keywords.
-Rules for situation keywords:
-- Low yield (0.3-0.5%) is NORMAL — do not abandon mid-session because of noise
-- Judge by: is there anything here that wouldn't appear in standard product keywords?
-- 65-70% noise = expected, not a signal to pivot keyword
-- Estimate 2-3 situation keywords per session to compensate for lower yield
-**Applies to:** All sessions with situation/moment keywords
-**Expires after:** Session 25
+~~### [2026-05-16] Session 10/11 — Situation keywords = hidden intersection discovery mode~~
+> ARCHIVED S25 — expired. Core rule (low yield normal; judge by unpredictable intersections) preserved in keyword-map.md Meta Rules + S22/23 learnings.
 
 ---
 
@@ -73,27 +62,18 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-18] Session 15 — Category tracking: 30-keyword experiment needs a running tally
-**Type:** Tactical | **Severity:** HIGH | **Confidence:** HIGH (Marina confirmed strategy)
-**Observation:** Marina's strategy: run 30 performance signal keywords across 10 sessions → identify which categories appear 3+ times → pivot to product-specific deep-dive in those categories. Current emerging signals after 2 keywords: Pet (Heusom), Beauty/Personal Care (Dermave). Need to track category distribution across all 30 keywords as they are tested. When any category reaches 3+ products across different keywords → flag for deep-dive in next session block.
-**Applies to:** Sessions 15-25 — at each STEP 8, count category occurrences from reported-products.md
-**Expires after:** Session 25
+~~### [2026-05-18] Session 15 — Category tracking: 30-keyword experiment~~
+> ARCHIVED S25 — expired. Broad Horizontal hypothesis CLOSED S20; superseded by Situation Keywords hypothesis.
 
 ---
 
-### [2026-05-18] Session 17 — "Gadget" descriptor keywords: confirmed dead class for DTC discovery
-**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (2 keywords: "genius gadget" 121 unique adv., "gadget" 296 unique adv., 0 reportable)
-**Observation:** "Genius gadget" = mass-clone dropship networks + mosquito affiliate clusters (minimal ad spend). "Gadget" = ultra-broad, attracts established brands (FIXD, REVO, HexClad), cheap commodities below $39, and пустышки with dubious claims. "Product signal" keyword sub-class in the 30-keyword list (#10 "genius gadget", #11 "viral product", #12 "as seen on tiktok") likely to perform similarly — these phrases attract affiliate/social-proof content, not cold-traffic DTC operators. Deprioritize remaining "product signal" entries from priority queue.
-**Applies to:** Sessions 15-25 — skip remaining "product signal" sub-class from 30-keyword list; focus on pain/outcome phrases
-**Expires after:** Session 25
+~~### [2026-05-18] Session 17 — "Gadget" descriptor keywords: dead class~~
+> ARCHIVED S25 — expired. Verdicts preserved in keyword-map.md ("gadget"/"genius gadget" ❌ DEAD).
 
 ---
 
-### [2026-05-18] Session 16 — Offer/promo keywords: confirmed dead class for DTC physical products
-**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 keywords, 867 advertisers, 0 reportable)
-**Observation:** Tested 4 performance signal keywords with offer/promo language: "tiktok made me buy" (277), "50% off today" (69), "buy 1 get 1 free" (164), "half off" (357) → total 867 advertisers → 0 reportable products. Pattern: promo-phrase keywords attract retail brands with seasonal promotions, jewelry/apparel discounts, supplement brands, subscription services — NOT cold-traffic DTC physical product operators in $39-99. Correct performance signal class = outcome/pain phrases ("say goodbye to", "game changer"). Incorrect class = price/offer phrases. Do NOT test remaining offer keywords from the 30-keyword list (#14 "50% off today" and #15 "buy 1 get 1 free" already confirmed dead).
-**Applies to:** Sessions 15-25 keyword strategy — skip remaining offer/promo type keywords
-**Expires after:** Session 25
+~~### [2026-05-18] Session 16 — Offer/promo keywords: dead class~~
+> ARCHIVED S25 — expired. Verdicts preserved in keyword-map.md Meta Rules (Offer/promo DEAD class).
 
 ---
 
@@ -110,19 +90,13 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-18] Session 18 — Broad horizontal discovery: pattern after 15+ keywords tested
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (15 keywords, ~5000 advertisers total)
-**Observation:** After 15+ performance signal keywords (S15-S18): only 2 reportable products found — both from S15 ("game changer" → Dermave 69, "say goodbye to" → Heusom 71). All subsequent keywords: 0 reportable. Pattern breakdown by sub-class: Pain hooks ("tired of", "say goodbye to") — ⚠️ LOW YIELD. Discovery hooks ("why didn't I know") — ⚠️ LOW YIELD. Outcome phrases ("game changer") — ✅ only winner so far. Gift/occasion hooks — ❌ DEAD class. Promo hooks — ❌ DEAD class. Product signal hooks — ❌ DEAD class. Broad emotional hooks — ❌ DEAD class. **Contrast:** Kids vertical product-specific keywords (S8-S14) consistently found 1-3 candidates per keyword. Hypothesis: broad hooks filter by advertiser TYPE weakly — too many digital/service advertisers contaminate. Product-specific or niche-specific keywords filter better.
-**Applies to:** Sessions 18-25 — reconsider hypothesis after remaining ~15 keywords; build next hypothesis around product-specific niche keywords
-**Expires after:** Session 25
+~~### [2026-05-18] Session 18 — Broad horizontal discovery: pattern after 15+ keywords~~
+> ARCHIVED S25 — expired. Hypothesis CLOSED S20 (see S20 archived entry below).
 
 ---
 
-### [2026-05-18] Session 19 — Universal urgency/credibility phrases: confirmed dead class
-**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 keywords, 1245 advertisers, 0 reportable)
-**Observation:** Tested "as seen on shark tank" (584), "use code" (368), "limited time only" (293) → 0 reportable. All attract all advertiser types equally. "as seen on shark tank" structural failure: 90%+ real Shark Tank alumni = all proprietary/patented. "use code" and "limited time only" are universal ad phrases used by restaurants, retailers, services — no DTC physical product filter. New dead class: **universal ad copy phrases** that any advertiser writes regardless of product type.
-**Applies to:** Sessions 20-25 — avoid phrases that restaurants/legal/finance firms also use; prefer pain/problem hooks only physical product advertisers write
-**Expires after:** Session 25
+~~### [2026-05-18] Session 19 — Universal urgency/credibility phrases: dead class~~
+> ARCHIVED S25 — expired. Verdicts preserved in keyword-map.md.
 
 ---
 
@@ -136,13 +110,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-18] Session 20 — Broad Horizontal Discovery hypothesis: CLOSED
-**Type:** Pattern
-**Severity:** HIGH
-**Confidence:** HIGH (S15-S20, 29 keywords, ~7900 total advertisers, 2 reportable)
-**Observation:** Hypothesis closed after S20. Total: 29 performance signal keywords tested across Sessions 15-20. Result: 2 reportable products — both from S15 ("game changer" → Dermave 69, "say goodbye to" → Heusom 71). Last 14+ keywords: 0 products. Final S20 sub-class tested — pain/narrative hooks ("if you suffer from" 361 adv., "the worst part of" 262 adv., "the only thing that" 391 adv., "before and after" 344 adv.) → all ❌ DEAD. Multiple keywords blocked by FB (0 ads): "struggling with", "embarrassing", "in seconds", "free shipping over", "sold out". Core finding: broad performance signal phrases are used by ALL advertiser types — pharma, retail, restaurants, services, DTC. They do NOT filter for physical product DTC operators. Hypothesis assumption was wrong. New direction: product-specific or niche-specific keywords only.
-**Applies to:** S21+ — close hypothesis, pivot to product-specific keyword strategy
-**Expires after:** Session 25
+~~### [2026-05-18] Session 20 — Broad Horizontal Discovery hypothesis: CLOSED~~
+> ARCHIVED S25 — expired. Final tally: 29 keywords → 2 products (both S15). Pivoted to Situation Keywords (S21+).
 
 ---
 
@@ -189,10 +158,45 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-23] Session 25 — Office × Positive Emotion (Cluster 5): yield + discriminating principle (positive side)
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** MEDIUM (5 keywords, S25 — first positive-emotion session)
+**Observation:** First session of the S24 emotion-pivot (office vertical, love/delight/aspiration instead of pain). 5 keywords: desk plant ✅ (Ivy Gen 2 smart companion planter 72), candle warmer ✅ (Candle Warmer Lamp 70, ⚠️ везде-flag held for Marina), mug warmer ❌, cozy office ❌, aesthetic desk ❌. Yield 2/5 = consistent with situation-keyword norm. CONFIRMS S24 discriminating principle on the POSITIVE side: a positive-moment keyword yields white-label DTC only when the moment has a concrete PHYSICAL-OBJECT solution (companion gadget; flame-free cozy lamp). Fails when keyword is broad-lifestyle (cozy office = home/property search) or maps to the wrong object (mug warmer → the CUP not the device; aesthetic desk → branded-premium gear/furniture). Note: S25 direction was Office×Positive (per session prompt + _active.md S24 PIVOT), NOT the Kids vertical floated in the S24 direction-note.
+**Applies to:** S26+ positive-emotion office keyword selection
+**Expires after:** Session 31
+
+---
+
+### [2026-05-23] Session 25 — Two new NOISE classes on consumer/lifestyle keywords
+**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (heavy across 5 keywords)
+**Observation:** (1) Spam engagement-bait "story" accounts — garbage names (BrightMeadow 29, WildGarden7030, CalmMist 29), identical fiction copy ("I know you've been cheating on me", necrotic-fingers, kidney/BP/GLP-1 stories), 19-29 ads each, keyword-stuffed → they dominate fast_filter top-20 by ad-count signal on mug warmer + desk plant. (2) Real-estate/property listings flood broad lifestyle phrases (cozy office → realtors, apartments, sqft/beds/baths, sheds-as-"home office"). Both = pure noise; recognize by garbage-name + fiction-copy / property-listing pattern and skip fast. Possible fast_filter upgrade (advertiser-name + fiction-copy detection) — PROPOSAL, not auto-implemented (see Session Learning Report).
+**Applies to:** all consumer/lifestyle keyword sessions — faster noise rejection
+**Expires after:** Session 31
+
+---
+
+### [2026-05-23] Session 25 — Recurring SIGNAL: ambient/aesthetic desk lamp
+**Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (3 keywords)
+**Observation:** "Ambient/aesthetic desk lamp" recurred across candle warmer (candle-warmer lamps: MEVA/Glenbrookhome/Docos/Homira — 5+ brands = category convergence), and aesthetic desk (Solara bird lamp). Cozy/aesthetic desk LIGHTING is a recurring positive-emotion territory; candle warmer lamp = strongest convergence (reported 70). Directional only — Marina decides whether to deep-dive the lamp/lighting category next.
+**Applies to:** S26+ — potential lamp/lighting deep-dive
+**Expires after:** Session 30
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.
 > Do NOT delete archived entries — keep as historical record.
+
+> **АРХИВАЦИЯ Session 25 (2026-05-23):** 8 записей архивированы (истекли после Session 25):
+> - Session 10 — Keyword Audit Database (50-keyword monitor)
+> - Session 10/11 — Situation keywords = hidden intersection discovery mode
+> - Session 15 — Category tracking: 30-keyword experiment
+> - Session 17 — "Gadget" descriptor keywords: dead class
+> - Session 16 — Offer/promo keywords: dead class
+> - Session 18 — Broad horizontal discovery pattern (15+ keywords)
+> - Session 19 — Universal urgency/credibility phrases: dead class
+> - Session 20 — Broad Horizontal Discovery hypothesis CLOSED
+> Все keyword-вердикты сохранены в keyword-map.md. Tombstones оставлены в Active секции.
 
 > **АРХИВАЦИЯ Session 13 (2026-05-16):** 18 записей удалены из основного раздела. Марина подтвердила "ок".
 > Archive reference: departments/facebook-ads-library/operational-memory/learnings-archive-queue.md

@@ -247,6 +247,24 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - vagus nerve (193 adv) + overwhelmed (359 adv) → 0 reportable. 3rd confirmation: wide mental/emotional/biochemical states → market sells services/coaching/supplements/branded-premium-devices, NOT white-label physical objects. Discriminating variable: does the problem have a PHYSICAL OBJECT as its obvious solution? Mental/emotional = no.
 - Weighted comfort animals (pulseofpotential) = 3rd weighted-calming reject after Comfrt hoodie (S4) + Sereni vest (S10/11) → пустышка + везде + no wow.
 
+### Session 25 Rejections — 2026-05-23 (Office × Positive Emotion: mug warmer, desk plant, cozy office, candle warmer, aesthetic desk)
+
+| 2026-05-23 | PlantPico handcrafted terrariums | Home/Decor | $159.90–$297.97 — above $170 ceiling + handcrafted artisan (not white-label scalable). 72.5K customers but price kills it. | filtered |
+| 2026-05-23 | H. Potter (terrariums/garden decor) | Home/Decor | Legacy brand since 1997, "designs found nowhere else" = proprietary, not white-label, not fresh DTC entrant. | filtered |
+| 2026-05-23 | Solara Bird Table Lamp | Home/Decor | $45 sale/$99.99 reg, but generic dropship LED lamp (Powered-by-Shopify, heavy discount, 0 reviews, .org), commodity category (Amazon full of cordless bird lamps); ~60 sub-threshold + везде-risk | ~60 |
+| 2026-05-23 | Venty Clip Fan | Tech/Desk | Branded (Venty) + commodity desk-fan category (Amazon $15-30); cooling ≠ "cozy" theme | filtered |
+| 2026-05-23 | Konbini Lite (mini lightbox magnets) | Decor/Novelty | $27.90 — below $39 floor + niche Japan-aesthetic novelty (1000+ reviews but wrong price/model) | filtered |
+| 2026-05-23 | Aesthetic mechanical keyboards (NuPhy, Angry Miao, Redragon) | Tech/Desk | Branded + premium ($100-400) + enthusiast-niche; white-label model N/A | filtered |
+| 2026-05-23 | POD personalized mugs (Wander Prints, Macorner, homacus/Laugh and Share) | Gifts/POD | Print-on-demand personalized gift model — not white-label DTC physical product | filtered |
+
+### Session 25 Pattern Summary — Office × Positive Emotion (Cluster 5)
+
+- **Two NEW recurring NOISE classes on consumer/lifestyle keywords:** (1) **spam engagement-bait "story" accounts** — garbage names (BrightMeadow 29, WildGarden7030, CalmMist 29), identical fiction copy ("I know you've been cheating on me", "necrotic blue fingers", kidney/blood-pressure/GLP-1 stories), 19-29 ads each, keyword-stuffed; appeared heavily in mug warmer + desk plant. (2) **real-estate/property listings** flood broad lifestyle phrases ("cozy office" → realtors, apartments, sqft/beds/baths, sheds-as-"home office").
+- **mug keyword → CUP not WARMER:** "mug warmer" surfaced POD/artisan mugs (the cup), not the warmer device. The electric mug-warmer device had NO dedicated white-label DTC advertiser in fresh 2026 scrape.
+- **artisan/handcrafted decor = structural reject** (recurring across mug warmer + desk plant): White Hearth Pottery, Snaw.co, PlantPico, ArtveraStudio — handmade = not white-label scalable, often priced out.
+- **"aesthetic desk" = branded-premium identity gear** (mechanical keyboards $100-400, RGB Nanoleaf/Lume Cube, design brands Craighill/Secretlab) + heavy furniture + cheap novelty/POD → white-label $39-100 sweet spot empty.
+- **WORKED:** "desk plant" (Ivy Gen 2 smart companion planter 72) + "candle warmer" (Candle Warmer Lamp 70) → products exist where the positive moment has a concrete PHYSICAL OBJECT solution (companion gadget; flame-free cozy lamp). Confirms S24 discriminating principle on the POSITIVE side.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

@@ -56,6 +56,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-19 | Orthopedic Honeycomb Gel Seat Cushion | Health | 68 | 3 DTC brands converged Jan-Mar 2026 (Celinva/Try Alum/EverCushion) — "sitting shouldn't hurt"; WFH+drivers+elderly; chiropractor endorsed; ⚠️ Amazon saturated $20-35 | Facebook Ads Library / keyword "sitting all day" / celinva.com |
 | 2026-05-19 | Electric Heated Under-Desk Mat | Home | 66 | Silent warmth at desk — cold office/WFH legs+feet pain; white-label $49-59; ⚠️ 1 FB advertiser (weak validation), seasonal Oct-Apr | Facebook Ads Library / keyword "cold office" / whisperheat.com |
 
+| 2026-05-23 | Ivy Gen 2 (Smart Companion Planter) | Home/Tech | 72 | AI-face smart planter "desk bestie" — reacts/expresses + 9 sensors + app; 164 reviews 91% 5★ (Gen 2 = proven converter); Tuya/Smart-Life base = white-label path; surfaced in "desk plant" + "cozy office" | Facebook Ads Library / keyword "desk plant" / store.plantsio.com |
+| 2026-05-23 | Candle Warmer Lamp (design-differentiated) | Home/Decor | 70 | Flame-free top-down lamp melts candle = cozy glow + fragrance + no-flame safety; 5+ fresh 2026 DTC (MEVA $119-170, Glenbrookhome $68, Docos); ⚠️ ВЕЗДЕ-risk (TikTok-trended 2023-24) — founder call needed | Facebook Ads Library / keyword "candle warmer" / bymeva.com + glenbrookhome.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
