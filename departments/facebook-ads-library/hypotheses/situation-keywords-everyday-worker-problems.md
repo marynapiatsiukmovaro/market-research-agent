@@ -87,6 +87,34 @@ Expected finds: desk accessories, meal prep tools, work bag organizers, shift wo
 
 ---
 
+## S24 PIVOT (2026-05-23) — Emotion flip within the SAME office vertical
+
+### The 2×2 map (why this pivot)
+
+Every product sits at the intersection of two axes: **is the solution a physical object?** × **what emotion drives the purchase?**
+
+| | Emotion: love / delight / aspiration | Emotion: pain / fear / treatment |
+|---|---|---|
+| **Solution = physical object** | ✅ **Untested opportunity** — cozy / aesthetic / care / pride office products (mug warmer, desk plant, desk pet…). Same emotion as Marina's approved winners (Doppler, Travel Nest, Kaizen swim). Low liability, high wow, relational. | ⚠️ **What S21–S24 tested** — massagers, posture, ergonomic, stimulators. Low white-label yield (branded-premium + services dominate) + founder low-resonance / liability. |
+| **Solution = service / app / pill** | ❌ coaching, meditation apps | ❌ supplements, pharma, clinics |
+
+**The insight:** the office hypothesis pulled hard into the **lower-left** quadrant (physical object + pain) and never touched the **upper-left** (physical object + love/delight). The whole right column is outside our model. So we are NOT abandoning office — we are searching the quadrant we skipped.
+
+**Non-binding — this is a MAP, not a filter:** a physical pain product (lower-left) that scores 65+ is still found, proposed to Marina, and logged to Notion. All quadrants are scored normally. We simply prioritize the untested upper-left for *discovery*, because that emotion matches Marina's approved set and carries low liability + high wow.
+
+**What we learned (S21–S24):** Clusters 1–4 all leaned toward ONE emotion — **pain / fear / treatment** (physical discomfort, mental fatigue, condition relief). That half of the office vertical is largely worked out: it surfaces mostly supplements / services / branded-premium devices. Real white-label finds were few (tired feet ✅, sitting all day ✅, cold office ✅). Cluster 2 (Stress/Mental) is CLOSED (3rd confirmation: burnout/work stress/always tired/overwhelmed/cortisol/brain fog/vagus nerve → 0).
+
+**The untested half:** we NEVER searched the office vertical through the **love / delight / aspiration** emotion. The hypothesis is NOT stopped — we tested one emotional half, got results, and now move to the other half of the same vertical.
+
+**S25 direction — Office × Positive Emotion:** mine the WORKER'S POSITIVE moments and desires (a joyful break, a cozy/aesthetic workspace, daily rituals, pride/milestones, connection with colleagues). Logic = the Kids "screen-free" insight: that keyword worked because it tapped a parent's deeper *positive* care (child active & free), not the screen itself. Apply the same: keywords that tap the worker's deeper positive desire, not their pain. See the positive-emotion keyword bank (proposed in S24 chat; Marina confirms/tracks keywords).
+
+**IMPORTANT — this is a PREFERENCE / DIRECTION, NOT a filter:**
+- We do NOT reject pain-solving products. If a strong pain-solving product scores 65+, we find it, propose it to Marina, and log it to Notion — all in order.
+- All categories remain eligible. Scoring and core filters are unchanged.
+- Positive / delightful products are simply ALSO welcome and currently of high founder interest (reflects Marina's approved set — Doppler, Travel Nest, Kaizen swim). Too little data to restrict in either direction.
+
+---
+
 ## Noise Filter for This Hypothesis
 
 | Signal type | Action |

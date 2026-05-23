@@ -173,6 +173,22 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-23] Session 24 — Mental/biochemical states DEAD (3rd confirmation) + discriminating principle
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (S22-S24, 6 keywords)
+**Observation:** vagus nerve (193 adv) + overwhelmed (359 adv) → 0 reportable. vagus nerve device cluster IS real & active (Pulsetto, Sensate, Truvaga, Hoolest, Neuvana, Nuropod $900) but ALL branded-proprietary + premium ($150-900) → closed to white-label. overwhelmed = courses/supplements/pharma/charity/SaaS. **Discriminating principle (covers all 24 sessions): a keyword yields white-label physical DTC only if the problem has a PHYSICAL OBJECT as its obvious, immediate solution.** Physical/localized pain or concrete moment (tired feet, sitting all day, long flight) = yes. Wide mental/emotional/biochemical state (burnout, overwhelmed, cortisol, vagus) = market answers with services/pills/apps/branded-premium-devices = no. CLOSE Cluster 2 entirely. Recurring side-signal: weighted comfort animals (pulseofpotential) appeared in BOTH keywords from different advertisers — directional only, Marina vetoed the category.
+**Applies to:** keyword selection — Cluster 2 (Stress/Mental) closed
+**Expires after:** Session 30
+
+---
+
+### [2026-05-23] Session 24 — S25 direction note (non-binding)
+**Type:** Tactical | **Severity:** MEDIUM | **Confidence:** MEDIUM (one discussion, Marina S24)
+**Observation:** After Cluster 2 closed, Marina + agent discussed where to look next. Leaning: deepen the **Kids & Parenting vertical** using the Vertical product-category keyword model (historically highest yield: "baby carrier", "screen time" → 1-3 products/keyword) + possible advertiser-catalog mining. This is a DIRECTION for where to search, NOT a filter — scoring/filters stay unchanged, all categories still eligible. Final hypothesis + keyword list to be confirmed with Marina at S25 start.
+**Applies to:** S25 keyword planning
+**Expires after:** Session 27
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.

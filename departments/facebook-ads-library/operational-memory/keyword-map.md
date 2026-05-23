@@ -141,7 +141,7 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 
 ## Active Hypothesis S21 — Situation Keywords: Everyday Worker Problems
 
-> **Status:** Cluster 1 ✅ DONE (S21) — 3 products. S22 Worker Context + Sensation — 7 keywords, 1 product (cold office 66). S23 Mental Fatigue (burnout/work stress/always tired) — 3 keywords, 0 products. KEY FINDING (corrected S23 by Marina): situation keywords work when creating a SPECIFIC MOMENT of discomfort — physical OR contextual ("long flight" = context, found score 72 ✅). DEAD CLASS: wide psychological/emotional states (burnout, work stress, always tired) → supplements/coaching/apps. Next: exhausted + mentally drained (S24), then consider specific-moment keywords only.
+> **Status:** Cluster 1 ✅ DONE (S21) — 3 products. S22 Worker Context + Sensation — 7 keywords, 1 product (cold office 66). S23 Mental Fatigue (burnout/work stress/always tired) — 3 keywords, 0 products. KEY FINDING (corrected S23 by Marina): situation keywords work when creating a SPECIFIC MOMENT of discomfort — physical OR contextual ("long flight" = context, found score 72 ✅). DEAD CLASS: wide psychological/emotional states (burnout, work stress, always tired) → supplements/coaching/apps. S24: vagus nerve (193) + overwhelmed (359) → 0 reportable; vagus device cluster real but ALL branded-premium ($150-900). ⛔ CLUSTER 2 (Stress/Mental) CLOSED — 3rd confirmation. S25: explore Kids/parenting product-category keywords (highest historical yield).
 > **Key rule:** Use 3-4 word descriptors with specific moment context. Avoid wide emotional/psychological states. Avoid 2-word condition terms ("back pain" → FB blocked).
 
 | Cluster | Keyword | S | Ads | Verdict | Signal |
@@ -172,6 +172,10 @@ These keywords filter by ADVERTISER TYPE (aggressive D2C performance marketers),
 ↳ Noise Type: HR/corporate wellness services | financial services | supplements/adaptogens | ↳ Emotional Cluster: workplace stress / professional burnout | ↳ Signal Density: Very Low (<2%) | ↳ Recurring Categories: orthotics/nurse shoes (Orthora ~63, below threshold)
 | 4 — Mental Fatigue | always tired | S23 | 504 | ❌ DEAD | Energy supplements dominate; compression socks below floor ($29-34); orthotics ~62 below threshold |
 ↳ Noise Type: energy supplements/vitamins | compression socks ($29-34 below floor) | skincare | ↳ Emotional Cluster: fatigue / energy depletion | ↳ Signal Density: Very Low (<2% DTC physical $45+) | ↳ Recurring Categories: compression socks (Everstride 15K reviews $29-34), orthotics (Xstance ~62)
+| 2 — Mental | vagus nerve | S24 | 193 | ❌ DEAD (white-label) | Device cluster REAL & active but ALL branded-premium: Pulsetto/Sensate/Truvaga/Hoolest/Neuvana/Nuropod $900; + coaching/certification, quiz-apps, supplements; 0 white-label physical |
+↳ Noise Type: branded VNS devices ($150-900) | coaching/practitioner certification | quiz-apps (theliven/Calm) | supplements | ↳ Emotional Cluster: nervous-system regulation / calm | ↳ Signal Density: Very Low (<2% white-label) | ↳ Recurring Categories: branded vagus devices, weighted comfort animals (pulseofpotential — cross-keyword)
+| 2 — Mental | overwhelmed | S24 | 359 | ❌ DEAD | Wide emotional state: courses/Tony Robbins, supplements/CBD, pharma (SPINRAZA), charity, B2B SaaS; 0 physical DTC. NOTE: 1st run hit transient FB skeleton-hang (0 cards) → re-run OK (Marina confirmed FB-side, >50k results) |
+↳ Noise Type: courses/info-products | supplements/CBD | pharma | charity | B2B SaaS/subscription | ↳ Emotional Cluster: stress/overwhelm | ↳ Signal Density: Very Low (<1%) | ↳ Recurring Categories: weighted comfort animals (pulseofpotential — same as vagus nerve = recurring signal)
 
 **Cluster 2 candidates (Meal/Energy Problems):** "skipping lunch", "too tired to cook", "no time to eat", "coffee not working", "afternoon crash"
 **Cluster 3 candidates (Mental Fatigue — pending):** exhausted, mentally drained (S24)

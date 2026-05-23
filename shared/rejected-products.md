@@ -237,6 +237,16 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 
 **Pattern confirmed:** Broad performance signal keywords (pain hooks, testimonial phrases, transformation phrases) attract ALL advertiser types — pharma, restaurants, automotive, services, DTC. Zero filter for physical DTC products $39-100. This closes the Broad Horizontal Discovery hypothesis. Next approach: product-specific or niche-specific keywords only.
 
+### Session 24 Rejections — 2026-05-23 (Keywords: vagus nerve, overwhelmed)
+
+| 2026-05-23 | Weighted Comfort Animal (Sunnie Sloth / Pookie Panda, pulseofpotential.com) | Wellness/Comfort | Scored ~71 on commerce ($58.90, 100K+ orders, white-label-able, strong UGC) but Marina REJECTED: "уже видела подобные игрушки везде, нет вау-эффекта, сложно продавать" + пустышка-claim ("calm nervous system / lower cortisol"). | 71→rejected |
+| 2026-05-23 | Vagus nerve device cluster (Pulsetto, Sensate, Truvaga, Hoolest, Neuvana, Nuropod $900) | Health/Device | All branded-proprietary + premium ($150-900) + пустышка ("calm nervous system" non-verifiable). Category closed to white-label by definition. | filtered |
+| 2026-05-23 | HiZoo Neck & Shoulder Massager | Health/Device | $149 EMS device + "patented four-prong" (not white-label) + independent reviews call claims dubious. | filtered |
+
+### Session 24 Pattern Summary — vagus nerve + overwhelmed (DEAD-class 3rd confirmation + FOUNDER PIVOT)
+- vagus nerve (193 adv) + overwhelmed (359 adv) → 0 reportable. 3rd confirmation: wide mental/emotional/biochemical states → market sells services/coaching/supplements/branded-premium-devices, NOT white-label physical objects. Discriminating variable: does the problem have a PHYSICAL OBJECT as its obvious solution? Mental/emotional = no.
+- Weighted comfort animals (pulseofpotential) = 3rd weighted-calming reject after Comfrt hoodie (S4) + Sereni vest (S10/11) → пустышка + везде + no wow.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

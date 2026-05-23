@@ -65,6 +65,7 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | 2026-05-18 | Heusom Silent Groom Pro | 71 | "Low margins. LTV-brand model. Weak DR economics." — Rejected. | Pet grooming vacuum = LTV play (repeat purchase / brand loyalty), not DR one-shot. Wrong model for cold traffic DTC MVP. |
 | 2026-05-18 | Wonder Quest 4K Discovery Microscope | 70 | "Strong educational angle." — Rejected as "Already saturated." | Educational angle is noted as strong — but category saturation overrides. Educational kids tech = crowded. |
 | 2026-05-18 | Thoson Kids MagTrack | 67 | "Strong dropshipping-style toy. Overexposed category." — Rejected. | Dropshipping-style execution = commodity positioning, easily copied; magnetic toy category overexposed. |
+| 2026-05-23 | Weighted Comfort Animal (pulseofpotential — Sunnie Sloth / Pookie Panda) | 71 | "Уже видела подобные игрушки везде, нет вау-эффекта, сложно продавать." + пустышка-claim (calm nervous system / cortisol). | Third weighted-calming reject (Comfrt hoodie, Sereni vest, now this) → weighted-calming = saturated + пустышка + no wow. |
 
 ---
 
