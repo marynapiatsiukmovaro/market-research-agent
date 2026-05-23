@@ -182,6 +182,22 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-23] Session 26 — Recurring SIGNAL: companion plant-care gadget category converging (strengthens Ivy S25)
+**Type:** Signal | **Severity:** HIGH | **Confidence:** MEDIUM-HIGH (4 keywords S26 + S25 Ivy)
+**Observation:** The companion/AI plant-care gadget category that Ivy Gen 2 (reported S25, score 72) appeared to pioneer is NOT a lone player — it is converging hard. Ivy (store.plantsio.com) recurred across 4 S26 keywords (desk plant S25 → smart planter → desk pet → office plant). Independent siblings surfaced: PlantBot (plantsrobot.com, $89.90 companion-face "Plant Tamagotchi"), LeafyPod (theleafypod.com, $140-217 utility AI auto-watering, CES 2025), SENSO (Soildtech, CES 2026 gamified plant-Tamagotchi sensor, Kickstarter pre-launch). CRITICAL: Ivy's white-label path is now CONFIRMED — generic "Plantbot Upgraded Large Smart Flower Pot Pet Planter Robot" sells on Amazon (B0FNRGMZRQ) + PLANTSIO brand on Amazon (B0C8FKLPMW). Emotional hook = desk companion + "never feel lonely at your desk" + plant-keeping-guilt relief; demo-able face/expressions = strong UGC/wow. This is directional only (Marina decides whether to deep-dive the companion-planter category or treat Ivy as the single bet). The face/companion versions (Ivy/PlantBot, $79-90) fit positive-emotion office theme far better than the utility versions (LeafyPod $140+, no face).
+**Applies to:** S27+ — companion plant-care gadget category; Ivy validation
+**Expires after:** Session 33
+
+---
+
+### [2026-05-23] Session 26 — Two operational notes: narrow exact-phrase keywords + pharma "doctor"-spam on plant/wellness keywords
+**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (S26)
+**Observation:** (1) Hyper-narrow EXACT 2-word phrases can be genuinely thin in FB Ads Library, NOT a scraper bug: "desktop aquarium" = 8 advertisers (re-confirmed WITHOUT --since), "desktop fountain" = 1 advertiser. Back-scroll recovery (RULE 5d) fired repeatedly and found nothing = true exhaustion. Lesson: when a 2-word product phrase scrolls <15 unique even after recovery, it's a rare-phrasing keyword — try the common consumer phrasing ("fish tank", "betta", "tabletop fountain") rather than re-running. (2) Pharma/health "doctor-story" spam (fake cardiologist/kidney/menopause/hair-regrowth/gut narratives, NO DOMAIN, often single ad) now floods even plant/wellness keywords ("office plant") — a growing noise class alongside the micro-drama story-accounts (MYNVWIBCN, Passion Novels) and "scratched writing desk" repost-spam. Recognize by NO-DOMAIN + medical-fear narrative + generic name; skip fast. (3) Confirmed scroll-vs-JSON dedup gap: scraper scrolls more cards than it writes to JSON (desk pet 551 scroll → 201 unique; office plant 505 → 190) — report both numbers; the gap is dedup of repeat impressions + spam clusters, not lost signal.
+**Applies to:** S27+ — keyword formulation + noise rejection
+**Expires after:** Session 33
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.

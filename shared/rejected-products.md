@@ -265,6 +265,25 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **"aesthetic desk" = branded-premium identity gear** (mechanical keyboards $100-400, RGB Nanoleaf/Lume Cube, design brands Craighill/Secretlab) + heavy furniture + cheap novelty/POD → white-label $39-100 sweet spot empty.
 - **WORKED:** "desk plant" (Ivy Gen 2 smart companion planter 72) + "candle warmer" (Candle Warmer Lamp 70) → products exist where the positive moment has a concrete PHYSICAL OBJECT solution (companion gadget; flame-free cozy lamp). Confirms S24 discriminating principle on the POSITIVE side.
 
+### Session 26 Rejections — 2026-05-23 (Office × Positive Emotion: smart garden, smart planter, desktop aquarium, desk pet, office plant, desktop fountain)
+
+| 2026-05-23 | Indoor hydroponic smart-garden category (Plantaform, Gardyn, Rise Gardens, ēdn SmallGarden) | Home/Garden | Real category convergence (6+ advertisers) but ALL premium $170-900 + bulky floor-standing units + (most) seed-pod/refill subscription model; plant growth = weeks, not 3-sec wow. Structural reject for white-label $39-100. | filtered |
+| 2026-05-23 | Elfsys Grow Kit | Home/Garden | $422 sale / $603 reg; large vertical unit ~5 ft tall (42 plants) — above ceiling + logistics nightmare despite "no pods/no subscription". | filtered |
+| 2026-05-23 | LeafyPod (AI auto-watering planter) | Home/Tech | $140 single / $195-217 starter; CES 2025 branded/proprietary; utility (auto-watering) not face/companion = weak wow; customer education load. ~56 sub-threshold. | ~56 |
+| 2026-05-23 | Pure Nest (360° sprinkler + soil sensor) | Home/Garden | $19.99-29.99 both products — below $39 floor. | filtered |
+| 2026-05-23 | Crystal Pets (shinepurity.com) | Decor/Wellness | $46-185 crystal-decor figurines; "high vibrational energy / healing / awaken your soul" = пустышка (metaphysical, non-verifiable) + decor commodity (везде). | filtered |
+| 2026-05-23 | Axonix Smart Pet Robot | Kids/Tech | $99.99; generic dropship multi-category store (also EMS/scalp massagers); "AI kids companion" robot = saturated category (Emo/Loona/clones); 1 ad, weak validation. | ~57 |
+| 2026-05-23 | Soildtech SENSO (plant-Tamagotchi sensor) | Home/Tech | CES 2026 product but PRE-LAUNCH Kickstarter — no product, no price, no sourcing. HARD pattern: never report pre-launch/Kickstarter. NOTED as category-convergence proof only. | pre-launch |
+| 2026-05-23 | PlantBot (plantsrobot.com) | Home/Tech | $89.90 companion-face planter — but = same product line as already-reported Ivy Gen 2 (PLANTSIO brand on Amazon). Not re-reported (duplicate); logged as 2nd advertiser + white-label confirmation for Ivy. | dup |
+
+### Session 26 Pattern Summary — Office × Positive Emotion (plant/desk-life keywords)
+
+- **Companion plant-care gadget = the real signal (not a rejection):** Ivy/PlantBot/LeafyPod/SENSO convergence + Ivy white-label confirmed on Amazon (B0FNRGMZRQ). See reported-products.md (Ivy 72, S25) + learnings.md S26. Face/companion versions ($79-90) >> utility versions (LeafyPod $140+).
+- **Indoor hydroponic = structural reject class:** premium $170-900 + bulky + seed-pod subscription + slow-wow + customer education. Real category, wrong economics for cold-traffic white-label DTC.
+- **Hyper-narrow exact-phrase keywords genuinely thin:** "desktop aquarium" (8 advertisers, re-confirmed no-filter) + "desktop fountain" (1) — rare phrasing, not scraper bug. Use common consumer phrasing instead.
+- **New/expanding NOISE classes on plant/wellness keywords:** (1) pharma "doctor-story" spam (fake cardiologist/kidney/menopause/hair/gut, NO DOMAIN, single ad) — heavy on "office plant". (2) micro-drama spam story-accounts (MYNVWIBCN ×8 "fighter pilot", Passion Novels) — heaviest on "desk pet". (3) "scratched writing desk" repost-spam ×3. (4) plant-care SERVICES (interior plantscaping) flood "office plant". (5) outdoor landscaping/real-estate/lawn-retail flood "smart garden".
+- **Pre-launch/Kickstarter confirmed never-report:** SENSO (CES 2026) running 9 FB ads to drive Kickstarter signups — strong category signal, but no product to source/test.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.
