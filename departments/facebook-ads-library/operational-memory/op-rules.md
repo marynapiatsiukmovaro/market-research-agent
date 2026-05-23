@@ -308,3 +308,31 @@ A strong product at $130 with score 72 should be reported. The score accounts fo
 - Expected active file size: ~20 sessions × ~40 entries = ~700–900 entries max
 
 **Agent does NOT load seen-advertisers.md at session start.** The scraper reads it on VPS at scrape time — no agent context cost. Only read if explicitly investigating a specific domain.
+
+---
+
+### RULE 14: Separate DATA from SYSTEM-CHANGING CONCLUSIONS — propose, don't auto-write
+
+**Purpose:** protect the document architecture. Departments record their own work LOCALLY. "Strong documents" (core/ + the distilled founder-taste calibration rules) change behavior across ALL sessions and departments — so they change ONLY by proposal + Marina's OK. Chaotic writes into shared/core docs by any department are prohibited (see CLAUDE.md department isolation). Added S24 — recurring failure (over-generalizing a single case into a system rule; happened S22→corrected S23, S24→reverted).
+
+At STEP 8, classify every intended memory write:
+
+**TIER 1 — Data & specific facts → write freely, in THIS department's folder only:**
+keyword results, products found/scored, a SPECIFIC founder decision on a SPECIFIC product (+ the exact reason), session reports, recurring-signal notes, candidate logs. (Normal logging — fast, autonomous, never blocked.)
+
+**TIER 2 — System-changing generalization → PROPOSE ONLY, never auto-write:**
+- any new/changed SCORING, FILTER, VETO, or generalized TASTE rule;
+- closing/rejecting a whole category or product class; "we no longer take X" / "only take Y";
+- a DIRECTION that overrides the active hypothesis;
+- any promotion of a learning into core/ or the distilled founder-taste rules;
+- anything one department's findings would impose on core or another department.
+→ put in SESSION LEARNING REPORT under "Proposed system change (needs Marina's OK)";
+→ write ONLY after Marina explicitly approves; route core promotions via review/promotion-queue.md.
+
+**Decision test:** "Would this change behavior on products/keywords BEYOND the specific case I just observed, OR touch a strong document?" If yes → Tier 2. **WHEN IN DOUBT → Tier 2.**
+
+**Sample-size guard:** a conclusion from ONE session / a few keywords is a HYPOTHESIS, not a rule. Record it as a directional observation (Tier 1); a rule needs 3+ confirmations OR Marina's explicit approval.
+
+**Boundary clarifier:**
+- "Marina rejected product P because R" = Tier 1 (fact → founder-feedback log).
+- "therefore reject all products like P" / a new taste rule = Tier 2 (propose first).

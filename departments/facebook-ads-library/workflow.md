@@ -134,6 +134,9 @@ This is directional intelligence only. Do NOT assume category validation. Do NOT
 Marina decides whether to act on the signal in the next session.
 
 **5c. Append new learnings (only what's truly new):**
+
+**TIER-2 GUARD (op-rules RULE 14):** before writing ANY learning, founder-taste rule, filter, veto, or direction that would change behavior BEYOND the specific case observed — or touch a core / "strong" document — STOP. Do NOT write it. Put it in the SESSION LEARNING REPORT under "Proposed system change (needs Marina's OK)" and write only after Marina approves. When in doubt → treat as Tier 2.
+
 Append to `departments/facebook-ads-library/operational-memory/learnings.md` if any of these were observed:
 - new category signal (brand as category validator, open vs closed niche)
 - new behavioral correction (agent error caught and fixed)
@@ -194,6 +197,7 @@ Repeated patterns: [pattern seen 2+ times this session] / None
 
 Failed paths summary: [1 sentence] / None
 Proposed core updates: [items added to review/promotion-queue.md] / None
+Proposed system change (needs Marina's OK): [Tier-2 generalization held for approval — op-rules RULE 14] / None
 Founder review needed: [items requiring Marina's decision] / None
 Test next session: [specific keyword / angle / category to explore]
 ```
