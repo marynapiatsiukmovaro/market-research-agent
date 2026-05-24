@@ -127,11 +127,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-23] Session 24 — Mental/biochemical states DEAD (3rd confirmation) + discriminating principle
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (S22-S24, 6 keywords)
-**Observation:** vagus nerve (193 adv) + overwhelmed (359 adv) → 0 reportable. vagus nerve device cluster IS real & active (Pulsetto, Sensate, Truvaga, Hoolest, Neuvana, Nuropod $900) but ALL branded-proprietary + premium ($150-900) → closed to white-label. overwhelmed = courses/supplements/pharma/charity/SaaS. **Discriminating principle (covers all 24 sessions): a keyword yields white-label physical DTC only if the problem has a PHYSICAL OBJECT as its obvious, immediate solution.** Physical/localized pain or concrete moment (tired feet, sitting all day, long flight) = yes. Wide mental/emotional/biochemical state (burnout, overwhelmed, cortisol, vagus) = market answers with services/pills/apps/branded-premium-devices = no. CLOSE Cluster 2 entirely. Recurring side-signal: weighted comfort animals (pulseofpotential) appeared in BOTH keywords from different advertisers — directional only, Marina vetoed the category.
-**Applies to:** keyword selection — Cluster 2 (Stress/Mental) closed
-**Expires after:** Session 30
+~~### [2026-05-23] Session 24 — Mental/biochemical states DEAD (3rd confirmation) + discriminating principle~~
+> ARCHIVED S30 — expired (Expires after Session 30). The DISCRIMINATING PRINCIPLE it established — *a keyword yields white-label physical DTC only if the problem/moment has a concrete PHYSICAL OBJECT as its obvious, immediate solution* — is foundational and reconfirmed every session since (S25–S30). Preserved in keyword-map.md "Active Hypothesis S21" section. Cluster 2 (Stress/Mental) remains CLOSED. S30 added a fresh confirmation on the POSITIVE side: cat-on-desk yielded a product (cats perch → novel desk object), dog-under-desk did not (dogs lie → generic bed, no desk object) — behavior of the subject determines whether a concrete object owns the moment.
 
 ---
 
@@ -156,11 +153,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-23] Session 25 — Recurring SIGNAL: ambient/aesthetic desk lamp
-**Type:** Signal | **Severity:** MEDIUM | **Confidence:** MEDIUM (3 keywords)
-**Observation:** "Ambient/aesthetic desk lamp" recurred across candle warmer (candle-warmer lamps: MEVA/Glenbrookhome/Docos/Homira — 5+ brands = category convergence), and aesthetic desk (Solara bird lamp). Cozy/aesthetic desk LIGHTING is a recurring positive-emotion territory; candle warmer lamp = strongest convergence (reported 70). Directional only — Marina decides whether to deep-dive the lamp/lighting category next.
-**Applies to:** S26+ — potential lamp/lighting deep-dive
-**Expires after:** Session 30
+~~### [2026-05-23] Session 25 — Recurring SIGNAL: ambient/aesthetic desk lamp~~
+> ARCHIVED S30 — expired (Expires after Session 30). Candle Warmer Lamp reported (70, S25, Marina→Rejected on fragility/shipping risk). Lamp/lighting deep-dive not pursued S26-S30. Directional signal closed; revivable if Marina wants a lighting-category session.
 
 ---
 
@@ -215,6 +209,14 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 **Observation:** Full session = 6 keywords, 0 reportable. Four appearance/identity phrases — "looking good on zoom" (266), "looking good" (377), "tired face on camera" (207), "tired face" (282) — ALL 0. The moment "look good / not look tired" is owned by skincare/cosmetics/apparel/shapewear/aesthetic-services/pharma + business-opp-coaching, NOT white-label gadgets → Nth confirmation of the S24 discriminating principle (a keyword yields white-label DTC only if the moment has a concrete PHYSICAL OBJECT as its obvious solution; "appearance" → solution is cream/makeup/clothes/procedure). **Marina's deliberate A/B (paired keywords, qualifier removed):** removing "on zoom"/"on camera" MEANINGFULLY changed noise COMPOSITION but NOT the 0 outcome — "on zoom" added a business-opp/B2B-agency/remote-work layer (Zoom=work calls); bare "looking good" broadened to apparel/shapewear/body; "on camera" added content-creator/camera-gadget + Ozempic-story; bare "tired face" added local med-spa services + pharma. Takeaway: the real lever is whether the qualifier points to a CONCRETE PHYSICAL OBJECT (ring light/webcam/selfie monitor) — here those traces were branded (eMeet)/commodity/cloaked-affiliate, so both versions flopped. Two situation phrases also 0: "working from bed" (235) — expected ergonomic objects (lap desk/bed tray/wedge pillow) had ZERO hits, phrase lives in pain/story-narratives; "stuck in traffic" (288) — reconfirms S28 commute=context-not-object. NEW noise sub-classes logged: cloaked-affiliate (ad describes product X, store is unrelated — soyummy food site / velluci jewelry); cloned local med-spa promo-network (6+ "Derma-Lift $99" city accounts on one creative). NOTE per RULE 14: "close the appearance/identity-phrase class" = Tier-2 generalization → flagged as PROPOSAL in Session Learning Report, not auto-written.
 **Applies to:** S30+ — keyword selection (appearance/identity phrases low-priority regardless of qualifier; prefer qualifiers that name a concrete physical object or physical-friction moment)
 **Expires after:** Session 35
+
+---
+
+### [2026-05-24] Session 30 — Positive-moment concrete keywords yield 2/5; cat-vs-dog desk asymmetry; vacuum-compression travel signal
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** MEDIUM (5 keywords S30 + consistent S24/S25)
+**Observation:** 2/5 reportable — best positive-emotion session since S25. WORKED: "pack for a work trip" (518) → Rhona TravelVac Pro 74 (cordless 4500Pa vacuum compression + 3 bags, 2+ advertisers); "cat on desk" (552) → Desk-Mounted Cat Bed 76 (Desk Nest $159 "original"+media + Ergo Purrch 96 rev 4.9★ = 2-brand convergence Mar-May 2026). FAILED: "train ride" (502, ambiguous CONTEXT → railroad-tourism + athletic-training + truck-horns), "kitchen table office" (569, pharma "doctor-story" spam magnet; WFH ergonomic objects ABSENT — mirrors S29 working-from-bed), "dog under desk" (500). **CAT vs DOG ASYMMETRY (fresh confirmation of the discriminating principle on the positive side):** the SAME structural pattern "[pet] [position] desk" yields a product for cats (perch ON desk → novel desk-mounted object exists) but NOT dogs (lie on floor → only generic dog-bed, not desk-tied + pet services + POD + spam). The subject's physical behavior determines whether a concrete PHYSICAL OBJECT owns the moment — not the keyword shape. **SIGNAL:** vacuum-compression travel packing = recurring multi-advertiser convergence (Rhona TravelVac + Luux VacPack $79 + The Foldie + generic compression cubes = 4+ independent advertisers); the cordless-electric-pump version is the differentiated gadget vs commodity manual roll-bags.
+**Applies to:** S31+ — positive-emotion / pet×office keyword selection; recognize cordless vacuum-compression travel category
+**Expires after:** Session 37
 
 ---
 

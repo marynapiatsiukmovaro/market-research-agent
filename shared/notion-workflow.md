@@ -27,6 +27,7 @@ For each reported product (score 65+), create one Notion database entry with two
 | Creative Angles | Number (e.g. 4) |
 | Ad Link | Direct URL to ad or original source — "Not found" if unavailable |
 | Store Link | URL of store/site where product is sold — "Not found" if unavailable |
+| Store Link 2 | 2nd store URL — ONLY for convergence/parallel candidates (2nd brand selling the same product). Leave empty otherwise. See Convergence rule below. |
 | Date Added | Today's date |
 | Status | Scouted |
 | Notes | Short observations: risks, warnings, anomalies — 1 sentence max per note (e.g. "High saturation", "Medical claims risk") |
@@ -51,6 +52,15 @@ For each reported product (score 65+), create one Notion database entry with two
 - Only one link present → acceptable, note which is missing
 - Both missing → set Recommendation to **"Needs Verification"** regardless of score
 - Never invent or guess URLs — only real, working links
+
+### Convergence / Parallel Candidates Rule (added S30 — Marina request)
+When 2+ DISTINCT brands sell essentially the same product (category convergence — e.g. Desk Nest + Ergo Purrch desk-mounted cat bed):
+- Report as ONE primary reportable product, BUT make EVERY brand visible — never let a 2nd brand hide only in the body.
+- **Store Link + Store Link 2 fields (BOTH table-visible, clickable):** put brand #1 in `Store Link` and brand #2 in `Store Link 2`. Both render as clickable columns in the table, so Marina sees BOTH stores at a glance without opening Notes (a url field holds only ONE link — that's why a 2nd url column exists, added S30). A populated `Store Link 2` is itself the visual signal "this row has 2 brands".
+- **Notes field:** start with `CONVERGENCE — N брендов:` and list each brand + URL + key differentiator (price tier, positioning, review count). For 3+ brands, the 3rd+ links live here + in the body.
+- **Page body:** add a `### Convergence brands (N — оба под анализ)` section listing each brand with its store link and 1-line positioning, so Marina can open and analyze each separately.
+- **When to split into a SEPARATE Notion card instead of bundling:** if a 2nd brand is materially different enough to be its own test candidate — distinct price tier (e.g. premium vs budget), distinct mechanism, or distinct positioning Marina would test independently — create a second card and cross-reference both in Notes (`parallel candidate: <other card>`). When unsure → bundle + flag, then ask Marina if she wants it split.
+- Goal: Marina must be able to SEE and independently analyze every parallel brand, not just the one in the Store Link column.
 
 ---
 

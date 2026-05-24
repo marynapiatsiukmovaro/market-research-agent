@@ -10,15 +10,21 @@ Updates only when Marina explicitly instructs it.
 
 ## Keyword Execution Protocol
 
-### RULE 0: NEVER advance to next keyword without explicit user approval
+### RULE 0: NEVER advance to next keyword without explicit user approval — UNLESS Autonomous Mode is enabled
 
-After each keyword — output checkpoint → STOP → WAIT.
+**Default (Autonomous Mode OFF):** After each keyword — output checkpoint → STOP → WAIT.
 Do NOT launch next scraper, do NOT start background process, do NOT prep next keyword.
 "Recommendation: next keyword" in checkpoint = suggestion only. Marina decides.
+This applies even when the recommendation is obvious, even when the previous keyword yielded 0 results, even when background launch "seems efficient."
 
-This rule applies even when the recommendation is obvious. Even when the previous keyword yielded 0 results. Even when background launch "seems efficient."
+**EXCEPTION — Autonomous Mode (facebook-ads-library department only):** If the session prompt explicitly enables Autonomous Mode, run ALL listed keywords sequentially WITHOUT stopping for confirmation between keywords. Still output the full KEYWORD CHECKPOINT after each keyword. Approved by Marina S30 (tested S30 — worked: 5 keywords, 2 reportable). HARD-STOP conditions still apply and are NEVER bypassed:
+- scraper returns <50 ads → STOP + request cookie refresh
+- Facebook shows suspicious-activity / automated-behavior warning → STOP
+- context usage >70% before STEP 8 → alert Marina first
+- a borderline 60–64 candidate needing a founder call → log it + flag explicitly in the report (never silently pass)
+- a SCOUT NOTE proposing a NEW direction, a pivot, or adding/substituting keywords NOT in the prompt list → STOP and wait. (Descoping a keyword already confirmed DEAD in keyword-map, with a flag, IS allowed autonomously — as done S30 with "long commute"/"stuck in traffic".)
 
-**No exceptions.**
+Outside facebook-ads-library, or when Autonomous Mode is not stated in the prompt → default (wait) applies. Supersedes the prior "No exceptions" wording (updated S30 with Marina's explicit approval). See memory [[feedback-autonomous-mode]] and [[feedback-keyword-wait]].
 
 ---
 
