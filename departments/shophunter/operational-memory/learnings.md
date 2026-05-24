@@ -21,15 +21,15 @@ matched by NAME; its SH domain ≠ campsnapcamera.com)**. N/A handling DONE (Mar
 Created converted date→TEXT (existing dates preserved as date-mentions), literal "N/A" written to the 14 N/A rows.
 
 **Open / do next:**
-1. **2 stores still UNTESTED** (full-URL retry timed out at 8/10): **ergopurrch, kaizenkidz** — retry by
-   full URL + brand name.
-2. **7 confirmed ABSENT** even via full URL + name (→ likely genuinely not indexed, keep "-"):
-   travelerpillow, puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest.
-3. **Coverage HYPOTHESIS — now PARTIALLY SUPPORTED:** ~7 stores genuinely absent despite robust search →
-   ShopHunter index is partial. Verify WHY (non-Shopify? ShopHunter is Shopify-only; or too small/fresh).
-   Marina may compare with other tools. Key lesson: a store's SH-stored domain can differ from our Store
-   Link → **brand-NAME search is the essential fallback** (camp snap matched by name, not domain).
-4. **Then begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal), framed by the partial-coverage finding.
+1. **9 confirmed ABSENT** even via full URL + brand name (all 12 misses now RESOLVED; these keep "-"):
+   travelerpillow, puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz.
+2. **Coverage HYPOTHESIS — SUPPORTED:** 9 of 12 missed DTC stores are genuinely not in ShopHunter (only
+   seattosleep, nuface, camp snap were search-bug false-negatives). ShopHunter index is PARTIAL — skews to
+   established/higher-revenue US Shopify stores; misses small/fresh/niche. Verify WHY next (non-Shopify?
+   ShopHunter is Shopify-only; or too small/fresh) — Marina may compare with other tools. Key lesson: a
+   store's SH-stored domain can differ from our Store Link → **brand-NAME search is the essential fallback**
+   (camp snap matched by name, not by domain campsnapcamera.com).
+3. **Begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal), framed by the partial-coverage finding.
 
 **Watch:** revenue = estimate (corroborate); mono-brand (2–9 SKU) vs catalog/dropship (100+ SKU);
 competitor multi-geo domains; VPS background-SSH drops (poll `pgrep`, don't relaunch).
@@ -80,13 +80,14 @@ the right store may not be first, and a store's canonical domain may differ from
 **Confidence:** MEDIUM
 **Observation:** Because of the over-stripping bug, SH-2 marked ~12 stores "-"/"not in ShopHunter".
 seattosleep + nuface were later FOUND → the "ShopHunter misses small/fresh/niche stores" idea is
-DOWNGRADED to a HYPOTHESIS to verify (Marina's call). Recovered: seattosleep (full URL, id 61584507067),
-nuface (name, id 7425785, $2M/mo, branded ref). STILL to retry by FULL URL next session: travelerpillow,
-puredailycare, luncheaze, itakico, glenbrookhome, campsnapcamera, toucanbaby, desknest, ergopurrch,
-kaizenkidz. IF still absent after full-URL retry → investigate: non-Shopify store (ShopHunter = Shopify-only)?
-too small/new? Marina may compare with similar tools.
+DOWNGRADED to a HYPOTHESIS to verify (Marina's call). RESOLVED in SH-2: recovered seattosleep (full URL, id 61584507067),
+nuface (name, id 7425785, $2M/mo, branded ref), camp snap (name, id 74473832752 — its SH domain ≠
+campsnapcamera.com). 9 CONFIRMED ABSENT via full URL + name (travelerpillow, puredailycare, luncheaze,
+itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz) → genuinely not indexed. Coverage =
+PARTIAL (index skews to established/higher-revenue US Shopify). Next: investigate WHY absent (non-Shopify?
+ShopHunter = Shopify-only; or too small/fresh) — Marina may compare with similar tools.
 **Applies to:** the "-" rows; coverage strategy + tomorrow's discovery framing.
-**Expires after:** Session SH-3 (resolve the retry).
+**Expires after:** Session SH-4 (after coverage cause is confirmed).
 
 ### [2026-05-24] Session SH-2 — Notion: the 4 SH fields are ShopHunter-DEPARTMENT-ONLY
 **Type:** Pattern / Rule (Marina-approved)
