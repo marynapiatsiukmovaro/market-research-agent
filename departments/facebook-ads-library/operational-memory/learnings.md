@@ -137,19 +137,13 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-23] Session 25 — Office × Positive Emotion (Cluster 5): yield + discriminating principle (positive side)
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** MEDIUM (5 keywords, S25 — first positive-emotion session)
-**Observation:** First session of the S24 emotion-pivot (office vertical, love/delight/aspiration instead of pain). 5 keywords: desk plant ✅ (Ivy Gen 2 smart companion planter 72), candle warmer ✅ (Candle Warmer Lamp 70, ⚠️ везде-flag held for Marina), mug warmer ❌, cozy office ❌, aesthetic desk ❌. Yield 2/5 = consistent with situation-keyword norm. CONFIRMS S24 discriminating principle on the POSITIVE side: a positive-moment keyword yields white-label DTC only when the moment has a concrete PHYSICAL-OBJECT solution (companion gadget; flame-free cozy lamp). Fails when keyword is broad-lifestyle (cozy office = home/property search) or maps to the wrong object (mug warmer → the CUP not the device; aesthetic desk → branded-premium gear/furniture). Note: S25 direction was Office×Positive (per session prompt + _active.md S24 PIVOT), NOT the Kids vertical floated in the S24 direction-note.
-**Applies to:** S26+ positive-emotion office keyword selection
-**Expires after:** Session 31
+~~### [2026-05-23] Session 25 — Office × Positive Emotion (Cluster 5): yield + discriminating principle (positive side)~~
+> ARCHIVED S31 — expired (Expires after Session 31). Core conclusion (a positive-moment keyword yields white-label DTC only when the moment has a concrete PHYSICAL-OBJECT solution) is foundational, reconfirmed S26-S31. S31 added the INVERSE on the pain/condition side: worker-condition phrases whose only solution is a consumable/commodity (cracked hands→cream, coffee→beans) or a founder-closed category (driving→seat cushion) → 0. Yield norm + verdicts preserved in keyword-map.md. Full block → learnings-archive-queue.md.
 
 ---
 
-### [2026-05-23] Session 25 — Two new NOISE classes on consumer/lifestyle keywords
-**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (heavy across 5 keywords)
-**Observation:** (1) Spam engagement-bait "story" accounts — garbage names (BrightMeadow 29, WildGarden7030, CalmMist 29), identical fiction copy ("I know you've been cheating on me", necrotic-fingers, kidney/BP/GLP-1 stories), 19-29 ads each, keyword-stuffed → they dominate fast_filter top-20 by ad-count signal on mug warmer + desk plant. (2) Real-estate/property listings flood broad lifestyle phrases (cozy office → realtors, apartments, sqft/beds/baths, sheds-as-"home office"). Both = pure noise; recognize by garbage-name + fiction-copy / property-listing pattern and skip fast. Possible fast_filter upgrade (advertiser-name + fiction-copy detection) — PROPOSAL, not auto-implemented (see Session Learning Report).
-**Applies to:** all consumer/lifestyle keyword sessions — faster noise rejection
-**Expires after:** Session 31
+~~### [2026-05-23] Session 25 — Two new NOISE classes on consumer/lifestyle keywords~~
+> ARCHIVED S31 — expired (Expires after Session 31). Both classes (spam engagement-bait "story" accounts; real-estate/property listings on broad lifestyle phrases) are now permanent fixtures reconfirmed every session S25-S31, alongside later-added classes (pharma "doctor-story" NO-DOMAIN, micro-drama romance, cloaked-affiliate). Recognition cues preserved in rejected-products.md per-session pattern summaries. Full block → learnings-archive-queue.md.
 
 ---
 
@@ -217,6 +211,14 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 **Observation:** 2/5 reportable — best positive-emotion session since S25. WORKED: "pack for a work trip" (518) → Rhona TravelVac Pro 74 (cordless 4500Pa vacuum compression + 3 bags, 2+ advertisers); "cat on desk" (552) → Desk-Mounted Cat Bed 76 (Desk Nest $159 "original"+media + Ergo Purrch 96 rev 4.9★ = 2-brand convergence Mar-May 2026). FAILED: "train ride" (502, ambiguous CONTEXT → railroad-tourism + athletic-training + truck-horns), "kitchen table office" (569, pharma "doctor-story" spam magnet; WFH ergonomic objects ABSENT — mirrors S29 working-from-bed), "dog under desk" (500). **CAT vs DOG ASYMMETRY (fresh confirmation of the discriminating principle on the positive side):** the SAME structural pattern "[pet] [position] desk" yields a product for cats (perch ON desk → novel desk-mounted object exists) but NOT dogs (lie on floor → only generic dog-bed, not desk-tied + pet services + POD + spam). The subject's physical behavior determines whether a concrete PHYSICAL OBJECT owns the moment — not the keyword shape. **SIGNAL:** vacuum-compression travel packing = recurring multi-advertiser convergence (Rhona TravelVac + Luux VacPack $79 + The Foldie + generic compression cubes = 4+ independent advertisers); the cordless-electric-pump version is the differentiated gadget vs commodity manual roll-bags.
 **Applies to:** S31+ — positive-emotion / pet×office keyword selection; recognize cordless vacuum-compression travel category
 **Expires after:** Session 37
+
+---
+
+### [2026-05-24] Session 31 — Worker PAIN/CONDITION keyword half is worked out (clean 0/7); consumable + founder-closed + пустышка traps
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** MEDIUM-HIGH (7 keywords S31 + consistent S21-24/S28)
+**Observation:** 0/7 reportable. Seven outdoor/manual/driver worker physical-condition phrases (hands cracked from work 202, working in the cold 225, working outside all day 245, back pain driving 263, coffee in the car 246, driving for hours 295, losing your voice 238) all → 0. They systematically resolve to one of four dead answers: (1) **consumable commodity** (hand balm/salve/lotion-bar, coffee beans/capsules, merino work socks) ≤floor/non-white-label; (2) **founder-closed saturated category** (driving seat cushions ×3 brands Femzene/Housewor/Bodiform = exact S19 reject; posture braces); (3) **пустышка-therapy** (neck/leg/sciatic/circulation devices — Veto class; Nth confirmation of S28 "пустышка-magnet pain class"); (4) **pure context-noise** (auto dealers, trucking/CDL recruitment, supplements, pharma, medical services). This is the pain/condition mirror of office-pain Clusters 1-4 (S21-24): that half is largely worked out. NEW REFINEMENT of the discriminating principle: a worker-condition phrase yields white-label DTC only if the condition's obvious physical solution is (a) a NON-CONSUMABLE object AND (b) not already a saturated/пустышка commodity. "cracked hands→cream", "voice→nothing", "driving back→cushion(closed)" all fail both tests. "expected-object-absent" recurred again (heated-apparel on cold; sun/cooling on outside; car-coffee gadget on coffee-in-car [mirrors S25 mug-warmer→CUP]; voice-amplifier on losing-voice) — 3rd-4th time after S29/S30. Operational confirms: "back pain driving" NOT FB-blocked (263) — block is term-specific to exact "back pain" (S21→S27/S28 refinement). Best non-noise find: Loudcup horn-tumbler (sports-parent, viral) — patent-pending/branded, not white-label, ~58.
+**Applies to:** S32+ — keyword selection: deprioritize bare worker pain/condition phrases; prefer positive-emotion concrete-object moments (S25/S30 winners) or specific product-nouns
+**Expires after:** Session 38
 
 ---
 

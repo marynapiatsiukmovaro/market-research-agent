@@ -111,3 +111,17 @@ learnings.md Active Learnings; this is the full archival history. Append new ses
 > **АРХИВАЦИЯ Session 30 (2026-05-24, cleanup):**
 > - Session 18 — Scraper URL encoding quote_plus fix → PROMOTED (уже постоянное в op-rules.md RULE 5c); tombstone в Active.
 > - Per-session archival log (S13–S29, выше) перенесён сюда из learnings.md для разгрузки per-session чтения.
+
+> **АРХИВАЦИЯ Session 31 (2026-05-24):** 2 записи S25 архивированы (истекли после Session 31). Полный текст:
+
+### [2026-05-23] Session 25 — Office × Positive Emotion (Cluster 5): yield + discriminating principle (positive side)
+**Type:** Pattern | **Severity:** HIGH | **Confidence:** MEDIUM (5 keywords, S25 — first positive-emotion session)
+**Observation:** First session of the S24 emotion-pivot (office vertical, love/delight/aspiration instead of pain). 5 keywords: desk plant ✅ (Ivy Gen 2 smart companion planter 72), candle warmer ✅ (Candle Warmer Lamp 70, ⚠️ везде-flag held for Marina), mug warmer ❌, cozy office ❌, aesthetic desk ❌. Yield 2/5 = consistent with situation-keyword norm. CONFIRMS S24 discriminating principle on the POSITIVE side: a positive-moment keyword yields white-label DTC only when the moment has a concrete PHYSICAL-OBJECT solution (companion gadget; flame-free cozy lamp). Fails when keyword is broad-lifestyle (cozy office = home/property search) or maps to the wrong object (mug warmer → the CUP not the device; aesthetic desk → branded-premium gear/furniture). Note: S25 direction was Office×Positive (per session prompt + _active.md S24 PIVOT), NOT the Kids vertical floated in the S24 direction-note.
+**Applies to:** S26+ positive-emotion office keyword selection
+**Expires after:** Session 31
+
+### [2026-05-23] Session 25 — Two new NOISE classes on consumer/lifestyle keywords
+**Type:** Warning | **Severity:** MEDIUM | **Confidence:** HIGH (heavy across 5 keywords)
+**Observation:** (1) Spam engagement-bait "story" accounts — garbage names (BrightMeadow 29, WildGarden7030, CalmMist 29), identical fiction copy ("I know you've been cheating on me", necrotic-fingers, kidney/BP/GLP-1 stories), 19-29 ads each, keyword-stuffed → they dominate fast_filter top-20 by ad-count signal on mug warmer + desk plant. (2) Real-estate/property listings flood broad lifestyle phrases (cozy office → realtors, apartments, sqft/beds/baths, sheds-as-"home office"). Both = pure noise; recognize by garbage-name + fiction-copy / property-listing pattern and skip fast. Possible fast_filter upgrade (advertiser-name + fiction-copy detection) — PROPOSAL, not auto-implemented (see Session Learning Report).
+**Applies to:** all consumer/lifestyle keyword sessions — faster noise rejection
+**Expires after:** Session 31
