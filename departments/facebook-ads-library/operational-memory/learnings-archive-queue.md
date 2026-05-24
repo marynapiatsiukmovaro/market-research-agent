@@ -47,3 +47,67 @@
 Это позволит файлу снова помещаться в один read при limit=200-250.
 
 Инструкция для агента: после подтверждения Мариной — удалить перечисленные записи из learnings.md.
+
+---
+
+# PER-SESSION ARCHIVAL LOG (relocated from learnings.md — S30 cleanup)
+
+**Why here:** the per-session "АРХИВАЦИЯ Session N" bookkeeping log was growing inside learnings.md
+(read every session). Relocated 2026-05-24 to keep the live file lean. Inline tombstones remain in
+learnings.md Active Learnings; this is the full archival history. Append new session-archival blocks here.
+
+> **АРХИВАЦИЯ Session 29 (2026-05-24):** 1 запись архивирована (истекла после Session 29):
+> - Session 22/23 — Situation Keywords: что работает, что не работает — суть поглощена S24 discriminating-principle + переподтверждена S29 (appearance-фразы = 0). Tombstone в Active. Keyword-вердикты в keyword-map.md.
+
+> **АРХИВАЦИЯ Session 28 (2026-05-24):** 2 записи архивированы (истекли после Session 28):
+> - Session 21 — FB blocks short health-condition & activity terms — REFINED: блок term-specific (S27 "tired eyes"/S28 wrist-cluster НЕ заблокированы). Tombstone в Active.
+> - Session 21 — Situation Keywords Cluster 1 verdict — суть сохранена в S22/23 + S24 discriminating principle; keyword-вердикты в keyword-map.md. Tombstone в Active.
+
+> **АРХИВАЦИЯ Session 27 (2026-05-23):** 1 запись архивирована (истекла после Session 27):
+> - Session 24 — S25 direction note (non-binding) — Kids-vertical lean не реализовался; S25-S27 шли по Office×Positive направлению. Tombstone оставлен в Active секции.
+
+> **АРХИВАЦИЯ Session 25 (2026-05-23):** 8 записей архивированы (истекли после Session 25):
+> - Session 10 — Keyword Audit Database (50-keyword monitor)
+> - Session 10/11 — Situation keywords = hidden intersection discovery mode
+> - Session 15 — Category tracking: 30-keyword experiment
+> - Session 17 — "Gadget" descriptor keywords: dead class
+> - Session 16 — Offer/promo keywords: dead class
+> - Session 18 — Broad horizontal discovery pattern (15+ keywords)
+> - Session 19 — Universal urgency/credibility phrases: dead class
+> - Session 20 — Broad Horizontal Discovery hypothesis CLOSED
+> Все keyword-вердикты сохранены в keyword-map.md. Tombstones оставлены в Active секции.
+
+> **АРХИВАЦИЯ Session 13 (2026-05-16):** 18 записей удалены из основного раздела. Марина подтвердила "ок".
+> Archive reference: разделы выше в этом файле.
+
+> **АРХИВАЦИЯ Session 14 (2026-05-17):** 2 записи перемещены (истекли после Session 14):
+> - Session 7 — Home/Kitchen: Structurally Weak (expires S14)
+> - Session 7 — Мёртвые ключевые слова Home/Kitchen (expires S14)
+> Постоянные операционные правила перемещены в op-rules.md. Keyword-паттерны перемещены в keyword-map.md.
+
+> **АРХИВАЦИЯ Session 17 (2026-05-18):** 3 записи архивированы (истекли после Session 17):
+> - Session 9 — Broad keywords: pattern map, not winner map (закон "уже" → keyword-map.md)
+> - Session 10 — Camp Snap: Screen-Free Kids Camera VALIDATED (результат в reported-products.md)
+> - Session 10 — "Screen-free alternative" = strong parental trigger (Kids vertical, on hold)
+
+> **АРХИВАЦИЯ Session 16 (2026-05-18):** 1 запись архивирована (истекла после Session 16):
+> - Session 9 — Price >$100 — NOT automatic reject (правило перешло в op-rules.md RULE 12)
+
+> **АРХИВАЦИЯ Session 15 (2026-05-17):** 4 записи архивированы (истекли после Session 15):
+> - Session 8 — Keywords: Broad = Noise, Specific = Signal
+> - Session 8 — Kids Vertical: Category Map (first pass)
+> - Session 8 — Bambora: Category Validator for Baby Ring Sling
+> - Session 8 — Post-filter needed for dual-meaning keywords
+> Устарели с переходом на Broad Horizontal Discovery (Sessions 15+). Kids-specific сигналы сохранены в reported-products.md и keyword-map.md.
+
+> **АРХИВАЦИЯ Session 20 (2026-05-18):** 5 записей архивированы (истекли после Session 20):
+> - Session 7 — НОВЫЙ АЛГОРИТМ: Keyword-First Deep Scan
+> - Session 8 Part 2 — Scraper fix: FB Login + JS Scroll confirmed permanent
+> - Session 10 — Multi-brand dropship operators = research asset
+> - Session 13 — Wonder Quest: STEM/Exploration category signal
+> - Session 15 — Magic Playwall: Magnetic Wall Activity category signal
+> Hypothesis "Broad Horizontal Discovery" закрыта. Итог: 29 keywords, ~7900 advertisers, 2 reportable (оба S15).
+
+> **АРХИВАЦИЯ Session 30 (2026-05-24, cleanup):**
+> - Session 18 — Scraper URL encoding quote_plus fix → PROMOTED (уже постоянное в op-rules.md RULE 5c); tombstone в Active.
+> - Per-session archival log (S13–S29, выше) перенесён сюда из learnings.md для разгрузки per-session чтения.
