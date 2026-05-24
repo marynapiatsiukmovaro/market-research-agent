@@ -222,6 +222,16 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-24] Session 32 — Office/work positive-SITUATION phrases = digital/service/premium-branded/fashion-owned (clean 0/7); meetings→SaaS, work-bag→fashion, sleep→пустышка
+**Type:** Pattern
+**Severity:** MEDIUM
+**Confidence:** MEDIUM-HIGH (7 keywords S32 + consistent S24-S31)
+**Observation:** 0/7 reportable + 1 borderline (Traceley slim Find-My tracker ~62). Seven office/work positive-situation phrases (working late tonight 215, work bag essentials 212, weekend project 315, back to back meetings 338, working from coffee shop 218, meetings all day 303, sleeping after night shift 200) → 0. These are CONTEXTS (busyness/late-night/nomad/DIY/sleep), not concrete-object moments → market answers with DIGITAL/SaaS (Granola AI meeting-notes recurring on BOTH meetings keywords + ClickUp/ListKit/CoPilot; micro-drama/novel apps), SERVICES/coaching, PREMIUM-BRANDED tech above ceiling (X-Nomad portable monitor $299-599, Rokid AR $300+ = RayNeo S28 recurring), FASHION/apparel (handbags, non-iron shirts), CONSUMABLES (MAXL detailing spray, mushroom coffee), and ПУСТЫШКА-health (red-light sinus/grounding mat/anti-snoring). THREE sub-findings: (1) **"meetings" keywords = B2B-SaaS-owned** — back-to-back & all-day meetings are near-mirrors, both owned by AI-meeting-notes SaaS + lead-gen software + coaching; a "meeting" is a software/service moment not a physical-object moment (informs the K8 "taking notes at meetings" skip — same landscape). (2) **"work bag essentials" = clean product-phrase but fashion/saturated category** (mirror S28 car-organizer / S30 Luux duffle): right advertiser TYPE, but resolves to fashion handbags (return-risk/везде) + saturated travel backpacks (Oono) + reconfirmed garment-duffels (Halfday/Luux S30). (3) **"sleeping after night shift" = пустышка-magnet** + "expected-object-absent" 5th+ recurrence (blackout mask/white-noise/curtains advertised under direct nouns, not the situation phrase). **Best find = Traceley slim Find-My tracker card ~62** (1894 rev 4.7★, differentiated vs Tile Slim, but sub-$40 floor + tracker везде/branded-dominated) → SOFT, retry S37. NOTE per RULE 14: "office/work positive-SITUATION CONTEXT phrases (busyness/meetings/nomad/sleep) = low-priority class" would be a Tier-2 generalization → flagged as a PROPOSAL in Session Learning Report (joins S28/S29 pending proposals), NOT auto-written.
+**Applies to:** S33+ — keyword selection: office/work CONTEXT/situation phrases low-priority (resolve to SaaS/service/premium-branded/fashion); prefer concrete-object moments (S25/S30 winners: desk plant, candle warmer, pack-for-trip, cat-on-desk) or specific product-nouns
+**Expires after:** Session 39
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.

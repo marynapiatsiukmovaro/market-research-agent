@@ -142,6 +142,30 @@ If ANY process found → STOP, kill first → then launch one. Never launch mult
 
 ---
 
+## RULE 4c: Autonomous background-wait & cleanup — 4 gotchas (permanent, S32 — Marina-authorized fix)
+
+In Autonomous Mode the agent launches each scraper detached (`nohup … &`) and waits in a background task. Each gotcha below caused a stalled or permission-broken session — they are NON-OBVIOUS and recur. Apply all four every time.
+
+**1. Detect completion by the LOG MARKER, never by process presence.**
+The scraper finishes work (writes JSON + logs `=== Done: N unique ads total ===`) but then routinely HANGS on browser teardown — the process stays alive with the work already done. Waiting on "is the process alive?" therefore NEVER returns. Wait like this:
+```bash
+ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "for i in \$(seq 1 140); do if grep -q '=== Done:' /tmp/kN_scraper.log 2>/dev/null; then echo DONE; break; fi; sleep 13; done"
+```
+Run it with `run_in_background: true` → the harness notifies you on completion (no ScheduleWakeup needed).
+
+**2. NEVER wait with `pgrep -f facebook_scraper.py` (or `while pgrep …`).**
+The pattern string `facebook_scraper.py` is in the polling shell's OWN argv → `pgrep -f` matches ITSELF → the loop never ends → SSH idle-drops (exit 255) → the session looks frozen for minutes while the scrape is actually already done. **This caused the S32 5-6 min "stuck" start.** (`ps aux | grep facebook_scraper | grep -v grep` is safe — the `grep -v grep` strips the self-line. `pgrep -f` is NOT safe.)
+
+**3. Cleanup kill = bracket trick, in its OWN command.**
+`pkill -9 -f '[f]acebook_scraper'` as a standalone command (the `[f]` prevents the pattern from matching its own shell). Do NOT combine the kill with the `nohup … facebook_scraper.py …` launch in one ssh string — the launch text self-matches the pkill → kills the shell → SSH 255, and the launch may not even run.
+
+**4. NEVER add `-o` flags to the ssh command** (`-o ServerAliveInterval`, `-o StrictHostKeyChecking`, …).
+They break the settings.json allowlist prefix `ssh -i ~/.ssh/market_research_vps root@5.78.217.133 *` → EVERY command re-prompts for permission (recurred S26 → S29 → S32). Use exactly `ssh -i ~/.ssh/market_research_vps root@5.78.217.133 "…"`. The marker-wait in #1 completes well before any idle-drop, so keepalive flags are unnecessary. See memory [[feedback-permission-prompts]].
+
+**Net effect:** launch (nohup) → background marker-wait (#1) → on notify run fast_filter → bracket-kill (#3) → launch next. This reproduces the smooth, hands-off autonomous run (cf. S30) with zero permission prompts and no false "stuck" states.
+
+---
+
 ## Scraper Depth Rules
 
 ### RULE 5: Depth standard — 500 target, 600 hard cap
