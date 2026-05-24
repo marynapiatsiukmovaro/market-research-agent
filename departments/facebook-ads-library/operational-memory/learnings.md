@@ -115,19 +115,13 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-19] Session 21 — FB blocks short health-condition & activity terms in Active ads filter
-**Type:** Warning | **Severity:** HIGH | **Confidence:** HIGH (4 attempts across 2 keywords: "back pain" ×2, "standing all day" ×2)
-**Observation:** 2-word health/activity terms consistently return "No ads match" regardless of retry: "back pain" (2 attempts = 0), "standing all day" (2 attempts = 0). NOT a glitch — confirmed by identical behavior across multiple days. Likely cause: FB's Active ads filter treats these as sensitive health terms. Workaround: longer descriptors bypass the block. "lower back pain" (3 words) → 256 ads ✅. "tired feet" ✅. "sitting all day" ✅. "sore legs" ✅. Rule: if a 2-word health/condition term returns 0 → do NOT retry same form; immediately try 3-4 word variant with activity context.
-**Applies to:** All sessions — keyword formulation for health/pain/activity keywords
-**Expires after:** Session 28
+~~### [2026-05-19] Session 21 — FB blocks short health-condition & activity terms in Active ads filter~~
+> ARCHIVED S28 — expired. REFINED by S27+S28 data: the block is TERM-SPECIFIC, not "all 2-word health terms". Blocked: "back pain", "standing all day". NOT blocked: "tired eyes" (262, S27), "sore wrists" (74, S28), "wrist pain" (310, S28), "hand strain" (242, S28). Verdicts preserved in keyword-map.md. Practical rule retained: if a 2-word term returns 0, try a 3-4 word variant — but do NOT assume a 2-word health term will be blocked.
 
 ---
 
-### [2026-05-19] Session 21 — Situation Keywords Cluster 1 (Physical Discomfort at Work) — verdict
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** HIGH (5 keywords, S21)
-**Observation:** 5 Cluster 1 keywords tested: "tired feet" ✅ (Score 74 + 70), "sitting all day" ✅ (Score 68), "sore legs" ⚠️ LOW YIELD (compression socks dominate), "back pain" ❌ BLOCKED, "standing all day" ❌ BLOCKED. Yield: 3 products from 3 productive keywords — strong hypothesis performance vs. S15-S20 Broad Horizontal (2 products across 29 keywords). Conclusion: Situation keywords (activity + pain context) outperform generic performance signal phrases. Cluster 2 (Meal/Energy) and Cluster 3 (Mental Fatigue) are next — expected similar yield if keywords are 3-4 words with specific activity context. Skip any 2-word condition terms.
-**Applies to:** S22+ Situation Keywords sessions — continue hypothesis, use 3-4 word activity descriptors
-**Expires after:** Session 28
+~~### [2026-05-19] Session 21 — Situation Keywords Cluster 1 (Physical Discomfort at Work) — verdict~~
+> ARCHIVED S28 — expired. Core conclusion (situation keywords with a SPECIFIC moment of discomfort outperform generic performance phrases) preserved + refined in S22/23 learning + S24 discriminating principle. Cluster 1 keyword verdicts preserved in keyword-map.md.
 
 ---
 
@@ -211,10 +205,28 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-24] Session 28 — Commute keywords = broad-situation noise; "car organizer" = clean signal but commodity category
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** HIGH (3 keywords S28 + consistent with S24/S27)
+**Observation:** "morning commute" (288) + "long commute" (376) → 0 reportable. Nth confirmation of the discriminating principle: "commute" is a CONTEXT, not an object → market answers with car-dealerships (Mazda/Ford/Honda ×8+), real-estate/leasing, apparel/footwear, makeup, supplements, branded-premium (RayNeo AR/Coldest), + an e-mobility cluster (ebikes/e-skateboards/treadmills positioned as commute-replacements, all out of price/logistics). Recurring commute-relevant angles (car scent diffuser, open-ear/safety audio eyewear, commuter backpack) all branded/commodity. CONTRAST: "car organizer" (164) is a PRODUCT phrase → it surfaces the RIGHT advertiser TYPE (direct DTC, zero dealer noise — cleaner than commute phrases) BUT the entire category is low-price commodity dropship ($5-30: trunk organizers, seatback bags, headrest hooks, cup organizers, trash bags) + Temu/Alibaba direct competition → no differentiated white-label hero $39-100. New failure-mode distinction: commute = WRONG-advertiser-type noise; car organizer = right-type but WRONG-category-economics. Confirms S3 car-organizer note.
+**Applies to:** S29+ — keyword selection (commute/context phrases dead; even clean product-phrases can fail on category economics)
+**Expires after:** Session 34
+
+### [2026-05-24] Session 28 — Wrist/hand pain = "пустышка-magnet" pain class; heat-therapy hand massager = emerging sub-threshold sub-category
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** MEDIUM (3 keywords S28 — within-session)
+**Observation:** "sore wrists" (74, genuinely thin) + "wrist pain" (310) + "hand strain" (242) → 0 reportable. The pain is localized & physical (so it has physical-object solutions), yet the dominant DTC monetization is UNVERIFIABLE-RESULT therapy that Marina hard-rejects: copper/hematite/magnetic/red-light bracelets & wraps (10+ advertisers on "wrist pain" alone: Copper Compression, Hematix ×3, Hemios, Vera's Copper ×2, Kovaria TheraWrap red-light), + supplements (turmeric/Haritaki), + medical/insurance services (Medicare-brace scam, chiropractors, joint clinics), + commodity compression gloves/braces ($15-30). The legit verifiable-result device tier is either commodity (gloves/braces below floor) or established-Amazon (hand massagers). "hand strain" is noisiest — "strain" disambiguates to eye-strain (CliC readers ×3), cable strain-relief (RJ45 crimper), gaming strain (Nyxi/Floky), dog-neck strain. EMERGING SUB-CATEGORY (directional): heat-therapy wrist/hand massager — 2 fresh single-product DTC, Reava ThermaWrap (heat+compression, $99.99) ~63 SOFT + Movella Wrist Device (heat+vibration, price hidden, "restore circulation/tingling" = пустышка-lean) ~60-63 — both sub-threshold, both пустышка-circulation-adjacent, both vs established Comfier/Breo on Amazon. NOTE per RULE 14: "close the wrist/hand-pain class" would be a Tier-2 generalization → flagged as a PROPOSAL for Marina, not auto-written here.
+**Applies to:** S29+ — pain-keyword selection; recognize пустышка-therapy-jewelry cluster (copper/hematite/magnetic/red-light) for fast rejection on any pain keyword
+**Expires after:** Session 34
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.
 > Do NOT delete archived entries — keep as historical record.
+
+> **АРХИВАЦИЯ Session 28 (2026-05-24):** 2 записи архивированы (истекли после Session 28):
+> - Session 21 — FB blocks short health-condition & activity terms — REFINED: блок term-specific (S27 "tired eyes"/S28 wrist-cluster НЕ заблокированы). Tombstone в Active.
+> - Session 21 — Situation Keywords Cluster 1 verdict — суть сохранена в S22/23 + S24 discriminating principle; keyword-вердикты в keyword-map.md. Tombstone в Active.
 
 > **АРХИВАЦИЯ Session 27 (2026-05-23):** 1 запись архивирована (истекла после Session 27):
 > - Session 24 — S25 direction note (non-binding) — Kids-vertical lean не реализовался; S25-S27 шли по Office×Positive направлению. Tombstone оставлен в Active секции.
