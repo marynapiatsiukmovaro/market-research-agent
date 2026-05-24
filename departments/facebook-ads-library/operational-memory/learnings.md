@@ -125,14 +125,8 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
-### [2026-05-19] Session 22/23 — Situation Keywords: что работает, что не работает
-**Type:** Pattern | **Severity:** HIGH | **Confidence:** MEDIUM (S21-S23 data; S23 correction by Marina)
-**Observation:** S21-S22 данные: "cold office" ✅, "tired feet" ✅, "sitting all day" ✅ — все физические ощущения. S22 мёртвые: "desk job", "night shift", "meal prep", "ergonomic", "on your feet all day". S23 мёртвые: burnout, work stress, always tired.
-НО: "long flight" (S11) — контекстный keyword, НЕ физическое ощущение — дал Kids Travel Sleep Nest score 72 ✅.
-ВЫВОД (исправлен Marina S23): ситуационные keywords работают когда создают СПЕЦИФИЧНЫЙ МОМЕНТ боли/дискомфорта — неважно физический или контекстуальный. Не работают: слишком широкие эмоциональные/психологические состояния ("burnout", "work stress", "always tired") → притягивают supplements/coaching/apps. Работают: конкретный момент ("long flight", "cold office", "tired feet") → продукт решает именно этот момент.
-Ошибочное правило из черновика S22 ("физическое ощущение = сигнал; контекст = мёртво") ОТОЗВАНО как чрезмерная генерализация.
-**Applies to:** S23+ Situation Keywords sessions — keyword selection
-**Expires after:** Session 29
+~~### [2026-05-19] Session 22/23 — Situation Keywords: что работает, что не работает~~
+> ARCHIVED S29 — expired (Expires after Session 29). Core conclusion (situation keywords work only when they create a SPECIFIC moment with a concrete object-solution; wide emotional/psychological states fail) is fully absorbed into the S24 discriminating-principle entry below + reconfirmed by S29 (appearance/identity phrases "looking good"/"tired face" = no white-label object → 0). Keyword verdicts in keyword-map.md.
 
 ---
 
@@ -219,10 +213,21 @@ Important: do NOT make this a mandatory step for every advertiser — only when 
 
 ---
 
+### [2026-05-24] Session 29 — Appearance/identity keywords = beauty/service-owned (0 white-label); paired A/B confirms qualifier shifts noise, not yield
+**Type:** Pattern | **Severity:** MEDIUM | **Confidence:** MEDIUM (4 appearance keywords S29 + consistent with S17/S20/S24)
+**Observation:** Full session = 6 keywords, 0 reportable. Four appearance/identity phrases — "looking good on zoom" (266), "looking good" (377), "tired face on camera" (207), "tired face" (282) — ALL 0. The moment "look good / not look tired" is owned by skincare/cosmetics/apparel/shapewear/aesthetic-services/pharma + business-opp-coaching, NOT white-label gadgets → Nth confirmation of the S24 discriminating principle (a keyword yields white-label DTC only if the moment has a concrete PHYSICAL OBJECT as its obvious solution; "appearance" → solution is cream/makeup/clothes/procedure). **Marina's deliberate A/B (paired keywords, qualifier removed):** removing "on zoom"/"on camera" MEANINGFULLY changed noise COMPOSITION but NOT the 0 outcome — "on zoom" added a business-opp/B2B-agency/remote-work layer (Zoom=work calls); bare "looking good" broadened to apparel/shapewear/body; "on camera" added content-creator/camera-gadget + Ozempic-story; bare "tired face" added local med-spa services + pharma. Takeaway: the real lever is whether the qualifier points to a CONCRETE PHYSICAL OBJECT (ring light/webcam/selfie monitor) — here those traces were branded (eMeet)/commodity/cloaked-affiliate, so both versions flopped. Two situation phrases also 0: "working from bed" (235) — expected ergonomic objects (lap desk/bed tray/wedge pillow) had ZERO hits, phrase lives in pain/story-narratives; "stuck in traffic" (288) — reconfirms S28 commute=context-not-object. NEW noise sub-classes logged: cloaked-affiliate (ad describes product X, store is unrelated — soyummy food site / velluci jewelry); cloned local med-spa promo-network (6+ "Derma-Lift $99" city accounts on one creative). NOTE per RULE 14: "close the appearance/identity-phrase class" = Tier-2 generalization → flagged as PROPOSAL in Session Learning Report, not auto-written.
+**Applies to:** S30+ — keyword selection (appearance/identity phrases low-priority regardless of qualifier; prefer qualifiers that name a concrete physical object or physical-friction moment)
+**Expires after:** Session 35
+
+---
+
 ## Expired / Promoted
 
 > Entries with `Expires after: Session N` where N ≤ current session are archived here by the agent at STEP 8.
 > Do NOT delete archived entries — keep as historical record.
+
+> **АРХИВАЦИЯ Session 29 (2026-05-24):** 1 запись архивирована (истекла после Session 29):
+> - Session 22/23 — Situation Keywords: что работает, что не работает — суть поглощена S24 discriminating-principle + переподтверждена S29 (appearance-фразы = 0). Tombstone в Active. Keyword-вердикты в keyword-map.md.
 
 > **АРХИВАЦИЯ Session 28 (2026-05-24):** 2 записи архивированы (истекли после Session 28):
 > - Session 21 — FB blocks short health-condition & activity terms — REFINED: блок term-specific (S27 "tired eyes"/S28 wrist-cluster НЕ заблокированы). Tombstone в Active.
