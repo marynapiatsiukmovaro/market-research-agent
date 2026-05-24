@@ -26,6 +26,10 @@ Explore **Ads** (`/explore/ads`) · **Staff Picks** · **Tracked Shops** ·
 - **RULE: search the BARE DOMAIN only** (e.g. `renpho.com`), NOT a full product URL —
   `renpho.com/collections/eye-massager` does NOT surface the store. Strip everything
   after the first slash. (Confirmed S-SH1; see learnings.md.)
+- **⚠ SH-2 CORRECTION:** bare domain ALONE is NOT enough — it fails for stores whose canonical domain
+  has `www.` (e.g. `seattosleep.co.uk` → 0 results, but `https://www.seattosleep.co.uk` → found). Strip
+  only the PATH, then try in order: **full Store Link URL → `https://www.`+domain → bare domain → brand
+  name as words**; ALWAYS open the result and confirm the shop's shown domain matches. See learnings.md SH-2.
 - Result cards link to `/shops/{shop_id}`. Skip the `/shops/track` nav link.
 
 ## Shop page data (`/shops/{shop_id}`)
