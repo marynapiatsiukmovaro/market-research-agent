@@ -23,13 +23,14 @@ Created converted date→TEXT (existing dates preserved as date-mentions), liter
 **Open / do next:**
 1. **9 confirmed ABSENT** even via full URL + brand name (all 12 misses now RESOLVED; these keep "-"):
    travelerpillow, puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz.
-2. **Coverage HYPOTHESIS — SUPPORTED:** 9 of 12 missed DTC stores are genuinely not in ShopHunter (only
-   seattosleep, nuface, camp snap were search-bug false-negatives). ShopHunter index is PARTIAL — skews to
-   established/higher-revenue US Shopify stores; misses small/fresh/niche. Verify WHY next (non-Shopify?
-   ShopHunter is Shopify-only; or too small/fresh) — Marina may compare with other tools. Key lesson: a
-   store's SH-stored domain can differ from our Store Link → **brand-NAME search is the essential fallback**
-   (camp snap matched by name, not by domain campsnapcamera.com).
-3. **Begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal), framed by the partial-coverage finding.
+2. **9 not found via domain+name — cause UNKNOWN, do NOT infer coverage.** Of the 12 misses, 3 were
+   search-bug false-negatives (seattosleep, nuface, camp snap); 9 were not found (travelerpillow,
+   puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz). We have
+   NOT inspected what those 9 are — could be established brands under a different stored domain/name we didn't
+   guess, or genuinely absent. 9 links say NOTHING about ShopHunter coverage (tens of thousands of stores).
+   NEXT: open/inspect the 9 directly before any coverage statement. Method lesson: a store's SH-stored domain
+   can differ from our Store Link → **brand-NAME search is the essential fallback** (camp snap matched by name).
+3. **Begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal).
 
 **Watch:** revenue = estimate (corroborate); mono-brand (2–9 SKU) vs catalog/dropship (100+ SKU);
 competitor multi-geo domains; VPS background-SSH drops (poll `pgrep`, don't relaunch).
@@ -74,28 +75,30 @@ the right store may not be first, and a store's canonical domain may differ from
 **Applies to:** every Explore Shops lookup.
 **Expires after:** Never → op-rules.md.
 
-### [2026-05-24] Session SH-2 — "Not in index" is UNRELIABLE until full-URL retry; coverage = HYPOTHESIS
+### [2026-05-24] Session SH-2 — "Not in index" came from a SEARCH BUG; the 9 unfound stores are UNEXPLAINED (no coverage claim)
 **Type:** Warning / Open question
 **Severity:** HIGH
 **Confidence:** MEDIUM
-**Observation:** Because of the over-stripping bug, SH-2 marked ~12 stores "-"/"not in ShopHunter".
-seattosleep + nuface were later FOUND → the "ShopHunter misses small/fresh/niche stores" idea is
-DOWNGRADED to a HYPOTHESIS to verify (Marina's call). RESOLVED in SH-2: recovered seattosleep (full URL, id 61584507067),
-nuface (name, id 7425785, $2M/mo, branded ref), camp snap (name, id 74473832752 — its SH domain ≠
-campsnapcamera.com). 9 CONFIRMED ABSENT via full URL + name (travelerpillow, puredailycare, luncheaze,
-itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz) → genuinely not indexed. Coverage =
-PARTIAL (index skews to established/higher-revenue US Shopify). Next: investigate WHY absent (non-Shopify?
-ShopHunter = Shopify-only; or too small/fresh) — Marina may compare with similar tools.
-**Applies to:** the "-" rows; coverage strategy + tomorrow's discovery framing.
-**Expires after:** Session SH-4 (after coverage cause is confirmed).
+**Observation:** The over-stripping bug made SH-2 mark ~12 stores "-"/"not found". After the corrected
+search (full URL + brand name), 3 were recovered — seattosleep (id 61584507067), nuface (id 7425785,
+$2M/mo, branded ref), camp snap (id 74473832752 — matched by NAME; its SH domain ≠ campsnapcamera.com).
+9 were still not found via domain+name: travelerpillow, puredailycare, luncheaze, itakico, glenbrookhome,
+toucanbaby, desknest, ergopurrch, kaizenkidz. ⚠ Do NOT conclude anything about ShopHunter's coverage from
+this — we have NOT inspected those 9 (they may be established brands under a different stored domain/name,
+or genuinely absent), and 9 links is no sample for a tool with tens of thousands of stores (Marina's
+correction — avoid overgeneralizing from a tiny sample). NEXT: open/inspect the 9 directly (correct stored
+domain? on Shopify? real size) BEFORE any coverage statement.
+**Applies to:** the 9 "-" rows; keep any unverified coverage claim OUT of strategy.
+**Expires after:** Session SH-4.
 
 ### [2026-05-24] Session SH-2 — Notion: the 4 SH fields are ShopHunter-DEPARTMENT-ONLY
 **Type:** Pattern / Rule (Marina-approved)
 **Severity:** MEDIUM
 **Confidence:** HIGH
-**Observation:** Added to the shared Product Tracker: **SH Link** (url), **SH Store Created** (date),
-**SH Rev W/M** (text "week / month"), **SH SKU/Country** (text "N / US"). Each Notion field description
-says "ShopHunter dept only — FB Ads agent leaves blank" → the FB-department agent must NOT fill these.
+**Observation:** Added to the shared Product Tracker: **SH Link** (url), **SH Store Created** (text — converted
+from date in SH-2; description was lost on conversion, re-add if wanted), **SH Rev W/M** (text "week / month"),
+**SH SKU/Country** (text "N / US"). The other 3 field descriptions say "ShopHunter dept only — FB Ads agent
+leaves blank" → the FB-department agent must NOT fill these.
 Provenance decision (Marina): do NOT add a separate "Department" field — instead add value **"ShopHunter"**
 to the existing **Source** field for FUTURE ShopHunter-discovered products; NEVER rewrite existing Source
 values (TikTok/WebSearch/Facebook/Amazon are accurate — today's enrichment did NOT change Source).
@@ -110,8 +113,8 @@ store/infrastructure observations (multi-geo domains, store-name≠product, pric
 **Confidence:** HIGH
 **Observation:** (1) Revenue = ESTIMATE — corroborate before calling a winner. (2) Store Created: ~half
 show N/A; when present, dates are varied/plausible (2016–2025) → field usable for mature-vs-fresh; the
-9/2/2022 shared by renpho+nuve was isolated. ⚠ N/A handling open: date field can't show literal "N/A"
-(Marina wants it shown) → decide: convert SH Store Created → text, or leave blank + note. (3) SKU count
+9/2/2022 shared by renpho+nuve was isolated. N/A handling RESOLVED in SH-2 (Marina opt a): SH Store Created
+converted to TEXT, literal "N/A" written to the 14 N/A rows, existing dates preserved as date-mentions. (3) SKU count
 reveals store TYPE: mono-brand hero (2–9 SKU: Hoppie, Rhona, WagWells) vs big catalog/dropship
 (KittySpout 481, Cherrypick 216, Levide 147) — high SKU = product is one of many, weaker as a hero-brand.
 (4) Competitor Analysis = free convergence/saturation map per store, incl. multi-geo same-brand variants
