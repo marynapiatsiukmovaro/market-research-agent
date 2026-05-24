@@ -39,6 +39,16 @@ Data source ID: 35b53ba8-196e-80bf-9be2-e6a4eb49059e
 | 27 | Social Link | URL | TikTok / Instagram profile or post — hidden in Inbox view |
 | 28 | CTR | Number | actual CTR if tested |
 | 29 | CPM | Number | actual CPM if tested |
+| 30 | SH Link | URL | **ShopHunter dept ONLY** — link to the store's ShopHunter page (or "-" if not found). |
+| 31 | SH Store Created | Text | **ShopHunter dept ONLY** — store creation date literal from ShopHunter (or "N/A"). |
+| 32 | SH Rev W/M | Text | **ShopHunter dept ONLY** — store revenue week / month (estimate). |
+| 33 | SH SKU/Country | Text | **ShopHunter dept ONLY** — SKU count / country. |
+
+> **⚠ Department-scoped fields (added 2026-05-24, Session SH-2):** the four `SH *` fields (30–33) are filled
+> **ONLY by the ShopHunter department.** The **Facebook Ads Library agent does NOT touch them — always leave blank.**
+> They carry ShopHunter store-intelligence and are irrelevant to products sourced via Facebook Ads Library.
+> Each field's Notion description repeats this. ShopHunter-discovered products use Source = "ShopHunter";
+> never rewrite the Source of existing FB/TikTok/WebSearch/Amazon products.
 
 ---
 

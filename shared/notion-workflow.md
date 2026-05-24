@@ -47,6 +47,11 @@ For each reported product (score 65+), create one Notion database entry with two
 | Test Status | Marina sets when product moves to testing |
 | CTR / CPM | Filled after real test data |
 
+### ShopHunter-only fields — Facebook Ads Library agent does NOT fill these
+The four `SH *` fields — **SH Link, SH Store Created, SH Rev W/M, SH SKU/Country** — are filled **only by the
+ShopHunter department** (store-level data pulled from ShopHunter). The **Facebook Ads Library agent leaves them
+blank** — they are not part of the FB workflow. (Added Session SH-2, 2026-05-24.)
+
 ### Source Verification Rule
 - Ad Link + Store Link both present → Recommendation as scored
 - Only one link present → acceptable, note which is missing
