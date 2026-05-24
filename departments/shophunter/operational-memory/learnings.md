@@ -14,19 +14,22 @@ rule via `review/promotion-queue.md`.
 ## HANDOFF → SH-3 (read first)
 
 **Done in SH-2 (2026-05-24):** mapped shop-page data live; added 4 ShopHunter-only Notion fields
-(SH Link, SH Store Created, SH Rev W/M, SH SKU/Country) + showed them in the main Table view, right
-after Store Link; enriched ALL 47 Product-Tracker rows (28 with data, 19 marked "-"). Found + fixed the
-search over-stripping bug (recovered seattosleep id 61584507067, nuface id 7425785).
+(SH Link, **SH Store Created [now TEXT]**, SH Rev W/M, SH SKU/Country) shown in the main Table view after
+Store Link; enriched ALL 47 Product-Tracker rows (**29 with data, 18 marked "-"**). Fixed the search
+over-stripping bug → recovered **seattosleep (61584507067), nuface (7425785), camp snap (74473832752 —
+matched by NAME; its SH domain ≠ campsnapcamera.com)**. N/A handling DONE (Marina option a): SH Store
+Created converted date→TEXT (existing dates preserved as date-mentions), literal "N/A" written to the 14 N/A rows.
 
 **Open / do next:**
-1. **Full-URL retry** of the 10 still-"-" DTC stores — travelerpillow, puredailycare, luncheaze, itakico,
-   glenbrookhome, campsnapcamera, toucanbaby, desknest, ergopurrch, kaizenkidz — using the corrected rule
-   (full URL → https://www. → bare → brand name; confirm by opening the shop). Replace "-" if found.
-2. **N/A decision (Marina):** SH Store Created is a date field and can't show literal "N/A"; ~half of
-   stores show N/A in ShopHunter. Decide: convert SH Store Created → text (show literal value), or leave blank.
-3. **Verify the coverage HYPOTHESIS:** for stores still absent after full-URL retry — are they non-Shopify
-   (ShopHunter = Shopify-only) or too small/fresh? Marina may compare with similar tools first.
-4. **Then begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal), framed by index-coverage findings.
+1. **2 stores still UNTESTED** (full-URL retry timed out at 8/10): **ergopurrch, kaizenkidz** — retry by
+   full URL + brand name.
+2. **7 confirmed ABSENT** even via full URL + name (→ likely genuinely not indexed, keep "-"):
+   travelerpillow, puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest.
+3. **Coverage HYPOTHESIS — now PARTIALLY SUPPORTED:** ~7 stores genuinely absent despite robust search →
+   ShopHunter index is partial. Verify WHY (non-Shopify? ShopHunter is Shopify-only; or too small/fresh).
+   Marina may compare with other tools. Key lesson: a store's SH-stored domain can differ from our Store
+   Link → **brand-NAME search is the essential fallback** (camp snap matched by name, not domain).
+4. **Then begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal), framed by the partial-coverage finding.
 
 **Watch:** revenue = estimate (corroborate); mono-brand (2–9 SKU) vs catalog/dropship (100+ SKU);
 competitor multi-geo domains; VPS background-SSH drops (poll `pgrep`, don't relaunch).
