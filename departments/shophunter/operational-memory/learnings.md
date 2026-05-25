@@ -18,12 +18,15 @@ rule via `review/promotion-queue.md`.
 **5 reported to Notion:** Titanium Cutting Board **76** (CONVERGENCE: Titavos + ChopChop + Life Upgrade = 3 stores),
 Sneakertizer **65** + Electric Shoe Dryer **65** (CONVERGENCE: shoe-care ×2), OroMilk **61** + CoolClip **60** (founder-KEEP, scored <65).
 
-**FOUNDER DECISIONS (SH-4, Marina) → full record in `operational-memory/founder-feedback.md`.** Approved: **OroMilk** (health
-trend + stylish). Consider: TempMaster, Electric Shoe Dryer, Sneakertizer, Plantagotchi (+ FB-dept Desk Cat Bed, Rhona).
-**Rejected: BOTH titanium cutting boards (Titavos + ChopChop/Life Upgrade convergence) — "no clear wow / not priority"**,
-CoolClip ("low perceived value"), Jar Genie ("weak economics"), Elevayr ("weak effectiveness"). **CRITICAL CALIBRATION:
-convergence / revenue do NOT override WOW + perceived value + Marina's category priority** — I over-weighted the titanium
-convergence; she rejected it for no-wow. SH-5: lead candidate selection with the WOW + taste read, not the convergence count.
+**FOUNDER DECISIONS (SH-4, Marina) → full record + status convention in `operational-memory/founder-feedback.md`.**
+Approved (pursue): **OroMilk** (health trend + stylish). Consider/monitor: TempMaster, Electric Shoe Dryer, Sneakertizer,
+Plantagotchi, **both titanium boards** (×3 convergence → "no wow YET, good trend → monitor, may return"), CoolClip (seasonal)
+(+ FB-dept Desk Cat Bed, Rhona). Rejected/closed: Jar Genie ("weak economics"), Elevayr ("weak effectiveness/saturated").
+**STATUS CONVENTION:** Consider = not-now-but-monitor/may-return (NO rejection reason, stays on radar); Rejected = closed →
+Archive. **CRITICAL CALIBRATION: convergence / revenue do NOT make Marina PURSUE — at best they earn Consider/monitor.
+Approve/test needs clear WOW + perceived value + category priority.** I over-weighted the titanium ×3 convergence as the
+"strongest find"; her call = Consider/monitor ("no wow yet"). SH-5: lead candidate recommendations with WOW + taste read
+(from live description), not the convergence count; surface trend/convergence finds as monitor-candidates.
 
 **MAJOR SYSTEM UPGRADE this session (all Marina-agreed) — the funnel is now:**
 `dump → parallel hero (Stage-1) → conservative cut → Stage-2 sub-agent enricher → main-agent deep-score`.
