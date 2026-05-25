@@ -2,6 +2,11 @@
 
 **State: Reported** — products surfaced by the agent with score 65+.
 These are NOT founder-approved by default. Founder decisions are tracked in `departments/facebook-ads-library/operational-memory/founder-feedback.md`.
+
+> **Founder-keep exception (added SH-4, 2026-05-25):** the agent's auto-report bar stays **65** — new products scoring
+> below 65 are NOT auto-reported. BUT the agent may SURFACE borderline candidates (≈60–64) for founder review, and if
+> Marina explicitly chooses to keep one, it is recorded here and marked **"agent score <65 — founder-kept"**. This is
+> the existing "when unsure, surface it → founder decides" rule, not a lowering of the agent's threshold.
 Read this file at the START of every session to prevent duplicate reporting.
 
 ## Log
@@ -67,6 +72,12 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-25 | Titavos Titanium Cutting Board | Kitchen | 76 | Titanium board = zero microplastics/bacteria — microplastic-anxiety wow + family-safety fear; $55.95, 10-SKU US hero, $311K/mo est, FB ads present ⚠️ store later found multi-niche (shilajit+pan+board) | ShopHunter / Explore Shops Home & Garden / titavos.com |
 
 | 2026-05-25 | Jar Genie Automatic Jar Opener (Stamny) | Kitchen | 73 | One-button opens any jar — arthritis/weak-grip/elderly; demonstrable wow, 10K customers, white-label; ⚠️ $95 top-range + Amazon jar-opener saturation | ShopHunter / Explore Shops Home & Garden / stamny.com |
+
+| 2026-05-25 | Titanium Cutting Board (ChopChop + Life Upgrade) — CONVERGENCE w/ Titavos | Kitchen | 76 | Titanium board = zero microplastics/bacteria; **3 stores converging** (Titavos SH-3 + ChopChop $79.95 $91K/wk 55ads + Life Upgrade $70 AU) = strong category validation | ShopHunter (SH-4) / Explore Shops H&G 301–450 / chopchopusa.com + lifeupgradeco.com.au |
+| 2026-05-25 | Sneakertizer (UV+Heat Shoe Dryer & Sanitizer) | Home | 65 | Dries+deodorises wet sports shoes overnight; UV+heat (ThermaUV), no ozone; ~$85; shoe-care convergence | ShopHunter (SH-4) / Explore Shops H&G 151–300 / sneakertizer.com |
+| 2026-05-25 | Electric Shoe Dryer (Veladux) | Home | 65 | Portable shoe dryer $50, mono-product, low COGS; CONVERGENCE w/ Sneakertizer (shoe-care ×2 in SH-4) | ShopHunter (SH-4) / Explore Shops H&G 301–450 / veladux.com |
+| 2026-05-25 | OroMilk One-Touch (Nut/Plant-Milk Maker) | Kitchen | 61 | 8-in-1 home plant-milk maker, no soaking, self-clean; founder-interest (alt-milk); premium $130; scored <65 but Marina KEEP | ShopHunter (SH-4) / Explore Shops H&G 301–450 / alvaoro.com |
+| 2026-05-25 | CoolClip (Wearable Clip-On Cooling Fan) | Tech | 60 | Stylish wearable waist/clip fan $48, 142 rev; founder-interest (design); seasonal+commodity; scored <65 but Marina KEEP | ShopHunter (SH-4) / Explore Shops H&G 301–450 / ergonable.com |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.

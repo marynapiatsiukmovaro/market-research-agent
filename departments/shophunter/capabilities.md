@@ -54,7 +54,9 @@ Name · store/brand · price · **Product Ads** (count) · **Product Revenue Day
 - Revenue at **product AND store** level = the traction signal we wanted (treat as **ESTIMATE** — see guardrails when written).
 - **Store/Product Created dates** directly enable the mature-brand-vs-fresh-store guardrail.
 - **Country filter** scopes straight to target markets.
-- **Ads** field = natural join to the FB department (advertised AND selling = strongest signal).
+- **Ads** field — ⚠️ **SH-4 correction (Marina):** ShopHunter's own ad-COUNT/linkage is UNRELIABLE (often the wrong FB
+  account) — treat as ESTIMATE that REQUIRES VERIFICATION, do NOT decide on it. The valid join is cross-checking the
+  REAL Facebook Ads Library (our other department) directly: advertised AND selling = strongest signal — but verify there, not via ShopHunter's number.
 - **Related Products** gives a per-candidate competitor map for free.
 
 ### Still to map (next sessions)

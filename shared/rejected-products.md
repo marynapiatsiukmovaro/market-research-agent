@@ -230,6 +230,24 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 
 **SH-3 pattern note:** ShopHunter "Home & Garden" store-first test (150 stores → 103 live → 1 reportable Stamny Jar Genie 73). Noise classes mirror FB but thinner: supplements/пустышка (incl. products mis-tagged into H&G by ShopHunter taxonomy), Nordic-dropship (Swedish generic-AliExpress), mature brands (kept as "learn-from"), POD/personalized, add-on-SKU (gift card/protection plan/touch-up paint). Funnel works. ShopHunter "Top Products (Revenue Week)" on the shop page is RELIABLE and matches catalogs (Marina-verified: Titavos #1=Titanium Cutting Board $28K/wk, Plantagotchi #1=AI Planter $11K/wk). NOTE: an SH-3 extractor bug grabbed COMPETITOR "Top Revenue Producers" by mistake — parse the store's own "Top Products" block. Use ShopHunter for discovery AND hero; corroborate with products.json. Full detail in departments/shophunter/operational-memory/learnings.md SH-3.
 
+### Session SH-4 (ShopHunter dept) — 2026-05-25 (H&G stores 151–300 + 301–450, matured funnel)
+
+| Date | Product | Category | Reason | Score |
+|------|---------|----------|--------|-------|
+| 2026-05-25 | CGEAR Sand-Free Mat (cgear-sandfree.com) | Outdoor | ~64 SOFT — strong wow-demo (sand falls through) + rev $174K, BUT patented "the original" (can't white-label exactly) + seasonal beach/camping. SOFT — retry after Session SH-9 | ~64 |
+| 2026-05-25 | miniCUBE (cityframes.de) | Decor/Art | rev $462K but = customizable 3D city-skyline model (personalized decor/art), not a white-label gadget | filtered |
+| 2026-05-25 | PetGlow Pace / "ReHears" (trypetglow.com) | Pet/Device | Red-light therapy for dogs ($180) = пустышка (unverifiable result, Marina #1 reject) + over $170 ceiling + pet-medical claims | filtered |
+| 2026-05-25 | Elevate / AeroCherub (thesoftminimal.com) | Decor | Decorative plaster/metal sculptures ($156–190) + unverifiable wellness claims; not a gadget | filtered |
+| 2026-05-25 | Leaked-supplement cluster (Manna Gold, Pure Ormus Gold Oil, Daily Essentials, Alpha Muscle Stack, Balance+, Wild Collagen, Nasal Spray, Seamoss, Oil of Oregano, Kaiora Collagen) | Health | Ingestible/skincare/пустышка that the name+product_type classifier let slip into Tier A — caught by the LIVE DESCRIPTION at deep-score. Confirms: description > keyword for gadget-vs-ingestible | class reject |
+
+**SH-4 pattern note:** Store-first H&G (300 new stores) → 5 reported. The matured funnel (parallel hero → conservative cut →
+sub-agent Candidate Sheets via Playwright+proxy → main-agent deep-score) works end-to-end. Key reject learnings: (1) the
+name/product_type classifier LEAKS supplements both ways — the **live product description** is what reliably separates a
+gadget from an ingestible/пустышка (so the description is a mandatory Stage-2 field). (2) Decor/art (3D city models, sculptures,
+religious statues) and branded-premium cookware recur as physical-but-not-white-label-gadget rejects. (3) ShopHunter price is
+unreliable (confirm on the live site — it flips classifications: Prone Pillow SH$169→$39 IN, Plantie Sense SH$67→$229 OUT).
+(4) **Numbers are never fixed** — cut/keep counts float with each batch's composition. Full build in learnings.md SH-4.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

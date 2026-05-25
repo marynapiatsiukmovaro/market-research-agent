@@ -6,6 +6,21 @@
 > Do NOT carve any of this into permanent `op-rules.md` until validated across multiple
 > sessions (Marina, SH-3). We are still developing the strategy.
 
+## SH-4 UPDATE (2026-05-25) — funnel matured & refined (Marina-agreed)
+The SH-3 draft below still holds in spirit, but SH-4 made it concrete and changed key mechanics:
+- **Stage 1 (hero) is now PARALLEL** (`sh_hero_par.py`, 4 workers, shared `sh_state.json` login): ~20 min → ~2 min / 150 stores, 0 quality loss.
+- **The big cut is CONSERVATIVE, not aggressive** (`sh4_hardcut2.py`): hard-drop ONLY definite-no = non-gadget / пустышка /
+  real-price > $170 / < $36 / dead. **Service-SKU as #1** (shipping-protection/gift-card) = ShopHunter mislabel → dig top-3, don't drop.
+- **Stage 2 is a SUB-AGENT ENRICHER** with its own spec → see **`methods/subagent-spec.md`**. It reads the LIVE catalog
+  (products.json via **Playwright+proxy** — bare requests = Shopify 403) and writes a Candidate Sheet: best in-range
+  physical from top-3 (REAL prices, so a $70 beats a $250 #1) + niche + **description** + convergence + filter-flags + image.
+- **Reliable signals only:** real price (margin), convergence (multi-seller), Stage-1 revenue. **Dropped:** reviews/rating
+  (fakeable), multi-niche (not a criterion), ShopHunter FB-ads count (unreliable), branded-flag (don't auto-penalise).
+- **NUMBERS NEVER FIXED:** survivors and the deep-score set float with the data; deep-score ALL genuine gadgets above the
+  objective bar (no gut top-N — FB RULE 8). The description + main-agent judgment is the real filter.
+
+---
+
 ## Core idea
 ShopHunter surfaces STORES with traction; scoring needs PRODUCTS. The funnel progressively
 narrows a large cheap pool down to a few deeply-scored candidates — **all heavy filtering on

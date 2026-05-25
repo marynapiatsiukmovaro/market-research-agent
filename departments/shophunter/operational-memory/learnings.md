@@ -11,7 +11,47 @@ rule via `review/promotion-queue.md`.
 
 ---
 
-## HANDOFF → SH-4 (read first)
+## HANDOFF → NEXT SESSION (read first)
+
+**SH-4 DONE (2026-05-25) — funnel matured + 5 products to Notion.** Processed H&G stores **151–300 AND 301–450**
+(deduped vs SH-3 by shop_id; the two dumps are DIFFERENT runs — only 121/150 SH-3 stores appear in the 830 master).
+**5 reported to Notion:** Titanium Cutting Board **76** (CONVERGENCE: Titavos + ChopChop + Life Upgrade = 3 stores),
+Sneakertizer **65** + Electric Shoe Dryer **65** (CONVERGENCE: shoe-care ×2), OroMilk **61** + CoolClip **60** (founder-KEEP, scored <65).
+
+**MAJOR SYSTEM UPGRADE this session (all Marina-agreed) — the funnel is now:**
+`dump → parallel hero (Stage-1) → conservative cut → Stage-2 sub-agent enricher → main-agent deep-score`.
+1. **A+B parallel scraper** (`sh_hero_par.py`, `sh_hero_arg.py`): 4 workers share ONE login via exported
+   `cookies/sh_state.json` (`sh_export_state.py`) — no profile-lock fight — + `wait_for_selector("Top Products")` +
+   original scroll cadence + retry. **20 min → ~2 min / 150 stores, 150/150 hero, 0 quality loss** (validated vs sequential).
+2. **Conservative Stage-1 cut** (`sh_rank_soft.py`, `sh4_hardcut2.py`): hard-drop ONLY definite-no (non-gadget /
+   пустышка / real-price > $170 / < $36). **Service-SKU as #1** (shipping-protection/gift-card) = ShopHunter MISLABEL →
+   DIG top-3 for the real hero, do NOT drop the store. Survivor count FLOATS (never a fixed quota).
+3. **Stage-2 sub-agent enricher** (`sh_enrich_final.py`; spec = `methods/subagent-spec.md`): reads the LIVE products.json
+   via **Playwright + residential proxy** (bare `requests` gets Shopify **403 bot-block** regardless of proxy — MUST use a
+   real browser through the proxy; verified 200). Per store writes a **Candidate Sheet**: best IN-RANGE physical from
+   top-3 with REAL prices (so a $70 beats a $250 #1 — Marina's rule) + niche + **DESCRIPTION** (the bridge for the main
+   agent to judge problem/wow/пустышка) + convergence + filter-flags + image. Proxy-score = price-in-range + convergence
+   + Stage-1 revenue (RELIABLE signals only). Runs only on survivors (~93) → fast (34–57s).
+4. **DROPPED as signals (Marina decisions):** reviews/rating (fakeable — never show 2★ + advertise), multi-niche
+   (not a criterion), **ShopHunter FB-ads count** (linkage unreliable / wrong account), branded-flag (don't auto-penalise
+   — some branded stores still worth a look). **ShopHunter PRICE is unreliable** → confirm on live site
+   (Prone Pillow SH$169→real$39; Cow Keyholder SH$9→real$789; Mellow Mat SH$163→real$329).
+5. **Division of labour:** sub-agents = FACTS + flags + ranking (never judge wow/emotion); MAIN AGENT = Marina Veto +
+   100-pt judgment on the description. **Deep-score ALL genuine gadgets above the objective bar — no gut top-N** (FB RULE 8).
+   The DEEP-SCORE is the real filter; pre-narrowing by gut loses winners.
+
+**NEXT SESSION — START HERE (Marina's plan):** do NOT advance to stores 451–830 yet. First **RE-RUN the SH-3
+first-150** (`hg_shops.json` / `hg_topproducts.json`) through the NEW system (conservative cut → Stage-2 enricher →
+deep-score) to (a) check whether the old by-NAME cut LOST any winners, and (b) compare before-vs-after. THEN 451–830
+(559 new stores remain in the 830 master).
+
+**Op-rule earned (→ promote):** write VPS scripts LOCALLY + `scp` them — NEVER heredoc over a live SSH (SSH drops
+mid-write under Chromium load → corrupt file; cost 2 failed launches in SH-4). Always `-o ServerAliveInterval=10`;
+launch long jobs with a MINIMAL one-line `nohup` SSH (long combined commands drop before reaching the launch line).
+
+---
+
+## HANDOFF → SH-4 (SUPERSEDED — kept for history)
 
 **Done in SH-3 (2026-05-25) — FIRST store-first discovery run:** validated the full Explore-Shops
 discovery mechanics live (see SH-3 learnings below). Dumped **830 Home & Garden stores** (no country/sort
@@ -60,6 +100,23 @@ infer SH coverage from them.
 ---
 
 ## Active Learnings
+
+### [2026-05-25] Session SH-4 — Funnel matured (parallel + conservative cut + sub-agent enricher) + 2 convergence clusters
+**Type:** Pattern / Result | **Severity:** HIGH | **Confidence:** HIGH (Marina co-designed + validated live)
+**Observation:** Full build detailed in the HANDOFF above. Durable take-aways:
+- **No fixed numbers anywhere** (Marina, repeated): survivors / deep-score set FLOAT with the data — never a quota,
+  never gut top-N. Objective bar = physical white-label gadget + real price $39–170 + not clear supplement/пустышка/
+  apparel/decor. Deep-score everything that clears; in doubt → keep & deep-score (the 100-pt + Veto is the real filter).
+- **The DESCRIPTION (live product text) is the bridge** that lets the main agent judge problem/wow/пустышка — far more
+  truthful than reviews/ratings (fakeable) or FB-ads count (ShopHunter linkage unreliable). Money-based proof that IS
+  reliable = convergence (multiple independent sellers) + revenue estimate.
+- **2 convergence clusters found:** (1) **titanium cutting board** ×3 (Titavos + ChopChop + Life Upgrade) — reinforces
+  the SH-3 Titavos thesis hard; (2) **shoe-care / shoe-dryer** ×2 (Sneakertizer UV+heat + Veladux electric) within one
+  session. Convergence = the strongest reliable validation signal in store-first discovery.
+- **Stage-2 leaks still need the main agent's semantic read:** name/product_type classification let supplements slip
+  into Tier A (Manna Gold, Ormus, "Daily Essentials", nasal spray) — the live DESCRIPTION caught them. Path A confirmed
+  (main agent does the semantic cut; no paid LLM on the VPS for now).
+**Applies to:** SH-5+ funnel. **Expires after:** promote the funnel mechanics to op-rules once re-validated on the SH-3 re-run.
 
 ### [2026-05-24] Session SH-1 — Explore Shops search needs the BARE DOMAIN, not the full product URL
 **Type:** Tactical / Warning
