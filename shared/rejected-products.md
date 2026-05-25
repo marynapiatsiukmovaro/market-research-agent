@@ -217,6 +217,19 @@ Quick filters: **price** ($15–35 or $80+ fails paid traffic) · **policy risk*
 - **"expected-object-absent" recurs (5th+ time after S29 working-from-bed, S30 kitchen-table-office, S31 ×4):** "sleeping after night shift" surfaced NO blackout sleep mask / white-noise machine / blackout curtains as fresh DTC — the obvious sleep-objects are advertised under direct product-nouns, not the situational phrase. Sleep keyword = пустышка-magnet (red-light sinus/grounding mat/anti-fatigue socks), like pain-keywords S28/S31.
 - **Persistent noise reconfirmed:** micro-drama/novel romance story-spam ("Kaelen/Alpha/Luna mate" cluster ×8 on working-late, dup on sleeping-night-shift; Pocket FM; DramaWave/DramaBox/NetShort short-drama apps = dozens of shell domains — heaviest spam class on emotional/late-night phrases); pharma "doctor-story" NO-DOMAIN spam (ADHD/ED/AMH/bladder/thyroid); "scratched writing desk" repair story-spam ×2 (reconfirm S26/S27); cat-food "NONE OF IT" story-spam.
 
+### Session SH-3 (ShopHunter dept) Rejections — 2026-05-25 (Home & Garden store-first discovery test)
+
+| Date | Product | Category | Reason | Score |
+|------|---------|----------|--------|-------|
+| 2026-05-25 | Elevayr Cloud Nursing Pillow (elevayr.co) | Baby | Marina REJECTED + removed from Notion: "нет вау" (no wow-effect). Hands-free waist-strap vs Boppy but saturated nursing-pillow category. Do NOT re-surface this type. | ~64 |
+| 2026-05-25 | Plantagotchi AI Smart Planter (myplantagotchi.com) | Home/Tech | ~62 BORDERLINE (in Notion, Needs Verification) — companion-planter (reconfirms Ivy S25-26) but 0 reviews + discount-spam + unclear mechanism. SOFT — retry after Session SH-8 | ~62 |
+| 2026-05-25 | Breazy "Split Cool Pro" portable AC (trybreazy.com) | Tech | пустышка-overpromise ("AC cools in 5 sec / no install" = evaporative cooler, high return-risk) + везде + RO market | filtered |
+| 2026-05-25 | Homaider Electric Fondue Pot | Kitchen | Commodity/narrow-occasion (Amazon $30-50), 18 reviews | filtered |
+| 2026-05-25 | Novima CharBreaker Pro (grill brush) | Kitchen | $69.99 overpriced commodity grill brush (Amazon $10-25), sold out, 0 reviews | filtered |
+| 2026-05-25 | Plunate emergency items (plunate.com) | Other | Real products sub-$39 (glass breaker $24.99, door alarm $19.99) — below floor commodity | filtered |
+
+**SH-3 pattern note:** ShopHunter "Home & Garden" store-first test (150 stores → 103 live → 1 reportable Stamny Jar Genie 73). Noise classes mirror FB but thinner: supplements/пустышка (incl. products mis-tagged into H&G by ShopHunter taxonomy), Nordic-dropship (Swedish generic-AliExpress), mature brands (kept as "learn-from"), POD/personalized, add-on-SKU (gift card/protection plan/touch-up paint). Funnel works. ShopHunter "Top Products (Revenue Week)" on the shop page is RELIABLE and matches catalogs (Marina-verified: Titavos #1=Titanium Cutting Board $28K/wk, Plantagotchi #1=AI Planter $11K/wk). NOTE: an SH-3 extractor bug grabbed COMPETITOR "Top Revenue Producers" by mistake — parse the store's own "Top Products" block. Use ShopHunter for discovery AND hero; corroborate with products.json. Full detail in departments/shophunter/operational-memory/learnings.md SH-3.
+
 ## How to Update (end of each session)
 Add notable rejections only — not every single candidate.
 Focus on: products that looked promising but failed for a non-obvious reason.

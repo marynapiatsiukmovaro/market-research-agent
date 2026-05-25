@@ -11,29 +11,39 @@ rule via `review/promotion-queue.md`.
 
 ---
 
-## HANDOFF → SH-3 (read first)
+## HANDOFF → SH-4 (read first)
 
-**Done in SH-2 (2026-05-24):** mapped shop-page data live; added 4 ShopHunter-only Notion fields
-(SH Link, **SH Store Created [now TEXT]**, SH Rev W/M, SH SKU/Country) shown in the main Table view after
-Store Link; enriched ALL 47 Product-Tracker rows (**29 with data, 18 marked "-"**). Fixed the search
-over-stripping bug → recovered **seattosleep (61584507067), nuface (7425785), camp snap (74473832752 —
-matched by NAME; its SH domain ≠ campsnapcamera.com)**. N/A handling DONE (Marina option a): SH Store
-Created converted date→TEXT (existing dates preserved as date-mentions), literal "N/A" written to the 14 N/A rows.
+**Done in SH-3 (2026-05-25) — FIRST store-first discovery run:** validated the full Explore-Shops
+discovery mechanics live (see SH-3 learnings below). Dumped **830 Home & Garden stores** (no country/sort
+filter, default order) to VPS file **`/opt/market-research-agent/logs/shophunter/hg_shops_1000.json`**
+(persists across sessions; fields: name·myshopify-handle·shop_ads·rev_day/week+chg·fb/ig·country·sku·currency·shop_id).
+Infinite-scroll **exhausted at 830** = that's how many H&G stores this surface exposes by default.
+Distribution: tiers hero≤20SKU=309 / small-cat=222 / catalog80+=299; **US=680 (82%)**, GB36/AU21/DE21/SE11;
+rev/wk almost all >$2K (10-50K=393, 50-200K=240, 200K+=105); **200/830 have FB ads (FB-bridge subset)**.
+A first 150-store batch (`hg_shops.json`) was also analysed end-to-end → **1 reportable candidate found:
+Titavos Titanium Cutting Board, score 76** (NOT yet in Notion). Marina screenshots delivered to Desktop.
 
-**Open / do next:**
-1. **9 confirmed ABSENT** even via full URL + brand name (all 12 misses now RESOLVED; these keep "-"):
-   travelerpillow, puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz.
-2. **9 not found via domain+name — cause UNKNOWN, do NOT infer coverage.** Of the 12 misses, 3 were
-   search-bug false-negatives (seattosleep, nuface, camp snap); 9 were not found (travelerpillow,
-   puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz). We have
-   NOT inspected what those 9 are — could be established brands under a different stored domain/name we didn't
-   guess, or genuinely absent. 9 links say NOTHING about ShopHunter coverage (tens of thousands of stores).
-   NEXT: open/inspect the 9 directly before any coverage statement. Method lesson: a store's SH-stored domain
-   can differ from our Store Link → **brand-NAME search is the essential fallback** (camp snap matched by name).
-3. **Begin ShopHunter store-first DISCOVERY** (the original "tomorrow" goal).
+**Marina-agreed FUNNEL for SH-4 → full spec in `methods/discovery-funnel.md` (PROVISIONAL).**
+Run it on the EXISTING dumps (don't re-scrape). Stages: dump → working slice (~250) → **open ALL** on VPS
+(no subjective pre-pick — fixes SH-3 103→12-by-name mistake, FB RULE 8) → objective noise-cut → **intermediate
+proxy-scoring on VPS** → top finalists to chat → deep 100-pt scoring. **NUMBERS (250/170/30-50/7-20) ARE
+ILLUSTRATIVE, NOT QUOTAS** (Marina, SH-3): each stage narrows by stricter criteria; the intermediate stage
+exists so even a low-noise slice still narrows (never dump 200 survivors to chat); never force a fixed count.
+**HERO per store = read its ShopHunter "Top Products" block (Revenue Week) — this is RELIABLE (Marina-verified: Titavos #1=Titanium Cutting Board $28K/wk, Plantagotchi #1=AI Planter $11K/wk). Do NOT grab the competitor "Top Revenue Producers" label (that was the SH-3 parser bug). Corroborate hero with products.json catalog + featured product.**
+Also: **carry-over candidates** = Titavos (DONE: saved to Notion SH-3; still confirm ad-count via FB-Archive bridge +
+Alibaba titanium COGS); **Revelle** (tryrevelle.store) — RESOLVED via ShopHunter Top Products: hero = Lymphatic Drainage Red-Light
+Massager $69 ($64K/wk) = ПУСТЫШКА (unverifiable result, hard-reject) → DROP, not a carry-over) and **Valia Collective** (8 SKU, $444K/mo Kitchen — no
+custom domain shown, re-open).
 
-**Watch:** revenue = estimate (corroborate); mono-brand (2–9 SKU) vs catalog/dropship (100+ SKU);
-competitor multi-geo domains; VPS background-SSH drops (poll `pgrep`, don't relaunch).
+**Then (after funnel validated on real data):** create `methods/discovery-funnel.md` + report + Notion.
+
+**Watch:** revenue = ESTIMATE (corroborate); SH category taxonomy is UNRELIABLE (weight-loss supplement
+tagged "Gardening›Hydroponics›Nutrient"); noise = supplements/пустышка + Nordic-dropship + mature giants;
+hero ≤20 SKU vs catalog 80+; foreground SSH reliable for ~3-4min dumps (830 took ~6min, exhausted clean).
+
+**Deferred from SH-2 (low priority):** 9 "-" Product-Tracker rows never inspected (travelerpillow,
+puredailycare, luncheaze, itakico, glenbrookhome, toucanbaby, desknest, ergopurrch, kaizenkidz) — do NOT
+infer SH coverage from them.
 
 ---
 
@@ -137,6 +147,109 @@ background ones dropped. Helper scripts: sh_batch.py (compact extractor), sh_rec
 sh_diag.py (search diagnostic) in /opt/market-research-agent/scripts/.
 **Applies to:** all VPS ShopHunter scripts.
 **Expires after:** Never → op-rules.md.
+
+### [2026-05-25] Session SH-3 — Explore Shops grid: discovery mechanics validated
+**Type:** Tactical | **Severity:** MEDIUM | **Confidence:** HIGH (live run, 830 stores)
+**Observation:** Store-first discovery works. (1) Categories are a TREE (Google taxonomy) — clicking the
+category TEXT only expands sub-categories; to FILTER, click its sibling `<input type=checkbox>` then the
+Search button (top-right, x≈1255). (2) Grid VIRTUALIZES the DOM (~48 cards held) → must harvest
+incrementally per scroll, keyed by shop_id; filter links to `^/shops/\d+$` only (product sublinks in "Top
+Revenue Producers" otherwise inflate counts ~5×). (3) Shop DETAIL page = value-BEFORE-label
+(`$202K…Week`, `SE…Country`, `4…SKUs`) — opposite of grid cards. (4) Sort options: Search Relevance /
+Revenue / Revenue %Change / Ads / Ads %Change (Daily+Weekly). (5) No result-count text visible; depth =
+scroll-to-exhaustion (H&G default = ~830). Helper scripts on VPS: sh_hg_dump.py (incremental dump),
+sh_hg_filter.py (tier fast-filter), sh_open_batch.py (detail extractor), sh_render_table.py (screenshot table).
+**Applies to:** every Explore Shops discovery run. **Expires after:** Never → op-rules.md when created.
+
+### [2026-05-25] Session SH-3 — Noise classes in H&G + the candidate-loss lesson (adopt FB RULE 8)
+**Type:** Pattern / Warning | **Severity:** HIGH | **Confidence:** MEDIUM (1 category, 1 run)
+**Observation:** ShopHunter "Home & Garden" carries predictable NOISE (expected, like FB keyword noise, just
+thinner): (a) **supplements/wellness/пустышка** (Tonum/Motus weight-loss $59.99, Setu, Auri, SugarbearPRO,
+Primal Harvest, Hydroh hydrogen-water $69.99) — and **SH category taxonomy is UNRELIABLE** (Motus tagged
+"Gardening›Hydroponics›Nutrient"); (b) **Nordic dropship stores** (SE/DK, Swedish generic-AliExpress
+products); (c) **mature giants** (PERGOLUX $2M/wk+207 ads, Hurom, Baby Brezza — not white-label); (d)
+**dead/closed** (My Little Dreamy "opening soon", Fridgezy $0). **CANDIDATE-LOSS LESSON:** in SH-3 I cut
+103 shortlist→12 by reading NAMES = subjective pre-pick before data = FB RULE 8 violation ("verify ALL above
+objective threshold, never top-N by gut"). Fix = the SH-4 funnel (open ALL → objective noise-cut →
+intermediate score → top to chat). **METHODOLOGY INSIGHT:** store-first surfaces STORES but scoring needs
+the PRODUCT → there is an extra drill-down (store→hero product→price); Explore PRODUCTS may be a more direct
+path — worth a comparison test (directional, NOT a conclusion). **Applies to:** SH-4+ funnel design + noise
+rejection. **Expires after:** Session SH-10 (or promote if reconfirmed).
+
+### [2026-05-25] Session SH-3 — FIRST full funnel run: result + bot-block/proxy + hero-selection fix + candidates
+**Type:** Pattern / Result | **Severity:** HIGH | **Confidence:** MEDIUM-HIGH (1 full run)
+**Observation:**
+- **Funnel flow worked end-to-end:** 150 H&G dump → Stage1 supplement-by-name cut (−14) → Stage2 open ALL real
+  stores on VPS via `/products.json` → **103 LIVE / 9 HOME / 7 CLOSED (HTTP 402 "Unavailable Shop") / ~15 unreachable**
+  → Stage2b classify+rank on REAL data → **59 clean Tier A** (physical + price $39-170; dropped supp14/apparel6/POD5/out-range19)
+  → deep-scored top 8.
+- **BOT-BLOCK / PROXY (key infra finding):** raw `urllib` from the VPS = blocked (403/402); headless Playwright
+  works individually but the **DATACENTER IP gets rate-limited under burst** (first run 113/136 DEAD incl. known-live
+  titavos). **Paced (4-7s delay + retry) recovered 103/136 (~76%).** FIX = residential proxy — Marina bought **iProyal
+  US ISP-residential (SH-3)**. Re-run through proxy recovers the ~33 closed/unreachable + removes pacing need. Use
+  **HTTP/HTTPS proxy** (Chromium/Playwright does NOT support SOCKS5 auth). Creds via `scripts/set_proxy_creds.py`
+  (getpass, → `cookies/proxy.creds`, gitignored, chmod 600).
+- **HERO-SELECTION — RESOLVED (SH-3, Marina-verified via the live ShopHunter UI):** The reliable hero source IS
+  ShopHunter's **"Top Products" section (Revenue Week)** on the shop page. Marina's screenshots confirm it MATCHES the
+  real catalog AND our scoring: **Titavos #1 = Titanium Cutting Board ($28K/wk); Plantagotchi #1 = AI Smart Planter
+  ($11K/wk).** ShopHunter product data is RELIABLE here.
+  ⚠️ **MY SH-3 EXTRACTOR HAD A BUG (the cause of the earlier confusion):** `sh_top_revenue.py` searched the text
+  "Top Revenue Producers" and took the FIRST match — but that label belongs to each COMPETITOR card under
+  "Competitor Analysis", NOT the store's own section (headed **"Top Products"**). So it reported a COMPETITOR's products
+  as the store's (the "rust spray / laser pen / fans" were competitors'). PROOF: Elevayr has only 1 catalog product (the
+  pillow) yet the buggy script returned 3 fans → impossible → competitor data. The earlier "ShopHunter is garbage"
+  conclusion was caused by THIS bug, not by ShopHunter.
+  **FIX:** parse the store's **"Top Products"** block (with the Revenue-Week toggle), NOT the first "Top Revenue Producers"
+  string. Corroborate with `products.json` (real catalog) + featured product. **Our 4 candidates were scored on the RIGHT
+  products.** Secondary heuristics (products.json max-price, og:title) can mislabel on multi-product stores → prefer the
+  "Top Products" section.
+  **VERIFIED (SH-3):** correct parser = `scripts/sh_hero_v2.py` — it reproduces Marina's live screenshots exactly
+  (Titavos #1 = Titanium Cutting Board $28K/wk; Plantagotchi #1 = AI Smart Planter $9799/wk; Stamny #1 = Jar Genie
+  $7980/wk → all 3 candidates WERE scored on the right hero; Elevayr = actually a fan store, CryoFan $35.99 = below floor).
+  Parse the store's own **"Top Products"** block (NOT the "Top Revenue Producers" label, which sits in "Competitor
+  Analysis" higher up — that was the SH-3 bug). **SAFETY NET PROVEN:** "Top Products" also returns the hero for FAILED
+  external stores (frozen-402 / DNS-dead / empty-json) — tested on Revelle/Hogar88/Cuvera/Rugify → **no candidate is lost**
+  (Marina's #1 priority). External store opening is needed only for enrichment (exact current price / claims).
+- **CANDIDATES (recorded so not lost — NOT yet in Notion; Marina: ONE batch after the proxy rerun):**
+  🟢 **Stamny Jar Genie** (automatic one-button jar opener, $95, 10K customers, stamny.com) = **Score 73, Worth Testing**
+  — arthritis/weak-grip/elderly, demonstrable wow, white-label-able; risks $95 top-range + Amazon jar-opener saturation + ad-count unconfirmed.
+  🟡 **Elevayr Cloud Nursing Pillow** (~$65, hands-free waist-strap vs Boppy, elevayr.co) ~64 borderline (saturated category, no reviews seen).
+  🟡 **Plantagotchi AI Smart Planter** ($99.99, myplantagotchi.com) ~62 borderline — companion-planter = RECONFIRMS the
+  Ivy/PlantBot signal from FB dept (S25-26); but no reviews + discount-spam.
+  🔴 Rejects: Breazy "portable AC" (пустышка-overpromise + return-risk + везде), Homaider fondue (commodity/narrow),
+  Novima grill-brush ($69.99 overpriced commodity), Plunate (sub-floor commodity).
+- **Titavos flag:** funnel revealed titavos.com is MULTI-NICHE (shilajit supplement + frying pan + cutting board) →
+  weakens the hero-brand thesis (already in Notion SH-3 — reconsider at review).
+**Applies to:** SH-4 funnel refinement (true-hero fix) + proxy rerun + the one Notion batch. **Expires after:** Session SH-10.
+
+### [2026-05-25] Session SH-3 — Marina founder feedback on the 3 ShopHunter candidates (Tier-1 facts)
+**Type:** Founder decision | **Severity:** HIGH | **Confidence:** HIGH (Marina direct)
+**Observation:**
+- **Elevayr Cloud Nursing Pillow (~64) → REJECTED (Recommendation=Rejected, archived in Notion, not hard-deleted).** Reason: "нет вау" (no wow). Scoring was correct; just no wow. Do not re-surface this nursing-pillow type.
+- **Plantagotchi AI Smart Planter (~62) → KEEP / strong positive.** Marina confirmed it = the SAME product as **Ivy Gen 2** (store.plantsio.com/products/ivy-gen-2), which the FB dept already found; actively selling; identical product in the Plantagotchi store → China-sourceable. Companion-planter signal reconfirmed across BOTH departments. (NOT a new rule — this is the concrete PROOF that core's existing "60-64 = SOFT, revisit" pays off; no duplicate rule written.)
+- **Stamny Jar Genie (73) → KEEP** (Marina kept on record). **Titavos → stays in Notion**, Marina sets Approved/Rejected herself.
+- **Notion safety confirmed good:** hard-delete is intentionally not available → mark Recommendation=Rejected + reason, product stays in Archive view (Marina approved this as correct system design).
+**Applies to:** Notion retention; scoring-threshold handling. **Expires after:** Never (founder facts).
+
+### [2026-05-25] Session SH-3 — Proxy safeguard plan (Marina-requested)
+**Type:** Operational safeguard | **Severity:** MEDIUM | **Confidence:** HIGH (Marina-requested)
+**Observation:** Residential proxies occasionally have provider maintenance/downtime (rare; Marina has hit it on iProyal — support confirms "technical works, wait"). Plan:
+- **Health-check FIRST:** `scripts/sh_proxy_check.py` (fetch api.ipify via proxy → expect 200 + exit IP). Run at the start of every store-opening job; never run blind.
+- **On failure A→B→C:** A = retry 2-3× (transient blip). B = fall back to PACED-NO-PROXY mode (proven ~76% yield) → continue, flag "proxy down — partial run". C = persistent → alert Marina: "proxy unreachable, likely iProyal maintenance — check dashboard / ping support, retry later".
+- **Diagnostic order (esp. future 24/7):** if store-opening starts failing → SUSPECT THE PROXY FIRST (run health-check), not the VPS / ShopHunter.
+**Applies to:** every proxy-based run. **Expires after:** Never → op-rules when created.
+
+### [2026-05-25] Session SH-3 — Clean funnel pass with TRUE heroes (v4)
+**Type:** Result | **Severity:** MEDIUM | **Confidence:** HIGH (verified parser)
+**Observation:** Ran `sh_topproducts_batch.py` over ALL 150 stores (no Stage-1 name-cut, per Marina) → **148/150 real heroes**
+extracted from ShopHunter "Top Products". Classified by the REAL hero: physical 124 / supplement 11 / пустышка 6 /
+apparel 4 / POD 3. Clean **Tier A (physical hero + $39-170) = 71** → `hg_tierA_v4.json`. True-hero surfaced NEW physical
+candidates the flawed pass had hidden: **ZAIA hot-air styling brush ($202K/wk), Keyf portable espresso ($75),
+Orré electric back brush ($60), Valia full-face respirator ($110), EkoVibe neck massager ($118), Miller warming mat
+($160)** + confirmed **Titavos** cutting board ($28K/wk). **Caveat:** the name-based classifier still leaks some
+supplement/apparel with non-obvious titles (Tonum "motus", "Metabolic+", "Stem Cell Restore", jorts/snow-boots) → real
+пустышка/supplement filtering happens at DEEP-SCORING on actual product+claims (Marina: don't trust name-cut).
+**Applies to:** SH-4 candidate selection. **Expires after:** Session SH-10.
 
 ---
 

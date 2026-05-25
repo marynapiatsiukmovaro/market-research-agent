@@ -64,6 +64,10 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-24 | Rhona TravelVac Pro (Cordless Vacuum Compression) | Travel | 74 | Cordless 4500Pa pump + 3 reusable bags (S/M/L) triples carry-on space, "works anywhere/no outlet" — visual compress wow + avoids $65-150 bag fees; 2+ fresh DTC advertisers Apr-May 2026; ⚠️ verify US price (AUD $57.95 sale/$115.95 reg ≈ $38/$76) + manual-compression-bag везде-risk | Facebook Ads Library / keyword "pack for a work trip" / tryrhona.com |
 | 2026-05-24 | Desk-Mounted Cat Bed (Desk Nest / Ergo Purrch-validated white-label) | Pets/Office | 76 | Clamp-mount 360° cat bed/perch beside monitor — solves "cat steals workspace/keyboard" (WFH cat-parent love + companionship); strong cat-UGC wow; 2 brands converged Mar-May 2026 (Desk Nest $159 "original"+media; Ergo Purrch 96 rev 4.9★); ⚠️ premium $100-170 (Duo $199>ceiling) + clamp/arm logistics + verify white-label Alibaba price | Facebook Ads Library / keyword "cat on desk" / desknest.com + ergopurrch.com |
 
+| 2026-05-25 | Titavos Titanium Cutting Board | Kitchen | 76 | Titanium board = zero microplastics/bacteria — microplastic-anxiety wow + family-safety fear; $55.95, 10-SKU US hero, $311K/mo est, FB ads present ⚠️ store later found multi-niche (shilajit+pan+board) | ShopHunter / Explore Shops Home & Garden / titavos.com |
+
+| 2026-05-25 | Jar Genie Automatic Jar Opener (Stamny) | Kitchen | 73 | One-button opens any jar — arthritis/weak-grip/elderly; demonstrable wow, 10K customers, white-label; ⚠️ $95 top-range + Amazon jar-opener saturation | ShopHunter / Explore Shops Home & Garden / stamny.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
