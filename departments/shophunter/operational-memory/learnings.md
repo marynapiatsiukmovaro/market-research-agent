@@ -18,6 +18,13 @@ rule via `review/promotion-queue.md`.
 **5 reported to Notion:** Titanium Cutting Board **76** (CONVERGENCE: Titavos + ChopChop + Life Upgrade = 3 stores),
 Sneakertizer **65** + Electric Shoe Dryer **65** (CONVERGENCE: shoe-care ×2), OroMilk **61** + CoolClip **60** (founder-KEEP, scored <65).
 
+**FOUNDER DECISIONS (SH-4, Marina) → full record in `operational-memory/founder-feedback.md`.** Approved: **OroMilk** (health
+trend + stylish). Consider: TempMaster, Electric Shoe Dryer, Sneakertizer, Plantagotchi (+ FB-dept Desk Cat Bed, Rhona).
+**Rejected: BOTH titanium cutting boards (Titavos + ChopChop/Life Upgrade convergence) — "no clear wow / not priority"**,
+CoolClip ("low perceived value"), Jar Genie ("weak economics"), Elevayr ("weak effectiveness"). **CRITICAL CALIBRATION:
+convergence / revenue do NOT override WOW + perceived value + Marina's category priority** — I over-weighted the titanium
+convergence; she rejected it for no-wow. SH-5: lead candidate selection with the WOW + taste read, not the convergence count.
+
 **MAJOR SYSTEM UPGRADE this session (all Marina-agreed) — the funnel is now:**
 `dump → parallel hero (Stage-1) → conservative cut → Stage-2 sub-agent enricher → main-agent deep-score`.
 1. **A+B parallel scraper** (`sh_hero_par.py`, `sh_hero_arg.py`): 4 workers share ONE login via exported
