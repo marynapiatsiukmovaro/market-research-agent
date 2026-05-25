@@ -35,7 +35,19 @@ Alibaba titanium COGS); **Revelle** (tryrevelle.store) — RESOLVED via ShopHunt
 Massager $69 ($64K/wk) = ПУСТЫШКА (unverifiable result, hard-reject) → DROP, not a carry-over) and **Valia Collective** (8 SKU, $444K/mo Kitchen — no
 custom domain shown, re-open).
 
-**Then (after funnel validated on real data):** create `methods/discovery-funnel.md` + report + Notion.
+**NEXT SESSION (SH-4) — START HERE:** continue the 830 dump → analyze **stores 151-300** from `hg_shops_1000.json`
+(DEDUP against the ~150 already done in SH-3 = `hg_shops.json`, by shop_id — skip overlaps). Same funnel; hero via
+`scripts/sh_hero_v2.py` (the verified "Top Products" parser). Run `sh_proxy_check.py` first (proxy health). Helper scripts
+already on VPS: sh_topproducts_batch.py (true-hero over a list), sh_rank_v4.py (classify+rank), sh_gt_proxy.py (external enrich).
+
+**PER-STORE METHOD (Marina Q, SH-3):** read the **TOP FEW products** from "Top Products" (NOT just #1) — a store can
+have 2+ winners (e.g. Titavos: Cutting Board $28K/wk + Frying Pan $20K/wk). #1 = primary candidate; also scan #2-3 if
+founder-taste fits. **WE make the final pick:** ShopHunter ranks by revenue, but we CHOOSE by taste / white-label / price /
+пустышка-check. products.json + the live site corroborate catalog + exact price + claims. The "Top Products" parser is
+VERIFIED → no need to manually eyeball every store (spot-check occasionally; the SH-3 bug is fixed).
+
+**Priority carry-over: Orré electric back brush** — get its real domain via the store's ShopHunter "View on Shopify Store"
+link, then score (only genuinely-new founder-taste gadget from SH-3; myshopify handle 404'd).
 
 **Watch:** revenue = ESTIMATE (corroborate); SH category taxonomy is UNRELIABLE (weight-loss supplement
 tagged "Gardening›Hydroponics›Nutrient"); noise = supplements/пустышка + Nordic-dropship + mature giants;
