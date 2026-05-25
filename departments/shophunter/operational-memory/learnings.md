@@ -13,7 +13,7 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
-**SH-4 DONE (2026-05-25) — funnel matured + 5 products to Notion.** Processed H&G stores **151–300 AND 301–450**
+**SH-4 DONE (2026-05-25) — funnel matured + 6 products to Notion** (5 from the 151–300 / 301–450 batches below + TempMaster from the SH-3 re-run). Processed H&G stores **151–300 AND 301–450**
 (deduped vs SH-3 by shop_id; the two dumps are DIFFERENT runs — only 121/150 SH-3 stores appear in the 830 master).
 **5 reported to Notion:** Titanium Cutting Board **76** (CONVERGENCE: Titavos + ChopChop + Life Upgrade = 3 stores),
 Sneakertizer **65** + Electric Shoe Dryer **65** (CONVERGENCE: shoe-care ×2), OroMilk **61** + CoolClip **60** (founder-KEEP, scored <65).
@@ -40,10 +40,26 @@ Sneakertizer **65** + Electric Shoe Dryer **65** (CONVERGENCE: shoe-care ×2), O
    100-pt judgment on the description. **Deep-score ALL genuine gadgets above the objective bar — no gut top-N** (FB RULE 8).
    The DEEP-SCORE is the real filter; pre-narrowing by gut loses winners.
 
-**NEXT SESSION — START HERE (Marina's plan):** do NOT advance to stores 451–830 yet. First **RE-RUN the SH-3
-first-150** (`hg_shops.json` / `hg_topproducts.json`) through the NEW system (conservative cut → Stage-2 enricher →
-deep-score) to (a) check whether the old by-NAME cut LOST any winners, and (b) compare before-vs-after. THEN 451–830
-(559 new stores remain in the 830 master).
+**SH-3 first-150 RE-RUN — DONE this session (validation):** ran the full new system on the first-150
+(`hg_sh3_final.json`, reach 134/150). **Result: NO genuine winner was lost by the old by-name cut** — the new system
+independently reconfirmed Titavos (Tier A), Plantagotchi (Tier A), Stamny (Tier B), correctly demoted Elevayr/EkoVibe (C),
+and surfaced bonuses (Keyf espresso/ZAIA/Orré) that turned out non-viable on enrichment (store closed / 404 / branded).
+One founder-keep added: **TempMaster Warming Mat 59** (miller.market, <65, save-for-reference). System validated.
+
+**HANDOFF FILES on the VPS (`/opt/market-research-agent/logs/shophunter/`) — next session loads these:**
+- `hg_shops_1000.json` — 830 H&G master dump (persists from SH-3).
+- `hg_sh3_final.json` — first-150 enriched Candidate Sheets (SH-3 re-run, new system).
+- `hg_sh4b_final.json` — stores 301–450 enriched Candidate Sheets.
+- Already-processed shop_ids: SH-3 first-150 + SH-4 `new[0:300]` (the 151–300 + 301–450 batches). Dedup against these.
+
+**NEXT SESSION — START HERE:** process the **remaining ~409 NEW stores** = `new[300:709]` of the master (where
+`new` = master minus the SH-3 150 by shop_id). Same matured funnel. Proxy note below.
+
+**PROXY (raise with Marina before changing):** our `proxy.creds` = a STICKY single IP (`63.88.222.123`, confirmed 5/5);
+Shopify rate-limits `/products.json` per-IP, so Stage-2 throttles under a big 4-worker burst (first-150 hit reach 8→39).
+Workaround that WORKED: 2 workers + retry/backoff + pacing → reach 134/150 (slower, ~7 min). A ROTATING iProyal endpoint
+would restore 4-worker speed — BUT Marina will ALSO use this proxy for Instagram/Facebook, so **discuss with Marina before
+switching** (don't change unilaterally). Only ShopHunter `sh_*` scripts use `proxy.creds` (FB/others go direct — verified).
 
 **Op-rule earned (→ promote):** write VPS scripts LOCALLY + `scp` them — NEVER heredoc over a live SSH (SSH drops
 mid-write under Chromium load → corrupt file; cost 2 failed launches in SH-4). Always `-o ServerAliveInterval=10`;

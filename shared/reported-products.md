@@ -78,6 +78,7 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-25 | Electric Shoe Dryer (Veladux) | Home | 65 | Portable shoe dryer $50, mono-product, low COGS; CONVERGENCE w/ Sneakertizer (shoe-care ×2 in SH-4) | ShopHunter (SH-4) / Explore Shops H&G 301–450 / veladux.com |
 | 2026-05-25 | OroMilk One-Touch (Nut/Plant-Milk Maker) | Kitchen | 61 | 8-in-1 home plant-milk maker, no soaking, self-clean; founder-interest (alt-milk); premium $130; scored <65 but Marina KEEP | ShopHunter (SH-4) / Explore Shops H&G 301–450 / alvaoro.com |
 | 2026-05-25 | CoolClip (Wearable Clip-On Cooling Fan) | Tech | 60 | Stylish wearable waist/clip fan $48, 142 rev; founder-interest (design); seasonal+commodity; scored <65 but Marina KEEP | ShopHunter (SH-4) / Explore Shops H&G 301–450 / ergonable.com |
+| 2026-05-25 | TempMaster Adjustable Warming Mat | Kitchen | 59 | Whole-surface food-warming mat for hosting; demonstrable; premium ~$160 + niche/seasonal; <65 founder-keep (save-for-reference); price unconfirmed | ShopHunter (SH-4) / first-150 SH-3 re-run / miller.market |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.

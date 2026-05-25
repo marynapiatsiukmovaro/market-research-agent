@@ -72,13 +72,18 @@ def clean_desc(html):
     t = re.sub(r"<[^>]+>", " ", html or "")
     t = re.sub(r"&[a-z#0-9]+;", " ", t)
     return re.sub(r"\s+", " ", t).strip()[:200]
-def get_json(pg, url):
-    try:
-        pg.goto(url, wait_until="domcontentloaded", timeout=30000)
-        body = pg.inner_text("body")
-        return json.loads(body) if body.strip().startswith("{") else None
-    except Exception:
-        return None
+def get_json(pg, url, tries=4):
+    # retry with backoff — recovers transient proxy throttle (SH-3 paced-fallback safeguard)
+    for a in range(tries):
+        try:
+            pg.goto(url, wait_until="domcontentloaded", timeout=30000)
+            body = pg.inner_text("body")
+            if body.strip().startswith("{"):
+                return json.loads(body)
+        except Exception:
+            pass
+        time.sleep(2.5 + a * 2.5)  # 2.5s, 5s, 7.5s backoff between attempts
+    return None
 
 def work(args):
     wid, chunk = args
@@ -88,6 +93,7 @@ def work(args):
         ctx = b.new_context(user_agent=UA, viewport={"width": 1400, "height": 1600})
         pg = ctx.new_page()
         for d in chunk:
+            time.sleep(1.0)  # pace requests to avoid proxy burst-throttle
             dom = d["domain"].replace("https://", "").replace("http://", "").rstrip("/")
             top = d.get("top", [])
             cat = get_json(pg, "https://" + dom + "/products.json?limit=250")
