@@ -36,6 +36,12 @@ Explore-Shops surface for B&T (NOT the whole Shopify baby market — Marina expe
 stores). To go wider later: try sort variations / Explore PRODUCTS (different index). Same field schema as the H&G dump. Reusable dump script = **`scripts/sh_cat_dump.py
 "<Category>" <dest> [target] [sentinel]`** (generalized from sh_hg_dump.py; category set via checkbox-click on the label).
 Run the SAME matured funnel on it (hero → conservative cut `sh5_cut.py` → enrich → deep-score; renders `sh5_render.py`).
+**SH-6 EXECUTION PLAN (Marina-set):** process the 717 in **4 sub-batches of ~180** — `new[0:180] / [180:360] / [360:540] /
+[540:717]` (order of baby_toddler_shops.json; fresh dump, NO dedup needed). **Cadence = per-batch CHECKPOINT + WAIT for
+Marina's explicit "go" before the next** (human-in-loop, NOT autonomous). Each batch report (Reporting protocol): winners 65+
+→ Notion · borderline 55–64 flagged · patterns · browse-links by default. **Collection seeding = collect qualifying shops
+across ALL 4 batches → show Marina ONE list at session END → bulk-add once** (`sh_collection_add.py`, toggle-safe) per the
+Collection seeding rule. Screenshots ONLY on request.
 ⚠ **PRE-FLIGHT:** Baby & Toddler will skew heavily to baby APPAREL/clothing + nursery DECOR + feeding CONSUMABLES — the
 genuine white-label GADGET subset (monitors, sleep/sound aids, feeding/bottle devices, safety gadgets, carriers) is a
 SMALLER fraction (but baby sleep sacks / swaddles / carriers / sleep-aids ARE winners — do NOT blanket-cut "apparel" in this
