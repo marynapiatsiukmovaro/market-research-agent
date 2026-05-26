@@ -52,6 +52,27 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 
 ---
 
+## SH-6 decisions (2026-05-26) — Baby & Toddler (in progress: B1+B2 done, B3+B4 pending)
+
+| Product | Founder action | Note |
+|---|---|---|
+| **B1 — 5 winners 65+** (Swaddelini 72 · WEMOH dual-cam car monitor 71 · Sleep Like Goldilocks temp-predictor 67 · Veba milk-freshness monitor 66 · Baby's Brew bottle warmer 66 +BabyBuddy) | → Notion, **Founder Review pending** | Marina approved adding all 65+; she'll Approve/Reject later "чтобы учились". |
+| **Peazy Pouch — Homemade Baby Food Pouch Maker (62)** | **FOUNDER-KEPT** (Marina) | "Новая интересная идея, вижу такое впервые" — добавить несмотря на <65. antodori.com. |
+| **Little Manta Soft Nest Baby Lounger (55)** | **FOUNDER-KEPT as AD-RESEARCH / COMPETITOR asset** | Marina: правильно отсёк как продукт, НО хочет изучить их рекламу/бюджет/как продвигаются (298 SKU, много продукции). NOT a product endorsement. |
+| **B2 — Grownsy Baby Food Maker (66)** + **Sleepout Blackout Curtain (65)** | → Notion, **Founder Review pending** | Added as-is, NO pre-marking of flaws (Marina writes the pattern in the table herself). |
+| **FetalPlus — At-Home Fetal Doppler store (63)** | **FOUNDER-KEPT** (Marina, B3) | "У нас есть аналогичный товар" (WellnessBaby Fetal Doppler 83) — wants to compare. Multi-product store (doppler + breast pump + breathing monitor). |
+| **Sleepy Baby — Motorized Tapper + White Noise (60)** | **FOUNDER-KEPT** (Marina, B3) | "Подобный, но другой — интересно проанализировать." Novel motorized-tapper mechanism. Confirmed ×2 by Baby Patter (B4). |
+| **B3 + B4 = 0 new winners 65+** | — | Honest convergence-confirmation batches (bottle-warmer/carrier/pump/swaddle/doppler/patter already covered) + heavy noise. Normal store-first pass (per [[feedback-checkpoint-before-notion]] yield calibration). |
+
+**Process calibrations Marina gave SH-6 (apply from here on):**
+1. **CHECKPOINT FIRST → Notion only after Marina's explicit OK.** Work autonomously through dump→funnel→deep-score WITHOUT asking; but once products are analyzed and ready, give the intermediate checkpoint and WAIT for her OK before ANY Notion write. (She stopped an auto-Notion-write at B1 — everything before that was "супер, можно без разрешения".) See [[feedback-checkpoint-before-notion]].
+2. **Every link in the checkpoint = a CLICKABLE markdown hyperlink** — winners, borderline, patterns AND browse-links — so she taps and opens in Chrome. Plain domains are not enough. See [[feedback-clickable-links]].
+3. **Browse-links = UNIQUE links only** — never repeat a link already shown in winners/borderline (else she clicks and sees the same site twice). Browse = links that appear nowhere else in the report. See [[feedback-unique-browse-links]].
+4. **Heavy-textile / bulky logistics = score harder.** Sleepout blackout curtain: "не решает проблему остро + нет вау + ГЛАВНОЕ очень тяжёлые → доставка огромная". Weight Logistics-Simplicity + Margin down for heavy textile / curtains / bulky items (shipping cost kills paid-traffic math). Marina logs the pattern in the table herself.
+5. **A/B/C understood + confirmed:** Tier = machine REVENUE/price sort-aid (fooled by high-revenue off-niche: lamps, fashion bags, mega-brands); Collection-seed list = my MANUAL judgment-pick of genuine products across ALL tiers (3 seeding tiers), so the seed count ≠ Tier-A count (B1: 14 seeded ≠ 24 Tier-A).
+
+---
+
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
 **STATUS CONVENTION (Marina, SH-4) — use this:**

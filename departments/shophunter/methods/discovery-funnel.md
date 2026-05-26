@@ -89,6 +89,16 @@ Every batch report to Marina includes BY DEFAULT (she does NOT need to ask):
    do NOT auto-exclude "apparel"** — sleep sacks / swaddles / carriers / sleep-aids are winners. So Marina can scan for
    patterns herself. Keep it CLEAN — no junk. End with one line: *"дать ещё больше ссылок (вкл. branded/пустышка) или меньше?"*
 
+**SH-6 additions (Marina-confirmed, 2026-05-26 — apply every batch):**
+- **CHECKPOINT FIRST → Notion only after Marina's explicit OK.** Work autonomously through dump→funnel→deep-score WITHOUT
+  asking; but once products are analyzed and ready, deliver the intermediate checkpoint and WAIT for her OK before ANY
+  Notion write. (She stopped an auto-Notion-write at SH-6 B1.) See [[feedback-checkpoint-before-notion]].
+- **Every link in the checkpoint = a CLICKABLE markdown hyperlink** — winners, borderline, patterns AND browse — so she
+  taps straight through to Chrome. Plain domains are not enough. See [[feedback-clickable-links]].
+- **Browse-links = UNIQUE only** — never repeat a link already shown in winners/borderline (else she clicks and sees the
+  same site twice). Browse = links that appear nowhere else in the report. See [[feedback-unique-browse-links]].
+- **Heavy-textile / bulky → score Logistics + Margin harder** (shipping cost kills paid-traffic math; Sleepout curtain calibration).
+
 **Why:** SH-5 b1 — Marina KEPT products from the broader sub-65 link list that were NOT in the agent's initial verdict
 (PerchMe, Bamboo Sofa Tray, Trovely). The browse set surfaces founder-pattern finds the agent's bar alone would miss.
 **Always lead a recommendation with the deep-score + WOW/taste read — never the proxy-Tier label** (Tier = revenue

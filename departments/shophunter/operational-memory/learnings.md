@@ -13,6 +13,22 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**✅ SH-6 DONE (2026-05-26) — Baby & Toddler 717-store dump FULLY PROCESSED (4 sub-batches, human-in-loop).**
+Matured funnel ran clean on all 717: hero **99–100%**, enrich **97–100%**, conservative cut 14–19 dropped/batch (0 winners lost). Funnel files on VPS `logs/shophunter/`: `bt_b{1,2,3,4}.json` (slices), `_hero/_enrich_in/_enriched.json`, sentinels; seed accumulator `bt_collection_seed.json` + final `bt_collection_final.json` (53 ids).
+- **B1 `[0:180]`:** 5 winners 65+ (Swaddelini 72, WEMOH dual-cam car monitor 71, Sleep Like Goldilocks temp-predictor 67, Veba milk-freshness monitor 66 [Needs-Verif/Shark-Tank], Baby's Brew bottle warmer 66 +BabyBuddy) + 2 founder-keep (Peazy Pouch food-maker 62 "novel idea"; Little Manta lounger 55 = ad-research asset).
+- **B2 `[180:360]`:** 2 winners 65+ (Grownsy baby food maker 66 +Bear NutriEase conv; Sleepout blackout curtain 65 ⚠heavy-textile shipping).
+- **B3 `[360:540]`:** 0 new winners + 2 founder-keep (FetalPlus fetal-doppler store 63 "compare vs WellnessBaby 83"; Sleepy Baby motorized-tapper 60).
+- **B4 `[540:717]`:** 0 new winners (pure convergence-confirmation).
+- **TOTAL Notion: 7 winners 65+ + 4 founder-keep = 11 cards.** B3/B4 honest 0-winner = normal store-first (don't catastrophize).
+- **COLLECTION SEEDED:** 53 B&T shops bulk-added (`sh_collection_add.py`, 53 ADDED / 0 FAIL, 0 overlap with prior 47) → **collection 47 → ~100 shops.** (⚠ the add-script's non-scroll verify + the scrolling recon both UNDERCOUNT the /collections/shops page due to DOM virtualization/lazy-load — trust the 53/0-FAIL add log, not the page count.)
+- **B&T PATTERNS (Tier-1):** 🔥 convergence-dense niche — **bottle warmer ×8** (Baby's Brew flagship), **carrier ×15+** (commodity/branded → monitor; type reported Ring Sling 73), **baby food maker ×7** (Grownsy/Bear flagship), **breast pump ×8** (branded/competitive), **swaddle ×3**, **baby-car-cam ×2** (WEMOH), **baby-patter/motorized-soother ×2** (Sleepy Baby+Baby Patter — NEW micro-category), pregnancy/postpartum-belt cluster, smart-baby-monitor mini-cluster. **B&T surface heavy with mega-brands** (LÍLLÉbaby/Tula/Ubbi/Infantino/SNOO/Bugaboo/Cybex/UPPAbaby/Babymoov/Béaba/Momcozy/Elvie/VTech/CuboAi) + fashion-bags/plushies/supplements/decor-lamps noise (revenue-inflated → Tier-A but NOT ours). Pre-flight skew (apparel/decor/feeding-consumables) confirmed.
+- **⚠️ SAFETY (new HARD-reject class):** inclined infant sleepers + prone cushions + baby floats = FDA-BANNED / drowning-risk (Anytoyz Incline Bed, Babocush, Mambobaby). Never report. → **PROPOSED core mandatory-filter addition (Tier-2, awaiting Marina OK).**
+- **NEW Marina process calibrations SH-6** (full → founder-feedback.md, folded into `methods/discovery-funnel.md` Reporting protocol): (1) CHECKPOINT FIRST → Notion only after OK; (2) ALL checkpoint links CLICKABLE; (3) browse-links UNIQUE only (no dup of winners/borderline); (4) heavy-textile/bulky → score logistics+margin harder; (5) Tier A/B/C = machine revenue sort-aid, Collection seed = manual judgment-pick across ALL tiers (count ≠ Tier-A; B1 14 seeded ≠ 24 Tier-A).
+
+**NEXT SESSION (SH-7) options (Marina picks):** (a) **Newest-First check-up** on the ~100-shop collection (un-park the parked hypothesis — base is now bigger; scrape Products→Newest-First → seen-id dedup → cut/desc → surface NEW); (b) next category dump via `sh_cat_dump.py` (Electronics / Toys&Games / Sporting Goods / Furniture); (c) Explore PRODUCTS surface (different index) or geo-test US→UK/DE/AU. B&T 717 is 100% done.
+
+---
+
 **SH-5 DONE (2026-05-26) — H&G master dump FULLY PROCESSED (830/830).** Ran the matured funnel on the remaining
 **409 stores = `new[300:709]`** in 3 sub-batches (b1 150 / b2 150 / b3 109). Per-batch: hero 98–99%; conservative cut via
 NEW clean parametrized `scripts/sh5_cut.py` (drop ONLY dead / no-physical-in-top3 / пустышка-hero / all-extreme-price w/
