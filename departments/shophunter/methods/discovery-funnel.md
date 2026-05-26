@@ -75,3 +75,21 @@ narrowing stage just because the previous one cut little.**
 ## NOT ported from FB (channel-specific — irrelevant here)
 Scraper/cookies/scroll-depth caps, keyword-map, seen-advertisers, autonomous mode, FB pre-flight.
 ShopHunter has its own mechanics — see `methods/interface-guide.md`.
+
+---
+
+## Reporting protocol (added SH-5, 2026-05-26 — Marina-approved STANDING RULE)
+Every batch report to Marina includes BY DEFAULT (she does NOT need to ask):
+1. **Winners (65+)** — scored + saved to Notion.
+2. **Borderline (~58–64)** — usually only a few — flagged explicitly for founder review (founder-keep band).
+3. **Patterns noticed** — recurring categories, convergence clusters, noise classes.
+4. **Browse-links set** — a CURATED list of sub-65 *genuine white-label PRODUCT* store links. A winner is a
+   PROBLEM-SOLVING product — gadget / tool / functional product (e.g. a faucet water filter), electronics NOT required;
+   physical, in-range, NOT supplement / пустышка / branded / commodity-fashion-or-decor-with-no-angle. **In the BABY niche
+   do NOT auto-exclude "apparel"** — sleep sacks / swaddles / carriers / sleep-aids are winners. So Marina can scan for
+   patterns herself. Keep it CLEAN — no junk. End with one line: *"дать ещё больше ссылок (вкл. branded/пустышка) или меньше?"*
+
+**Why:** SH-5 b1 — Marina KEPT products from the broader sub-65 link list that were NOT in the agent's initial verdict
+(PerchMe, Bamboo Sofa Tray, Trovely). The browse set surfaces founder-pattern finds the agent's bar alone would miss.
+**Always lead a recommendation with the deep-score + WOW/taste read — never the proxy-Tier label** (Tier = revenue
+sort-aid, not quality; it inflates on revenue/convergence — SH-5 confirmed).

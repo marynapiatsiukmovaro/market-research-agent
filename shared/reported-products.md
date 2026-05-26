@@ -80,6 +80,14 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-25 | CoolClip (Wearable Clip-On Cooling Fan) | Tech | 60 | Stylish wearable waist/clip fan $48, 142 rev; founder-interest (design); seasonal+commodity; scored <65 but Marina KEEP | ShopHunter (SH-4) / Explore Shops H&G 301–450 / ergonable.com |
 | 2026-05-25 | TempMaster Adjustable Warming Mat | Kitchen | 59 | Whole-surface food-warming mat for hosting; demonstrable; premium ~$160 + niche/seasonal; <65 founder-keep (save-for-reference); price unconfirmed | ShopHunter (SH-4) / first-150 SH-3 re-run / miller.market |
 
+| 2026-05-26 | nulooa DeepVac (UV-C Mattress Vacuum) | Home | 66 | UV-C+vibration+12000Pa mattress vacuum — dust-mite fear + visible-filth UGC; ⚠ saturated dropship cat (везде) + Li-battery + DE €69.95≈$76 | ShopHunter (SH-5) / Explore Shops H&G new[300:450] / nulooa.com |
+| 2026-05-26 | Hago Smart Coffee Maker 3-in-1 (Self-Heating Portable Espresso) | Kitchen | 65 | Self-heating wireless portable espresso (capsule/pod/ground) — differentiator vs commodity Wacaco; ⚠ $99 top-range + Li-battery + multi-product store; founder-interest | ShopHunter (SH-5) / Explore Shops H&G new[300:450] / hagoplace.com |
+| 2026-05-26 | Spray Blender System (Cordless Blend+Spray) | Kitchen | 53 | agent score <65 — FOUNDER-KEPT (Marina): cordless blend+spray for BBQ marinade, 133 rev 4.8★; niche + fragile glass + seasonal | ShopHunter (SH-5) / Explore Shops H&G new[300:450] / sprayblender.com |
+| 2026-05-26 | cookinate Juice & Milk Maker (CONVERGENCE → OroMilk) | Kitchen | — | 2nd-brand convergence for OroMilk One-Touch (Marina-spotted): one-touch plant-milk + juice, ~$155 USD; added as OroMilk **Store Link 2**, NOT a new report | ShopHunter (SH-5) / cookinate.com/products/milk-maker |
+| 2026-05-26 | PerchMe Smart Bird Feeder Camera | Tech | 64 | agent score 64 (borderline) — FOUNDER-KEPT (Marina): AI bird-cam IDs 10K+ birds + app; Bird Buddy-class wow at $90; ⚠ tech/app-risk + niche | ShopHunter (SH-5) / Explore Shops H&G new[600:709] / perchme.com |
+| 2026-05-26 | Trovely Grandpa's Metal Weeder (Stand-Up Weed Puller) | Home | 63 | agent score 63 (borderline) — FOUNDER-KEPT (Marina): 45in all-steel weed puller, satisfying full-root extraction UGC, 4.9★/2400+; ⚠ long-steel shipping + seasonal + legacy name | ShopHunter (SH-5) / Explore Shops H&G new[600:709] / shoptrovely.store |
+| 2026-05-26 | Bamboo Sofa Arm Tray Table (No-Slip Couch Organizer) | Home | 50 | agent score 50 (<65) — FOUNDER-KEPT (Marina): bamboo non-slip couch-arm tray $45.99; ⚠ SOLD OUT (verify restock) + commodity + low wow | ShopHunter (SH-5) / Explore Shops H&G new[600:709] / packtohome.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

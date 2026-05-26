@@ -31,6 +31,27 @@ Rhona TravelVac Pro → Consider ("Stylish travel pain-solver.").
 
 ---
 
+## SH-5 decisions (2026-05-26)
+
+| Product | Founder action | Note |
+|---|---|---|
+| **cookinate Juice & Milk Maker** (cookinate.com) | **→ added as OroMilk Store Link 2** (Marina-spotted) | 2nd-brand convergence for the Approved **OroMilk One-Touch** — one-touch plant-milk **+ juice**, ~$155 USD. OroMilk stays Approved; cookinate is the convergence brand, not a separate card. |
+| nulooa DeepVac (66) · Hago Coffee Maker 3-in-1 (65) | reported → **Founder Review pending** | b1 reportables in Notion; Marina sets Approved/Consider/Rejected. |
+| Spray Blender System (53) | **founder-kept** (Marina asked to add) | <65, in Notion as Needs Verification + founder-kept note. |
+| PerchMe Smart Bird Feeder Camera (64) | **FOUNDER-KEPT** (Marina chose) | Bird Buddy-class, the session's only genuine-WOW find; in Notion. |
+| Trovely Grandpa's Metal Weeder (63) | **FOUNDER-KEPT** (Marina chose) | 45in all-steel stand-up weed puller, satisfying full-root extraction UGC, 4.9★/2400+; in Notion. |
+| Bamboo Sofa Arm Tray Table (50) | **FOUNDER-KEPT** (Marina chose) | Bamboo non-slip couch-arm tray $45.99; novel; ⚠ SOLD OUT (verify restock); in Notion. |
+
+**Process calibrations Marina gave this session** (full text in `learnings.md` SH-5): proxy-Tier = revenue sort-aid not quality
+(lead with deep-score, never "Tier A = best"); keep conservative cut as-is while testing; **screenshots = on-request only**;
+ShopHunter yield is GOOD vs FB (don't catastrophize a 0-reportable batch); **browse-links rule = CONFIRMED & formalized**
+in `methods/discovery-funnel.md` (Reporting protocol — report sub-65 product store links by default; Marina kept b1+b3
+products from that broader list). **Score winning PRODUCTS, not "gadgets"** (water-filter-type products count; loosen the
+apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) — see [[feedback-winning-products-not-gadgets]].
+**NEXT idea agreed:** tracked-shop Collection + Newest-First monitoring (recon → bulk-add seed → 2-3-day check-up).
+
+---
+
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
 **STATUS CONVENTION (Marina, SH-4) — use this:**

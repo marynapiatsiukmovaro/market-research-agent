@@ -13,6 +13,55 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**SH-5 DONE (2026-05-26) — H&G master dump FULLY PROCESSED (830/830).** Ran the matured funnel on the remaining
+**409 stores = `new[300:709]`** in 3 sub-batches (b1 150 / b2 150 / b3 109). Per-batch: hero 98–99%; conservative cut via
+NEW clean parametrized `scripts/sh5_cut.py` (drop ONLY dead / no-physical-in-top3 / пустышка-hero / all-extreme-price w/
+[$25,$220] pad; service-SKU dig; ~12–18 dropped per 150, nothing lost — Tier-C leak-checks all clean); enrich reach
+**97–100%** (2-worker paced proxy = the validated config, NO throttle — better than SH-3's ~76%); per-stage PNG renders via
+NEW `scripts/sh5_render.py` (args: `<TAG> <stages>`; stage-5 reads `<TAG>_verdict.json`).
+
+**YIELD (409 stores):** b1 → **2 reported** (nulooa DeepVac **66**, Hago Smart Coffee Maker 3-in-1 **65**) + 1 founder-kept
+(Spray Blender 53) + monitor-convergence (titanium boards now ×4: +Taima $386K/wk, +Jouvane stainless). b2 → **0 reported**
++ Sans Water Purifier $824K/wk = money-only monitor. b3 → **0 reported** + **PerchMe Smart Bird Feeder Camera $90 = 64
+borderline** (Bird Buddy-class — the session's ONLY genuine-WOW find). **cookinate Juice&Milk Maker** = convergence 2nd-brand
+for OroMilk → added as OroMilk **Store Link 2** (Marina-spotted). All 65+ + founder-kept in Notion + reported-products.md.
+
+**H&G STATUS: 830-store master dump is now 100% processed** (SH-3 150 + SH-4 300 + SH-5 409).
+
+**NEXT SESSION = BABY & TODDLER (Marina-chosen).** Stage-0 dump DONE this session: **`logs/shophunter/baby_toddler_shops.json`
+= 717 stores** (US 608 / AU 29 / GB 20 / DE 15 / IN 9; 197 with FB ads; infinite-scroll exhausted cleanly at 717 — same
+clean-exhaust pattern as H&G 830). **COUNT VERIFIED (SH-5):** a 2nd robust re-run (`sh_cat_dump_v2.py` — slower scroll +
+back-scroll recovery ×4) produced an IDENTICAL set — 717 vs 717, 0 diff. 717 is the true ceiling of ShopHunter's tracked-shop
+Explore-Shops surface for B&T (NOT the whole Shopify baby market — Marina expected ~1500; ShopHunter only indexes traction
+stores). To go wider later: try sort variations / Explore PRODUCTS (different index). Same field schema as the H&G dump. Reusable dump script = **`scripts/sh_cat_dump.py
+"<Category>" <dest> [target] [sentinel]`** (generalized from sh_hg_dump.py; category set via checkbox-click on the label).
+Run the SAME matured funnel on it (hero → conservative cut `sh5_cut.py` → enrich → deep-score; renders `sh5_render.py`).
+⚠ **PRE-FLIGHT:** Baby & Toddler will skew heavily to baby APPAREL/clothing + nursery DECOR + feeding CONSUMABLES — the
+genuine white-label GADGET subset (monitors, sleep/sound aids, feeding/bottle devices, safety gadgets, carriers) is a
+SMALLER fraction (but baby sleep sacks / swaddles / carriers / sleep-aids ARE winners — do NOT blanket-cut "apparel" in this
+niche; see [[feedback-winning-products-not-gadgets]]); the conservative cut + live-description filter handle it.
+
+**Marina's FURTHER idea (AGREED direction) = a TRACKED-SHOP COLLECTION + "Newest First" monitoring layer.** Add proven/
+competent shops to a ShopHunter Collection (My ShopHunter → Shop Collections), then check `Products → Newest First` every
+2-3 days to catch the NEW products traction-operators launch (early-winner detection BEFORE saturation = the entry-window we
+score for). Seed = our vetted 65+/55-64 shops (minus dropship-junk). Build order Marina set: **(1) recon** the add-to-collection
++ Newest-First mechanics on her existing collection (2 shops) → **(2) report feedback** → **(3) bulk-add seed** → **(4) recurring
+human-in-loop check-up**. This is a MONITORING layer ON TOP OF category dumps, not a replacement. Other surfaces still open:
+Explore PRODUCTS view, geo-test, H&G-by-NEW/growth.
+
+**SIGNAL-DENSITY pattern (Tier-1 observation, not a rule):** going deeper into the H&G dump (b1→b3), genuine white-label
+gadgets thinned and the tail concentrated in supplements / apparel / decor / branded-appliances; best-WOW finds got sparser
+(PerchMe was the standout). **Marina calibration:** this 409-store yield is a GOOD result vs FB keyword discovery — do NOT
+catastrophize a 0-reportable batch.
+
+**FUNNEL FILES on VPS (`logs/shophunter/`):** `sh5_b{1,2,3}.json` (raw), `_hero.json`, `_enrich_in.json`, `_enriched.json`,
+`_verdict.json`, `_stage{1..5}_*.png`. Scripts: `sh5_cut.py`, `sh5_render.py` (both in repo + VPS).
+
+> _SH-4 handoff below kept for history — its handoff-files list, PROXY note, and the "write scripts locally + scp" op-rule
+> are STILL VALID; only the "process the remaining 409" task is now DONE._
+
+---
+
 **SH-4 DONE (2026-05-25) — funnel matured + 6 products to Notion** (5 from the 151–300 / 301–450 batches below + TempMaster from the SH-3 re-run). Processed H&G stores **151–300 AND 301–450**
 (deduped vs SH-3 by shop_id; the two dumps are DIFFERENT runs — only 121/150 SH-3 stores appear in the 830 master).
 **5 reported to Notion:** Titanium Cutting Board **76** (CONVERGENCE: Titavos + ChopChop + Life Upgrade = 3 stores),
@@ -126,6 +175,18 @@ infer SH coverage from them.
 ---
 
 ## Active Learnings
+
+### [2026-05-26] Session SH-5 — H&G dump finished + Marina process calibrations
+**Type:** Pattern / Founder calibration | **Severity:** HIGH | **Confidence:** HIGH (Marina direct, this session)
+**Observation:** Full build/yield in the HANDOFF above. Durable calibrations from Marina (SH-5):
+- **proxy-Tier (A/B/C) = a REVENUE/price SORT-AID, not a quality ranking.** It gets fooled by revenue+convergence (b1 Tier-A = 2 titanium boards + 1 apparel false-positive; b2 Tier-A = branded vacuums + JarBuddy-on-rejected-Jar-Genie; b3 Tier-A = a $40 water jug). The 100-pt deep-score (read ALL of A+B+C, FB RULE 8) is the real filter. **Never present "Tier A" to Marina as "the best finds" — always lead the recommendation with the deep-score + WOW/taste read.** (Optional future tweak she's open to: rename to "revenue-tier". Do NOT bake taste into the proxy score — taste = main-agent + founder.)
+- **Keep the conservative Stage-1 cut AS-IS while testing** (Marina): survivor counts run high (132–135/150) on purpose — "in doubt, keep & deep-score" protects winners; bigger Stage-1 filtering would need more data. Don't over-optimize the cut now.
+- **Stage screenshots = ON-REQUEST, NOT a standing rule** (Marina corrected — memory [[feedback-stage-screenshots]]). Default = no screenshots unless asked.
+- **ShopHunter store-first yield is GOOD vs FB keyword discovery** — a 0-reportable batch is a normal pass, not a failure; report yield factually, don't catastrophize "weak batch".
+- **browse-links workflow — CONFIRMED by Marina (SH-5) → PROMOTED to `methods/discovery-funnel.md` (Reporting protocol):** each batch report includes BY DEFAULT (no request needed): winners 65+, borderline ~58–64 (usually a few), patterns noticed, AND a curated list of sub-65 genuine-PRODUCT store links for Marina to scan for patterns + a one-line "more/less links?" offer. Rationale: in b1+b3 Marina kept products from the broader sub-65 link list that weren't in the initial verdict.
+- **Score winning PRODUCTS, not "gadgets" (Marina SH-5):** a winner solves a real problem — gadget / tool / functional product (e.g. a beautifully-branded faucet water filter), electronics NOT required. In the BABY niche do NOT blanket-cut "apparel" — sleep sacks / swaddles / carriers are proven winners. See [[feedback-winning-products-not-gadgets]].
+- **Convergence handling reconfirmed:** cookinate Juice&Milk Maker → OroMilk Store Link 2 (Marina-spotted 2nd brand). And I caught myself over-inflating Competitor Signal Testing→Scaling on convergence → reverted to Testing (convergence ≠ inflate signal — the SH-4 lesson, applied).
+**Applies to:** SH-6+ reporting + funnel. **Expires after:** durable (browse-rule already promoted to discovery-funnel; proxy-tier-rename optional).
 
 ### [2026-05-25] Session SH-4 — Funnel matured (parallel + conservative cut + sub-agent enricher) + 2 convergence clusters
 **Type:** Pattern / Result | **Severity:** HIGH | **Confidence:** HIGH (Marina co-designed + validated live)
