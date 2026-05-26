@@ -100,6 +100,11 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-26 | Sleepy Baby — Motorized Tapper + White Noise Sleep Aid | Kids/Baby | 60 | agent <65 — FOUNDER-KEPT (Marina): novel motorized-tapper (mimics patting) + white noise; convergence ×2 (Baby Patter) | ShopHunter (SH-6) / B&T new[360:540] / sleepybaby.com |
 | 2026-05-26 | Little Manta Soft Nest Baby Lounger (ad-research asset) | Kids/Baby | 55 | agent <65 — FOUNDER-KEPT (Marina): 298-SKU brand, study their ads/budget; ⚠ lounger safety-controversial (supervised only) | ShopHunter (SH-6) / B&T new[0:180] / littlemanta.com |
 
+| 2026-05-26 | Wooden Kinetic Manta Ray Automaton (EverWoods + Victmax) | Home/Decor | 66 | Kinetic wooden automaton "moves like magic" — scroll-stopping wow + ASMR UGC; CONVERGENCE ×2; ⚠ premium $98-149 + low problem-solving + verify Alibaba white-label | ShopHunter (SH-7) / A&E new[0:206] / everwoods.shop + victmax.com |
+| 2026-05-26 | SlotPro Precision Quilting Ruler (slotted blade-guide) | Other/Craft | 66 | 26 milled channels guide rotary blade = perfect-cut wow (≠ flat-ruler commodity); CONVERGENCE ×4-5 (SlotMaster/Mrs.Quilty/MadamSew/Stripology); ⚠ slotted-type established + quilting-niche audience; agent rescored ~52→66 (Marina-spotted browse-pull) | ShopHunter (SH-7) / A&E new[618:823] / slotpro.store + tryslotmaster.com |
+| 2026-05-26 | Panda Drum Plus (Steel Tongue Drum) | Other/Music | 58 | agent <65 — FOUNDER-KEPT (Marina saw FB ads firsthand); 247 FB-ads / 690 rev / 72K customers / media (CNBC/WSJ); calm + "anyone can play"; ⚠ premium $159.95 + branded + niche | ShopHunter (SH-7) / A&E new[412:618] / pandadrum.com |
+| 2026-05-26 | Birdfy Smart Bird Feeder Camera (AI bird ID) | Tech | 60 | agent <65 — FOUNDER-KEPT (Marina: niche-study, cf. PerchMe S5 64 + Bird Buddy); AI IDs 6000+ birds + cam/app; ⚠ branded/166-patents (NOT white-label) + app + €139-299 | ShopHunter (SH-7) / A&E new[412:618] / de.birdfy.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

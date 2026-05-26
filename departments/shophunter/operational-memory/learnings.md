@@ -13,6 +13,21 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**✅ SH-7 DONE (2026-05-26) — Arts & Entertainment 823-store dump FULLY PROCESSED (4 batches ~206, human-in-loop).**
+Matured funnel ran clean on all 823: hero **823/823 = 100%**, enrich reach **98%** (b1 163/168 · b2 174/174 · b3 171/172 · b4 170/172), conservative cut 32-38 dropped/batch (0 winners lost). Funnel files on VPS `logs/shophunter/`: `ae_b{1,2,3,4}.json` (slices) + `_hero/_enrich_in/_enriched.json` + sentinels.
+- **YIELD: 2 reported 65+ + 2 founder-kept = 4 Notion cards.**
+  - **B1 [0:206]:** **Wooden Kinetic Manta Ray Automaton 66** (EverWoods $149 + Victmax $98 = convergence ×2; "moves like magic" kinetic wow = the niche standout). Borderline: Clyde's leather recolor 64 · Sorso wine 3-in-1 61 · Sculpd pottery 61.
+  - **B2 [206:412]:** 0 winners. Borderline: Doctor Who book-nook ~60.
+  - **B3 [412:618]:** 0 winners. **Founder-kept: Panda Drum 58** (Marina saw FB ads firsthand → 247 ads/690 rev/72K cust/media; REAL price $159.95 NOT SH-est $45) + **Birdfy 60** (niche-study, cf PerchMe S5 64; branded/166-patents/€139-299).
+  - **B4 [618:823]:** 0 winners. **SlotPro slotted quilting ruler 66** (Marina-spotted from browse-pull → verified → rescored ~52→66; 26-channel blade-guide ≠ flat-ruler commodity; convergence ×4-5; quilting-niche). Borderline: AeroBand PocketDrum ~58.
+- **COLLECTIONS SEEDED:** NEW niche **"Arts & Entertainment" = 40 shops** (everwoods seed + 39 added, 0 fail) + all 40 also added to general **"Shops"** (added=40 / already=0 / fail=0 → Shops ~100→~140). Verified cross-correct (SlotPro ∈ A&E+Shops, ∉ H&G/B&T). Tool: `sh_collection_manage.py` (toggle-safe — only clicks "Add"). 40 seed-ids in `/tmp/ae_coll_*.log`. **3 niche collections now: Home & Garden 47 · Baby & Toddler 53 · Arts & Entertainment 40.**
+- **A&E = LOW white-label-DTC density niche (Tier-1 yield obs, NOT a rule — do NOT close the niche):** surface resolves to POD/personalized gifts (dominant) + apparel/jerseys/socks + craft-hobby kits/supplies (pottery/resin/diamond-painting/embroidery/book-nooks/3D-pens) + musical instruments (branded/niche) + collectibles (anime/replica models) + decor + books + digital. Genuine white-label problem-solvers $45-79 are rare → structurally weaker store-first yield than H&G / B&T. Convergence clusters: leather-care ×3 · slotted-ruler ×4-5 · wine-accessories · diamond-painting ×4 · anti-theft-travel ×2 · bird-cam (Birdfy+PerchMe) · gold-rose ×3 · US-250th patriotic (cross-batch) · Sculpd ×4-geo. Full → `shared/rejected-products.md` SH-7.
+- **NEXT SESSION (SH-8) options (Marina picks):** (a) **Toys & Games (788)** — ALREADY dumped+verified on VPS (`logs/shophunter/toys_games_shops.json` = 788, v1=v2) → run same funnel + seed "Toys & Games" niche collection; (b) **Newest-First check-up** on the now 3-niche collection (~140 shops base); (c) Explore PRODUCTS surface / geo-test. A&E 823 = 100% done. **Marina DEFERRED Toys & Games to a fresh session (context preservation).** Founder Review for the 4 SH-7 cards = Marina to set in Notion (agent never sets it).
+
+---
+
+> _SH-6 handoff below kept for history — B&T 100% done; its funnel mechanics, niche-collection structure, and process calibrations are STILL VALID. SH-7 above is current state._
+
 **✅ SH-6 DONE (2026-05-26) — Baby & Toddler 717-store dump FULLY PROCESSED (4 sub-batches, human-in-loop).**
 Matured funnel ran clean on all 717: hero **99–100%**, enrich **97–100%**, conservative cut 14–19 dropped/batch (0 winners lost). Funnel files on VPS `logs/shophunter/`: `bt_b{1,2,3,4}.json` (slices), `_hero/_enrich_in/_enriched.json`, sentinels; seed accumulator `bt_collection_seed.json` + final `bt_collection_final.json` (53 ids).
 - **B1 `[0:180]`:** 5 winners 65+ (Swaddelini 72, WEMOH dual-cam car monitor 71, Sleep Like Goldilocks temp-predictor 67, Veba milk-freshness monitor 66 [Needs-Verif/Shark-Tank], Baby's Brew bottle warmer 66 +BabyBuddy) + 2 founder-keep (Peazy Pouch food-maker 62 "novel idea"; Little Manta lounger 55 = ad-research asset).
@@ -216,6 +231,17 @@ infer SH coverage from them.
 ---
 
 ## Active Learnings
+
+### [2026-05-26] Session SH-7 — Arts & Entertainment processed + niche-yield + founder/browse calibrations
+**Type:** Pattern / Result / Founder calibration | **Severity:** HIGH | **Confidence:** MEDIUM-HIGH (1 full niche, Marina-direct)
+**Observation:** Full build/yield in the HANDOFF above. Durable take-aways:
+- **A&E is a LOW white-label-density niche (Tier-1 yield fact, NOT a system rule):** 823 stores → only 2 genuine 65+ (Manta Ray automaton, SlotPro ruler) + 2 founder-keeps. Surface dominated by POD/personalized gifts, apparel, craft-hobby kits/supplies, branded music instruments, collectibles, decor, digital. Record as factual yield; **do NOT close the niche or add a filter** — keep scoring as-is (numbers float with data; honest 0-winner batches B2/B3/B4 are normal store-first results, per SH-5).
+- **Browse-pool value RE-CONFIRMED (SH-5 lesson, 2nd time):** SlotPro quilting ruler sat in the sub-65 browse list (rapid scan ~52); Marina asked about it → verification showed a genuinely differentiated 26-channel blade-guide mechanism (≠ flat-ruler commodity) → rescored ~66 and reported. **Always surface the curated genuine browse-pull — the agent's fast bar misses real products the founder's eye catches.**
+- **Founder firsthand FB-sighting = a real corroboration signal:** Marina recognized Panda Drum from her own FB Ads Library analysis → kept it. ShopHunter ad-count was 0/N-A (unreliable, as always), but the dump's `shop_ads`=247 + the live site (690 rev, 72K customers, CNBC/WSJ) confirmed heavy advertising. Cross-checking the live store + founder memory beats the SH ad number (reconfirms SH-4).
+- **ShopHunter PRICE unreliable AGAIN (Nth confirmation):** Panda Drum SH-est/enrich matched a $45 SKU; real hero = $159.95 (Premium). ALWAYS confirm price on the live site before scoring/Notion (caught at deep-score, as designed).
+- **Convergence ≠ pursue (reconfirmed):** strong clusters (leather-care ×3, slotted-ruler ×4-5, bird-cam, etc.) = demand validation only; led recommendations with WOW + taste read, kept Competitor Signal at Testing (not inflated to Scaling on convergence). Birdfy/SlotPro = convergence cards with Store Link 2 + all brands in Notes.
+- **Funnel rock-solid at 100% hero / 98% enrich across 4 batches** — parallel hero (4w) + 2-worker paced proxy held; sticky IP 63.88.222.123 stable all session. Collection seeding via toggle-safe `sh_collection_manage.py` clean (40/40 to Shops, 39+seed to new A&E niche, 0 fail).
+**Applies to:** SH-8+ funnel + reporting + niche-yield expectations. **Expires after:** durable (yield = Tier-1 fact; browse/founder calibrations already standing rules).
 
 ### [2026-05-26] Session SH-5 — H&G dump finished + Marina process calibrations
 **Type:** Pattern / Founder calibration | **Severity:** HIGH | **Confidence:** HIGH (Marina direct, this session)

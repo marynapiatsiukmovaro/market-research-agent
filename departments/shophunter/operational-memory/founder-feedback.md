@@ -134,6 +134,25 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 
 ---
 
+## SH-7 decisions (2026-05-26) — Arts & Entertainment (DONE — all 4 batches / 823 stores)
+
+> Marina has NOT yet set the 4-tier Founder Review for these 4 cards in Notion (she'll set later "чтобы учились"). Agent records only what she explicitly chose to KEEP this session.
+
+| Product | Founder action | Note |
+|---|---|---|
+| **Wooden Kinetic Manta Ray Automaton (66)** · everwoods.shop + victmax.com | → Notion (reported 65+) | "Внеси winner, идём дальше." The niche's genuine wow-find — kinetic wooden automaton "moves like magic", convergence ×2. |
+| **Panda Drum Plus (58)** · pandadrum.com | **FOUNDER-KEPT** (agent <65) | "Видела когда сама делала анализ на Facebook, что они рекламируются — пусть будет." Firsthand FB-Ads sighting = real demand corroboration. Steel tongue drum $159.95, branded but white-label-able type; SH ad-count 0 (unreliable) but dump shop_ads=247 + 690 rev/72K cust/media confirm heavy ads. |
+| **Birdfy Smart Bird Feeder Camera (60)** · de.birdfy.com | **FOUNDER-KEPT** (agent <65, niche-study) | "Мы уже сохраняли товар про птичек [PerchMe S5], интересно потом изучить... понятно что он большой, но изучи хотя бы нишу." Branded/166-patents/premium €139-299 → study-the-niche asset, NOT a white-label test. |
+| **SlotPro Precision Quilting Ruler (66)** · slotpro.store + tryslotmaster.com | → Notion (Marina-spotted from browse → reported) | "Вижу впервые... не коммодити, интересен для теста." Differentiated 26-channel blade-guide ≠ flat-ruler commodity. Agent rescored ~52→66 after her question + verification. ⚠ slotted-type already established + quilting-niche audience. |
+
+**Process calibrations Marina gave SH-7 (reinforce existing rules):**
+1. **Founder firsthand FB-sighting = valid corroboration** — Panda Drum kept on her own ad-memory; cross-check the live store, don't rely on the unreliable ShopHunter ad-count.
+2. **Browse-pool catches real products (SH-5 reconfirmed, 2nd time)** — SlotPro was a sub-65 browse-pull until Marina asked; verification lifted it to 66. Keep surfacing the curated genuine browse list every batch.
+3. **Founder-keeps span the full taste range** — she keeps niche-study / branded items (Birdfy) for category learning, not only launch candidates; agent records as founder-kept, never sets Founder Review.
+4. **Context-budget note** — Marina confirmed the 1M window was <50% used → comfortable; she still deferred Toys & Games to a fresh session for a clean window.
+
+---
+
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
 **STATUS CONVENTION — 4-TIER (updated SH-6, 2026-05-26 — Marina added "Watchlist"):**
