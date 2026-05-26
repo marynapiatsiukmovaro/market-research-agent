@@ -42,10 +42,24 @@ For each reported product (score 65+), create one Notion database entry with two
 
 | Field | Notes |
 |-------|-------|
-| Founder Review | Marina sets: Approved / Consider / Rejected — never set by agent |
+| Founder Review | Marina sets: Approved / Consider / Watchlist / Rejected — never set by agent. See "Founder Review tiers" below. |
 | Founder Notes | Marina's strategic judgment and intuition — never written by agent |
 | Test Status | Marina sets when product moves to testing |
 | CTR / CPM | Filled after real test data |
+
+### Founder Review tiers — 4 options (added SH-6, 2026-05-26 — Marina; applies to ALL departments)
+The Founder Review field has **four** tiers (a traffic light + a study/radar tier). Agent NEVER sets the field — but must
+respect the semantics (esp. NOT closing a category whose products are Watchlist):
+- ✅ **Approved (green)** — pursue / test now.
+- 🟡 **Consider (yellow)** — genuinely **evaluating to launch** (real shortlist). Keep this tier clean — launch-candidates only.
+- 🔵 **Watchlist (blue)** — valid/proven **signal** or interesting to **study**, but **not the business model right now** → keep
+  on radar, **may return**. No Rejection Reason; NOT archived; **category stays OPEN (keep monitoring)**. Use for validated-but-
+  off-model finds (e.g. titanium boards/cookware convergence) + "won't sell but want to study the store" (ad-research assets).
+- 🔴 **Rejected (red)** — **closed** (saturated / пустышка / weak economics, don't resurface) → Rejection Reason + Archive view.
+
+**Dashboard/shortlist view = Approved + Consider ONLY** (so Watchlist + Rejected stay out of it, keeping the launch shortlist
+clean — Marina's reason for adding Watchlist). **Agent rule:** convergence/revenue/multi-seller earns at most **Watchlist**,
+never auto-Consider; lead recommendations with WOW + taste read, not convergence count.
 
 ### ShopHunter-only fields — Facebook Ads Library agent does NOT fill these
 The four `SH *` fields — **SH Link, SH Store Created, SH Rev W/M, SH SKU/Country** — are filled **only by the

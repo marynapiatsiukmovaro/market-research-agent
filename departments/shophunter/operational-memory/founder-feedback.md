@@ -75,26 +75,39 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
-**STATUS CONVENTION (Marina, SH-4) — use this:**
-- 🟡 **Consider = "not now, but on the radar / monitor / good trend / may return"** (no Rejection Reason). Stays active, not Archive.
-- 🔴 **Rejected = "closed — saturated / пустышка / weak economics, don't resurface"** (has a Rejection Reason → Archive view).
-- ✅ **Approved = pursue / test now.**
+**STATUS CONVENTION — 4-TIER (updated SH-6, 2026-05-26 — Marina added "Watchlist"):**
+The Founder Review field now has **4** options (traffic light + a study/radar tier). The dashboard/shortlist view duplicates
+**only Approved + Consider** (her real launch shortlist) — so Watchlist + Rejected stay OUT of that view (keeps it clean).
+- ✅ **Approved (green) = pursue / test now.**
+- 🟡 **Consider (yellow) = genuinely EVALUATING TO LAUNCH** — her real shortlist she'd actually test. (Narrower than before — see below.)
+- 🔵 **Watchlist (blue, NEW) = valid/proven SIGNAL or interesting to STUDY, but NOT her business model right now → keep on
+  radar, MAY RETURN.** No Rejection Reason; NOT archived; the category is NOT closed (keep monitoring). This is the tier for
+  "validated demand, off-model now" (titanium boards/cookware ×convergence) and "won't sell it but want to study the store"
+  (Little Manta lounger / ad-research assets).
+- 🔴 **Rejected (red) = CLOSED — saturated / пустышка / weak economics, don't resurface** (has a Rejection Reason → Archive).
+
+> **WHY the split (Marina, SH-6):** "Consider" had become overloaded — it mixed real launch-candidates with "monitor/may-return"
+> items, making the Approved+Consider dashboard noisy. **Watchlist** absorbs the old "Consider = monitor" meaning so Consider
+> stays a clean launch shortlist. This also fixes the titanium-boards trap (SH-4): such validated-but-off-model finds are
+> **Watchlist**, NOT Rejected (don't close the category) and NOT Consider (not actually evaluating to launch).
+> **Agent behavior:** never close/stop-monitoring a category whose products are Watchlist; never set Founder Review (Marina's field).
 
 🟢 **Marina APPROVES (pursue now):** stylish + modern design · real pain-solver · health/wellness TREND
 (OroMilk = only Approved) · clear wow + perceived value.
 
-🟡 **Marina KEEPS on radar (Consider/monitor):** good trend / category signal but **no clear wow YET** or not the priority
-right now → monitor, may return. Examples: titanium boards (×3 convergence, "no wow yet" → monitor), CoolClip (seasonal),
-TempMaster, shoe dryers, Plantagotchi, Desk Cat Bed, Rhona.
+🔵 **Marina WATCHLISTS (study / on radar / may return):** good trend / category signal but **no clear wow YET**, or validated
+demand that's **off her model now**. Examples (were "Consider/monitor" pre-SH-6): titanium boards (×convergence, "no wow yet"),
+CoolClip (seasonal), TempMaster, shoe dryers, Plantagotchi, ad-research assets (Little Manta). _(Marina re-classifies existing
+Consider→Watchlist herself; agent doesn't touch the field.)_
 
 🔴 **Marina REJECTS (closed):** **weak economics** (Jar Genie) · **weak perceived effectiveness + saturated** (Elevayr) ·
 пустышка · везде.
 
-**KEY LESSON for SH-5+:** **convergence / revenue / multi-seller do NOT make her PURSUE now** — at best they put a product
-in the **Consider/monitor** tier. To reach **Approve/test**, a product needs **clear WOW + perceived value + fit to her
-current priority.** (I over-weighted the titanium ×3 convergence as the "strongest find"; her call = Consider/monitor, "no
-wow yet".) So: **lead candidate recommendations with the WOW + taste read (from the live description), not the convergence
-count.** Surface trend/convergence finds as monitor-candidates, not as "test this now."
+**KEY LESSON for SH-6+:** **convergence / revenue / multi-seller do NOT make her PURSUE now** — at best they put a product
+in the **Watchlist** tier (study/radar), NOT even Consider. To reach **Consider** a product must be a real launch-candidate;
+to reach **Approve/test** it needs **clear WOW + perceived value + fit to her current priority.** So: **lead candidate
+recommendations with the WOW + taste read (from the live description), not the convergence count.** Surface trend/convergence
+finds as **Watchlist**-candidates, not as "test this now."
 
 ---
 
