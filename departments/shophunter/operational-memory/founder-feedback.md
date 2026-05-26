@@ -153,6 +153,29 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 
 ---
 
+## SH-8 decisions (2026-05-26) — Toys & Games (DONE — 788 stores, 3 passes) + strategy/process calibrations
+
+**Product decisions: NONE — T&G yielded 0 reported 65+ and Marina kept nothing** (richest borderline = engraving pen ×2 ~64,
+busy board ×3 ~64, Montessori climber ~58 — none cleared her bar or the score bar). No "Toys & Games" collection seeded
+(Marina: the shops are "ни о чём" / not wow — skip). Honest 0-yield niche pass — normal store-first result.
+
+**Process / strategy calibrations Marina gave this session (apply going forward):**
+1. **Watchlist tier CONFIRMED — keep it (4 tiers stay).** Marina's framing: Consider + Watchlist are both "yellow" (not-yes-not-no),
+   but they answer different questions — **Consider = "will I launch THIS product, near-term"** (active intent, real shortlist);
+   **Watchlist = "live signal/category worth keeping on radar though I won't act now"** (passive, may-return, category stays OPEN).
+   Agent's distinction validated. (Caveat agreed: Watchlist earns its keep only if paired with a periodic "revisit Watchlist /
+   monitor those categories" habit — natural fit with the Newest-First layer.)
+2. **Structure safeguards APPROVED (purely additive — strengthen, don't undo success):** Revenue-Tier rename + mandatory
+   browse-pool + Description-confidence gate → written into `methods/discovery-funnel.md` (Structural safeguards) + `subagent-spec.md`.
+3. **Paid ShopHunter DEFERRED** — it doesn't expand the universe (the ~800/category is its tracked inventory-depletion subset).
+   Marina's idea: later, feed our BEST stores (found via a breadth tool) INTO ShopHunter to make its tracked base high-quality.
+4. **Bottleneck #1 = input universe** (traction-biased tracked subset misses emerging stores) → eventual fix = breadth tool
+   (Storeleads ~2.8M, revenue-filterable). Newest-First on ~140 mature stores = low ROI (deprioritized). Batch size 170-200 optimal.
+5. **Deeper "big department" design discussion = AGREED for a later session** (kept plain-language; no paid AI-API required —
+   machine pre-score can be free rules; only flat-fee data subs + cheap rotating proxy if/when scaling to thousands).
+
+---
+
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
 **STATUS CONVENTION — 4-TIER (updated SH-6, 2026-05-26 — Marina added "Watchlist"):**

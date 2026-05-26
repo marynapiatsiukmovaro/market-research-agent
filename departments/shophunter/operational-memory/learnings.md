@@ -13,6 +13,18 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**✅ SH-8 DONE (2026-05-26) — Toys & Games 788 FULLY PROCESSED + 2 NEW category dumps pre-loaded + structural safeguards added.**
+- **T&G 788 done** (B1 [0:197] · B2 [197:394] · combined B3+4 [394:788]; hero 100%, enrich 97-99%, cut clean). **0 reported 65+ + 0 founder-keeps across the WHOLE niche.** Best borderline: engraving pen ×2 (Resparked+Culiau ~64), busy board ×3 (TibaToes/Nooche/Joycat ~64 saturated), Montessori climber/tower ~58. **No "Toys & Games" collection seeded** (Marina: shops "ни о чём" — skip). Files: VPS `logs/shophunter/tg_b{1,2}.json` + `tg_b34.json` + `_hero/_enrich_in/_enriched` + sentinels.
+- **T&G = product-dense but LOWEST white-label-fit niche so far** (branded toys + golf mega-cluster ×20+ + commodity TikTok toys + emulators ×8 + magnetic tiles ×6 + RC/drones + mis-niched). Full → `shared/rejected-products.md` SH-8.
+- **🆕 2 NEW NEXT-CATEGORY DUMPS PRE-LOADED ON VPS (Marina-requested, both EXHAUSTED cleanly = full surface):** `logs/shophunter/animals_pet_supplies_shops.json` = **860** (12-scroll exhaust) + `logs/shophunter/business_industrial_shops.json` = **356** (12-scroll exhaust). Same field schema. **SH-9 can start immediately (no dump needed).** v2 robust re-verification of both was run for completeness (counts in the SH-8 active-learning below). Reusable dump = `scripts/sh_cat_dump.py "<Cat>" <dest> 8000 <sentinel>` (target 8000 forces exhaustion; category selected by exact label click).
+- **🔧 STRUCTURAL SAFEGUARDS ADDED (SH-8, Marina-approved — purely additive) → `methods/discovery-funnel.md` "Structural safeguards" + `subagent-spec.md`:** (1) "Tier A/B/C" → **"Revenue-Tier"** = sort-aid, never quality (read ALL A+B+C); (2) **browse-pool = mandatory** funnel output; (3) **Description-confidence gate** — genuine candidate with empty/mismatched `desc` MUST get a WebFetch verification BEFORE tiering (the SlotPro ~52→66 fix, now structural). `desc_confidence` enricher flag = agreed next CODE change (apply+test next batch run). Does NOT touch the conservative cut / deep-score / human-in-loop.
+- **📌 STRATEGY (Marina, SH-8 discussion — for SH-9+):** (a) **Paid ShopHunter DEFERRED** — it does NOT expand the universe (the ~800/category = its TRACKED inventory-depletion subset, NOT the whole Shopify market; verified how it works); may revisit. (b) **Bottleneck #1 = input universe** (traction-biased tracked subset misses emerging stores = the early-window winners). Eventual fix = a **breadth tool (Storeleads ~2.8M stores, revenue-filterable)** as a future department; ShopHunter then = the DEEP-tracking layer we feed our best finds into (Marina's idea — makes its base high-quality). (c) **Newest-First on ~140 mature stores = LOW ROI** → deprioritized. (d) **Batch size 170-200 optimal**, ~200 cap (362 worked but thins per-item attention + 2-worker proxy ~8 min). (e) Marina testing other niches on the $1 trial today/tomorrow → more data before any tool decision. **Deeper "big department" design = AGREED for a later session** (no paid AI-API needed — pre-score via free rules; only flat-fee data sub + cheap rotating proxy if scaling to thousands).
+- **NEXT SESSION (SH-9) options (Marina picks):** (a) process **Animals & Pet Supplies (860)** or **Business & Industrial (356)** — both ready on VPS, same funnel + seed niche collection if yield; (b) **Health & Beauty** dump (un-mined, historically our winner-zone — needs a dump run); (c) breadth-tool (Storeleads) pilot + compare on one niche. **Founder Review for the 3 SH-7 cards (Manta Ray, SlotPro, Panda Drum, Birdfy) still Marina-to-set in Notion; SH-8 added no products.**
+
+---
+
+> _SH-7 handoff below kept for history — A&E 100% done; funnel mechanics + collection structure + calibrations still valid. SH-8 above is current state._
+
 **✅ SH-7 DONE (2026-05-26) — Arts & Entertainment 823-store dump FULLY PROCESSED (4 batches ~206, human-in-loop).**
 Matured funnel ran clean on all 823: hero **823/823 = 100%**, enrich reach **98%** (b1 163/168 · b2 174/174 · b3 171/172 · b4 170/172), conservative cut 32-38 dropped/batch (0 winners lost). Funnel files on VPS `logs/shophunter/`: `ae_b{1,2,3,4}.json` (slices) + `_hero/_enrich_in/_enriched.json` + sentinels.
 - **YIELD: 2 reported 65+ + 2 founder-kept = 4 Notion cards.**
@@ -231,6 +243,17 @@ infer SH coverage from them.
 ---
 
 ## Active Learnings
+
+### [2026-05-26] Session SH-8 — Toys & Games (0-yield) + 2 new dumps + structural safeguards + strategy
+**Type:** Pattern / Result / Founder strategy | **Severity:** HIGH | **Confidence:** HIGH (Marina-direct)
+**Observation:** Full build/strategy in the HANDOFF above. Durable take-aways:
+- **T&G = product-dense but LOWEST white-label-fit niche so far** (0 reported / 788). With A&E (SH-7), confirms both are structurally weaker store-first than H&G / B&T. Numbers float — a 0-yield niche is a VALID result; never force.
+- **ShopHunter's universe ceiling now understood + verified:** it tracks inventory-depletion on a CURATED added-store subset (~800/category), not the whole Shopify market. **Paid tier ≠ more coverage** → deferred. A **breadth tool (Storeleads ~2.8M, revenue-filterable)** is the real fix for bottleneck #1; pair it with ShopHunter as the DEEP layer (feed best finds in — Marina's idea).
+- **3 structural safeguards baked in** (Revenue-Tier rename · mandatory browse-pool · **Description-confidence gate** = WebFetch-verify empty/mismatched desc before tiering, the SlotPro fix). The discipline→structure conversion Marina asked for; purely additive. `desc_confidence` enricher flag = next code change (apply+test next run).
+- **Watchlist CONFIRMED kept:** Consider = launch-intent (product, now) vs Watchlist = signal/category radar (may-return) — both "yellow", different questions; pair Watchlist with a periodic revisit ritual or it collapses to soft-Reject.
+- **Completeness method:** clean 12-scroll exhaust + v2 robust re-verification = the dump-completeness signal Marina wants for next-session dumps.
+- **Batch size 170-200 optimal** (~200 cap); 362 worked (0 loss) but thins per-item attention + 2-worker sticky-proxy ~8 min.
+**Applies to:** SH-9+ funnel + strategy + scaling design. **Expires after:** durable.
 
 ### [2026-05-26] Session SH-7 — Arts & Entertainment processed + niche-yield + founder/browse calibrations
 **Type:** Pattern / Result / Founder calibration | **Severity:** HIGH | **Confidence:** MEDIUM-HIGH (1 full niche, Marina-direct)

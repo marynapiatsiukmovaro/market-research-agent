@@ -106,6 +106,32 @@ sort-aid, not quality; it inflates on revenue/convergence — SH-5 confirmed).
 
 ---
 
+## Structural safeguards (SH-8, 2026-05-26 — Marina-approved: bake the discipline into structure)
+These convert three "rely-on-agent-discipline" habits into STANDING STRUCTURAL rules, so a future session can't lose a
+winner by trusting a label. They are purely **ADDITIVE** — they do NOT change the conservative cut, the deep-score, or
+human-in-loop (all unchanged); they only make genuine candidates **surface reliably**.
+
+1. **"Tier A/B/C" → renamed "Revenue-Tier" everywhere.** It is a REVENUE/price **sort-aid, NOT a quality ranking** — it is
+   fooled by high-revenue branded/commodity (which float to "A"), while genuine white-label winners sit in B/C. **RULE:**
+   never present "Revenue-Tier A" as "the best finds"; ALWAYS read the WHOLE A+B+C list and lead with the deep-score +
+   WOW/taste read. (Formalizes the SH-5 calibration; the label is a machine sort, surfacing is structural — judgment stays human+agent.)
+2. **Browse-pool = a MANDATORY funnel output every batch** (not a discretionary report section): the curated list of sub-65
+   genuine white-label PRODUCT store links Marina scans for patterns. **Proven value:** SlotPro (SH-7) + PerchMe/Trovely/Bamboo
+   (SH-5) were founder-kept FROM the browse-pool, below the agent's own bar. UNIQUE links only (never repeat winners/borderline).
+3. **Description-confidence gate (NEW SH-8).** The live `desc` is the bridge for judging problem/wow/пустышка — but the
+   enricher sometimes returns a MISSING (`no-desc`) or MISMATCHED description (SH-7: a pulse-oximeter showed "Chelsea boots"
+   text; an ocean-toy showed "skincare"). **RULE:** any genuine-looking PHYSICAL candidate (price in-range, not obviously
+   branded / commodity / POD) whose `desc` is empty or clearly mismatched MUST get a quick **WebFetch of the live product page
+   BEFORE final tiering/scoring** — never tier it low on a bad description. **Proof:** SlotPro was rapid-scanned ~52 on a thin
+   read and only corrected to ~66 after live verification (caught reactively via Marina's question, SH-7; this rule makes it automatic).
+   (Enricher enhancement to emit a `desc_confidence` flag = the agreed next code change — apply + test on the next batch run;
+   until then the main agent applies the gate by judgment during deep-score.)
+
+**Net:** structure reliably puts the RIGHT candidates in front of the agent (removes the "winner buried in C / killed by a bad
+description" risk); the final wow/taste/score remains irreducibly human+agent. Both — structure for surfacing, judgment for scoring.
+
+---
+
 ## Collection seeding rule (SH-5, 2026-05-26 — Marina-approved STANDING RULE)
 After each batch, ADD to the tracked-shop **Collection** (My ShopHunter → Shop Collections) the SHOP behind every product
 that reached the browse pool — in 3 tiers:
