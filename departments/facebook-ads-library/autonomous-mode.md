@@ -47,7 +47,7 @@ Any pre-flight fail · FB visibility restriction · session/cookie expiry · tot
 · 3+ consecutive degradation signals · context approaching limit (save critical first).
 
 ## What stays HUMAN (never autonomous)
-- Founder decisions Approved / Consider / Rejected — Marina only.
+- Founder decisions Approved / Consider / Watchlist / Rejected — Marina only.
 - Tier-2 system changes (new scoring/filter/veto/class-closure) — proposal only (RULE 14).
 - Pushing through any FB visibility restriction.
 

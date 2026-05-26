@@ -112,5 +112,5 @@ finds as **Watchlist**-candidates, not as "test this now."
 ---
 
 ## How to Update
-After each session Marina sets Founder Review (Approved / Consider / Rejected) + Notes (+ Rejection Reason if Rejected).
+After each session Marina sets Founder Review (Approved / Consider / Watchlist / Rejected — 4 tiers, see STATUS CONVENTION above) + Notes (+ Rejection Reason if Rejected).
 Record exactly. Distil any new taste rule into the calibration section above. Never set decisions without her input.

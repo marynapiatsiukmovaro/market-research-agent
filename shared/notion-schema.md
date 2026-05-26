@@ -13,7 +13,7 @@ Data source ID: 35b53ba8-196e-80bf-9be2-e6a4eb49059e
 | 1 | Title | Title | Product name |
 | 2 | Score | Number | 0–100 |
 | 3 | Recommendation | Select | Worth Testing / Needs Verification / Rejected |
-| 4 | Founder Review | Select | Approved / Consider / Rejected — **set by Marina only, never by agent** |
+| 4 | Founder Review | Select | Approved / Consider / Watchlist / Rejected — **set by Marina only, never by agent** (see Founder Review — Definitions) |
 | 5 | Category | Select | Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other |
 | 6 | Price | Number | Actual retail price in $ |
 | 7 | Price Range | Select | Fits $45-79 / Extended $39-100 / Premium $100-170 / Too Cheap |
@@ -54,12 +54,19 @@ Data source ID: 35b53ba8-196e-80bf-9be2-e6a4eb49059e
 
 ## Founder Review — Definitions
 
-| Value | Meaning |
-|-------|---------|
-| *(blank)* | Not yet reviewed by Marina. Default for all new products. |
-| Approved | Exceptionally strong product Marina is truly willing to test. Rare, ultra-high-signal. |
-| Consider | Strategically interesting — worth tracking. NOT a testing queue. Strategic intelligence memory only. |
-| Rejected | Strong, clear objective failure (везде / unverifiable result / overheated market). Do NOT use for uncertain products — leave blank or Consider. |
+**4 tiers** (traffic light + a study/radar tier — Watchlist added SH-6, 2026-05-26 by Marina):
+
+| Value | Color | Meaning |
+|-------|-------|---------|
+| *(blank)* | — | Not yet reviewed by Marina. Default for all new products. |
+| Approved | 🟢 green | Marina is truly willing to test NOW. Rare, ultra-high-signal. |
+| Consider | 🟡 yellow | Genuinely **EVALUATING TO LAUNCH** — Marina's real shortlist she'd actually test. Keep this tier clean (launch-candidates only — NOT a "tracking" bucket). |
+| Watchlist | 🔵 blue | Valid/proven **SIGNAL** or interesting to **STUDY**, but **NOT the business model right now** → keep on radar, **MAY RETURN**. No Rejection Reason; **NOT archived; category stays OPEN (keep monitoring)**. For validated-but-off-model finds (e.g. titanium boards/cookware convergence) + "won't sell but want to study the store" (ad-research assets). |
+| Rejected | 🔴 red | Strong, clear objective failure (везде / unverifiable result / overheated market / weak economics) → Rejection Reason + Archive. Do NOT use for uncertain products — leave blank or **Watchlist**. |
+
+> **Consider vs Watchlist (the key distinction):** Consider = "I'd actually launch this" (clean shortlist); Watchlist =
+> "good signal / worth studying, but not for me now — keep on radar." Convergence/revenue alone earns at most **Watchlist**,
+> never auto-Consider. The dashboard/shortlist view shows **Approved + Consider only** (Watchlist/Rejected excluded = no noise).
 
 **Founder Review is NEVER set by the agent.** Agent may include a soft suggestion in the Notes field only.
 Founder Notes is NEVER written by the agent. Marina's field only.
@@ -117,14 +124,20 @@ Visible: Title, Score, Recommendation, Founder Review, Category, Price Range, Co
 Hidden: Notes, Founder Notes, Rejection Reason, Problem Solved, Why It May Work, Supplier, Supplier Link, Social Link, Test Status
 Sort: Date Added descending
 
-### View 2: "💡 Intelligence" (linked view, separate page)
+### View 2: "💡 Shortlist" (linked view, separate page)
 Filter: Founder Review = Approved OR Consider
 Visible: all columns including Founder Notes, Why It May Work, Problem Solved, Test Status, CTR, CPM
 Sort: Score descending
-Purpose: strategic reference — products Marina has evaluated and approved
+Purpose: Marina's clean **LAUNCH SHORTLIST** — only products she'd actually test (Approved + Consider). Watchlist + Rejected stay OUT to keep it noise-free. (SH-6: this is exactly why Watchlist was added — to de-noise this view.)
 
-### View 3: "🗄 Archive" (permanent rejected record)
-Filter: Recommendation = Rejected
+### View 3: "🔵 Watchlist / Radar" (linked view)
+Filter: Founder Review = Watchlist
+Visible: Title, Score, Category, Price Range, Competitor Signal, Notes, Date Added
+Sort: Score descending
+Purpose: validated/interesting-but-off-model finds to MONITOR + possibly revisit (titanium boards, ad-research stores, etc.). Category stays OPEN — never closed/archived. (Recommended — create in Notion if not present.)
+
+### View 4: "🗄 Archive" (permanent rejected record)
+Filter: Recommendation = Rejected OR Founder Review = Rejected
 Visible: Title, Score, Category, Rejection Reason, Date Added only
 Purpose: anti-pattern memory, duplicate prevention, historical calibration
 Never delete rejected products.

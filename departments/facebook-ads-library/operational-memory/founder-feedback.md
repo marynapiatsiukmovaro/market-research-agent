@@ -1,6 +1,6 @@
 # FOUNDER FEEDBACK LOG
 
-**Source of Truth for: Founder Review decisions (Approved / Consider / Rejected) and calibration rules.**
+**Source of Truth for: Founder Review decisions (Approved / Consider / Watchlist / Rejected — 4 tiers, see `shared/notion-schema.md`) and calibration rules.**
 Marina's direct feedback on reported products. Founder feedback overrides raw agent scoring.
 Read alongside `departments/facebook-ads-library/operational-memory/founder-taste.md` before scoring any session.
 
@@ -41,6 +41,18 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | 2026-05-23 | Rechargeable Heated Eye Mask (Blinkjoy-validated) | 67 | "Strong pain-solving angle. Clean design." | Pain-solving + clean design = Consider; confirm white-label sourcing + build quality (Blinkjoy 72% 5★ = return risk). |
 | 2026-05-23 | Ivy Gen 2 — Smart Companion Planter (PlantsIO) | 72 | "Unique emotional product. Stylish and memorable." | Emotional uniqueness + style + memorability = strong Consider. Validates companion-gadget emotional angle. |
 | 2026-05-23 | Cordless Self-Heating Lunch Box (Luncheaze-validated) | 73 | "Strong everyday problem solver. Big branding potential." — Marina changed Approved → Consider (not yet committed). | Positive read, held at Consider; tip to YES: confirm white-label sourcing + Li-battery shipping economics. |
+
+---
+
+## Watchlist — keep on radar / study, not my model now (Blue in Notion) — added SH-6, 2026-05-26
+
+Valid/proven **SIGNAL** or interesting to **STUDY**, but **NOT the business model right now** → may return. NOT approval,
+NOT closed — the **category stays OPEN (keep monitoring)**. Convergence/revenue alone lands here, never auto-Consider.
+_(Some products in the "Consider" section above that are really "monitor/may-return" may be re-classified here by Marina.)_
+
+| Date | Product | Score | Why on radar | What would tip it to Consider |
+|------|---------|-------|--------------|-------------------------------|
+| — | _(none yet — Marina migrates eligible Consider items here)_ | | | |
 
 ---
 
@@ -97,7 +109,7 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 ---
 
 ## How to Update
-After each session, Marina reviews products and gives YES / Consider / NO.
+After each session, Marina reviews products and sets one of 4 tiers: Approved (YES) / Consider (launch shortlist) / Watchlist (radar/study, may return) / Rejected (NO).
 Record the exact reason — it becomes a calibration rule.
 This file is the most important memory in the system.
 
@@ -107,4 +119,4 @@ This file is the most important memory in the system.
 - This file tracks **Founder Review** decisions only.
 - "Reported" state is tracked in `shared/reported-products.md`.
 - Calibration patterns are distilled into `departments/facebook-ads-library/operational-memory/founder-taste.md` and `shared/successful-patterns.md`.
-- Agent never writes to Approved/Consider/Rejected sections without Marina's explicit decision.
+- Agent never writes to Approved/Consider/Watchlist/Rejected sections without Marina's explicit decision.

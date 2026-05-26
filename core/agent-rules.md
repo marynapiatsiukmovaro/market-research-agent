@@ -7,14 +7,14 @@ Products exist in distinct states. States are NOT mutually exclusive — a produ
 | State | Definition | Tracked In |
 |-------|-----------|-----------|
 | **Reported** | Scored 65+ and surfaced by agent. NOT founder-approved by default. | shared/reported-products.md |
-| **Founder Approved** | Explicitly validated by Marina (Approved / Consider). Human-only. Agent never sets this. | departments/facebook-ads-library/operational-memory/founder-feedback.md + Notion Founder Review |
+| **Founder Approved** | Explicitly validated by Marina (Approved / Consider). Human-only. Agent never sets this. (**Watchlist** = study/radar/may-return, NOT validation & NOT closed; **Rejected** = closed.) | departments/{dept}/operational-memory/founder-feedback.md + Notion Founder Review |
 | **Rejected** | Failed filters, scored below 65, or rejected by founder after review. Still useful as negative calibration. | shared/rejected-products.md + Notion |
 | **Needs Verification** | Interesting opportunity with insufficient validation (missing links, unclear saturation, etc.). AI/system state — NOT a founder decision. | Notion Recommendation field |
 | **Calibration Example** | Used to improve future reasoning, scoring, and pattern recognition. May or may not be founder-approved. | departments/facebook-ads-library/operational-memory/founder-taste.md + shared/successful-patterns.md |
 
 ### State separation rules
 - **Recommendation** (Worth Testing / Needs Verification / Rejected) = agent evaluation. Agent sets this.
-- **Founder Review** (Approved / Consider / Rejected) = human decision. Marina sets this. Agent never sets this.
+- **Founder Review** (Approved / Consider / Watchlist / Rejected — 4 tiers, see `shared/notion-schema.md`) = human decision. Marina sets this. Agent never sets this. **Watchlist = on-radar / study / may-return — NOT approval and NOT closed; never stop monitoring a Watchlist category.**
 - A product scoring 65+ is Reported. It is NOT automatically Founder Approved.
 - A product can be Reported + Rejected (reported this session, rejected by Marina afterward).
 - A product can be Rejected + Calibration Example (useful as negative pattern, not for selling).
