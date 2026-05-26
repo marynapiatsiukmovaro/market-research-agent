@@ -1,8 +1,9 @@
-# ShopHunter — Discovery Funnel (PROVISIONAL DRAFT — SH-3)
+# ShopHunter — Discovery Funnel (VALIDATED METHOD — SH-3→SH-8; living doc)
 
-> **Status: DRAFT — learning phase.** Built from the first store-first run (SH-3, 2026-05-25)
-> + operational principles adopted from the mature Facebook Ads Library department.
-> **Numbers below are ILLUSTRATIVE EXAMPLES, not fixed targets/quotas.**
+> **Status: VALIDATED & STABLE.** Run end-to-end across SH-3→SH-8 (H&G 830 · B&T 717 · A&E 823 · T&G 788 =
+> all 100% processed); mechanics below are the department's standard. Still a LIVING doc (refined per session),
+> NOT yet promoted to a permanent op-rules file. **Numbers below stay ILLUSTRATIVE EXAMPLES, never fixed
+> targets/quotas** (survivor/deep-score counts float with each batch's data — Marina, SH-3, reconfirmed through SH-8).
 > Do NOT carve any of this into permanent `op-rules.md` until validated across multiple
 > sessions (Marina, SH-3). We are still developing the strategy.
 
@@ -111,10 +112,11 @@ These convert three "rely-on-agent-discipline" habits into STANDING STRUCTURAL r
 winner by trusting a label. They are purely **ADDITIVE** — they do NOT change the conservative cut, the deep-score, or
 human-in-loop (all unchanged); they only make genuine candidates **surface reliably**.
 
-1. **"Tier A/B/C" → renamed "Revenue-Tier" everywhere.** It is a REVENUE/price **sort-aid, NOT a quality ranking** — it is
-   fooled by high-revenue branded/commodity (which float to "A"), while genuine white-label winners sit in B/C. **RULE:**
-   never present "Revenue-Tier A" as "the best finds"; ALWAYS read the WHOLE A+B+C list and lead with the deep-score +
-   WOW/taste read. (Formalizes the SH-5 calibration; the label is a machine sort, surfacing is structural — judgment stays human+agent.)
+1. **Read the A/B/C tier as "Revenue-Tier", never as quality.** The enricher still EMITS the labels `A`/`B`/`C` in its
+   output (that's fine) — but they are a **REVENUE/price sort-aid, NOT a quality ranking**: they are fooled by high-revenue
+   branded/commodity (which float to "A"), while genuine white-label winners sit in B/C. **RULE:** never present "Tier A" as
+   "the best finds"; ALWAYS read the WHOLE A+B+C list and lead with the deep-score + WOW/taste read. (Formalizes the SH-5
+   calibration; the label is a machine sort, surfacing is structural — judgment stays human+agent.)
 2. **Browse-pool = a MANDATORY funnel output every batch** (not a discretionary report section): the curated list of sub-65
    genuine white-label PRODUCT store links Marina scans for patterns. **Proven value:** SlotPro (SH-7) + PerchMe/Trovely/Bamboo
    (SH-5) were founder-kept FROM the browse-pool, below the agent's own bar. UNIQUE links only (never repeat winners/borderline).

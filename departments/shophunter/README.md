@@ -4,10 +4,13 @@ Second sourcing department. **Store-first discovery** — starts from stores/pro
 that already show sales traction, not from keywords. Complementary to, not a
 replacement for, the Facebook Ads Library department.
 
-> **Status: FOUNDATION / pre-exploration.** The tool interface has not been mapped yet.
-> Workflow, operational rules, and hypotheses are intentionally NOT written until we
-> have seen what ShopHunter actually offers. This department grows session by session —
-> the same way Facebook Ads Library was built, not designed up front.
+> **Status: MATURE / operational (as of SH-8, 2026-05-26).** The interface is mapped, and the matured
+> store-first funnel (dump → parallel hero → conservative cut → sub-agent enricher → main-agent deep-score
+> → checkpoint → Notion) has run end-to-end across SH-3→SH-8 (Home & Garden 830, Baby & Toddler 717,
+> Arts & Entertainment 823, Toys & Games 788 = all 100% processed). Method = `methods/discovery-funnel.md`
+> (incl. Structural safeguards) + `methods/subagent-spec.md` + `methods/interface-guide.md`. The department
+> still grows session by session — the same way Facebook Ads Library was built, not designed up front. Still
+> human-in-loop (autonomous mode NOT yet earned).
 
 ## Why this department exists
 FB Ads Library discovery runs keyword → ads → advertisers: lower signal density, more

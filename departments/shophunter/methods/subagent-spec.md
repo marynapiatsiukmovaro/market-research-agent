@@ -27,7 +27,7 @@ Stage 2 runs ONLY on survivors (smaller set) — that is why heavier per-store r
 | `flags` | `ingestible` / `skincare` / `apparel` / `пустышка` / `price-out` | keyword scan of title+desc+price | mandatory filters + Marina Veto |
 | `image` | Main product image URL | catalog image | wow is visual — glance without opening the store |
 | `proxy_score` | RELIABLE signals only: price-in-range + convergence + Stage-1 revenue | computed | **Revenue-Tier** sort-aid (NOT the final score, NOT a quality rank — read ALL A+B+C) |
-| `desc_confidence` (SH-8) | `ok` / `empty` / `mismatched` — does the live `desc` actually describe the candidate product? | desc length + title-vs-desc token overlap | **flags candidates that need a WebFetch verification BEFORE tiering** (Description-confidence gate — see discovery-funnel.md Structural safeguards) |
+| `desc_confidence` (SH-8 — ⚠ PLANNED, not yet emitted by the enricher) | `ok` / `empty` / `mismatched` — does the live `desc` actually describe the candidate product? | desc length + title-vs-desc token overlap | **flags candidates that need a WebFetch verification BEFORE tiering** (Description-confidence gate — see discovery-funnel.md Structural safeguards). **Until the enricher emits it, the MAIN AGENT applies the gate by judgment** (empty/mismatched desc on a genuine in-range physical → WebFetch before scoring). |
 
 ### How to write `desc` (the key field — clear rule)
 One or two short lines, factual, in this order:

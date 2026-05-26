@@ -26,7 +26,7 @@ Operated headless (Playwright) → screenshots + page text. No bot-block on logi
 
 ### Discovery surfaces (left nav)
 - **Explore Products** (`/explore/products`) — product grid with revenue + ads per item
-- **Explore Shops** (`/explore/shops`) — store-level view *(not yet opened in detail)*
+- **Explore Shops** (`/explore/shops`) — store-level view *(SH-3+: our PRIMARY discovery surface — category-checkbox filter → scroll-to-exhaustion dump; see `methods/discovery-funnel.md`)*
 - **Explore Ads** (`/explore/ads`) — ad-level view *(not yet opened — natural FB cross-ref)*
 - **Staff Picks** (`/staff-picks`) *(not yet opened)*
 - **Tracked Shops** / **Shop & Product Collections** / **Add Shop** (`/shops/track`) — watchlists
