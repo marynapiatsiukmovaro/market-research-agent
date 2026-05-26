@@ -73,3 +73,23 @@ The watchlist layer Marina proposed — add proven shops to a Collection, then m
 - **Check-up mechanic (planned, human-in-loop):** scrape Products→Newest-First → dedup vs a seen-product-id list →
   conservative cut + description filter → surface NEW candidates. Cadence ~every 2-3 days.
 - Recon scripts: `sh_collections_recon.py`, `sh_collections_recon2.py`, `sh_collection_add_test.py`.
+
+## Multi-collection / niche sub-collections (mapped SH-6, 2026-05-26 — Marina's structure)
+**Structure (Marina-agreed):** keep ONE general collection **"Shops"** (every tracked shop) + one **per-niche** collection
+(e.g. **"Baby & Toddler"**, **"Home & Garden"**, future "Arts & Entertainment" / "Toys & Games"). A shop can be in MANY
+collections. Why: the **Similar / Ads / Products(Newest-First)** views are far more useful scoped to a niche than over a
+mixed 100+ pool (cross-niche "Similar" = noise). Per-niche also makes Newest-First monitoring niche-specific.
+- **The dialog** (shop detail → "Add/Remove from Collection") = a modal **"Manage Shop Collections"** (`div.max-w-md`):
+  a **"New Collection Name" input + "Save New"** button (create; Save New is `disabled` until text entered, and it also
+  adds the current shop to the new collection), then ONE ROW PER existing collection: `<span class="font-medium">NAME</span>`
+  + a button whose text is **"Add"** (NOT a member) or **"Remove"** (already a member). Bottom: View Collections / Close.
+- **RELIABLE membership read (the strengthened verification):** the per-row Add/Remove label is the truthful membership
+  source — far better than the `/collections/shops` page count, which **UNDERCOUNTS due to DOM virtualization/lazy-load**
+  (SH-6: page showed ~50–96 when the real count was ~100). Always verify membership via the dialog label, not the page.
+- **TOGGLE-SAFETY:** the row button is a toggle (Add↔Remove). To add safely you must read the label first and click ONLY
+  when it says "Add" — never click "Remove". This guarantees you can't drop a shop from "Shops" when adding it to a niche.
+- **Script: `scripts/sh_collection_manage.py`** (reusable, toggle-safe) — modes:
+  `create "<Name>" <seed_id>` · `add "<Name>" <id…>` (clicks Add only) · `verify "<Name>" <id…>` · `list <id>` (all collections + state for one shop). DOM selectors scoped to the modal.
+- **SH-6 state:** "Shops" = all ~100; "Baby & Toddler" = 53 B&T shops; "Home & Garden" = 47 H&G shops. Verified cross-correct
+  (B&T shops ∈ Baby&Toddler+Shops, ∉ Home&Garden; H&G shops ∈ Home&Garden+Shops, ∉ Baby&Toddler; Shops intact for all).
+- **Going forward:** each category session seeds its shops into BOTH "Shops" (general) AND its own niche collection.
