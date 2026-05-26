@@ -109,11 +109,14 @@ Sneakertizer **65** + Electric Shoe Dryer **65** (CONVERGENCE: shoe-care ×2), O
 Approved (pursue): **OroMilk** (health trend + stylish). Consider/monitor: TempMaster, Electric Shoe Dryer, Sneakertizer,
 Plantagotchi, **both titanium boards** (×3 convergence → "no wow YET, good trend → monitor, may return"), CoolClip (seasonal)
 (+ FB-dept Desk Cat Bed, Rhona). Rejected/closed: Jar Genie ("weak economics"), Elevayr ("weak effectiveness/saturated").
-**STATUS CONVENTION:** Consider = not-now-but-monitor/may-return (NO rejection reason, stays on radar); Rejected = closed →
+**STATUS CONVENTION (SH-4 — ⚠ SUPERSEDED SH-6, see note below):** Consider = not-now-but-monitor/may-return (NO rejection reason, stays on radar); Rejected = closed →
 Archive. **CRITICAL CALIBRATION: convergence / revenue do NOT make Marina PURSUE — at best they earn Consider/monitor.
 Approve/test needs clear WOW + perceived value + category priority.** I over-weighted the titanium ×3 convergence as the
 "strongest find"; her call = Consider/monitor ("no wow yet"). SH-5: lead candidate recommendations with WOW + taste read
 (from live description), not the convergence count; surface trend/convergence finds as monitor-candidates.
+> **⚠ SUPERSEDED SH-6:** the "Consider = monitor/may-return" terminology in this SH-4 block is now SPLIT — that monitor/
+> may-return meaning moved to the new **Watchlist** tier; **Consider = launch-shortlist only**. Convergence/revenue now earns
+> at most **Watchlist** (not Consider). Canonical 4-tier convention → `founder-feedback.md` STATUS CONVENTION + `shared/notion-schema.md`.
 
 **MAJOR SYSTEM UPGRADE this session (all Marina-agreed) — the funnel is now:**
 `dump → parallel hero (Stage-1) → conservative cut → Stage-2 sub-agent enricher → main-agent deep-score`.

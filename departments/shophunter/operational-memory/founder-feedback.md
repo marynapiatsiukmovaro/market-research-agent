@@ -36,7 +36,7 @@ Rhona TravelVac Pro → Consider ("Stylish travel pain-solver.").
 | Product | Founder action | Note |
 |---|---|---|
 | **cookinate Juice & Milk Maker** (cookinate.com) | **→ added as OroMilk Store Link 2** (Marina-spotted) | 2nd-brand convergence for the Approved **OroMilk One-Touch** — one-touch plant-milk **+ juice**, ~$155 USD. OroMilk stays Approved; cookinate is the convergence brand, not a separate card. |
-| nulooa DeepVac (66) · Hago Coffee Maker 3-in-1 (65) | reported → **Founder Review pending** | b1 reportables in Notion; Marina sets Approved/Consider/Rejected. |
+| nulooa DeepVac (66) · Hago Coffee Maker 3-in-1 (65) | reported → **Founder Review pending** | b1 reportables in Notion; Marina sets the tier (4: Approved/Consider/Watchlist/Rejected). |
 | Spray Blender System (53) | **founder-kept** (Marina asked to add) | <65, in Notion as Needs Verification + founder-kept note. |
 | PerchMe Smart Bird Feeder Camera (64) | **FOUNDER-KEPT** (Marina chose) | Bird Buddy-class, the session's only genuine-WOW find; in Notion. |
 | Trovely Grandpa's Metal Weeder (63) | **FOUNDER-KEPT** (Marina chose) | 45in all-steel stand-up weed puller, satisfying full-root extraction UGC, 4.9★/2400+; in Notion. |
