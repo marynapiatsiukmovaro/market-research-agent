@@ -10,9 +10,11 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 
 | Date | Product | Score | Why it worked | Signal to keep |
 |------|---------|-------|---------------|----------------|
-| 2026-05-13 | Eye Massager with Heat & Vibration | 84 | Marina manually confirmed active Facebook ads. Strong emotional hook, understood instantly. | Confirmed ad activity = strong YES. Multi-audience (migraine/screen/sleep). |
 | 2026-05-13 | WellnessBaby Fetal Doppler | 83 | Strong product, powerful emotional trigger (pregnancy anxiety). | Deep specific fear + always a new cohort. |
-| 2026-05-13 | Smart Posture Corrector Vibration Sensor | 75 | Marina liked the DESIGN — "stylish like Apple." Product stands out from generic braces. | Apple-like minimal design = strong visual differentiator. Design matters, not just function. |
+
+⚠️ Moved OUT of Approved (Marina, Notion, 2026-05-26):
+- **Eye Massager with Heat & Vibration (84) → Consider** — "Хороший продукт, рассмотрю, но появились более сильные кандидаты на тест." (see Consider section)
+- **Smart Posture Corrector Vibration Sensor (75) → Watchlist** — "Стильный (Apple-like), решает боль; пока есть более сильные кандидаты." (see Watchlist section)
 
 ---
 
@@ -26,21 +28,18 @@ Read alongside `departments/facebook-ads-library/operational-memory/founder-tast
 | Date | Product | Score | Concern | What would tip it to YES |
 |------|---------|-------|---------|--------------------------|
 | 2026-05-13 | Posture Corrector Back Brace | 82 | No strong reason to reject, but no excitement either. | Strong creative angle or unique visual hook. |
-⚠️ Moved to Rejected (Notion updated by Marina — "Seen constantly on TikTok. Overexposed category.")
-| 2026-05-13 | High-Frequency Facial Wand | 77 | "Proven results. Strong anti-aging angle." (Notion). Note: earlier verbal session feedback was stronger — Notion is authoritative. | Anti-aging + proven mechanism = potential, but not a clear YES. |
-| 2026-05-13 | Traveler Pillow — Face Cradle Design | 67 | "Scroll-stopping design. Strong hook potential." | Unique face-cradle mechanism is visually compelling — needs stronger market signal. |
-| 2026-05-13 | Wander Plus Travel Pillow | 72 | "Unique design. Strong travel pain-point." | Travel comfort confirmed as pain point — saturation concern keeps it at Consider. |
-| 2026-05-14 | Levide Heated Shoulder Massager | — | "Strong pain-relief positioning." | Shoulder/neck pain = large audience, strong positioning — needs pricing and saturation verification. |
-| 2026-05-15 | Stroller Hammock Seat for 2nd Child (Hoppie-validated) | 65 | "Strong scroll-stopping effect. Instantly grabs attention visually." | Visual hook confirmed; single advertiser concern. |
 | 2026-05-15 | Toucan Baby — Sleep Sack with Self-Soothing Lovey | 67 | "Strong emotional comfort trigger for moms. Warm tactile bonding angle." | Emotional angle confirmed strong — category saturation is the question. |
-| 2026-05-14 | Stainless Steel Dog Water Fountain (WagWells) | 76 | "Strong premium positioning and packaging. Huge perceived value gap vs Amazon pricing." | Premium DTC positioning in pet fountain = confirmed opportunity. |
-| 2026-05-14 | Stainless Steel Cat Water Fountain (Faucet-Style) | 77 | "Strong branding. Premium positioning." | Cat fountain category validated with strong branding potential. |
 | 2026-05-18 | The Little Potion Co — Mindful Magic Potion Kits | 68 | "Strong concept. Good creative flexibility." — potential but not committed. | Strong gifting angle; creative potential confirmed; needs US market validation and white-label sourcing. |
-| 2026-05-18 | Magic Playwall — Magnetic Art Wall for Kids | 62 | "Beautiful packaging. Small-scale niche potential." — not rejecting but niche concern. | Second DTC advertiser in category would open it. Score was below threshold — Marina sees potential despite low signal. |
 | 2026-05-18 | Camp Snap Camera — Screen-Free Kids Digital Camera | 77 | "Strong aesthetic branding potential." — brand risk concern (Camp Snap = pioneer with strong identity). | White-label sourcing on Alibaba + differentiated branding = could work. Marina sees creative/aesthetic opportunity. |
-| 2026-05-23 | Rechargeable Heated Eye Mask (Blinkjoy-validated) | 67 | "Strong pain-solving angle. Clean design." | Pain-solving + clean design = Consider; confirm white-label sourcing + build quality (Blinkjoy 72% 5★ = return risk). |
 | 2026-05-23 | Ivy Gen 2 — Smart Companion Planter (PlantsIO) | 72 | "Unique emotional product. Stylish and memorable." | Emotional uniqueness + style + memorability = strong Consider. Validates companion-gadget emotional angle. |
 | 2026-05-23 | Cordless Self-Heating Lunch Box (Luncheaze-validated) | 73 | "Strong everyday problem solver. Big branding potential." — Marina changed Approved → Consider (not yet committed). | Positive read, held at Consider; tip to YES: confirm white-label sourcing + Li-battery shipping economics. |
+| 2026-05-26 | Eye Massager with Heat & Vibration | 84 | **Marina 2026-05-26: Approved → Consider** — "Хороший продукт, рассмотрю, но появились более сильные кандидаты на тест." | Was Approved (live FB ads confirmed, strong emotional hook, multi-audience: migraine/screen/sleep) — tips back to YES if it re-enters her launch shortlist. |
+
+**↳ Moved OUT of Consider (history):**
+- → Rejected: Electric Scalp Massager with Heat — "Seen constantly on TikTok. Overexposed category." (Notion, Marina)
+- → Watchlist (2026-05-26): High-Frequency Facial Wand (77) · Traveler Pillow — Face Cradle (67) · Wander Plus Travel Pillow (72) · Levide Heated Shoulder Massager
+- → Watchlist (2026-05-26, batch 2): WagWells Dog Fountain (76) · KittySpout Cat Fountain (77) · Magic Playwall (62) · Heated Eye Mask / Blinkjoy (67)
+- → Watchlist (2026-05-26): Stroller Hammock Seat for 2nd Child (Hoppie, 79) — «никогда такого не видела, но пока не продаю»
 
 ---
 
@@ -52,7 +51,16 @@ _(Some products in the "Consider" section above that are really "monitor/may-ret
 
 | Date | Product | Score | Why on radar | What would tip it to Consider |
 |------|---------|-------|--------------|-------------------------------|
-| — | _(none yet — Marina migrates eligible Consider items here)_ | | | |
+| 2026-05-26 | Traveler Pillow — Face Cradle Design | 67 | Marina (Consider→Watchlist): "Нравится, необычный — цепляет взгляд, присмотрюсь." Scroll-stopping face-cradle design. | Сейчас есть более сильные кандидаты на тест → вернётся, если станет приоритетнее / появится рыночный сигнал. |
+| 2026-05-26 | Wander Plus Travel Pillow | 72 | Marina (Consider→Watchlist): "Нравится необычная форма." Travel-comfort pain-point. | Out-prioritized сейчас (+ saturation: 7 brands в категории) → вернётся, если станет приоритетом. |
+| 2026-05-26 | Levide Heated Shoulder Massager | — | Marina (Consider→Watchlist): "Pain-relief пока не приоритет, но сегмент большой — сохраняем." | "Вернусь, если найду ВАУ" в pain-relief сегменте. |
+| 2026-05-26 | High-Frequency Facial Wand | 77 | Marina (Consider→Watchlist): "Решает боль, много применений; можно сделать версию лучше." | Фокус сейчас на других → вернётся, если станет приоритетом / найдётся дифференцированная (WOW) версия. |
+| 2026-05-26 | Smart Posture Corrector Vibration Sensor | 75 | Marina (Approved→Watchlist): "Стильный (Apple-like), решает боль." | Пока есть более сильные кандидаты на тест → вернётся в shortlist при смене приоритета. |
+| 2026-05-26 | Stainless Steel Dog Water Fountain (WagWells) | 76 | Marina (Consider→Watchlist): упаковка/подача ценности отличные, НО vs Amazon $20-30 они продают ~$70 → конкуренция + экономика не сходится; есть более сильные товары. **STUDY-asset (главная причина радара):** "учусь у таких брендов — как commodity-товар упаковать в high-value и продавать дорого." | ⚠️ Amazon-gap = палка о двух концах: upside (perceived value) + downside (конкуренция). Раньше читался как ПЛЮС, сейчас перевесил РИСК. |
+| 2026-05-26 | Stainless Steel Cat Water Fountain (Faucet-Style, KittySpout) | 77 | Marina (Consider→Watchlist): то же — отличная упаковка/ценность, но Amazon $20-30 vs ~$70 → конкуренция + экономика. "Похожий товар" к WagWells. | Тот же паттерн, что WagWells (Amazon-gap = риск). |
+| 2026-05-26 | Magic Playwall — Magnetic Art Wall for Kids | 62 | Marina (Consider→Watchlist): "Понравилась сама идея, но товар не вау; сейчас есть намного более сильный товар." (shopcherrypick.com) | Дифференцированная (WOW) версия идеи. |
+| 2026-05-26 | Rechargeable Heated Eye Mask (Blinkjoy-validated) | 67 | Marina (Consider→Watchlist): "Уже оставила похожий, более сильный товар (Eye Massager); этот послабее. Ниша актуальна, на ней зарабатывают — иметь в виду." | Если станет приоритетнее более сильного аналога. |
+| 2026-05-26 | Stroller Hammock Seat for 2nd Child (Hoppie-validated) | 79 | Marina (Consider→Watchlist): "Интересный — никогда такого не видела, но пока продавать не буду." hoppie.kids | Уникальность есть → вернётся, если решит запускать. (score: 79 Marina / 65 в reported-логе) |
 
 ---
 
@@ -97,7 +105,7 @@ _(Some products in the "Consider" section above that are really "monitor/may-ret
 | **Пустышки** (hardest) | Unverifiable result | Reject BEFORE scoring | Red Light Hair Cap (80): "недоказуемый результат" |
 | **Market Timing** | 100+ active ads = too late | Sweet spot: 5–30 active ads | Lymphatic massager: "рынок уже создан, нужно заходить на старте" |
 | **Везде** | Marina has seen it widely | Auto-reject regardless of score | LED Wand (78), Microcurrent (74) |
-| **Design** | Apple-like minimal aesthetic differentiates | Prefer better-designed version | Smart Posture Sensor approved for aesthetics |
+| **Design** | Apple-like minimal aesthetic differentiates | Prefer better-designed version | Smart Posture Sensor won initial Approve for aesthetics (now Watchlist 2026-05-26 — out-prioritized; design lesson stands) |
 | **15-Second Rule** | Hook needs >15s to land | Cold traffic death → reject | TENS patch: "слишком долго объяснять" |
 | **Founder Intuition** | Marina says "narrow market" | Trust it over data | Air Compression (75, 4 audiences) |
 | **Pet Tech AOV Ceiling** | Pet vertical products $80-120 | Don't hard-reject — evaluate case by case | Session 5: "pet owners tolerate higher AOV than other verticals" — exceptional visual + emotional = viable |

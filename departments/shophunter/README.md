@@ -50,6 +50,9 @@ checkpoints until the workflow is validated. There is intentionally no autonomou
 file here yet.
 
 ## Entry points
-- `capabilities.md` — what we can already do + what ShopHunter offers (filled after exploration)
-- `operational-memory/learnings.md` — session-by-session discoveries
-- `workflow.md` — TBD, written after the first exploration session
+- `capabilities.md` — what we can already do + what ShopHunter offers
+- `operational-memory/learnings.md` — session-by-session discoveries (HANDOFF at top — read first)
+- `operational-memory/founder-feedback.md` — Marina's Founder Review decisions + calibration
+- `methods/discovery-funnel.md` — the matured store-first workflow (dump → hero → conservative cut → enrich → deep-score → report)
+- `methods/interface-guide.md` — ShopHunter UI mechanics (collections, membership read, dialogs)
+- `methods/subagent-spec.md` — enricher sub-agent spec

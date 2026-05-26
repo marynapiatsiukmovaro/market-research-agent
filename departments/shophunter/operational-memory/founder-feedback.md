@@ -7,6 +7,61 @@ Agent never invents decisions — only records what Marina explicitly sets.
 
 ---
 
+## Founder Review — Decisions SET by Marina (2026-05-26)
+
+Canonical 4-tier decisions Marina set in Notion for the SH-5 + SH-6 reported / founder-kept products. **This is the
+authoritative record**; the per-session SH-5/SH-6 tables below are the original session log (now resolved). Agent records only.
+
+🟡 **Consider — real launch shortlist (genuinely evaluating to test):**
+
+| Product | Founder Review | Founder Notes | Rejection Reason |
+|---|---|---|---|
+| FetalPlus — At-Home Fetal Doppler | 🟡 Consider | "Confirms demand for baby monitoring category." | — |
+| Peazy Pouch — Homemade Baby Food Pouch Maker | 🟡 Consider | "Strong healthy-feeding angle for moms." | — |
+| WEMOH C1 Dual-Camera Baby Car Monitor | 🟡 Consider | "Strong safety and monitoring angle." | — |
+| Sleep Like Goldilocks — Sleepwear Guide + Temp Predictor + Night Light | 🟡 Consider | "Interesting sleep optimization concept." | — |
+| PerchMe Smart Bird Feeder Camera | 🟡 Consider | "Strong creative and ad potential." | — |
+| Bamboo Sofa Arm Tray Table | 🟡 Consider | "Strong convenience and lifestyle angles." | — |
+| Spray Blender System (Cordless Blend+Spray) | 🟡 Consider | "Interesting BBQ/gifting positioning." | — |
+| Hago Smart Coffee Maker 3-in-1 | 🟡 Consider | "Strong travel and convenience angle." | — |
+| Trovely Grandpa's Metal Weeder | 🟡 Consider | "Unique older-audience positioning." | — |
+
+🔵 **Watchlist — radar / study, may return (NOT launch shortlist; category stays open):**
+
+| Product | Founder Review | Founder Notes | Rejection Reason |
+|---|---|---|---|
+| Sleepy Baby — Motorized Tapper + White Noise Sleep Aid | 🔵 Watchlist | "Strong emotional appeal. Beautiful mom-focused branding." | — |
+| Veba — Smart Baby Bottle Monitor | 🔵 Watchlist | "Strong product and branding. Crowded category." | — |
+| The Baby's Brew 3.0 Portable Bottle Warmer | 🔵 Watchlist | "Strong branding and real pain solution." | — |
+| Little Manta Soft Nest Baby Lounger | 🔵 Watchlist | "Interesting product positioning. Worth monitoring." (also kept as ad-research / competitor asset, SH-6) | — |
+| nulooa DeepVac (UV-C Mattress Vacuum) | 🔵 Watchlist | "Solves real problem. Complex product education." | — |
+
+🔴 **Rejected — closed (has a Rejection Reason → Archive):**
+
+| Product | Founder Review | Founder Notes | Rejection Reason |
+|---|---|---|---|
+| Grownsy NutriChef Baby Food Maker | 🔴 Rejected | "Strong branding, but highly saturated niche." | Weak differentiation. |
+| Sleepout Portable Blackout Curtain 3.0 | 🔴 Rejected | "Solves real pain." | Heavy and operationally difficult. |
+| Swaddelini Stretchy Slip-On Swaddle | 🔴 Rejected | "Saturated sleepwear category." | Weak wow factor. |
+
+**⚠️ How to read these decisions (Marina, 2026-05-26):** these are Marina's PERSONAL review notes — kept for herself / the system.
+**The scoring system works well and stays AS-IS — founder decisions do NOT constrain, narrow, or "tighten" it.** A founder
+**Reject does NOT mean the product is bad or mis-scored** — Marina weighs all factors and gives a verdict. The agent must keep
+reporting EVERY product that genuinely scores 65+ (per `core/scoring-system.md`), must NOT become conservative, must NOT try to
+predict Marina's taste, and must NOT shrink discovery based on these notes — **do not «оттекать» (over-filter / dilute) products.**
+Founder Review is a SEPARATE human layer applied AFTER reporting — not a scoring correction. (Reinforces the discovery-diversity rule.)
+
+**Product-economics signals (already INSIDE scoring — confirmations, not new constraints):**
+- **Heavy / bulky / operationally hard** → Logistics + Margin weigh down — Sleepout: solves real pain BUT "heavy and operationally difficult." Confirms the SH-6 heavy-textile / shipping-cost rule.
+- **Complex product education** → harder cold-traffic conversion — nulooa DeepVac. Echoes the FB 15-second rule.
+
+**Founder-layer patterns (informational — how Marina USES the tiers; NOT agent rules, NOT scoring inputs):**
+- High agent score and founder decision are independent — top B1 score (Swaddelini 72) → Rejected; low scores (Bamboo 50, Spray 53, PerchMe 64, Hago 65) → Consider on her taste. Both are fine; keep scoring + reporting unchanged.
+- **Strong product/branding but crowded → she parks at Watchlist (not Reject)** — Veba, Baby's Brew, Sleepy Baby.
+- Saturated + weak wow/differentiation → she Rejects (Swaddelini, Grownsy).
+
+---
+
 ## SH-4 decisions (2026-05-25)
 
 | Product | Founder Review | Founder Notes | Rejection Reason |
@@ -16,15 +71,17 @@ Agent never invents decisions — only records what Marina explicitly sets.
 | Electric Shoe Dryer (Veladux) | 🟡 Consider | Real pain-solver. Strong seasonal hooks. | — |
 | Sneakertizer (UV+heat shoe dryer) | 🟡 Consider | Strong fall/winter pain product. | — |
 | Plantagotchi AI Smart Planter | 🟡 Consider | Confirms strong market interest. | — |
-| **Titanium Cutting Board** (ChopChop/Life Upgrade — convergence ×3) | 🟡 **Consider (monitor)** | Strong pain category. Worth monitoring — good trend, may return. | — |
-| **Titavos Titanium Cutting Board** | 🟡 Consider (monitor) | Strong packaging and category signal. Not priority now, but good trend — monitor. | — |
-| CoolClip (wearable clip fan) | 🟡 Consider (monitor) | Stylish compact product. Real pain-solver. | — |
+| **Titanium Cutting Board** (ChopChop/Life Upgrade — convergence ×3) · chopchopusa.com | 🔵 **Watchlist** (2026-05-26, was Consider/monitor) | "Ниша очень сильная, актуальность видна по другим магазинам — но сейчас НЕТ вау-эффекта; возможно рассмотрю позже." | — |
+| **Titavos Titanium Cutting Board** · titavos.com | 🔵 Watchlist (2026-05-26, was Consider/monitor) | "Та же причина: материал пользуется спросом, но пока предпочтение другим товарам." | — |
+| CoolClip (wearable clip fan) · ergonable.com | 🔵 Watchlist (2026-05-26, was Consider/monitor) | "Один из самых сильных вентиляторов внешне — очень стильный, классные упаковка/магазин; НО цена очень маленькая → не подходит. Мониторим, интересно если появятся похожие." | — |
 | Jar Genie Automatic Jar Opener (Stamny) | 🔴 Rejected | Useful but low perceived value. | Weak economics. |
 | Elevayr Cloud Nursing Pillow | 🔴 Rejected | Saturated category. | Weak perceived effectiveness. |
 
 > **Note (Marina, SH-4):** "Rejected for now" with a GOOD TREND = **Consider (monitor)**, NOT Rejected. The titanium
 > boards + CoolClip were flipped Rejected → Consider so they stay on the radar (not Archive) and can be revisited.
 > Rejection Reasons removed for these. Genuinely closed = Jar Genie + Elevayr.
+>
+> **⚠️ Update 2026-05-26:** Marina moved all 3 (titanium ×2 + CoolClip) **Consider → Watchlist** — confirms the SH-6 prediction (validated demand + "no wow YET" = Watchlist, not Consider, not Rejected). New reasons recorded in the rows above. Remaining SH-4 "Consider" items (TempMaster, Veladux/Sneakertizer shoe dryers, Plantagotchi) stay as currently set — not reviewed this round.
 
 **Also reviewed (FB-dept products, decisions in Notion):** Desk-Mounted Cat Bed → Consider ("Strong hooks. Very eye-catching.");
 Rhona TravelVac Pro → Consider ("Stylish travel pain-solver.").
@@ -33,10 +90,12 @@ Rhona TravelVac Pro → Consider ("Stylish travel pain-solver.").
 
 ## SH-5 decisions (2026-05-26)
 
+> ✅ **Founder Review SET by Marina 2026-05-26** for the products below (nulooa DeepVac, Hago, Spray Blender, PerchMe, Trovely, Bamboo) — see the **Decisions** table at the top of this file. The "pending / founder-kept" notes below are the original session log.
+
 | Product | Founder action | Note |
 |---|---|---|
 | **cookinate Juice & Milk Maker** (cookinate.com) | **→ added as OroMilk Store Link 2** (Marina-spotted) | 2nd-brand convergence for the Approved **OroMilk One-Touch** — one-touch plant-milk **+ juice**, ~$155 USD. OroMilk stays Approved; cookinate is the convergence brand, not a separate card. |
-| nulooa DeepVac (66) · Hago Coffee Maker 3-in-1 (65) | reported → **Founder Review pending** | b1 reportables in Notion; Marina sets the tier (4: Approved/Consider/Watchlist/Rejected). |
+| nulooa DeepVac (66) · Hago Coffee Maker 3-in-1 (65) | reported → **✅ decided 2026-05-26 — see Decisions table (top of file)** | b1 reportables in Notion; Marina sets the tier (4: Approved/Consider/Watchlist/Rejected). |
 | Spray Blender System (53) | **founder-kept** (Marina asked to add) | <65, in Notion as Needs Verification + founder-kept note. |
 | PerchMe Smart Bird Feeder Camera (64) | **FOUNDER-KEPT** (Marina chose) | Bird Buddy-class, the session's only genuine-WOW find; in Notion. |
 | Trovely Grandpa's Metal Weeder (63) | **FOUNDER-KEPT** (Marina chose) | 45in all-steel stand-up weed puller, satisfying full-root extraction UGC, 4.9★/2400+; in Notion. |
@@ -54,12 +113,14 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 
 ## SH-6 decisions (2026-05-26) — Baby & Toddler (DONE — all 4 batches / 717 stores)
 
+> ✅ **Founder Review SET by Marina 2026-05-26** for the products below (Swaddelini, WEMOH, Sleep Like Goldilocks, Veba, Baby's Brew, Peazy, Little Manta, Grownsy, Sleepout, FetalPlus, Sleepy Baby) — see the **Decisions** table at the top of this file. The "pending / founder-kept" notes below are the original session log.
+
 | Product | Founder action | Note |
 |---|---|---|
-| **B1 — 5 winners 65+** (Swaddelini 72 · WEMOH dual-cam car monitor 71 · Sleep Like Goldilocks temp-predictor 67 · Veba milk-freshness monitor 66 · Baby's Brew bottle warmer 66 +BabyBuddy) | → Notion, **Founder Review pending** | Marina approved adding all 65+; she'll Approve/Reject later "чтобы учились". |
+| **B1 — 5 winners 65+** (Swaddelini 72 · WEMOH dual-cam car monitor 71 · Sleep Like Goldilocks temp-predictor 67 · Veba milk-freshness monitor 66 · Baby's Brew bottle warmer 66 +BabyBuddy) | → Notion, **✅ decided 2026-05-26 — see Decisions table (top of file)** | Marina approved adding all 65+; she'll Approve/Reject later "чтобы учились". |
 | **Peazy Pouch — Homemade Baby Food Pouch Maker (62)** | **FOUNDER-KEPT** (Marina) | "Новая интересная идея, вижу такое впервые" — добавить несмотря на <65. antodori.com. |
 | **Little Manta Soft Nest Baby Lounger (55)** | **FOUNDER-KEPT as AD-RESEARCH / COMPETITOR asset** | Marina: правильно отсёк как продукт, НО хочет изучить их рекламу/бюджет/как продвигаются (298 SKU, много продукции). NOT a product endorsement. |
-| **B2 — Grownsy Baby Food Maker (66)** + **Sleepout Blackout Curtain (65)** | → Notion, **Founder Review pending** | Added as-is, NO pre-marking of flaws (Marina writes the pattern in the table herself). |
+| **B2 — Grownsy Baby Food Maker (66)** + **Sleepout Blackout Curtain (65)** | → Notion, **✅ decided 2026-05-26 — see Decisions table (top of file)** | Added as-is, NO pre-marking of flaws (Marina writes the pattern in the table herself). |
 | **FetalPlus — At-Home Fetal Doppler store (63)** | **FOUNDER-KEPT** (Marina, B3) | "У нас есть аналогичный товар" (WellnessBaby Fetal Doppler 83) — wants to compare. Multi-product store (doppler + breast pump + breathing monitor). |
 | **Sleepy Baby — Motorized Tapper + White Noise (60)** | **FOUNDER-KEPT** (Marina, B3) | "Подобный, но другой — интересно проанализировать." Novel motorized-tapper mechanism. Confirmed ×2 by Baby Patter (B4). |
 | **B3 + B4 = 0 new winners 65+** | — | Honest convergence-confirmation batches (bottle-warmer/carrier/pump/swaddle/doppler/patter already covered) + heavy noise. Normal store-first pass — SH-5 yield calibration: a 0-reportable batch is GOOD vs FB, don't catastrophize. |
@@ -97,8 +158,8 @@ The Founder Review field now has **4** options (traffic light + a study/radar ti
 
 🔵 **Marina WATCHLISTS (study / on radar / may return):** good trend / category signal but **no clear wow YET**, or validated
 demand that's **off her model now**. Examples (were "Consider/monitor" pre-SH-6): titanium boards (×convergence, "no wow yet"),
-CoolClip (seasonal), TempMaster, shoe dryers, Plantagotchi, ad-research assets (Little Manta). _(Marina re-classifies existing
-Consider→Watchlist herself; agent doesn't touch the field.)_
+CoolClip (seasonal), TempMaster, shoe dryers, Plantagotchi, ad-research assets (Little Manta). _(Titanium boards + CoolClip
+were re-classified Consider→Watchlist by Marina on 2026-05-26 ✓; agent never sets the field — only records her decision.)_
 
 🔴 **Marina REJECTS (closed):** **weak economics** (Jar Genie) · **weak perceived effectiveness + saturated** (Elevayr) ·
 пустышка · везде.
