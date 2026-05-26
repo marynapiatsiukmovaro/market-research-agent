@@ -3,7 +3,7 @@
 > **Status: AGREED with Marina (SH-4, 2026-05-25).** This is the job description for the
 > Stage-2 enrichment workers (the VPS scraper "sub-agents"). It defines EXACTLY what they
 > write and how, so the main agent's keep/cut is accurate and repeatable.
-> Implemented by `scripts/sh_enrich3.py` (Playwright + residential proxy, parallel).
+> Implemented by `scripts/sh_enrich_final.py` (Playwright + residential proxy, parallel; the canonical current enricher — supersedes the earlier ad-hoc `sh_enrich3.py`).
 
 ## Where this fits in the funnel
 ```

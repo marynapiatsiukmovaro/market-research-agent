@@ -2,7 +2,8 @@
 
 ## Database: Product Tracker
 Location: MOVARO HQ → 📦 Product Research → Product Tracker
-Data source ID: 35b53ba8-196e-80bf-9be2-e6a4eb49059e
+- **Database (page) ID:** `35b53ba8-196e-80bf-9be2-e6a4eb49059e`
+- **Data source ID (collection) — pass THIS as `data_source_id` to the Notion `create-pages` MCP tool:** `35b53ba8-196e-8006-83fc-000bd9676ed9` (verified working SH-7/SH-8; the page-id above is NOT accepted as a data_source_id).
 
 ---
 
