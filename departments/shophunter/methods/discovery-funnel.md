@@ -93,3 +93,17 @@ Every batch report to Marina includes BY DEFAULT (she does NOT need to ask):
 (PerchMe, Bamboo Sofa Tray, Trovely). The browse set surfaces founder-pattern finds the agent's bar alone would miss.
 **Always lead a recommendation with the deep-score + WOW/taste read — never the proxy-Tier label** (Tier = revenue
 sort-aid, not quality; it inflates on revenue/convergence — SH-5 confirmed).
+
+---
+
+## Collection seeding rule (SH-5, 2026-05-26 — Marina-approved STANDING RULE)
+After each batch, ADD to the tracked-shop **Collection** (My ShopHunter → Shop Collections) the SHOP behind every product
+that reached the browse pool — in 3 tiers:
+1. **Reported 65+** (the strongest).
+2. **Borderline 55–64.**
+3. **The rest of the curated browse pool** (genuine PRODUCTS <55 we surface — see Reporting-protocol #4).
+**Exclude:** branded-FYI, пустышка-FYI, and the stores of products Marina explicitly **Rejected** (e.g. Jar Genie/Stamny,
+Elevayr). Add programmatically with `scripts/sh_collection_add.py <shop_id…>` (TOGGLE-safe for shops not yet in — Add/Remove
+is a toggle, so **check membership before bulk-adding** to avoid accidentally removing a shop we already track).
+**Observed ratio:** ~37 / 409 H&G stores (~9%) + 10 from SH-3/SH-4 = **47 shops seeded (SH-5)**. The collection grows every
+batch (next: B&T 717). Purpose = feed the Newest-First monitoring layer (see `hypotheses/collection-newest-first-monitor.md`).

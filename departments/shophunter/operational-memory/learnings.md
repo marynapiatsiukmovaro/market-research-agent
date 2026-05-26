@@ -44,10 +44,19 @@ niche; see [[feedback-winning-products-not-gadgets]]); the conservative cut + li
 **Marina's FURTHER idea (AGREED direction) = a TRACKED-SHOP COLLECTION + "Newest First" monitoring layer.** Add proven/
 competent shops to a ShopHunter Collection (My ShopHunter → Shop Collections), then check `Products → Newest First` every
 2-3 days to catch the NEW products traction-operators launch (early-winner detection BEFORE saturation = the entry-window we
-score for). Seed = our vetted 65+/55-64 shops (minus dropship-junk). Build order Marina set: **(1) recon** the add-to-collection
-+ Newest-First mechanics on her existing collection (2 shops) → **(2) report feedback** → **(3) bulk-add seed** → **(4) recurring
-human-in-loop check-up**. This is a MONITORING layer ON TOP OF category dumps, not a replacement. Other surfaces still open:
-Explore PRODUCTS view, geo-test, H&G-by-NEW/growth.
+score for). Build order Marina set: (1) recon ✅ → (2) feedback ✅ → (3) bulk-add seed ✅ → (4) recurring human-in-loop check-up ⬅ NEXT.
+**SEED DONE (SH-5): the Collection now holds 47 shops.** = the FULL curated browse pool from the 409 H&G stores (37) + the
+strong/borderline shops from the previous session SH-3/SH-4 (10). Marina's seeding RULE (now formalized in
+`methods/discovery-funnel.md` — Collection seeding rule): add the shop of EVERY browse-pool product in 3 tiers — (1) reported
+65+, (2) borderline 55–64, (3) the rest of the curated browse pool (<55 genuine products); EXCLUDE branded-FYI, пустышка-FYI,
+and stores of Marina-Rejected products (Jar Genie/Stamny + Elevayr were excluded). Scripts (reusable): `sh_collection_add.py
+<shop_id...>` (shop-detail → "Add/Remove from Collection" → "Add"; **TOGGLE-safe — check membership before bulk-add**),
+`sh_collections_recon{,2}.py`. ~37/409 H&G (~9%) + 10 SH-3/SH-4 = 47.
+**CHECK-UP JOB = PARKED HYPOTHESIS** (Marina: not now — grow the base first). Full spec in
+`hypotheses/collection-newest-first-monitor.md` (Newest-First scrape → seen-product-id dedup → cut/description filter →
+surface NEW; ~2-3-day human-in-loop cadence). Un-park when the collection is large enough.
+**GROW the collection:** next session, after processing B&T (717), add its 65+/55-64/browse shops with the same `sh_collection_add.py`.
+This is a MONITORING layer ON TOP OF category dumps. Other surfaces still open: Explore PRODUCTS view, geo-test, H&G-by-NEW/growth.
 
 **SIGNAL-DENSITY pattern (Tier-1 observation, not a rule):** going deeper into the H&G dump (b1→b3), genuine white-label
 gadgets thinned and the tail concentrated in supplements / apparel / decor / branded-appliances; best-WOW finds got sparser

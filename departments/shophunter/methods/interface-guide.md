@@ -56,3 +56,20 @@ trajectory** to separate a mature brand (not a white-label opening) from a fresh
 `set_shophunter_creds.py` (also in repo) · `sh_login.py` · `sh_explore.py` ·
 `sh_shop_search.py` · `sh_open_shop.py` · `sh_renpho_shots.py`. Reusable patterns —
 rewrite/extend as needed; they are not canonical yet.
+
+## Shop Collections + Newest-First monitoring (mapped SH-5, 2026-05-26)
+The watchlist layer Marina proposed — add proven shops to a Collection, then monitor what they LAUNCH.
+- **URLs:** Shop Collections = `/collections/shops` · Product Collections = `/collections/products` ·
+  Tracked Shops = `/collections/shops?tracked=true` · Add Shop = `/shops/track`.
+- **Add a shop to a collection — 2 entry points (both confirmed live):** (a) Explore Shops card → **⋮** menu →
+  *Add/Remove from Collection*; (b) shop detail `/shops/{id}` → button *Add/Remove from Collection*. Dialog offers
+  **Add** (to existing collection) + **Save New** (create) + **View Collections**. With ONE collection, clicking **Add**
+  adds the shop. **SCRIPTABLE:** goto `/shops/{id}` → click "Add/Remove from Collection" → click "Add". (VERIFIED SH-5:
+  bulk-added nulooa+hago → collection 2→4. ⚠ it's a TOGGLE — check membership before clicking to avoid removing.)
+- **Monitoring feed:** collection → **Products** tab → sort **"Newest First"** = "Products from shops in this collection"
+  (aggregates ALL products of the collection's shops, each with price + Product Ads + Product Revenue). Other tabs:
+  Shops / **Similar** (suggests similar shops → watchlist multiplier) / Ads / News. Include/Exclude-All toggles pick which
+  shops feed the Products view.
+- **Check-up mechanic (planned, human-in-loop):** scrape Products→Newest-First → dedup vs a seen-product-id list →
+  conservative cut + description filter → surface NEW candidates. Cadence ~every 2-3 days.
+- Recon scripts: `sh_collections_recon.py`, `sh_collections_recon2.py`, `sh_collection_add_test.py`.
