@@ -66,6 +66,8 @@ The watchlist layer Marina proposed — add proven shops to a Collection, then m
   **Add** (to existing collection) + **Save New** (create) + **View Collections**. With ONE collection, clicking **Add**
   adds the shop. **SCRIPTABLE:** goto `/shops/{id}` → click "Add/Remove from Collection" → click "Add". (VERIFIED SH-5:
   bulk-added nulooa+hago → collection 2→4. ⚠ it's a TOGGLE — check membership before clicking to avoid removing.)
+  **→ SH-6 UPDATE: there are now MULTIPLE collections (Shops + niche ones) — the dialog lists a row per collection; use the
+  niche-aware, toggle-safe `sh_collection_manage.py` (see "Multi-collection" section below), not the single-collection `sh_collection_add.py`.**
 - **Monitoring feed:** collection → **Products** tab → sort **"Newest First"** = "Products from shops in this collection"
   (aggregates ALL products of the collection's shops, each with price + Product Ads + Product Revenue). Other tabs:
   Shops / **Similar** (suggests similar shops → watchlist multiplier) / Ads / News. Include/Exclude-All toggles pick which

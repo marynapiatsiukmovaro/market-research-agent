@@ -80,8 +80,8 @@ ShopHunter has its own mechanics — see `methods/interface-guide.md`.
 
 ## Reporting protocol (added SH-5, 2026-05-26 — Marina-approved STANDING RULE)
 Every batch report to Marina includes BY DEFAULT (she does NOT need to ask):
-1. **Winners (65+)** — scored + saved to Notion.
-2. **Borderline (~58–64)** — usually only a few — flagged explicitly for founder review (founder-keep band).
+1. **Winners (65+)** — scored; saved to Notion **only AFTER Marina's OK** (checkpoint first — see SH-6 additions below).
+2. **Borderline (~55–64)** — usually only a few — flagged explicitly for founder review (founder-keep band).
 3. **Patterns noticed** — recurring categories, convergence clusters, noise classes.
 4. **Browse-links set** — a CURATED list of sub-65 *genuine white-label PRODUCT* store links. A winner is a
    PROBLEM-SOLVING product — gadget / tool / functional product (e.g. a faucet water filter), electronics NOT required;
@@ -113,7 +113,12 @@ that reached the browse pool — in 3 tiers:
 2. **Borderline 55–64.**
 3. **The rest of the curated browse pool** (genuine PRODUCTS <55 we surface — see Reporting-protocol #4).
 **Exclude:** branded-FYI, пустышка-FYI, and the stores of products Marina explicitly **Rejected** (e.g. Jar Genie/Stamny,
-Elevayr). Add programmatically with `scripts/sh_collection_add.py <shop_id…>` (TOGGLE-safe for shops not yet in — Add/Remove
-is a toggle, so **check membership before bulk-adding** to avoid accidentally removing a shop we already track).
-**Observed ratio:** ~37 / 409 H&G stores (~9%) + 10 from SH-3/SH-4 = **47 shops seeded (SH-5)**. The collection grows every
-batch (next: B&T 717). Purpose = feed the Newest-First monitoring layer (see `hypotheses/collection-newest-first-monitor.md`).
+Elevayr).
+**SH-6 UPDATE — niche sub-collections (Marina's structure):** the collection is now SPLIT — seed each qualifying shop into
+BOTH the general **"Shops"** collection AND its category **niche collection** (e.g. "Baby & Toddler", "Home & Garden"). Use
+the niche-aware, **TOGGLE-SAFE** `scripts/sh_collection_manage.py` (`create`/`add`/`verify`/`list`; reads each row's
+Add/Remove label and clicks **Add only**, never Remove — so a shop is never dropped from "Shops"). The membership-truth =
+the dialog's per-row label (the `/collections/shops` page count UNDERCOUNTS due to virtualization). The old
+`sh_collection_add.py` adds to the single "Shops" only — prefer `sh_collection_manage.py` now.
+**Observed:** SH-5 seeded 47 (H&G). SH-6 added 53 (B&T) → "Shops" ~100, split into "Baby & Toddler" (53) + "Home & Garden" (47).
+Purpose = feed the Newest-First monitoring layer (see `hypotheses/collection-newest-first-monitor.md`).

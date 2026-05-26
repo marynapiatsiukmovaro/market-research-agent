@@ -52,7 +52,7 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 
 ---
 
-## SH-6 decisions (2026-05-26) — Baby & Toddler (in progress: B1+B2 done, B3+B4 pending)
+## SH-6 decisions (2026-05-26) — Baby & Toddler (DONE — all 4 batches / 717 stores)
 
 | Product | Founder action | Note |
 |---|---|---|
@@ -62,7 +62,7 @@ apparel-cut for the baby niche — sleep sacks/swaddles/carriers are winners) �
 | **B2 — Grownsy Baby Food Maker (66)** + **Sleepout Blackout Curtain (65)** | → Notion, **Founder Review pending** | Added as-is, NO pre-marking of flaws (Marina writes the pattern in the table herself). |
 | **FetalPlus — At-Home Fetal Doppler store (63)** | **FOUNDER-KEPT** (Marina, B3) | "У нас есть аналогичный товар" (WellnessBaby Fetal Doppler 83) — wants to compare. Multi-product store (doppler + breast pump + breathing monitor). |
 | **Sleepy Baby — Motorized Tapper + White Noise (60)** | **FOUNDER-KEPT** (Marina, B3) | "Подобный, но другой — интересно проанализировать." Novel motorized-tapper mechanism. Confirmed ×2 by Baby Patter (B4). |
-| **B3 + B4 = 0 new winners 65+** | — | Honest convergence-confirmation batches (bottle-warmer/carrier/pump/swaddle/doppler/patter already covered) + heavy noise. Normal store-first pass (per [[feedback-checkpoint-before-notion]] yield calibration). |
+| **B3 + B4 = 0 new winners 65+** | — | Honest convergence-confirmation batches (bottle-warmer/carrier/pump/swaddle/doppler/patter already covered) + heavy noise. Normal store-first pass — SH-5 yield calibration: a 0-reportable batch is GOOD vs FB, don't catastrophize. |
 
 **Process calibrations Marina gave SH-6 (apply from here on):**
 1. **CHECKPOINT FIRST → Notion only after Marina's explicit OK.** Work autonomously through dump→funnel→deep-score WITHOUT asking; but once products are analyzed and ready, give the intermediate checkpoint and WAIT for her OK before ANY Notion write. (She stopped an auto-Notion-write at B1 — everything before that was "супер, можно без разрешения".) See [[feedback-checkpoint-before-notion]].
