@@ -48,3 +48,22 @@ for name, ids, dumppath in NICHES:
     for sid in seen:
         nm, dom = dump.get(sid, ("(not in dump)", ""))
         print("%s\t%s\thttps://app.shophunter.io/shops/%s" % (nm[:34], dom, sid))
+
+# --- TSV emitter (SH-10 add) ---
+import sys
+if "--tsv" in sys.argv:
+    rows = []
+    for name, ids, dumppath in NICHES:
+        seen = []
+        for i in ids:
+            if i not in seen:
+                seen.append(i)
+        dump = load_dump(dumppath)
+        for sid in seen:
+            nm, dom = dump.get(sid, ("(not in dump)", ""))
+            rows.append((name, nm.replace("\t"," ").strip(), dom, sid, "https://app.shophunter.io/shops/%s" % sid))
+    with open(OUT + "/tracked_shops_export.tsv", "w") as f:
+        f.write("niche\tname\tdomain\tshop_id\tsh_link\n")
+        for r in rows:
+            f.write("\t".join(r) + "\n")
+    print("TSV written:", OUT + "/tracked_shops_export.tsv", "| rows:", len(rows))
