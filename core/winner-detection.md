@@ -3,7 +3,7 @@
 
 **STATUS: Strategic reference.**
 Signal principles and Entry Zone logic are universal and current.
-Signals 2–4 (TikTok organic, Amazon BSR, Minea) reflect the original multi-source architecture — primary discovery is now FB Ads Library via VPS scraper.
+Signals 2–4 (TikTok organic, Amazon BSR, active-ads reading) reflect the original multi-source architecture — primary discovery is now FB Ads Library (keyword-first, VPS scraper) + ShopHunter (store-first).
 For the current session algorithm, see `departments/facebook-ads-library/workflow.md`.
 
 Goal: find a product that IS ALREADY SELLING and someone IS ALREADY MAKING MONEY from it —
@@ -42,13 +42,13 @@ Active ads = working product = entry is viable.
 **Logic:** advertiser pays every day → they are getting sales.
 This is not a hypothesis. This is a fact confirmed by someone else's budget.
 
-**How to read in Minea:**
+**How to read in FB Ads Library:**
 ```
-[Brand]
-15 active ads        ← count (5–30 = good)
-/ 3.2k               ← impressions (growing = scaling)
-14d Active           ← running 14 days WITHOUT stopping = CONVERTS
-28 Apr 2026          ← launch date (2–4 weeks ago = sweet spot)
+[Advertiser]
+15 results               ← active-ad count (5–30 = good)
+Started running on
+  28 Apr 2026            ← launch date (2–4 weeks ago = sweet spot; "?" if FB hides it)
+still running today      ← uninterrupted = CONVERTS
 ```
 
 **Launch date:** the longer it has run without stopping, the stronger the signal.
@@ -77,25 +77,20 @@ This is not a hypothesis. This is a fact confirmed by someone else's budget.
 
 ---
 
-### Signal 4: Minea Sweet Spot (5–30 active ads)
+### Signal 4: Active-ads sweet spot — read via current tools (5–30 active ads)
 
-**Marina's rule (from departments/facebook-ads-library/operational-memory/founder-feedback.md):**
+**Marina's rule (from your department's `operational-memory/founder-feedback.md`):**
 > "Нужно заходить на старте тренда, не после." — Marina, 2026-05-13
 > ("Enter at the start of the trend, not after.")
 
-**Minea filter:**
+**Sweet-spot filter (channel-agnostic):**
 - Active ads: **5–30** = enter. 30–100 = caution. 100+ = too late.
-- Impressions growing over last 7 days = active scaling signal
-- Ad launched recently (<30 days) + already scaling
+- Launched recently (<30 days) + still running = early scaling
+- Fresh advertisers in the same sub-category = category proof (not just one brand)
 
-**How to read a Minea card:**
-```
-[Brand]
-30 active ads        ← 5 to 30 = good
-/ 5k                 ← impressions (higher per fewer ads = more efficient)
-1d Active            ← ad is active
-13 May 2026          ← launch date (recent = good)
-```
+**Where to read it now:**
+- **FB Ads Library (primary):** advertiser result-count + "Started running on" date (5–30 + fresh start = sweet spot). Captured by the VPS scraper.
+- **ShopHunter (store-first):** when found store-side, corroborate with the store's revenue trajectory + ads-per-product instead of an ad-count.
 
 ---
 
@@ -129,9 +124,9 @@ SESSION START
 │   └── WebSearch: "[category] TikTok viral May 2026 trending"
 │   └── Look for: organic without ads, fresh hashtags
 │
-├── 3. Minea — filter 5–30 active ads + Health/Beauty + US
+├── 3. FB Ads Library — filter 5–30 active ads + fresh start date + US
 │   └── Reject everything with 100+ active ads immediately
-│   └── Focus on: new brands (<90 days of ads), growing impressions
+│   └── Focus on: new advertisers (<90 days of ads), recent start date
 │
 ├── 4. Amazon New Releases — what appeared in last 30–90 days?
 │   └── Categories: Health/Beauty, Sports & Outdoors, Personal Care
@@ -157,7 +152,7 @@ Before pulling data from any source — answer:
 
 1. **Is this real-time data or an article written by someone?**
    - Article → attribute as "WebSearch mention of [source]"
-   - Direct data (Minea card) → attribute as "Minea Meta Ads"
+   - Direct data (FB Ads Library) → attribute as "Facebook Ads Library"
 
 2. **How many active ads does this product have right now?**
    - Unknown → Confidence: Low
@@ -188,7 +183,7 @@ Each agent should return JSON:
   "product_name": "...",
   "score": 0,
   "confidence": "High/Medium/Low",
-  "discovery_type": "TikTok organic / Minea ad / Amazon velocity / ...",
+  "discovery_type": "Facebook Ads Library / ShopHunter / TikTok organic / Amazon velocity / ...",
   "active_ads_count": 0,
   "days_running": 0,
   "store_url": "...",
