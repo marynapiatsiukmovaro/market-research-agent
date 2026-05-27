@@ -39,7 +39,7 @@ Practical rule: raise acceptance bar to 75+ for "Worth Testing" recommendation.
 ### WebSearch-Only Discovery = Low Quality Signal
 All 3 sessions used WebSearch. Result: Marina approved only 3/14 products (21%).
 WebSearch finds what's already trending = already saturated.
-Fix: Minea data will find products at ad launch stage, not peak stage.
+Fix: FB Ads Library via VPS scraper finds products at ad-launch stage, not peak stage.
 
 ### Multi-Audience Scoring ≠ Market Size Reality
 Air Compression Leg Massager scored 75 with 4 audiences, rejected as "narrow market."

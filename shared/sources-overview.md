@@ -18,7 +18,7 @@
 
 ## Supplementary Tools
 - Google Trends — saturation and longevity check
-- Minea / AdSpy — paid ad intelligence (if access available)
+- AdSpy — paid ad intelligence (if access available)
 - Viral product trackers (Ecomhunt, Dropispy) — if access available
 
 ## Signal Evaluation Logic (channel-agnostic)

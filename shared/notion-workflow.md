@@ -21,7 +21,7 @@ For each reported product (score 65+), create one Notion database entry with two
 | Saturation | Low / Medium / High / Extreme |
 | Competitor Signal | None / Testing / Scaling / Saturated / Legacy Winner |
 | Ad Platform | Meta / TikTok / Both / Organic only |
-| Source | Standardized value only: Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Minea / Web Search / AliExpress / Alibaba |
+| Source | Standardized value only: Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba |
 | Discovery Keyword | Exact search query or discovery path (e.g. "travel pillow Facebook ads", "neck pain TikTok 2026") |
 | Emotional Trigger | 1–3 words |
 | Creative Angles | Number (e.g. 4) |

@@ -89,7 +89,7 @@ For each candidate scoring 65+:
 - One Notion entry per reported product (score 65+)
 - Set Recommendation: Worth Testing / Needs Verification / Rejected
 - Set Competitor Signal: None / Testing / Scaling / Saturated / Legacy Winner
-- Set Source: standardized value only (Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Minea / Web Search / AliExpress / Alibaba)
+- Set Source: standardized value only (Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba)
 - Set Discovery Keyword: exact search query used to find this product
 - Fill Notes: short risk flags or observations (1 sentence each, no analysis)
 - Fill Rejection Reason only when Founder Review = Rejected (not just Recommendation = Rejected)

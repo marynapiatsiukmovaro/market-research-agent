@@ -30,7 +30,7 @@ Location: MOVARO HQ → 📦 Product Research → Product Tracker
 | 8 | Saturation | Select | Low / Medium / High / Extreme |
 | 9 | Competitor Signal | Select | None / Testing / Scaling / Saturated / Legacy Winner |
 | 10 | Ad Platform | Select | Meta / TikTok / Both / Organic only |
-| 11 | Source | Select | Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Minea / Web Search / AliExpress / Alibaba |
+| 11 | Source | Select | Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba |
 | 12 | Discovery Keyword | Text | Exact search query or discovery path that led to the product |
 | 13 | Emotional Trigger | Text | 1–3 words |
 | 14 | Creative Angles | Number | count of identified angles |
@@ -104,7 +104,6 @@ Put query details into Discovery Keyword.
 - Amazon Search
 - TikTok Search
 - TikTok Shop
-- Minea
 - Web Search
 - AliExpress
 - Alibaba

@@ -35,7 +35,7 @@ Update as new patterns emerge.
 - Best entry: 5–30 active ads on Meta/TikTok = market proven but not saturated
 - Too early: 0–3 ads = unproven market, high risk
 - Too late: 100+ ads, product visible everywhere = Marina rejects as "везде"
-- Minea signal: products with growing ad spend over 30+ days = strong entry signal
+- Ad-longevity signal: products with 30+ days of continuous ad spend (read via FB Ads Library) = strong entry signal
 
 ## Multi-Function = High Perceived Value
 
@@ -44,9 +44,11 @@ Update as new patterns emerge.
 
 ## Discovery Type → Win Rate (update as data accumulates)
 
+Current primary discovery: **Facebook Ads Library** (keyword-first) + **ShopHunter** (store-first).
+Per-product founder decisions + approval rate live per-department in
+`departments/{dept}/operational-memory/founder-feedback.md` — not duplicated here.
+
 | Discovery Type | Sessions | Approvals | Notes |
 |----------------|----------|-----------|-------|
-| Amazon signal | 3 | 3/14 | Confirmed demand but often late-stage |
-| WebSearch mention | 3 | 0/14 | Too generic, finds saturated products |
-| Minea ad data | 0 | TBD | Expected to be highest quality signal |
-| Founder intuition | 0 | TBD | Will track after Minea sessions |
+| Amazon signal | 3 | 3/14 | Confirmed demand but often late-stage (early sessions 1–6) |
+| WebSearch mention | 3 | 0/14 | Too generic, finds saturated products (early sessions 1–6) |

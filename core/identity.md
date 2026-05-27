@@ -37,7 +37,7 @@ Fields below define the complete Notion entry format:
 - Product / Category
 - Recommendation / Score
 - **Confidence: High / Medium / Low** (High = multiple validated sources; Medium = good signals, incomplete validation; Low = hypothesis, weak confirmation)
-- **Discovery Type: Amazon signal / TikTok signal / Minea ad data / Trend-based / Problem-solving / Viral creative / Founder intuition**
+- **Discovery Type: Facebook Ads Library / ShopHunter / Amazon signal / TikTok signal / Trend-based / Problem-solving / Viral creative / Founder intuition**
 - Saturation / Price Range
 - Problem Solved
 - Emotional Trigger
