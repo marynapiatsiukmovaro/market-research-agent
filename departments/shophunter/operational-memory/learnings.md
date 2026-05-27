@@ -13,6 +13,25 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**✅ SH-9 DONE (2026-05-27) — Animals & Pet Supplies 860 FULLY PROCESSED (4 batches ~215, human-in-loop).**
+- **Funnel:** hero 96.7→100%, conservative cut held 187-195 survivors/batch (−19 to −28, only definite-no), enrich reach 88→98→98→**100%** (B1 88% = a mid-session proxy blip; B2-B4 clean after fix). Files on VPS `logs/shophunter/`: `ap_b{1,2,3,4}.json` + `_hero/_enrich_in/_enriched` + sentinels; curated seed `ap_seed_ids.txt` (36 ids) + `ap_seed_domains.txt`.
+- **YIELD: 2 reported 65+ + 3 founder-keep = 5 Notion cards (all Source=ShopHunter, SH-fields filled, Founder Review LEFT for Marina):**
+  - ✅ **Uah Pet Wireless Cat Water Fountain 67** (uahpet.com) — winner-zone reconfirm (cat fountain ×7 convergence; cordless angle; white-label the TYPE).
+  - ✅ **Karate Kitty 70** (karatekitty.com) — wearable arm-puppet cat toy + hand-protection; viral UGC; **Marina-spotted from browse-pool (proxy buried it B|47 → 70 on deep-score, cf SlotPro)**.
+  - 🟡 **Dog Dock V2 62** (waggingrightsusa.com) — hard-bottom dog car seat, founder-kept "нравится стиль/изучу"; lead of dog-car-seat ×15+ convergence; $222K/wk single-product.
+  - 🟡 **CatCam 2K 54** (meowmerch.org) — POV pet collar camera, founder-kept (funny "what does my pet do" hooks, better on a dog).
+  - 🟡 **Pro Cat Wrap 60** (calmcozycat.com) — cat grooming/vet restraint wrap, founder-kept (problem genuinely relevant); $307K/wk.
+- **A&P = MEDIUM white-label density** (>A&E/T&G, slightly <H&G/B&T). ~50% surface mis-niched off-niche (skincare/whitening/perfume/supplements/kids-toys) + very dense consumable/ingestible reject. Dominant convergence = COMMODITY/bulky (car-seat ×15+, harness ×8+, bed ×10+, fountain ×7 [winner-zone], litter ×5, feeder+cam ×3, nail-care ×5). Full → `shared/rejected-products.md` SH-9.
+- **COLLECTION SEEDED:** NEW niche **"Animals & Pet Supplies"** (seed uahpet + ~35 added) + all also into general **"Shops"**, via toggle-safe `sh_collection_manage.py` (run `ap_seed_collection.sh`). **4 niche collections now: Home & Garden 47 · Baby & Toddler 53 · Arts & Entertainment 40 · Animals & Pet Supplies ~36.** (verify exact count via dialog-`list`, not page count.)
+- **🔧 PROXY incident + FIX (SH-9):** our proxy = iProyal **ISP Dedicated** (single fixed IP `63.88.222.123:12323`, individual user/pass, NOT shared). A mid-session transient endpoint blip (TCP-timeout to the IP, VPS internet fine) was misdiagnosed by me at first; **recovery = don't change creds (re-entering identical creds didn't fix it — TIME did), use iProyal "Test now", short wait + ONE gentle retest.** Full RECOVERY PROCEDURE in the Active Learnings block below. "Reset credentials" only fixes AUTH errors, not TCP timeouts. If blips recur → 2nd cheap dedicated IP as backup (proposed, needs Marina OK).
+- **🔧 NOTION live-schema reconciled (verify-before-asserting):** live DB has **NO `Status`** field (only `Test Status`); `Price Range` options are EN-DASH exact (`$45–79`/`Extended $39–100`/`Premium $100–170`/`Too Cheap`); no `Supplier Link`/`CTR`/`CPM`. Fixed `shared/notion-schema.md` + `notion-workflow.md`. **`create-pages`: send Date as `date:Date Added:start`=YYYY-MM-DD; do NOT send `Status`.**
+- **NEW reusable scripts (VPS+repo):** `sh_render_candidates.py` (compact A+B+C deep-score view), `sh_proxy_diag.py`/`sh_proxy_diag2.py` (proxy localization: direct-internet vs TCP-to-proxy vs curl-through-proxy), `ap_resolve_ids.py` (domains→shop_ids), `ap_seed_collection.sh`.
+- **NEXT SESSION (SH-10) options (Marina picks):** (a) **Business & Industrial (356)** — ALREADY dumped on VPS (`logs/shophunter/business_industrial_shops.json`=356), run same funnel in 2 batches `new[0:178]/[178:356]` + seed niche "Business & Industrial" (expect tools/B2B/warehouse/packaging, less DTC-impulse — hold that correction); (b) **Health & Beauty** dump (un-mined, historically our winner-zone — needs a dump run); (c) breadth-tool (Storeleads) pilot. **Founder Review for the 5 SH-9 cards = Marina to set in Notion.** A&P 860 = 100% done.
+
+---
+
+> _SH-8 handoff below kept for history — T&G 100% done; funnel mechanics + structural safeguards + the 2 pre-loaded dumps (A&P now DONE; **Business & Industrial 356 still ready**) remain valid. SH-9 above is current state._
+
 **✅ SH-8 DONE (2026-05-26) — Toys & Games 788 FULLY PROCESSED + 2 NEW category dumps pre-loaded + structural safeguards added.**
 - **T&G 788 done** (B1 [0:197] · B2 [197:394] · combined B3+4 [394:788]; hero 100%, enrich 97-99%, cut clean). **0 reported 65+ + 0 founder-keeps across the WHOLE niche.** Best borderline: engraving pen ×2 (Resparked+Culiau ~64), busy board ×3 (TibaToes/Nooche/Joycat ~64 saturated), Montessori climber/tower ~58. **No "Toys & Games" collection seeded** (Marina: shops "ни о чём" — skip). Files: VPS `logs/shophunter/tg_b{1,2}.json` + `tg_b34.json` + `_hero/_enrich_in/_enriched` + sentinels.
 - **T&G = product-dense but LOWEST white-label-fit niche so far** (branded toys + golf mega-cluster ×20+ + commodity TikTok toys + emulators ×8 + magnetic tiles ×6 + RC/drones + mis-niched). Full → `shared/rejected-products.md` SH-8.
@@ -243,6 +262,22 @@ infer SH coverage from them.
 ---
 
 ## Active Learnings
+
+### [2026-05-27] Session SH-9 — PROXY = iProyal ISP DEDICATED; transient endpoint blip ≠ bad creds (RECOVERY PROCEDURE)
+**Type:** Operational safeguard / Recovery procedure | **Severity:** HIGH | **Confidence:** HIGH (Marina dashboard screenshots + same creds worked on retry)
+**Proxy identity (CONFIRMED via Marina's iProyal dashboard):** Product = **ISP Dedicated**, 1 proxy, US, port **12323**, format HOST:PORT:USER:PASS, **individual user/pass (NOT shared)**, IP `63.88.222.123` is **FIXED/dedicated** (no rotation, no backup endpoint by design). This is why the creds are bound to that exact IP and the residential gateway `geo.iproyal.com` REJECTS them (curl exit 56) — different product. Do NOT try to switch to `geo.iproyal.com` (tested non-destructively SH-9: rejected).
+**What happened:** Mid-session the proxy started timing out — raw TCP to `63.88.222.123` failed on ALL ports (12323/443/80) from the VPS, while VPS direct internet + egress to high ports on OTHER hosts worked fine. Marina re-entered the EXACT SAME creds and it worked again → **the creds were never wrong; TIME fixed it, not the re-entry.**
+**Root cause (honest, given ISP Dedicated):** a **transient unreachability of the dedicated ISP node** — a brief routing blip between the VPS (`5.78.217.133`) and the iProyal node, or short node-side maintenance. NOT an abuse-cooldown of a shared gateway (the IP is hers alone). A rapid BURST of connections (B1 enrich retries + my repeated back-to-back proxy checks/diagnostics) MAY also trip node-level flood protection, so still avoid bursting. Rare for a dedicated ISP IP.
+**RECOVERY PROCEDURE (match the tool to the symptom — do NOT reflexively change creds):**
+1. **Confirm it's the proxy path:** `curl -sS -m15 https://api.ipify.org` direct from VPS (returns VPS IP = internet OK) + raw `socket.create_connection((PROXY_HOST,PORT),10)` (TCP_FAIL = node unreachable). Direct OK + proxy TCP fail → proxy node, not us.
+2. **TCP-timeout symptom → creds are NOT the problem.** The saved `cookies/proxy.creds` are correct & stable. **"Reset credentials" in the iProyal dashboard ONLY helps an AUTH failure (HTTP 407 / curl exit 56 after CONNECT), NOT a TCP timeout** — don't waste the once-per-hour reset on a timeout.
+3. **Use the iProyal dashboard "Test now" button** (instant, free): proxy alive there but unreachable from VPS → transient VPS↔node routing blip → short wait. Dead there too → node issue → wait/support.
+4. **STOP all proxy hits; do ONE gentle `sh_proxy_check.py` per check** (no back-to-back bursts — they can prolong/trip flood protection). Wait a few minutes between checks. Today it cleared within ~10–20 min.
+5. **Work is never lost:** hero+cut survivors persist in `ap_b*_enrich_in.json` — relaunch enrich when the node answers.
+**FAST-FAILOVER (only if blips RECUR — proposed, needs Marina OK):** add a 2nd cheap dedicated ISP IP (~$5/mo) as backup so enrich can switch to IP#2 instantly. Not needed for a one-off.
+**Applies to:** every ShopHunter proxy-based run. **Expires after:** Never → promote to op-rules when that file is created.
+
+
 
 ### [2026-05-26] Session SH-8 — Toys & Games (0-yield) + 2 new dumps + structural safeguards + strategy
 **Type:** Pattern / Result / Founder strategy | **Severity:** HIGH | **Confidence:** HIGH (Marina-direct)

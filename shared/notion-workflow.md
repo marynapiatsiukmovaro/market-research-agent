@@ -28,8 +28,8 @@ For each reported product (score 65+), create one Notion database entry with two
 | Ad Link | Direct URL to ad or original source — "Not found" if unavailable |
 | Store Link | URL of store/site where product is sold — "Not found" if unavailable |
 | Store Link 2 | 2nd store URL — ONLY for convergence/parallel candidates (2nd brand selling the same product). Leave empty otherwise. See Convergence rule below. |
-| Date Added | Today's date |
-| Status | Scouted |
+| Date Added | Today's date — send as expanded key `date:Date Added:start` = `YYYY-MM-DD` |
+| ~~Status~~ | ❌ NOT in live DB (only `Test Status` exists) — do NOT send. See notion-schema.md verified-schema note. |
 | Notes | Short observations: risks, warnings, anomalies — 1 sentence max per note (e.g. "High saturation", "Medical claims risk") |
 | Rejection Reason | 1 sentence — only when Founder Review = Rejected |
 | Supplier | Short feasibility note — hidden in Inbox view |

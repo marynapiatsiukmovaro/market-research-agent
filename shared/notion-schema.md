@@ -9,6 +9,15 @@ Location: MOVARO HQ → 📦 Product Research → Product Tracker
 
 ## Field Schema
 
+> **⚠ VERIFIED AGAINST LIVE DB 2026-05-27 (SH-9) — read before any Notion write:**
+> The live data source was fetched and reconciled. Discrepancies that WILL break `create-pages`/`update-page`:
+> - **NO `Status` field exists** (only **`Test Status`** Not Started/Testing/Scaling/Killed). Do NOT send `Status`. New scouted products simply omit it.
+> - **`Price Range` options use EN-DASH and exact strings:** `$45–79` · `Extended $39–100` · `Premium $100–170` · `Too Cheap` (a stray hyphen dupe `Extended $39-100` also exists — do not add more). Sending `Fits $45-79` etc. creates junk duplicate options.
+> - **NO `Supplier Link`, `CTR`, `CPM` fields** in the live DB (there is one unnamed number field `""`). Do not send them.
+> - **`Source` and `Ad Platform` are TEXT** (free text), not Select — any string is accepted.
+> - **`Date Added` is a date** → send expanded key `date:Date Added:start` = `YYYY-MM-DD` (NOT a flat `Date Added`).
+> Everything else below matches the live schema. The rows below are the intended USAGE; where they conflict with this block, this block wins.
+
 | # | Field | Type | Options / Notes |
 |---|-------|------|-----------------|
 | 1 | Title | Title | Product name |
@@ -17,7 +26,7 @@ Location: MOVARO HQ → 📦 Product Research → Product Tracker
 | 4 | Founder Review | Select | Approved / Consider / Watchlist / Rejected — **set by Marina only, never by agent** (see Founder Review — Definitions) |
 | 5 | Category | Select | Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other |
 | 6 | Price | Number | Actual retail price in $ |
-| 7 | Price Range | Select | Fits $45-79 / Extended $39-100 / Premium $100-170 / Too Cheap |
+| 7 | Price Range | Select | EXACT (en-dash): `$45–79` / `Extended $39–100` / `Premium $100–170` / `Too Cheap` |
 | 8 | Saturation | Select | Low / Medium / High / Extreme |
 | 9 | Competitor Signal | Select | None / Testing / Scaling / Saturated / Legacy Winner |
 | 10 | Ad Platform | Select | Meta / TikTok / Both / Organic only |
@@ -28,7 +37,7 @@ Location: MOVARO HQ → 📦 Product Research → Product Tracker
 | 15 | Ad Link | URL | direct link to ad or original source |
 | 16 | Store Link | URL | where the product is sold |
 | 17 | Date Added | Date | — |
-| 18 | Status | Select | Scouted / Under Review / Approved / Archived |
+| 18 | ~~Status~~ | — | ❌ NOT in live DB — do NOT send. (Only `Test Status` exists, field #22.) |
 | 19 | Notes | Text | Short agent observations: risks, warnings, anomalies — 1 sentence max per note |
 | 20 | Rejection Reason | Text | 1 sentence — filled only when Founder Review = Rejected |
 | 21 | Founder Notes | Text | Marina's judgment — set by Marina only, never by agent |

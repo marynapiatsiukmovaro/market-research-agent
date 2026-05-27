@@ -176,6 +176,26 @@ busy board ×3 ~64, Montessori climber ~58 — none cleared her bar or the score
 
 ---
 
+## SH-9 decisions (2026-05-27) — Animals & Pet Supplies (DONE — 860 stores, 4 batches)
+
+> Marina has NOT yet set the 4-tier Founder Review for these in Notion (she'll set later). Agent records only what she explicitly chose this session.
+
+| Product | Founder action | Note |
+|---|---|---|
+| **Uah Pet Wireless Cat Water Fountain (67)** · uahpet.com | → Notion (reported 65+) | Winner-zone reconfirm (cat fountain ×7 convergence this niche; cf KittySpout 77/WagWells 76). Cordless = fresh angle; white-label the TYPE (brand is established multi-product). |
+| **Karate Kitty (70)** · karatekitty.com | → Notion (reported 65+, **Marina-spotted**) | "Размести этот товар, проблема реально актуальная 😄". Wearable arm-puppet cat toy + hand-protection; viral UGC; $39.99/BOGO; 1237 rev 4.8★. Was buried at proxy B|47 → lifted to 70 on deep-score (browse-pool catch, cf SlotPro SH-7). |
+| **The Dog Dock V2 (62)** · waggingrightsusa.com | **FOUNDER-KEPT** (agent <65) | "Понимаю что объёмный, но мне понравился его стиль — просто изучу." Hard-bottom dog car seat; lead of the dog-car-seat ×15+ convergence; single-product hero $222K/wk. Study-the-style asset. |
+| **CatCam 2K (54)** · meowmerch.org | **FOUNDER-KEPT** (agent <65) | "Понравилась идея камеры на котика, можно лучше на собаку — смешные хуки, надеваешь и смотришь что он делает." POV pet-camera; novelty/UGC angle. |
+| **Pro Cat Wrap (60)** · calmcozycat.com | **FOUNDER-KEPT** (agent <65) | "Это смешно 😄 но проблема реально актуальная." Calms/restrains cats for nail-trims/meds/grooming (vet-clinic angle); store $307K/wk. |
+
+**Process calibrations Marina gave SH-9 (reinforce existing rules):**
+1. **Proxy = ISP Dedicated (her own IP, not shared) — transient endpoint blips ≠ bad creds.** Recovery = don't change creds, use iProyal "Test now", short wait, ONE gentle retest (full procedure in learnings.md SH-9). She does NOT want long waits → if blips recur, a 2nd cheap dedicated IP as backup (proposed). She confirmed: re-entering identical creds didn't fix it — TIME did.
+2. **Notion live-schema reconciled (verify-before-asserting):** the live DB has NO `Status` field (only `Test Status`); `Price Range` options use EN-DASH exact strings (`$45–79`/`Premium $100–170`); no `Supplier Link`/`CTR`/`CPM`. Fixed in `shared/notion-schema.md` + `notion-workflow.md` so future writes don't fail. (Agent had wrongly said "schema outdated" before verifying — corrected by fetching the live data source.)
+3. **Browse-pool catches winners reconfirmed (3rd time, after SlotPro SH-7 + PerchMe/Trovely SH-5):** Karate Kitty (B|47→70) + the founder-keeps all came from the browse-pool / founder eye, not proxy Tier-A. Keep surfacing the curated genuine browse list every batch; lead with WOW/taste, never the Tier label.
+4. **Write durable results into the docs at session end so they're not forgotten** (Marina, SH-9): reported/rejected logs + founder-feedback + learnings HANDOFF + collection state.
+
+---
+
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
 **STATUS CONVENTION — 4-TIER (updated SH-6, 2026-05-26 — Marina added "Watchlist"):**
