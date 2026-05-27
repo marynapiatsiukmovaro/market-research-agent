@@ -3,9 +3,13 @@
 **Purpose: Calibration.** Marina's personal quality bar derived from real feedback.
 This file contains scoring calibration rules. It overrides raw scoring when there is a conflict.
 
+**Scope — COMPANY-WIDE (all departments).** This is the distilled, channel-agnostic quality bar. It applies to EVERY department (Facebook Ads Library, ShopHunter, future siblings) — not to one channel. It lives in `shared/` for exactly this reason.
+
+**Governance — STRONG document (Tier-2). Never auto-written.** Changes ONLY by proposal + Marina's explicit OK (see op-rules RULE 14 / the TIER-2 GUARD). No department's agent edits this file during a session. A taste pattern observed in a department's `founder-feedback.md` is PROPOSED via `review/promotion-queue.md` — never self-written here. This guard applies to ALL departments equally.
+
 **What this file is NOT:**
-- Not a list of founder-approved products (that's `departments/facebook-ads-library/operational-memory/founder-feedback.md`)
-- Not a decision log (that's `departments/facebook-ads-library/operational-memory/founder-feedback.md`)
+- Not a list of founder-approved products (that's your active department's `operational-memory/founder-feedback.md` — e.g. `departments/facebook-ads-library/operational-memory/founder-feedback.md`)
+- Not a decision log (that's the same per-department `founder-feedback.md`)
 - Not a product log (that's `shared/reported-products.md`)
 
 Read every session alongside `core/scoring-system.md`.
@@ -42,7 +46,7 @@ The goal is not hitting the score threshold. The goal is finding products Marina
 
 ## Key Calibration Examples
 
-Highest-signal examples only. Full decisions log: `departments/facebook-ads-library/operational-memory/founder-feedback.md`.
+Highest-signal examples only (cross-department; the ones below are FB-origin — other departments contribute taste patterns via promotion). Full decisions log: your active department's `operational-memory/founder-feedback.md`.
 
 **Approved:**
 - **Eye Massager with Heat & Vibration (84)** — visual relief, premium feel, multi-audience (migraine / screen / sleep). Instant hook.
