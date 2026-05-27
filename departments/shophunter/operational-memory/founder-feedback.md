@@ -198,6 +198,25 @@ busy board ×3 ~64, Montessori climber ~58 — none cleared her bar or the score
 
 ---
 
+## SH-10 decisions (2026-05-27) — Health & Beauty 804 · Sporting Goods 829 · Luggage & Bags 211 · Software 32 (all DONE)
+
+> Marina has NOT yet set the 4-tier Founder Review for the SaveLix card in Notion (she'll set later). Agent records only what she explicitly chose this session.
+
+| Product | Founder action | Note |
+|---|---|---|
+| **SaveLix Anti-Choking Device (77)** · savelix.com | → Notion (reported 65+), **SaveVac added as Store Link 2** | "да пиши этот товар в нотион и идём дальше." Mis-niched family-safety device in H&B; anti-choking ×4 convergence (SaveLix+SaveVac+VitalBreath+AirGuard). |
+| **Aerpack Vacuum Bags + pump (~72)** · aerpack.com | **→ Rhona TravelVac Pro Store Link 2** (NOT a new card) | "Store Link 2 к Rhona." Same product TYPE as already-reported Rhona 74 → convergence, not duplicate. Vacuum-compression ×10 cross-department. |
+
+**Founder decisions on collections (SH-10):** Marina chose to seed **NO** collection for ANY of the 4 niches — H&B ("нет чего-то достойного"), Sporting Goods ("ничего не сеем"), Luggage & Bags ("нет не надо"), Software (0). Same as T&G/B&I: a niche with no "wow" shops is not seeded. The 4 existing niche collections (H&G/B&T/A&E/A&P) are unchanged.
+
+**Process calibrations Marina gave SH-10 (reinforce existing rules):**
+1. **Convergence = Store Link 2 on the existing card, not a duplicate report** — confirmed again (Aerpack→Rhona, SaveVac→SaveLix; cf cookinate→OroMilk SH-5). When a fresh find is the same product TYPE as a reported winner, surface it as a convergence brand.
+2. **Honest 0-yield niches are fine** — she moved through SG (0/829), L&B-thin, Software (0/32) with "идём дальше" each batch; no pressure to force weak products. Reconfirms the store-first calibration (a clean 0 is a valid result).
+3. **Mis-niched winners count** — SaveLix (family-safety) surfaced under H&B; she reported it on product merit, ignoring the niche tag. Score the PRODUCT.
+4. **End-of-session tracked-shop export = wanted** — delivered the structured ≈174-shop list (by niche, NAME·domain·SH-link) to chat for re-loading on the paid ShopHunter later.
+
+---
+
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
 
 **STATUS CONVENTION — 4-TIER (updated SH-6, 2026-05-26 — Marina added "Watchlist"):**

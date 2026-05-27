@@ -13,6 +13,21 @@ rule via `review/promotion-queue.md`.
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**✅ SH-10 DONE (2026-05-27) — 4 pre-loaded niches FULLY PROCESSED (1876 stores, human-in-loop): Health & Beauty 804 · Sporting Goods 829 · Luggage & Bags 211 · Software 32.**
+- **Funnel rock-solid:** hero 99–100% every batch, conservative cut held (drop only definite-no), enrich reach 89→100% (one slow-store stretch on L&B B2 — process alive, finished at secs=239; NOT a proxy failure). Proxy stable all day (single dedicated IP 63.88.222.123, every `sh_proxy_check.py` = OK). Files on VPS `logs/shophunter/`: `hb_b{1..4}`, `sg_b{1..4}`, `lb_b{1,2}`, `sw_b1` + `_hero/_enrich_in/_enriched` + sentinels.
+- **YIELD = 1 reported winner + 1 winner-quality convergence (2 Notion actions):**
+  - ✅ **SaveLix Anti-Choking Device 77** (savelix.com) — H&B B3. Suction choking-rescue (LifeVac-class), max fear/protection trigger, demonstrable, white-label, 10K+ families/2800+ rev. **Mis-niched family-SAFETY device in H&B.** anti-choking ×4 convergence (SaveLix+SaveVac+VitalBreath+AirGuard) → **SaveVac added as Store Link 2.** Notion card created (Source=ShopHunter, SH-fields filled, Founder Review LEFT for Marina).
+  - ✅ **Aerpack Vacuum Bags + electric pump ~72** (aerpack.com) — L&B B1. Same TYPE as already-reported **Rhona TravelVac Pro 74** (FB-dept) → Marina chose **add as Rhona Store Link 2** (NOT a new card). Vacuum-compression now ×10 cross-department (Rhona+Luux+Aerpack+Magic Travel+CompressPak+VacBird+VacPack+Backvac+Tilliv+Zephyr).
+- **NO collections seeded this session** (Marina decided per-niche: none had "wow" shops — like T&G/B&I). The 4 niche collections from prior sessions are unchanged: Home & Garden 47 · Baby & Toddler 53 · Arts & Entertainment 40 · Animals & Pet Supplies 36.
+- **⭐ KEY STRATEGIC FINDING — the FB "winner-zone" (Health & Beauty devices) does NOT transfer to store-first.** ShopHunter's H&B tracked surface is DOMINANTLY пустышка-device (red-light/LED/lymphatic/circulation/hair-growth) + consumable beauty + relief-massagers; Tier-A almost all пустышка. Genuine white-label devices present are all commodity/branded-dupe/floor (hair-stylers/body-shavers/showerheads/water-flossers/eye-massagers/IPL). Keyword-first filters to the clean device BY SYMPTOM; store-first surfaces the WHOLE пустышка-dense category → H&B store-first yield ≈ medium (A&P-level), NOT the top zone. **Do NOT close H&B; expect пустышка-density, apply the visual-verifiability gate hard.** (Tier-1 yield fact, NOT a system rule — keep scoring as-is.)
+- **Niche-yield ranking now (store-first white-label-fit):** H&G / B&T (best) > A&P ≈ **H&B** (medium, пустышка-dense) > A&E / T&G > **SG** ≈ **L&B** (thin, structural-reject-dominated) > B&I ≈ **Software** (lowest). SG = bulky/golf/pickleball/recovery-пустышка; L&B = fashion-bag-везде + vacuum-compression(only signal); Software = digital/non-physical.
+- **NEW reusable script:** `scripts/sh_export_tracked.py` — exports all tracked-shop collections grouped by niche (joins seed-id files/add-logs vs category dumps → NAME·domain·SH-link). The full tracked-shop backup list was delivered to Marina in chat (≈174 shops: H&G 46, B&T 53, A&E 39, A&P 36) for re-loading on the paid ShopHunter later.
+- **NEXT SESSION (SH-11) options (Marina picks):** (a) **dump + process a fresh category** (e.g. Electronics, Furniture, Office Supplies, Apparel/Accessories, Vehicles & Parts) — same matured funnel; (b) **breadth-tool (Storeleads) pilot** to fix bottleneck #1 (the ~800/category tracked-subset ceiling — emerging early-window winners are missed); (c) Newest-First check-up on the 4 niche collections (deprioritized, low ROI on mature shops). All SH-3→SH-10 niches 100% done. **Founder Review for SaveLix + the SH-7/SH-9 cards = Marina to set in Notion.**
+
+---
+
+> _SH-9 handoff below kept for history — A&P 860 + B&I 356 done; funnel/proxy/Notion-schema notes still valid. SH-10 above is current state._
+
 **✅ SH-9 DONE (2026-05-27) — Animals & Pet Supplies 860 + Business & Industrial 356 BOTH FULLY PROCESSED (human-in-loop).**
 - **Funnel:** hero 96.7→100%, conservative cut held 187-195 survivors/batch (−19 to −28, only definite-no), enrich reach 88→98→98→**100%** (B1 88% = a mid-session proxy blip; B2-B4 clean after fix). Files on VPS `logs/shophunter/`: `ap_b{1,2,3,4}.json` + `_hero/_enrich_in/_enriched` + sentinels; curated seed `ap_seed_ids.txt` (36 ids) + `ap_seed_domains.txt`.
 - **YIELD: 2 reported 65+ + 3 founder-keep = 5 Notion cards (all Source=ShopHunter, SH-fields filled, Founder Review LEFT for Marina):**
@@ -264,6 +279,15 @@ infer SH coverage from them.
 ---
 
 ## Active Learnings
+
+### [2026-05-27] Session SH-10 — FB "winner-zone" ≠ store-first winner-zone; niche-yield is category-structural
+**Type:** Pattern / Strategic yield fact | **Severity:** HIGH | **Confidence:** MEDIUM-HIGH (4 full niches, 1876 stores, Marina-direct)
+**Observation:** Processed 4 pre-loaded niches end-to-end → 1 reported winner (SaveLix 77) + 1 convergence (Aerpack→Rhona SL2). Durable take-aways:
+- **The historical FB-keyword "winner-zone" (Health & Beauty devices) does NOT carry over to store-first ShopHunter.** The H&B tracked surface is пустышка-device-dominated (red-light/LED/lymphatic/circulation/hair-growth) + consumable beauty + relief-massagers; the clean white-label devices keyword-search surfaces (eye/scalp/posture/callus) appear here only as commodity/branded-dupe/floor. **Discriminating mechanism:** keyword-first filters to the device BY SYMPTOM; store-first exposes the WHOLE category, and beauty's whole category is пустышка-dense. → Apply the visual-verifiability gate hard on H&B; don't expect top yield. (Tier-1 fact — do NOT add a filter or close the niche.)
+- **Yield is category-STRUCTURAL, reconfirmed (Nth time):** H&G/B&T (best) > A&P ≈ H&B (medium) > A&E/T&G > SG ≈ L&B (thin) > B&I ≈ Software (lowest). SG = bulky-equipment + golf/pickleball/cycling-niche + recovery-пустышка; L&B = fashion-bag-везде (structural reject) with vacuum-compression as the only white-label signal; Software = digital/non-physical (not a viable store-first niche).
+- **Convergence handling reconfirmed (Marina, SH-10):** when a fresh ShopHunter find is the SAME product TYPE as an already-reported winner (Aerpack vs Rhona vacuum-compression), Marina prefers **Store Link 2 convergence on the existing card**, not a duplicate report (cf cookinate→OroMilk SH-5, SaveVac→SaveLix this session). Mis-niched winners are real: SaveLix (family-safety) surfaced in H&B; score the PRODUCT, ignore the niche tag.
+- **Funnel/proxy stable across 1876 stores** (hero 99-100%, enrich 89-100%, single dedicated IP all day). Enrich can have a slow-store stretch (L&B B2 = 239s) — detect DONE by sentinel, the process is alive (don't relaunch).
+**Applies to:** SH-11+ niche selection + scoring expectations + convergence handling. **Expires after:** durable (yield = Tier-1 fact; convergence rule already standing).
 
 ### [2026-05-27] Session SH-9 — PROXY = iProyal ISP DEDICATED; transient endpoint blip ≠ bad creds (RECOVERY PROCEDURE)
 **Type:** Operational safeguard / Recovery procedure | **Severity:** HIGH | **Confidence:** HIGH (Marina dashboard screenshots + same creds worked on retry)
@@ -538,7 +562,11 @@ supplement/apparel with non-obvious titles (Tonum "motus", "Metabolic+", "Stem C
 
 ## Expired / Promoted
 
-_Empty._
+**Expired at SH-10 (2026-05-27) — durable substance preserved in `methods/discovery-funnel.md` + the SH-3/SH-4 handoff blocks above; archived in place (tagged "Expires after: Session SH-10"):**
+- SH-3 "Noise classes in H&G + the candidate-loss lesson (adopt FB RULE 8)" — superseded: FB RULE 8 (verify-all, no gut top-N) is now baked into the funnel + structural safeguards; noise classes documented per-niche in `shared/rejected-products.md`.
+- SH-3 "FIRST full funnel run: result + bot-block/proxy + hero-selection fix + candidates" — superseded: hero-selection ("Top Products" parser = `sh_hero_par.py`), proxy (iProyal, see SH-9 entry), and the SH-3 candidates are all resolved/in Notion.
+- SH-3 "Clean funnel pass with TRUE heroes (v4)" — superseded: true-hero extraction is the standing `sh_hero_par.py` mechanic; name-classifier-leaks-caught-at-deep-score is now the Description-confidence gate (discovery-funnel.md).
+(Entries left physically in place under "Active Learnings" for full history; they are no longer active guidance.)
 
 ---
 

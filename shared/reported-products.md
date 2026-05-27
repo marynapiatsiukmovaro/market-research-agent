@@ -111,6 +111,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-27 | CatCam 2K — Wireless Pet Collar Camera (Meow Merch) | Tech | 54 | agent <65 — FOUNDER-KEPT (Marina: идея камеры на питомца, лучше на собаку, смешные хуки «что делает твой кот/пёс»); POV pet-cam novelty; ⚠ no reviews + branded + likely app + Premium $124 | ShopHunter (SH-9) / Animals & Pet Supplies B1 new[0:215] / meowmerch.org |
 | 2026-05-27 | Pro Cat Wrap — Cat Grooming/Vet Restraint Wrap (CalmCozyCat) | Pet | 60 | agent <65 — FOUNDER-KEPT (Marina: проблема реально актуальная); calms/restrains cats for nail-trims/meds/grooming ("used in thousands of vet clinics"); store $307K/wk; ⚠ niche + apparel sizing-return + $99 | ShopHunter (SH-9) / Animals & Pet Supplies B2 new[215:430] / calmcozycat.com |
 
+| 2026-05-27 | SaveLix Anti-Choking Device | Health | 77 | Suction choking-rescue (LifeVac-class) — max fear/protection trigger (child/elderly), demonstrable, white-label, evergreen; 10K+ families/2800+ rev; anti-choking ×4 convergence (SaveLix+SaveVac+VitalBreath+AirGuard); ⚠ mis-niched safety-device in H&B + moderate medical-policy risk | ShopHunter (SH-10) / Health & Beauty B3 new[402:603] / savelix.com (+SaveVac SL2) |
+| 2026-05-27 | Aerpack Vacuum Bags + electric pump (CONVERGENCE → Rhona) | Travel | — | vacuum-compression with included pump, "-60% packing space", white-label, ~72 deep-score; NOT a new report — added as **Rhona TravelVac Pro Store Link 2** (vacuum-compression now ×10 cross-dept: Rhona+Luux+Aerpack+Magic Travel+CompressPak+VacBird…) | ShopHunter (SH-10) / Luggage & Bags B1 new[0:106] / aerpack.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
