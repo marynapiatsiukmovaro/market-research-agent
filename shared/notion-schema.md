@@ -146,6 +146,13 @@ Visible: Title, Score, Category, Price Range, Competitor Signal, Notes, Date Add
 Sort: Score descending
 Purpose: validated/interesting-but-off-model finds to MONITOR + possibly revisit (titanium boards, ad-research stores, etc.). Category stays OPEN — never closed/archived. (Recommended — create in Notion if not present.)
 
+### View 5: "🧪 Pre-Test" (Marina's pre-test funnel stage — added SH-10, 2026-05-27)
+Filter: **Pre-Test = checked**. Sort: Score descending.
+Visible: Title, Score, Founder Review, Category, Price Range, Test Status, Store Link, Date Added.
+Purpose: the 3rd funnel stage Marina asked for — Inbox (all) → Shortlist (Approved/Consider) → **Pre-Test**. Marina ticks the
+**`Pre-Test` checkbox** on products she's earmarking for testing now; they auto-appear here (same DB, linked view — no new table).
+**`Pre-Test` is a Marina-only field** (like Founder Review / Test Status) — **the agent NEVER sets it.** It is a manual visual funnel flag, distinct from `Test Status` (which tracks an actual running test).
+
 ### View 4: "🗄 Archive" (permanent rejected record)
 Filter: Recommendation = Rejected OR Founder Review = Rejected
 Visible: Title, Score, Category, Rejection Reason, Date Added only
