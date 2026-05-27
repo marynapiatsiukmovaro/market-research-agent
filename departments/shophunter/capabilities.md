@@ -10,7 +10,7 @@ These exist today. ShopHunter references them — it does not recreate them.
 |------------|----------------|
 | Score a product 0–100 + Marina Veto Checklist | `core/scoring-system.md` |
 | Hard-reject weak products (branded, пустышка, price, logistics, saturation) | `core/mandatory-filters.md` |
-| Founder quality bar / winner definition | `core/founder.md` (+ FB `founder-taste.md` until taste is shared) |
+| Founder quality bar / winner definition | `core/founder.md` + `shared/founder-taste.md` (company-wide quality bar) |
 | Assess a store / company signal (revenue trajectory, longevity, multi-store demand) | `shared/skills/shophunter.md` |
 | Deep validation of a candidate (score 85+) | `shared/product-validation.md` |
 | Report a product (Notion + shared logs) | `shared/notion-workflow.md`, `shared/reported-products.md`, `shared/rejected-products.md` |

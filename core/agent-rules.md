@@ -10,7 +10,7 @@ Products exist in distinct states. States are NOT mutually exclusive — a produ
 | **Founder Approved** | Explicitly validated by Marina (Approved / Consider). Human-only. Agent never sets this. (**Watchlist** = study/radar/may-return, NOT validation & NOT closed; **Rejected** = closed.) | departments/{dept}/operational-memory/founder-feedback.md + Notion Founder Review |
 | **Rejected** | Failed filters, scored below 65, or rejected by founder after review. Still useful as negative calibration. | shared/rejected-products.md + Notion |
 | **Needs Verification** | Interesting opportunity with insufficient validation (missing links, unclear saturation, etc.). AI/system state — NOT a founder decision. | Notion Recommendation field |
-| **Calibration Example** | Used to improve future reasoning, scoring, and pattern recognition. May or may not be founder-approved. | departments/facebook-ads-library/operational-memory/founder-taste.md + shared/successful-patterns.md |
+| **Calibration Example** | Used to improve future reasoning, scoring, and pattern recognition. May or may not be founder-approved. | shared/founder-taste.md + shared/successful-patterns.md |
 
 ### State separation rules
 - **Recommendation** (Worth Testing / Needs Verification / Rejected) = agent evaluation. Agent sets this.

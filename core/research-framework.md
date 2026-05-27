@@ -29,16 +29,17 @@ Contains winner-product logic that does not change with niche or strategy:
 
 Each department = one sourcing channel. Isolated from all others.
 
-Current departments:
-- `departments/facebook-ads-library/` — FB Ads Library via VPS scraper
+Current departments (operational):
+- `departments/facebook-ads-library/` — FB Ads Library via VPS scraper (keyword-first discovery)
+- `departments/shophunter/` — ShopHunter store-first discovery (store revenue / longevity / multi-store intelligence)
 
 Future departments (not yet built):
-- `departments/amazon/`
+- `departments/instagram/`
 - `departments/tiktok-ads/`
-- `departments/shophunter/`
+- `departments/amazon/`
 
 Each department contains:
-- `workflow.md` — step-by-step session procedure
+- `workflow.md` — **the session entry point: step-by-step session procedure. Every department MUST have one** — even a thin wrapper that points to its main method file (e.g. ShopHunter's `workflow.md` → `methods/discovery-funnel.md`). Routing and the session load-list both target `departments/{dept}/workflow.md`.
 - `methods/` — channel-specific tools and scrapers
 - `operational-memory/` — permanent rules, learnings, keyword verdicts, founder calibration
 - `hypotheses/` — current and archived research directions

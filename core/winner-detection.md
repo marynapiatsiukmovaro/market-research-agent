@@ -144,7 +144,7 @@ SESSION START
 │   └── Apply mandatory filters (core/mandatory-filters.md)
 │
 ├── 6. Score those that passed (core/scoring-system.md)
-│   └── Apply operational-memory/founder-taste.md layer on top of the number
+│   └── Apply shared/founder-taste.md layer on top of the number
 │
 └── 7. Report only 65+. Quality over quantity.
 ```

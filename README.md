@@ -39,32 +39,32 @@ market-research-agent/
 │   └── session-health-rules.md  # Context monitoring and self-reporting
 │
 ├── departments/                 # Per-channel sourcing operations (isolated)
-│   └── facebook-ads-library/    # FB Ads Library via VPS scraper (active)
-│       ├── workflow.md          # Daily scout workflow for this channel
-│       ├── pre-flight.md        # VPS connection and scraper runnable checklist
-│       ├── hypotheses/          # Active and archived research directions
-│       │   ├── _active.md       # Pointer to current research hypothesis
-│       │   ├── broad-horizontal-discovery.md  # Current: Sessions 15+
-│       │   └── kids-vertical.md               # Archived: Sessions 8–14
-│       └── operational-memory/  # Short-lived channel-specific knowledge
-│           ├── op-rules.md      # Permanent rules: VPS setup, scraper depth, pipeline
-│           ├── learnings.md     # Active session learnings (expire per session)
-│           ├── keyword-map.md   # Keyword scorecard
-│           ├── founder-taste.md # Marina's quality bar
-│           ├── founder-feedback.md  # Marina's direct product feedback
-│           └── seen-advertisers.md  # Rolling 20-session dedup window
+│   ├── facebook-ads-library/    # FB Ads Library via VPS scraper (keyword-first discovery)
+│   │   ├── workflow.md          # Session entry point — daily scout workflow
+│   │   ├── pre-flight.md        # VPS connection and scraper runnable checklist
+│   │   ├── methods/             # facebook_scraper.py, fast_filter.py, keyword-scan
+│   │   ├── hypotheses/          # _active.md → current direction (single source) + archived
+│   │   └── operational-memory/  # op-rules, learnings, keyword-map, founder-feedback, seen-advertisers
+│   │
+│   └── shophunter/              # ShopHunter store-first discovery (revenue / longevity / multi-store)
+│       ├── workflow.md          # Session entry point → methods/discovery-funnel.md
+│       ├── capabilities.md      # What ShopHunter exposes + inherited capabilities
+│       ├── methods/             # discovery-funnel.md, interface-guide.md, subagent-spec.md
+│       ├── hypotheses/          # research directions (storeleads-breadth, collection-monitor)
+│       └── operational-memory/  # learnings, founder-feedback  (op-rules: not yet created)
 │
 ├── shared/                      # Channel-agnostic resources
+│   ├── founder-taste.md         # Marina's company-wide quality bar (read before scoring)
 │   ├── reported-products.md     # Anti-duplicate check (read every session)
 │   ├── rejected-products.md     # Failure patterns (read every session)
 │   ├── successful-patterns.md   # Recurring winner traits
 │   ├── failed-patterns.md       # Recurring weak patterns
-│   ├── sources-overview.md      # Source capability map
+│   ├── sources-overview.md      # How to read each signal type
+│   ├── notion-schema.md         # Live Notion DB schema (verified source of truth)
 │   ├── notion-workflow.md       # How to save findings to Notion
-│   └── skills/                  # Modular analysis skills
-│       ├── product-discovery.md
-│       ├── paid-traffic-analysis.md
-│       └── trend.md
+│   ├── product-validation.md    # Deep-validation checklist (85+ products)
+│   └── skills/                  # product-discovery, paid-traffic-analysis, trend,
+│                                #   wow-factor, ugc, sourcing, shophunter (store-signal)
 │
 ├── review/                      # Promotion queue (learnings → core)
 │   └── promotion-queue.md

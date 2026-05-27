@@ -7,10 +7,10 @@ Library scanning via VPS scraper.
 - Keyword-First Deep Scan via FB Ads Library
 - 500 ads per keyword (hard cap 600) via `methods/facebook_scraper.py`
 - Anti-duplicate dedup via `operational-memory/seen-advertisers.md`
-- Founder taste calibration via `operational-memory/founder-taste.md`
-  and `operational-memory/founder-feedback.md` (these live inside this
-  department while taste is still being calibrated — will move to
-  `shared/` once stabilized)
+- Founder taste calibration via `shared/founder-taste.md` (company-wide quality bar)
+  and this department's `operational-memory/founder-feedback.md` (channel-specific
+  product decisions). Taste is now in `shared/` (applies to all departments);
+  founder-feedback stays per-department by design.
 
 ## What this department does NOT do
 - TikTok Ads Library (future sibling department)

@@ -2,7 +2,7 @@
 
 **Source of Truth for: Founder Review decisions (Approved / Consider / Watchlist / Rejected — 4 tiers, see `shared/notion-schema.md`) and calibration rules.**
 Marina's direct feedback on reported products. Founder feedback overrides raw agent scoring.
-Read alongside `departments/facebook-ads-library/operational-memory/founder-taste.md` before scoring any session.
+Read alongside `shared/founder-taste.md` before scoring any session.
 
 ---
 
@@ -126,5 +126,5 @@ This file is the most important memory in the system.
 ## File Role in Product State Architecture
 - This file tracks **Founder Review** decisions only.
 - "Reported" state is tracked in `shared/reported-products.md`.
-- Calibration patterns are distilled into `departments/facebook-ads-library/operational-memory/founder-taste.md` and `shared/successful-patterns.md`.
+- Calibration patterns are distilled into `shared/founder-taste.md` and `shared/successful-patterns.md`.
 - Agent never writes to Approved/Consider/Watchlist/Rejected sections without Marina's explicit decision.
