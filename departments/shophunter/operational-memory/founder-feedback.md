@@ -194,6 +194,8 @@ busy board ×3 ~64, Montessori climber ~58 — none cleared her bar or the score
 3. **Browse-pool catches winners reconfirmed (3rd time, after SlotPro SH-7 + PerchMe/Trovely SH-5):** Karate Kitty (B|47→70) + the founder-keeps all came from the browse-pool / founder eye, not proxy Tier-A. Keep surfacing the curated genuine browse list every batch; lead with WOW/taste, never the Tier label.
 4. **Write durable results into the docs at session end so they're not forgotten** (Marina, SH-9): reported/rejected logs + founder-feedback + learnings HANDOFF + collection state.
 
+**B&I (also SH-9, same day):** Business & Industrial 356 → **0 reported / 0 keeps / no collection** (Marina: skip, like T&G). Only borderline = Smart Chicken Coop Door ($125, ~62) — not kept. B&I = lowest white-label-fit niche (health-claim pillows + B2B + tactical/policy + пустышка). Marina's framing reconfirmed: a clean 0-yield niche is a valid store-first result; don't force, don't seed a low-value collection.
+
 ---
 
 ## Calibration signals (distilled — apply in future ShopHunter scoring)
