@@ -6,6 +6,8 @@
 Discovery is FB-only. Kept as historical record. The genuinely operational nuggets
 (Marina's 2-weeks-converts rule, store-link check, Meta=VPS) were retained in sources-overview.md.
 
+**⚠️ MINEA VERDICT — DO NOT RETURN:** Minea was tested as an ad-intelligence source in May 2026 — no fit (no category/geo filter; 0/10 products passed filters; see daily-reports 2026-05-13). Retired. Primary discovery is now FB Ads Library + ShopHunter. Do not reintroduce Minea.
+
 ---
 
 # CAPABILITY MAP (originally config/sources-capability-map.md)

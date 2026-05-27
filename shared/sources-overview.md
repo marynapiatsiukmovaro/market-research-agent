@@ -1,20 +1,25 @@
 # RESEARCH SOURCES
 
-## Primary Sources (check daily)
+> **What this file is:** a channel-agnostic reference for how to READ each signal type.
+> It does NOT set which sources to scan — **active discovery is per-department** (FB Ads
+> Library keyword scan in `departments/facebook-ads-library/`; ShopHunter store-first in
+> `departments/shophunter/`). Read your department's `workflow.md` for the live pipeline.
+
+## Department primary surfaces
+- **Facebook/Meta Ads Library** — competitor ad spend = market validation (FB dept's surface)
+- **ShopHunter** — Shopify store revenue / longevity / multi-store demand (ShopHunter dept's surface)
+
+## Other signal types (corroboration — what each one means)
 - TikTok Ads Library — active ad spend = market validation signal
-- Facebook/Meta Ads Library — competitor spend confirmation
 - Amazon Movers & Shakers — real demand signal, rank velocity
 - AliExpress Trending / New Arrivals — sourcing + demand overlap
 - TikTok Organic — #tiktokmademebuyit, trending products, viral demos
 - Instagram Reels trending — cross-platform demand signal
-
-## Secondary Sources (check when needed)
 - Alibaba — sourcing verification, supplier count, MOQ
 - Temu trending — early commodity signal (if on Temu, margin is squeezed)
 - Pinterest trending — lifestyle product signals
 - Reddit (r/shutupandtakemymoney, r/BuyItForLife) — genuine consumer demand
 - Etsy trending — handmade/custom product ideas that can be industrialized
-- ShopHunter — Shopify store revenue validation
 
 ## Supplementary Tools
 - Google Trends — saturation and longevity check
@@ -88,4 +93,4 @@ Usage: add --since=2026-01-01 to scraper command to filter fresh ads only.
 - **Store-link check before reporting (mandatory):** always WebFetch the store URL before reporting. Opens cleanly → OK. Redirect/error → verify manually. Chrome Safe-Browsing "dangerous site" flag → REJECT immediately (lesson: beambo.com).
 - **Meta Ads Library access:** via VPS scraper (Mikhail Piatsiuk session) — full setup in `departments/facebook-ads-library/operational-memory/op-rules.md`.
 
-> Full legacy capability maps (Minea / WebSearch / WebFetch / TikTok / Amazon detailed specs, Session-2 evaluation, pre-FB backlog) archived to `archive/sources-overview-capability-map.md` (S30 cleanup). Discovery is FB-only; those tools are not in the current pipeline.
+> Full legacy capability maps (Minea / WebSearch / WebFetch / TikTok / Amazon detailed specs, Session-2 evaluation, pre-FB backlog) archived to `archive/sources-overview-capability-map.md` (S30 cleanup; see the Minea verdict note there — do not return). Discovery is per-department (FB Ads Library + ShopHunter); those tools are not in the current pipeline.

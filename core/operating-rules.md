@@ -80,15 +80,13 @@ Auto-announce pivot to Marina when any of these occur:
 
 ## 5. Context Management Rules
 
-- Load only files changed since last session (check git diff), not all core/ files every time
-- core/ files change rarely — skip re-reading unless prompted
-- Always read: shared/reported-products.md, shared/rejected-products.md, and department-specific operational memory for the active sourcing channel
+- **Session load = CLAUDE.md "Load On Every Session Start" (two-layer list) — canonical.** Follow it; do NOT skip core/ files or improvise a "changed files only" load.
 - Never carry more than 3 "maybe" candidates across rounds without a written checkpoint
 - If context usage >60% at start of Round 3 → alert Marina before proceeding
 
 ---
 
-## 7. Freshness Logic
+## 6. Freshness Logic
 
 Current date defines "fresh." Recalculate at session start.
 
