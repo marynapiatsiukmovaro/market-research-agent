@@ -4,7 +4,7 @@
 - Scan: 15–20 product candidates
 - Filter: apply mandatory filters (fast reject)
 - Score: score remaining candidates
-- Output: 2–5 best products in Scout Mode format (quality over quantity — never force weak products to fill quota)
+- Output: minimum 2, no upper limit — report ALL products scoring 65+ in Scout Mode format (signal quality determines quantity, never force weak products to fill quota)
 
 ## Step-by-Step
 

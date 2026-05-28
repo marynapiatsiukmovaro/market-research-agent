@@ -1,4 +1,7 @@
 # AGENT OPERATING RULES v1
+
+**STATUS:** Reference doc — not in CLAUDE.md Layer A mandatory load. The "alongside FB learnings" line below is a historical breadcrumb (FB Ads Library = first operational department), not a session-load directive. Actual session-load contract: CLAUDE.md Layer A + Layer B.
+
 **Derived from Sessions 1–6 post-mortem. Read at session start alongside departments/facebook-ads-library/operational-memory/learnings.md.**
 
 ---

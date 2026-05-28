@@ -36,7 +36,7 @@ Do NOT invent or guess URLs. Only real, working links.
 1. Scan 15–20 candidates from primary sources (shared/sources-overview.md)
 2. Apply mandatory filters (core/mandatory-filters.md)
 3. Score remaining (core/scoring-system.md)
-4. For each qualifying product (2–5 expected): find and attach Source Link + Store Link
+4. For each qualifying product (all scoring 65+, no upper limit): find and attach Source Link + Store Link
 5. If links missing → set "Needs Verification"
 6. Output in Scout Mode format (core/identity.md)
 7. Save each to Notion (shared/notion-workflow.md)
