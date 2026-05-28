@@ -9,14 +9,15 @@ Location: MOVARO HQ → 📦 Product Research → Product Tracker
 
 ## Field Schema
 
-> **⚠ VERIFIED AGAINST LIVE DB 2026-05-27 (SH-9) — read before any Notion write:**
-> The live data source was fetched and reconciled. Discrepancies that WILL break `create-pages`/`update-page`:
-> - **NO `Status` field exists** (only **`Test Status`** Not Started/Testing/Scaling/Killed). Do NOT send `Status`. New scouted products simply omit it.
-> - **`Price Range` options use EN-DASH and exact strings:** `$45–79` · `Extended $39–100` · `Premium $100–170` · `Too Cheap` (a stray hyphen dupe `Extended $39-100` also exists — do not add more). Sending `Fits $45-79` etc. creates junk duplicate options.
-> - **NO `Supplier Link`, `CTR`, `CPM` fields** in the live DB (there is one unnamed number field `""`). Do not send them.
-> - **`Source` and `Ad Platform` are TEXT** (free text), not Select — any string is accepted.
+> **⚠ VERIFIED AGAINST LIVE DB 2026-05-28 (Phase 3 final) — read before any Notion write.**
+> The live data source was re-fetched and the table below now matches it. Critical write-time facts (this block wins if any row drifts):
+> - **NO `Status`, `Supplier Link`, `CTR`, `CPM` fields exist** in the live DB — do NOT send them. (Marked ❌ in the table.) There is one unnamed number field `""`.
+> - **`Source` and `Ad Platform` are TEXT (free text), not Select** — any string is accepted; the values listed in the table are *advisory* canonical labels for consistency.
+> - **`Price Range` has EXACTLY 4 options (all en-dash):** `$45–79` · `Extended $39–100` · `Premium $100–170` · `Too Cheap`. **Sending `Fits $45-79` (or any hyphen variant) creates a junk duplicate option — always use the exact canonical strings above.**
+> - **`Category` has 9 options:** Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other / **Kids** (Kids added Phase 3 final, 2026-05-28).
+> - **`Store Link 2` (URL) EXISTS** in the live DB and is used for convergence / parallel candidates (Marina S30).
+> - **`Pre-Test` (checkbox) is a Marina-only manual funnel flag** — agent NEVER sets it. See View 5.
 > - **`Date Added` is a date** → send expanded key `date:Date Added:start` = `YYYY-MM-DD` (NOT a flat `Date Added`).
-> Everything else below matches the live schema. The rows below are the intended USAGE; where they conflict with this block, this block wins.
 
 | # | Field | Type | Options / Notes |
 |---|-------|------|-----------------|
@@ -24,31 +25,33 @@ Location: MOVARO HQ → 📦 Product Research → Product Tracker
 | 2 | Score | Number | 0–100 |
 | 3 | Recommendation | Select | Worth Testing / Needs Verification / Rejected |
 | 4 | Founder Review | Select | Approved / Consider / Watchlist / Rejected — **set by Marina only, never by agent** (see Founder Review — Definitions) |
-| 5 | Category | Select | Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other |
+| 5 | Category | Select | Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other / **Kids** |
 | 6 | Price | Number | Actual retail price in $ |
 | 7 | Price Range | Select | EXACT (en-dash): `$45–79` / `Extended $39–100` / `Premium $100–170` / `Too Cheap` |
 | 8 | Saturation | Select | Low / Medium / High / Extreme |
 | 9 | Competitor Signal | Select | None / Testing / Scaling / Saturated / Legacy Winner |
-| 10 | Ad Platform | Select | Meta / TikTok / Both / Organic only |
-| 11 | Source | Select | Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba |
+| 10 | Ad Platform | Text (free) | Advisory canonical: Meta / TikTok / Both / Organic only (live DB is text — any string is accepted) |
+| 11 | Source | Text (free) | Advisory canonical: Facebook Ads Library / ShopHunter / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba (live DB is text — any string is accepted) |
 | 12 | Discovery Keyword | Text | Exact search query or discovery path that led to the product |
 | 13 | Emotional Trigger | Text | 1–3 words |
 | 14 | Creative Angles | Number | count of identified angles |
 | 15 | Ad Link | URL | direct link to ad or original source |
 | 16 | Store Link | URL | where the product is sold |
+| 16b | Store Link 2 | URL | **EXISTS in live DB.** 2nd brand for convergence / parallel candidates (S30 rule). See `notion-workflow.md` Convergence Rule. |
 | 17 | Date Added | Date | — |
 | 18 | ~~Status~~ | — | ❌ NOT in live DB — do NOT send. (Only `Test Status` exists, field #22.) |
 | 19 | Notes | Text | Short agent observations: risks, warnings, anomalies — 1 sentence max per note |
 | 20 | Rejection Reason | Text | 1 sentence — filled only when Founder Review = Rejected |
 | 21 | Founder Notes | Text | Marina's judgment — set by Marina only, never by agent |
 | 22 | Test Status | Select | Not Started / Testing / Scaling / Killed |
+| 22b | Pre-Test | Checkbox | **Marina-only manual funnel flag** (Inbox → Shortlist → Pre-Test). Agent NEVER sets it. See View 5 below. |
 | 23 | Problem Solved | Text | 1 sentence — hidden in Inbox view |
 | 24 | Why It May Work | Text | 2–3 bullet points — hidden in Inbox view |
 | 25 | Supplier | Text | short feasibility note — hidden in Inbox view |
-| 26 | Supplier Link | URL | Alibaba / AliExpress listing — hidden in Inbox view |
+| 26 | ~~Supplier Link~~ | — | ❌ NOT in live DB — do NOT send. Use the `Supplier` text field (row 25) for any sourcing note. |
 | 27 | Social Link | URL | TikTok / Instagram profile or post — hidden in Inbox view |
-| 28 | CTR | Number | actual CTR if tested |
-| 29 | CPM | Number | actual CPM if tested |
+| 28 | ~~CTR~~ | — | ❌ NOT in live DB — do NOT send. |
+| 29 | ~~CPM~~ | — | ❌ NOT in live DB — do NOT send. |
 | 30 | SH Link | URL | **ShopHunter dept ONLY** — link to the store's ShopHunter page (or "-" if not found). |
 | 31 | SH Store Created | Text | **ShopHunter dept ONLY** — store creation date literal from ShopHunter (or "N/A"). |
 | 32 | SH Rev W/M | Text | **ShopHunter dept ONLY** — store revenue week / month (estimate). |
@@ -101,6 +104,7 @@ Use only these values in the Source field. Do not write long descriptions.
 Put query details into Discovery Keyword.
 
 - Facebook Ads Library
+- ShopHunter
 - Amazon Search
 - TikTok Search
 - TikTok Shop
@@ -135,7 +139,7 @@ Sort: Date Added descending
 
 ### View 2: "💡 Shortlist" (linked view, separate page)
 Filter: Founder Review = Approved OR Consider
-Visible: all columns including Founder Notes, Why It May Work, Problem Solved, Test Status, CTR, CPM
+Visible: all relevant columns (incl. Founder Notes, Why It May Work, Problem Solved, Test Status). _CTR/CPM removed — not in live DB._
 Sort: Score descending
 Purpose: Marina's clean **LAUNCH SHORTLIST** — only products she'd actually test (Approved + Consider). Watchlist + Rejected stay OUT to keep it noise-free. (SH-6: this is exactly why Watchlist was added — to de-noise this view.)
 
@@ -165,14 +169,6 @@ Never delete rejected products.
 - Only one link present → acceptable, note which is missing
 - Both missing → Recommendation = **Needs Verification** (regardless of score)
 - Never invent URLs — only real, working links
-
----
-
-## Status Field Usage
-- Scouted → newly added from session
-- Under Review → Marina is evaluating
-- Approved → Founder Review set, ready to test
-- Archived → rejected or no longer active
 
 ---
 

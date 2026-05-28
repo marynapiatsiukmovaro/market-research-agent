@@ -15,13 +15,13 @@ For each reported product (score 65+), create one Notion database entry with two
 | Title | Product name |
 | Score | 0–100 |
 | Recommendation | Worth Testing / Needs Verification / Rejected |
-| Category | Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other |
+| Category | Beauty / Health / Fitness / Home / Kitchen / Pet / Tech / Other / Kids |
 | Price | Actual retail price in $ |
-| Price Range | Fits $45-79 / Extended $39-100 / Premium $100-170 / Too Cheap |
+| Price Range | EXACT en-dash strings: `$45–79` / `Extended $39–100` / `Premium $100–170` / `Too Cheap` — never `Fits ...` (creates junk dupe) |
 | Saturation | Low / Medium / High / Extreme |
 | Competitor Signal | None / Testing / Scaling / Saturated / Legacy Winner |
 | Ad Platform | Meta / TikTok / Both / Organic only |
-| Source | Standardized value only: Facebook Ads Library / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba |
+| Source | Standardized value only: Facebook Ads Library / ShopHunter / Amazon Search / TikTok Search / TikTok Shop / Web Search / AliExpress / Alibaba |
 | Discovery Keyword | Exact search query or discovery path (e.g. "travel pillow Facebook ads", "neck pain TikTok 2026") |
 | Emotional Trigger | 1–3 words |
 | Creative Angles | Number (e.g. 4) |
