@@ -33,5 +33,5 @@ Trigger only for:
 - Entry still realistic for new seller?
 
 ## Output
-Validation report saved to outputs/high-potential-products/
+Validation report saved to `outputs/` (one .md per product validated).
 Flag to user if score upgrades to 85+ after validation.

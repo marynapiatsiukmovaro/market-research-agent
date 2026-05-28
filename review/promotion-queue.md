@@ -24,7 +24,7 @@ Append to Pending Review using this format:
 ### [Short name]
 **Observation:** what was consistently found across sessions
 **Why it matters:** impact on product selection, scoring, or filtering
-**Affected file(s):** which core file would change (brain/ / criteria/ / config/ / memory/)
+**Affected file(s):** which file would change (`core/` / `departments/{dept}/` / `shared/`)
 **Confidence:** High / Medium / Low
 **Recommendation:** Promote / Wait / Reject
 **Added:** [YYYY-MM-DD], Session [N]

@@ -1,6 +1,6 @@
 # SHOPHUNTER ANALYSIS SKILL
 
-Use ShopHunter as supplementary validation only.
+Skill for **interpreting** Shopify store signals (revenue trajectory, longevity, multi-store demand). Used by the **ShopHunter department** as the primary surface in its discovery funnel (see `departments/shophunter/methods/discovery-funnel.md`); used by **other departments** as supplementary corroboration when validating store-level signal of a candidate.
 
 ## If Available
 - Analyze store revenue trajectory (growing = good signal)

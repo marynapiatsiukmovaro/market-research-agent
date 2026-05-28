@@ -13,5 +13,5 @@ Check in order:
 Output:
 - Validation summary (pass/fail each check)
 - Updated score after validation
-- Final recommendation: Test / Pass / Reject
+- Final recommendation: **Worth Testing / Needs Verification / Rejected** (the live Notion `Recommendation` values; the **Founder Review** tier — Approved / Consider / Watchlist / Rejected — is Marina-only, never set by agent)
 - Suggested first creative angle if approved
