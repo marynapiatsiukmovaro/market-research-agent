@@ -36,7 +36,7 @@ Run every session before closing:
 1. Save each reported product (65+, **after Marina's OK**) to Notion (`shared/notion-workflow.md`) +
    `shared/reported-products.md`; rejects → `shared/rejected-products.md`.
 2. Seed the tracked-shop Collection (Collection-seeding rule in `methods/discovery-funnel.md`).
-3. Append new tactical learnings to `operational-memory/learnings.md` (with expiry); archive expired entries.
+3. Append new tactical learnings to `operational-memory/learnings.md` (with expiry); archive expired entries (apply **RULE-15** — `core/session-health-rules.md` — for tombstones + handoff rotation policy).
 4. Log any founder decision on a SPECIFIC product to `operational-memory/founder-feedback.md` (Tier-1 fact only).
 5. Update the **HANDOFF → NEXT SESSION** block at the top of `learnings.md` so the next session resumes cleanly.
 6. **Tier-2 guard (FB RULE 14):** any system-changing generalization — a new taste/filter/veto rule, closing a

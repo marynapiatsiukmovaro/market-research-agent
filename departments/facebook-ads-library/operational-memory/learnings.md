@@ -25,18 +25,23 @@ session start. _(As of S21+: Situation Keywords. Broad Horizontal Discovery was 
 
 ## Active Learnings
 
-~~### [2026-05-16] Session 10 — Keyword Audit Database: ~50 keywords weekly monitor~~
-> ARCHIVED S25 — expired. Idea preserved in memory project_keyword_audit_system.md + keyword-map.md.
-
----
-
-~~### [2026-05-16] Session 10/11 — Situation keywords = hidden intersection discovery mode~~
-> ARCHIVED S25 — expired. Core rule (low yield normal; judge by unpredictable intersections) preserved in keyword-map.md Meta Rules + S22/23 learnings.
-
----
-
-~~### [2026-05-16] Session 10/11 — Kids Travel Sleep Nest: open DTC niche~~
-> ARCHIVED S18 — expired. Result in reported-products.md.
+> **Archived tombstones (S10–S30) — full blocks in `learnings-archive-queue.md`.** Compact migration map below — every finding's permanent home:
+>
+> | Sessions | Topic class | Migrated to |
+> |---|---|---|
+> | S10–S11 | Keyword Audit DB; Kids Travel Sleep Nest | memory `project_keyword_audit_system.md`; `reported-products.md` |
+> | S15–S20 | Broad Horizontal Discovery hypothesis (perf-signal kw / `--since` / category-tracking / 15+kw pattern / final tally) | `hypotheses/broad-horizontal-discovery.md` status:CLOSED FAILED; queue |
+> | S16–S19 | Dead keyword classes (gadget / offer-promo / urgency-credibility / % URL-encoding) | `keyword-map.md` verdicts; S18 `quote_plus` fix superseded |
+> | S19 | 0-result phrase anomaly | superseded by S21 FB-block refinement |
+> | S21 | FB blocks 2-word terms (refined S27/S28: term-specific, not class) | `keyword-map.md` |
+> | S21 | Situation Cluster 1 verdict | `keyword-map.md`; absorbed into S22/23 + S24 active entry below |
+> | S22–S25 | Situation Keywords iterations + discriminating principle (negative + positive sides) | `keyword-map.md` "Active Hypothesis S21" (foundational); absorbed into S24 active entry below |
+> | S25 | Two new noise classes (spam-story + real-estate); ambient-desk-lamp signal | `rejected-products.md` per-session pattern summaries; Candle Warmer Lamp Marina-Rejected closed |
+>
+> **PROMOTED (graduated to permanent op-rules):**
+> - S18 scraper URL encoding `quote_plus` fix → FB `op-rules.md` RULE 5c
+>
+> (Per **RULE-15** — see `core/session-health-rules.md` — tombstones collapsed when they exceeded 30 lines / 20% of active file.)
 
 ---
 
@@ -47,106 +52,6 @@ Workaround when start date is critical: WebFetch brand/About page → founding d
 Important: do NOT make this a mandatory step for every advertiser — only when Entry Window score is decisive for the 65/70 threshold.
 **Applies to:** All VPS scraper sessions — Entry Window scoring
 **Expires after:** Until `started` field is fixed in scraper (or permanent if never fixed)
-
----
-
-~~### [2026-05-18] Session 15 — Performance signal keywords: yield baseline established~~
-> ARCHIVED S22 — expired.
-
----
-
-~~### [2026-05-18] Session 15 — --since=2026-01-01 date filter: no signal improvement~~
-> ARCHIVED S22 — expired.
-
----
-
-~~### [2026-05-18] Session 15 — Category tracking: 30-keyword experiment~~
-> ARCHIVED S25 — expired. Broad Horizontal hypothesis CLOSED S20; superseded by Situation Keywords hypothesis.
-
----
-
-~~### [2026-05-18] Session 17 — "Gadget" descriptor keywords: dead class~~
-> ARCHIVED S25 — expired. Verdicts preserved in keyword-map.md ("gadget"/"genius gadget" ❌ DEAD).
-
----
-
-~~### [2026-05-18] Session 16 — Offer/promo keywords: dead class~~
-> ARCHIVED S25 — expired. Verdicts preserved in keyword-map.md Meta Rules (Offer/promo DEAD class).
-
----
-
-~~### [2026-05-18] Session 16 — "%" symbol in FB Ads Library search: URL encoding failure~~
-> ARCHIVED S19 — superseded by S18 quote_plus fix. Word alternatives no longer needed. See S18 entry below.
-
----
-
-~~### [2026-05-18] Session 18 — Scraper URL encoding: quote_plus fix~~
-> PROMOTED S30 — now permanent in op-rules.md RULE 5c (special chars handled via `urllib.parse.quote_plus`; apostrophe → 0 ads, fixed → 364). Removed from Active to avoid duplication with op-rules.
-
----
-
-~~### [2026-05-18] Session 18 — Broad horizontal discovery: pattern after 15+ keywords~~
-> ARCHIVED S25 — expired. Hypothesis CLOSED S20 (see S20 archived entry below).
-
----
-
-~~### [2026-05-18] Session 19 — Universal urgency/credibility phrases: dead class~~
-> ARCHIVED S25 — expired. Verdicts preserved in keyword-map.md.
-
----
-
-~~### [2026-05-18] Session 19 — FB Ads Library: 0-result anomaly for certain phrases~~
-> ARCHIVED S21 — expired. Superseded by S21 finding: "back pain" + "standing all day" consistently blocked (not glitch, but FB policy on certain term types). Updated rule in S21 learning below.
-
----
-
-~~### [2026-05-18] Session 19 — Broad horizontal discovery: hypothesis performance update~~
-> ARCHIVED S22 — expired.
-
----
-
-~~### [2026-05-18] Session 20 — Broad Horizontal Discovery hypothesis: CLOSED~~
-> ARCHIVED S25 — expired. Final tally: 29 keywords → 2 products (both S15). Pivoted to Situation Keywords (S21+).
-
----
-
-~~### [2026-05-19] Session 21 — FB blocks short health-condition & activity terms in Active ads filter~~
-> ARCHIVED S28 — expired. REFINED by S27+S28 data: the block is TERM-SPECIFIC, not "all 2-word health terms". Blocked: "back pain", "standing all day". NOT blocked: "tired eyes" (262, S27), "sore wrists" (74, S28), "wrist pain" (310, S28), "hand strain" (242, S28). Verdicts preserved in keyword-map.md. Practical rule retained: if a 2-word term returns 0, try a 3-4 word variant — but do NOT assume a 2-word health term will be blocked.
-
----
-
-~~### [2026-05-19] Session 21 — Situation Keywords Cluster 1 (Physical Discomfort at Work) — verdict~~
-> ARCHIVED S28 — expired. Core conclusion (situation keywords with a SPECIFIC moment of discomfort outperform generic performance phrases) preserved + refined in S22/23 learning + S24 discriminating principle. Cluster 1 keyword verdicts preserved in keyword-map.md.
-
----
-
-~~### [2026-05-19] Session 22/23 — Situation Keywords: что работает, что не работает~~
-> ARCHIVED S29 — expired (Expires after Session 29). Core conclusion (situation keywords work only when they create a SPECIFIC moment with a concrete object-solution; wide emotional/psychological states fail) is fully absorbed into the S24 discriminating-principle entry below + reconfirmed by S29 (appearance/identity phrases "looking good"/"tired face" = no white-label object → 0). Keyword verdicts in keyword-map.md.
-
----
-
-~~### [2026-05-23] Session 24 — Mental/biochemical states DEAD (3rd confirmation) + discriminating principle~~
-> ARCHIVED S30 — expired (Expires after Session 30). The DISCRIMINATING PRINCIPLE it established — *a keyword yields white-label physical DTC only if the problem/moment has a concrete PHYSICAL OBJECT as its obvious, immediate solution* — is foundational and reconfirmed every session since (S25–S30). Preserved in keyword-map.md "Active Hypothesis S21" section. Cluster 2 (Stress/Mental) remains CLOSED. S30 added a fresh confirmation on the POSITIVE side: cat-on-desk yielded a product (cats perch → novel desk object), dog-under-desk did not (dogs lie → generic bed, no desk object) — behavior of the subject determines whether a concrete object owns the moment.
-
----
-
-~~### [2026-05-23] Session 24 — S25 direction note (non-binding)~~
-> ARCHIVED S27 — expired. Superseded: S25/S26/S27 followed the Office×Positive Emotion direction (per _active.md S24 PIVOT + session prompts), NOT the Kids vertical floated in this note.
-
----
-
-~~### [2026-05-23] Session 25 — Office × Positive Emotion (Cluster 5): yield + discriminating principle (positive side)~~
-> ARCHIVED S31 — expired (Expires after Session 31). Core conclusion (a positive-moment keyword yields white-label DTC only when the moment has a concrete PHYSICAL-OBJECT solution) is foundational, reconfirmed S26-S31. S31 added the INVERSE on the pain/condition side: worker-condition phrases whose only solution is a consumable/commodity (cracked hands→cream, coffee→beans) or a founder-closed category (driving→seat cushion) → 0. Yield norm + verdicts preserved in keyword-map.md. Full block → learnings-archive-queue.md.
-
----
-
-~~### [2026-05-23] Session 25 — Two new NOISE classes on consumer/lifestyle keywords~~
-> ARCHIVED S31 — expired (Expires after Session 31). Both classes (spam engagement-bait "story" accounts; real-estate/property listings on broad lifestyle phrases) are now permanent fixtures reconfirmed every session S25-S31, alongside later-added classes (pharma "doctor-story" NO-DOMAIN, micro-drama romance, cloaked-affiliate). Recognition cues preserved in rejected-products.md per-session pattern summaries. Full block → learnings-archive-queue.md.
-
----
-
-~~### [2026-05-23] Session 25 — Recurring SIGNAL: ambient/aesthetic desk lamp~~
-> ARCHIVED S30 — expired (Expires after Session 30). Candle Warmer Lamp reported (70, S25, Marina→Rejected on fragility/shipping risk). Lamp/lighting deep-dive not pursued S26-S30. Directional signal closed; revivable if Marina wants a lighting-category session.
 
 ---
 

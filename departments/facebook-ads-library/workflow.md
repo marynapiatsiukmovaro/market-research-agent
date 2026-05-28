@@ -98,6 +98,8 @@ For each candidate scoring 65+:
 
 ### STEP 8 — End-of-Session Checklist (mandatory, do not skip)
 
+> **Memory rotation throughout (RULE-15):** apply rolling-window / tombstone discipline as you go through the substeps below — see `core/session-health-rules.md` **RULE-15** for the per-file policy (`rejected-products` 20-session window; `learnings.md` tombstones cleanup; `founder-feedback` verify-before-archive when >400 lines).
+
 **1. Save reported products** → `shared/reported-products.md`
 - Add one row per reported product: Date, Product, Category, Score, Key Hook, Source
 
