@@ -24,8 +24,9 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 |---|---|---|---|---|
 | Cordless Infrared Heated Cushion (Stoov-type) | 73 | 🔵 Watchlist | "Solves real pain. Small market?" | Real pain-solver, but market may be small → study the product depth before committing. |
 | Painter's Tape Applicator (Masking Master-type) | 72 | 🔵 Watchlist | "Novel tool. First time seen." | Novel/never-seen tool — keep on radar to know the tech exists (patented → can't copy exactly). |
+| Step Safety Handrail (Hold-Tight-type) | 75 | 🔵 Watchlist | "Real problem. Not dropship-fit now." | Strong real problem (elderly fall-safety) + proven demand (25k reviews, viral), BUT doesn't fit the dropship model now (USA-made, weld/weight quality, not cheap-white-label logistics). |
 
-*(Both genuine 65+ — Watchlist ≠ mis-score. Keep reporting this kind; she may return.)*
+*(All genuine 65+ — Watchlist ≠ mis-score. Keep reporting this kind; she may return.)*
 
 ## Calibration signals (distilled — apply in future Store Leads scoring)
 - **"Novel / never-seen" alone → Watchlist, not a winner-launch.** Marina parks first-of-its-kind tools as
@@ -34,6 +35,9 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
   Consider. A solved pain in a possibly-small niche = Watchlist (study), not Consider.
 - **Liability kills it** — even a 100%-real pain (e.g. anti-choking) goes Watchlist if it carries high
   liability ("слишком большая ответственность"). [from the SaveLix cross-dept review, same session]
+- **"Dropship-model fit" is its own gate** — a strong, proven problem-solver still goes Watchlist (not Consider)
+  if it doesn't suit the dropship model: USA-made / quality-critical (weld+weight), heavy/bulky shipping, or not
+  cheaply white-labelable. Real demand ≠ launchable for us. [Hold-Tight Handrail, 2026-05-31]
 - **Founder-notes phrasing:** ultra-compact, fragment-with-period, 4–5 words, bullseye (e.g. "Solves real pain.
   Small market?" · "Novel tool. First time seen."). See op-rules RULE 17.
 

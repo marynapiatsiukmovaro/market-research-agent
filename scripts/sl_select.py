@@ -19,8 +19,12 @@ def money(s):
     try: return float(t)
     except: return None
 rows=json.load(open(f"{OUT}/{SLUG}_full.json"))
-band=[]; drop_vis=drop_rev=drop_price=drop_pc=0
+import os
+PROC_PATH=f"{OUT}/processed_domains.json"
+processed=set(json.load(open(PROC_PATH)).keys()) if os.path.exists(PROC_PATH) else set()
+band=[]; drop_vis=drop_rev=drop_price=drop_pc=drop_proc=0
 for r in rows:
+    if r.get("domain") in processed: drop_proc+=1; continue   # already analysed in a prior session — never re-surface
     v=r.get("visits")
     if v is None or not (VLO<=v<=VHI): drop_vis+=1; continue
     rev=money(r.get("sales"))
@@ -42,7 +46,7 @@ def conv(r):
             "theme":r.get("theme")}
 json.dump([conv(r) for r in sel],open(f"{OUT}/{OUTSLUG}.json","w"),ensure_ascii=False)
 print(f"total rows={len(rows)} | qualified in band={len(band)} | selected={len(sel)}")
-print(f"dropped: out-of-visit-band={drop_vis} rev>{REVMAX}={drop_rev} price>{PMAX}={drop_price} pc>{PCMAX}={drop_pc}")
+print(f"dropped: already-processed={drop_proc} out-of-visit-band={drop_vis} rev>{REVMAX}={drop_rev} price>{PMAX}={drop_price} pc>{PCMAX}={drop_pc}")
 if sel:
     vs=[r["visits"] for r in sel]
     print(f"selected visits range: {min(vs):,}..{max(vs):,}")

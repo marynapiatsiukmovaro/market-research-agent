@@ -125,6 +125,14 @@ So Marina explains once; the agent distils.
   "Stylish design. Real pain-solver." · "Banal product. Brilliant packaging." · "Strong pain-solver. Strong seasonal hooks."
   Rejection Reason — "High refund risk." · "Narrow audience. Hard to scale." · "Overexposed category." · "Fragile shipping risk."
 
+### RULE 19 — Mark processed stores (never re-analyse the same store twice)
+Every store taken through the funnel is recorded in `logs/storeleads/processed_domains.json` on the VPS
+(`{domain: {subcat, band, date, stage, outcome}}`, outcome = reported / screened / rejected). `sl_select.py`
+**excludes already-processed domains** from every new batch, so a fresh session never re-surfaces a store that
+was already analysed. State lives on the VPS = the single source of truth a new session reads. Record the batch
+as processed at end-of-session (part of RULE 17). (Per-subcategory deep-dive: exhaust one niche batch-by-batch —
+visits high→low — without overlap.)
+
 ### RULE 18 — Memory hygiene (RULE-15 of core/session-health-rules)
 Keep only the **2 most recent HANDOFF blocks** in `learnings.md`; move older ones to `handoffs-archive.md`. Archive
 expired learnings (never delete — move to Expired). Dedup. Keep the mandatory-load footprint lean.
