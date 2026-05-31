@@ -4,6 +4,9 @@ import json, sys, html
 OUT="/opt/market-research-agent/logs/storeleads"
 SLUG=sys.argv[1]; N=int(sys.argv[2]); TITLE=sys.argv[3] if len(sys.argv)>3 else SLUG
 rows=json.load(open(f"{OUT}/{SLUG}_full.json"))
+import os
+_pp=f"{OUT}/processed_domains.json"
+PROC=set(json.load(open(_pp)).keys()) if os.path.exists(_pp) else set()
 rows=rows[:N]
 def fnum(v):
     try: return f"{int(v):,}"
@@ -11,12 +14,12 @@ def fnum(v):
 def lk(u,l): return f'<a href="{html.escape(u)}" target="_blank">{l}</a>' if u else ""
 def socx(r):
     return " ".join(lk(u,l) for u,l in [(r["fb"],"FB"),(r["ig"],"IG"),(r["tiktok"],"TT"),(r["pinterest"],"Pin")] if u)
-hdr=["#","Domain","Merchant","Cn","Created","Est Visits","Est PViews","Est Sales/mo","Avg $","Min $","Max $",
+hdr=["#","✓","Domain","Merchant","Cn","Created","Est Visits","Est PViews","Est Sales/mo","Avg $","Min $","Max $",
      "Avg Wt","Prods","Vars","AppSpend","Rank","Theme","Last Theme","Reviews","TP","Social","Meta"]
 trs=[]
 for i,r in enumerate(rows,1):
     dom=r["domain"] or ""; durl="https://"+dom if dom and not str(dom).startswith("http") else dom
-    cells=[str(i),lk(durl,html.escape(str(dom))),html.escape(str(r["merchant"] or "")),html.escape(str(r["country"] or "")),
+    cells=[str(i),("✓" if dom in PROC else ""),lk(durl,html.escape(str(dom))),html.escape(str(r["merchant"] or "")),html.escape(str(r["country"] or "")),
       r["created"] or "",fnum(r["visits"]),fnum(r["pageviews"]),html.escape(str(r["sales"] or "")),
       html.escape(str(r["avg_price"] or "")),html.escape(str(r["min_price"] or "")),html.escape(str(r["max_price"] or "")),
       html.escape(str(r["avg_weight"] or "")),fnum(r["products"]),fnum(r["variants"]),html.escape(str(r["app_spend"] or "")),
