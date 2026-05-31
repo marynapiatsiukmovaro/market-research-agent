@@ -45,11 +45,26 @@ table (domain, merchant, est $/mo, avg price, created, reviews, #products, FB-pi
 >   (e.g. visits 1k–50k) is a transparent batch choice, reported with counts (RULE 1) — not a silent cull.
 
 **Stage 2 — Enrich finalists from the LIVE catalog (VPS, Playwright + proxy).** `sl_enrich2.py`
-(4 workers). For each store: fetch the **best-selling / frontpage / featured collection**
-(sales order = real hero) → fallback `/products.json`. Surface top-8 catalog products + pick a
+(4 workers). *(CURRENT code — single-hero, top-8, within-batch convergence; being replaced by the v2 contract
+in the ⭐ box below.)* For each store: fetch the **best-selling / frontpage / featured collection**
+(sales order = real hero) → fallback `/products.json`. Surface top catalog products + pick a
 hero candidate; record REAL price, description, kind (physical / ingestible / skincare / apparel),
 пустышка flag, image, within-batch convergence. **Health-check the proxy first** (`sh_proxy_check.py` — the
 shared iProyal proxy-check; Store Leads uses the same `cookies/proxy.creds` + dedicated IP as ShopHunter).
+
+> **⭐ v2 PRODUCT-CENTRIC upgrade (Marina-agreed 2026-05-31, S2 — target; code not yet aligned).** The unit is
+> the PRODUCT, not the store. Stage-2 changes (full contract in `methods/subagent-spec.md` + `hypotheses/_active.md`):
+> (1) **Open-ladder** so no live store is a silent DROP — `best-selling→frontpage→featured→/products.json→homepage HTML`;
+> all fail → `reachable:false, reason` = "needs manual look". (2) Return **TOP-3 product candidates** per store,
+> each with full desc + **REAL price normalized to USD** + type + `hero_confidence` (high if from a sales-ordered
+> collection, low if from `all`/HTML) + `desc_confidence` (ok/empty/mismatched → empty/mismatched MUST be live-WebFetched
+> before scoring; we do what ShopHunter only PLANNED at SH-8). (3) **Early signals per product, NOW:** storefront position
+> + investment (desc len / #images / #variants / badges) + **convergence within the subcategory** (~27k of the dump, dedupe
+> geo-mirrors) — revenue is NOT the selector. **Pre-flight 5 checks before any run** (VPS up · login valid · no duplicate
+> worker · proxy healthy · quota OK) + **follow FB RULE 4c** (one-line nohup · sentinel-detect not process · no `pgrep -f`,
+> use `[s]l_enrich2` · bracket-kill standalone · NEVER `-o` ssh flags). Every batch: **hand-check a random sample of the
+> dropped pile** (loss-measurement → report the number) + **flag interesting stores to the keep-list** (feeds ShopHunter's
+> parked newest-first monitor). DEFERRED: the monitor JOB itself, fresh-product job, FB-pixel-as-criterion.
 
 **Stage 3 — Deep-score (chat) — the real filter. NEVER skip / never eyeball the proxy tier.**
 - Read **ALL** candidate sheets (A+B+C), no gut top-N (FB RULE 8). The enricher's A/B/C/`score`

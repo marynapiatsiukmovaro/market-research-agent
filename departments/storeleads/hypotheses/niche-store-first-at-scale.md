@@ -12,10 +12,15 @@ Goal of the first month = build + harden the chain on real niches, not chase a s
 - Platform = Shopify · Status = Active
 - Country ∈ US, UK, DE, CA, AU, NZ (query per-country, merge — multi-cc AND bug)
 - Created ≥ 2020 (a store made years ago may only now be testing a product — don't lose it)
-- Avg product price $0–350 (wide; confirm real hero price on the site)
+- Avg product price $0–350 (wide STORE-LEVEL filter — keep the box; not the same as the PRODUCT band below)
 - Avg product weight ≤ ~1.5 kg (cut bulky — when the weight filter is wired server-side)
 - Est. revenue $0–$1M/month (from zero — catch emerging $10k stores)
-- FB-Pixel filter OFF for now (data incomplete; try later to see how much it cuts)
+- FB-Pixel filter OFF — and demoted to CONTEXT, not a selection criterion (data not always correct; Marina S2)
+
+> **Two different price numbers — don't confuse them (S2 clarification):** the **$0–350 above** is the *store's
+> average* product price, a WIDE Stage-1 filter just to keep the box in play. The **product RETAIL band** we
+> actually score against is **preferred $45–79 / acceptable $39–100 / premium $100–170 (margin-penalty) / >$170 = out**
+> (`core/scoring-system.md` + `methods/subagent-spec.md`). A $300-avg store can still hold a $69 golden product.
 - Exclude niches we won't sell (apparel/clothing; others TBD)
 
 ## To calibrate / build next

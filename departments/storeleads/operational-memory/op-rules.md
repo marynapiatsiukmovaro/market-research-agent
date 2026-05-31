@@ -31,6 +31,15 @@ BEFORE asserting any hit-rate, coverage, or "not in index."
 ### RULE 4 — Verify before asserting
 Never present a hypothesis as a fact. Test first → then state the conclusion. If unverified, say so.
 
+### RULE 4a — When something breaks, SLOW DOWN (no panic-fixing) — Marina, S2 2026-05-31
+The trigger that caused a bad cascade in S2: a script **crashed** → I flipped from "investigate & verify" into
+"fix-it-fast" mode → in haste I **stopped pulling the fact from the data first** → invented a number ("81/40%
+dropped" when the real figure was 10), built a fix for a non-existent problem, and deleted a good result.
+**The rule:** a failure is a signal to slow down, not speed up. Before writing ANY "the problem is X / the number is N",
+ask: **"did I SEE this in the output, or am I ASSUMING it?"** If assuming → print the fact first, then act. A crash never
+justifies skipping verification. (This is a habit, not a constraint — the repo + Marina-approval already guard the big
+changes; this guards my own composure.) Pairs with RULE 4.
+
 ---
 
 ## B. Funnel discipline
@@ -134,8 +143,9 @@ as processed at end-of-session (part of RULE 17). (Per-subcategory deep-dive: ex
 visits high→low — without overlap.)
 
 ### RULE 18 — Memory hygiene (RULE-15 of core/session-health-rules)
-Keep only the **2 most recent HANDOFF blocks** in `learnings.md`; move older ones to `handoffs-archive.md`. Archive
-expired learnings (never delete — move to Expired). Dedup. Keep the mandatory-load footprint lean.
+Keep only the **2 most recent HANDOFF blocks** in `learnings.md`; move older ones to `handoffs-archive.md`
+(**create this file when the 3rd HANDOFF appears** — it does not exist yet; we have only 2 blocks, nothing to
+archive). Archive expired learnings (never delete — move to Expired). Dedup. Keep the mandatory-load footprint lean.
 
 ---
 
