@@ -113,8 +113,17 @@ Founder Notes (+ Rejection Reason if Rejected)** in `founder-feedback.md`; (3) d
 what she set, never invent or set Founder Review yourself.
 
 **Founder-feedback format** (one row per decision, table per tier — Approved / Consider / Watchlist / Rejected):
-`Date · Product · Score · Marina's reason (her words — the "сок", 2–3 words) · Signal to keep (calibration)`.
-So Marina explains once; the agent distils. *(Marina's exact phrasing-principle table → to be pasted in and baked here.)*
+`Date · Product · Score · Marina's reason (her words — the "сок") · Signal to keep (calibration)`.
+So Marina explains once; the agent distils.
+
+**Founder Notes / Rejection Reason — phrasing principle (Marina-confirmed 2026-05-31):**
+- **Ultra-compact: 4–5 words MAX**, written as **short fragments ending with a period** — bullseye, no fluff.
+- **Rejected** → fill **Founder Notes + Rejection Reason**. **Watchlist / Consider / Approved** → **Founder Notes only**.
+- Marina gives the verdict verbally (expanded); the agent renders it into this compact form, **shows her the table
+  for approval BEFORE writing to Notion**, adjusts, then writes. Never invent a verdict; never set Founder Review.
+- Real reference examples (from the live DB): Founder Notes — "Solves real pain." · "Apple-like aesthetic." ·
+  "Stylish design. Real pain-solver." · "Banal product. Brilliant packaging." · "Strong pain-solver. Strong seasonal hooks."
+  Rejection Reason — "High refund risk." · "Narrow audience. Hard to scale." · "Overexposed category." · "Fragile shipping risk."
 
 ### RULE 18 — Memory hygiene (RULE-15 of core/session-health-rules)
 Keep only the **2 most recent HANDOFF blocks** in `learnings.md`; move older ones to `handoffs-archive.md`. Archive
