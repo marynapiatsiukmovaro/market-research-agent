@@ -13,7 +13,11 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 ---
 
 ## Decisions
-(none yet — pilot run 2026-05-30 wrote nothing to Notion; awaiting first founder-reviewed batch)
+
+### [2026-05-31] Composting toilets — REJECTED as a category (high-ticket)
+**Decision:** Do NOT pursue composting toilets — CompoCloset/Cuddy ($750), Trobolo, Trelino — **despite** ShopHunter-proven $1M+/mo multi-player demand (3 stores ~$1M/mo, Trelino Evo S $135k/mo).
+**Reason (Marina):** every product is pushed via **Facebook ads + paid traffic**, and these are **high price + expensive/bulky shipping** → **outside our impulse price segment**. "Точно пока нет."
+**Calibration (apply in Store Leads scoring):** auto-deprioritize **high-ticket / bulky** finds (composting toilets, furniture, large appliances) regardless of revenue or convergence strength — expensive FB-traffic shipping kills the economics. Not even Watchlist for this one (Marina: definite no).
 
 ## Calibration signals (distilled — apply in future Store Leads scoring)
 (to be filled as Marina reviews Store-Leads products)

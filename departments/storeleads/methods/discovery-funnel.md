@@ -1,8 +1,9 @@
 # Store Leads — Discovery Funnel (PILOT method — in development)
 
-> **Status: PILOT (1 full run, 2026-05-30 — US Kitchen & Dining 200 stores).** Validated that
-> the chain runs end-to-end. NOT yet stable; numbers are ILLUSTRATIVE, never quotas. Living doc —
-> do NOT carve into a permanent op-rules file until validated across several sessions.
+> **Status: SYSTEM-BUILD — chain validated twice** (2026-05-30 US Kitchen & Dining 200; 2026-05-31 Home
+> Improvement band 200). Numbers here are ILLUSTRATIVE, never quotas. Permanent discipline now lives in
+> `operational-memory/op-rules.md`; this doc holds the *method* (the how) and stays a living doc. Funnel
+> mechanics still being calibrated across sessions before any further promotion.
 
 ## Core idea
 Store Leads returns rich STORE-LEVEL data inside the search result, so heavy filtering is cheap
@@ -21,8 +22,10 @@ site before asserting. The browse-pool ensures the founder can catch what the ag
 with the advanced **`bq` (Bleve)** query — Platform=Shopify, Status=Active, Category(`match`),
 **Created≥2020** server-side (`cratyyyymm` TermRange). Big subcategories (>25k) are split into
 **created windows** (each <25k) and merged → no ceiling loss (HI 27,052 collected exact). `cursor`
-pagination (50/page, `ps` capped at 50; ~21 min for 27k → run in background). ONE country per query
-(multi-cc AND bug) → merge. Persist raw JSON; reuse, don't re-pull. (`sl_dump3.py` = quick sample.)
+pagination (50/page, `ps` capped at 50; ~21 min for 27k → run in background). **Country: currently NO `cc`
+filter** — we dump ALL markets (results are US-dominant + UK/DE/EU/CA/AU/NZ mixed in, all acceptable per our
+target markets). Per-country query+merge is only needed IF we later restrict markets (multi-cc comma = AND bug →
+one country per query then merge — TO BUILD). Persist raw JSON; reuse, don't re-pull. (`sl_dump3.py` = quick sample.)
 
 **Stage 1 — Client-side filter + table (VPS, ~0 tokens).** Created≥2020 is now server-side (Stage 0).
 Client-side on the dump fields: `erf` (monthly revenue) `≤ $1M`, `apf` (avg price) `≤ $350`, weight,
@@ -31,11 +34,22 @@ Add a `cat_flag` from `pc` (product count): hero ≤300 / mid / catalog-giant >2
 product is one of many = weaker hero, like ShopHunter SKU insight). Output = the Stage-1 candidate
 table (domain, merchant, est $/mo, avg price, created, reviews, #products, FB-pixel, …).
 
+> **Stage-1 conservative cut — what counts as DEFINITE-NO (drop only these; when unsure, KEEP):**
+> - avg price **> $350** (hard ceiling) — out of any plausible band.
+> - est revenue **> $1M/mo** — established brand, not an emerging white-label window.
+> - **catalog-giant** `pc > 2000` — a retailer/marketplace, not a single-hero store (deprioritize for THIS batch;
+>   stays in the dump for later, not "lost").
+> - **apparel / clothing** category (we don't sell it) + obvious **high-ticket / bulky** types (furniture, large
+>   appliances, composting toilets — RULE 10).
+> - Everything else is a SURVIVOR → goes to Stage 2. No subjective name-based pre-pick (RULE 5). Band selection
+>   (e.g. visits 1k–50k) is a transparent batch choice, reported with counts (RULE 1) — not a silent cull.
+
 **Stage 2 — Enrich finalists from the LIVE catalog (VPS, Playwright + proxy).** `sl_enrich2.py`
 (4 workers). For each store: fetch the **best-selling / frontpage / featured collection**
 (sales order = real hero) → fallback `/products.json`. Surface top-8 catalog products + pick a
 hero candidate; record REAL price, description, kind (physical / ingestible / skincare / apparel),
-пустышка flag, image, within-batch convergence. **Health-check the proxy first** (`sh_proxy_check.py`).
+пустышка flag, image, within-batch convergence. **Health-check the proxy first** (`sh_proxy_check.py` — the
+shared iProyal proxy-check; Store Leads uses the same `cookies/proxy.creds` + dedicated IP as ShopHunter).
 
 **Stage 3 — Deep-score (chat) — the real filter. NEVER skip / never eyeball the proxy tier.**
 - Read **ALL** candidate sheets (A+B+C), no gut top-N (FB RULE 8). The enricher's A/B/C/`score`
@@ -51,6 +65,21 @@ hero candidate; record REAL price, description, kind (physical / ingestible / sk
 **Checkpoint → Notion only after Marina's explicit OK** (work autonomously through dump→deep-score,
 then WAIT). Every link in the checkpoint = a clickable markdown hyperlink. Browse-pool = unique
 links only. Convergence/revenue earns at most Watchlist, never auto-Consider.
+
+## Data-trust map — what to trust vs verify (Store Leads fields)
+Service data is directional. Per field:
+- **Price (`apf`/min/max) — NEVER trust; ALWAYS confirm on the live site** before scoring (the #1 unreliable field;
+  ShopHunter caught $45 vs real $159.95 repeatedly; en-route currencies/locale formatting also distort it).
+- **Est revenue (`erf`) — directional only.** Cross-validated OK for Stoov ($314k≈SH $332k) but off for CompoCloset
+  ($344k vs SH $1M). Use for rough banding, corroborate (ShopHunter, ad activity) before relying.
+- **Est Visits/PageViews (`mvis`/`mpv`) — good as a RANKING signal**, not an absolute. Start >1000, don't exclude lower.
+- **Hero / "which product" — NEVER trust the enricher's auto-pick;** confirm on the live best-seller page (it grabs
+  bundles/accessories/replacement parts, esp. when it falls back to the `all` collection).
+- **Reviews (`combrs`/`tprs`) — weak/fakeable;** never a selector.
+- **Social follower counts / 30-day growth — ABSENT in the API** (only account links exist).
+- **Category — `None` blind spot:** ~400k/2.85M active Shopify have no category → any category filter silently drops
+  them. We accept this (we work category-by-category) but never claim "full universe" coverage.
+- **ShopHunter cross-check — ~25% hit-rate** on emerging Store Leads stores; absence in SH ≠ a negative signal.
 
 ## Adopted from ShopHunter (keep)
 VPS-side heavy lifting, chat gets only finalists (FB RULE 7) · verify ALL above bar, no gut top-N

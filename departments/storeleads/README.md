@@ -42,10 +42,14 @@ workflow, founder-taste, product-validation, analysis skills).
   API / workflow** (Pro+ only) → we use the internal session-API the UI itself calls. Stay gentle.
 
 ## Entry points
-- `workflow.md` — session entry point (thin → methods/).
+- `workflow.md` — session entry point (thin → methods/). Load order: op-rules → founder-feedback → learnings.
+- `operational-memory/op-rules.md` — **PERMANENT rules (read FIRST every session)** — the department's discipline.
 - `capabilities.md` — what Store Leads exposes + what we inherit.
-- `methods/interface-guide.md` — the JSON-API mechanics (login, endpoints, filter format, fields, limits).
-- `methods/discovery-funnel.md` — the chain (Stage 0–3) + Stage-3 discipline + lessons.
+- `methods/interface-guide.md` — the JSON-API mechanics (login, endpoints, `bq`, filter format, fields, limits).
+- `methods/discovery-funnel.md` — the chain (Stage 0–3) + Stage-1 conservative cut + data-trust map + discipline.
+- `methods/subagent-spec.md` — the Stage-2 enricher's exact job spec (fields, `desc` rule, what NOT to write).
+- `methods/shophunter-enrichment.md` — OPTIONAL cross-dept enrichment of finalists via ShopHunter.
+- `reference/cross-dept-patterns.md` — patterns observed in SH/FB, not adopted yet (reference / archivable).
 - `operational-memory/learnings.md` — HANDOFF (read first) + session learnings.
 - `operational-memory/founder-feedback.md` — Marina's product decisions for this channel.
 - `hypotheses/_active.md` — current research direction.
