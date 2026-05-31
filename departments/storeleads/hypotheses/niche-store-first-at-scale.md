@@ -3,7 +3,7 @@
 > **STATUS: ACTIVE (the founding direction).** Pilot-validated chain 2026-05-30; still calibrating.
 
 ## Idea (Marina, 2026-05-30)
-Replicate the ShopHunter system, but on Store Leads' much larger universe (~2.88M active Shopify):
+Replicate the ShopHunter system, but on Store Leads' much larger universe (~2.85M active Shopify):
 pick a niche → set WIDE filters that don't over-cut → dump all matching stores → analyse EVERY store
 (nothing lost) with a live site visit for finalists → score → report 65+ / 55–64 / interesting links.
 Goal of the first month = build + harden the chain on real niches, not chase a specific winner.
@@ -19,16 +19,16 @@ Goal of the first month = build + harden the chain on real niches, not chase a s
 - Exclude niches we won't sell (apparel/clothing; others TBD)
 
 ## To calibrate / build next
-- Crack **sort** (Created↓ / Est Sales↑) to fish emerging white-label instead of rank-top brands.
-- Crack server-side **range filters** (price / weight / created / revenue band `erb`).
-- Multi-country merge in the dumper.
-- Stage-1 **table / fields** design with Marina (on the 200 pilot).
+- ✅ DONE (2026-05-31): advanced **`bq`** query — Created≥2020 server-side + multi-category OR +
+  25k-ceiling bypass via created windows (no server sort needed; client-sort by Est Visits).
+- ✅ DONE: category census + green shortlist; Stage-1 **table / fields** agreed with Marina + live-verified.
+- Multi-country merge in the dumper (pilot is US-only for now).
 - **Saved Lists + weekly-email** monitoring of new stores/products on a saved filter.
 - Optional **ShopHunter** enrichment for top finalists (per-product revenue) — validate hit-rate first.
 - Niche rotation; record niche-yield facts (like ShopHunter) without closing niches.
 
 ## Open questions to test
 1. Exact "search" accounting vs the ~2000–4000/mo quota (per query vs per page) — check the in-app counter.
-2. How deep can we paginate within the 25k/query ceiling, and best segmentation for >25k niches.
+2. ✅ Answered: >25k niches segmented via `bq` created windows (each <25k), paginate+merge (HI 27,052 exact).
 3. Revenue-estimate accuracy: Store Leads `erf` vs live reality vs ShopHunter.
 4. Which sort surfaces the best white-label pool (Created vs Est-Sales-asc vs social-growth).

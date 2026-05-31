@@ -1,14 +1,14 @@
 # Store Leads Department
 
-Third sourcing department. **Store-first discovery** at SCALE via storeleads.app (~2.88M
-active Shopify stores), using its internal JSON API as the funnel's Stage-0 source.
+Third sourcing department. **Store-first discovery** at SCALE via storeleads.app (~2.85M
+active Shopify stores; ~3.59M Shopify all-status), using its internal JSON API as the funnel's Stage-0 source.
 
-> **Status: PILOT / in active development (started 2026-05-30).** Access is solved, the
-> internal data-API is mapped, and the full chain (dump → client-filter → enrich → deep-score)
-> ran end-to-end once on a 200-store pilot (US Kitchen & Dining). Structure, tables, scoring
-> calibration and (optional) ShopHunter integration are still being built iteratively — the
-> same way ShopHunter and Facebook Ads Library matured, not designed up front. Human-in-loop;
-> autonomous mode NOT earned.
+> **Status: SYSTEM-BUILD / in active development (started 2026-05-30).** Access solved; internal
+> data-API fully mapped incl. the advanced **`bq` (Bleve) query** — created≥2020, multi-category OR,
+> and the 25k-ceiling bypass via created windows (all validated to-the-store). Category census done;
+> green-shortlist subcategories fixed; export-table fields agreed + live-verified. First full clean
+> dump done (Home Improvement ≥2020 = 27,052). NEXT = batch-200 analysis funnel + (optional) ShopHunter
+> test, then Notion fields. Built iteratively like ShopHunter / FB matured. Human-in-loop; autonomous NOT earned.
 
 ## Why this department exists
 ShopHunter's universe is its ~800/category *tracked* subset — emerging/early-window stores

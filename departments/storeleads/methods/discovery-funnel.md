@@ -17,12 +17,16 @@ site before asserting. The browse-pool ensures the founder can catch what the ag
 
 ## The chain (numbers illustrative)
 
-**Stage 0 — Dump (VPS, API, ~0 tokens).** `sl_dump.py`: POST `/json/auth/domains` with the locked
-filters, paginate via `cursor` (50/page) up to the 25k ceiling. ONE country per query (multi-cc
-bug) → merge. Persist raw JSON; reuse, don't re-pull.
+**Stage 0 — Dump (VPS, API, ~0 tokens).** `sl_dump_full.py "<cat path>" <slug>`: POST `/json/auth/domains`
+with the advanced **`bq` (Bleve)** query — Platform=Shopify, Status=Active, Category(`match`),
+**Created≥2020** server-side (`cratyyyymm` TermRange). Big subcategories (>25k) are split into
+**created windows** (each <25k) and merged → no ceiling loss (HI 27,052 collected exact). `cursor`
+pagination (50/page, `ps` capped at 50; ~21 min for 27k → run in background). ONE country per query
+(multi-cc AND bug) → merge. Persist raw JSON; reuse, don't re-pull. (`sl_dump3.py` = quick sample.)
 
-**Stage 1 — Client-side filter + table (VPS, ~0 tokens).** On the dump fields apply the filters
-not yet server-side: `created ≥ 2020`, `erf` (monthly revenue) `≤ $1M`, `apf` (avg price) `≤ $350`.
+**Stage 1 — Client-side filter + table (VPS, ~0 tokens).** Created≥2020 is now server-side (Stage 0).
+Client-side on the dump fields: `erf` (monthly revenue) `≤ $1M`, `apf` (avg price) `≤ $350`, weight,
+and **sort by `mvis` (Est Visits) desc** (primary ranking signal — start >1000 visits, don't exclude lower).
 Add a `cat_flag` from `pc` (product count): hero ≤300 / mid / catalog-giant >2000 (high pc =
 product is one of many = weaker hero, like ShopHunter SKU insight). Output = the Stage-1 candidate
 table (domain, merchant, est $/mo, avg price, created, reviews, #products, FB-pixel, …).
@@ -61,14 +65,16 @@ HANDOFF · human-in-loop · checkpoint-before-Notion · lead with WOW/taste not 
 2. **Hero from best-selling collection** (`sl_enrich2`) > highest-priced-in-range; but ~half the
    stores have no best-selling/frontpage collection → fall back to catalog order (weaker) → confirm
    on site for finalists.
-3. **Rank sort surfaces the BIGGEST stores = established brands** → emerging white-label sits
-   deeper. For "go deeper", sort by **Created↓ / Estimated Sales↑** (crack the sort param) instead
-   of taking the rank-top.
+3. **Rank/visits-top surfaces the BIGGEST stores = established brands** (Hunter Fan, Honeywell,
+   Grohe) → emerging white-label sits MID-list (getcanopy, dreo, horow, forgenflame). Confirmed
+   again on the full HI≥2020 dump. So Est-Visits sort = the entry order; white-label selection is
+   by eye/score across the whole created≥2020 set (which `bq` now gives us complete).
 4. **Kitchen & Dining yield (this band) = brand/catalog/artisan-glass/knife-collector/decor/food
    heavy; few impulse white-label gadgets, and those skew branded/premium/saturated.** Tier-1 yield
    fact — do NOT close the niche or add a filter; keep scoring as-is. (Compare to ShopHunter H&G.)
 
 ## Open / to build (next sessions)
-Crack sort + range-filter encoding · multi-country merge in the dumper · table/field calibration
-with Marina · saved-filter weekly-email monitoring (Lists) · optional ShopHunter enrichment for
+✅ DONE: `bq` advanced query (created≥2020 server-side + multi-cat OR + 25k-window bypass) · table/field
+calibration with Marina · first full clean dump (HI≥2020 = 27,052). · TO BUILD: multi-country merge in
+the dumper · saved-filter weekly-email monitoring (Lists) · optional ShopHunter enrichment for
 top finalists · then compact + promote stable rules.
