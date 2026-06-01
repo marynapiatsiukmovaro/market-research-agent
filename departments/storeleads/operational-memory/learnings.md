@@ -7,19 +7,25 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 
 ## HANDOFF → NEXT SESSION (read first)
 
-**▶ S3 IN PROGRESS (2026-06-01) — read this first; it supersedes the v3 references below.**
-- **Enricher is now `sl_enrich4.py` (v4 LIVE)** — supersedes every `sl_enrich3`/`sl_enrich2` mention in the older
-  blocks below. Adds product_class + store_type (essence), homepage-hero + desc SELF-CHECK (RULE 22),
-  new_products_30d, subdomain-collapsed convergence, class-aware ABC (sort-aid only — read ALL, RULE 6). Smoke-validated.
-- **batch 5 DONE** (HI band, 250-style 200 run): 0 winners 65+; borderlines crystalplant 62 / clevast 60 / heatka 58 /
-  bidetbuddy 58 / hanboost 56 / lavayoo 54 (live-confirmed; caught scraper hero/price mislabels). HI confirmed
-  structurally "heavy" (5 batches / 1000 stores → all winners from batch 1). **Nothing in Notion** (no 65+).
-- **NEW this session:** master record + keep-list (RULE 20, `sl_mark_processed.py`); RULE 21 quality-over-tokens;
-  RULE 22 self-check; checkpoint now shows explicit A/B/C counts; stage artifacts (HTML+PNG) → Marina's Desktop each stage.
-- **PENDING:** batch 5's 200 still need `sl_mark_processed` (do before batch 6 so no overlap); batch 6 = 250 on v4
-  (NOT started — paused for folder cleanup); validate PRICE-CHECK fix on a live price-0 store; sync repo
-  `processed_domains.json` mirror at session end; add the 3 SL products to `shared/reported-products.md`.
-- *(Full S3 learnings + final handoff written at end-of-session.)*
+**▶ S3 (2026-06-01) — read this first; supersedes the v3 references below. (mid-session compact point.)**
+- **Enricher = `sl_enrich4.py` v4.1 LIVE** (supersedes all sl_enrich3/2 mentions below): product_class (incl. `diy-home`)
+  + store_type essence, homepage-hero (only when hero_conf=low) + desc SELF-CHECK (RULE 22), new_products_30d,
+  subdomain-collapsed conv, class-aware ABC (SORT-AID only — read ALL, RULE 6), product-handle link.
+  **v4.1 speed = 8 workers + fast-fail 15s×2 → ~1 store/sec (~1000/hr), 0 quality loss.**
+- **HI band EXHAUSTED: 7 batches / 1504 stores (visits 1k–50k of 27,052).** Winners: batch1 (3 → Watchlist) +
+  **muravai filtered showerhead 77 (batch7)** + borderlines (cold pod 64, mybabybottle 60, whisperheat 62). Tail
+  (visits <1000 ≈ 24k) NOT done — return later if wanted. `processed_domains.json` = 1504 marked (full band).
+- **Notion:** muravai (77) + The Cold Pod (64) entered → both Marina **🟡 Consider** (Founder Notes filled).
+  Logged in founder-feedback + keep-list (both monitor:true) + shared/reported-products. Repo mirror synced (1504).
+- **System this session:** master record + keep-list (RULE 20); RULE 21 quality-over-tokens; RULE 22 self-check;
+  checkpoint shows A/B/C counts; folder cleaned (v2/v3→v4 reconciled, DAY1/2 → handoffs-archive). 5 commits pushed.
+- **▶ NEXT (Marina-agreed): SWITCH niche → Nursery & Playroom.** Dump DONE + verified = **6,715 ≥2020**
+  (`nursery_playroom_full.json` on VPS). Strategy: band visits 1k–50k = **594 stores** → ~3 batches of ~250 to EXHAUST
+  the band (tail <1000 = 5,874 for later); cut catalog-giants pc>2000, push heavy/bulky down, mark each batch.
+  **Run Nursery batch 1 on v4.1 next** (`sl_select.py nursery_playroom np_batch1 1000 50000 250` already produced
+  np_batch1.json = 250 ready → enrich4 → stage HTMLs → checkpoint w/ ABC + browse). HI file saved (return later).
+- **Open:** validate PRICE-CHECK fix on a live price-0 store; v5 idea — split `consumer-other` further (decor-plaster/
+  generic-tool still leak). Throughput-at-scale optimization = deferred (RULE 21: only for big dumps, not now).
 
 **▶ S2 FINAL (2026-05-31) — ARCHITECTURE v2 designed + BUILT (sl_enrich3) + 4 HI batches run. Caркас готов; начали тестировать. (DONE)**
 - **State in one line:** the funnel SKELETON is built and runs end-to-end on the new product-centric scraper; we have begun
