@@ -20,10 +20,12 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 - **System this session:** master record + keep-list (RULE 20); RULE 21 quality-over-tokens; RULE 22 self-check;
   checkpoint shows A/B/C counts; folder cleaned (v2/v3→v4 reconciled, DAY1/2 → handoffs-archive). 5 commits pushed.
 - **▶ NEXT (Marina-agreed): SWITCH niche → Nursery & Playroom.** Dump DONE + verified = **6,715 ≥2020**
-  (`nursery_playroom_full.json` on VPS). Strategy: band visits 1k–50k = **594 stores** → ~3 batches of ~250 to EXHAUST
-  the band (tail <1000 = 5,874 for later); cut catalog-giants pc>2000, push heavy/bulky down, mark each batch.
-  **Run Nursery batch 1 on v4.1 next** (`sl_select.py nursery_playroom np_batch1 1000 50000 250` already produced
-  np_batch1.json = 250 ready → enrich4 → stage HTMLs → checkpoint w/ ABC + browse). HI file saved (return later).
+  Files now in `logs/storeleads/niches/home-and-garden/nursery-playroom/` (VPS reorganized into niche folders; HI/KD
+  too). Strategy: band visits 1k–50k = **594 stores** → **2 batches: batch1=250 + batch2≈344** to EXHAUST the band
+  (Marina: no orphan 3rd; tail <1000 = 5,874 later); cut catalog-giants pc>2000, push heavy/bulky down, mark each batch.
+  **Run Nursery batch 1 on v4.1 next:** `np_batch1.json` (250) ready in the niche folder → enrich4 with
+  INF=`niches/home-and-garden/nursery-playroom/np_batch1.json` (scripts join OUT+'/'+arg, subpaths work) → stage HTMLs
+  → checkpoint w/ ABC + winners/borderline/browse. After batch1 marked, sl_select batch2 (next ≈344). HI saved (return later).
 - **Open:** validate PRICE-CHECK fix on a live price-0 store; v5 idea — split `consumer-other` further (decor-plaster/
   generic-tool still leak). Throughput-at-scale optimization = deferred (RULE 21: only for big dumps, not now).
 
