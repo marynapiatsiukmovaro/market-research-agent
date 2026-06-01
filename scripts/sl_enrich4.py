@@ -1,4 +1,6 @@
-# Store Leads Stage-2 enricher v4 — adds STORE/PRODUCT ESSENCE + SELF-CHECK (Marina-agreed S3, 2026-06-01).
+# Store Leads Stage-2 enricher v4 / v4.1 — STORE/PRODUCT ESSENCE + SELF-CHECK (Marina-agreed S3, 2026-06-01).
+# v4.1 (2026-06-01): 8 workers · moderate fast-fail (15s×2) · home-hero only when hero_confidence=low ·
+#   new class `diy-home` (paint/sealant/coating/fastener/roofing/work-gear → sunk like trade) · product handle exported.
 # Builds on v3 (open-ladder, top-3, currency→USD, hero/desc-confidence, maturity, conv-dedupe, no-revenue proxy).
 # NEW in v4 (all 0-token, VPS-side; goal = show store/product essence + cut MY re-opens + better ABC):
 #   (1) product_class per candidate (consumer-gadget / appliance / fixture / kitchen / decor / part / material / pro-tool / apparel)
@@ -17,7 +19,7 @@ from multiprocessing import Pool
 from playwright.sync_api import sync_playwright
 OUT = "/opt/market-research-agent/logs/storeleads"
 INF, OUTF, SENT = sys.argv[1], sys.argv[2], sys.argv[3]
-NW = int(sys.argv[4]) if len(sys.argv) > 4 else 4
+NW = int(sys.argv[4]) if len(sys.argv) > 4 else 8   # v4.1: 8 workers (Playwright, credit-safe) — ~2x faster, 0 quality loss
 LIMIT = int(sys.argv[5]) if len(sys.argv) > 5 else 0
 creds = {}
 for line in open("/opt/market-research-agent/cookies/proxy.creds"):
@@ -70,6 +72,12 @@ FIXTURE = ["faucet","sink","basin","drain","shower drain","vent ","grille","diff
            "handrail","mixer tap","downrod ceiling fan"]
 DECOR = ["rug","carpet"," mat ","cushion","pillow","vase","wall art","tapestry","beanie","cutting board","chopping board"]
 GADGET = ["portable","cordless","rechargeable","wireless","bidet","multi-tool","multitool","ultrasonic","mini "]
+# v4.1: diy-home = DIY/building consumables + work gear that leaked into "consumer-other" and stayed in tier A
+# (paint/sealant/coating/fastener/roofing/work-wear). Sunk like trade. Checked AFTER material/part/fixture.
+DIY_HOME = ["paint","primer","sealant","sealer"," coating","varnish","wood stain","lacquer","adhesive","caulk",
+            "epoxy","urethane","roofing"," roof ","cladding","flashing","chimney","safety vest","hi viz","hi-vis",
+            "spanner"," wrench","ratchet","socket set","fastener"," screw"," bolt ","nut bolt","insulation","batt",
+            "pvc floor","click pvc","floor covering","linoleum","marmoleum","underlay","threadlocker","work light"]
 
 def low(s): return " " + re.sub(r"[^a-z0-9+ ]", " ", (s or "").lower()) + " "
 def has(t, l):
@@ -93,12 +101,13 @@ def product_class(t, desc, k):
     if has(s, PROTOOL): return "pro-tool"
     if has(s, PART): return "part"
     if has(s, FIXTURE): return "fixture"
+    if has(s, DIY_HOME): return "diy-home"
     if has(s, DECOR): return "decor"
     if has(s, APPLIANCE): return "appliance"
     if has(s, GADGET): return "consumer-gadget"
     return "consumer-other"               # physical, no trade match, no clear gadget cue
 
-TRADE_CLASSES = {"part", "material", "pro-tool", "fixture"}
+TRADE_CLASSES = {"part", "material", "pro-tool", "fixture", "diy-home"}
 
 def store_type(classes, pc, merch, dom):
     """Essence of the STORE — what kind of operation it is."""
@@ -196,25 +205,25 @@ def prod_row(p, pos, src):
             "k": k, "pclass": product_class(title, desc, k), "desc": desc, "img": img, "pos": pos, "src": src,
             "invest": invest, "created_days": days_since(p.get("created_at") or p.get("published_at"))}
 
-def get_json(pg, url, tries=3):
-    for a in range(tries):
+def get_json(pg, url, tries=2):                 # v4.1: moderate fast-fail (15s×2, was 25s×3) — dead endpoint
+    for a in range(tries):                      # fails fast → open-ladder moves on; a real-but-slow site → MANUAL (hand-checked)
         try:
-            pg.goto(url, wait_until="domcontentloaded", timeout=25000)
+            pg.goto(url, wait_until="domcontentloaded", timeout=15000)
             body = pg.inner_text("body")
             if body.strip().startswith("{"):
                 return json.loads(body)
         except Exception:
             pass
-        time.sleep(2.0 + a * 2.0)
+        time.sleep(1.5 + a * 1.5)
     return None
 
 def get_html(pg, url, tries=2):
     for a in range(tries):
         try:
-            pg.goto(url, wait_until="domcontentloaded", timeout=25000)
+            pg.goto(url, wait_until="domcontentloaded", timeout=15000)
             return pg.content()
         except Exception:
-            time.sleep(2.0 + a * 2.0)
+            time.sleep(1.5 + a * 1.5)
     return ""
 
 def homepage_hero(pg, dom):
@@ -291,11 +300,14 @@ def work(args):
                 o["store_type"] = store_type([], pc, d.get("merch"), dom); o["product_class"] = None
                 res.append(o); continue
             o["reachable"] = True
-            # SELF-CHECK (1): also pull the homepage featured hero; prepend if it's a new product (pos=-1 → front)
-            hh = homepage_hero(pg, dom)
-            if hh and hh["handle"] and hh["handle"] not in [r.get("handle") for r in rows]:
-                rows = [hh] + rows
-                if hconf == "low": hconf = "high"; o["hero_confidence"] = "high"; o["hero_src"] = src + "+home-hero"
+            # SELF-CHECK (1): pull the homepage featured hero ONLY when the source was weak (hconf=low) — i.e. we fell
+            # to `all`/homepage and the hero is unreliable (heatka/hanboost case). When a sales-ordered collection
+            # already gave a high-confidence hero, skip this extra fetch (v4.1 speed — 0 quality loss).
+            if hconf == "low":
+                hh = homepage_hero(pg, dom)
+                if hh and hh["handle"] and hh["handle"] not in [r.get("handle") for r in rows]:
+                    rows = [hh] + rows
+                    hconf = "high"; o["hero_confidence"] = "high"; o["hero_src"] = src + "+home-hero"
             store_cur = store_currency(pg, dom) or CC_CUR.get((cc or "").upper(), ("?", 1.0))[0]
             o["store_currency"] = store_cur
             clean = []

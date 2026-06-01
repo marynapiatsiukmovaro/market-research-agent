@@ -23,13 +23,18 @@ def link(u, txt):
 
 def tops_cell(r):
     out = []
+    dom = r.get("domain") or ""
     for t in (r.get("tops3") or [])[:3]:
         pr = t.get("price"); cur = t.get("cur") or ""
         flag = "✓" if t.get("in_range") else ("?" if t.get("price_unknown") else "✗")
         dc = t.get("desc_confidence", "")
         desc = html.escape(str(t.get("desc") or ""))[:120]
-        thumb = f"<img src='{html.escape(str(t.get('img')))}' style='float:left;margin:0 6px 2px 0'>" if t.get("img") else ""
-        out.append(f"<div style='margin-bottom:6px;overflow:hidden'>{thumb}<b>${pr} {cur}</b> {flag} <span style='color:#888'>[{dc}]</span><br>{desc}</div>")
+        purl = (f"https://{dom}/products/{t.get('handle')}" if t.get("handle") else f"https://{dom}")
+        thumb = (f"<a href='{html.escape(purl)}'><img src='{html.escape(str(t.get('img')))}' style='float:left;margin:0 6px 2px 0'></a>"
+                 if t.get("img") else "")
+        link = f"<a href='{html.escape(purl)}'>↗ product</a>"
+        out.append(f"<div style='margin-bottom:6px;overflow:hidden'>{thumb}<b>${pr} {cur}</b> {flag} "
+                   f"<span style='color:#888'>[{dc}]</span> {link}<br>{desc}</div>")
     return "".join(out) or "<i>—</i>"
 
 tiers = Counter(r.get("tier") for r in rows)

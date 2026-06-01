@@ -82,7 +82,7 @@ account/usage counter at the first real run). For a 200-store pilot the quota is
 - `sl_dump3.py [pages]` — quick `bq` sample (a few pages) for spot-checks.
 - `sl_html_top.py <slug> <N> "<title>"` — light top-N HTML preview from a `_full.json`.
 - **`sl_select.py`** `<full_slug> <out_slug> [VLO VHI N]` — Stage-1: band-filter a `_full.json`, exclude already-processed, top-N by Est Visits → `<out_slug>.json`.
-- **`sl_enrich4.py`** `<in> <out> <sentinel> [workers] [limit]` — **Stage-2 live enricher (LIVE, v4):** open-ladder + top-3 + currency→USD + product_class/store_type + homepage-hero & desc self-check + new_products_30d + class-aware ABC. (`sl_enrich3.py` = fallback; `sl_enrich2.py` = retired legacy.)
+- **`sl_enrich4.py`** `<in> <out> <sentinel> [workers=8] [limit]` — **Stage-2 live enricher (LIVE, v4.1):** open-ladder + top-3 + currency→USD + product_class (incl. `diy-home`) / store_type + homepage-hero (only when hero_confidence=low) & desc self-check + new_products_30d + product-handle + class-aware ABC. v4.1 = 8 workers + fast-fail 15s×2. (`sl_enrich3.py` = fallback; `sl_enrich2.py` = retired.)
 - **`sl_mark_processed.py`** `<enriched> <subcat> <band> <date> [--monitor-min N]` — write the master store record + monitor flag (RULE 19/20).
 - **Stage artifacts → Marina's Desktop:** `sl_stage1_table.py` / `sl_stage2_table.py` (HTML tables) · `sl_stage3_pull.py` (compact deep-score digest) · `sl_retro.py` (retro-calibration of past batches) · `sl_html2png.py <in.html> <out.png>` (render any stage HTML → PNG).
 - `sl_count.py` — exact ≥2020 count per subcategory (cratyyyymm facet sum).

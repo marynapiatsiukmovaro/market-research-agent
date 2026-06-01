@@ -1,0 +1,59 @@
+<html><head><meta charset="utf-8"><style>
+body{font:13px/1.55 -apple-system,Arial;margin:26px;color:#1a1a1a;max-width:1100px}
+h1{font-size:20px}h2{font-size:15px;margin-top:24px;border-bottom:2px solid #ddd;padding-bottom:4px}
+table{border-collapse:collapse;margin:8px 0;font-size:12px}td,th{border:1px solid #ccc;padding:5px 9px;vertical-align:top}
+th{background:#f4f4f4}a{color:#1763d6;text-decoration:none}
+.box{background:#f7f9fc;border:1px solid #dce4f0;border-radius:6px;padding:10px 14px;margin:8px 0}
+.win{background:#fff6d5}.bad{color:#a00}.good{color:#080}.muted{color:#666}
+</style></head><body>
+<h1>Store Leads — Batch 6 · Stage 3 (deep-score) · Home Improvement ≥2020 (v4)</h1>
+<p class=muted>Прочитаны ВСЕ кандидаты (RULE 6). Hero+цена consumer-кандидатов подтверждены на живом сайте (RULE 7). Полоса визитов 1,390–2,046 — ещё более trade-тяжёлая, чем batch 5.</p>
+
+<h2>1. Воронка целиком (RULE 1) + ABC</h2>
+<div class=box>
+dump 27,052 → band(visits 1k–50k) 504 qualified · already-processed excluded <b>1000</b> · SELECTED top-250 (visits 1,390–2,046) · остаток band = <b>254</b>.<br>
+Stage 2 (sl_enrich4 v4) = 250 enriched · reachable 236.<br>
+<b>ABC / тиры: A 53 · B 30 · C 137 · PRICE-CHECK 15 · MANUAL 14 · DROP-noPhysical 1.</b><br>
+Stage 3 pool (≥1 in-range physical) = <b>112</b>; из них consumer-class (gadget/appliance/decor/kitchen/consumer-other) = 73; physical-вне-диапазона 99; без кандидатов 15.<br>
+<b>product_class:</b> consumer-gadget 12 · appliance 13 · decor 6 · consumer-other 142 · material 27 · part 15 · fixture 8 · pro-tool 4 · apparel 8.
+<b>store_type:</b> niche-brand 164 · single-product/DTC 37 · trade-store 25 · parts-supply 16 · services 8.
+</div>
+
+<h2>2. Winners 65+ : <span class=bad>0</span> (borderline ниже)</h2>
+
+<h2>3. Borderline 55–64 (на твой суд — веду по WOW/вкусу)</h2>
+<table>
+<tr><th>Магазин</th><th>Hero (live)</th><th>Цена</th><th>~Score</th><th>Хук / риск</th></tr>
+<tr class=win><td><a href="https://us.thecoldpod.com">us.thecoldpod.com</a></td><td>The Cold Pod — портативная ice-bath ванна (85 gal, складная)</td><td>$149.99</td><td>~64</td><td>Трендовая wellness-категория, сильнейший UGC (cold plunge), видимая «реакция». ⚠ Premium + <b>bulky + вода</b> (RULE 10 — FB-доставка) + насыщено + branded.</td></tr>
+<tr class=win><td><a href="https://mybabybottle.pl">mybabybottle.pl</a></td><td>MyBabyBottle Pro — портативный подогреватель бутылочки (8 мин, batt, стекло)</td><td>~$120–150</td><td>~60</td><td>Реальная боль родителей (кормление в дороге), baby-ниша = всегда новая когорта, demo-able. ⚠ Premium + проприетарный нагрев + new30=5 (активны).</td></tr>
+<tr><td><a href="https://epeios.com">epeios.com</a></td><td>EPEIOS Gooseneck Electric Kettle (pour-over)</td><td>$79.99</td><td>~55</td><td>Эстетичный kitchen-гаджет. ⚠ Branded (designer collab) + насыщенная категория чайников.</td></tr>
+</table>
+<p class=muted>Отклонён после live: <a href="https://sandstoneandsage.com">sandstoneandsage</a> — индийский антик-маркетплейс, цены в рупиях (enricher показал «$56» — currency-мислейбл), не white-label. Подтверждает RULE 7.</p>
+
+<h2>4. Browse-pool — 6 уникальных consumer-ссылок (открой, поймай что бар срезал)</h2>
+<ul>
+<li><a href="https://letsplayspire.com">letsplayspire.com</a> — деревянный rainbow-stacker (Montessori/kids), $57</li>
+<li><a href="https://shop.deadboltmysterysociety.com">deadboltmysterysociety.com</a> — домашние murder-mystery игры-наборы, $52 (новелти-развлечение, new30=6)</li>
+<li><a href="https://climateright.com">climateright.com</a> — компактный электрообогреватель для питомца/вольера, $99</li>
+<li><a href="https://welldepots.com">welldepots.com</a> — винтажная industrial-люстра, $79 (декор)</li>
+<li><a href="https://kiasa.co.uk">kiasa.co.uk</a> — инфракрасная нагревательная панель (минимализм), $120</li>
+<li><a href="https://bubbles.uk.com">bubbles.uk.com</a> — Lamp Berger арома-набор-подарок, $49 (декор/gift)</li>
+</ul>
+
+<h2>5. Loss-measurement (RULE 1)</h2>
+<p>physical-вне-диапазона (99) + PRICE-CHECK (15) + MANUAL (14) — по описаниям это флоринг/ламинат/плитка/изоляция/кровля/фурнитура/проф-инструмент/краски = trade. Winner'а в отбросах не видно. <b>Cull обоснован.</b></p>
+
+<h2>6. Калибровка v4 (что подтвердилось / что доточить)</h2>
+<table>
+<tr><th>Наблюдение</th><th>Вывод</th></tr>
+<tr><td>v4-классификатор</td><td><b>Работает на явном trade</b> (material/part/fixture/pro-tool → C, тонут). Genuine-consumer (thecoldpod/mybabybottle/epeios) всплыли в A. ✓</td></tr>
+<tr><td><b>«consumer-other» (142) — слишком широкий catch-all</b></td><td>DIY-химия/флоринг/инструмент с generic-desc падают сюда и держатся в A (nitromors paint 80, PVC-флоринг 77). <b>v5-идея (не строю сейчас):</b> выделить класс <code>diy-home</code> (paint/flooring/sealant/coating/fastener) → топить как trade.</td></tr>
+<tr><td>Currency-мислейбл (sandstoneandsage INR→$)</td><td>Снова пойман только live → RULE 7 обязателен.</td></tr>
+<tr><td>Convergence</td><td>98/112 = 0 — в HI конвергенции нет (фрагментированный trade).</td></tr>
+<tr><td>Self-check home-hero</td><td>Сработал (click-pvc/smvkt pos=-1 = подтянут homepage-hero). ✓</td></tr>
+<tr><td>Скорость v4</td><td>914 сек на 250 (vs v3 146 сек на 200) — self-check fetch'и + таймауты. Качество&gt;скорость сейчас; для масштаба оптимизируем.</td></tr>
+</table>
+
+<h2>7. Итог</h2>
+<div class=box>HI band-2 = ещё более trade-тяжёлая. 0 winner'ов 65+; topы — thecoldpod (bulky/saturated) + mybabybottle (baby-ниша, premium). <b>6 батчей / 1250 магазинов → все winner'ы из batch 1.</b> HI структурно исчерпана под нашу модель — после batch 7 (остаток 254) логичен свитч на consumer-подкатегорию (Nursery/Cleaning/Pets).</div>
+</body></html>

@@ -7,9 +7,10 @@
 > design history; the CURRENT contract = v4 (the v3 product-centric contract PLUS the v4 essence + self-check fields).
 
 > **⭐ v4 ADDITIONS (Marina-agreed S3, 2026-06-01) — store/product ESSENCE + self-check (all 0-token, VPS):**
-> 1. **`product_class`** per candidate — consumer-gadget / appliance / fixture / kitchen / decor / part / material /
->    pro-tool / apparel. STRONG consumer DEVICE words win first (a bidet isn't sunk to "part" because its desc says
->    "adapter"); bias toward "consumer" = the zero-loss-safe direction. ~80% of a "heavy" category self-labels as trade.
+> 1. **`product_class`** per candidate — consumer-gadget / appliance / decor / kitchen / consumer-other (= ours-side)
+>    vs part / material / pro-tool / fixture / **diy-home** (= trade, sunk in ABC). STRONG consumer DEVICE words win
+>    first (a bidet isn't sunk to "part" because its desc says "adapter"); bias toward "consumer" = the zero-loss-safe
+>    direction. `diy-home` (v4.1) catches paint/sealant/coating/fastener/roofing/work-gear that leaked into consumer-other.
 > 2. **`store_type`** — single-product-DTC / niche-brand / trade-store / parts-supply / services / catalog-giant.
 > 3. **SELF-CHECK (RULE 22):** ALSO pull the homepage featured hero (catches collection-hero ≠ real front hero,
 >    e.g. heatka/hanboost); re-fetch a candidate's own product page when its desc is empty/mismatched.
