@@ -136,6 +136,10 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-01 | Izimini Outdoor Baby Chair | Kids | 57 | agent <65 — Marina 🟡 Consider ("stylish, strong seasonal hook") | Store Leads (S3 Nursery b1) / izimini.com |
 | 2026-06-01 | At-Home Fetal Doppler (convergence +2) | Health | — | NOT new — folded into existing WellnessBaby (SL2=themommymotherhood.com) + FetalPlus (SL2=springbud.us); ⚠ medical liability | Store Leads (S3 Nursery b2) / springbud.us · themommymotherhood.com |
 
+### Store Leads S4 — Nursery & Playroom (batch 6, ≥2020, visits-desc deep tail)
+| 2026-06-01 | WonderBee Pocket Fetal Doppler | Health | 77 | At-home fetal heartbeat → pregnancy-anxiety relief; $54.95 white-label; **convergence with approved WellnessBaby (83)** + FetalPlus; found at visits 387 (deep tail — old visits-band would have lost it); ⚠ FDA/medical-claim policy + liability | Store Leads (S4 Nursery b6) / petiteisland.com |
+| 2026-06-01 | Crib Safety Tent (KinderSense) | Kids | 73 | Breathable mesh enclosure stops toddler climbing/falling out of crib — acute safety fear; $54.87, 172 rev; found at visits 363 (deep tail); ⚠ crib-tent CPSC recall-history (verify safety/liability) | Store Leads (S4 Nursery b6) / kindersensebaby.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

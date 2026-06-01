@@ -7,6 +7,15 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**▶ S4 (2026-06-01) — read FIRST. Nursery visits-desc deep-dive, RULE-24 `sl_select_all`, reliability focus.**
+- **Enricher unchanged = `sl_enrich4.py` v4.2 LIVE.** Loop per batch: `sl_select_all.py <full> <out> 250` → `sl_enrich4` (8 workers, nohup, sentinel) → read ALL 250 compact + open EVERY needs_live/unreachable live → checkpoint → **STOP for Marina** → `sl_mark_processed.py`. Cadence this session = **checkpoint→STOP every batch** (Marina S4). Permissions: **VPS SSH + WebFetch/WebSearch session-approved** (Marina S4); Notion/git/core-edits still gated.
+- **Batches 3–6 done = 1000 stores (visits-desc).** b3 = visits 1,885–12.7M (established-band: formula/apparel/furniture/mega-brands/catalogs — 0 winners) · b4 = 692–1,879 · b5 = 447–692 · b6 = 268–447. **processed_domains total = 3098** (HI 1504 + Nursery b1-2 594 + b3-6 1000 = Nursery 1594/6715).
+- **2 WINNERS (b6, deep tail) → IN NOTION (Founder Review PENDING Marina):** **WonderBee Pocket Fetal Doppler 77** (petiteisland.com, visits 387 — doppler convergence w/ APPROVED WellnessBaby 83; ⚠FDA/medical+liability) · **Crib Safety Tent 73** (kindersensebaby.com, visits 363; ⚠crib-tent CPSC recall-history). Both `monitor:true` keep-list. Borderline: hush. Sleep Companion ~62 (mechanism unclear).
+- **🔑 KEY RELIABILITY FINDING:** both winners sat at visits 363/387 — **DEEP tail, below the old 1k–50k band → old approach would have LOST both.** RULE 24 (no field-filter, visits=order only) + RULE 23 (open every flag) caught them. 0-loss measured 4× (spot-audit of dropped piles). **Funnel (Stage 1→3) is STRONG, loss≈0 within the dump.** Residual loss-risk is UPSTREAM = Stage-0 `category=None` + Store Leads taxonomy mis-tagging (proposal filed).
+- **▶ NEXT:** continue Nursery visits-desc (b7 enters visits ~5–268; ~2460 low-visits remain, then **2,661 MISSING-visits stores LAST** — kept, never dropped, RULE 24). At 250/batch ≈ 20 batches left for full Nursery exhaust. Remaining = 5121.
+- **Proposals filed (`review/promotion-queue.md`, Marina to decide):** (1) **decouple enrichment↔analysis "reservoir" architecture** (Marina's S4 idea — enrich-loop fills reservoir token-free; analysis consumes ready chunks; ⚠`enriched`≠`processed` two-states; parallel SCRAPERS not claude per RULE 13); (2) trust-card for unambiguous off-model needs_live (reduce hand-open at scale); (3) Stage-0 category-None hole. **Build only in a dedicated SYSTEM-BUILD session.**
+- **Open:** Founder Review tiers for the 2 winners → log to founder-feedback when Marina sets them.
+
 **▶ S3 (2026-06-01) — read this first; supersedes the v3/v4.1 references below. (Nursery band DONE.)**
 - **Enricher = `sl_enrich4.py` v4.2 / v4.2.1 LIVE** (supersedes v4.1/v3/2): product_class (incl. `diy-home`) + store_type,
   desc SELF-CHECK (RULE 22), new_products_30d, subdomain-collapsed conv, class-aware ABC (SORT-AID — read ALL, RULE 6),
@@ -34,33 +43,10 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 - **Open:** validate PRICE-CHECK fix on a live price-0 store; v5 idea — split `consumer-other` further; archive S2-PM HANDOFF
   block (RULE 18 — 3 blocks present, keep 2). Throughput-at-scale optimization deferred (RULE 21).
 
-**▶ S2 FINAL (2026-05-31) — ARCHITECTURE v2 designed + BUILT (sl_enrich3) + 4 HI batches run. Caркас готов; начали тестировать. (DONE)**
-- **State in one line:** the funnel SKELETON is built and runs end-to-end on the new product-centric scraper; we have begun
-  testing it on real batches. Next sessions = keep running batches, hardening each stage step by step.
-- **Scraper v3 BUILT & LIVE: `scripts/sl_enrich3.py`** (on VPS + repo). Replaces sl_enrich2 (kept as fallback). Implements the
-  v2 contract: open-ladder (best-selling→frontpage→featured→/products.json→**homepage HTML**, no silent DROP → `MANUAL`/
-  `PRICE-CHECK` instead), **TOP-3 candidates/store** each with desc, **currency→USD via `/meta.json`** (NOT country code),
-  `hero_confidence`, `desc_confidence`, `maturity` (established≠reject), convergence with **geo-mirror dedupe**, proxy_score
-  with **NO revenue term**. 3 real bugs caught+fixed while building (currency-from-meta, price-0 region artifact→PRICE-CHECK,
-  variants-as-dict + per-store try/except). Also new: `scripts/sl_table_shot.py` renders a funnel-stage JSON → PNG table
-  (Marina wants stage screenshots on her Desktop — Stage1/Stage2 delivered S2).
-- **Batches done: HI 1–4 = 800 stores processed** (`processed_domains.json` on VPS, 600 clean keys verified vs dump + b4's 200).
-  **HI ×4 = stable LOW white-label yield** — category is structurally "heavy" (trade/materials/parts/services). Funnel WORKS;
-  HI just isn't the grebe for our Instagram model. **Nothing written to Notion this session** (Marina decided not to enter b2/b3/b4).
-  Batch-4 best by SCORE: GoSpray HVLP paint sprayer **72** (inokraftshop, demo-able wow); smart-lock convergence ×4 only **60**
-  (Amazon-saturated) — proof that SCORING beats the convergence signal (lead with the 100-pt score, never conv/tier — RULE 6).
-- **▶ NEXT SESSION PLAN (Marina-agreed):**
-  1. **Run HI batch 5** (the band's last ~700 → ~200 fresh; processed auto-excludes) to finish hardening on a known category.
-  2. **Then SWITCH category** to a more consumer subcategory from the census (Nursery & Playroom 6,729 / Cleaning 5,868 /
-     Pets / Dogs / Cats) where white-label-with-wow density is higher. Fresh `sl_dump_full.py` on that subcat.
-  3. **Per batch use the FULL founder report shape** (Worth-Testing 65+ / Borderline 55–64 / Watchlist / **Browse-pool 10–15
-     unique links** / Patterns) — ALWAYS score each candidate 100-pt; never ship 3 links or a convergence list (S2 mistake).
-  4. **Keep-list** of interesting stores → grows toward feeding ShopHunter's parked newest-first monitor.
-  5. **MEASURE ShopHunter hit-rate** on a batch's finalists (creds live on VPS) when convenient.
-  6. Optional code: align desc/price confidence display in `sl_table_shot`; validate PRICE-CHECK fix on a live price-0 store.
-- **Process lesson (RULE 4a added):** a crash flipped me into panic-fix → I invented "81/40% dropped" (real=10) + lost the
-  founder-report format near session end. Long session + lots of churn = my discipline degraded. **Keep sessions shorter;
-  when something breaks, SLOW DOWN and verify the number from data before acting.** The repo + Marina-approval guards held.
+**▶ S2 FINAL (2026-05-31) — collapsed per RULE 18 (now the 3rd-oldest HANDOFF; keep only 2 = S4 + S3).** Built the v2
+product-centric enricher (then `sl_enrich3`, now superseded by v4.2), ran HI batches 1–4 (800 stores, stable LOW yield —
+"heavy"/trade category), wrote 2 HI winners to Notion, matured the department (created op-rules + method docs). The "panic-fix /
+invented 81/40%" lesson is permanent in **op-rules RULE 4a**. Full text in git history + `handoffs-archive.md` (batch-200 / PM block).
 
 ---
 
@@ -78,6 +64,11 @@ mandatory-load lean.
 ---
 
 ## Active Learnings
+
+### [2026-06-01] S4 — Winners live in the DEEP visits-tail; established-band is structurally off-model (measured)
+**Type:** Pattern / Reliability fact | **Severity:** HIGH | **Confidence:** HIGH (1000 stores, 4 batches, 4× 0-loss audit)
+**Observation:** Nursery visits-desc, 4 batches/1000 stores. **b3 (visits 1.9k–12.7M, established) = 0 winners** — structurally formula/apparel/furniture/mega-brands/catalogs. b4/b5 (low-visits) = 0. **b6 (visits 268–447) = the 2 winners** (Doppler 77 @ v387, Crib Tent 73 @ v363). **Both sit BELOW the old 1k–50k band → the old visits-filter approach would have lost both winners.** This is the concrete proof that RULE 24 (no field-filter; visits=ordering only; missing≠dead) + RULE 23 (open every flag) are not over-insurance — they are load-bearing. 0-loss confirmed 4× by spot-auditing the dropped pile (off-model: apparel/formula/consignment/furniture-oor). **Funnel Stage1→3 = strong, loss≈0 within the dump.** Nursery as a niche = weak white-label-gadget grebe (apparel/formula/furniture-dominated) — honest low-yield (RULE 11), matches Marina's S3 Watchlist pattern. **Residual loss-risk is UPSTREAM (Stage-0 category=None + SL taxonomy mis-tag)** — see promotion-queue.
+**Applies to:** every Store Leads niche dive — never stop/gate by visits; the tail is where emerging white-label sits. **Expires:** Never → reinforces RULE 23/24.
 
 ### [2026-06-01] S3 — Scoring stays AS-IS + "open every flag" + re-audit proved no loss
 **Type:** Process / Correction | **Severity:** HIGH | **Confidence:** HIGH (Marina-decided + 20-store re-audit)

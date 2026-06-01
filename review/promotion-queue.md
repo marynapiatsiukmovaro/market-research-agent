@@ -12,7 +12,38 @@ Marina sets each item to: **Promote → Wait → Reject**
 
 ## Pending Review
 
-*(none — all items decided)*
+### Decouple enrichment from analysis — "enrichment reservoir" architecture (Store Leads, Marina S4)
+**Observation:** Current Store Leads sessions are SERIAL — send scraper → wait 7–22 min → check → analyze → send next → wait again. The wait blocks the whole session. Enrichment (Playwright scraper) costs ~0 tokens; analysis (read-all + open-needs_live + score) is the token/context-bound part.
+**Proposal (Marina's idea):** split into two independent contours. **Contour A — Enrichment:** a loop (`sl_enrich_loop.py`-style) that repeatedly select_all→enrich4→mark `enriched`→next 250, unattended on the VPS, building a persistent "reservoir" of ready candidate-sheets for a whole niche (or several). **Contour B — Analysis:** a session pulls READY enriched chunks from the reservoir and goes straight to deep-score→checkpoint→Notion, never waiting on the scraper. Enables 2–4k stores/analysis-session and parallel enrichment across niches.
+**Why it matters:** removes wall-clock wait (NOT a token win — Marina noted this correctly; enrichment is already ~0 tokens). The throughput unlock toward Marina's scale goal (4k/session × N sessions).
+**⚠ Critical guardrails (must be in the build, or quality breaks):**
+  1. **`enriched` ≠ `processed` — TWO separate states.** The enrichment loop marks a store `enriched` (card filled); ONLY the analysis agent marks `processed` (analyzed+checkpointed+Notion). If the loop marked `processed`, analysis would skip the store = **winner loss.** Keep `processed_domains.json` for analyzed; add a separate `enriched_index`.
+  2. **Parallelize SCRAPERS, never `claude` (RULE 13).** "4 parallel sessions" is safe ONLY if it means 4 parallel enrichment loops (no claude) on different niches; parallel claude-analysis = the month-budget-burn risk. Hard boundary.
+  3. **Staleness handled by RULE 7** (finalist live-confirm at analysis time re-checks price/hero) — so a reservoir card aging a few days is fine.
+  4. Keep 250-chunks + per-chunk sentinels + per-store try/except (already in v4.2) — a bad store/chunk never breaks the run.
+**Affected:** new `scripts/sl_enrich_loop.py` + state-file design; `departments/storeleads/methods/discovery-funnel.md` (two-contour flow); `op-rules.md` (RULE 13 parallelism boundary restated for the loop).
+**Confidence:** High (architecture sound; validated by this session's serial-wait pain + ~0-token enrichment cost).
+**Recommendation:** Promote (build in a dedicated SYSTEM-BUILD session, not a scout session).
+**Added:** 2026-06-01, Session S4. **Source learnings:** S4 HANDOFF.
+
+### Trust the rich card for unambiguous off-model `needs_live` (reduce hand-open at scale) — Store Leads S4
+**Observation:** RULE 23 = open EVERY `needs_live`+unreachable by hand. S4 evidence (1000 stores): in the established/apparel/formula bands, ~all flags resolve to unambiguous off-model (formula=ingestible, apparel-brands, literal-non-baby like plant-shops/groceries). Hand-opened 36/36 in b3 → all off-model; 4× measured 0-loss audits. The hand-open of these adds ~0 loss-reduction but is the main throughput bottleneck.
+**Proposal:** keep mandatory hand-open for `product_class ∈ {consumer-gadget, consumer-other, decor}` + price-edge + unreachable + banner-hero≠pick; ALLOW card-judgment (no hand-open) for `kind ∈ {ingestible, apparel}` + literal-non-baby identity, with a logged sample audit each batch to keep the classifier honest. Pairs with the decouple proposal to actually hit 4k/session without quality loss.
+**Why it matters:** the only analysis-cost lever that doesn't touch the quality gates on the products that could actually BE winners.
+**⚠ Risk:** must keep a per-batch random loss-audit of the card-judged off-model pile (don't let the classifier drift silently). This is a CHANGE to RULE 23 → Marina-approval required (RULE 23 was Marina-locked S3).
+**Affected:** `op-rules.md` RULE 23.
+**Confidence:** Medium-High (36/36 + 4× 0-loss this session — but one niche).
+**Recommendation:** Wait (gather 1–2 more niches of 0-loss evidence before relaxing a Marina-locked rule).
+**Added:** 2026-06-01, Session S4.
+
+### Stage-0 coverage hole — `category=None` + Store Leads taxonomy mis-tagging (the one residual loss-risk)
+**Observation:** The verification funnel (Stage 1→3) is empirically ~0-loss (S4, 4× measured + caught 2 deep-tail winners old method would lose). The remaining loss-risk is UPSTREAM at the dump: ~400k/2.85M active Shopify have NO category, and Store Leads' category tags are imperfect (S4 saw trophies/period-pads/ultrasound-service mis-tagged INTO Nursery → the same error tags real Nursery stores OUT, making them invisible to a category-filtered dump).
+**Proposal (Marina to design later — her loss-idea):** a complementary discovery path that doesn't rely on category (e.g. app-install / keyword / cross-niche sweep), OR accept+document the boundary ("we never claim full-universe coverage; category-filtered = a known subset"). Also: when moving to a new H&G sub-niche, report the cross-niche overlap count (already free — `sl_select_all` prints `already-processed`).
+**Why it matters:** it's the ONLY place a real winner can still be lost — not because verification misses it, but because it never enters the funnel.
+**Affected:** `methods/discovery-funnel.md` (data-trust map already notes the None blind spot — elevate it), Stage-0 design.
+**Confidence:** High (documented blind spot + S4 mis-tag evidence).
+**Recommendation:** Wait (Marina will design; capture now so it's not lost).
+**Added:** 2026-06-01, Session S4.
 
 ---
 

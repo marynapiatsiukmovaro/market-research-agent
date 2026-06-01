@@ -27,22 +27,20 @@ filter** — we dump ALL markets (results are US-dominant + UK/DE/EU/CA/AU/NZ mi
 target markets). Per-country query+merge is only needed IF we later restrict markets (multi-cc comma = AND bug →
 one country per query then merge — TO BUILD). Persist raw JSON; reuse, don't re-pull. (`sl_dump3.py` = quick sample.)
 
-**Stage 1 — Client-side filter + table (VPS, ~0 tokens).** Created≥2020 is now server-side (Stage 0).
-Client-side on the dump fields: `erf` (monthly revenue) `≤ $1M`, `apf` (avg price) `≤ $350`, weight,
-and **sort by `mvis` (Est Visits) desc** (primary ranking signal — start >1000 visits, don't exclude lower).
-Add a `cat_flag` from `pc` (product count): hero ≤300 / mid / catalog-giant >2000 (high pc =
-product is one of many = weaker hero, like ShopHunter SKU insight). Output = the Stage-1 candidate
-table (domain, merchant, est $/mo, avg price, created, reviews, #products, FB-pixel, …).
+**Stage 1 — Select next 250 unprocessed (VPS, ~0 tokens). ⚠ SUPERSEDED by RULE 24 (S3, Marina-locked) — NO field filters.**
+Use **`sl_select_all.py`** (NOT `sl_select.py`): the ONLY exclusion is already-processed (RULE 19). `visits` (`mvis`) is used
+**for batch ORDER only** (desc; missing-visits sorted last but KEPT, never dropped) — **never as a gate**. Do NOT filter by
+`erf`/`apf`/`pc`/weight: these fields are unreliable and missing≠dead (Marina killed even the catalog-giant `pc>2000` cut:
+"pc-данные тоже могут врать… пусть будет"). `cat_flag` from `pc` may still be shown as CONTEXT in the table, but it gates nothing.
+> *Historical (pre-RULE-24): `sl_select.py` band-filtered by visits + revenue≤$1M + price≤$350 + cut catalog-giants. That
+> approach is retired for niche-exhaust — it silently dropped stores lacking a field, and S4 proved 2 winners sat at visits
+> 363/387 (below the old 1k band) → would have been lost. Keep visits for ordering only.*
 
-> **Stage-1 conservative cut — what counts as DEFINITE-NO (drop only these; when unsure, KEEP):**
-> - avg price **> $350** (hard ceiling) — out of any plausible band.
-> - est revenue **> $1M/mo** — established brand, not an emerging white-label window.
-> - **catalog-giant** `pc > 2000` — a retailer/marketplace, not a single-hero store (deprioritize for THIS batch;
->   stays in the dump for later, not "lost").
-> - **apparel / clothing** category (we don't sell it) + obvious **high-ticket / bulky** types (furniture, large
->   appliances, composting toilets — RULE 10).
-> - Everything else is a SURVIVOR → goes to Stage 2. No subjective name-based pre-pick (RULE 5). Band selection
->   (e.g. visits 1k–50k) is a transparent batch choice, reported with counts (RULE 1) — not a silent cull.
+> **⚠ Stage-1 conservative cut — RETIRED by RULE 24 (S3, Marina-locked). DO NOT field-filter.** The list below
+> (price>$350 / rev>$1M / catalog-giant pc>2000 / apparel-bulky) was the pre-RULE-24 cut; it is **superseded** because
+> those fields are unreliable (missing≠dead) and even the `pc>2000` cut was killed by Marina. **Now: drop NOTHING at
+> Stage 1 except already-processed.** apparel/bulky/oor are recognized later at Stage 2/3 (by `kind`/`product_class` +
+> the live read), never pre-dropped. Band selection by visits = ORDER only (RULE 24), reported with counts (RULE 1).
 
 **Stage 2 — Enrich finalists from the LIVE catalog (VPS, Playwright + proxy).** **`sl_enrich4.py` (LIVE — v4.2, 8 workers).**
 Implements the full v2 product-centric contract PLUS v4 essence + self-check (`product_class` incl. `diy-home`,

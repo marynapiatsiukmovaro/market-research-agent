@@ -27,6 +27,8 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-01 | [joseat.com](https://joseat.com) | 68 | cart/high-chair cover (Kids) | Consider; clear hygiene pain — watch new covers/accessories |
 | 2026-06-01 | [wildridecarrier.com](https://wildridecarrier.com) | 70 | toddler hip carrier (Kids) | Watchlist; beautiful design brand in saturated niche — watch their drops |
 | 2026-06-01 | [waterlandbaby.com](https://www.waterlandbaby.com) | 72 | water+land carrier (Kids) | Watchlist; clever water positioning — watch how they extend the line |
+| 2026-06-01 | [petiteisland.com](https://www.petiteisland.com) | 77 | pocket fetal doppler (Health) | S4 winner; doppler convergence w/ approved WellnessBaby (83); watch new SKUs |
+| 2026-06-01 | [kindersensebaby.com](https://kindersensebaby.com) | 73 | crib safety tent (Kids) | S4 winner; real safety-pain solver; watch their next launches |
 
 ---
 
