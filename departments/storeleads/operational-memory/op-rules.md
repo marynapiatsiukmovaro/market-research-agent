@@ -184,6 +184,11 @@ The first pass must be **complete by design** — no separate "rescue pass" ever
   Never report-around an uncertain store; never trust the proxy hero for one. A high-confidence-hero store may be
   judged from the rich card; everything flagged is opened by hand. Target after v4.2: the forced-open set shrinks
   (the richer card resolves most), but coverage is total.
+  - **The open-set = the ROBOT'S `needs_live` flag (objective), NOT the agent's hand-picked "looks interesting" subset.**
+    No numeric cap, no pitch-shortcut: if the robot flags 60, open 60 — not 20. (S3 Nursery lesson, Marina 2026-06-01: the
+    agent opened only ~22 of 60 flagged by judging the rest from the pitch; re-audit of 20 dismissed = all correctly skipped,
+    so ~95% safe — but the STANDING rule is open every flag, so "did we lose one?" is answered by-design, not by sampling.)
+    Tokens never limit this (RULE 21). The agent may ALSO open extras it finds interesting, but the flag set is the floor.
 - **Root cause it fixes:** reachable-but-mispicked stores (Dingle Dangle, izimini, swaddlean — banner hero ≠ the
   best-seller the robot surfaced) sank because only hand-picked finalists were live-verified; and S1 lost a real
   winner in the unreachable pile. Pairs with RULE 6 (read ALL), RULE 7 (confirm live), RULE 21 (quality > tokens).

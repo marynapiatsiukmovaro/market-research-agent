@@ -54,12 +54,20 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 
 *(Doppler: Marina folded the 2 new doppler stores into the EXISTING cards as Store Link 2 — themommymotherhood.com → WellnessBaby, springbud.us → FetalPlus — no new cards (convergence). Their Founder Review unchanged.)*
 
-## Calibration signals (distilled — apply in future Store Leads scoring)
-- **🔑 SATURATION + SAMENESS + "ad-cost won't clear" = strong NEGATIVE — overrides "solves real pain + proven category."** [S3
-  Nursery, 2026-06-01] Marina's central correction: a product that solves a real pain in a PROVEN category is NOT a winner
-  if it's saturated and undifferentiated ("видела очень много", "везде купить", "по рекламе не пройдём по стоимости"). Such =
-  **55-62, Watchlist**, NOT 67-72. "Proven category" can be a NEGATIVE (crowded), not a plus. Score the GAP/differentiator,
-  not just the pain. (She expected the plain sleep sack at 55-65 — "точное попадание".)
+## Calibration signals (distilled)
+> **⚠️ GOVERNANCE (Marina, S3 2026-06-01): the SCORING SYSTEM STAYS AS-IS — do NOT use these to tighten/cut scores.**
+> These are **founder-DECISION patterns** (what Marina tends to Watchlist/Reject) — knowledge we ACCUMULATE, exactly like
+> ShopHunter ("scoring works, stays as-is; founder decisions don't constrain it; keep reporting every 65+; don't become
+> conservative; don't predict taste; don't over-filter"). Marina's reason: a tighter score would drop a 60 to 40 and then
+> **the agent wouldn't SHOW it to her at all → that's how we'd LOSE good products.** So: keep scoring broad, report all 65+,
+> SHOW every borderline + browse regardless of score. Use the signals below only to (a) **lead the checkpoint recommendation
+> with an honest wow/differentiation/saturation read** (not convergence count), and (b) be aware her Founder Review will park
+> many of these — which is fine and expected (RULE 12). The score is the agent's structural read; Founder Review is her filter.
+
+- **SATURATION + SAMENESS + "ad-cost won't clear" → Marina tends to Watchlist/Reject** (even when it solves a real pain in a
+  proven category): "видела очень много", "везде купить", "по рекламе не пройдём по стоимости". [S3 Nursery, 2026-06-01]
+  Lead the checkpoint with this read; **do NOT cut the score** (e.g. plain sleep sack stays its structural score — she expected
+  it ~55-65 by taste, but the agent still reports it; her Watchlist is the verdict, like ShopHunter's Swaddelini 72→Rejected).
 - **"Novel framing / clever positioning" ≠ wow unless backed by a REAL functional differentiator.** Grip Baby (crawling suit)
   framed first-of-its-kind but is fundamentally APPAREL → Reject. WaterLand clever "carrier for water" but an ordinary carrier
   underneath → Watchlist. Don't let a marketing angle inflate the score; ask "what's physically/functionally different?".

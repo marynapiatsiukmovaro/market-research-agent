@@ -64,34 +64,10 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 
 ---
 
-**▶ S2 (2026-05-31 PM) — ARCHITECTURE v2 designed + 2 more HI batches run (earlier handoff, superseded by S2 FINAL above).**
-- **Ran HI batches 2 + 3** (visits 6.8k–13.8k, then 4k–6.7k; processed-excluded, 400 now marked processed on VPS
-  `logs/storeleads/processed_domains.json`). Both = 0 confirmed winners 65+. **HI ×3 batches (600 stores) = stable
-  low white-label yield** — structurally "heavy" (trade/materials/parts/services). Funnel WORKS; HI is just not the
-  grebe for our Instagram model. Best borderline: smart-locks (~66-70, Amazon-saturated), bidet-attachment ×3
-  (premium/везде), tub-tile refinishing kit ($39.99 consumable). **Nothing written to Notion** (Marina: "не вносим, потом обсудим").
-- **Verified all 18 "unreachable"** (b2 13 + b3 5) by hand: **17/18 actually load** — products.json disabled ≠ dead site.
-  But none were winners (locksmith/HVAC services, trade-lumber, parts, off-model). Confirms RULE 1+7: ALWAYS check
-  unreachable (S1 had a real loss), but HI's unreachable tail = services/trade.
-- **⭐ ARCHITECTURE v2 AGREED (Marina) — PRODUCT-CENTRIC.** Written into `hypotheses/_active.md` (ARCHITECTURE v2
-  block), `methods/subagent-spec.md` (v2 contract), `methods/discovery-funnel.md` (Stage-2 v2 note). **Unit of hunt =
-  PRODUCT not store.** Revenue NOT the main signal (early winner has none). Scraper v2 = (1) open-ladder
-  best-selling→frontpage→featured→products.json→**homepage HTML**, no silent DROP; (2) **TOP-3 candidates/store** each
-  with desc+REAL price(USD)+type+`hero_confidence`+`desc_confidence`(ok/empty/mismatched); (3) early signals NOW =
-  **storefront position + investment + convergence WITHIN the subcategory** (~27k of the dump, NOT the universe — Marina
-  confirmed scope cheap; dedupe geo-mirrors); (4) currency→USD; (5) **pre-flight 5 checks + FB RULE 4c** (one-line nohup,
-  sentinel-detect, no `pgrep -f`, bracket-kill, no `-o` ssh flags). PLUS every batch: **loss-measurement** (hand-check a
-  random sample of the dropped pile → report the number) + **keep-list** of interesting stores (START NOW — feeds
-  ShopHunter's parked newest-first monitor; **Store Leads = the store-supplier for it**). DEFERRED (Marina): the monitor
-  JOB itself (lives in ShopHunter), fresh-product job, FB-pixel-as-criterion, ShopHunter-enrichment (MEASURE hit-rate first).
-- **NEXT (the agreed sequence):** (a) I go deep into FB + ShopHunter docs/code MYSELF (1M context — don't over-shard to
-  sub-agents where accuracy matters; sub-agents hallucinated line numbers/flags this session — verify against real code,
-  RULE 4) to confirm nothing missed for the product-centric model; (b) then align `sl_enrich2.py` to the v2 contract;
-  (c) test on **HI batch 4** as the proof run + **measure ShopHunter hit-rate** on finalists + a random sample.
-- **VPS reliability lesson (lost ~30 min at S2 start, now in Active Learnings):** SSH exit 255 = dropped channel, NOT a
-  dead process — poll, don't relaunch (spawned scraper dupes); launch ONLY a minimal one-line `nohup`; never heredoc over
-  live SSH; `pgrep -f` self-matches → use `[s]l_enrich2`; `sl_enrich2.py` needs 3 args INF OUTF SENT. **Process rule: at
-  ANY hiccup, check FB/ShopHunter learnings FIRST before reinventing.**
+**▶ S2 (2026-05-31 PM) HANDOFF — collapsed per RULE 18 (3rd block; keep only 2).** Its content is fully superseded by
+**S2 FINAL** above (same architecture-v2 decision + HI batches 2-3 yield) and lives verbatim in git history + the methods
+docs (`hypotheses/_active.md`, `subagent-spec.md`, `discovery-funnel.md`). Nothing lost — removed only to keep the
+mandatory-load lean.
 
 ---
 
@@ -102,6 +78,23 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 ---
 
 ## Active Learnings
+
+### [2026-06-01] S3 — Scoring stays AS-IS + "open every flag" + re-audit proved no loss
+**Type:** Process / Correction | **Severity:** HIGH | **Confidence:** HIGH (Marina-decided + 20-store re-audit)
+**Observation:** Marina questioned the 65+ list (saturated baby products scored 66-72 she'd never test). Cross-checked
+ShopHunter: SAME pattern there (Swaddelini 72→Rejected, Grownsy 66→Rejected) — my scoring was consistent, not uniquely
+broken. **Decision (Marina): keep the scoring system AS-IS — do NOT tighten.** A tighter score would drop a 60→40 and the
+agent would then NOT SHOW it → that is how we'd LOSE good products. Instead: report all 65+, SHOW every borderline+browse
+regardless of score, accumulate founder-DECISION patterns as department knowledge (founder-feedback), and lead the checkpoint
+with an honest wow/differentiation/saturation read. The one real error was inflating Wow-Effect — fix = score Wow accurately
+(ordinary=low) WITHOUT cutting the report-set; Founder Review is the filter.
+**Second issue — "opened only 22 of 344":** there is NO cap; 22 was the agent's hand-picked "interesting" set. Risk = the
+agent's "this is clear, skip" call could be wrong. **Fix (RULE 23 strengthened): open EVERY robot-flagged `needs_live` +
+unreachable, not the agent's subset — if flagged=60, open 60.** Re-audit this session: opened 20 dismissed in-range stores →
+**all 20 correctly skipped, 0 gems lost** (commodity/apparel/formula/gift/branded/bulky/retailer); remaining ~86 clear-skip
+by pitch → ~95% no-loss confidence for this batch; the standing "open every flag" rule makes it ~100% by-design next batch.
+**Applies to:** every Store Leads batch. **Expires:** Never → op-rules RULE 23 + founder-feedback governance note.
+
 
 ### [2026-05-31] S2 — `sl_enrich3.py` v2 built + 2 currency/price bugs caught in smoke-test
 **Type:** Tactical / Pattern | **Severity:** HIGH | **Confidence:** HIGH (live 5-store smoke ×2)
