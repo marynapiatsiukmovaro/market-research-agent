@@ -114,6 +114,10 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-27 | SaveLix Anti-Choking Device | Health | 77 | Suction choking-rescue (LifeVac-class) — max fear/protection trigger (child/elderly), demonstrable, white-label, evergreen; 10K+ families/2800+ rev; anti-choking ×4 convergence (SaveLix+SaveVac+VitalBreath+AirGuard); ⚠ mis-niched safety-device in H&B + moderate medical-policy risk | ShopHunter (SH-10) / Health & Beauty B3 new[402:603] / savelix.com (+SaveVac SL2) |
 | 2026-05-27 | Aerpack Vacuum Bags + electric pump (CONVERGENCE → Rhona) | Travel | — | vacuum-compression with included pump, "-60% packing space", white-label, ~72 deep-score; NOT a new report — added as **Rhona TravelVac Pro Store Link 2** (vacuum-compression now ×10 cross-dept: Rhona+Luux+Aerpack+Magic Travel+CompressPak+VacBird…) | ShopHunter (SH-10) / Luggage & Bags B1 new[0:106] / aerpack.com |
 
+| 2026-05-31 | Cordless Infrared Heated Cushion (Stoov-type) | Home/Heating | 73 | Cordless infrared heated seat cushion → portable warmth without heating the room; Marina Watchlist ("real pain, small market?") | Store Leads (S2, HI≥2020 band) / stoov.com |
+| 2026-05-31 | Painter's Tape Applicator (Masking Master-type) | Tools/Paint | 72 | One-pass masking-tape applicator tool — novel/never-seen; Marina Watchlist ("novel tool, patented → can't copy exactly") | Store Leads (S2, HI≥2020 band) / maskingmaster.com |
+| 2026-05-31 | Step Safety Handrail (Hold-Tight-type) | Home/Safety | 75 | Jamb-mount grab-rail for steps → elderly fall-safety; 25k reviews/viral demand; Marina Watchlist ("real problem, not dropship-fit now — USA-made/weld/weight") | Store Leads (S2 re-run, HI≥2020) / holdtighthandrails.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

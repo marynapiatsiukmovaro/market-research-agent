@@ -34,6 +34,9 @@ Supporting method docs:
 ## 3. End-of-session Learning Protocol
 1. After Marina's OK: save reported (65+) to Notion (`shared/notion-workflow.md`, Source = "Store Leads")
    + `shared/reported-products.md`; rejects → `shared/rejected-products.md`.
+1a. **Mark the batch processed + master record (RULE 19/20):** run `sl_mark_processed.py` so the batch's stores are
+    excluded from future selects AND carry their analysis data; set `monitor: true` + add strong/borderline stores to
+    `operational-memory/keep-list.md`. Sync the repo `processed_domains.json` mirror from the VPS truth.
 2. Append tactical learnings to `operational-memory/learnings.md` (with expiry); archive expired (RULE-15).
 3. Log any founder decision on a SPECIFIC product → `operational-memory/founder-feedback.md` (Tier-1 fact).
 4. Update the **HANDOFF** block at the top of `learnings.md` for the next session.

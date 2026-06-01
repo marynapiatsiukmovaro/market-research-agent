@@ -8,6 +8,11 @@ heroes → 100-pt + Veto → 65+/55–64/browse. Pilot run 2026-05-30 (US Kitche
 
 ## ⭐ ARCHITECTURE v2 — PRODUCT-CENTRIC (Marina-agreed 2026-05-31, S2)
 
+> **STATUS (S3, 2026-06-01): IMPLEMENTED & LIVE in `sl_enrich4.py`.** Everything in the "What v2 builds NOW" list
+> below is coded; v4 added product_class/store_type, homepage-hero + desc self-check (RULE 22), new_products_30d,
+> subdomain-collapsed convergence, class-aware ABC, and the master-record + keep-list (RULE 20). This block is now
+> the design rationale, not a to-do.
+
 The founding chain stands; v2 sharpens its SOUL. Distilled from FB + ShopHunter discipline, but built to
 **surpass** them on the one thing only Store Leads can do.
 
@@ -62,7 +67,9 @@ page before scoring; 100-pt + Marina Veto on the confirmed product; no gut top-N
 - **Fresh-product / new-arrival monitoring JOB itself** — the check-up job lives in ShopHunter (parked); we only
   FEED it the keep-list now, don't build the job here.
 - **FB-Pixel / ads** — demoted to CONTEXT, not a selection criterion (data not always correct).
-- **ShopHunter enrichment of finalists** — MEASURE first (hit-rate + value on a batch), then decide scope.
+- **ShopHunter enrichment of finalists** — **PROVISIONAL (S3):** tested S3 = 2/12 found (both already-known weak),
+  most SL stores are SL-unique → SH adds little so far. **Decide after batch 6** whether it earns its paid sub; if
+  not, we drop it. Not a standard step.
 
 Archived: (none yet)
 

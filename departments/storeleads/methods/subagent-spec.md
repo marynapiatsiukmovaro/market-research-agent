@@ -18,9 +18,10 @@
 >    brand) + 2-part TLDs → fixes false convergence.
 > 6. **ABC reformula:** trade classes deprioritized, consumer lifted — STILL ONLY A SORT-AID; main agent reads ALL.
 
-> **⚠️ v2 PRODUCT-CENTRIC (Marina-agreed 2026-05-31, S2 — TARGET CONTRACT, code not yet aligned).**
+> **v2 PRODUCT-CENTRIC contract — NOW IMPLEMENTED in `sl_enrich4.py` (v4 LIVE).** (History: agreed S2 2026-05-31;
+> coded in v3; extended + self-check in v4 S3 2026-06-01. The "target / not yet aligned" caveats are GONE — this is live.)**
 > The unit of the hunt is the **PRODUCT, not the store** (a store is a box; we pull its 1–2 golden products).
-> v2 changes the enricher's output in 5 ways — see `hypotheses/_active.md` "ARCHITECTURE v2":
+> The enricher's output (the v4 fields are in the ⭐ box at the very top; the v2 core below):
 > 1. **Open-ladder** (no silent DROP): `best-selling`→`frontpage`→`featured`→`/products.json`→**homepage HTML**;
 >    if all fail → `reachable:false, reason:<why>` = **"needs manual look"**, NOT dropped. (S2: 17/18 "unreachable"
 >    were alive — products.json just disabled.)
@@ -35,8 +36,8 @@
 > 6. **`desc_confidence`** per candidate: `ok` / `empty` / `mismatched` — Marina S2: do what ShopHunter only
 >    PLANNED at SH-8 but never coded (we go first). Empty/mismatched → main agent MUST WebFetch the live page
 >    before scoring (kills "winner buried by a bad description", SH-7 SlotPro 52→66).
-> The section below is the ORIGINAL single-hero spec; until the code is aligned, the main agent applies the
-> v2 judgment (read the 3 tops, pick by storefront+investment, confirm on live site).
+> The enricher emits all of this directly (v4); the main agent still reads the 3 tops, confirms the hero on the
+> live site, and scores — judgment stays human (RULE 6/7).
 
 ## Where this fits in the funnel
 ```
@@ -62,11 +63,7 @@ SKUs: shipping protection / gift card / warranty / subscription):
    on price unless ALL its top products are out of band (store whose #1 is $250 but #2 is $70 stays — keep the $70).
 4. **Never a silent DROP:** if the open-ladder yields nothing → `reachable:false, reason:<why>` ("needs manual look").
 
-> ⚠️ Code-alignment note: `sl_enrich2.py` currently returns ONE hero with a legacy $39–170 test and no
-> homepage-HTML fallback. Until aligned to this v2 contract, the main agent applies the v2 judgment at Stage-3
-> (reads the tops it does have, opens the live site, picks by storefront+investment).
-
-## Candidate Sheet — fields the enricher writes (per store) — v2
+## Candidate Sheet — fields the enricher writes (per store) — v4
 
 > Each store row carries a **`tops3` list of the TOP-3 product candidates**; the per-product fields below
 > (`candidate`/`price`/`desc`/confidences/signals) are written **for EACH of the 3**, not just one hero.

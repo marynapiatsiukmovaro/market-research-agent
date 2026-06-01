@@ -7,8 +7,11 @@ active Shopify stores; ~3.59M Shopify all-status), using its internal JSON API a
 > data-API fully mapped incl. the advanced **`bq` (Bleve) query** — created≥2020, multi-category OR,
 > and the 25k-ceiling bypass via created windows (all validated to-the-store). Category census done;
 > green-shortlist subcategories fixed; export-table fields agreed + live-verified. First full clean
-> dump done (Home Improvement ≥2020 = 27,052). NEXT = batch-200 analysis funnel + (optional) ShopHunter
-> test, then Notion fields. Built iteratively like ShopHunter / FB matured. Human-in-loop; autonomous NOT earned.
+> dump done (Home Improvement ≥2020 = 27,052). Funnel runs end-to-end on the **product-centric enricher v4**
+> (`sl_enrich4.py` — product_class/store_type/self-check); 5 HI batches done (1000 stores; HI = structurally
+> "heavy"/trade, low white-label yield); master record + keep-list monitor wired (RULE 19/20); stage artifacts
+> (HTML+PNG) delivered to Marina's Desktop each batch. NEXT = batches 6–7 to finish the HI band, then likely
+> switch to a consumer subcategory. Built iteratively like ShopHunter / FB matured. Human-in-loop; autonomous NOT earned.
 
 ## Why this department exists
 ShopHunter's universe is its ~800/category *tracked* subset — emerging/early-window stores

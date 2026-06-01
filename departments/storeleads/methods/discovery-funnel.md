@@ -53,8 +53,8 @@ hero candidate; record REAL price, description, kind (physical / ingestible / sk
 пустышка flag, image, within-batch convergence. **Health-check the proxy first** (`sh_proxy_check.py` — the
 shared iProyal proxy-check; Store Leads uses the same `cookies/proxy.creds` + dedicated IP as ShopHunter).
 
-> **⭐ v2 PRODUCT-CENTRIC upgrade (Marina-agreed 2026-05-31, S2 — target; code not yet aligned).** The unit is
-> the PRODUCT, not the store. Stage-2 changes (full contract in `methods/subagent-spec.md` + `hypotheses/_active.md`):
+> **⭐ PRODUCT-CENTRIC — LIVE in `sl_enrich4.py` (v4).** The unit is
+> the PRODUCT, not the store. Stage-2 contract (full in `methods/subagent-spec.md` + `hypotheses/_active.md`):
 > (1) **Open-ladder** so no live store is a silent DROP — `best-selling→frontpage→featured→/products.json→homepage HTML`;
 > all fail → `reachable:false, reason` = "needs manual look". (2) Return **TOP-3 product candidates** per store,
 > each with full desc + **REAL price normalized to USD** + type + `hero_confidence` (high if from a sales-ordered
@@ -63,9 +63,11 @@ shared iProyal proxy-check; Store Leads uses the same `cookies/proxy.creds` + de
 > + investment (desc len / #images / #variants / badges) + **convergence within the subcategory** (~27k of the dump, dedupe
 > geo-mirrors) — revenue is NOT the selector. **Pre-flight 5 checks before any run** (VPS up · login valid · no duplicate
 > worker · proxy healthy · quota OK) + **follow FB RULE 4c** (one-line nohup · sentinel-detect not process · no `pgrep -f`,
-> use `[s]l_enrich2` · bracket-kill standalone · NEVER `-o` ssh flags). Every batch: **hand-check a random sample of the
-> dropped pile** (loss-measurement → report the number) + **flag interesting stores to the keep-list** (feeds ShopHunter's
-> parked newest-first monitor). DEFERRED: the monitor JOB itself, fresh-product job, FB-pixel-as-criterion.
+> use `[s]l_enrich4` · bracket-kill standalone · NEVER `-o` ssh flags). Every batch: **hand-check a random sample of the
+> dropped pile** (loss-measurement → report the number) + **flag interesting stores to the keep-list** (RULE 20, feeds a
+> future newest-first monitor). v4 ALSO adds: `product_class` + `store_type` (essence), homepage-hero + desc self-check
+> (RULE 22), `new_products_30d`. DEFERRED: the monitor JOB itself, fresh-product job, FB-pixel-as-criterion, ShopHunter
+> enrichment (provisional — decide after batch 6 whether it earns its paid sub).
 
 **Stage 3 — Deep-score (chat) — the real filter. NEVER skip / never eyeball the proxy tier.**
 - Read **ALL** candidate sheets (A+B+C), no gut top-N (FB RULE 8). The enricher's A/B/C/`score`
@@ -119,7 +121,8 @@ HANDOFF · human-in-loop · checkpoint-before-Notion · lead with WOW/taste not 
    fact — do NOT close the niche or add a filter; keep scoring as-is. (Compare to ShopHunter H&G.)
 
 ## Open / to build (next sessions)
-✅ DONE: `bq` advanced query (created≥2020 server-side + multi-cat OR + 25k-window bypass) · table/field
-calibration with Marina · first full clean dump (HI≥2020 = 27,052). · TO BUILD: multi-country merge in
-the dumper · saved-filter weekly-email monitoring (Lists) · optional ShopHunter enrichment for
-top finalists · then compact + promote stable rules.
+✅ DONE: `bq` advanced query (created≥2020 + multi-cat OR + 25k-window bypass) · table/field calibration ·
+first full clean dump (HI≥2020 = 27,052) · **product-centric enricher v4** (product_class/store_type/self-check/
+new_products_30d) · **master record + keep-list** (sl_mark_processed, RULE 20) · stage-artifact HTML/PNG to Desktop.
+TO BUILD: multi-country merge in the dumper · the newest-first monitor JOB (deferred, ShopHunter-side) ·
+validate the PRICE-CHECK fix on a live price-0 store · then (when stable across more batches) promote rules.

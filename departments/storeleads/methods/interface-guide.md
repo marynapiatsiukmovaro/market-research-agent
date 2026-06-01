@@ -81,7 +81,10 @@ account/usage counter at the first real run). For a 200-store pilot the quota is
   all export fields, client-sort by Est Visits → `<slug>_full.json` + `<slug>_table.html`.
 - `sl_dump3.py [pages]` — quick `bq` sample (a few pages) for spot-checks.
 - `sl_html_top.py <slug> <N> "<title>"` — light top-N HTML preview from a `_full.json`.
-- **`sl_enrich2.py`** — Stage-2 live enricher (real hero from best-selling collection).
+- **`sl_select.py`** `<full_slug> <out_slug> [VLO VHI N]` — Stage-1: band-filter a `_full.json`, exclude already-processed, top-N by Est Visits → `<out_slug>.json`.
+- **`sl_enrich4.py`** `<in> <out> <sentinel> [workers] [limit]` — **Stage-2 live enricher (LIVE, v4):** open-ladder + top-3 + currency→USD + product_class/store_type + homepage-hero & desc self-check + new_products_30d + class-aware ABC. (`sl_enrich3.py` = fallback; `sl_enrich2.py` = retired legacy.)
+- **`sl_mark_processed.py`** `<enriched> <subcat> <band> <date> [--monitor-min N]` — write the master store record + monitor flag (RULE 19/20).
+- **Stage artifacts → Marina's Desktop:** `sl_stage1_table.py` / `sl_stage2_table.py` (HTML tables) · `sl_stage3_pull.py` (compact deep-score digest) · `sl_retro.py` (retro-calibration of past batches) · `sl_html2png.py <in.html> <out.png>` (render any stage HTML → PNG).
 - `sl_count.py` — exact ≥2020 count per subcategory (cratyyyymm facet sum).
 - `sl_subtree.py` — full L2 subcategory tree (census) under Shopify+Active.
 - `sl_shots3.py` — render/screenshot the Advanced UI via Bleve `bq` in the URL path.
