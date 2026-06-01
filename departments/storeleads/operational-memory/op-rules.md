@@ -193,6 +193,16 @@ The first pass must be **complete by design** — no separate "rescue pass" ever
   best-seller the robot surfaced) sank because only hand-picked finalists were live-verified; and S1 lost a real
   winner in the unreachable pile. Pairs with RULE 6 (read ALL), RULE 7 (confirm live), RULE 21 (quality > tokens).
 
+### RULE 24 — Analyze EVERY store; never field-filter (visits/pc/price/revenue unreliable) (S3, Marina 2026-06-01)
+When deep-diving a niche, **every store gets analyzed** — the ONLY exclusion is already-processed (RULE 19). Do **NOT**
+client-filter by `visits`, `products` (pc / catalog-giant), `avg_price`, or `revenue`: these fields are **unreliable —
+a missing or low value does NOT mean the store is dead/disqualified (missing ≠ absent).** Filtering by them silently drops
+stores that simply lack the field (the same trap Marina flagged for the weight filter → why we dump with only the 3
+server-side filters: Shopify / Active / Created ≥ 2020). Use **`sl_select_all.py`** (not `sl_select.py`) for niche-exhaust
+passes: it excludes only processed, keeps missing-visit stores (sorts them last for batch ORDER only, never drops), and
+applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
+pc>2000 cut: "pc-данные тоже могут врать… пусть будет.") Honest low-yield is fine (RULE 11) — but coverage must be total.
+
 ## Checkpoint shape (every batch, before any Notion write)
 Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**curated to what's
 useful — not a fixed count; ~6–15 by context, never padded "чтобы было"**) · Patterns · the full funnel breakdown
