@@ -55,12 +55,11 @@
 ## Where this fits in the funnel
 ```
 Stage 0  Dump via bq (Shopify+Active+Category+Created≥2020, windowed)        [sl_dump_full.py — reuse]
-Stage 1  Client-filter + table (price/revenue/weight band) + sort by Est Visits
-         → CONSERVATIVE cut: drop only DEFINITE-NO (see discovery-funnel.md "Stage-1 conservative cut")
-Stage 2  ← THIS SPEC. Enricher reads the LIVE catalog of survivors, writes a Candidate Sheet.
-Stage 3  Main agent reads ALL sheets → live hero+price confirm → Marina Veto + 100-pt score → 65+ forward.
+Stage 1  sl_select_all.py → next 250 UNPROCESSED, NO field filters (RULE 24); visits = ORDER only
+Stage 2  ← THIS SPEC. Enricher reads the LIVE catalog of every selected store, writes a Candidate Sheet.
+Stage 3  Main agent reads ALL sheets → live hero+price confirm + open EVERY needs_live → Veto + 100-pt → 65+ forward.
 ```
-Stage 2 runs only on survivors — heavier per-store reading is affordable there.
+Stage 2 runs on every selected store (no Stage-1 cut except already-processed — RULE 24).
 
 ## Product selection inside a store (product-level, not store-level) — v2 = TOP-3
 

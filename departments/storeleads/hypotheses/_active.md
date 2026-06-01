@@ -1,8 +1,10 @@
 # Active Hypothesis — Store Leads
 
-**ACTIVE:** `niche-store-first-at-scale.md` — pick a niche → wide filters (Shopify+Active, target
-countries, Created≥2020, price/weight band, revenue $0–1M) → dump → analyse EVERY store → live-enrich
-heroes → 100-pt + Veto → 65+/55–64/browse. Pilot run 2026-05-30 (US Kitchen & Dining 200) validated the chain.
+**ACTIVE:** `niche-store-first-at-scale.md` — pick a niche → dump with **only 3 server-side filters
+(Shopify + Active + Created≥2020)** → **`sl_select_all.py` (RULE 24: NO field filters; visits = order only;
+analyse EVERY unprocessed store)** → live-enrich heroes + open EVERY needs_live → 100-pt + Veto →
+65+/55–64/browse. Pilot 2026-05-30 (K&D 200) validated the chain; S4 (Nursery, 1000 stores) confirmed RULE-24
+no-gate catches deep-tail winners the old band-filter would lose.
 
 ---
 
