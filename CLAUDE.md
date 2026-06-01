@@ -22,7 +22,7 @@ Loading happens in two layers. **First confirm which department this session run
 
 ### Layer B — YOUR ACTIVE DEPARTMENT (load ONLY the active department's files — substitute `{dept}`)
 11. `departments/{dept}/workflow.md` — the department's session procedure (entry point)
-12. `departments/{dept}/operational-memory/op-rules.md` — permanent operational rules (read BEFORE learnings.md) — *if present (FB has it; ShopHunter not yet)*
+12. `departments/{dept}/operational-memory/op-rules.md` — permanent operational rules (read BEFORE learnings.md) — *if present (FB + Store Leads have it; ShopHunter not yet)*
 13. `departments/{dept}/operational-memory/founder-feedback.md` — Marina's direct product feedback for THIS channel
 14. `departments/{dept}/operational-memory/learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
 
@@ -49,6 +49,7 @@ Each department handles one sourcing channel. Departments are isolated — logic
 **Current departments (operational):**
 - `departments/facebook-ads-library/` — FB Ads Library via VPS scraper (keyword-first discovery)
 - `departments/shophunter/` — ShopHunter store-first discovery (store revenue / longevity / multi-store intelligence)
+- `departments/storeleads/` — Store Leads store-first discovery at universe scale (storeleads.app ~3.6M Shopify stores; visits-desc deep-tail, RULE-24 analyse-every-store)
 
 **Future departments (not yet built):**
 - `departments/instagram/` — Instagram Reels / IG discovery
@@ -100,7 +101,7 @@ Notion database: Product Tracker (inside 📦 Product Research → 💗 MOVARO H
 ## File Map
 ```
 core/         → company-level rules (identity, mindset, filters, scoring, founder, operating rules)
-departments/  → per-channel operations (facebook-ads-library/, shophunter/)
+departments/  → per-channel operations (facebook-ads-library/, shophunter/, storeleads/)
 shared/       → channel-agnostic resources (founder-taste, Notion, product logs, patterns, analysis skills)
 scripts/      → operational scripts (FB session util + ShopHunter pipeline; dept-specific scripts move under departments/{dept}/ over time)
 review/       → promotion queue for moving operational learnings into core
