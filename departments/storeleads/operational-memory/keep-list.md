@@ -20,7 +20,8 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 
 | Date | Store | Score | Class | Why keep (monitor for new launches) |
 |---|---|---|---|---|
-| _(seed after Marina confirms batch-5 borderlines — pending checkpoint)_ | | | | |
+| 2026-06-01 | [muravai.co](https://muravai.co) | 77 | filtered showerhead (Beauty) | Consider; proven filter-niche, hair angle open — watch what they launch next |
+| 2026-06-01 | [us.thecoldpod.com](https://us.thecoldpod.com) | 64 | ice bath (Fitness) | Consider; study; single-product DTC — watch their next drops |
 
 ---
 

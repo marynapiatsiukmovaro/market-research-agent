@@ -1,0 +1,56 @@
+<html><head><meta charset="utf-8"><style>
+body{font:13px/1.55 -apple-system,Arial;margin:26px;color:#1a1a1a;max-width:1100px}
+h1{font-size:20px}h2{font-size:15px;margin-top:24px;border-bottom:2px solid #ddd;padding-bottom:4px}
+table{border-collapse:collapse;margin:8px 0;font-size:12px}td,th{border:1px solid #ccc;padding:5px 9px;vertical-align:top}
+th{background:#f4f4f4}a{color:#1763d6;text-decoration:none}
+.box{background:#f7f9fc;border:1px solid #dce4f0;border-radius:6px;padding:10px 14px;margin:8px 0}
+.win{background:#d9f7d9}.bord{background:#fff6d5}.bad{color:#a00}.good{color:#080}.muted{color:#666}
+</style></head><body>
+<h1>Store Leads — Batch 7 (FINAL HI band) · Stage 3 · v4.1 · Home Improvement ≥2020</h1>
+<p class=muted>Прочитаны ВСЕ кандидаты (RULE 6). Consumer-кандидаты подтверждены на живом сайте (RULE 7). Полоса визитов 1,002–1,390 (низ) — самая trade-тяжёлая. HI band ИСЧЕРПАНА после этого батча.</p>
+
+<h2>1. Воронка + ABC (RULE 1)</h2>
+<div class=box>
+dump 27,052 → band 504 → already-processed excluded <b>1250</b> → SELECTED все оставшиеся <b>254</b> (visits 1,002–1,390) · band ИСЧЕРПАНА.<br>
+Stage 2 (sl_enrich4 v4.1, 8 воркеров, <b>266 сек ≈ 1 магазин/сек</b>) = 254 enriched · reachable 228.<br>
+<b>ABC: A 57 · B 17 · C 145 · PRICE-CHECK 8 · MANUAL 26 · DROP 1.</b> Pool = 110.<br>
+<b>product_class:</b> consumer-gadget 6 · appliance 7 · consumer-other 121 · decor — · <b>diy-home 22 (новый класс ловит протёкший trade)</b> · material 38 · part 14 · fixture 10 · pro-tool 3 · apparel 6.
+<b>store_type:</b> niche-brand 141 · single-product/DTC 47 · trade-store 44 · parts-supply 16 · services 6.
+</div>
+
+<h2>2. 🏆 Winner 65+</h2>
+<table>
+<tr><th>Магазин</th><th>Hero (live)</th><th>Цена</th><th>Score</th><th>Почему winner</th></tr>
+<tr class=win><td><a href="https://muravai.co">muravai.co</a></td><td>THE FILTERED SHOWERHEAD™ (18-ступ. фильтр)</td><td>~$59.99</td><td><b>~77</b></td><td>Жёсткая вода/хлор → кожа/волосы; видимый результат («мягче кожа сразу»); реальная частая боль; demo-able (фильтр/water-test); white-label; impulse-цена; проверенная категория (Jolie/Canopy премиум → generic выигрывает). 4.7★/500+. Твой тип «фильтр на кран». ⚠ категория с премиум-игроками — нужен свой угол/цена.</td></tr>
+</table>
+<p class=muted>Proxy дал muravai лишь A58 (mid-pack) — deep-score 77. Ещё раз подтверждает RULE 6 (winner'ы не наверху по proxy).</p>
+
+<h2>3. 🟡 Borderline 55–64</h2>
+<table>
+<tr><th>Магазин</th><th>Hero</th><th>Цена</th><th>~Score</th><th>Хук / риск</th></tr>
+<tr class=bord><td><a href="https://whisperheat.com">whisperheat.com</a></td><td>Whisper Heat — under-desk обогреватель (0dB, складной)</td><td>$79.95 (сет $119.98)</td><td>~62</td><td>Реальная офисная боль (холодные ноги), тихий/энергоэффективный, demo. ⚠ premium + branded + обогреватели насыщены.</td></tr>
+</table>
+<p class=muted>Отклонены live: <a href="https://www.bertschat.fr">bertschat</a> = премиум heated-одежда €129-240 (не охлаждающая панама — мислейбл); <a href="https://sharptools.store">sharptools</a> = про-инструмент €129. Оба — не наша модель.</p>
+
+<h2>4. Browse-pool — 6 уникальных consumer-ссылок</h2>
+<ul>
+<li><a href="https://snapair.co.nz">snapair.co.nz</a> — Temtop CO2-монитор качества воздуха, ~$56</li>
+<li><a href="https://votreportemanteau.com">votreportemanteau.com</a> — дизайнерская ретро-вешалка/крючок для прихожей, $43</li>
+<li><a href="https://northwoodsengineered.com">northwoodsengineered.com</a> — 3D-печатный European deer skull mount, $54 (охотничий декор/новелти)</li>
+<li><a href="https://gator-tape.com">gator-tape.com</a> — GATORTAPE 2.0 (усиленный скотч), $63 (single-product DTC)</li>
+<li><a href="https://radonsupplies.com">radonsupplies.com</a> — домашний тест на радон, $89 (безопасность дома)</li>
+<li><a href="https://www.duttontools.com">duttontools.com</a> — Sander Lights (подсветка дефектов при шлифовке), $49.99 (single-product DTC, нишевый, но demo)</li>
+</ul>
+
+<h2>5. Loss-measurement + калибровка v4.1</h2>
+<table>
+<tr><th>Пункт</th><th>Итог</th></tr>
+<tr><td>v4.1 скорость</td><td><b>266 сек/254 (8 воркеров) vs 914 сек/250 (v4, 4 воркера) = ~3.4× быстрее.</b> ~1 магазин/сек, ~1000/час. Качество то же (читаю всё).</td></tr>
+<tr><td>diy-home класс</td><td>Поймал 22 (краски/герметики/крепёж/кровля/work-gear) — теперь тонут, не висят в A. ✓ Но `consumer-other` (121) всё ещё ловит декор-штукатурку/инструмент с generic-desc.</td></tr>
+<tr><td>Скрапер-мислейблы</td><td>bertschat (одежда), sharptools (про) — снова пойманы только live → RULE 7 окупается.</td></tr>
+<tr><td>Loss-measurement</td><td>physical-вне-диапазона + PRICE-CHECK 8 + MANUAL 26 = флоринг/штукатурка/фурнитура/проф-инструмент/сервисы. Winner'а в отбросах нет (muravai был В пуле, не в отбросах). Cull обоснован.</td></tr>
+</table>
+
+<h2>6. Итог по HI</h2>
+<div class=box><b>HI band ИСЧЕРПАНА: 7 батчей / 1504 магазина.</b> Winner'ы: batch1 (3 → Watchlist) + <b>batch7 muravai ~77</b>. Плюс borderline: thecoldpod (b6), mybabybottle (b6), whisperheat (b7). Честно: HI «тяжёлая», но воронка ловит редкие жемчужины (muravai — доказательство, что система работает даже в плохой нише). <b>Следующий шаг: свитч на consumer-подкатегорию</b> (Nursery&Playroom / Cleaning / Pets), где плотность winner'ов структурно выше.</div>
+</body></html>

@@ -28,7 +28,20 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 
 *(All genuine 65+ — Watchlist ≠ mis-score. Keep reporting this kind; she may return.)*
 
+### [2026-06-01] S3 — 2 Consider (HI batches 6–7, on enricher v4/v4.1)
+| Product | Score | Founder Review | Founder Notes (Marina) | Signal to keep |
+|---|---|---|---|---|
+| Muravai Filtered Showerhead (18-stage) | 77 | 🟡 Consider | "Proven niche. Hair angle underexplored." | Faucet/shower filters proven by strong DTC brands (skin angle). The **hair** angle looks under-played → a real opening; worth exploring the niche. |
+| The Cold Pod (portable ice bath) | 64 | 🟡 Consider | "Big premium look. Why so cheap?" | Big product usually = premium positioning, yet priced low → study WHY (sourcing/quality) before judging. Curiosity-driven study, not yet a launch commit. |
+
+*(First Store-Leads **Consider** tier. Both `monitor: true` → keep-list. Muravai = first SL winner since batch 1; proxy buried it A58 → deep-score 77, confirming RULE 6.)*
+
 ## Calibration signals (distilled — apply in future Store Leads scoring)
+- **Proven category + an UNDER-PLAYED sub-angle → Consider (not just Watchlist).** A niche validated by strong DTC
+  brands on one angle (e.g. water-filter = skin) with an open adjacent angle (hair) is a real *opening*, not merely a
+  signal-to-watch. First SL YES-tier. [Muravai filtered showerhead, 2026-06-01]
+- **"Premium-look product at a low price" = a study trigger, not an auto-yes/no.** Marina parks it as Consider to learn
+  WHY it's cheap (sourcing/quality) before committing. [The Cold Pod, 2026-06-01]
 - **"Novel / never-seen" alone → Watchlist, not a winner-launch.** Marina parks first-of-its-kind tools as
   "good to know it exists," especially if patented (can't white-label exactly) or the market may be small.
 - **Real-pain-solver is necessary but NOT sufficient** — she still asks "is the market big enough?" before

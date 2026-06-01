@@ -118,6 +118,9 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-05-31 | Painter's Tape Applicator (Masking Master-type) | Tools/Paint | 72 | One-pass masking-tape applicator tool — novel/never-seen; Marina Watchlist ("novel tool, patented → can't copy exactly") | Store Leads (S2, HI≥2020 band) / maskingmaster.com |
 | 2026-05-31 | Step Safety Handrail (Hold-Tight-type) | Home/Safety | 75 | Jamb-mount grab-rail for steps → elderly fall-safety; 25k reviews/viral demand; Marina Watchlist ("real problem, not dropship-fit now — USA-made/weld/weight") | Store Leads (S2 re-run, HI≥2020) / holdtighthandrails.com |
 
+| 2026-06-01 | Muravai Filtered Showerhead (18-stage) | Beauty | 77 | Hard-water/chlorine → skin & hair; 18-stage filter, visible result, $59.99, white-label; proven category (Jolie/Canopy) → hair angle open; Marina 🟡 Consider ("proven niche, hair angle underexplored"); proxy A58→deep-score 77 (RULE 6) | Store Leads (S3, HI≥2020 batch 7) / muravai.co |
+| 2026-06-01 | The Cold Pod — Portable Ice Bath | Fitness | 64 | agent <65 — FOUNDER-Consider (Marina studies: big premium-look product at low price — why?); cold-plunge trend + UGC; ⚠ bulky+water (RULE 10) + premium $149.99 + saturated | Store Leads (S3, HI≥2020 batch 6) / us.thecoldpod.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
