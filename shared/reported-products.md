@@ -136,9 +136,14 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-01 | Izimini Outdoor Baby Chair | Kids | 57 | agent <65 — Marina 🟡 Consider ("stylish, strong seasonal hook") | Store Leads (S3 Nursery b1) / izimini.com |
 | 2026-06-01 | At-Home Fetal Doppler (convergence +2) | Health | — | NOT new — folded into existing WellnessBaby (SL2=themommymotherhood.com) + FetalPlus (SL2=springbud.us); ⚠ medical liability | Store Leads (S3 Nursery b2) / springbud.us · themommymotherhood.com |
 
-### Store Leads S4 — Nursery & Playroom (batch 6, ≥2020, visits-desc deep tail)
+### Store Leads S4 — Nursery & Playroom (batches 6–8, ≥2020, visits-desc deep tail; b7/b8 = decouple-test on pre-enriched data)
 | 2026-06-01 | WonderBee Pocket Fetal Doppler | Health | 77 | At-home fetal heartbeat → pregnancy-anxiety relief; $54.95 white-label; **convergence with approved WellnessBaby (83)** + FetalPlus; found at visits 387 (deep tail — old visits-band would have lost it); ⚠ FDA/medical-claim policy + liability | Store Leads (S4 Nursery b6) / petiteisland.com |
 | 2026-06-01 | Crib Safety Tent (KinderSense) | Kids | 73 | Breathable mesh enclosure stops toddler climbing/falling out of crib — acute safety fear; $54.87, 172 rev; found at visits 363 (deep tail); ⚠ crib-tent CPSC recall-history (verify safety/liability) | Store Leads (S4 Nursery b6) / kindersensebaby.com |
+| 2026-06-01 | LatchLight Wearable Nursing Nightlight | Kids | 76 | Wearable red/amber light + latch-assist tip for hands-free night feeds in the dark; $39.99 single-product DTC; media (CBS, Taking Cara Babies); novel functional gadget | Store Leads (S4 Nursery b7, visits 208) / shoplatchlight.com |
+| 2026-06-01 | Roar Rugged Wireless Baby Monitor | Kids | 69 | Fully wireless (battery BOTH units, 20+hr) vs outlet/wifi monitors → outdoor/camping wedge; ~$60; 42 rev + press; ⚠ electronics COGS/returns | Store Leads (S4 Nursery b7, visits 208) / roaroutside.com |
+| 2026-06-01 | Rockit Portable Stroller Rocker | Kids | 74 | Clip-on automatic pram rocker — baby keeps sleeping when pram stops; ~$63; est. 2013, 700k+ sold, press; white-label the mechanism | Store Leads (S4 Nursery b8, visits 167) / rockitrocker.com.au |
+| 2026-06-01 | Baby Crib Tent (Aussie Cot Net) | Kids | 70 | **Convergence with Crib Safety Tent 73 (KinderSense)** — premium tier $159, crib-tent experts since 1998; pop-up mesh enclosure; ⚠ crib-tent CPSC recall-history | Store Leads (S4 Nursery b8, visits 119) / babycribtents.com |
+| 2026-06-01 | Sleepytot Comforter (Dummy-Holder) | Kids | 64 | **agent score <65 — founder-kept (Marina S4).** Velcro-paw comforter holds dummies → ends night pacifier-runs; $42; award-winning AU brand; apparel-adjacent | Store Leads (S4 Nursery b8, visits 142) / sleepytot.com.au |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.
