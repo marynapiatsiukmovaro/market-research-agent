@@ -19,6 +19,18 @@
 >    brand) + 2-part TLDs → fixes false convergence.
 > 6. **ABC reformula:** trade classes deprioritized, consumer lifted — STILL ONLY A SORT-AID; main agent reads ALL.
 
+> **⭐ v4.2 ADDITIONS (Marina-agreed S3, 2026-06-01) — "ни один магазин не тонет на первом проходе" (all 0-token, VPS):**
+> The robot brings ENOUGH context that a *confident skip without opening* is trustworthy, and flags the rest for hand-open:
+> 7. **`home_pitch`** — the store's OWN homepage pitch (og:title + H1 + og:description = the banner/value-prop text).
+>    Fixes the izimini case (was useless "Ella baby chair" → now "Outdoor lifestyle accessories for babies").
+> 8. **`home_hero`** — the product the homepage BANNER features, captured ALWAYS & shown ALONGSIDE the best-seller
+>    candidate (not instead). Fixes swaddlean/dingle: best-seller pick mis-fires, banner hero reveals the real product.
+> 9. **longer desc (~600) + `bullets`** (feature list) — conveys the real benefit/mechanism (dingle-dangle case).
+> 10. **`home_img`** — the homepage banner image (Stage-2 visual sheet).
+> 11. **`needs_live` + `needs_live_why`** — the store's OWN "open me by hand" worklist (low hero/desc conf · price-unknown
+>     · banner-hero≠pick · unreachable). The main agent MUST live-open every flagged + unreachable store (op-rule **RULE 23**).
+> **DROPPED (Marina):** review-count/rating & brand-strength markers — both fakeable at launch, not real signals.
+
 > **v2 PRODUCT-CENTRIC contract — NOW IMPLEMENTED in `sl_enrich4.py` (v4 LIVE).** (History: agreed S2 2026-05-31;
 > coded in v3; extended + self-check in v4 S3 2026-06-01. The "target / not yet aligned" caveats are GONE — this is live.)**
 > The unit of the hunt is the **PRODUCT, not the store** (a store is a box; we pull its 1–2 golden products).

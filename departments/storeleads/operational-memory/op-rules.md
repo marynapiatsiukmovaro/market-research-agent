@@ -172,6 +172,22 @@ ALSO pulls the homepage featured hero (catches collection-hero ≠ real front he
 candidate's own product page when its desc is empty/mismatched. Self-correction is 0-token and reduces my re-opens.
 (Implemented in `sl_enrich4.py`.)
 
+### RULE 23 — No store sinks on first pass: mandatory live-open of `needs_live` + unreachable (S3, Marina-approved 2026-06-01)
+The first pass must be **complete by design** — no separate "rescue pass" ever needed. Two parts:
+- **Enricher flags the worklist (v4.2+, 0-token).** Each store gets a `needs_live` flag when the robot is UNCERTAIN:
+  low hero/desc confidence, price-unknown, **homepage-banner hero ≠ best-seller pick**, or unreachable. Plus it now
+  brings ENOUGH context that a *confident* skip needs no open: the store's **own homepage pitch** (og:title+H1+
+  og:description), **BOTH heroes** (best-seller candidate + homepage-banner hero, shown side by side), a **long
+  description (~600) + feature bullets**, and the banner image. (Reviews/brand-claim markers are **NOT** captured —
+  fakeable at launch, Marina 2026-06-01.)
+- **Agent MUST live-open EVERY `needs_live` store + EVERY unreachable store, same batch, before the checkpoint.**
+  Never report-around an uncertain store; never trust the proxy hero for one. A high-confidence-hero store may be
+  judged from the rich card; everything flagged is opened by hand. Target after v4.2: the forced-open set shrinks
+  (the richer card resolves most), but coverage is total.
+- **Root cause it fixes:** reachable-but-mispicked stores (Dingle Dangle, izimini, swaddlean — banner hero ≠ the
+  best-seller the robot surfaced) sank because only hand-picked finalists were live-verified; and S1 lost a real
+  winner in the unreachable pile. Pairs with RULE 6 (read ALL), RULE 7 (confirm live), RULE 21 (quality > tokens).
+
 ## Checkpoint shape (every batch, before any Notion write)
 Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**curated to what's
 useful — not a fixed count; ~6–15 by context, never padded "чтобы было"**) · Patterns · the full funnel breakdown

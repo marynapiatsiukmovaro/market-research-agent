@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""sl_stage3_pull.py — compact Stage-3 digest from an sl_enrich3 enriched JSON.
+"""sl_stage3_pull.py — compact Stage-3 digest from an sl_enrich4 (v4.2) enriched JSON.
 Prints (token-lean, for the main agent's deep-score): the candidate POOL (stores with >=1
 in_range physical non-пустышка candidate, full desc), plus PRICE-CHECK / MANUAL domains, plus
 a tally of the rest (loss-measurement transparency, RULE 1). Read-only.

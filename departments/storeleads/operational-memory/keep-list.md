@@ -22,6 +22,11 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 |---|---|---|---|---|
 | 2026-06-01 | [muravai.co](https://muravai.co) | 77 | filtered showerhead (Beauty) | Watchlist; proven filter-niche, hair angle open — watch what they launch next |
 | 2026-06-01 | [us.thecoldpod.com](https://us.thecoldpod.com) | 64 | ice bath (Fitness) | Watchlist; study (premium-look/low-price) — watch their next drops |
+| 2026-06-01 | [izimini.com](https://www.izimini.com) | 57 | outdoor baby chair (Kids) | Consider; stylish + strong seasonal hook — watch new outdoor SKUs |
+| 2026-06-01 | [dingledanglebaby.com](https://www.dingledanglebaby.com) | 60 | diaper-change distractor (Kids) | Consider; fun/novel family-bonding — Shark Tank brand, watch new toys |
+| 2026-06-01 | [joseat.com](https://joseat.com) | 68 | cart/high-chair cover (Kids) | Consider; clear hygiene pain — watch new covers/accessories |
+| 2026-06-01 | [wildridecarrier.com](https://wildridecarrier.com) | 70 | toddler hip carrier (Kids) | Watchlist; beautiful design brand in saturated niche — watch their drops |
+| 2026-06-01 | [waterlandbaby.com](https://www.waterlandbaby.com) | 72 | water+land carrier (Kids) | Watchlist; clever water positioning — watch how they extend the line |
 
 ---
 

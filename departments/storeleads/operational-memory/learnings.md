@@ -7,27 +7,32 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 
 ## HANDOFF → NEXT SESSION (read first)
 
-**▶ S3 (2026-06-01) — read this first; supersedes the v3 references below. (mid-session compact point.)**
-- **Enricher = `sl_enrich4.py` v4.1 LIVE** (supersedes all sl_enrich3/2 mentions below): product_class (incl. `diy-home`)
-  + store_type essence, homepage-hero (only when hero_conf=low) + desc SELF-CHECK (RULE 22), new_products_30d,
-  subdomain-collapsed conv, class-aware ABC (SORT-AID only — read ALL, RULE 6), product-handle link.
-  **v4.1 speed = 8 workers + fast-fail 15s×2 → ~1 store/sec (~1000/hr), 0 quality loss.**
-- **HI band EXHAUSTED: 7 batches / 1504 stores (visits 1k–50k of 27,052).** Winners: batch1 (3 → Watchlist) +
-  **muravai filtered showerhead 77 (batch7)** + borderlines (cold pod 64, mybabybottle 60, whisperheat 62). Tail
-  (visits <1000 ≈ 24k) NOT done — return later if wanted. `processed_domains.json` = 1504 marked (full band).
-- **Notion:** muravai (77) + The Cold Pod (64) entered → both Marina **🟡 Consider** (Founder Notes filled).
-  Logged in founder-feedback + keep-list (both monitor:true) + shared/reported-products. Repo mirror synced (1504).
-- **System this session:** master record + keep-list (RULE 20); RULE 21 quality-over-tokens; RULE 22 self-check;
-  checkpoint shows A/B/C counts; folder cleaned (v2/v3→v4 reconciled, DAY1/2 → handoffs-archive). 5 commits pushed.
-- **▶ NEXT (Marina-agreed): SWITCH niche → Nursery & Playroom.** Dump DONE + verified = **6,715 ≥2020**
-  Files now in `logs/storeleads/niches/home-and-garden/nursery-playroom/` (VPS reorganized into niche folders; HI/KD
-  too). Strategy: band visits 1k–50k = **594 stores** → **2 batches: batch1=250 + batch2≈344** to EXHAUST the band
-  (Marina: no orphan 3rd; tail <1000 = 5,874 later); cut catalog-giants pc>2000, push heavy/bulky down, mark each batch.
-  **Run Nursery batch 1 on v4.1 next:** `np_batch1.json` (250) ready in the niche folder → enrich4 with
-  INF=`niches/home-and-garden/nursery-playroom/np_batch1.json` (scripts join OUT+'/'+arg, subpaths work) → stage HTMLs
-  → checkpoint w/ ABC + winners/borderline/browse. After batch1 marked, sl_select batch2 (next ≈344). HI saved (return later).
-- **Open:** validate PRICE-CHECK fix on a live price-0 store; v5 idea — split `consumer-other` further (decor-plaster/
-  generic-tool still leak). Throughput-at-scale optimization = deferred (RULE 21: only for big dumps, not now).
+**▶ S3 (2026-06-01) — read this first; supersedes the v3/v4.1 references below. (Nursery band DONE.)**
+- **Enricher = `sl_enrich4.py` v4.2 / v4.2.1 LIVE** (supersedes v4.1/v3/2): product_class (incl. `diy-home`) + store_type,
+  desc SELF-CHECK (RULE 22), new_products_30d, subdomain-collapsed conv, class-aware ABC (SORT-AID — read ALL, RULE 6),
+  product-handle. **v4.2 = "ни один магазин не тонет на первом проходе" (RULE 23):** brings `home_pitch` (store's own
+  homepage value-prop), `home_hero` (banner-featured product shown ALONGSIDE best-seller), long desc + `bullets`,
+  `home_img`, and a **`needs_live`** worklist flag → agent live-opens every flagged + unreachable store. **v4.2.1 fix:**
+  `needs_live` = CARD-INSUFFICIENT only (desc-bad / price-unknown / unreachable / card-thin / banner-hero-unreadable);
+  `hero_confidence=low` is a SOURCE artifact, NOT real uncertainty (it had inflated needs_live to 62% → recalibrated to ~17%).
+  Dropped (Marina): review-count/brand-claim markers (fakeable). Stage-2 table shows pitch+BANNER+bullets+needs_live col.
+- **NURSERY & PLAYROOM band EXHAUSTED: 2 batches / 594 stores (visits 1k–50k of 6,715).** Consumer-dense niche (contrast
+  HI): consumer ~80%, trade ~5%. **Tail (visits <1000 ≈ 5,874) NOT done — Marina: process LATER (next session).**
+  `processed_domains.json` = batch1(250)+batch2(344) marked (total 1754 incl. HI 1504). v4.2 result: judged ~280/341 from
+  cards, hand-opened ~22 (genuine + must-open); 2 MANUAL mislabels caught live (busybee/burrbaby b1; bebecan/momsbeyond b2).
+- **Notion: 12 cards entered (Founder Review by Marina):** 🟡 Consider 3 (Izimini 57, Dingle Dangle 60, JoSeat 68) · 🔵 Watchlist 8
+  (Omni 66, Wildride 70, BuddyBottle 68, Kaiya 72, WaterLand 72, Dreamland 70, Ocodile 67, Jili 66) · 🔴 Rejected 1 (Grip Baby 67).
+  **Doppler convergence:** the 2 new doppler stores folded into EXISTING cards as Store Link 2 (themommymotherhood→WellnessBaby,
+  springbud→FetalPlus) — no new cards. All logged in founder-feedback + keep-list (7 monitors).
+- **⭐ FOUNDER CALIBRATION (S3 — big one, in founder-feedback):** SATURATION + SAMENESS + "ad-cost won't clear" = strong
+  NEGATIVE, overrides "solves pain + proven category" → such products are 55-62 Watchlist, NOT 67-72. Novel-framing ≠ wow
+  without a REAL functional differentiator (Grip Baby crawling-suit = apparel → Reject; WaterLand clever-but-ordinary →
+  Watchlist). Apparel off-model unless tactile/functional diff. Stylish design alone → Watchlist; +seasonal/viral hook →
+  Consider. **Apply: score the differentiator/gap, not just the pain.**
+- **▶ NEXT:** (1) decide tail <1000 (≈5,874) — process later vs skip (Marina parking it); (2) if continuing Nursery, dump tail
+  or pick next consumer niche (Cleaning 5,868 / Pets / Dogs / Cats); (3) commit+push done this session.
+- **Open:** validate PRICE-CHECK fix on a live price-0 store; v5 idea — split `consumer-other` further; archive S2-PM HANDOFF
+  block (RULE 18 — 3 blocks present, keep 2). Throughput-at-scale optimization deferred (RULE 21).
 
 **▶ S2 FINAL (2026-05-31) — ARCHITECTURE v2 designed + BUILT (sl_enrich3) + 4 HI batches run. Caркас готов; начали тестировать. (DONE)**
 - **State in one line:** the funnel SKELETON is built and runs end-to-end on the new product-centric scraper; we have begun

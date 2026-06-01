@@ -44,11 +44,15 @@ table (domain, merchant, est $/mo, avg price, created, reviews, #products, FB-pi
 > - Everything else is a SURVIVOR → goes to Stage 2. No subjective name-based pre-pick (RULE 5). Band selection
 >   (e.g. visits 1k–50k) is a transparent batch choice, reported with counts (RULE 1) — not a silent cull.
 
-**Stage 2 — Enrich finalists from the LIVE catalog (VPS, Playwright + proxy).** **`sl_enrich4.py` (LIVE — v4.1, 8 workers).**
+**Stage 2 — Enrich finalists from the LIVE catalog (VPS, Playwright + proxy).** **`sl_enrich4.py` (LIVE — v4.2, 8 workers).**
 Implements the full v2 product-centric contract PLUS v4 essence + self-check (`product_class` incl. `diy-home`,
 `store_type`, homepage-hero self-check, `new_products_30d`, subdomain-collapsed convergence, class-aware ABC sort,
-product-handle link). **v4.1 speed (0 quality loss):** 8 workers · moderate fast-fail (15s×2) · homepage-hero fetched
-only when hero_confidence=low. `sl_enrich3.py`
+product-handle link). **v4.2 (Marina, 2026-06-01) — "ни один магазин не тонет на первом проходе":** brings ENOUGH per
+store (0-token) that a confident no-open skip is trustworthy → adds the store's **own homepage pitch**, **BOTH heroes**
+(best-seller + homepage banner), **long desc + feature bullets**, banner image, and a **`needs_live`** worklist flag
+(low hero/desc conf · price-unknown · banner-hero≠pick · unreachable) — the agent MUST live-open every `needs_live` +
+unreachable store (op-rule RULE 23). Dropped (Marina): review-count/brand-claim markers (fakeable). **v4.1 speed (0
+quality loss):** 8 workers · fast-fail 15s×2. `sl_enrich3.py`
 = fallback; `sl_enrich2.py` = retired legacy single-hero. For each store: fetch the **best-selling / frontpage / featured collection**
 (sales order = real hero) → fallback `/products.json`. Surface top catalog products + pick a
 hero candidate; record REAL price, description, kind (physical / ingestible / skincare / apparel),

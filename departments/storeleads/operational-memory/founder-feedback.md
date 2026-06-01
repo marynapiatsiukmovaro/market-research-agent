@@ -36,7 +36,41 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 
 *(Both initially entered as Consider, then Marina **moved to Watchlist** ("I'll remember & study them"). Both `monitor: true` → keep-list. Muravai = first SL winner since batch 1; proxy buried it A58 → deep-score 77, confirming RULE 6.)*
 
+### [2026-06-01] S3 — Nursery & Playroom batches 1+2 (12 products reviewed; v4.2 enricher)
+| Product | Score | Founder Review | Founder Notes (Marina) | Signal to keep (calibration) |
+|---|---|---|---|---|
+| Izimini Outdoor Baby Chair | 57 | 🟡 Consider | "Stylish. Strong seasonal hook." | Stylish + strong seasonal (summer travel) hook → лифтит нишевый продукт в Consider. |
+| Dingle Dangle Diaper Distractor | 60 | 🟡 Consider | "Fun. Family-bonding hook." | Весёлый, novel, family-bonding angle → Consider даже при низкой цене. |
+| JoSeat Cart/High-Chair Cover | 68 | 🟡 Consider | "Clear pain. Price high." | Явная боль (гигиена/комфорт) → Consider, хоть цена великовата. |
+| Omni Baby Carrier (generic) | 66 | 🔵 Watchlist | "Real pain. No wow." | Боль есть, но без wow → Watchlist. |
+| Wildride Toddler Hip Carrier | 70 | 🔵 Watchlist | "Saturated niche. Beautiful design." | Перегретая ниша; красивый дизайн сам по себе = Watchlist (не Consider). |
+| BuddyBottle Portable Warmer | 68 | 🔵 Watchlist | "Seen too many already." | «Видела очень много таких» = насыщено → Watchlist. |
+| Kaiya All-Season Sleep Sack | 72 | 🔵 Watchlist | "Real pain. Apparel — off-model." | Одежда; решает боль, но продавать одежду — не её модель. |
+| WaterLand Water+Land Carrier | 72 | 🔵 Watchlist | "Smart positioning. Not unique." | Умное позиционирование (под воду), но «обычный carrier внутри» → Watchlist. |
+| Dreamland Weighted Sleep Sack | 70 | 🔵 Watchlist | "Nothing special here." | Ошибочно показалось winner'ом; ничего особенного → Watchlist. |
+| Ocodile Foldable Kitchen Tower | 67 | 🔵 Watchlist | "Real problem. Costly logistics." | Реальная боль, НО логистика дорогая (громоздко) → Watchlist (≈RULE 10). |
+| Jili All-in-One Baby Bottle | 66 | 🔵 Watchlist | "Ordinary. Ad-cost too high." | Обычная баночка, «везде купить» → реклама не окупится → Watchlist. |
+| Grip Baby Crawling Suit | 67 | 🔴 Rejected | "No wow. Just apparel." (RR: Plain apparel, no wow.) | «Novel»-обёртка, но по сути одежда без wow → Reject; скоринг был завышен. |
+
+*(Doppler: Marina folded the 2 new doppler stores into the EXISTING cards as Store Link 2 — themommymotherhood.com → WellnessBaby, springbud.us → FetalPlus — no new cards (convergence). Their Founder Review unchanged.)*
+
 ## Calibration signals (distilled — apply in future Store Leads scoring)
+- **🔑 SATURATION + SAMENESS + "ad-cost won't clear" = strong NEGATIVE — overrides "solves real pain + proven category."** [S3
+  Nursery, 2026-06-01] Marina's central correction: a product that solves a real pain in a PROVEN category is NOT a winner
+  if it's saturated and undifferentiated ("видела очень много", "везде купить", "по рекламе не пройдём по стоимости"). Such =
+  **55-62, Watchlist**, NOT 67-72. "Proven category" can be a NEGATIVE (crowded), not a plus. Score the GAP/differentiator,
+  not just the pain. (She expected the plain sleep sack at 55-65 — "точное попадание".)
+- **"Novel framing / clever positioning" ≠ wow unless backed by a REAL functional differentiator.** Grip Baby (crawling suit)
+  framed first-of-its-kind but is fundamentally APPAREL → Reject. WaterLand clever "carrier for water" but an ordinary carrier
+  underneath → Watchlist. Don't let a marketing angle inflate the score; ask "what's physically/functionally different?".
+- **Apparel (sleep sacks, suits, clothing) = off-model for Marina even in baby** unless it has a real tactile/functional
+  differentiator (e.g. the early sleep sack with touch-elements baby can feel). Plain apparel that "just solves a pain" →
+  Watchlist at best, often Reject. "Продавать одежду — не моя модель."
+- **Beautiful/stylish DESIGN alone → Watchlist; design + strong seasonal/viral hook + travel/usage occasion → Consider.**
+  Wildride (beautiful design, saturated) = Watchlist; Izimini (stylish + summer-travel seasonal hook) = Consider.
+- **Bulky / costly-logistics → Watchlist even with a real problem** (Ocodile kitchen tower) — reaffirms RULE 10 for FB economics.
+- **Consider tier earned by:** clear strong pain + (stylish OR fun/novel-with-substance) + reasonable FB ad-economics
+  (Izimini, JoSeat, Dingle Dangle). Convergence/proven-category alone still = Watchlist max (RULE 12).
 - **Proven category + an UNDER-PLAYED sub-angle → interesting, but Watchlist (study), not an auto-launch.** A niche
   validated by strong DTC brands on one angle (water-filter = skin) with an open adjacent angle (hair) is a real
   *opening* worth remembering/studying — Marina parked it Watchlist, not Consider. [Muravai filtered showerhead, 2026-06-01]

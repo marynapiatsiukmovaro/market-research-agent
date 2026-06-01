@@ -1,4 +1,15 @@
-# Store Leads Stage-2 enricher v4 / v4.1 — STORE/PRODUCT ESSENCE + SELF-CHECK (Marina-agreed S3, 2026-06-01).
+# Store Leads Stage-2 enricher v4 / v4.1 / v4.2 — STORE/PRODUCT ESSENCE + SELF-CHECK (Marina-agreed S3, 2026-06-01).
+# v4.2 (2026-06-01): "ни один магазин не тонет на первом проходе" (Marina). Goal = bring ENOUGH per store that a
+#   "skip without opening" is trustworthy → fewer forced live re-opens, 0 quality loss. ALL 0-token, VPS-side. Adds:
+#   (a) home_pitch — the store's OWN homepage pitch (og:title + H1 + og:description = the banner/value-prop text).
+#       👉 izimini case: storefront says "going outdoors with a crawling baby isn't a picnic" → instantly readable.
+#   (b) home_hero — the product the homepage BANNER features, captured ALWAYS & shown ALONGSIDE the best-seller
+#       candidate (not instead). 👉 swaddlean case: best-seller pick = "knit blanket" but banner hero = sleep sacks.
+#   (c) longer desc (~600, was 220) + feature bullets — conveys the real benefit/mechanism (dingle-dangle case).
+#   (d) home_img — the homepage banner image (for the Stage-2 visual sheet).
+#   (e) needs_live flag + why — the store's OWN "open me by hand" worklist (low hero/desc conf, price-unknown,
+#       unreachable, or best-seller≠banner-hero). The main agent MUST live-open every needs_live store (op-rule RULE 23).
+#   DROPPED per Marina: review-count/rating & brand-strength markers — both fakeable at launch, not real signals.
 # v4.1 (2026-06-01): 8 workers · moderate fast-fail (15s×2) · home-hero only when hero_confidence=low ·
 #   new class `diy-home` (paint/sealant/coating/fastener/roofing/work-gear → sunk like trade) · product handle exported.
 # Builds on v3 (open-ladder, top-3, currency→USD, hero/desc-confidence, maturity, conv-dedupe, no-revenue proxy).
@@ -121,9 +132,18 @@ def store_type(classes, pc, merch, dom):
     if pc is not None and pc <= 12: return "single-product/DTC"
     return "niche-brand"
 
-def clean_desc(html):
+def clean_desc(html, cap=600):                 # v4.2: 220 → 600 (richer benefit/mechanism so a no-open skip is safe)
     t = re.sub(r"<[^>]+>", " ", html or ""); t = re.sub(r"&[a-z#0-9]+;", " ", t)
-    return re.sub(r"\s+", " ", t).strip()[:220]
+    return re.sub(r"\s+", " ", t).strip()[:cap]
+def bullets(html):                             # v4.2: pull feature bullets (<li>) — the spec/benefit list
+    out = []
+    for m in re.findall(r"<li[^>]*>(.*?)</li>", html or "", re.S | re.I):
+        b = re.sub(r"<[^>]+>", " ", m); b = re.sub(r"&[a-z#0-9]+;", " ", b)
+        b = re.sub(r"\s+", " ", b).strip()
+        if 8 <= len(b) <= 140 and b not in out:
+            out.append(b)
+        if len(out) >= 6: break
+    return out
 def toks(s): return set(w for w in low(s).split() if len(w) > 3)
 
 # 2-part TLDs to drop fully so the registrable label is correct
@@ -197,12 +217,14 @@ def prod_row(p, pos, src):
         first = imgs[0]
         img = (first.get("src") or "") if isinstance(first, dict) else (first if isinstance(first, str) else "")
     title = p.get("title", "")
-    desc = clean_desc(p.get("body_html"))
+    body = p.get("body_html")
+    desc = clean_desc(body)
+    blts = bullets(body)
     k = kind(title + " " + desc)
     invest = {"desc_len": len(desc), "imgs": len(imgs), "variants": len(variants),
               "badges": [b for b in BADGE if b in low(title + " " + desc)]}
     return {"t": title, "handle": p.get("handle", ""), "price_raw": npx(v.get("price")), "cmp": npx(v.get("compare_at_price")),
-            "k": k, "pclass": product_class(title, desc, k), "desc": desc, "img": img, "pos": pos, "src": src,
+            "k": k, "pclass": product_class(title, desc, k), "desc": desc, "bullets": blts, "img": img, "pos": pos, "src": src,
             "invest": invest, "created_days": days_since(p.get("created_at") or p.get("published_at"))}
 
 def get_json(pg, url, tries=2):                 # v4.1: moderate fast-fail (15s×2, was 25s×3) — dead endpoint
@@ -247,6 +269,41 @@ def recheck_desc(pg, dom, row):
         if fixed["desc"] and desc_conf(fixed["t"], fixed["desc"]) == "ok":
             return fixed
     return row
+
+def homepage_meta(pg, dom):
+    """v4.2: ONE homepage fetch → the store's OWN pitch (og:title + H1 + og:description = the banner/value-prop),
+    the banner image, and the handle of the product the banner features. Lets me judge 'is this our kind of store'
+    from the merchant's own words — without opening the site. (No review/brand-claim fields — Marina: fakeable.)"""
+    html = get_html(pg, "https://%s/" % dom, tries=2)
+    if not html:
+        return {"pitch": "", "img": "", "hero_handle": "", "ok": False}
+    def meta(prop):
+        m = re.search(r'<meta[^>]+(?:property|name)=["\']%s["\'][^>]*content=["\']([^"\']+)' % re.escape(prop), html, re.I)
+        if not m:
+            m = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*(?:property|name)=["\']%s["\']' % re.escape(prop), html, re.I)
+        return m.group(1).strip() if m else ""
+    og_title = meta("og:title")
+    og_desc = meta("og:description") or meta("description")
+    h1 = ""
+    mh = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S | re.I)
+    if mh:
+        h1 = re.sub(r"<[^>]+>", " ", mh.group(1)); h1 = re.sub(r"\s+", " ", h1).strip()
+    og_img = meta("og:image")
+    # v4.2: pick the first REAL product handle on the homepage as the banner hero — skip gift-card/shipping/
+    # personalization junk handles (else a header gift-card link masquerades as the banner hero → false divergence).
+    HJUNK = ["gift-card", "gift_card", "giftcard", "personaliz", "reship", "shipping", "warranty",
+             "deposit", "insurance", "protection", "sample", "subscription", "e-gift", "egift"]
+    hero_handle = ""
+    for h in re.findall(r"/products/([a-z0-9][a-z0-9\-]{1,80})", html):
+        if any(j in h for j in HJUNK):
+            continue
+        hero_handle = h; break
+    seen = []
+    for x in (og_title, h1, og_desc):
+        x = (x or "").strip()
+        if x and x not in seen:
+            seen.append(x)
+    return {"pitch": " | ".join(seen)[:400], "img": og_img, "hero_handle": hero_handle, "ok": True}
 
 def collect_products(pg, dom):
     for coll in ["best-selling", "bestsellers", "best-sellers", "frontpage", "featured"]:
@@ -300,14 +357,19 @@ def work(args):
                 o["store_type"] = store_type([], pc, d.get("merch"), dom); o["product_class"] = None
                 res.append(o); continue
             o["reachable"] = True
-            # SELF-CHECK (1): pull the homepage featured hero ONLY when the source was weak (hconf=low) — i.e. we fell
-            # to `all`/homepage and the hero is unreliable (heatka/hanboost case). When a sales-ordered collection
-            # already gave a high-confidence hero, skip this extra fetch (v4.1 speed — 0 quality loss).
-            if hconf == "low":
-                hh = homepage_hero(pg, dom)
-                if hh and hh["handle"] and hh["handle"] not in [r.get("handle") for r in rows]:
-                    rows = [hh] + rows
-                    hconf = "high"; o["hero_confidence"] = "high"; o["hero_src"] = src + "+home-hero"
+            # v4.2: ONE homepage grab → store's OWN pitch + banner image + the banner-featured product handle.
+            hm = homepage_meta(pg, dom)
+            o["home_pitch"] = hm["pitch"]; o["home_img"] = hm["img"]
+            home_handle = hm["hero_handle"]
+            # SELF-CHECK (1): when the source was weak (hconf=low: we fell to `all`/homepage, hero unreliable), promote
+            # the homepage banner-featured product to the front (heatka/hanboost case). High-conf sales collection → skip.
+            if hconf == "low" and home_handle:
+                jp = get_json(pg, "https://%s/products/%s.json" % (dom, home_handle), tries=2)
+                if jp and jp.get("product"):
+                    hh = prod_row(jp["product"], -1, "home-hero")
+                    if hh["handle"] and hh["handle"] not in [r.get("handle") for r in rows]:
+                        rows = [hh] + rows
+                        hconf = "high"; o["hero_confidence"] = "high"; o["hero_src"] = src + "+home-hero"
             store_cur = store_currency(pg, dom) or CC_CUR.get((cc or "").upper(), ("?", 1.0))[0]
             o["store_currency"] = store_cur
             clean = []
@@ -319,6 +381,24 @@ def work(args):
                     pu, cur, rate = usd(r["price_raw"], store_cur)
                     r["price"] = pu; r["currency"] = cur; r["rate"] = rate; r["price_unknown"] = False
                 clean.append(r)
+            # v4.2: capture the homepage BANNER-featured product as a SEPARATE field, shown ALONGSIDE the best-seller
+            # candidate (Marina: show BOTH heroes). If it differs from the pick → contributes to needs_live (I decide).
+            o["home_hero"] = None
+            if home_handle:
+                in_clean = next((r for r in clean if r.get("handle") == home_handle), None)
+                if in_clean is not None:
+                    o["home_hero"] = {"t": in_clean["t"][:60], "handle": home_handle, "in_clean": True}
+                else:
+                    jph = get_json(pg, "https://%s/products/%s.json" % (dom, home_handle), tries=2)
+                    if jph and jph.get("product"):
+                        hr = prod_row(jph["product"], -1, "home-featured")
+                        if hr["price_raw"] > 0:
+                            hp, hcur, _ = usd(hr["price_raw"], store_cur)
+                        else:
+                            hp, hcur = None, store_cur
+                        o["home_hero"] = {"t": hr["t"][:60], "handle": home_handle, "price": hp, "cur": hcur,
+                                          "desc": hr["desc"][:300], "bullets": hr["bullets"], "img": hr["img"],
+                                          "pclass": hr["pclass"], "k": hr["k"], "in_clean": False}
             # store essence: derive from the catalog's product classes + pc + name
             o["store_type"] = store_type([r["pclass"] for r in clean], pc, d.get("merch"), dom)
             recent = [r["created_days"] for r in clean if r["created_days"] is not None and r["created_days"] <= 30]
@@ -330,7 +410,7 @@ def work(args):
             tops3 = phys[:3] if phys else clean[:3]
             def t_inrange(r): return (not r["price_unknown"]) and 39 <= r["price"] <= 170
             o["tops3"] = [{"t": r["t"][:60], "price": r["price"], "price_raw": r["price_raw"], "cur": r["currency"],
-                           "k": r["k"], "pclass": r["pclass"], "pos": r["pos"], "desc": r["desc"][:200], "img": r["img"],
+                           "k": r["k"], "pclass": r["pclass"], "pos": r["pos"], "desc": r["desc"][:550], "bullets": r.get("bullets", []), "img": r["img"],
                            "handle": r.get("handle", ""), "price_unknown": r["price_unknown"], "in_range": t_inrange(r),
                            "anchor": (round(100*(1-r["price"]/(r["cmp"]*r["rate"]))) if (not r["price_unknown"] and r["cmp"]>r["price_raw"]>0) else 0),
                            "pust": has(r["t"]+" "+r["desc"], PUST), "desc_confidence": desc_conf(r["t"], r["desc"]),
@@ -340,7 +420,7 @@ def work(args):
             if all(t["price_unknown"] for t in o["tops3"]):
                 t0c = o["tops3"][0]
                 o["candidate"] = t0c["t"]; o["price"] = None; o["in_range"] = None
-                o["desc"] = t0c["desc"]; o["image"] = t0c["img"]; o["kind"] = t0c["k"]
+                o["desc"] = t0c["desc"]; o["bullets"] = t0c.get("bullets", []); o["image"] = t0c["img"]; o["kind"] = t0c["k"]
                 o["product_class"] = t0c["pclass"]; o["desc_confidence"] = t0c["desc_confidence"]
                 o["pust"] = t0c["pust"]; o["storefront_pos"] = t0c["pos"]; o["anchor"] = 0
                 o["tier"] = "PRICE-CHECK"; o["reason"] = "products.json prices all 0 (region-gated) → confirm price live"
@@ -352,10 +432,10 @@ def work(args):
             if cand.get("desc_confidence") != "ok" and cand.get("handle"):
                 fixed = recheck_desc(pg, dom, {"handle": cand["handle"], "pos": cand["pos"], "src": "cand"})
                 if fixed.get("desc") and desc_conf(fixed["t"], fixed["desc"]) == "ok":
-                    cand["desc"] = fixed["desc"][:200]; cand["desc_confidence"] = "ok"; cand["pclass"] = fixed["pclass"]
-                    cand["rechecked"] = True
+                    cand["desc"] = fixed["desc"][:550]; cand["desc_confidence"] = "ok"; cand["pclass"] = fixed["pclass"]
+                    cand["bullets"] = fixed.get("bullets", cand.get("bullets", [])); cand["rechecked"] = True
             o["candidate"] = cand["t"]; o["price"] = cand["price"]; o["currency"] = cand["cur"]
-            o["in_range"] = cand["in_range"]; o["desc"] = cand["desc"]; o["image"] = cand["img"]
+            o["in_range"] = cand["in_range"]; o["desc"] = cand["desc"]; o["bullets"] = cand.get("bullets", []); o["image"] = cand["img"]
             o["pust"] = cand["pust"]; o["kind"] = cand["k"]; o["product_class"] = cand["pclass"]
             o["desc_confidence"] = cand["desc_confidence"]; o["anchor"] = cand["anchor"]; o["storefront_pos"] = cand["pos"]
             res.append(o)
@@ -416,17 +496,40 @@ if __name__ == "__main__":
         flags.append(r["cat_flag"])
         r["flags"] = flags
         r["tier"] = "A" if sc >= 54 and inr and phys and not pust else ("B" if sc >= 40 and inr and phys and not pust else "C")
+    # v4.2.1 (2026-06-01): needs_live = CARD-INSUFFICIENT only (the store's "open me by hand" worklist; RULE 23).
+    # The agent MUST live-open every needs_live + unreachable store. Calibration lesson (batch2): `hero_confidence=low`
+    # is a SOURCE artifact (store has no best-selling collection → products.json fallback), NOT real uncertainty —
+    # the rich card (pitch + both heroes + long desc + bullets) is usually fully readable, so low-conf alone does NOT
+    # force an open (it inflated needs_live to 62%). Force-open ONLY when the card can't actually be judged:
+    #   unreachable · price-unknown · candidate desc not-ok · nothing-readable (no pitch AND no readable candidate desc)
+    #   · banner-hero diverges AND that hero is itself unreadable in the card.
+    for r in res:
+        nl = False; why = []
+        if not r.get("reachable"):
+            nl = True; why.append("unreachable")
+        else:
+            dc = r.get("desc_confidence")
+            if dc and dc != "ok": nl = True; why.append("desc-" + dc)
+            if r.get("tier") == "PRICE-CHECK": nl = True; why.append("price-unknown")
+            pitch_ok = bool((r.get("home_pitch") or "").strip())
+            cand_readable = (dc == "ok") and bool((r.get("desc") or "").strip())
+            if not pitch_ok and not cand_readable: nl = True; why.append("card-thin")
+            hh = r.get("home_hero")
+            if hh and not hh.get("in_clean") and hh.get("handle") and hh.get("k") == "physical" and not hh.get("desc"):
+                nl = True; why.append("banner-hero-unreadable")
+        r["needs_live"] = nl; r["needs_live_why"] = why
     order = {"A": 0, "B": 1, "C": 2, "PRICE-CHECK": 3, "MANUAL": 4, "DROP-noPhysical": 5, "DROP": 6}
     res.sort(key=lambda r: (order.get(r.get("tier"), 9), -r.get("score", -999)))
     json.dump(res, open(OUT + "/" + OUTF, "w"), ensure_ascii=False, indent=1)
     from collections import Counter
     reach = sum(1 for r in res if r.get("reachable"))
     manual = sum(1 for r in res if r.get("tier") == "MANUAL")
-    open(OUT + "/" + SENT, "w").write("done %d secs=%d reach=%d manual=%d tiers=%s classes=%s stores=%s" % (
-        len(res), round(time.time()-t0), reach, manual,
+    needs_live = sum(1 for r in res if r.get("needs_live"))
+    open(OUT + "/" + SENT, "w").write("done %d secs=%d reach=%d manual=%d needs_live=%d tiers=%s classes=%s stores=%s" % (
+        len(res), round(time.time()-t0), reach, manual, needs_live,
         dict(Counter(r.get("tier") for r in res)), dict(Counter(r.get("product_class") for r in res)),
         dict(Counter(r.get("store_type") for r in res))))
-    print("=== SL ENRICH4 DONE ===", len(res), "secs", round(time.time()-t0), "reach", reach,
+    print("=== SL ENRICH4 v4.2 DONE ===", len(res), "secs", round(time.time()-t0), "reach", reach, "needs_live", needs_live,
           "tiers", dict(Counter(r.get("tier") for r in res)),
           "classes", dict(Counter(r.get("product_class") for r in res)),
           "store_types", dict(Counter(r.get("store_type") for r in res)))

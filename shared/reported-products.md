@@ -121,6 +121,21 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-01 | Muravai Filtered Showerhead (18-stage) | Beauty | 77 | Hard-water/chlorine → skin & hair; 18-stage filter, visible result, $59.99, white-label; proven category (Jolie/Canopy) → hair angle open; Marina 🔵 Watchlist ("proven niche, hair angle underexplored"); proxy A58→deep-score 77 (RULE 6) | Store Leads (S3, HI≥2020 batch 7) / muravai.co |
 | 2026-06-01 | The Cold Pod — Portable Ice Bath | Fitness | 64 | agent <65 — FOUNDER-Watchlist (Marina studies: big premium-look product at low price — why?); cold-plunge trend + UGC; ⚠ bulky+water (RULE 10) + premium $149.99 + saturated | Store Leads (S3, HI≥2020 batch 6) / us.thecoldpod.com |
 
+### Store Leads S3 — Nursery & Playroom (batches 1+2, ≥2020, visits 1k–50k band)
+| 2026-06-01 | WaterLand Water+Land Baby Carrier | Kids | 72 | Neoprene carrier for water+land (novel positioning); Marina 🔵 Watchlist ("smart positioning, not unique") | Store Leads (S3 Nursery b2) / waterlandbaby.com |
+| 2026-06-01 | Kaiya All-Season Sleep Sack | Kids | 72 | Temp-regulating sleep sack (термонаклейка+2-way zip); Marina 🔵 Watchlist ("real pain, apparel — off-model"); ⚠ saturated apparel | Store Leads (S3 Nursery b1) / kaiyababy.com |
+| 2026-06-01 | Wildride Toddler Hip Carrier | Kids | 70 | Viral hip "swing" carrier 9mo–4y; Marina 🔵 Watchlist ("saturated niche, beautiful design") | Store Leads (S3 Nursery b1) / wildridecarrier.com |
+| 2026-06-01 | Dreamland Weighted Sleep Sack | Kids | 70 | Weighted (deep-touch) sleep sack, Shark Tank; Marina 🔵 Watchlist ("nothing special"); ⚠ patent + saturated | Store Leads (S3 Nursery b2) / dreamlandbaby.co.uk (+.ca SL2) |
+| 2026-06-01 | BuddyBottle Portable Bottle Warmer | Kids | 68 | USB cordless on-the-go bottle warmer; Marina 🔵 Watchlist ("seen too many already") | Store Leads (S3 Nursery b2) / babywhisperco.com |
+| 2026-06-01 | JoSeat Cart/High-Chair Cover | Kids | 68 | Hygienic soft cover for carts/restaurant high-chairs; Marina 🟡 Consider ("clear pain, price high") | Store Leads (S3 Nursery b2) / joseat.com |
+| 2026-06-01 | Ocodile Foldable Kitchen Tower | Kids | 67 | Foldable Montessori learning tower (space-saving diff.); Marina 🔵 Watchlist ("real problem, costly logistics") | Store Leads (S3 Nursery b1) / ocodile.com |
+| 2026-06-01 | Grip Baby Crawling Support Suit | Kids | 67 | Grippy-knee crawling suit; Marina 🔴 Rejected ("no wow, just apparel" — scoring inflated) | Store Leads (S3 Nursery b2) / gripbaby.com |
+| 2026-06-01 | Omni Baby Carrier (generic) | Kids | 66 | Generic 4-position carrier; Marina 🔵 Watchlist ("real pain, no wow") | Store Leads (S3 Nursery b1) / littlepeashop.com |
+| 2026-06-01 | Jili All-in-One Baby Bottle | Kids | 66 | 6-in-1 travel bottle (thermos+formula compartment); Marina 🔵 Watchlist ("ordinary, ad-cost too high") | Store Leads (S3 Nursery b2) / jilibottle.com |
+| 2026-06-01 | Dingle Dangle Diaper-Change Distractor | Kids | 60 | agent <65 — Marina 🟡 Consider ("fun, family-bonding hook", Shark Tank) | Store Leads (S3 Nursery b1) / dingledanglebaby.com |
+| 2026-06-01 | Izimini Outdoor Baby Chair | Kids | 57 | agent <65 — Marina 🟡 Consider ("stylish, strong seasonal hook") | Store Leads (S3 Nursery b1) / izimini.com |
+| 2026-06-01 | At-Home Fetal Doppler (convergence +2) | Health | — | NOT new — folded into existing WellnessBaby (SL2=themommymotherhood.com) + FetalPlus (SL2=springbud.us); ⚠ medical liability | Store Leads (S3 Nursery b2) / springbud.us · themommymotherhood.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

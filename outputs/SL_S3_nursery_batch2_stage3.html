@@ -1,0 +1,93 @@
+<html><head><meta charset="utf-8"><style>
+body{font:13px/1.55 -apple-system,Arial;margin:26px;color:#1a1a1a;max-width:1150px}
+h1{font-size:20px}h2{font-size:15px;margin-top:24px;border-bottom:2px solid #ddd;padding-bottom:4px}
+table{border-collapse:collapse;margin:8px 0;font-size:12px;width:100%}td,th{border:1px solid #ccc;padding:5px 9px;vertical-align:top}
+th{background:#f4f4f4}a{color:#1763d6;text-decoration:none}
+.box{background:#f7f9fc;border:1px solid #dce4f0;border-radius:6px;padding:10px 14px;margin:8px 0}
+.win{background:#d9f7d9}.bord{background:#fff6d5}.liab{background:#fde2e2}.sys{background:#eef6ff;border:1px solid #b9d0f5}.muted{color:#666}
+</style></head><body>
+<h1>Store Leads — Nursery &amp; Playroom · Batch 2 · Stage 3 · v4.2</h1>
+<p class=muted>Первый прогон на v4.2 («ни один магазин не тонет на первом проходе», RULE 23). Прочитаны ВСЕ 341 карточки (RULE 6); живьём открыты только генуинные кандидаты + must-open (RULE 7). Полоса визитов 1k–50k — остаток band'а после batch1.</p>
+
+<h2>0. ⭐ Результат системы v4.2 (то, ради чего строили)</h2>
+<div class="box sys">
+<b>Богатая карточка позволила судить из неё, не открывая.</b> Из 341 reachable я уверенно оценил <b>~280 прямо из карточки</b>
+(слоган витрины + бестселлер + баннер-герой + длинное описание + буллеты), и открыл руками только <b>~22</b>: генуинные
+winner/borderline (подтверждение hero+цены, RULE 7) + 3 MANUAL + ключевые PRICE-CHECK.<br>
+<b>needs_live честно пересчитан 213 → 60.</b> Калибровка (batch2): <code>hero_confidence=low</code> — это артефакт ИСТОЧНИКА
+(нет коллекции best-selling → fallback на products.json), а НЕ реальная неопределённость; карточка у таких читаема. Force-open
+теперь только при реальной нечитаемости (desc битый/пустой · price-unknown · unreachable · нечего читать). Энричер пропатчен (v4.2.1).<br>
+<b>Live поймал мислейблы скрапера</b> (RULE 7 окупается): bebecan = прорезыватели (не «jumper»), momsbeyond = аффилиат-маркетплейс, prod.lfjcc = общинный центр.
+</div>
+
+<h2>1. Воронка + ABC (RULE 1)</h2>
+<div class=box>
+dump <b>6,715</b> → band визиты 1k–50k = <b>594</b> → batch1 250 <b>processed-excluded</b> → SELECTED <b>344</b> (остаток band, <b>пересечений нет</b>).<br>
+Stage 2 (sl_enrich4 <b>v4.2</b>, 8 воркеров, <b>772 сек ≈ 2.25 маг/сек</b>) → <b>reachable 341 · manual 3</b>.<br>
+<b>ABC: A 102 · B 35 · C 194 · PRICE-CHECK 8 · MANUAL 3 · DROP 2.</b> <b>needs_live (v4.2.1) = 60</b> — все открыты/разобраны.<br>
+<b>store_type:</b> niche-brand 281 · single-product/DTC 54 · trade-store 8 · parts 1 — снова потребительская ниша.
+</div>
+
+<h2>2. 🏆 Winner 65+</h2>
+<table>
+<tr><th>Магазин</th><th>Hero (live)</th><th>Цена</th><th>Score</th><th>Почему winner</th></tr>
+<tr class=win><td><a href="https://www.waterlandbaby.com">waterlandbaby.com</a></td><td>WaterLand Baby Carrier — «первая переноска для воды И суши» (неопрен/вет­сьют)</td><td>$105</td><td><b>72</b></td><td>НОВЫЙ тип, реальная боль (безопасность+руки свободны у воды/бассейна), demo-able, white-label-able (неопреновая водо-переноска). 100k community. Цена верх диапазона, но уникально.</td></tr>
+<tr class=win><td><a href="https://www.dreamlandbaby.co.uk">dreamlandbaby.co.uk</a></td><td>Dream Weighted Sleep Sack/Swaddle (утяжелённый, CoverCalm)</td><td>£69 (~$88)</td><td><b>70</b></td><td>Утяжелённый сон = проверенная вирусная категория (deep-touch → спокойнее спит), реальная боль, demo. Sleep-кластер. ⚠ патент CoverCalm — но категория утяж. спальника копируема.</td></tr>
+<tr class=win><td><a href="https://babywhisperco.com">babywhisperco.com</a></td><td>BuddyBottle — портативный USB-подогреватель бутылочки</td><td>$65</td><td><b>70</b></td><td>Реальная боль (подогреть молоко в дороге), demo-able, impulse, white-label-able (портативные warmer'ы = generic категория). Кластер feeding-gadget.</td></tr>
+<tr class=win><td><a href="https://joseat.com">joseat.com</a></td><td>Чехол на тележку/стульчик для малыша (антибактер. + мягкий)</td><td>$45</td><td><b>68</b></td><td>Боль (микробы/жёсткое сиденье тележки-стульчика), demo-able, impulse, складывается в сумку, white-label-able.</td></tr>
+<tr class=win><td><a href="https://www.gripbaby.com">gripbaby.com</a></td><td>Grip Baby Suit — костюм для ползания с цепкими коленками (бамбук)</td><td>$40</td><td><b>67</b></td><td>НОВЫЙ «first-of-its-kind», реальная боль (скользкий пол мешает ползать), demo, impulse, патента НЕ заявлено → копируемо. Твой тип «не видела такого».</td></tr>
+<tr class=win><td><a href="https://www.jilibottle.com">jilibottle.com</a></td><td>All-In-One Baby Bottle (термос+анти-колик+отсек смеси+воронка)</td><td>$45</td><td><b>66</b></td><td>Новая интеграция 6-в-1, боль travel-кормления («lifesaver for traveling»), demo, impulse. Молодой бренд = есть куда расти.</td></tr>
+</table>
+
+<h2>3. 🟡 Borderline 55–64 (на твой call)</h2>
+<table>
+<tr><th>Магазин</th><th>Hero</th><th>Цена</th><th>~</th><th>Хук / риск</th></tr>
+<tr class=bord><td><a href="https://easyjug.com">easyjug.com</a></td><td>EasyJug — бутылка для воды с 47" трубочкой (пить кормя грудью одной рукой)</td><td>$42</td><td>64</td><td>НОВЫЙ problem-solver (54% кормящих пьют мало воды), demo, impulse. ⚠ патент → Watchlist-сигнал.</td></tr>
+<tr class=bord><td><a href="https://chikiroo.com">chikiroo.com</a></td><td>Wearable Changing Station (носимый пеленальник, 4-точечный ремень, складывается в сумку)</td><td>скрыта</td><td>63</td><td>НОВЫЙ, award-winning, «public changing» боль. ⚠ патент → Watchlist-сигнал; цену надо подтвердить.</td></tr>
+<tr class=bord><td><a href="https://swaddlesleeves.com">swaddlesleeves.com</a></td><td>Swaddle Sleeves — конвертируемый swaddle-transition (педиатры)</td><td>$75–89</td><td>63</td><td>Sleep-кластер, реальная боль (переход с пеленания). ⚠ TM + цена высоковата.</td></tr>
+<tr class=bord><td><a href="https://vebababy.com">vebababy.com</a></td><td>Veba — умный монитор бутылочки (срок годности молока, app)</td><td>~$12–? (40% off)</td><td>62</td><td>НОВЫЙ гаджет, боль (молоко портится за 1-2ч), Shark Tank/Target. ⚠ цена низковата + бренд.</td></tr>
+<tr class=bord><td><a href="https://www.toddla.co">toddla.co</a></td><td>U-образная 360° ультразвуковая зубная щётка (дети)</td><td>$45</td><td>60</td><td>demo, impulse, white-label-able. ⚠ U-щётки насыщены + вопросы к эффективности.</td></tr>
+<tr class=bord><td><a href="https://austinbabyco.com">austinbabyco.com</a></td><td>Силиконовый bento + складной коврик (прикорм)</td><td>скрыта</td><td>60</td><td>Прикорм, demo, white-label-able тип. ⚠ в Target (конкуренция) + цена скрыта.</td></tr>
+<tr class=bord><td><a href="https://lowcountrylittles.com">lowcountrylittles.com</a></td><td>Palmetto Pouch — многоразовый пакет для пюре/смузи</td><td>$30</td><td>58</td><td>Прикорм, многоразово, demo. ⚠ цена низковата + категория насыщена.</td></tr>
+<tr class=bord><td><a href="https://www.venture-baby.com">venture-baby.com</a></td><td>Складной манеж All Stars JOY</td><td>£60</td><td>58</td><td>Складной/портативный, award. ⚠ слегка громоздкий + бренд.</td></tr>
+<tr class=bord><td><a href="https://harmonyj.com.au">harmonyj.com.au</a></td><td>Кастомный вкладыш в коляску под модель</td><td>$89</td><td>57</td><td>Боль (жёсткое сиденье коляски), demo. ⚠ made-to-order → трудно масштабировать.</td></tr>
+</table>
+
+<h2>4. ⚠️ Liability / Caution — высокий FB-спрос, но юр/безопасность (НЕ рекомендую)</h2>
+<table>
+<tr><th>Магазин</th><th>Продукт</th><th>Цена</th><th>Почему опасно</th></tr>
+<tr class=liab><td><a href="https://springbud.us">springbud.us</a> · <a href="https://themommymotherhood.com">themommymotherhood.com</a></td><td>Домашние фетал-допплеры</td><td>$45–50</td><td>Ложное успокоение → врачи против; мед-лиабилити. <b>3-й раз за сессию</b> (с b1 fetalplus) — устойчивый liability-кластер.</td></tr>
+<tr class=liab><td><a href="https://mambobabydirect.com">mambobabydirect.com</a></td><td>Baby Float (круг/жилет для воды)</td><td>$129</td><td>Утопление; как proactivebaby в b1.</td></tr>
+<tr class=liab><td><a href="https://comfortbaby.store">comfortbaby.store</a></td><td>Bed Bumper (бортик в кроватку)</td><td>$40</td><td>Запрещён в США (Safe Sleep Act); SIDS.</td></tr>
+<tr class=liab><td><a href="https://www.bears-club.com">bears-club.com</a></td><td>Sleepyhead/Dockatot (лежак-гнездо)</td><td>—</td><td>Лежаки-гнёзда = SIDS-риск (не для сна).</td></tr>
+<tr class=liab><td><a href="https://sleepofmind.com">sleepofmind.com</a></td><td>«Breathing Reassurance» sleepwear</td><td>$24</td><td>Мед-успокоение про дыхание младенца = ответственность.</td></tr>
+<tr class=liab><td><a href="https://bebecan.com">bebecan.com</a></td><td>Side Sleeper Wedge (клин-позиционер)</td><td>$45</td><td>Позиционеры сна = SIDS-риск (CPSC против).</td></tr>
+</table>
+
+<h2>5. Browse-pool — 10 уникальных (не из таблиц выше)</h2>
+<ul>
+<li><a href="https://www.woolino.ca">woolino.ca</a> — мериносовые спальники (sleep-кластер)</li>
+<li><a href="https://chimparoo.us">chimparoo.us</a> — Ring Sling Air $78 (слинг-кольцо)</li>
+<li><a href="https://loveheld.com">loveheld.com</a> — тканые слинг-намотки/кольца $169 (дорого)</li>
+<li><a href="https://nursingpillow.com">nursingpillow.com</a> — подушка для кормления Dreamy $58</li>
+<li><a href="https://www.bellamoon.us">bellamoon.us</a> — подушка для беременных/тела $79</li>
+<li><a href="https://jovikids.com">jovikids.com</a> — портативный бустер-автокресло $44</li>
+<li><a href="https://finnson.co.uk">finnson.co.uk</a> — органайзер на коляску $121</li>
+<li><a href="https://linenlabel.com.au">linenlabel.com.au</a> — nappy caddy органайзер $59</li>
+<li><a href="https://partumpanties.com.au">partumpanties.com.au</a> — силиконовые полоски на шрам после кесарева $59</li>
+<li><a href="https://123babybox.com">123babybox.com</a> — Montessori subscription box $60</li>
+</ul>
+
+<h2>6. Паттерны (batch2)</h2>
+<ul>
+<li><b>Повторяющиеся winner-типы:</b> переноски (waterland НОВАЯ водо-переноска, chimparoo, loveheld); утяжелённый/transition сон (dreamland, swaddlesleeves); <b>feeding-гаджеты в дорогу</b> (BuddyBottle warmer, jilibottle all-in-one, easyjug, veba).</li>
+<li><b>Novel problem-solvers (твой тип «не видела такого»):</b> gripbaby (костюм для ползания), chikiroo (носимый пеленальник), easyjug (гидратация при кормлении), joseat (чехол на тележку), veba (монитор срока молока).</li>
+<li><b>Сильный LIABILITY-кластер в baby:</b> фетал-допплеры (×3 за сессию), круги для воды, бортики, лежаки-гнёзда, клинья-позиционеры, breathing-sleepwear — спрос на FB есть, нам нельзя.</li>
+<li><b>Formula/добавки</b> огромны (~30+ магазинов) — регулируемо/repeat/бренд, вне модели.</li>
+<li><b>High-ticket</b> (nimbel €269, busy-board house $299, nanit, doona $609, abiie $799, egg/коляски) → RULE 10 вниз.</li>
+<li><b>Патентные новинки</b> (dreamland, chikiroo, easyjug, lowcountry) → Watchlist-сигнал (точно не скопировать).</li>
+</ul>
+
+<h2>7. Итог batch2 + ниша</h2>
+<div class=box><b>batch2: 6 winner 65+ · 9 borderline · 6 liability-caution · 10 browse.</b> v4.2 доказал себя: судил из карточек, открыл ~22, needs_live честно 60. <b>Band 594 ИСЧЕРПАН</b> (batch1 250 + batch2 344). Хвост визитов &lt;1000 (≈5,874) — отложен (твоё решение, следующая сессия). Nursery &amp; Playroom = богатая потребительская ниша: за 2 батча 10 winner'ов + множество novel problem-solver'ов.</div>
+</body></html>
