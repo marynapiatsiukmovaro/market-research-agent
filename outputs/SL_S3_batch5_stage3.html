@@ -1,0 +1,67 @@
+<html><head><meta charset="utf-8"><style>
+body{font:13px/1.55 -apple-system,Arial;margin:26px;color:#1a1a1a;max-width:1100px}
+h1{font-size:20px}h2{font-size:15px;margin-top:24px;border-bottom:2px solid #ddd;padding-bottom:4px}
+table{border-collapse:collapse;margin:8px 0;font-size:12px}td,th{border:1px solid #ccc;padding:5px 9px;vertical-align:top}
+th{background:#f4f4f4}a{color:#1763d6;text-decoration:none}
+.box{background:#f7f9fc;border:1px solid #dce4f0;border-radius:6px;padding:10px 14px;margin:8px 0}
+.win{background:#fff6d5}.bad{color:#a00}.good{color:#080}.muted{color:#666}
+.tag{display:inline-block;background:#eef;border-radius:4px;padding:1px 6px;font-size:11px;margin-right:4px}
+</style></head><body>
+<h1>Store Leads — Batch 5 · Stage 3 (deep-score) + S3 калибровка · Home Improvement ≥2020</h1>
+<p class=muted>Прочитаны ВСЕ кандидаты (RULE 6, не gut-top-N). Hero+цена подтверждены на живом сайте для consumer-кандидатов (RULE 7 + анти-галлюцинация). Это «тяжёлая» категория — итог честно низкий (RULE 11).</p>
+
+<h2>1. Воронка целиком (RULE 1 — показываем весь cull)</h2>
+<div class=box>
+<b>Stage 0</b> HI≥2020 dump = <b>27,052</b> (переиспользован, нового API-пула не делали).<br>
+<b>Stage 1</b> band (visits 1k–50k · rev&lt;$1M · price&lt;$350 · pc&lt;2000) = <b>704 квалифицированы</b>.
+Исключено: already-processed <b>800</b> · вне visit-band 24,307 · price&gt;$350 = 997 · pc&gt;2000 = 244.
+Выбрано <b>top-200 по визитам</b> (2,052–2,828). Остаток в band после b5 = <b>504</b>.<br>
+<b>Stage 2</b> (sl_enrich3 v3) = 200 enriched · reachable 195 · tiers <b>A42 / B58 / C85 / PRICE-CHECK9 / MANUAL5 / DROP-noPhysical1</b> · sources: all 118 / frontpage 54 / best-sellers 23 / homepage-noprod 5.<br>
+<b>Stage 3</b> = pool <b>105</b> (≥1 in-range physical) · physical-но-вне-диапазона 74 · без кандидатов 6 · PRICE-CHECK 9 · MANUAL 5. Deep-score consumer-подмножества + live-confirm.
+</div>
+
+<h2>2. Winners 65+ : <span class=bad>0</span></h2>
+<p>Подтверждённых winner'ов нет. Категория структурно «тяжёлая»: ~80%+ пула — trade (запчасти/OEM/плитка/флоринг/HVAC/инструмент/абразивы). За 5 батчей (1000 магазинов) все winner'ы пришли из batch 1.</p>
+
+<h2>3. Borderline (55–64) — на твой суд</h2>
+<table>
+<tr><th>Магазин</th><th>Hero (live-confirmed)</th><th>Цена</th><th>~Score</th><th>Заметка</th></tr>
+<tr class=win><td><a href="https://thecrystalplant.com">thecrystalplant.com</a></td><td>Cleodora Crystal Evaporative Plant Humidifier</td><td>$49.99</td><td>~62</td><td>Эстетика + видимый туман + «выглядит как арт». UGC-able, ниша plant-mom. White-label-able, в диапазоне. Differentiator = crystal/plant-декор-угол в насыщенной категории увлажнителей. <b>Сильнейший в батче.</b></td></tr>
+<tr><td><a href="https://lavayoo.com">lavayoo.com</a></td><td>Lavayoo Recovery System (lava-sand weighted heat/cool pad)</td><td><b class=bad>$119.99</b> <span class=muted>(скрапер выхватил $59.99 — мимо)</span></td><td>~54</td><td>⚠ Price-catch RULE 7. Premium-диапазон, made-in-USA, результат боли НЕ виден на камеру, грелки насыщены → ниже бара. Proxy похоронил в C/24.</td></tr>
+</table>
+
+<h2>4. Browse-pool (уникальные genuine-consumer ссылки — НЕ из winners/borderline)</h2>
+<p class=muted>Чтобы ты поймала то, что мой бар мог отсеять. Большинство — насыщено/commodity, но consumer-форма.</p>
+<ul>
+<li><a href="https://www.bidetbuddy.com">bidetbuddy.com</a> — CubeJet портативное дорожное биде, $69.99 (гигиена-в-дороге)</li>
+<li><a href="https://heatka.com">heatka.com</a> — подогреватель кружки (mug warmer), ~$50</li>
+<li><a href="https://www.homvana.shop">homvana.shop</a> — увлажнитель тёплый/холодный туман 3-в-1, $49.99 (бренд-ish)</li>
+<li><a href="https://fittes.ca">fittes.ca</a> — минималистичная вентиляционная решётка вровень с полом, ~$70 CAD (дизайн, но install)</li>
+<li><a href="https://www.nnio.asia">nnio.asia</a> — безлопастной вентилятор BLDC, $102+ (премиум/бренд)</li>
+<li><a href="https://givebest.com">givebest.com</a> — керамический обогреватель-вентилятор, $39.99 (commodity)</li>
+</ul>
+
+<h2>5. Loss-measurement (RULE 1 — проверила dropped-пилу, не на веру)</h2>
+<table>
+<tr><th>Группа</th><th>Что это по описаниям</th><th>Вердикт</th></tr>
+<tr><td>MANUAL 5</td><td>rush-lumber · lebanonblock · builderssupplymonteagle · caneyvillebuilders · blackshardwareroc</td><td class=good>lumber/block/builders-supply = trade. Не наше.</td></tr>
+<tr><td>PRICE-CHECK 9</td><td>плитка · бетон · <b>container-homes</b> · искусств. газон · водонагреватели · ground-screws</td><td class=good>trade/high-ticket. Не наше.</td></tr>
+<tr><td>other out-of-range (sample 15)</td><td>краска · decking · industrial · водостоки · флоринг · шланги · truck</td><td class=good>trade. Не наше.</td></tr>
+</table>
+<p><b>Вывод:</b> cull обоснован — winner'а в отброшенной пиле нет (проверено по описаниям, не по доверию тиру).</p>
+
+<h2>6. Калибровка — главная ценность сессии (твои 7 пунктов)</h2>
+<table>
+<tr><th>#</th><th>Вопрос</th><th>Ответ (измеренный)</th></tr>
+<tr><td>1</td><td>Почему сильные проходят / proxy их вытаскивает?</td><td><b>НЕТ.</b> Retro: оба winner'а (stoov 73, maskingmaster 72) = proxy_score 60, ранг #26–28/200. Доверься мы proxy-топу — потеряли бы обоих. Стоимость «читать всё» неустранима, если хотим winner'ов. (RULE 6 подтверждён цифрами.)</td></tr>
+<tr><td>2</td><td>Самые ценные ранние сигналы</td><td>Тип продукта (consumer vs trade) + in_range цена (после скрапа) + desc_confidence. <b>Самый ценный дешёвый сигнал = «trade-vs-consumer» классификатор</b> — ~80%+ HI это trade, и это видно из title/desc дёшево.</td></tr>
+<tr><td>3</td><td>Какие сигналы — шум</td><td><b>conv_batch</b>: 89/105 = 0; топ-conv(6) = cleanburn гео/parts-зеркала (один оператор) — ложная конвергенция (подтверждает гео-mirror урок). <b>sl_rev</b>: всё $42–55k, нет сигнала. <b>proxy-ранг</b>: не предиктивен.</td></tr>
+<tr><td>4</td><td>Какие проверки усилить</td><td>Live price-confirm (поймал lavayoo $59.99→$119.99). desc_confidence (32/200 empty/mismatched корректно помечены к ручному открытию). Оставить обязательными.</td></tr>
+<tr><td>5</td><td>Какие проверки убрать/удешевить</td><td>Тяжёлый live-enrich очевидно-trade магазинов (lumber/tile/parts) = впустую. <b>Предложение (Tier-2, нужен твой OK + валидация):</b> pre-enrich title/desc trade-классификатор → пропускать ~40% live-скрапов в тяжёлых категориях БЕЗ потери winner'а (winner'ы = consumer-kind).</td></tr>
+<tr><td>6</td><td>Можно ли решить раньше</td><td>Для TRADE — да, по одному title («lumber»/«OEM part»/«brazing alloy»), скрап не нужен. Для consumer-borderline — нет, цену даёт только живой сайт (by design).</td></tr>
+<tr><td>7</td><td>Экономия токенов</td><td>Пул 105 прочитан компактным дайджестом ~30k токенов (vs ~3× при дампе 200 полных строк). Trade-классификатор срежет ~40% Stage-2 скрапов в тяжёлых категориях.</td></tr>
+</table>
+
+<h2>7. Большая картина</h2>
+<div class=box>5 батчей HI / 1000 магазинов → ~2–3 winner'а, все из batch 1. Честный сигнал: <b>HI структурно исчерпана под нашу модель</b> (Instagram + impulse + видимая проблема). По твоему плану: добить ещё ~1 батч HI для калибровки → после компакта свитч на consumer-подкатегорию (Nursery / Cleaning / Pets), где плотность winner'ов структурно выше.</div>
+</body></html>

@@ -55,5 +55,5 @@ if sel:
     print(f"product-count mix in selection: hero(<=300)={hero} mid(301-2000)={mid}")
     print("\nsample (top 12 by visits):")
     for r in sel[:12]:
-        print(f"  {str(r['name'])[:30]:30} vis={r['visits']:>6} pc={str(r['pc']):>5} price={r['apf']} created={r['created']}")
+        print(f"  {str(r['domain'])[:30]:30} vis={r['visits']:>6} pc={str(r.get('products')):>5} price={r.get('avg_price')} created={r.get('created')}")
 print("=== SELECT DONE ===")

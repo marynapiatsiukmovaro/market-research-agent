@@ -149,7 +149,31 @@ archive). Archive expired learnings (never delete — move to Expired). Dedup. K
 
 ---
 
+### RULE 20 — Master record + keep-list monitor (S3, Marina-approved 2026-06-01)
+Two zero-cost habits that compound over sessions:
+- **Master record (extend, don't just mark).** `sl_mark_processed.py` writes each analyzed store to
+  `processed_domains.json` carrying the analysis data, not just {subcat,band,date,stage,outcome} — also
+  `tier · product_class · store_type · hero · price · score · maturity · new_products_30d · socials · monitor`.
+  "Нам это ничего не стоит" (Marina) → a permanent queryable reservoir we never re-derive.
+- **Keep-list monitor.** Strong/borderline stores get `monitor: true` → exported to `operational-memory/keep-list.md`.
+  Store Leads = the store-supplier for a future "newest-products-first" monitor (load these into ShopHunter or another
+  service, watch what proven operators launch every 2–3 days). The monitor JOB is DEFERRED; we FEED the list now.
+
+### RULE 21 — Quality over tokens (S3, Marina-approved 2026-06-01)
+Token-saving is **NOT** a goal at this stage (Max plan). The goal is RESULT + 100% confidence no winner was lost.
+**Open as many live sites as needed; never trade coverage for tokens.** Do NOT propose optimizations that cut the
+read-set to save tokens (e.g. "skip N% of scrapes"). The enricher's product-class/ABC is a SORT-AID only — the main
+agent still reads ALL (RULE 6). Token-efficiency is a concern ONLY for future SCALE (e.g. 20k-store dumps), addressed
+separately then. [[feedback_quality_over_tokens]]
+
+### RULE 22 — Scraper self-check (S3, Marina-approved 2026-06-01)
+The enricher double-checks its own work BEFORE handing me the sheet (Marina's "перепроверьте, потом ко мне"): it
+ALSO pulls the homepage featured hero (catches collection-hero ≠ real front hero — heatka/hanboost), and re-fetches a
+candidate's own product page when its desc is empty/mismatched. Self-correction is 0-token and reduces my re-opens.
+(Implemented in `sl_enrich4.py`.)
+
 ## Checkpoint shape (every batch, before any Notion write)
-Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (unique) · Patterns ·
-the full funnel breakdown (RULE 1). Every link = a clickable markdown hyperlink. Then **STOP and wait for Marina's OK
-before writing to Notion.**
+Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**curated to what's
+useful — not a fixed count; ~6–15 by context, never padded "чтобы было"**) · Patterns · the full funnel breakdown
+(RULE 1) **including the explicit A/B/C tier counts** (Marina cross-checks against the ABC split). Every link = a
+clickable markdown hyperlink. Then **STOP and wait for Marina's OK before writing to Notion.**

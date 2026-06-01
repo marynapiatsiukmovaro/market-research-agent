@@ -2,7 +2,21 @@
 
 > **Adapted from ShopHunter's subagent-spec (SH-4) to Store Leads fields.** Defines EXACTLY what the
 > Stage-2 enricher writes, so the main agent's keep/cut is accurate and repeatable (no improvising per run).
-> Implemented by `scripts/sl_enrich2.py` (Playwright + iProyal proxy, parallel workers).
+> **Implemented by `scripts/sl_enrich4.py` (LIVE — Playwright + iProyal proxy, parallel workers).** `sl_enrich3.py`
+> = previous version (fallback); `sl_enrich2.py` = legacy single-hero (retired). The v2/v3 boxes below are the
+> design history; the CURRENT contract = v4 (the v3 product-centric contract PLUS the v4 essence + self-check fields).
+
+> **⭐ v4 ADDITIONS (Marina-agreed S3, 2026-06-01) — store/product ESSENCE + self-check (all 0-token, VPS):**
+> 1. **`product_class`** per candidate — consumer-gadget / appliance / fixture / kitchen / decor / part / material /
+>    pro-tool / apparel. STRONG consumer DEVICE words win first (a bidet isn't sunk to "part" because its desc says
+>    "adapter"); bias toward "consumer" = the zero-loss-safe direction. ~80% of a "heavy" category self-labels as trade.
+> 2. **`store_type`** — single-product-DTC / niche-brand / trade-store / parts-supply / services / catalog-giant.
+> 3. **SELF-CHECK (RULE 22):** ALSO pull the homepage featured hero (catches collection-hero ≠ real front hero,
+>    e.g. heatka/hanboost); re-fetch a candidate's own product page when its desc is empty/mismatched.
+> 4. **`new_products_30d`** — store actively launching = live/test signal + feeds the keep-list monitor (RULE 20).
+> 5. **brand_core** collapses subdomains to the registrable root (parts.cleanburn / parts.gingerich.cleanburn = ONE
+>    brand) + 2-part TLDs → fixes false convergence.
+> 6. **ABC reformula:** trade classes deprioritized, consumer lifted — STILL ONLY A SORT-AID; main agent reads ALL.
 
 > **⚠️ v2 PRODUCT-CENTRIC (Marina-agreed 2026-05-31, S2 — TARGET CONTRACT, code not yet aligned).**
 > The unit of the hunt is the **PRODUCT, not the store** (a store is a box; we pull its 1–2 golden products).
