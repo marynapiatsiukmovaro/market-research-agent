@@ -3,6 +3,12 @@
 Thin entry point. The full procedure lives in `methods/`. Store-first discovery at scale via
 storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomous (not earned).**
 
+> ⛔ **S6+ GATE (S5 close-out 2026-06-02):** перед ЛЮБЫМ анализом резервуара (2000 магазинов готовы)
+> прочитать `operational-memory/prescale-hardening-plan.md` — это АГЕНДА из 5 вопросов (НЕ решённых):
+> финализ stage2, единый генератор, правило проверки скрапера, онбординг, тест этапов. Решения по ним
+> принимает Marina в S6. К масштабу НЕ готовы — сначала утверждаем структуру с Marina, потом анализ.
+> Данные целы, не пересобирать.
+
 ## 0. Before you start
 - Confirm this is a **Store Leads** session. Operate only inside this department; never apply
   FB scraper or ShopHunter mechanics here, never read another department's operational memory.
