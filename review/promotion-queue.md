@@ -46,6 +46,20 @@ Marina sets each item to: **Promote → Wait → Reject**
 **Recommendation:** Wait (Marina will design; capture now so it's not lost).
 **Added:** 2026-06-01, Session S4.
 
+### QA-gate hardening — price sanity-clamp + dead-store-rate metric (Store Leads S5)
+**Observation:** Two reservoir-quality issues surfaced while analysing the pre-enriched b9/b10:
+  (1) **Price-parse anomaly** — `keep-closer.com` (b9) carried hero price `1184000.0 USD` for a toddler hip carrier whose real/avg price ≈ $155. A broken variant/currency parse can mis-tier or mis-display a store (not a loss — RULE 6 reads all + RULE 7 live-confirms finalists — but a "ready" reservoir should be clean before it reaches the agent).
+  (2) **Dead/suspended витрины rise in the deep tail** — b10 (visits 47–77) had 9 unreachable incl. HTTP 402 Payment Required (coziekids, trendoasis) and 500 (storkofstamford) = Shopify stores suspended/dormant. Correctly caught as unreachable (0 loss), but the agent only learns the dead-rate AFTER opening them.
+**Proposal:** extend the per-chunk auto QA-gate (`sl_qa.py`, the proposal-#1 prototype) with two more checks, computed at enrichment time (0-token):
+  - **Price sanity-clamp:** flag any hero `price` that converts to >$1000 while the store `avg_price` <$200 → set `PRICE-CHECK` (re-parse), same as the existing price-unknown path.
+  - **Dead-store-rate metric:** report `unreachable% + HTTP-402/500 count` per chunk so reservoir quality is visible BEFORE analysis (and a chunk with an abnormal dead-rate can be re-pulled).
+**Why it matters:** keeps the reservoir "ideal" before it reaches the agent (Marina S5: "подготовка должна быть идеальной"); makes deep-tail dead-rate a measured signal rather than a surprise.
+**⚠ Note:** purely additive to `sl_qa.py` — do NOT change scripts mid-run; build with the proposal-#1 reservoir/QA work in a SYSTEM-BUILD session.
+**Affected:** `scripts/sl_qa.py` (+ the reservoir-prep QA-gate in proposal #1).
+**Confidence:** High (both observed live in b9/b10).
+**Recommendation:** Promote (fold into the proposal-#1 reservoir build).
+**Added:** 2026-06-02, Session S5. **Source learnings:** S5 b9/b10 loss-audit.
+
 ---
 
 ## How to Add a New Item

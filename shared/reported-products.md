@@ -145,6 +145,10 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-01 | Baby Crib Tent (Aussie Cot Net) | Kids | 70 | **Convergence with Crib Safety Tent 73 (KinderSense)** — premium tier $159, crib-tent experts since 1998; pop-up mesh enclosure; ⚠ crib-tent CPSC recall-history | Store Leads (S4 Nursery b8, visits 119) / babycribtents.com |
 | 2026-06-01 | Sleepytot Comforter (Dummy-Holder) | Kids | 64 | **agent score <65 — founder-kept (Marina S4).** Velcro-paw comforter holds dummies → ends night pacifier-runs; $42; award-winning AU brand; apparel-adjacent | Store Leads (S4 Nursery b8, visits 142) / sleepytot.com.au |
 
+### Store Leads S5 — Nursery & Playroom (batches 9–10, ≥2020, visits-desc deep tail 47–113) — PENDING Notion write (after 4 batches, Marina S5)
+| 2026-06-02 | Max & Koko Portable Baby Chair | Kids | — | **Founder-kept convergence (Marina S5) — NOT a new card → Store Link 2 to existing Izimini Outdoor Baby Chair (S3, izimini.com).** Compact folding travel baby chair → carry bag; $56 AUD. Portable-chair convergence. | Store Leads (S5 Nursery b9, visits 83) / maxandkoko.com |
+| 2026-06-02 | Miniware Hannie Portable High Chair | Kids | — | **Founder-kept (Marina S5: "впервые видела настолько компактный стульчик").** Converts baby chair→high chair, 6mo–5y, folds flat. Portable-chair convergence (w/ Izimini + Max&Koko). Notion: save (SL3 of the portable-chair card, or its own — confirm at write). | Store Leads (S5 Nursery b9, visits 83) / miniware.eu/collections/hannie |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
