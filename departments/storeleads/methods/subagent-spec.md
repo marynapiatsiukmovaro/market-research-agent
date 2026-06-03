@@ -126,8 +126,10 @@ This is the structural guard against "we lost/мis-scored a winner because the s
 ## Division of labour
 - **Enricher (script):** SCRAPES facts (real catalog) + computes flags/signals + ranks (proxy sort-aid).
   NEVER judges wow / emotion / problem-strength. Its text = a lead, not a verdict.
-- **Main agent (me):** read ALL sheets (no gut top-N) → live WebFetch confirm of hero+price+desc (mandatory for
-  low-confidence/edge cases) → Marina Veto + 100-pt judgment → 65+ → checkpoint → (Marina OK) → Notion.
+- **Main agent (me):** ENTRY GATE first (RULE 25/26) — `sl_qa.py` PASS + read ONLY via the canonical `sl_stage2_table.py`
+  (grouped-11, self-cert banner), never an ad-hoc/partial reader (the S5 zeroing) → read ALL sheets (no gut top-N) → live
+  WebFetch confirm of hero+price+desc (mandatory for low-confidence/edge cases) → Marina Veto + 100-pt judgment → 65+ →
+  checkpoint → (Marina OK) → Notion.
 
 ## Success test (Marina's bar)
 The sheet is good enough when, reading it, the main agent can confidently say "these N I take forward / these are

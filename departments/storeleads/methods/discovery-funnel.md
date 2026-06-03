@@ -74,6 +74,9 @@ shared iProyal proxy-check; Store Leads uses the same `cookies/proxy.creds` + de
 > enrichment (provisional — decide after batch 6 whether it earns its paid sub).
 
 **Stage 3 — Deep-score (chat) — the real filter. NEVER skip / never eyeball the proxy tier.**
+- **ENTRY GATE FIRST (RULE 25 + 26 — the S5 fix):** before reading anything, run `sl_qa.py <enriched.json>` → must be ✅ PASS;
+  render via the **canonical** `sl_stage2_table.py` (grouped-11, self-cert `STAGE-2 ACCEPTANCE` banner) — **never** an ad-hoc/partial
+  reader (analysing a hand-made reader that showed 1 product of 3 is what zeroed S5); state the acceptance line in the checkpoint.
 - Read **ALL** candidate sheets (A+B+C), no gut top-N (FB RULE 8). The enricher's A/B/C/`score`
   is a **revenue/price sort-aid, NOT quality** — lead with WOW + founder-taste, never the tier.
 - **Hero-confirmation gate:** for every genuine-looking white-label candidate, **WebFetch the
@@ -127,6 +130,6 @@ HANDOFF · human-in-loop · checkpoint-before-Notion · lead with WOW/taste not 
 ## Open / to build (next sessions)
 ✅ DONE: `bq` advanced query (created≥2020 + multi-cat OR + 25k-window bypass) · table/field calibration ·
 first full clean dump (HI≥2020 = 27,052) · **product-centric enricher v4** (product_class/store_type/self-check/
-new_products_30d) · **master record + keep-list** (sl_mark_processed, RULE 20) · stage-artifact HTML/PNG to Desktop.
+new_products_30d) · **master record + keep-list** (sl_mark_processed, RULE 20) · stage-artifact HTML to Desktop (not PNG — Marina S6).
 TO BUILD: multi-country merge in the dumper · the newest-first monitor JOB (deferred, ShopHunter-side) ·
 validate the PRICE-CHECK fix on a live price-0 store · then (when stable across more batches) promote rules.

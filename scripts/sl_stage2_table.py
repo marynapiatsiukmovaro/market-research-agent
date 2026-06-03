@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-"""sl_stage2_table.py — render a Stage-2 enriched JSON (sl_enrich4 v4.2) to an HTML table.
-Stage artifact for Marina's Desktop. One row per store, ordered by tier then proxy score.
-Shows the early signals (hero/desc confidence, maturity, storefront_pos, conv) + the v4.2 fields:
-the store's own homepage pitch, the 🏠 BANNER hero shown ALONGSIDE the top-3 best-seller candidates
-(each with USD price + in_range + feature bullets), and the `needs_live` worklist column (RULE 23).
-Proxy tier/score = a SORT-AID, not quality (op-rule RULE 6) — the banner says so.
+"""sl_stage2_table.py — CANONICAL Stage-2 renderer (sl_enrich4 v4.2 → grouped-11 HTML).
+
+THE single approved Stage-2 reading surface for Store Leads (S6, Marina-locked 2026-06-03).
+Ad-hoc / partial readers are forbidden (op-rule) — analysing from anything but this generator's
+output is what zeroed S5 (a /tmp reader showed 1 product of 3, no images).
+
+Layout = GROUPED-11 (Marina-approved 2026-06-03): #, domain·pitch, tier·score, needs_live,
+geo·age, store signals (maturity·new30d·cat_flag·conv), type (store/product class),
+hero qual (heroConf·descConf·pos), price USD·in_range, 🏠BANNER+top-3, social.
+
+SELF-CERTIFYING: the page header carries an auto-computed STAGE-2 ACCEPTANCE banner (completeness
++ PASS/STOP). If you are reading a Stage-2 table WITHOUT this banner, it is NOT canonical — STOP.
+
 Usage: python3 sl_stage2_table.py <enriched.json> <output.html> "<title>" "<funnel banner>"
 """
 import json, html, sys
@@ -16,6 +23,47 @@ rows = json.load(open(inp))
 order = {"A": 0, "B": 1, "C": 2, "PRICE-CHECK": 3, "MANUAL": 4, "DROP-noPhysical": 5}
 rows.sort(key=lambda r: (order.get(r.get("tier"), 9), -(r.get("score") or 0)))
 
+# ---------------- completeness (shared logic with sl_qa.py gate) ----------------
+def filled(v): return v not in (None, "", [], {}, "None")
+def pct(a, b): return round(100.0 * a / b, 1) if b else 0.0
+
+def completeness(rows):
+    n = len(rows)
+    reach = [r for r in rows if r.get("reachable")]
+    nr = len(reach)
+    allp = [p for r in reach for p in (r.get("tops3") or [])]
+    npx = len(allp)
+    c = {
+        "n": n, "reach": nr, "reach_pct": pct(nr, n),
+        "avgtops": round(sum(len(r.get("tops3") or []) for r in reach) / nr, 2) if nr else 0,
+        "ge1top": pct(sum(1 for r in reach if (r.get("tops3") or [])), nr),
+        "tops3": pct(sum(1 for r in reach if len(r.get("tops3") or []) == 3), nr),
+        "prod_img": pct(sum(1 for p in allp if filled(p.get("img"))), npx),
+        "prod_inrange": pct(sum(1 for p in allp if "in_range" in p), npx),
+        "prod_descconf": pct(sum(1 for p in allp if filled(p.get("desc_confidence"))), npx),
+        "store_type": pct(sum(1 for r in rows if filled(r.get("store_type"))), n),
+        "product_class": pct(sum(1 for r in rows if filled(r.get("product_class"))), n),
+        "cat_flag": pct(sum(1 for r in rows if filled(r.get("cat_flag"))), n),
+        "maturity": pct(sum(1 for r in rows if filled(r.get("maturity"))), n),
+        "new30d": pct(sum(1 for r in rows if "new_products_30d" in r), n),
+        "home_pitch": pct(sum(1 for r in rows if filled(r.get("home_pitch"))), n),
+        "social": pct(sum(1 for r in rows if any(filled(r.get(s)) for s in ("fb", "ig", "tiktok", "pinterest"))), n),
+        "home_img": pct(sum(1 for r in rows if filled(r.get("home_img"))), n),
+        "needs_live": sum(1 for r in rows if r.get("needs_live")),
+    }
+    return c
+
+# PASS thresholds (Marina-approved S6 — see sl_qa.py for the gate of record)
+TH = {"reach_pct": 90, "ge1top": 97, "prod_img": 90, "prod_inrange": 99, "prod_descconf": 99,
+      "store_type": 95, "product_class": 95, "cat_flag": 95, "maturity": 95, "new30d": 95,
+      "home_pitch": 90, "avgtops": 2.0}
+c = completeness(rows)
+miss = []
+for k, t in TH.items():
+    if c.get(k, 0) < t: miss.append(f"{k} {c.get(k)}<{t}")
+verdict_ok = not miss
+
+# ---------------- render helpers ----------------
 def link(u, txt):
     if not u: return ""
     u = str(u)
@@ -25,65 +73,90 @@ def link(u, txt):
 def tops_cell(r):
     out = []
     dom = r.get("domain") or ""
-    # v4.2: show the homepage BANNER-featured hero ALONGSIDE the best-seller candidates (Marina: show BOTH heroes).
     hh = r.get("home_hero")
     if hh and not hh.get("in_clean") and hh.get("t"):
-        pr = hh.get("price"); cur = hh.get("cur") or ""
         purl = (f"https://{dom}/products/{hh.get('handle')}" if hh.get("handle") else f"https://{dom}")
-        thumb = (f"<a href='{html.escape(purl)}'><img src='{html.escape(str(hh.get('img')))}' style='float:left;margin:0 6px 2px 0'></a>"
-                 if hh.get("img") else "")
-        desc = html.escape(str(hh.get("desc") or ""))[:160]
+        thumb = (f"<a href='{html.escape(purl)}'><img src='{html.escape(str(hh.get('img')))}' style='float:left;margin:0 6px 2px 0'></a>" if hh.get("img") else "")
         out.append(f"<div style='margin-bottom:6px;overflow:hidden;background:#eaf2ff;padding:3px;border-radius:4px'>{thumb}"
-                   f"🏠 <b>BANNER:</b> {html.escape(str(hh.get('t')))} <b>${pr} {cur}</b><br>{desc}</div>")
+                   f"🏠 <b>BANNER:</b> {link(purl, html.escape(str(hh.get('t'))))}</div>")
+    elif hh and hh.get("img"):
+        out.append(f"<div style='margin-bottom:6px;overflow:hidden;background:#eaf2ff;padding:3px;border-radius:4px'>"
+                   f"<img src='{html.escape(str(hh.get('img')))}' style='float:left;margin:0 6px 2px 0'>🏠 <b>BANNER</b></div>")
     for t in (r.get("tops3") or [])[:3]:
         pr = t.get("price"); cur = t.get("cur") or ""
         flag = "✓" if t.get("in_range") else ("?" if t.get("price_unknown") else "✗")
-        dc = t.get("desc_confidence", "")
+        dc = t.get("desc_confidence", ""); pcl = t.get("pclass", "")
         desc = html.escape(str(t.get("desc") or ""))[:170]
         bl = t.get("bullets") or []
         blhtml = ("<br><span style='color:#555'>• " + " • ".join(html.escape(b) for b in bl[:3]) + "</span>") if bl else ""
         purl = (f"https://{dom}/products/{t.get('handle')}" if t.get("handle") else f"https://{dom}")
-        thumb = (f"<a href='{html.escape(purl)}'><img src='{html.escape(str(t.get('img')))}' style='float:left;margin:0 6px 2px 0'></a>"
-                 if t.get("img") else "")
-        link = f"<a href='{html.escape(purl)}'>↗ product</a>"
-        out.append(f"<div style='margin-bottom:6px;overflow:hidden'>{thumb}<b>${pr} {cur}</b> {flag} "
-                   f"<span style='color:#888'>[{dc}]</span> {link}<br>{desc}{blhtml}</div>")
+        thumb = (f"<a href='{html.escape(purl)}'><img src='{html.escape(str(t.get('img')))}' style='float:left;margin:0 6px 2px 0'></a>" if t.get("img") else "")
+        ttl = link(purl, html.escape(str(t.get("t") or "product")))
+        out.append(f"<div style='margin-bottom:6px;overflow:hidden'>{thumb}<b>{pr} {cur}</b> {flag} "
+                   f"<span style='color:#888'>[{html.escape(str(dc))}·{html.escape(str(pcl))}]</span> {ttl}<br>{desc}{blhtml}</div>")
     return "".join(out) or "<i>—</i>"
 
 tiers = Counter(r.get("tier") for r in rows)
-h = ['<html><head><meta charset="utf-8"><style>'
-     'body{font:12px/1.45 -apple-system,Arial;margin:20px;color:#1a1a1a}h1{font-size:18px}'
+matc = Counter(r.get("maturity") for r in rows)
+h = ['<!doctype html><html lang=ru><meta charset=utf-8><title>', html.escape(title), '</title><style>'
+     'body{font:12px/1.45 -apple-system,Arial;margin:18px;color:#1a1a1a}h1{font-size:17px}'
      '.banner{background:#fff4e6;border:1px solid #f0c890;padding:8px 12px;border-radius:6px;margin:8px 0;font-size:13px}'
+     '.accept{padding:10px 14px;border-radius:8px;margin:10px 0;font-size:13px;border:2px solid}'
+     '.accept.pass{background:#eafff0;border-color:#2faa55}.accept.stop{background:#fff0f0;border-color:#d33}'
      'table{border-collapse:collapse;font-size:11px}td,th{border:1px solid #ccc;padding:4px 6px;vertical-align:top}'
-     'th{background:#f4f4f4}tr.A{background:#f3fff3}tr.B{background:#fbfff8}tr.PRICE-CHECK{background:#fff8e6}'
-     'tr.MANUAL,tr.DROP-noPhysical{background:#fff0f0}a{color:#1763d6;text-decoration:none}'
-     '.lo{color:#c00}.hi{color:#080}.est{background:#eef;padding:1px 3px}img{max-width:60px;max-height:60px}</style></head><body>']
-h.append(f"<h1>{html.escape(title)}</h1>")
-h.append(f"<div class=banner><b>⚠ Proxy tier/score = SORT-AID, NOT quality (RULE 6).</b> "
-         f"Stage 3 = читаю ВСЕ, подтверждаю hero+цену на живом сайте, 100-pt+Veto. Tiers: {html.escape(str(dict(tiers)))}</div>")
+     'th{background:#222;color:#fff;position:sticky;top:0}tr.A{background:#f3fff3}tr.B{background:#fbfff8}'
+     'tr.PRICE-CHECK{background:#fff8e6}tr.MANUAL,tr.DROP-noPhysical{background:#fff0f0}'
+     'a{color:#1763d6;text-decoration:none}.lo{color:#c00}.hi{color:#080}.est{background:#eef;padding:1px 3px;border-radius:3px}'
+     'img{max-width:60px;max-height:60px;border-radius:4px}.sig{font-size:10px;color:#444}.k{color:#888}</style><body>']
+h.append(f"<h1>{html.escape(title)} — layout: grouped (canonical)</h1>")
+
+# --- SELF-CERTIFYING STAGE-2 ACCEPTANCE banner ---
+verline = ("✅ <b>STAGE-2 ACCEPTANCE: FULL CARD — PASS.</b> Loaded Stage-2 enriched file, not Stage-1; "
+           "all contract fields present; 3 tops + images rendered. Canonical generator (sl_stage2_table.py)."
+           if verdict_ok else
+           "⛔ <b>STAGE-2 ACCEPTANCE: STOP — INCOMPLETE.</b> Do NOT analyse. Missing: " + html.escape("; ".join(miss)))
+h.append(f"<div class='accept {'pass' if verdict_ok else 'stop'}'>{verline}<br>"
+         f"<span style='font-size:11px'>stores {c['n']} · reachable {c['reach']} ({c['reach_pct']}%) · avgtops {c['avgtops']} · "
+         f"≥1top {c['ge1top']}% · 3tops {c['tops3']}% · prod-img {c['prod_img']}% · in_range {c['prod_inrange']}% · descConf {c['prod_descconf']}% · "
+         f"store_type {c['store_type']}% · product_class {c['product_class']}% · cat_flag {c['cat_flag']}% · maturity {c['maturity']}% · "
+         f"new30d {c['new30d']}% · home_pitch {c['home_pitch']}% · social {c['social']}% (info) · home_img/banner {c['home_img']}% (info) · "
+         f"needs_live {c['needs_live']} to hand-open (RULE 23)</span></div>")
+
+h.append(f"<div class=banner><b>⚠ tier/score = SORT-AID, не качество (RULE 6).</b> Stage 3 = читаю ВСЕ строки, "
+         f"подтверждаю hero+цену на живом сайте, открываю КАЖДЫЙ needs_live (RULE 23), 100-pt+Veto. "
+         f"Tiers {html.escape(str(dict(tiers)))} · maturity {html.escape(str(dict(matc)))}</div>")
 if banner:
     h.append(f"<div class=banner style='background:#eef4ff;border-color:#b9d0f5'><b>Funnel (RULE 1):</b> {html.escape(banner)}</div>")
-cols = ["#","domain · store pitch (own words)","tier","needs_live","score","country","created","visits","maturity","conv","heroConf","descConf","pos","price USD","in_range","heroes: 🏠 BANNER + top-3 (photo · price · desc · bullets)","social"]
-h.append("<table><tr>" + "".join(f"<th>{html.escape(c)}</th>" for c in cols) + "</tr>")
+
+cols = ["#", "domain · pitch", "tier·score", "needs_live", "geo·age (country·created·visits)",
+        "store signals (maturity·new30d·cat_flag·conv)", "type (store/product class)",
+        "hero qual (heroConf·descConf·pos)", "price USD·in_range",
+        "🏠 BANNER + top-3 (photo·price·desc·bullets)", "social"]
+h.append("<table><tr>" + "".join(f"<th>{html.escape(x)}</th>" for x in cols) + "</tr>")
+
 for i, r in enumerate(rows, 1):
     dom = r.get("domain") or ""
     hc = r.get("hero_confidence", ""); dc = r.get("desc_confidence", "")
-    hc_s = f"<span class={'hi' if hc=='high' else 'lo'}>{hc}</span>"
-    social = " ".join(filter(None, [link(r.get("fb"), "FB"), link(r.get("ig"), "IG"),
-                                     link(r.get("tiktok"), "TT"), link(r.get("pinterest"), "Pin")]))
-    vis = f"{r.get('visits'):,}" if isinstance(r.get("visits"), int) else html.escape(str(r.get("visits") or ""))
-    pitch = html.escape(str(r.get("home_pitch") or ""))[:170]
+    hc_s = f"<span class={'hi' if hc=='high' else 'lo'}>{html.escape(str(hc))}</span>"
     himg = (f"<img src='{html.escape(str(r.get('home_img')))}' style='max-width:46px;max-height:46px;float:right;margin-left:4px'>" if r.get("home_img") else "")
+    pitch = html.escape(str(r.get("home_pitch") or ""))[:170]
     dom_cell = link(dom, html.escape(dom)) + himg + (f"<br><span style='color:#777;font-size:10px'>{pitch}</span>" if pitch else "")
     nl = r.get("needs_live"); nlw = ",".join(r.get("needs_live_why") or [])
     nl_cell = (f"<b style='color:#c60'>OPEN</b><br><span style='font-size:9px;color:#a60'>{html.escape(nlw)}</span>") if nl else "<span style='color:#8a8'>ok</span>"
-    cells = [str(i), dom_cell, r.get("tier",""), nl_cell, str(r.get("score","")),
-             html.escape(str(r.get("country") or "")), html.escape(str(r.get("created") or "")[:10]), vis,
-             html.escape(str(r.get("maturity") or "")), str(r.get("conv_batch") or ""),
-             hc_s, html.escape(str(dc)), html.escape(str(r.get("storefront_pos") or "")),
-             html.escape(str(r.get("price") or "")) + (f" <span class=est>{html.escape(str(r.get('store_currency') or ''))}</span>" if r.get("store_currency") else ""),
-             ("✓" if r.get("in_range") else "✗"), tops_cell(r), social]
-    h.append(f"<tr class='{r.get('tier','')}'>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr>")
+    geo = (f"{html.escape(str(r.get('country') or ''))}<br><span class=k>{html.escape(str(r.get('created') or '')[:10])}</span>"
+           f"<br>v{html.escape(str(r.get('visits') if r.get('visits') is not None else '—'))}")
+    sigs = (f"<span class=sig>mat: <b>{html.escape(str(r.get('maturity') or ''))}</b><br>"
+            f"new30d: {html.escape(str(r.get('new_products_30d') or ''))}<br>"
+            f"cat: {html.escape(str(r.get('cat_flag') or ''))}<br>conv: {html.escape(str(r.get('conv_batch') or ''))}</span>")
+    typ = f"<span class=sig>{html.escape(str(r.get('store_type') or ''))}<br><span class=k>{html.escape(str(r.get('product_class') or ''))}</span></span>"
+    hq = (f"<span class=sig>hero: {hc_s}<br>desc: {html.escape(str(dc))}<br>pos: {html.escape(str(r.get('storefront_pos') or ''))}</span>")
+    price = (html.escape(str(r.get("price") or "")) + (f" <span class=est>{html.escape(str(r.get('store_currency') or ''))}</span>" if r.get("store_currency") else "")
+             + "<br>" + ("✓" if r.get("in_range") else "✗"))
+    social = " ".join(filter(None, [link(r.get("fb"), "FB"), link(r.get("ig"), "IG"),
+                                    link(r.get("tiktok"), "TT"), link(r.get("pinterest"), "Pin")]))
+    cells = [str(i), dom_cell, f"<b>{html.escape(str(r.get('tier','')))}</b> · {html.escape(str(r.get('score','')))}",
+             nl_cell, geo, sigs, typ, hq, price, tops_cell(r), social]
+    h.append(f"<tr class='{r.get('tier','')}'>" + "".join(f"<td>{x}</td>" for x in cells) + "</tr>")
 h.append("</table></body></html>")
 open(outp, "w").write("\n".join(h))
-print("HTML written:", outp, "rows:", len(rows), "tiers:", dict(tiers))
+print("HTML written:", outp, "| rows:", len(rows), "| ACCEPTANCE:", "PASS" if verdict_ok else "STOP " + ";".join(miss))

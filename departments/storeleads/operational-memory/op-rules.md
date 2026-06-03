@@ -203,8 +203,51 @@ passes: it excludes only processed, keeps missing-visit stores (sorts them last 
 applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
 pc>2000 cut: "pc-данные тоже могут врать… пусть будет.") Honest low-yield is fine (RULE 11) — but coverage must be total.
 
+### RULE 25 — Canonical Stage-2 reader ONLY; ad-hoc/partial readers forbidden (S6, Marina-approved 2026-06-03) ⭐ THE S5 FIX
+Stage-2 enriched data is read for analysis **ONLY** via the canonical generator **`scripts/sl_stage2_table.py`** (rebuilt S6 →
+**grouped-11 layout, Marina-locked**, full v4.2 contract incl. the 4 fields the old table dropped: `store_type · product_class ·
+new_products_30d · cat_flag`). **Never build an ad-hoc / `/tmp` / partial reader** — that is exactly what zeroed S5 (a hand-made
+reader showed 1 product of 3, no images → invalid "0 winners"). The canonical output **self-certifies**: its page header carries a
+`STAGE-2 ACCEPTANCE` banner (auto-computed completeness + PASS/STOP). **A Stage-2 table WITHOUT that banner is NOT canonical → STOP.**
+Deliver previews as **HTML, not PNG** (Marina S6). *(Root cause: S5 had no single canonical reader, so an ad-hoc one silently truncated.)*
+
+### RULE 26 — QA-gate PASS + acceptance statement BEFORE any analysis (S6, Marina-approved 2026-06-03)
+Before scoring ANY batch: run **`scripts/sl_qa.py <enriched.json>`** (extended S6 to CARD COMPLETENESS — essence fields +
+per-product image/in_range/descConf, not just reach/price/cur). It must print **✅ PASS**. If **⛔ STOP**, do NOT analyse — report the
+flags and re-enrich. Then state in the human-visible checkpoint, **verbatim**: *"Loaded Stage-2 enriched file, not Stage-1; full card
+(3 tops + images + all fields) — QA PASS."* **Two-layer logic:** `sl_qa.py` certifies DATA completeness (scraper output); the canonical
+reader's self-cert banner (RULE 25) certifies READING completeness — together they close both S5 holes (the gate alone would have
+PASSED S5, since the data was fine; the reader was not). **PASS thresholds = PROVISIONAL (revisit after b10; failure direction is safe —
+a false STOP only forces a look):** reach≥90 · ≥1top≥97 · prod_img≥90 · in_range≥99 · descConf≥99 · avgtops≥2.0 ·
+store_type/product_class/cat_flag/maturity/new30d≥95 · home_pitch≥90 · price≥95 · cur_null=0. Informational (non-gating): 3tops% ·
+social% · home_img/banner% (these legitimately vary). Pairs with RULE 1 (funnel transparency) + RULE 23 (open every needs_live).
+
+### RULE 27 — Analysis self-verification gate: prove the steps ran, from files not memory (S6, Marina-approved 2026-06-03)
+The analysis side must be machine-verified like Stage-2 is — not trusted to discipline (the ShopHunter lesson: system beats
+discipline). As I analyse a batch I keep two artifacts, then a gate verifies them:
+- **Open-log** `np_bN_opens.jsonl` — one line per hand-opened store `{domain, verdict}` (every needs_live + unreachable).
+- **Scorecard** `np_bN_scores.jsonl` — one line per deep-scored candidate `{domain, hero, price, problem/wow/emotion/margin/market, veto, score, bucket}`.
+- **`scripts/sl_analysis_gate.py <enriched> <opens.jsonl> <scores.jsonl>`** must print **✅ PASS** before the checkpoint. It STOPs if any
+  flag was not opened (RULE 23 breach) or any device-class in-range candidate has no explicit verdict (the gap that caught the
+  overlooked Quax store in S6). The ANALYSIS CHECKPOINT numbers are then COMPUTED by the gate, not typed from memory.
+- **Known soft spot (named, not hidden):** `consumer-other` stores are card-judged in bulk, not individually logged — the gate counts
+  them for transparency (RULE 1) but does not force a per-store verdict. This is the one place still resting on reading discipline.
+
+### RULE 28 — Browse-pool = a fixed rule, and the gates are a FLOOR not a CEILING (S6, Marina-approved 2026-06-03)
+**Fixed selection (so the count is reproducible, never picked by feel):** browse = (device-class `{consumer-gadget, appliance, kitchen}`
+in-range stores) ∪ (stores I explicitly tag `browse` in the open-log), minus winners/borderline/reject and minus hand-opened-off-model,
+deduped (RULE 8 unique). The COUNT varies by niche (honest low-yield is fine, RULE 11); the RULE is fixed. `decor` is excluded from the
+auto-set (it pulls mis-tagged decals/boards); a genuinely interesting non-device store enters only via my explicit browse-tag (so my
+judgment, logged, overrides the proxy class — e.g. spottle in S6).
+
+> **⭐ FLOOR-NOT-CEILING PRINCIPLE (Marina, S6 — applies to ALL gates/rules here).** These checkpoints define the MINIMUM that must
+> always be covered — never the maximum. The agent is ALWAYS free to surface more than the rule yields and MUST flag anything notable
+> beyond it: an off-pattern outlier, a convergence/pattern, a "this niche looks weak — consider a pivot," a creative angle. A rule must
+> never suppress judgment or silence a useful observation. If a frame starts to feel like it's hiding something worth showing, say so and
+> we adjust it. (Marina's principle: over-constraining a worker kills the creativity and the heads-up flags you actually want.)
+
 ## Checkpoint shape (every batch, before any Notion write)
-Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**curated to what's
-useful — not a fixed count; ~6–15 by context, never padded "чтобы было"**) · Patterns · the full funnel breakdown
+Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**by the deterministic
+RULE 28 rule — count varies by niche, selection fixed; never padded "чтобы было"**) · Patterns · the full funnel breakdown
 (RULE 1) **including the explicit A/B/C tier counts** (Marina cross-checks against the ABC split). Every link = a
 clickable markdown hyperlink. Then **STOP and wait for Marina's OK before writing to Notion.**

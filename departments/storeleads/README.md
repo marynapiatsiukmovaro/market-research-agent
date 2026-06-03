@@ -6,12 +6,14 @@ active Shopify stores; ~3.59M Shopify all-status), using its internal JSON API a
 > **Status: SYSTEM-BUILD / in active development (started 2026-05-30).** Access solved; internal
 > data-API fully mapped incl. the advanced **`bq` (Bleve) query** — created≥2020, multi-category OR,
 > and the 25k-ceiling bypass via created windows (all validated to-the-store). Category census done;
-> green-shortlist subcategories fixed; export-table fields agreed + live-verified. First full clean
-> dump done (Home Improvement ≥2020 = 27,052). Funnel runs end-to-end on the **product-centric enricher v4**
-> (`sl_enrich4.py` — product_class/store_type/self-check); 5 HI batches done (1000 stores; HI = structurally
-> "heavy"/trade, low white-label yield); master record + keep-list monitor wired (RULE 19/20); stage artifacts
-> (HTML+PNG) delivered to Marina's Desktop each batch. NEXT = batches 6–7 to finish the HI band, then likely
-> switch to a consumer subcategory. Built iteratively like ShopHunter / FB matured. Human-in-loop; autonomous NOT earned.
+> export-table fields agreed + live-verified. Funnel runs end-to-end on the **product-centric enricher v4.2**
+> (`sl_enrich4.py`); HI band done (heavy/trade, low yield) → moved to **Nursery & Playroom** (consumer-dense),
+> now deep in the visits-tail via a **pre-enriched reservoir** (decouple: analyse ready data, scraper only refills).
+> **S6 (2026-06-03) hardened the pipeline against the S5 read-regress:** two self-verifying gates —
+> `sl_qa.py` (Stage-2 data completeness, RULE 26) + `sl_analysis_gate.py` (analysis coverage, RULE 27) —
+> a single canonical Stage-2 reader (`sl_stage2_table.py`, grouped-11, self-cert banner, RULE 25), a deterministic
+> browse rule (RULE 28), and an 11-step mark-off SESSION CHECKLIST in `workflow.md`. Stage artifacts delivered as
+> **HTML** to Marina's Desktop (not PNG). Built iteratively like ShopHunter / FB matured. Human-in-loop; autonomous NOT earned.
 
 ## Why this department exists
 ShopHunter's universe is its ~800/category *tracked* subset — emerging/early-window stores
