@@ -60,7 +60,7 @@ Decision: proceed / stop
 
 ### ANALYSIS CHECKPOINT (after deep-score, before Notion — proves the system ran, not memory)
 As I analyse I keep two artifact files, then a gate verifies them (RULE 27) — the numbers below are COMPUTED by the gate, not typed from memory:
-- **`np_bN_opens.jsonl`** — one line per hand-opened store `{domain, verdict}` (every needs_live + unreachable).
+- **`np_bN_opens.jsonl`** — one line per hand-opened store `{domain, verdict}` (every needs_live + unreachable). **Generate it with `python3 scripts/sl_open_flags.py <enriched.json> np_bN_opens.jsonl` (RULE 29, P1+P3):** the tool seeds every flag + device-class-in-range store (domain·status·prices, with 503-retry) so completeness is enforced by the tool; the agent only fills each `verdict`. (Do NOT run the P2 consumer-other sweep — dropped S7; the RULE-6 full read is the net.)
 - **`np_bN_scores.jsonl`** — one line per deep-scored candidate `{domain, hero, price, problem/wow/emotion/margin/market, veto, score, bucket}`.
 - **`python3 scripts/sl_analysis_gate.py <enriched> <opens.jsonl> <scores.jsonl>`** → must be **✅ PASS** (STOPs if a flag is unopened or a device-class candidate has no verdict). It also emits the deterministic BROWSE-POOL (RULE 28).
 ```

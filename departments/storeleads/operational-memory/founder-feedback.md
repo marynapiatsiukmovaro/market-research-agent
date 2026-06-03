@@ -54,6 +54,30 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 
 *(Doppler: Marina folded the 2 new doppler stores into the EXISTING cards as Store Link 2 — themommymotherhood.com → WellnessBaby, springbud.us → FetalPlus — no new cards (convergence). Their Founder Review unchanged.)*
 
+### [2026-06-03] S7 — Nursery deep-tail (b12–b16) + S4/S6 PENDING backlog cleared (12 decisions)
+
+🟡 **Consider** (9 — S4/S6 winners reviewed now + were PENDING)
+| Product | Score | Founder Review | Founder Notes (Marina) | Signal to keep (calibration) |
+|---|---|---|---|---|
+| Rockit Portable Stroller Rocker | 74 | 🟡 Consider | "Real pain. Frees parents." | Auto-rocking frees parents to do their own thing while baby keeps sleeping — Marina loved it. Real-pain + hands-free = Consider. |
+| LatchLight Wearable Nursing Nightlight | 76 | 🟡 Consider | "Clear wow-effect." | Genuine wow on its own → Consider (wow alone, when real, lifts past Watchlist). |
+| WonderBee Fetal Doppler | 77 | 🟡 Consider | "Belly bonding. Will study." | Hear baby in the belly = bonding/anxiety; recurring product she'll study. Doppler hub card. ⚠ liability stays. |
+| KinderSense Crib Safety Tent | 73 | 🟡 Consider | "Real pain. Safety priority." | Safety = a parent's 100% priority → real-pain + safety reliably reaches Consider. |
+| WriggleBum Nappy-Change Harness | 68 | 🟡 Consider | "Real pain. Strong video potential." | Real pain + strong fun-UGC potential ("много классных видео") → Consider. The "ремень" she loved. |
+| Roar Wireless Monitor | 69 | 🟡 Consider | "Relevant. Quality material." | Relevant + visibly good build/material → Consider. |
+| Kanga Stability Pouch | 67 | 🟡 Consider | "Solves pain. Child safety." | Same safety/care pain → Consider. |
+| UpPro Cordless Baby Dryer | 67 | 🟡 Consider | "Ordinary product. Care angle works." | Ordinary product BUT a child-care / "don't let them catch cold" framing lifts it → Consider. (Framing can raise an ordinary product when the care-angle is real.) |
+| Sleepytot Comforter | 64 | 🟡 Consider | "Beautiful. Convenient. Solves pain." | Aesthetic + convenient + real pain + care → Consider (even at <65). |
+
+🔵 **Watchlist** (3 — S7 new finds)
+| Product | Score | Founder Review | Founder Notes (Marina) | Signal to keep (calibration) |
+|---|---|---|---|---|
+| BabyBond Retractable Gate | 66 | 🔵 Watchlist | "Good problem. No wow yet." | Real safety pain, but NO wow/effect to pull the trigger now → Watchlist (problem alone ≠ launch). |
+| KefiCo Calming Koala | 68 | 🔵 Watchlist | "Real problem. Weak execution." | Problem exists but the execution/framing isn't compelling + saturated → Watchlist. (Real problem + weak execution = Watchlist, not Consider.) |
+| Portable Breast Milk Cooler (Waiu) | 65 | 🔵 Watchlist | "Small market. Better options exist." | Real pain but narrow market (pumping moms) + better candidates exist → Watchlist (market-size gate). |
+
+*(S7 doppler convergence: little-beats + bbcareshop + myfetaldoppler + baby-therapy folded into the WonderBee hub card as convergence — not new cards.)*
+
 ## Calibration signals (distilled)
 > **⚠️ GOVERNANCE (Marina, S3 2026-06-01): the SCORING SYSTEM STAYS AS-IS — do NOT use these to tighten/cut scores.**
 > These are **founder-DECISION patterns** (what Marina tends to Watchlist/Reject) — knowledge we ACCUMULATE, exactly like

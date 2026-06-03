@@ -128,8 +128,16 @@ So Marina explains once; the agent distils.
 **Founder Notes / Rejection Reason — phrasing principle (Marina-confirmed 2026-05-31):**
 - **Ultra-compact: 4–5 words MAX**, written as **short fragments ending with a period** — bullseye, no fluff.
 - **Rejected** → fill **Founder Notes + Rejection Reason**. **Watchlist / Consider / Approved** → **Founder Notes only**.
-- Marina gives the verdict verbally (expanded); the agent renders it into this compact form, **shows her the table
-  for approval BEFORE writing to Notion**, adjusts, then writes. Never invent a verdict; never set Founder Review.
+- Marina gives the verdict verbally (expanded); the agent renders it into this compact form, **shows her the
+  COMPACT PER-PRODUCT BLOCK for approval BEFORE writing to Notion** (NOT a wide table — Marina S7 2026-06-03), adjusts,
+  then writes. Never invent a verdict; never set Founder Review.
+- **⭐ APPROVAL-PRESENTATION FORMAT (Marina-locked S7 2026-06-03) — render each decision as a block, exactly:**
+  ```
+  [Product Name] | [Tier]
+  Founder Notes: [≤4–5 words, fragments ending with a period]
+  Rejection Reason: [ONLY when Tier = Rejected — 1 short fragment]
+  ```
+  This is WHY the notes are 4–5 words: the block must read at a glance. Group blocks loosely by tier; no table, no extra columns.
 - Real reference examples (from the live DB): Founder Notes — "Solves real pain." · "Apple-like aesthetic." ·
   "Stylish design. Real pain-solver." · "Banal product. Brilliant packaging." · "Strong pain-solver. Strong seasonal hooks."
   Rejection Reason — "High refund risk." · "Narrow audience. Hard to scale." · "Overexposed category." · "Fragile shipping risk."
@@ -245,6 +253,12 @@ judgment, logged, overrides the proxy class — e.g. spottle in S6).
 > beyond it: an off-pattern outlier, a convergence/pattern, a "this niche looks weak — consider a pivot," a creative angle. A rule must
 > never suppress judgment or silence a useful observation. If a frame starts to feel like it's hiding something worth showing, say so and
 > we adjust it. (Marina's principle: over-constraining a worker kills the creativity and the heads-up flags you actually want.)
+
+### RULE 29 — Auto-log opener (P1) + transient retry (P3) ADOPTED; P2 functional-noun sweep DROPPED (S7, Marina-approved 2026-06-03)
+The RULE 23 hand-open step is now backed by a tool so completeness can't rest on memory (the S6 lesson: system beats discipline). Tested on b14+b15, Marina-locked:
+- **P1 — `scripts/sl_open_flags.py <enriched.json> <out_opens.jsonl>` is the canonical opener.** It derives the FULL flag-list (needs_live + unreachable) AND the device-class-in-range set from the enriched file itself, opens each, and **writes a pre-seeded `opens.jsonl` with one line per store (`domain·status·title·prices·verdict:""`)**. The agent only fills `verdict`. "Opened but not logged" is now structurally impossible — the tool enforces RULE 23, not the agent's memory. (Root cause it fixes: b12 device-class gap, where 5 opened stores were un-logged and only `sl_analysis_gate.py` caught it.) The agent MAY still open extras by hand and append them.
+- **P3 — transient retry is built into the opener:** a 503/timeout is retried once after a short pause, then (still failing) marked dead. Separates live-on-retry from genuinely-dead (proven b14: twinieshop 503→retry→dead; b15: 0 retries needed = correct). At scale this stops a transient blip from false-killing a real candidate.
+- **P2 — functional-noun sweep over consumer-other: TESTED AND DROPPED (do NOT run it).** Across b12–b15 it never surfaced a winner the RULE-6 full-read hadn't already found, and on b14 its (un-widenable-in-advance) vocabulary would have **missed** the real winner (`babybond`, noun "gate"). **The real safety net for the consumer-other soft spot is the RULE-6 full read — a keyword sweep adds no coverage and risks false confidence.** Marina: "P2 не надо." (Script `sl_co_sweep.py` is not part of the workflow.)
 
 ## Checkpoint shape (every batch, before any Notion write)
 Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**by the deterministic
