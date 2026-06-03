@@ -260,6 +260,21 @@ The RULE 23 hand-open step is now backed by a tool so completeness can't rest on
 - **P3 — transient retry is built into the opener:** a 503/timeout is retried once after a short pause, then (still failing) marked dead. Separates live-on-retry from genuinely-dead (proven b14: twinieshop 503→retry→dead; b15: 0 retries needed = correct). At scale this stops a transient blip from false-killing a real candidate.
 - **P2 — functional-noun sweep over consumer-other: TESTED AND DROPPED (do NOT run it).** Across b12–b15 it never surfaced a winner the RULE-6 full-read hadn't already found, and on b14 its (un-widenable-in-advance) vocabulary would have **missed** the real winner (`babybond`, noun "gate"). **The real safety net for the consumer-other soft spot is the RULE-6 full read — a keyword sweep adds no coverage and risks false confidence.** Marina: "P2 не надо." (Script `sl_co_sweep.py` is not part of the workflow.)
 
+### RULE 30 — Reservoir-build scraper: wait-pattern + one-chunk rhythm (S8, Marina-approved 2026-06-03)
+When BUILDING the reservoir (running `sl_enrich4` LIVE to prep data for a later session — not analysing a ready file),
+the work is **system-driven, never discipline-driven**. Three locked invariants:
+- **Wait via background, never poll.** Launch the enrich detached (minimal one-line `nohup` + sentinel — RULE 4c), then
+  wait for the sentinel through a **`run_in_background` Bash wait-loop** (`until [ -f <sentinel> ]; do sleep 15; done`).
+  The harness re-invokes on completion = **ZERO context burned while waiting.** NEVER a foreground blocking poll loop
+  (that burns context for nothing — the exact S8 lesson that exposed this rule was missing). The scraper itself is 0-token.
+- **One chunk at a time.** Accept EACH chunk via the SCRAPER-ACCEPTANCE CHECK-LIST (workflow §1b) → Marina's OK → only
+  then launch the next. **NEVER auto-chain 2–3 chunks on the server:** if one slips mid-run we lose ~20 min blind, and
+  batching saves nothing (scraper = 0-token, one acceptance = a few hundred tokens of context). Until the system is proven
+  at scale, the founder accepts every chunk. (Parallel SECOND session only after the rhythm here is proven — RULE 13 still
+  bars parallel `claude`; parallelism = enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
+- **SKIP advances per chunk** (chunk N → `SKIP=(N-1)*250`), because reservoir build does **NOT** mark processed
+  (`enriched ≠ processed`; marking happens only at analysis). Same-niche chunks never overlap as long as SKIP advances.
+
 ## Checkpoint shape (every batch, before any Notion write)
 Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**by the deterministic
 RULE 28 rule — count varies by niche, selection fixed; never padded "чтобы было"**) · Patterns · the full funnel breakdown

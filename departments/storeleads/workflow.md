@@ -90,6 +90,70 @@ machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 
 ☐ 11. After OK: Notion + reported-products + sl_mark_processed + keep-list + learnings/HANDOFF
 ```
 
+## 1b. RESERVOIR-BUILD MODE (scraper-prep — S8, Marina-approved 2026-06-03) ⭐
+Use this when the session's job is to **run the scraper to PREP data** for a later analysis session (not to analyse a
+ready file). The point: prep ahead so tomorrow's analysis starts instantly on ready chunks. **System-driven, one chunk at
+a time, every chunk accepted** (RULE 30). Per chunk, in order:
+
+> 🧭 **PATH CONVENTION (the trap that cost time in S8 — memorise it):**
+> `sl_select_all.py` & `sl_enrich4.py` args are **RELATIVE to `logs/storeleads`** (the script prepends it →
+> `niches/.../slug`). `sl_qa.py` / `sl_analysis_gate.py` / `sl_stage2_table.py` take a **CWD-relative path**
+> (full `logs/storeleads/niches/.../file`). Mixing them = `FileNotFound` / doubled path. Use the template verbatim.
+
+**Launch template (copy-paste; chunk N, niche slug `<D>=niches/<L1>/<niche>/<slug>`, `SKIP=(N-1)*250`):**
+```
+# 1. SELECT (paths relative to logs/storeleads):
+python3 scripts/sl_select_all.py <D> <D>_s<S>_b<N> 250 <SKIP>
+# 2. LAUNCH enrich detached — minimal one-line nohup, 8 workers (proven safe on the single ISP IP):
+cd /opt/market-research-agent; R=<D>_s<S>_b<N>; rm -f logs/storeleads/${R}.sentinel; \
+  nohup python3 scripts/sl_enrich4.py ${R}.json ${R}_enriched.json ${R}.sentinel 8 \
+  > logs/storeleads/${R}_enrich.log 2>&1 &
+# 3. WAIT — run_in_background Bash (harness wakes on completion; NO foreground poll — RULE 30):
+until [ -f logs/storeleads/${R}.sentinel ]; do sleep 15; done; cat logs/storeleads/${R}.sentinel
+# 4. QA gate (CWD-relative path — NOT prefixed):
+python3 scripts/sl_qa.py logs/storeleads/${R}_enriched.json
+```
+
+### SCRAPER-ACCEPTANCE CHECK-LIST (present to Marina at chunk-1 + every 3 chunks; any QA fail → STOP + show now)
+The agent ticks ☐→☑ from the actual run output. `sl_qa.py` runs on EVERY chunk (machine, 0-cost); the founder sees this
+list at chunk-1 then every 3rd chunk. Grouped so a glance tells run-health vs data-completeness vs hygiene.
+```
+SCRAPER-ACCEPTANCE — <niche> reservoir, chunk N (stores X–Y)
+— RUN HEALTH (was the run itself clean?) —
+☐ 1. Select: 250 · already-processed = 0 (RULE 19/24) · all ≥2020 · SKIP=(N-1)*250
+☐ 2. Enrich: sl_enrich4 8 workers DONE · sentinel present · ps aux | grep claude clean (RULE 13)
+☐ 3. Count reconcile: enriched == selected (catches a silent worker crash mid-run)
+☐ 4. Reach-band: reach ~90–97% = normal. Low reach in the deep/vNone tail is USUALLY `products.json`-disabled stores
+      (storefront ALIVE, robot can't extract → `needs_live` hand-open at analysis — proven S1 11/12 + S2 17/18 alive),
+      NOT dead and NOT a proxy fault. Do NOT re-run to "recover" them (the setting is stable — re-run reproduces the same
+      set; verified S8 chunk-2 redo → reach 0/20). Truly dead = DNS-000 / frozen-402 only. A REAL proxy problem looks
+      different: ALL stores slow/failing + duration blows up — a stable failing SUBSET = products.json, not the proxy.
+☐ 5. Duration: ~5 min/250 baseline. Longer ≠ "lazy scraper" — often MORE extraction (more needs_live / heavier cards).
+      Only a 3× blow-up WITH global reach collapse = a real proxy throttle. Track duration↔needs_live (hypothesis, verify).
+— DATA completeness (RULE 26) —
+☐ 6. QA-gate sl_qa.py → ✅ PASS  (else STOP, re-enrich)
+☐ 7. Card: ≥1top · img · in_range · descConf · 5 essence fields ≥ thresholds
+— RESERVOIR hygiene —
+☐ 8. Cross-niche dedup vs master (sl_master_dedup.py — only for a NEW niche; same-niche = N/A) · master grown
+☐ 9. File in reservoir path · enriched ≠ processed held (0 marked)
+☐ 10. Verdict: chunk ACCEPTED / RE-ENRICH
+```
+**Why pts 3–5 exist (S8 — the run-health half):** QA proves the DATA is complete, but not that the RUN was healthy. A
+crashed worker (pt 3) can pass QA on a partial set. **Low reach (pt 4) is the common one — and it is USUALLY benign:**
+`products.json`-disabled stores (alive, hand-opened at analysis), NOT a proxy fault (the S8 lesson — don't proxy-test a
+stable failing subset, the docs already explain it). A genuine proxy throttle is rarer and shows as GLOBAL degradation +
+duration blow-up (pt 5). These three turn "data looks full" into "the run was sound." (Floor, not ceiling — RULE 28.)
+
+**ACCEPT logic when QA STOPs (S8):** if reach is in-band (~≥90%) AND the unreachable are the products.json/dead pattern
+(not a global proxy collapse), **ACCEPT the chunk WITH a note** — the unreachable go to `needs_live` hand-open at analysis
+(RULE 23), nothing is lost. The QA numeric STOP here is the PROVISIONAL-threshold artifact for the thin/vNone tail (RULE 26
+says thresholds are revisable; a false STOP only forces the look — which we did). Only a STOP with reach OUT of band /
+global degradation is a real "re-enrich" case.
+
+**Cross-niche dedup (new niche only):** before enriching a NEW niche's dump, run
+`python3 scripts/sl_master_dedup.py dedup logs/storeleads/master_domains.json <new>_full.json <niche> --apply` → it removes
+multi-category overlaps already ours, reports `dumped → removed → unique`, and grows `master_domains.json` (RULE 19 cross-niche, S8).
+
 ## 2. Mode & checkpoints (STANDING)
 - **Human-in-loop — NOT autonomous** (not earned). Work autonomously through dump→funnel→deep-score,
   then deliver the checkpoint and **WAIT for Marina's explicit OK before ANY Notion write.**
