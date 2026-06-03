@@ -139,10 +139,11 @@ job to raise, not Marina's to ask.
   formula/gift). Report the result in the checkpoint loss-audit ("spot-checked N dismissed → 0 winners"). If a winner
   turns up there → that's the signal the off-model card-judgment is leaking; tighten. This measures the one residual
   within-funnel crack (Stage-2 card-judged dismissals).
-- **#4 Convergence surfaced (transparency only — score-lift is a separate proposal):** every batch, explicitly report the
-  convergence count — same product/product-type across N distinct stores = demand-without-revenue. It may lift a
-  borderline's VISIBILITY/Watchlist flag, but NEVER auto-promotes past Watchlist (RULE 12). The score-weighting version
-  is filed in `review/promotion-queue.md` for Marina's decision.
+- **#4 Convergence = NOTED observation only, NOT a signal (Marina S6 — REJECTED as a weight).** Still fold true cross-store
+  duplicates of the SAME product into ONE Notion card (convergence rule, for visibility). BUT do **not** let within-batch
+  convergence lift a score OR a tier — a 250-store batch (even the full ~6.7k niche) is **not representative of the market**,
+  so batch-level repetition can be a FALSE signal (similar stores may cluster in one batch by chance). Judge each product on
+  its own merit (wow / differentiation / pain / economics), never on "how many times it appeared in this batch."
 
 ## 3. End-of-session Learning Protocol
 1. After Marina's OK: save reported (65+) to Notion (`shared/notion-workflow.md`, Source = "Store Leads")
