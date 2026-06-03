@@ -24,7 +24,7 @@
 ## Что НЕ трогаем (это факты, проверены в S5 — не гипотезы)
 - **Данные резервуара целы.** `np_batch9-16_enriched.json` (2000 магазинов) собраны `sl_enrich4` v4.2 — полный контракт, проверено по JSON b9. **Не пересобирать, не перезапускать скрапер.**
 - **Decouple/резервуар-модель работает** — есть данные → старт сразу (Marina подтвердила ещё раз в S5).
-- **processed_domains = 4098** (UPDATE S6 2026-06-03: b9 + b10 RE-RUN correctly via canonical pipeline → both marked; winners in Notion). **b11/b12 НЕ помечены — S5-анализ недействителен, переделать через канонический пайплайн; b13–16 ещё впереди.**
+- **processed_domains = 4348** (UPDATE S6 2026-06-03: b9 + b10 + b11 RE-RUN correctly via canonical pipeline → all marked; b9/b10 winners in Notion, b11 = honest 0-winner). **b12 НЕ помечен — S5-анализ недействителен, переделать через канонический пайплайн; b13–16 ещё впереди (резервуар цел).**
 
 ---
 
