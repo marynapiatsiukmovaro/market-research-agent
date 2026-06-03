@@ -46,6 +46,16 @@ Marina sets each item to: **Promote → Wait → Reject**
 **Recommendation:** Wait (Marina will design; capture now so it's not lost).
 **Added:** 2026-06-01, Session S4.
 
+### Convergence as a SCORE input (not just a surfaced count) — Store Leads S6
+**Observation:** Same product/product-type recurring across N distinct stores in a batch = demand-without-revenue (S4: 3 doppler stores, 2 crib-tent stores). The TRANSPARENCY half (always surface the convergence count + let it lift a borderline's Watchlist visibility) is now implemented in `workflow.md` (S6, additive, Marina-approved). This proposal is ONLY the remaining half: letting convergence add actual SCORE points.
+**Proposal:** bounded scoring lift to a borderline (55–64) when it converges across ≥3 distinct stores in the batch (e.g. +2–4 pts, capped so it can reach Worth-Testing visibility, but the FOUNDER tier still caps at Watchlist per RULE 12). A lone borderline vs converging-across-5 should not score identically.
+**Why it matters:** stops a genuinely in-demand product getting stuck at 62 because one store looks weak; repetition is real evidence.
+**⚠ Risk:** must NOT become auto-Consider (convergence/revenue earns at most Watchlist). Cap the lift; keep founder-tier governance intact. Touches the SCORE → Tier-2, needs Marina OK.
+**Affected:** `core/scoring-system.md` (or a dept-local scoring note), `op-rules.md`.
+**Confidence:** Medium (intuitive, but unmeasured — convergence may just mean SATURATION, which also converges; no proof yet it predicts a real winner).
+**Recommendation:** Wait (surfaced-count half is live; gather evidence that convergence ≠ saturation before weighting the score).
+**Added:** 2026-06-03, Session S6.
+
 ### QA-gate hardening — price sanity-clamp + dead-store-rate metric (Store Leads S5)
 **Observation:** Two reservoir-quality issues surfaced while analysing the pre-enriched b9/b10:
   (1) **Price-parse anomaly** — `keep-closer.com` (b9) carried hero price `1184000.0 USD` for a toddler hip carrier whose real/avg price ≈ $155. A broken variant/currency parse can mis-tier or mis-display a store (not a loss — RULE 6 reads all + RULE 7 live-confirms finalists — but a "ready" reservoir should be clean before it reaches the agent).

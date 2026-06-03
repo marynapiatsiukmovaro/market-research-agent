@@ -129,6 +129,21 @@ on-site reads as "wow" from the description).
 recommendation with WOW/differentiation/saturation read, not convergence count · the loss-audit is the agent's
 job to raise, not Marina's to ask.
 
+### Analysis refinements (S6, Marina-approved 2026-06-03)
+- **#3 Borderline external-signal check (quality > token-cost — Marina):** for every BORDERLINE candidate (55–64),
+  before finalizing the score run a quick external verification search (WebSearch/WebFetch): category trend, is anyone
+  running ads on it, virality/social proof. One extra signal may lift a 62→67 or honestly drop it. Don't box judgment
+  into card+site only. (Winners 65+ already get live-confirm; this extends the look for the borderline band.)
+- **#2 Measured loss-audit (turn "0 loss" from faith into a number):** each batch, hand-open a RANDOM sample (5–10) of
+  the **card-judged off-model pile** — stores NOT flagged needs_live that I dismissed from the card alone (apparel/
+  formula/gift). Report the result in the checkpoint loss-audit ("spot-checked N dismissed → 0 winners"). If a winner
+  turns up there → that's the signal the off-model card-judgment is leaking; tighten. This measures the one residual
+  within-funnel crack (Stage-2 card-judged dismissals).
+- **#4 Convergence surfaced (transparency only — score-lift is a separate proposal):** every batch, explicitly report the
+  convergence count — same product/product-type across N distinct stores = demand-without-revenue. It may lift a
+  borderline's VISIBILITY/Watchlist flag, but NEVER auto-promotes past Watchlist (RULE 12). The score-weighting version
+  is filed in `review/promotion-queue.md` for Marina's decision.
+
 ## 3. End-of-session Learning Protocol
 1. After Marina's OK: save reported (65+) to Notion (`shared/notion-workflow.md`, Source = "Store Leads")
    + `shared/reported-products.md`; rejects → `shared/rejected-products.md`.
