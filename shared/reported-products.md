@@ -154,6 +154,8 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-03 | UpPro Cordless Baby Hair & Body Dryer | Kids | 67 | Low-voltage quiet cordless baby dryer; $68.99; novel functional gadget; ⚠ market-size question. | Store Leads (S6 Nursery b9) / uppro.co |
 | 2026-06-03 | WriggleBum Nappy Change Harness | Kids | 68 | Harness stops baby wriggling/rolling during nappy change; $69.95 single-product DTC; novel + funny UGC; RULE-7 caught real price ($46 proxy → $69.95). **The "ремень" Marina loved — invisible in the S5 partial read.** | Store Leads (S6 Nursery b10) / wrigglebum.com.au |
 | 2026-06-03 | Portable Bottle Warmer (convergence) | Kids | 67/66 | BabyBuddy 67 (thebabybuddy.co $39.95) + BaeBae 66 (littlebaebaestore.com $59.99). ✅ **FOLDED into existing BuddyBottle card (Marina S6): SL2 = thebabybuddy.co, all brands accrue in body. Category = Watchlist saturated — ONE card, no new winner card.** | Store Leads (S6 Nursery b10) / thebabybuddy.co · littlebaebaestore.com |
+| 2026-06-03 | Jazzy Hug (diaper-change wrap, convergence) | Kids | 60 | ✅ **FOLDED as SL2 into WriggleBum card (Marina S6) — same diaper-change-restraint pain; $38 patented chest-wrap, 13 reviews.** | Store Leads (S6 Nursery b11) / jazzyhug.com |
+| 2026-06-03 | **b11 — 0 WINNERS (honest low-yield, deepest tail v29–47)** | — | — | Full canonical pipeline (250 cards read + 48/48 flags opened + gate PASS) → RELIABLE zero, not an S5-fake. Borderline only: breezyfeed nursing-cover-w/-fan 62 (SOLD OUT), NozeBot 58 (validated e-aspirator category but patented $134, off-model). | Store Leads (S6 Nursery b11) |
 
 ## Rules
 - Do not remove old entries. This log is cumulative.
