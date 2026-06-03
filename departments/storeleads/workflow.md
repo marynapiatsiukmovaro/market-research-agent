@@ -96,6 +96,39 @@ machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 
 - Checkpoint = winners 65+ / borderline 55–64 / patterns / browse-pool (curated UNIQUE genuine-product
   links). Every link clickable. Convergence/revenue earns at most Watchlist, never auto-Consider.
 
+### ⭐ MARINA-FACING CHECKPOINT — standard format (S6, Marina-approved 2026-06-03)
+The founder-facing report (step 10). Same shape every batch so Marina reads it fast. Order matters: main
+findings first, stats second, loss-audit last. **Every product gets a 1–2 line plain-language description —
+this lets Marina judge it WITHOUT opening the site** (her explicit ask; e.g. a product that looks mediocre
+on-site reads as "wow" from the description).
+```
+🟢 CHECKPOINT — Batch [N] ([niche], [visits range]) — STOP, жду OK
+
+[1–2 lines: what was done — read N, hand-opened K (needs_live + own candidates), gates PASS]
+
+🏆 WINNERS (65+)
+  [N]. [Product name] — [score] · [clickable store link] · [$price]
+       [1–2 lines: WHAT it is + which pain it solves + why it's a winner. ⚠ note risks/liability.]
+
+🟡 BORDERLINE (55–64)
+  • [Product] — [score] · [link] · [$price] — [1 line: what it is + why borderline]
+
+🔎 BROWSE
+  [clickable link] ([1-line: what it is / why off-model]) · …   (UNIQUE only, not in winners/borderline)
+
+📊 Funnel + ABC
+  [N] read · reach [N] · needs_live [N] → opened [N] · tiers A/B/C · classes · store_types
+  ABC read: [1–2 lines — niche profile, where winners sat, honest yield]
+
+🛡️ Loss-audit — «мог ли winner потеряться?» (agent answers EVERY batch, unprompted)
+  - needs_live [N]/[N] opened → [N] hidden winners
+  - where winners came from (card-sufficient vs flag) + any residual risk
+  - verdict: loss ≈ [N]
+```
+**Rules:** clickable markdown links everywhere (never bare domains) · browse = UNIQUE links only · lead the
+recommendation with WOW/differentiation/saturation read, not convergence count · the loss-audit is the agent's
+job to raise, not Marina's to ask.
+
 ## 3. End-of-session Learning Protocol
 1. After Marina's OK: save reported (65+) to Notion (`shared/notion-workflow.md`, Source = "Store Leads")
    + `shared/reported-products.md`; rejects → `shared/rejected-products.md`.
