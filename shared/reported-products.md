@@ -149,6 +149,12 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-02 | Max & Koko Portable Baby Chair | Kids | — | **Founder-kept convergence (Marina S5) — NOT a new card → Store Link 2 to existing Izimini Outdoor Baby Chair (S3, izimini.com).** Compact folding travel baby chair → carry bag; $56 AUD. Portable-chair convergence. | Store Leads (S5 Nursery b9, visits 83) / maxandkoko.com |
 | 2026-06-02 | Miniware Hannie Portable High Chair | Kids | — | **Founder-kept (Marina S5: "впервые видела настолько компактный стульчик").** Converts baby chair→high chair, 6mo–5y, folds flat. Portable-chair convergence (w/ Izimini + Max&Koko). Notion: save (SL3 of the portable-chair card, or its own — confirm at write). | Store Leads (S5 Nursery b9, visits 83) / miniware.eu/collections/hannie |
 
+### Store Leads S6 — Nursery & Playroom (b9–b10 CORRECT re-run via canonical pipeline; the S5 read was invalid) — IN NOTION 2026-06-03
+| 2026-06-03 | Kanga Baby Stability Pouch | Kids | 67 | Keeps baby upright/secure in carts/high-chairs/wagons; $64.99 single-product DTC; demonstrable; no visible review count. **Missed by the broken S5 read — caught by the canonical full-card re-run.** | Store Leads (S6 Nursery b9) / thekangababy.com |
+| 2026-06-03 | UpPro Cordless Baby Hair & Body Dryer | Kids | 67 | Low-voltage quiet cordless baby dryer; $68.99; novel functional gadget; ⚠ market-size question. | Store Leads (S6 Nursery b9) / uppro.co |
+| 2026-06-03 | WriggleBum Nappy Change Harness | Kids | 68 | Harness stops baby wriggling/rolling during nappy change; $69.95 single-product DTC; novel + funny UGC; RULE-7 caught real price ($46 proxy → $69.95). **The "ремень" Marina loved — invisible in the S5 partial read.** | Store Leads (S6 Nursery b10) / wrigglebum.com.au |
+| 2026-06-03 | Portable Bottle Warmer (convergence) | Kids | 67/66 | BabyBuddy 67 (thebabybuddy.co $39.95) + BaeBae 66 (littlebaebaestore.com $59.99). ⚠ **NOT yet written — category already in Notion (BuddyBottle SL = Marina Watchlist "видела очень много", The Baby's Brew SH cross-dept). Marina to decide: fold as Store Link 2 vs skip.** | Store Leads (S6 Nursery b10) / thebabybuddy.co · littlebaebaestore.com |
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.
