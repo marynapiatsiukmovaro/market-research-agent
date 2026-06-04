@@ -276,6 +276,12 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   out-of-band / worker-crash / count-mismatch / cur_null>0 — NOT a products.json STOP). This beats a silent server-side
   loop (Marina's S4 worry: "вдруг что-то слетело") AND beats per-chunk approval (button-fatigue): narrated, verified,
   hands-off. **NEVER fully fire-and-forget a multi-chunk server loop with no per-chunk check** — narrate + verify each.
+- **Batched-reporting tier (Marina S8 — when she explicitly asks NOT to be pinged per batch / not to sit by the computer):**
+  run a **self-verifying server loop** (`cats_wave.py`-style: per chunk select → enrich → `sl_qa` → append the health
+  manifest, and **ABORT on GENUINE breakage** = reach <85% / count ≠ 250 / cur_null>0, writing a BREAK flag). Report only
+  **every ~6 chunks** (or immediately if it aborts). What keeps this SAFE (vs blind fire-and-forget): the loop still
+  QA-gates EVERY chunk and stops itself on real breakage — only the per-chunk *messaging* is removed, never the per-chunk
+  *verification*. Use ONLY on Marina's explicit ask; default stays chunk-1-OK + narration.
   (Parallel SECOND session only after the rhythm here is proven — RULE 13 still bars parallel `claude`; parallelism =
   enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
 - **SKIP advances per chunk** (chunk N → `SKIP=(N-1)*250`), because reservoir build does **NOT** mark processed
