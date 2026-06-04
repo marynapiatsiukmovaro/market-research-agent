@@ -21,6 +21,17 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 - Credit guard (Marina's rule): `ps aux | grep claude` on the VPS before any run; parallelism =
   Playwright **workers**, never parallel claude processes.
 
+## 0.5 SESSION MODE — pick ONE before doing anything (S8) ⭐
+After loading context, read the prompt + the **HANDOFF "▶ NEXT" line**, then route to exactly one mode:
+- **🔬 ANALYSIS** — score a ready/enriched reservoir → winners → checkpoint → Notion. **Go to §1a** (Stage-2 entry checklist
+  + SESSION CHECKLIST). Triggers: "analyse / score the reservoir", HANDOFF says NEXT=analysis, an enriched file already exists.
+- **🏭 RESERVOIR-BUILD** — run the scraper to PREP enriched data for a LATER session (no scoring, no Notion). **Go to §1b**
+  (RESERVOIR-BUILD mode). Triggers: "build / prep / run the scraper on N stores", a NEW niche to dump, HANDOFF says NEXT=build.
+- **Unsure?** The HANDOFF's "▶ NEXT" is the default. A NEW niche named for scraping → RESERVOIR-BUILD. "Score/analyse" → ANALYSIS.
+
+**Never mix the two:** RESERVOIR-BUILD never scores or writes Notion; ANALYSIS never runs the enricher loop to grow a reservoir.
+A new-niche build also runs the cross-niche dedup first (§1b). Both modes share §0 preflight (credit-guard, session, paths).
+
 ## 1. Run the discovery funnel
 Follow `methods/discovery-funnel.md` (Stage 0 dump → Stage 1 client-filter+table → Stage 2 live
 enrich → Stage 3 deep-score). Drive the API per `methods/interface-guide.md`. Heavy lifting on the
@@ -36,9 +47,12 @@ Supporting method docs:
 Never start analysis until ALL pass, in order:
 1. **Preflight** — `ps aux | grep claude` on the VPS (credit guard, RULE 13) · proxy health-check (RULE 14) · verify the
    enriched file exists for this batch.
-2. **QA-gate** — `python3 scripts/sl_qa.py <enriched.json>` → must print **✅ PASS**. If **⛔ STOP**: do NOT analyse — report
-   the flags, re-enrich the batch, re-gate. (Gate checks card completeness: 3 tops · images · in_range · descConf · the 5
-   essence fields — not just reach/price.)
+2. **QA-gate** — `python3 scripts/sl_qa.py <enriched.json>` → **✅ PASS** = analyse. (Gate checks card completeness: 3 tops ·
+   images · in_range · descConf · the 5 essence fields — not just reach/price.) **⛔ STOP → branch (S8 — do NOT blindly
+   re-enrich):** if the STOP is the **vNone/products.json artifact** (reach ≥ ~90% · cur_null=0 · count reconciled · cand/
+   product_class just under 95 from `products.json`-off unreachable) → **PROCEED to analysis**, the unreachable are alive
+   micro-stores opened by hand (RULE 23, §1b ACCEPT-logic) — re-enriching does NOT recover them (proven S8 ch2 redo→0/20).
+   Re-enrich ONLY for genuine breakage: reach OUT of band · cur_null>0 · enriched≠selected · a real card-completeness gap.
 3. **Canonical reader ONLY** — render via `python3 scripts/sl_stage2_table.py <enriched.json> <out.html> "<title>" "<funnel>"`
    (grouped-11, self-certifying). **Never** an ad-hoc/`/tmp`/partial reader (RULE 25). Confirm the page header shows the green
    `STAGE-2 ACCEPTANCE: FULL CARD — PASS` banner.
@@ -78,7 +92,7 @@ The mandatory steps per batch, in order. I mark each ☐→☑ as I go and repor
 machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 28: I always surface anything notable beyond this list.)**
 ```
 ☐ 1. Preflight: VPS credit-guard (ps aux | grep claude) · proxy health · enriched file present
-☐ 2. Stage-2 QA-gate: sl_qa.py → ✅ PASS  (else STOP, re-enrich)
+☐ 2. Stage-2 QA-gate: sl_qa.py → ✅ PASS  (⛔ STOP: re-enrich ONLY for genuine breakage; a vNone products.json-STOP at reach≥~90 = PROCEED + hand-open, §1a pt2 / §1b ACCEPT-logic)
 ☐ 3. Render canonical Stage-2 table (sl_stage2_table.py, grouped HTML) — green ACCEPTANCE banner present
 ☐ 4. State acceptance line: "Loaded Stage-2 enriched, not Stage-1; full card — QA PASS"
 ☐ 5. HTML preview to Desktop (batch-1 of session + every 4th batch)

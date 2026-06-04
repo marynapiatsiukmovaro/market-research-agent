@@ -267,11 +267,17 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   wait for the sentinel through a **`run_in_background` Bash wait-loop** (`until [ -f <sentinel> ]; do sleep 15; done`).
   The harness re-invokes on completion = **ZERO context burned while waiting.** NEVER a foreground blocking poll loop
   (that burns context for nothing — the exact S8 lesson that exposed this rule was missing). The scraper itself is 0-token.
-- **One chunk at a time.** Accept EACH chunk via the SCRAPER-ACCEPTANCE CHECK-LIST (workflow §1b) → Marina's OK → only
-  then launch the next. **NEVER auto-chain 2–3 chunks on the server:** if one slips mid-run we lose ~20 min blind, and
-  batching saves nothing (scraper = 0-token, one acceptance = a few hundred tokens of context). Until the system is proven
-  at scale, the founder accepts every chunk. (Parallel SECOND session only after the rhythm here is proven — RULE 13 still
-  bars parallel `claude`; parallelism = enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
+- **Progress-narration rhythm (Marina S8 — refines "one chunk at a time"; her preferred S4 pattern):**
+  **Chunk-1 = full SCRAPER-ACCEPTANCE CHECK-LIST → STOP, WAIT for Marina's OK** (proves the run is healthy for this niche/
+  session). **After her OK, chunks 2..N run AUTONOMOUSLY — NO per-chunk approval.** After EACH chunk post a **one-line
+  progress narration** (`"k/N done · reach X% · QA ok / STOP-note · launching next"`) so Marina sees it's flowing without
+  pressing buttons. **Consolidated report every ~5 chunks + at the end.** Each chunk is still individually QA'd + count-
+  reconciled by the agent (so a failure is caught) — **STOP and surface IMMEDIATELY only on GENUINE breakage** (reach
+  out-of-band / worker-crash / count-mismatch / cur_null>0 — NOT a products.json STOP). This beats a silent server-side
+  loop (Marina's S4 worry: "вдруг что-то слетело") AND beats per-chunk approval (button-fatigue): narrated, verified,
+  hands-off. **NEVER fully fire-and-forget a multi-chunk server loop with no per-chunk check** — narrate + verify each.
+  (Parallel SECOND session only after the rhythm here is proven — RULE 13 still bars parallel `claude`; parallelism =
+  enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
 - **SKIP advances per chunk** (chunk N → `SKIP=(N-1)*250`), because reservoir build does **NOT** mark processed
   (`enriched ≠ processed`; marking happens only at analysis). Same-niche chunks never overlap as long as SKIP advances.
 
