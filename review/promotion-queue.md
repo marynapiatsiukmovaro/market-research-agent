@@ -12,6 +12,16 @@ Marina sets each item to: **Promote → Wait → Reject**
 
 ## Pending Review
 
+### QA reach/cand threshold too strict for the vNone (missing-visits) segment — Store Leads S8
+**Observation (n=11 chunks, the full Nursery vNone tail = 2621 stores, `np_s8_health_manifest.jsonl`):** the deep vNone tail structurally runs **reach ~89–95% / cand ~88–94%**, so `sl_qa.py` numeric-STOPs on **8 of 11 chunks** — purely from a higher share of **`products.json`-disabled micro-stores** (storefront ALIVE, robot can't extract → flagged needs_live → hand-opened at analysis). The reachable cards are perfect every time (img/in_range/descConf ~100%, cur_null=0, 0 worker crashes). The STOP here forces a look but the data is sound — it is the provisional-threshold (95, RULE 26) being unrealistic for a segment whose natural reach ceiling is ~94–97%.
+**Proposal:** add a **vNone/missing-visits segment threshold** to `sl_qa.py` (or a flag) — e.g. for visits-missing batches treat **reach ≥ ~90 + products.json-pattern** as PASS-with-note (cand/product_class/new30d allowed to track reach down to ~88), keeping the STOP for genuine breakage (reach OUT of band / global degradation / count mismatch / cur_null>0). Visits-bearing batches keep the current 95.
+**Why it matters:** otherwise the whole vNone deep tail reads as "STOP" by default → noise that erodes the gate's signal (an alarm that always fires is ignored). RULE 26 explicitly flagged the thresholds as PROVISIONAL/revisable.
+**⚠ Guardrail:** the products.json-off stores are NOT skipped — they become needs_live hand-opens at analysis (RULE 23). The relaxation is only about the numeric gate label, never about coverage.
+**Affected:** `scripts/sl_qa.py` (segment-aware thresholds); workflow §1b ACCEPT-logic note; RULE 26 thresholds.
+**Confidence:** High (n=11, one full niche tail; the pattern is the documented S1/S2/S8 products.json cause).
+**Recommendation:** Promote (small, segment-scoped; failure direction stays safe).
+**Added:** 2026-06-04, Session S8. **Source learnings:** S8 HANDOFF.
+
 ### Decouple enrichment from analysis — "enrichment reservoir" architecture (Store Leads, Marina S4)
 **Observation:** Current Store Leads sessions are SERIAL — send scraper → wait 7–22 min → check → analyze → send next → wait again. The wait blocks the whole session. Enrichment (Playwright scraper) costs ~0 tokens; analysis (read-all + open-needs_live + score) is the token/context-bound part.
 **Proposal (Marina's idea):** split into two independent contours. **Contour A — Enrichment:** a loop (`sl_enrich_loop.py`-style) that repeatedly select_all→enrich4→mark `enriched`→next 250, unattended on the VPS, building a persistent "reservoir" of ready candidate-sheets for a whole niche (or several). **Contour B — Analysis:** a session pulls READY enriched chunks from the reservoir and goes straight to deep-score→checkpoint→Notion, never waiting on the scraper. Enables 2–4k stores/analysis-session and parallel enrichment across niches.
