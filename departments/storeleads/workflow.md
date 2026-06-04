@@ -145,7 +145,7 @@ SCRAPER-ACCEPTANCE — <niche> reservoir, chunk N (stores X–Y)
 ☐ 5. Duration: ~5 min/250 baseline. Longer ≠ "lazy scraper" — often MORE extraction (more needs_live / heavier cards).
       Only a 3× blow-up WITH global reach collapse = a real proxy throttle. Track duration↔needs_live (hypothesis, verify).
 — DATA completeness (RULE 26) —
-☐ 6. QA-gate sl_qa.py → ✅ PASS  (else STOP, re-enrich)
+☐ 6. QA-gate sl_qa.py → ✅ PASS  (⛔ STOP → see ACCEPT-logic below: a products.json STOP at reach≥~90 = ACCEPT+note; re-enrich ONLY on genuine breakage)
 ☐ 7. Card: ≥1top · img · in_range · descConf · 5 essence fields ≥ thresholds
 — RESERVOIR hygiene —
 ☐ 8. Cross-niche dedup vs master (sl_master_dedup.py — only for a NEW niche; same-niche = N/A) · master grown

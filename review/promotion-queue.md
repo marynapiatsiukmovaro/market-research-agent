@@ -22,6 +22,16 @@ Marina sets each item to: **Promote → Wait → Reject**
 **Recommendation:** Promote (small, segment-scoped; failure direction stays safe).
 **Added:** 2026-06-04, Session S8. **Source learnings:** S8 HANDOFF.
 
+### Recover `products.json`-off "unreachable" via HTML/sitemap fallback extractor — Store Leads S8
+**Observation:** ~8–13% of stores per chunk are marked `reachable:false` because **`products.json` is DISABLED** (storefront ALIVE, the enricher's products.json-first ladder can't extract). At scale this is the bulk of the hand-open load — S8 reservoirs = **1977 needs_live** (Nursery 2621 → 627, Cats 4635 → 1350). These are **NOT lost** (RULE 23 hand-open at analysis) → this is a **THROUGHPUT optimization, not a correctness fix** (RULE 21 territory).
+**Proposal:** add a fuller fallback to `sl_enrich4.py` for products.json-off stores: (a) parse homepage/collection **HTML** for product cards (`/products/` links + price spans + og tags); (b) pull **`/sitemap_products_1.xml`** when present → fetch the top product pages. Likely recovers the standard-theme share; headless/custom/dev storefronts (`*.vercel.app` / `*.netlify.app` / staging) stay hard — and are often junk anyway.
+**⚠ MEASURE-FIRST (do BEFORE building — hypothesis→measure→decide):** take ~30 S8 unreachable stores, run the improved extractor, measure recovery %. Build only if the rate justifies it (e.g. >40%); if ~10%, drop it.
+**Why it matters:** cuts the ~50–70/chunk hand-open load at scale. **Not urgent** — coverage is already complete via hand-open; this is pure throughput.
+**Affected:** `scripts/sl_enrich4.py` (fallback ladder) + `sl_qa.py` thresholds (fewer products.json-STOPs would follow).
+**Confidence:** Medium (feasible; recovery rate unmeasured — hence measure-first).
+**Recommendation:** Wait (park; run the cheap measurement experiment in a dedicated system-build session before committing).
+**Added:** 2026-06-04, Session S8. **Source learnings:** S8 HANDOFF (products.json finding).
+
 ### Decouple enrichment from analysis — "enrichment reservoir" architecture (Store Leads, Marina S4)
 **Observation:** Current Store Leads sessions are SERIAL — send scraper → wait 7–22 min → check → analyze → send next → wait again. The wait blocks the whole session. Enrichment (Playwright scraper) costs ~0 tokens; analysis (read-all + open-needs_live + score) is the token/context-bound part.
 **Proposal (Marina's idea):** split into two independent contours. **Contour A — Enrichment:** a loop (`sl_enrich_loop.py`-style) that repeatedly select_all→enrich4→mark `enriched`→next 250, unattended on the VPS, building a persistent "reservoir" of ready candidate-sheets for a whole niche (or several). **Contour B — Analysis:** a session pulls READY enriched chunks from the reservoir and goes straight to deep-score→checkpoint→Notion, never waiting on the scraper. Enables 2–4k stores/analysis-session and parallel enrichment across niches.
