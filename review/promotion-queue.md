@@ -93,6 +93,16 @@ Marina sets each item to: **Promote → Wait → Reject**
 **Recommendation:** Promote (RULE 25 + 26 + grouped-11 lock). Thresholds: adopt provisional, confirm after b10.
 **Added:** 2026-06-03, Session S6. **Source learnings:** S6 Phase-1 sverka + Phase-3 build.
 
+### Throughput bottleneck = reading 250 cards/batch — sub-agent reader hypothesis (Store Leads S8, OBSERVE-ONLY)
+**Observation (measured this session, S8 b6–b11):** the canonical analysis pipeline is bound by **reading ~250 full cards per batch (RULE 6)** — one `*_read.txt` ≈ 100–130K tokens and **persists in context history**, so a single context window holds only ~6 batches (~1250–1371 stores) before compact. Confirmed NOT bound by: scraper (0 tokens — reservoir pre-built), live-verify (cheap VPS-curl, ~5 spot-checks/batch), or checkpoints (moderate). The reservoir gave a real **wall-clock** win (every batch started instantly off `*_enriched.json`, no scraper wait) but **zero read-context reduction** → does not increase batches-per-window. Post-compact throughput did NOT degrade (b6–b11 = 6 batches/1371 stores ≥ pre-compact b1–b5 = 5/1250).
+**Hypothesis (do NOT implement — gather more data first):** a **sub-agent reader** reads all 250 cards and returns to the main context ONLY a candidate/borderline shortlist + an off-model summary. Main window never holds the 250 full cards → est. **3–4× more batches per window**. RULE-6 read-all guarantee preserved by construction (the sub-agent reads everything; the main agent trusts its filter + audits a random sample each batch, same pattern as RULE 23 loss-audit).
+**Why it matters:** the only lever that attacks the actual scale ceiling (read-context), without touching the quality gates. Directly serves Marina's "2000+ stores before compact" goal.
+**⚠ Risk / guardrail:** a sub-agent filter could silently drop a winner → MUST keep a per-batch random loss-audit of the sub-agent's "off-model" pile (don't let the reader drift), and validate against ≥1 niche where we already know the winners (e.g. re-run a Nursery winner-bearing band and confirm the sub-agent surfaces the same winners). Sibling ideas (park with this): low-confidence pre-bucket for raw `.myshopify.com` test/dev/demo + products.json-off-0-reachable junk (audit, don't full-read); compact strictly on batch boundaries (never mid-batch — S5 loss cause).
+**Affected:** new `methods/` sub-agent-reader spec; `op-rules.md` RULE 6 (read-all satisfied via sub-agent + audit); workflow §1a.
+**Confidence:** Medium (bottleneck is measured/certain; the sub-agent solution is unbuilt/untested — hence observe-first).
+**Recommendation:** Wait (OBSERVE-ONLY per Marina S8 — collect throughput data across Cats + 1–2 more niches, actively brainstorm next sessions, then decide; no implementation now).
+**Added:** 2026-06-05, Session S8. **Source learnings:** S8-ANALYSIS PERFORMANCE OBSERVATION.
+
 ---
 
 ## How to Add a New Item
