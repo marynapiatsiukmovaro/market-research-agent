@@ -78,6 +78,15 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 
 *(S7 doppler convergence: little-beats + bbcareshop + myfetaldoppler + baby-therapy folded into the WonderBee hub card as convergence — not new cards.)*
 
+### [2026-06-05] S8 — Nursery vNone tail ANALYSIS (b1–b5, reservoir from S8-build)
+
+🔵 **Watchlist** (1 — founder-kept <65)
+| Product | Score | Founder Review | Founder Notes (Marina) | Signal to keep (calibration) |
+|---|---|---|---|---|
+| Yogorgeous Anti-Roll Changing Mat | 53 | 🔵 Watchlist | "Problem exists. Just study." | Same diaper-change pain as WriggleBum (the "ремень") but a DIFFERENT solution (anti-roll mat). Real pain exists even if not standard — keep on radar to know it exists. Marina: not a mom, but recognizes the real pain. Premium $98 + weak wow = why score 53; founder-keep is "study", not launch. |
+
+*(b1–b5 = 0 winners 65+ / 1250 stores — honest near-zero, vNone tail structurally exhausted (apparel/keepsake/feeding-commodity/dropship). Borderlines left in checkpoint history only, not Notion: numababy 58, nolele 58, babyerausa 48. **RockaBaby (babymarstore) folded as Rockit Store Link 2** — convergence, not new card; Rockit Founder Review (🟡 Consider) unchanged.)*
+
 ## Calibration signals (distilled)
 > **⚠️ GOVERNANCE (Marina, S3 2026-06-01): the SCORING SYSTEM STAYS AS-IS — do NOT use these to tighten/cut scores.**
 > These are **founder-DECISION patterns** (what Marina tends to Watchlist/Reject) — knowledge we ACCUMULATE, exactly like

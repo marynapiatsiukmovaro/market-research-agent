@@ -29,6 +29,8 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-01 | [waterlandbaby.com](https://www.waterlandbaby.com) | 72 | water+land carrier (Kids) | Watchlist; clever water positioning — watch how they extend the line |
 | 2026-06-01 | [petiteisland.com](https://www.petiteisland.com) | 77 | pocket fetal doppler (Health) | S4 winner; doppler convergence w/ approved WellnessBaby (83); watch new SKUs |
 | 2026-06-01 | [kindersensebaby.com](https://kindersensebaby.com) | 73 | crib safety tent (Kids) | S4 winner; real safety-pain solver; watch their next launches |
+| 2026-06-05 | [yogorgeous.com.au](https://yogorgeous.com.au) | 53 | anti-roll changing mat (Kids) | S8 founder-kept Watchlist; WriggleBum-category diaper-change pain — study |
+| 2026-06-05 | [babymarstore.com](https://babymarstore.com) | 60 | RockaBaby stroller rocker (Kids) | S8 convergence → Rockit SL2; watch deep-tail clones of proven mechanism |
 
 ---
 
