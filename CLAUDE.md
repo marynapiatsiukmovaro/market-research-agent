@@ -19,12 +19,13 @@ Loading happens in two layers. **First confirm which department this session run
 8. `shared/reported-products.md` — anti-duplicate check (read BEFORE scanning anything)
 9. `shared/rejected-products.md` — failure patterns to skip faster (read BEFORE scanning)
 10. `shared/sources-overview.md` — how to read each signal type (source *priority* itself is per-department)
+11. `shared/server-conventions.md` — VPS file-hygiene house rules (trash, delete-to-trash freely but PURGE needs Marina's OK, one-folder-per-dept) — applies to ALL departments
 
 ### Layer B — YOUR ACTIVE DEPARTMENT (load ONLY the active department's files — substitute `{dept}`)
-11. `departments/{dept}/workflow.md` — the department's session procedure (entry point)
-12. `departments/{dept}/operational-memory/op-rules.md` — permanent operational rules (read BEFORE learnings.md) — *if present (FB + Store Leads have it; ShopHunter not yet)*
-13. `departments/{dept}/operational-memory/founder-feedback.md` — Marina's direct product feedback for THIS channel
-14. `departments/{dept}/operational-memory/learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
+12. `departments/{dept}/workflow.md` — the department's session procedure (entry point)
+13. `departments/{dept}/operational-memory/op-rules.md` — permanent operational rules (read BEFORE learnings.md) — *if present (FB + Store Leads have it; ShopHunter not yet)*
+14. `departments/{dept}/operational-memory/founder-feedback.md` — Marina's direct product feedback for THIS channel
+15. `departments/{dept}/operational-memory/learnings.md` — active temporary guidance from recent sessions (read BEFORE scanning — may override default source priority)
 
 **Never load another department's operational memory.** A ShopHunter session does not read FB's op-rules/learnings/founder-feedback, and vice versa.
 

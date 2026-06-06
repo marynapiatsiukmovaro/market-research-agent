@@ -10,10 +10,13 @@
 1. **One department, one folder** under `logs/`. Each department keeps its own folder tidy;
    never dump into the shared root, never touch another department's folder.
 
-2. **⛔ Deletion needs Marina's approval — always.** Never `rm` directly on the server.
-   To remove anything: **move it** (`mv`) to `logs/_trash/YYYY-MM-DD/`. The trash is a safety
-   net (recoverable). **Emptying the trash (permanent delete) happens only with Marina's OK.**
-   This is the ONE hard rule. (Born from S10: a working file was overwritten with no recovery.)
+2. **Deletion = move to trash freely; EMPTYING the trash needs Marina's OK.** Routine cleanup
+   during work is normal — **never `rm` directly**, instead **`mv`** unwanted files to
+   `logs/_trash/YYYY-MM-DD/` whenever you like (no need to ask). The trash is a recoverable safety
+   net. **Permanently emptying/purging the trash happens ONLY with Marina's explicit OK** — and
+   there's no rush (disk is ~10% full; the trash can sit as a backup indefinitely). This split is
+   the ONE hard rule: free to tidy, but nothing is gone-for-good without her. (Born S10: a working
+   file was overwritten with no recovery — the trash makes that unrecoverable case impossible.)
 
 3. **Hygiene by size-trigger only.** Only review a folder for cleanup when it has grown large
    (≈2–3 GB+). Otherwise leave it alone — do NOT prescribe what a department must/​must not store,
