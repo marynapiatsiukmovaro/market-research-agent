@@ -112,6 +112,19 @@ Marina sets each item to: **Promote → Wait → Reject**
 **Recommendation:** 🔴 **REJECTED-FOR-NOW (Marina, S12 2026-06-07)** — see Decided table. NOT permanent: the *reason* is quality>speed (delegating the read risks dropping a winner on a sub-agent's filter), not a blanket ban. Re-openable IF future tooling (better scrapers / stronger models) can delegate WITHOUT proven quality loss. Main agent keeps reading ALL cards (RULE 6) + opening ALL flags (RULE 23). Throughput bottleneck (full in-context read) is ACCEPTED as the price of quality. Other optimization proposals remain welcome.
 **Added:** 2026-06-05, Session S8. **Source learnings:** S8-ANALYSIS PERFORMANCE OBSERVATION. **Decided:** S12 (Rejected-for-now).
 
+### Bless the canonical in-context READ-SURFACE + pin VPS connection (Store Leads S13b, docs-level)
+**Observation (S13b, surfaced running 7 batches):** two small frictions every analysis session re-derives.
+  (1) **Read-surface tension vs RULE 25.** RULE 25 says read Stage-2 ONLY via the canonical `sl_stage2_table.py` (HTML, self-cert banner). But that HTML for 250 cards × 6–7 batches does NOT fit one context window — so the agent uses `scripts/sl_project_tmp.py` (a **complete** text-projection: ALL 3 tops + every field, faithful to grouped-11) to do the in-context RULE-6 read. It works and is NOT a partial reader (the S5 failure was a partial reader showing 1 of 3 products), but it is un-blessed → each session re-derives it, and a future session could drift back to a partial reader and re-zero like S5.
+  (2) **VPS connection not pinned.** Every session re-discovers host `root@5.78.217.133` + key `~/.ssh/market_research_vps` (default SSH fails publickey). A few wasted steps each time.
+**Proposal (docs-level, Tier-2 — Marina to approve):**
+  - Promote `sl_project_tmp.py` (or a renamed canonical `sl_stage2_read.py`) to RULE 25 as the **canonical in-context READ surface**: text-projection that MUST print the full card (all 3 tops + all fields) — explicitly distinct from the HTML preview (Marina's spot-audit) and forbidden from truncating. Closes the "could drift to partial reader" hole permanently.
+  - Pin VPS host + key path + base dir (`/opt/market-research-agent`) into `workflow.md` (or a `methods/` connection note) so re-entry is instant.
+**Why it matters:** turns two re-derived habits into system — the same "system beats discipline" principle behind RULE 25/26/29/31. Purely docs/additive; no script behavior change.
+**Affected:** `op-rules.md` RULE 25 (add the read-surface), `workflow.md` (VPS connection pin). 
+**Confidence:** High (read-surface used cleanly across S12 Cats + S13 Dogs = 27 batches; the partial-reader risk is the proven S5 failure mode).
+**Recommendation:** Promote (docs-only). Open when prepping the next session / dept.
+**Added:** 2026-06-07, Session S13b. **Source:** S13b prompt self-assessment (the 2 genuine gaps were docs-level, not prompt-level).
+
 ---
 
 ## How to Add a New Item
