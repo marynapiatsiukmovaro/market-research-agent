@@ -31,6 +31,8 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-01 | [kindersensebaby.com](https://kindersensebaby.com) | 73 | crib safety tent (Kids) | S4 winner; real safety-pain solver; watch their next launches |
 | 2026-06-05 | [yogorgeous.com.au](https://yogorgeous.com.au) | 53 | anti-roll changing mat (Kids) | S8 founder-kept Watchlist; WriggleBum-category diaper-change pain — study |
 | 2026-06-05 | [babymarstore.com](https://babymarstore.com) | 60 | RockaBaby stroller rocker (Kids) | S8 convergence → Rockit SL2; watch deep-tail clones of proven mechanism |
+| 2026-06-07 | [petarro.com](https://petarro.com) | 64 | cat exercise wheel (Cats) | S12 borderline; viral-UGC wheel but bulky/$150 (RULE10); wheel-convergence ×4 (meowza/PawSquad/FelineFit) — watch if a non-bulky version appears |
+| 2026-06-07 | [bxsdesigns.com](https://www.bxsdesigns.com) | 61 | patented sifting litter box (Cats) | S12 borderline; real daily-scoop pain, "6-second" angle vs $300 auto-boxes; patented (can't white-label) — watch the category |
 
 ---
 

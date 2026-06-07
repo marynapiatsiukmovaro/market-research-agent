@@ -1,7 +1,29 @@
 {
   "permissions": {
     "allow": [
-      "mcp__claude_ai_Notion__notion-search"
+      "mcp__claude_ai_Notion__notion-search",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "Read",
+      "Bash(sed:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(df:*)",
+      "Bash(ps:*)"
+    ],
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Edit(core/**)",
+      "Write(core/**)",
+      "Edit(shared/founder-taste.md)",
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "mcp__claude_ai_Notion__notion-update-page"
     ]
   }
 }

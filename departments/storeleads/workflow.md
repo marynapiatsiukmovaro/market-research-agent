@@ -114,19 +114,37 @@ a time, every chunk accepted** (RULE 30). Per chunk, in order:
 > `niches/.../slug`). `sl_qa.py` / `sl_analysis_gate.py` / `sl_stage2_table.py` take a **CWD-relative path**
 > (full `logs/storeleads/niches/.../file`). Mixing them = `FileNotFound` / doubled path. Use the template verbatim.
 
-**Launch template (copy-paste; chunk N, niche slug `<D>=niches/<L1>/<niche>/<slug>`, `SKIP=(N-1)*250`):**
+**Launch template — DECOUPLED (S11): `enriched_index` exclusion, NO SKIP. `<D>=niches/<L1>/<niche>/<slug_dedup>`.**
+The cross-niche dedup (`sl_master_dedup … --apply`) runs ONCE per new niche first (→ `<slug>_dedup_full.json`).
 ```
-# 1. SELECT (paths relative to logs/storeleads):
-python3 scripts/sl_select_all.py <D> <D>_s<S>_b<N> 250 <SKIP>
+# 1. SELECT — next 250, excludes processed ∪ enriched_index (NO SKIP; order=visits desc, RULE 24):
+python3 scripts/sl_select_build.py <D> <D>_s<S>_b<N> 250
 # 2. LAUNCH enrich detached — minimal one-line nohup, 8 workers (proven safe on the single ISP IP):
 cd /opt/market-research-agent; R=<D>_s<S>_b<N>; rm -f logs/storeleads/${R}.sentinel; \
   nohup python3 scripts/sl_enrich4.py ${R}.json ${R}_enriched.json ${R}.sentinel 8 \
   > logs/storeleads/${R}_enrich.log 2>&1 &
-# 3. WAIT — run_in_background Bash (harness wakes on completion; NO foreground poll — RULE 30):
-until [ -f logs/storeleads/${R}.sentinel ]; do sleep 15; done; cat logs/storeleads/${R}.sentinel
-# 4. QA gate (CWD-relative path — NOT prefixed):
-python3 scripts/sl_qa.py logs/storeleads/${R}_enriched.json
+# 3. WAIT + ACCEPT — run_in_background Bash ends with the accept-line so the notification carries the verdict:
+until [ -f logs/storeleads/${R}.sentinel ]; do sleep 15; done; \
+  python3 scripts/sl_accept_chunk.py logs/storeleads/${R}_enriched.json
+# 4. MARK ENRICHED — record the built chunk so build skips it forever AND parallel analysis can consume it safely:
+python3 scripts/sl_mark_enriched.py logs/storeleads/${R}_enriched.json <niche> s<S>_b<N>
 ```
+> **Why decoupled (S11, Marina):** `enriched ≠ processed`. Build excludes processed ∪ `enriched_index`; analysis marks
+> `processed` (⊆ enriched for built stores). So a parallel analysis session can analyse the built chunks of the SAME
+> niche being built WITHOUT shifting the build's page — the old SKIP-paging would have lost coverage when `processed`
+> grew mid-build. `sl_select_all.py`+SKIP is retired for build; kept only as the legacy positional selector.
+> *(Backfill `enriched_index` once from any chunks built before this existed: loop `sl_mark_enriched` over them.)*
+> `sl_qa.py` alone still works as the raw gate; `sl_accept_chunk` WRAPS it (count-reconcile + credit-guard + ACCEPT-logic).
+
+### ⭐ WAVE RHYTHM for large builds (S11, Marina-approved 2026-06-07)
+A big niche (50–90 chunks) runs in **waves of 7**, hands-off-but-verified:
+- **chunk-1** = full SCRAPER-ACCEPTANCE check-list → **STOP, WAIT for Marina's OK** (proves the niche/run is healthy).
+- **chunk-2** = verify clean (one accept-line). If clean → run the rest of the niche in **waves of 7 chunks**.
+- **Inside a wave:** per chunk, one-line progress narration `N/7 done · <sl_accept_chunk verdict>` — Marina watches, presses nothing.
+  Per-chunk acceptance is MECHANICAL via `sl_accept_chunk.py` (credit-guard runs EVERY chunk — system, not discipline).
+- **End of each wave:** canonical HTML of the **last** chunk → Desktop + a consolidated wave report → **STOP, WAIT for OK**
+  before the next wave. **Never auto-chain waves** (the "STOP between waves" rule). STOP mid-wave only on GENUINE breakage
+  (sl_accept_chunk prints STOP: reach<90 / count mismatch / cur_null>0 / reachable-card gap — NOT a benign products.json STOP).
 
 ### SCRAPER-ACCEPTANCE CHECK-LIST (present to Marina at chunk-1 + every 3 chunks; any QA fail → STOP + show now)
 The agent ticks ☐→☑ from the actual run output. `sl_qa.py` runs on EVERY chunk (machine, 0-cost); the founder sees this

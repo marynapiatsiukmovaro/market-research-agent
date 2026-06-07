@@ -286,6 +286,14 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
 - **SKIP advances per chunk** (chunk N → `SKIP=(N-1)*250`), because reservoir build does **NOT** mark processed
   (`enriched ≠ processed`; marking happens only at analysis). Same-niche chunks never overlap as long as SKIP advances.
+  ⚠️ **Parallel-session corollary (S11):** because SKIP-paging filters out `processed` first, an analysis session that
+  marks the SAME niche processed mid-build would SHIFT the page → coverage gap. So a parallel analysis session must work a
+  **DIFFERENT niche** than the one being built (both `claude` run on the Mac, never on the VPS — RULE 13 still holds).
+- **Per-chunk acceptance = `scripts/sl_accept_chunk.py <enriched.json>` (S11, Marina-approved 2026-06-07).** One verdict
+  line = count-reconcile + credit-guard (`ps aux | grep claude`, EVERY chunk) + canonical `sl_qa.py` + encoded ACCEPT-logic
+  (benign products.json STOP → ACCEPT; genuine breakage → STOP). System, not discipline. **Rhythm: chunk-1 full check-list →
+  STOP/OK · chunk-2 verify · then waves of 7** (one-line `N/7` narration per chunk · HTML of last chunk + report at wave end →
+  STOP/OK · never auto-chain waves). See workflow §1b "WAVE RHYTHM".
 
 ## Checkpoint shape (every batch, before any Notion write)
 Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**by the deterministic
