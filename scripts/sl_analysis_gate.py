@@ -92,10 +92,15 @@ if missing_review:
 if browse_short:
     print(f"\n  ⛔ BROWSE BELOW FLOOR: {len(browse)} < {BROWSE_FLOOR} — tag more interesting stores (bucket='browse' or verdict~'browse'). Tail counts; when unsure, INCLUDE.")
 print("\n  BROWSE candidates:", browse)
-print("\n  GATE:", "✅ PASS — flags opened + device verdicted + browse≥floor" if ok else "⛔ STOP — fill the gaps above before checkpoint")
-# RULE 31 contract reminder — printed at the moment of writing, so the checkpoint can't silently shrink (the b3/b4 failure-mode):
+# RULE 31 contract — printed ABOVE the verdict (S13b fix): the GATE line you MUST paste is now the LAST line,
+# so the contract can't be truncated away without also losing the PASS line. (The b12/b13 drift was `sed`-truncating
+# the tail → PASS seen, contract cut. Co-locating + putting the verdict last makes that physically impossible.)
 print("\n  REPORT CONTRACT (RULE 31) — the checkpoint MUST contain EVERY section (no shrinking, any rhythm):")
-print("    [ ] winners 65+   [ ] borderline 55-64   [ ] browse (>=7, RULE 32)   [ ] funnel + ABC   [ ] loss-audit")
+print("    [ ] WINNERS 65+   [ ] BORDERLINE 55-64   [ ] BROWSE (>=7, RULE 32)   [ ] FUNNEL + ABC   [ ] LOSS-AUDIT")
 print("    [ ] 1-2-line plain-language description per candidate (Marina reads it instead of opening the site)")
-print("    [ ] paste THIS gate PASS/STOP line into the checkpoint.  Missing any section = not canonical = STOP.")
+print("    ⚠ Run the gate WITHOUT truncating output; paste from this CONTRACT block through the GATE line below.")
+# GATE verdict = the LAST line, carrying the section counts so pasting it inherently states W/BL/BR + coverage:
+verdict = "✅ PASS" if ok else "⛔ STOP — fill the gaps above before checkpoint"
+print(f"\n  GATE: {verdict} · W{len(win)} · BL{len(bord)} · BR{len(browse)}/{BROWSE_FLOOR}+ · "
+      f"flags{len(flags & opened)}/{len(flags)} · dev{len(must_review & reviewed)}/{len(must_review)} · read{n}  [paste THIS line + the CONTRACT above]")
 sys.exit(0 if ok else 1)

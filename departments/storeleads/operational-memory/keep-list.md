@@ -39,6 +39,9 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-07 | [drpfoten.de](https://drpfoten.de) | 60 | quiet nail trimmer PawTrim (Dogs) | S13 borderline; real nail-trim-anxiety pain, "quiet" differentiator; grinder category saturated — watch angle |
 | 2026-06-07 | [snugglepuppy.com](https://snugglepuppy.com) | 58 | heartbeat anxiety toy (Dogs) | S13 borderline; 25yr category-definer (separation anxiety), proven but saturated — watch white-label gap |
 | 2026-06-07 | [dickybag.com](https://www.dickybag.com) | 56 | odour-proof waste carrier (Dogs) | S13 borderline; real "dangling poo-bag" pain, award-winning UK — watch if a viral version appears |
+| 2026-06-07 | [getrenu.com](https://getrenu.com) | 60 | waterless grooming brush+mist (Dogs) | S13 b6 borderline; ultrasonic-mist 3-min refresh, 45k+ customers — but me-too multi-seller + mixed Trustpilot; watch quality fix |
+| 2026-06-07 | [dogloc.com](https://dogloc.com) | 55 | anti-theft lockable leash (Dogs) | S13 b8 borderline; patented lock vs dog-theft fear; convergence w/ lock-dog.com — watch for cheaper white-label |
+| 2026-06-07 | [checkpup.com](https://checkpup.com) | 54 | at-home dog wellness/urine test (Dogs) | S13 b11 browse; echoes Cats health-vein (vetpointbio) — only "fresh" vector in Dogs; watch diagnostics trend |
 
 ---
 

@@ -87,6 +87,10 @@ Marina explicitly sets — never invents decisions, never sets Founder Review.
 
 *(b1–b5 = 0 winners 65+ / 1250 stores — honest near-zero, vNone tail structurally exhausted (apparel/keepsake/feeding-commodity/dropship). Borderlines left in checkpoint history only, not Notion: numababy 58, nolele 58, babyerausa 48. **RockaBaby (babymarstore) folded as Rockit Store Link 2** — convergence, not new card; Rockit Founder Review (🟡 Consider) unchanged.)*
 
+### [2026-06-07] S13 continuation — Dogs b6–b13 (2000 stores) = 0 winners → no new Notion
+**Decision (Marina):** Dogs niche is weak ("ниша слабовата — на других нишах был совсем другой результат, но это тоже опыт, он хороший"). **0 winners 65+ across b6–b13; 4 borderline (ReNu 60 · Cooling Vest 59 · Flowzy 57 · DOGLOC 55) NOT elevated → keep-list only, no Notion cards.** Marina chose to do 8 batches total (extended past the ~6 rhythm, context allowed) then pivot.
+**Calibration to keep:** **niche-fit is a first-order filter.** A 0-winner result on 2000 well-read stores is a valid honest outcome (RULE 11), not a scoring failure — the agent should surface the "this niche looks weak, consider pivot" flag early (RULE 28 floor-not-ceiling) rather than grind the tail. Consumer-impulse subcats > accessory/food/service-heavy niches (Dogs, like Home-Improvement, is the latter). Reaffirms [[feedback_storeleads_full_card_3stage]] honesty + the S2 HI yield lesson.
+
 ## Calibration signals (distilled)
 > **⚠️ GOVERNANCE (Marina, S3 2026-06-01): the SCORING SYSTEM STAYS AS-IS — do NOT use these to tighten/cut scores.**
 > These are **founder-DECISION patterns** (what Marina tends to Watchlist/Reject) — knowledge we ACCUMULATE, exactly like
