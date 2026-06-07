@@ -42,17 +42,23 @@ def main():
     if len(sys.argv) < 2:
         die("usage: sl_accept_chunk.py <enriched.json> [reach_floor=90]")
     enr = sys.argv[1]
-    # optional per-call reach floor (default 90). Session-scoped override only — NOT a codified rule.
-    if len(sys.argv) > 2:
+    # Optional session-scoped flags (NOT codified): a numeric reach floor (default 90) and/or --price-benign.
+    for a in sys.argv[2:]:
+        if a == "--price-benign":
+            # price-unknown (PRICE-CHECK) is confirmed LIVE at analysis (RULE 7) → benign for BUILD acceptance.
+            BENIGN.add("price")
+            continue
         try:
-            TH["reach"] = float(sys.argv[2])
+            TH["reach"] = float(a)
         except ValueError:
-            die(f"bad reach_floor: {sys.argv[2]}")
+            die(f"bad arg: {a}")
         # vNone-tail lenient mode: a sub-90 floor signals the thin missing-visits tail, where price-unknown
-        # (PRICE-CHECK tier) is expected and resolved live at analysis (RULE 7) — treat "price" as benign too.
-        # Default (no arg / floor 90) leaves "price" a genuine STOP. Session-scoped, NOT codified.
+        # (PRICE-CHECK tier) and single-product stores (avgtops<2) are expected and resolved at analysis.
+        # Default (no arg / floor 90) keeps both as genuine STOPs. Session-scoped, NOT codified.
         if TH["reach"] < 90:
             BENIGN.add("price")
+            BENIGN.add("avgtops")
+            TH["avgtops"] = 0  # don't gate on richness in vNone mode; >=1top is the real guarantee
     if not os.path.exists(enr):
         die(f"enriched not found: {enr}")
     sel = enr.replace("_enriched.json", ".json")
