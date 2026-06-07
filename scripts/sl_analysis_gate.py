@@ -93,4 +93,9 @@ if browse_short:
     print(f"\n  ⛔ BROWSE BELOW FLOOR: {len(browse)} < {BROWSE_FLOOR} — tag more interesting stores (bucket='browse' or verdict~'browse'). Tail counts; when unsure, INCLUDE.")
 print("\n  BROWSE candidates:", browse)
 print("\n  GATE:", "✅ PASS — flags opened + device verdicted + browse≥floor" if ok else "⛔ STOP — fill the gaps above before checkpoint")
+# RULE 31 contract reminder — printed at the moment of writing, so the checkpoint can't silently shrink (the b3/b4 failure-mode):
+print("\n  REPORT CONTRACT (RULE 31) — the checkpoint MUST contain EVERY section (no shrinking, any rhythm):")
+print("    [ ] winners 65+   [ ] borderline 55-64   [ ] browse (>=7, RULE 32)   [ ] funnel + ABC   [ ] loss-audit")
+print("    [ ] 1-2-line plain-language description per candidate (Marina reads it instead of opening the site)")
+print("    [ ] paste THIS gate PASS/STOP line into the checkpoint.  Missing any section = not canonical = STOP.")
 sys.exit(0 if ok else 1)

@@ -313,6 +313,10 @@ one tool-seeded line per flag — the count can't be faked; scores.jsonl = the a
 **Tamper-evidence (how Marina knows a step wasn't skipped, without taking the agent's word):** every step leaves a file;
 **Marina can re-run the gate on the same files and get identical numbers.** The honest limit: a script can't physically
 block a chat message, but it makes any skip *visible + re-verifiable* — that is what turns "на дисциплине" into "на системе".
+**Anti-forgetting anchor (S13):** `sl_analysis_gate.py` prints a **REQUIRED-SECTIONS checklist** at the end of EVERY run
+(winners · borderline · browse≥7 · funnel+ABC · loss-audit · 1–2-line description per candidate · paste-the-PASS-line) —
+the controller hands the agent the contract at the exact moment of writing, so a section can't be silently dropped under
+speed (the b3/b4 failure-mode). It's a reminder, not a hard block (R1 stays tamper-evident) — but it lands where the slip happens.
 
 ### RULE 32 — Browse-pool FLOOR = 7 per batch; no ceiling; when unsure INCLUDE (S13, Marina-approved 2026-06-07)
 Browse = **Marina's window into the niche** (она быстро открывает и видит "пусто/не пусто", какие товары вообще водятся).
