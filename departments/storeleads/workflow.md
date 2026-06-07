@@ -194,10 +194,13 @@ global degradation is a real "re-enrich" case.
 multi-category overlaps already ours, reports `dumped → removed → unique`, and grows `master_domains.json` (RULE 19 cross-niche, S8).
 
 ## 2. Mode & checkpoints (STANDING)
-- **Human-in-loop — NOT autonomous** (not earned). Work autonomously through dump→funnel→deep-score,
-  then deliver the checkpoint and **WAIT for Marina's explicit OK before ANY Notion write.**
-- Checkpoint = winners 65+ / borderline 55–64 / patterns / browse-pool (curated UNIQUE genuine-product
-  links). Every link clickable. Convergence/revenue earns at most Watchlist, never auto-Consider.
+- **Human-in-loop, with EARNED in-session autonomy for ANALYSIS (RULE 33, S13 — supersedes the old "NOT autonomous" line).**
+  Batch-1 + batch-2 → full checkpoint → **WAIT for OK**; once stable, **batches 3–6 run as one block** (full contract-complete
+  checkpoint EACH, no per-batch stop) UNLESS a **winner 65+** (pause before Notion) or **breakage** (gate STOP). Still
+  human-gated at: batch-1/2, end-of-block, and **ANY Notion write (always WAIT for OK).** (RESERVOIR-BUILD keeps RULE 30's wave-rhythm.)
+- Checkpoint = winners 65+ / borderline 55–64 / patterns / **browse-pool — FLOOR 7, no ceiling (RULE 32; when unsure INCLUDE; tail
+  is a priority)** / full funnel+ABC / loss-audit — **all sections present + gate PASS line (contract, RULE 31).** Every link clickable.
+  Convergence/revenue earns at most Watchlist, never auto-Consider.
 
 ### ⭐ MARINA-FACING CHECKPOINT — standard format (S6, Marina-approved 2026-06-03)
 The founder-facing report (step 10). Same shape every batch so Marina reads it fast. Order matters: main

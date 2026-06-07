@@ -244,9 +244,13 @@ discipline). As I analyse a batch I keep two artifacts, then a gate verifies the
 ### RULE 28 — Browse-pool = a fixed rule, and the gates are a FLOOR not a CEILING (S6, Marina-approved 2026-06-03)
 **Fixed selection (so the count is reproducible, never picked by feel):** browse = (device-class `{consumer-gadget, appliance, kitchen}`
 in-range stores) ∪ (stores I explicitly tag `browse` in the open-log), minus winners/borderline/reject and minus hand-opened-off-model,
-deduped (RULE 8 unique). The COUNT varies by niche (honest low-yield is fine, RULE 11); the RULE is fixed. `decor` is excluded from the
-auto-set (it pulls mis-tagged decals/boards); a genuinely interesting non-device store enters only via my explicit browse-tag (so my
-judgment, logged, overrides the proxy class — e.g. spottle in S6).
+deduped (RULE 8 unique). `decor` is excluded from the auto-set (it pulls mis-tagged decals/boards); a genuinely interesting non-device
+store enters via my explicit browse-tag (so my judgment, logged, overrides the proxy class — e.g. spottle in S6).
+> **⚠ AMENDED by RULE 32 (S13, Marina 2026-06-07) — read RULE 28 together with RULE 32.** The old wording "count varies / honest
+> low-yield is fine / selection reproducible, never by feel" is now bounded by a **HARD FLOOR of 7 per batch**: the count still varies
+> ABOVE 7, but never below it. When the deterministic set yields <7, the agent MUST add the next-most-interesting stores it read
+> (judgment ADDS to the fixed set, never drops below 7) — **when unsure, INCLUDE; the tail is a priority.** `sl_analysis_gate.py` STOPs
+> if browse<7. So RULE 28 = the deterministic CORE of the browse set; RULE 32 = raises the floor to 7 + biases toward inclusion.
 
 > **⭐ FLOOR-NOT-CEILING PRINCIPLE (Marina, S6 — applies to ALL gates/rules here).** These checkpoints define the MINIMUM that must
 > always be covered — never the maximum. The agent is ALWAYS free to surface more than the rule yields and MUST flag anything notable
