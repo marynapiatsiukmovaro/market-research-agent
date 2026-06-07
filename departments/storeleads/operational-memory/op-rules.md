@@ -295,8 +295,49 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   STOP/OK · chunk-2 verify · then waves of 7** (one-line `N/7` narration per chunk · HTML of last chunk + report at wave end →
   STOP/OK · never auto-chain waves). See workflow §1b "WAVE RHYTHM".
 
+### RULE 31 — Checkpoint contract: the report is GATE-GUARDED, never shrinkable (S13, Marina-approved 2026-06-07) ⭐ THE b3/b4 FIX
+The checkpoint REPORT was the ONE step with no machine gate → so when "stop-after-each-batch" was lifted, it silently
+shrank (b3/b4). Fix = give the report the same "external controller" every other step has. **`sl_analysis_gate.py` IS that
+controller** — it self-STOPs the analysis until (a) every flag opened, (b) every device candidate verdicted, (c) browse ≥
+floor (RULE 32). The agent **cannot proceed to the next batch** without a PASS. **The checkpoint is valid ONLY if it (1)
+contains EVERY section — winners / borderline / browse / funnel+ABC / loss-audit, each with the plain-language 1–2-line
+description Marina reads instead of opening the site — AND (2) pastes the gate's PASS line.** A report missing any section
+= not canonical = STOP (same logic as RULE 25's banner / RULE 26's QA-PASS). **Принцип (Marina): "проверяющий", не
+"делающий".** The gate never WRITES the report (a doer can err + removes the agent's final-look quality pass — same reason
+the sub-agent-reader was rejected, [[feedback_no_delegation]]); it only COUNTS already-verified artifacts (opens.jsonl =
+one tool-seeded line per flag — the count can't be faked; scores.jsonl = the agent's own scores) and BLOCKS on a gap.
+**Tamper-evidence (how Marina knows a step wasn't skipped, without taking the agent's word):** every step leaves a file;
+**Marina can re-run the gate on the same files and get identical numbers.** The honest limit: a script can't physically
+block a chat message, but it makes any skip *visible + re-verifiable* — that is what turns "на дисциплине" into "на системе".
+
+### RULE 32 — Browse-pool FLOOR = 7 per batch; no ceiling; when unsure INCLUDE (S13, Marina-approved 2026-06-07)
+Browse = **Marina's window into the niche** (она быстро открывает и видит "пусто/не пусто", какие товары вообще водятся).
+So **minimum 7 browse links EVERY batch — even deep in the tail, even if weak** (1–2 links is unacceptable). **7 is a FLOOR,
+NOT a target/cap.** When the flow is rich, surface 10 / 15 / 20+ — no upper limit. **Bias = INCLUDE: if unsure whether a
+store is worth showing, show it** ("лучше скинь, я посмотрю"). **The tail is a priority, not a remainder** — Marina has
+repeatedly found real products in the tail on other niches (Dogs/pets happen to be saturated; that's niche-specific, not a
+reason to thin browse). Mechanics: while doing the RULE-6 full read, tag EVERY store that catches the eye (novel mechanism,
+unusual category, "а вдруг") as browse — `bucket:"browse"` in scores.jsonl OR `verdict` containing "browse" in opens.jsonl;
+my explicit tag overrides the proxy class/off-model exclusion. **Machine-enforced:** `sl_analysis_gate.py` STOPs if browse < 7
+(BROWSE_FLOOR). This supersedes the "count varies, never padded" wording of RULE 28 — the count still varies ABOVE 7, but 7
+is the hard floor. (Note: RULE 12/founder-feedback still hold — browse is exposure for Marina's eye, not a quality claim.)
+
+### RULE 33 — ANALYSIS batch rhythm: escalating autonomy 1→1→4, ~6 batches/session (S13, Marina-approved 2026-06-07)
+The ANALYSIS-mode analog of RULE 30's RESERVOIR-BUILD wave-rhythm. Distributes Marina's time AND context, on system not
+discipline (each batch still gate-PASSes identically whether or not she says "stop"):
+- **Batch 1** → full (contract-complete) checkpoint → **STOP, wait for Marina's OK** (proves niche/run healthy this session).
+- **Batch 2** → full checkpoint → **STOP, wait for OK** (confirms stable). *(If batch-1 already clearly clean, Marina may
+  green-light going straight to the block — her call.)*
+- Both clean → **batches 3–6 run as ONE autonomous block**, a **full contract-complete checkpoint EVERY batch** (no shrinking —
+  RULE 31), **no stop between** — UNLESS a **winner 65+** surfaces (pause before Notion) or **genuine breakage** (gate STOP).
+- **End of block** → consolidated (also contract-complete) report → **STOP for Marina's feedback** → then Notion writes for
+  the whole block → commit/push → compact → repeat.
+- **Session depth ≈ 6 batches** (context-proven: 5 leaves room, 6 is the sweet spot). "No stop" NEVER means "less report".
+
 ## Checkpoint shape (every batch, before any Notion write)
-Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**by the deterministic
-RULE 28 rule — count varies by niche, selection fixed; never padded "чтобы было"**) · Patterns · the full funnel breakdown
+Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**FLOOR 7, no ceiling —
+RULE 32; when unsure INCLUDE; tail is a priority, never padded-down**) · Patterns · the full funnel breakdown
 (RULE 1) **including the explicit A/B/C tier counts** (Marina cross-checks against the ABC split). Every link = a
-clickable markdown hyperlink. Then **STOP and wait for Marina's OK before writing to Notion.**
+clickable markdown hyperlink. **The report is contract-complete + carries the gate PASS line (RULE 31).** Then **STOP and
+wait for Marina's OK before writing to Notion** (within an approved block, batches 3–6 do NOT stop per-batch — RULE 33 —
+but STILL post the full checkpoint; only a winner 65+ or breakage pauses the block).

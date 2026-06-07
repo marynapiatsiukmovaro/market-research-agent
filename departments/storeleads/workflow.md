@@ -99,10 +99,17 @@ machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 
 ☐ 6. Read ALL stores (no gut top-N, RULE 6)
 ☐ 7. Hand-open EVERY needs_live + unreachable → log each in opens.jsonl (RULE 23)
 ☐ 8. Live-confirm hero + price for every genuine candidate (RULE 7) → score → scores.jsonl
-☐ 9. Analysis-gate: sl_analysis_gate.py → ✅ PASS  (else STOP, fill gaps)
-☐ 10. Checkpoint to Marina (winners / borderline / browse / patterns / funnel) → WAIT for OK
-☐ 11. After OK: Notion + reported-products + sl_mark_processed + keep-list + learnings/HANDOFF
+☐ 9. Analysis-gate: sl_analysis_gate.py → ✅ PASS  (else STOP, fill gaps) — now ALSO STOPs if browse < 7 (RULE 32 floor)
+☐ 10. Checkpoint to Marina — CONTRACT-COMPLETE (RULE 31): ALL sections present (winners / borderline / browse / funnel+ABC / loss-audit,
+      each with the 1–2-line plain-language description) + the gate PASS line pasted. Missing any section = not canonical = STOP.
+      Rhythm (RULE 33): batch-1 + batch-2 → STOP & WAIT for OK; within an approved block (batches 3–6) → post the FULL checkpoint
+      but DON'T wait — continue, UNLESS a winner 65+ (pause before Notion) or breakage. "No stop" NEVER means "less report".
+☐ 11. After OK / end-of-block: Notion + reported-products + sl_mark_processed + keep-list + learnings/HANDOFF
 ```
+> ⭐ **S13 contract (Marina-approved 2026-06-07) — op-rules RULE 31/32/33.** The checkpoint REPORT is now gate-guarded like every
+> other step ("external controller", not discipline): the gate self-STOPs until flags+device+browse-floor pass, and the report is
+> valid only if contract-complete + carries the PASS line. **Browse FLOOR = 7 per batch, no ceiling — when unsure INCLUDE; the tail
+> is a priority (Marina finds tail gems on other niches), never padded-down.** Rhythm = escalating autonomy 1→1→4, ~6 batches/session.
 
 ## 1b. RESERVOIR-BUILD MODE (scraper-prep — S8, Marina-approved 2026-06-03) ⭐
 Use this when the session's job is to **run the scraper to PREP data** for a later analysis session (not to analyse a
