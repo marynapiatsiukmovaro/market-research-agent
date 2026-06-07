@@ -33,6 +33,12 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-05 | [babymarstore.com](https://babymarstore.com) | 60 | RockaBaby stroller rocker (Kids) | S8 convergence → Rockit SL2; watch deep-tail clones of proven mechanism |
 | 2026-06-07 | [petarro.com](https://petarro.com) | 64 | cat exercise wheel (Cats) | S12 borderline; viral-UGC wheel but bulky/$150 (RULE10); wheel-convergence ×4 (meowza/PawSquad/FelineFit) — watch if a non-bulky version appears |
 | 2026-06-07 | [bxsdesigns.com](https://www.bxsdesigns.com) | 61 | patented sifting litter box (Cats) | S12 borderline; real daily-scoop pain, "6-second" angle vs $300 auto-boxes; patented (can't white-label) — watch the category |
+| 2026-06-07 | [thegerty.com](https://thegerty.com) | 65 | inflatable anxiety friend (Dogs) | S13 WINNER → Notion + queue/study; Shark Tank, viral-shaped; watch efficacy/clones |
+| 2026-06-07 | [teamk9.com](https://teamk9.com) | 60 | backseat cooling fans (Dogs) | S13 borderline → Notion/queue; whole store = idea-asset (car hammock $169, tactical harness $90) — watch new drops |
+| 2026-06-07 | [coolbowl.shop](https://coolbowl.shop) | 61 | refrigerated water bowl (Dogs) | S13 borderline; "first ever" Peltier-cooled bowl, novel — $99 + plug-dependent; watch for a cheaper/portable version |
+| 2026-06-07 | [drpfoten.de](https://drpfoten.de) | 60 | quiet nail trimmer PawTrim (Dogs) | S13 borderline; real nail-trim-anxiety pain, "quiet" differentiator; grinder category saturated — watch angle |
+| 2026-06-07 | [snugglepuppy.com](https://snugglepuppy.com) | 58 | heartbeat anxiety toy (Dogs) | S13 borderline; 25yr category-definer (separation anxiety), proven but saturated — watch white-label gap |
+| 2026-06-07 | [dickybag.com](https://www.dickybag.com) | 56 | odour-proof waste carrier (Dogs) | S13 borderline; real "dangling poo-bag" pain, award-winning UK — watch if a viral version appears |
 
 ---
 
