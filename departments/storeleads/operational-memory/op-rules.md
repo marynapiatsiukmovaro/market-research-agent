@@ -288,11 +288,15 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   *verification*. Use ONLY on Marina's explicit ask; default stays chunk-1-OK + narration.
   (Parallel SECOND session only after the rhythm here is proven — RULE 13 still bars parallel `claude`; parallelism =
   enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
-- **SKIP advances per chunk** (chunk N → `SKIP=(N-1)*250`), because reservoir build does **NOT** mark processed
-  (`enriched ≠ processed`; marking happens only at analysis). Same-niche chunks never overlap as long as SKIP advances.
-  ⚠️ **Parallel-session corollary (S11):** because SKIP-paging filters out `processed` first, an analysis session that
-  marks the SAME niche processed mid-build would SHIFT the page → coverage gap. So a parallel analysis session must work a
-  **DIFFERENT niche** than the one being built (both `claude` run on the Mac, never on the VPS — RULE 13 still holds).
+- **Selection = `sl_select_build.py` (enriched_index exclusion, NO SKIP) — S11 decoupled, Marina-approved.** Build selects the
+  next 250 excluding `processed` ∪ `logs/storeleads/enriched_index.json`; mark each built chunk with `sl_mark_enriched.py`.
+  This **RETIRES the old SKIP-paging** (`SKIP=(N-1)*250`): SKIP shifts the page when `processed` grows mid-build, so a parallel
+  analysis session marking the SAME niche would cause a coverage gap. With enriched_index exclusion that is a **no-op** (a
+  processed store is already excluded as enriched) → **parallel analysis of the SAME niche being built is SAFE**
+  (S11-PROVEN: `processed` grew 11,219 → 17,854 mid-build via parallel S12/S13b, the build page never shifted). `enriched ≠
+  processed` stays the invariant (build marks enriched; only analysis marks processed). Guardrail unchanged: both `claude`
+  run on the Mac, **never on the VPS** (RULE 13). *(Legacy `sl_select_all.py`+SKIP kept only as the positional selector for
+  non-decoupled use; not for parallel build.)*
 - **Per-chunk acceptance = `scripts/sl_accept_chunk.py <enriched.json>` (S11, Marina-approved 2026-06-07).** One verdict
   line = count-reconcile + credit-guard (`ps aux | grep claude`, EVERY chunk) + canonical `sl_qa.py` + encoded ACCEPT-logic
   (benign products.json STOP → ACCEPT; genuine breakage → STOP). System, not discipline. **Rhythm: chunk-1 full check-list →

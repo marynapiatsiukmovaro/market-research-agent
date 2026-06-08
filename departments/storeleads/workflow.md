@@ -159,7 +159,7 @@ list at chunk-1 then every 3rd chunk. Grouped so a glance tells run-health vs da
 ```
 SCRAPER-ACCEPTANCE — <niche> reservoir, chunk N (stores X–Y)
 — RUN HEALTH (was the run itself clean?) —
-☐ 1. Select: 250 · already-processed = 0 (RULE 19/24) · all ≥2020 · SKIP=(N-1)*250
+☐ 1. Select: 250 via `sl_select_build` (excludes processed ∪ enriched_index, NO SKIP — S11 decoupled) · all ≥2020
 ☐ 2. Enrich: sl_enrich4 8 workers DONE · sentinel present · ps aux | grep claude clean (RULE 13)
 ☐ 3. Count reconcile: enriched == selected (catches a silent worker crash mid-run)
 ☐ 4. Reach-band: reach ~90–97% = normal. Low reach in the deep/vNone tail is USUALLY `products.json`-disabled stores
