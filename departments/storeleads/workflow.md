@@ -10,6 +10,13 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 > *(Background: `operational-memory/prescale-hardening-plan.md` = the S5 agenda; its Q1–Q5 were resolved in S6 — grouped-11
 > layout locked, single canonical generator, QA-completeness gate, entry checklist, b9 end-to-end re-run + sverka done.)*
 
+> 🆕 **DATA ACQUISITION UPGRADED (S14, 2026-06-08) — CSV export replaces the paginated dump.** On the **Pro plan**
+> (unlimited searches + Export-to-CSV) we pull a whole filtered set into ONE CSV — no pagination, no quota/402. The
+> **entire active universe is already captured** (Shopify-Active 2,890,820 + WooCommerce 4,255,809 = 7,146,629, 162
+> cols) on the VPS `logs/storeleads/exports/` + Marina's Desktop. **Method + rules → `methods/csv-export.md`** (tool
+> `scripts/sl_export_run.py`). The old `Stage 0 dump` (`sl_dump*.py`) is **superseded** (quota-limited); the enrichment
+> + analysis chain below is **unchanged** — only data ACQUISITION changed. WooCommerce is now a 2nd platform/universe.
+
 ## 0. Before you start
 - Confirm this is a **Store Leads** session. Operate only inside this department; never apply
   FB scraper or ShopHunter mechanics here, never read another department's operational memory.

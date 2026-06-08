@@ -1,8 +1,15 @@
 # Active Hypothesis — Store Leads
 
-**ACTIVE:** `niche-store-first-at-scale.md` — pick a niche → dump with **only 3 server-side filters
-(Shopify + Active + Created≥2020)** → **`sl_select_all.py` (RULE 24: NO field filters; visits = order only;
-analyse EVERY unprocessed store)** → live-enrich heroes + open EVERY needs_live → 100-pt + Veto →
+> 🆕 **S14 UPDATE (2026-06-08) — Pro plan + CSV export changes the DATA-ACQUISITION step only.** We no longer
+> paginate-dump per niche; the **whole active universe is captured as CSV** (Shopify-Active 2,890,820 +
+> WooCommerce 4,255,809 = 7,146,629, 162 cols incl. price/products_sold — see `methods/csv-export.md`). Next-niche
+> work = **filter the universe CSV → enrich → analyse** (or self-export a filtered niche directly). The
+> enrich+score chain below (RULE 24, live-verify, 100-pt + Veto) is **unchanged**. **WooCommerce is now a 2nd
+> universe** (its product cards need a non-Shopify enrich path — `products.json` doesn't exist there; scope before use).
+
+**ACTIVE:** `niche-store-first-at-scale.md` — pick a niche → ~~dump with 3 server-side filters~~ **filter the captured
+universe CSV (or self-export the niche, `methods/csv-export.md`)** → **`sl_select_all.py` (RULE 24: NO field filters;
+visits = order only; analyse EVERY unprocessed store)** → live-enrich heroes + open EVERY needs_live → 100-pt + Veto →
 65+/55–64/browse. Pilot 2026-05-30 (K&D 200) validated the chain; S4 (Nursery, 1000 stores) confirmed RULE-24
 no-gate catches deep-tail winners the old band-filter would lose.
 
