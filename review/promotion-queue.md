@@ -145,6 +145,28 @@ Append to Pending Review using this format:
 
 ---
 
+### [2026-06-08] S15 POST-MORTEM — system runs on discipline not system (scale blocker) ⛔ OPEN
+**Full write-up + agenda:** `review/s15-postmortem-and-hardening.md` (next session = HARDENING, not batches).
+**Problem:** S15 analysis (H&G b1–b8) was low-quality — stores matching validated Notion winners (The Wriggler/
+Rockit/SnoofyBee) were browse-dumped or dropped; agent opened ZERO links by hand in b3–b8; premature pivot narrative.
+**Root cause (measured):** mandatory-load 2252 lines; op-rules attention skew **≈41:4** (gate/contract machinery vs
+product-first SOUL — 0× in mindset/filters/winner-detection/identity). **Goodhart** — gates enforce COVERAGE+STRUCTURE,
+NOT judgment quality → quality ran on discipline, dashboards stayed green → NOT scale-ready.
+**Proposals (Tier-2, to discuss):**
+- **A.** Doc diet + **ANALYSIS CREED** (5–7 lines) at the TOP, above gate machinery (product-first · open links every
+  batch · borderline-not-category · no invented pivot); trim oversized RULE-31 anti-truncation prose.
+- **B.** Gate the JUDGMENT: min agent-live-opens/batch (gate STOP) · auto cross-ref each batch vs known-winner-types
+  (founder-feedback/reported) forcing an explicit score on matches · verdict reason must be product-level not a category.
+- **C.** Hard batch ceiling (6 = ~50% context = OK per Marina; failure was quality not count).
+- **D.** Remove the pivot-narrative invitation from the session prompt (S13 "flag weak niche early" heuristic).
+- **E.** Cross-department audit (how FB/ShopHunter build discipline) + bring the Store Leads folder to scale-ready shape.
+**Also pending hygiene:** archive S13b HANDOFF per RULE 18 (deferred from S15 — do during the folder cleanup).
+**Affected:** core/ + departments/storeleads/ (op-rules, workflow, learnings) + scripts/ (sl_analysis_gate).
+**Confidence:** High (data-backed). **Recommendation:** Promote (harden before scaling). **Added:** 2026-06-08, S15.
+**Source learnings:** learnings.md S15 HANDOFF (2026-06-08).
+
+---
+
 ## Decided
 
 | Date | Item | Decision | Notes |
