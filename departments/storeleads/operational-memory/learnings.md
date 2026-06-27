@@ -7,6 +7,15 @@ exists); company logic stays in core/. Append with expiry; archive expired (neve
 
 ## HANDOFF → NEXT SESSION (read first)
 
+**▶ S16 (2026-06-27) — 🔬 ANALYSIS (H&G redo) → PIVOTED to SYSTEM-REBUILD diagnosis. NEXT = execute the REBUILD PLAN, NOT more batches. ⭐ START HERE: `review/s16-rebuild-plan.md` (problem statement + file inventory + 5-stage plan) + `review/s16-session-progress.md` (session snapshot). Batches PAUSED until the base is clean.**
+- **Why paused (Marina S16):** the folder grew heavy/duplicated — 33 op-rules = "archaeology of failures" (each failure spawned a gate; Goodhart: gates measure COVERAGE not JUDGMENT → soul eroded, e.g. live-open became a curl). Decision: **NOT a from-scratch rebuild — surgical declutter + rewrite op-rules; KEEP all experience (founder-feedback/keep-list/winners/tools/CSV).** Plan = `review/s16-rebuild-plan.md`.
+- **Session finds (real, keep):** b5 with restored LIVE-OPENS = 2 winners (The Wriggler 68 = S15-miss redeemed by guard+live-open · OtterSpace blackout 66) + 2 borderline (LuvLink 63 · ChickCozy 63) — **NOT yet in Notion (await Marina OK).** b4 = 0 (was thin/no-live-opens). Opened all 18 unreachable live → found claymore V600+ fan $64.95 hidden behind an off-model title (proves "open every unreachable").
+- **Where we are:** re-analysing Home & Garden (Shopify-Active slice, visits 1k–10k) from b1 on the hardened system (CREED at top of op-rules + `sl_winner_crossref.py` guard + per-batch honest-question checkpoint). Reservoirs `hg_b1..b22_enriched` intact on VPS (`logs/storeleads/niches/home-and-garden/`).
+- **Done this session:** **b1–b3** (proper deep read) → **1 winner CouchConsole 73 → Notion** (cross-linked w/ Bamboo Sofa Arm Tray convergence) + 3 founder-raised cards (Sock Ons / Hydros / Helinox) + borderline (EzFauxDecor 61, YardLock 64, AquaGuard 56, ErgoPouch 56). **b4** (post-compact) → **0 winners** (classic H&G heavy mix; browse-only + guard-reject mamashack); all gates PASS, loss≈0. reported-products.md has the 4 rows.
+- **⚠ BOOKKEEPING DEBT (fix at session close):** `sl_mark_processed` **NOT yet run** for b1–b4 (mark all session batches together at end). Full learnings + founder-feedback recording also at close. (This HANDOFF block updated mid-session 2026-06-27 to stop the docs lying about where we are — was still on S15.)
+- **System-build notes (raw base, refining live):** guard earned its keep on b4 (caught mamashack, 0 false-flood). Quality-checkpoint being SIMPLIFIED (Marina S16): drop the duplicated gate-numbers, keep ONE honest rotating question per batch (b1→b6 set in workflow §1a) — checkpoint is for the agent to self-catch (the S15 "why so fast?" moment), not numbers-theatre. The deep audit (doc-diet, trim RULE 31, archive old HANDOFFs per RULE 18, data-inventory, cross-dept, folder beautification — `review/s16-folder-audit-notes.md` + s15-postmortem A–E) = its OWN dedicated session, NOT crammed into an analysis tail.
+- **RULE-18 note:** this adds a 4th HANDOFF block (S16/S15/S14/S13b) — archiving S13b→handoffs-archive is part of the deferred audit, intentionally not done now.
+
 **▶ S15 (2026-06-08) — ⛔ ANALYSIS b1–b8 UNTRUSTED → DO NOT use. NEXT = SYSTEM HARDENING (not batches). Agenda: `review/s15-postmortem-and-hardening.md`.**
 - **What broke:** ran Home & Garden (Shopify-Active full-universe slice, visits 1k–10k) b1–b8 = 2000 stores; reported 1 winner (CouchConsole 74) + declared niche weak + floated a **pivot = self-invented conclusion**. Marina caught stores matching **validated Notion winners** dumped to browse / dropped: **The Wriggler** (b5 anti-roll changing mat — DROPPED; = Yogorgeous Watchlist + WriggleBum Consider), **Rockit** (b7 = her Nursery Consider, buried browse), **SnoofyBee** (b7 changing pad). In autonomous block b3–b8 the agent **opened ZERO links by hand** (card-read + opener only). Violated product-first (RULE 5/9).
 - **ROOT CAUSE (measured):** mandatory-load 2252 lines; op-rules attention skew **≈41:4** gate/contract-machinery vs product-first SOUL (0× in mindset/filters/winner-detection/identity). **Goodhart:** system gates COVERAGE+STRUCTURE (flags opened, browse≥7, sections+PASS-line) but **NOT judgment quality** — happy even when a real candidate is dismissed "off-model: baby" or zero links opened. So quality ran on DISCIPLINE not SYSTEM → **not scale-ready.** Marina's doc-overload hypothesis CONFIRMED.
@@ -74,6 +83,25 @@ mandatory-load lean.
 ---
 
 ## Active Learnings
+
+### [2026-06-27] S16 — ⭐ FINDING (in-process): the GENUINE live-open atrophied — displaced by tooling, not by decision
+**Type:** Process / Root-cause | **Severity:** HIGH | **Confidence:** HIGH (Marina caught it on b4 + traced through docs)
+**What Marina caught:** on b4 I "opened 54/54 flags" but those were **light server-side curls (`sl_open_flags` = title+price)
++ card-judgment** — NOT genuine live-opens. I did NOT WebFetch the stores I flagged as interesting in B/C/tail (nebuluxury,
+playdropmats, topseat, v3clean) — I dropped them to browse from the card alone. In S3/S4 I opened ~90 stores LIVE per session.
+**Trace — where it eroded (it was never decided away):** ShopHunter built this STRUCTURALLY — Stage-2 "open ALL, no name-pick"
++ **SH-8 safeguard #3 (description-confidence gate): a thin/mismatched desc → WebFetch the LIVE page BEFORE scoring** (born from
+the SAME failure: SlotPro mis-scored ~52 on a thin read → ~66 after live open; Marina caught it by question). Store Leads HAD it
+(RULE 7 live-confirm, RULE 23 hand-open, S4 ~90 WebFetch opens). Then **S7 added `sl_open_flags` (RULE 29)** = a light server curl
+that pre-seeds the opens-log; the gate measures COVERAGE ("every flag has a verdict string"), which a curl + card satisfies
+CHEAPLY → the expensive-but-valuable genuine chat-WebFetch quietly faded. **S13b projection** (full card in-context) reinforced
+"judge from the card." **Same Goodhart mechanism as S15:** the system stopped REQUIRING the real thing, so under load it dropped out.
+**Fix (restore from ShopHunter — applied from b5):** the live description-confidence gate is ACTIVE again — **thin/mismatched desc
+OR any genuine-product store I mark interesting across A/B/C/tail → WebFetch the LIVE page BEFORE scoring, shown in chat** (generous,
+when-unsure-OPEN); `sl_open_flags` curl = triage seed, never a substitute. Encoded as the per-batch CONSTANT honest-question
+(workflow §1a). **In-process finding — not final; revisit in the deep audit** (does the gate need to machine-require a min live-open
+count? — candidate Tier-2 proposal, gather more batches first).
+**Applies to:** every Store Leads analysis batch. **Expires:** Never → feeds the deep folder/system audit. Pairs with [[feedback_no_delegation]] (quality>speed) + the S15 Goodhart postmortem.
 
 ### [2026-06-08] S14 — HOME-IMPROVEMENT top-visit tier (b1–b6, 1500 stores) = heavy-confirmed, 0 fresh winners (reaffirms RULE 11 + the S2 HI lesson)
 **Type:** Yield fact / Pattern | **Severity:** MED-HIGH | **Confidence:** VERY HIGH (6 batches / 1500 stores, every gate PASS, loss≈0, visits 2.9M→948)

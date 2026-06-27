@@ -47,6 +47,9 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-08 | [snappyshoerivets.com](https://snappyshoerivets.com) | 52 | Croc/clog repair rivets (HI b6) | S14 HI browse; tiny novel impulse ($13, glow-in-dark) for a broken Croc strap — cheap COGS + UGC-able but micro-TAM; watch if a viral version appears |
 | 2026-06-08 | [boundri.com](https://boundri.com) | 52 | personalized kids' farm play rug (HI b6) | S14 HI browse; custom photo/map play rug — emotional FB-gift angle (off-HI); watch the personalized-gift vector |
 | 2026-06-08 | [paintwithnumber.com](https://paintwithnumber.com) | 57 | custom paint-by-numbers from photo (HI b1) | S14 HI borderline; proven FB-gift category — appeared ×4 across HI (schilderopnr/brushme/lilpaintshop); off-HI-niche but a recurring impulse-gift signal worth watching |
+| 2026-06-27 | [luvlink.com.au](https://www.luvlink.com.au) | 63 | friendship/touch lamp (H&G b5) | S16 borderline; tap-to-light paired lamp worldwide, strong emotion ("thinking of you") but ~$120 premium + saturated (Filimin) — watch for a cheaper version |
+| 2026-06-27 | [chickcozy.com](https://chickcozy.com) | 63 | solar auto chicken-coop door (H&G b5) | S16 borderline; real pain (predator-safety/convenience) + demo, but $159 premium + niche (chicken keepers, growing trend) — watch the backyard-chicken vector |
+| 2026-06-27 | [claymoreoutdoor.com](https://claymoreoutdoor.com) | ~50 | portable outdoor fan V600+ (H&G b5) | S16 browse — found by LIVE-OPENING an "unreachable" store (title hid it!); Red Dot fan $64.95 in-range but branded/commodity-adjacent — proof that opening unreachable matters |
 
 ---
 

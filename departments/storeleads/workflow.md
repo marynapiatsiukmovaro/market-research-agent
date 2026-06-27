@@ -1,5 +1,10 @@
 # Store Leads — Department Workflow (session entry point)
 
+> ⭐ **READ THE ANALYSIS CREED FIRST** — top of `operational-memory/op-rules.md` (7 lines, Marina-authored S16).
+> It is the SOUL of the work; everything below (gates, checklists, contract) is only the FLOOR under it.
+> Mission = find the WINNER (any category, any visits, even a just-launching/0-visit store) — not tick boxes.
+> A green gate ≠ "all good"; quality >> speed; I am the owner; when in doubt, open and check.
+
 Thin entry point. The full procedure lives in `methods/`. Store-first discovery at scale via
 storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomous (not earned).**
 
@@ -93,6 +98,31 @@ consumer-other card-judged (transparency): [N]
 Funnel breakdown (RULE 1): dumped → selected → reach/unreach → tiers A/B/C → deep-scored
 ANALYSIS GATE: ✅ PASS / ⛔ STOP
 ```
+
+### 🔬 HONEST QUESTION — one per batch (Marina S16) — NOT numbers-theatre
+**Why (Marina S16):** the verifiable counts (read 250/250 · flags opened · browse floor) already live in the GATE
+line — do NOT repeat them here. This checkpoint is the **one honest question I answer truthfully + in a few real
+sentences**, so I catch myself the way Marina caught S15 ("почему так быстро?"). The work runs on trust — name any
+slip plainly. **The question ROTATES batch-to-batch** (same sphere — depth / product-first / "am I reading b3 as
+hungrily as b1" — different angle each time, so it never becomes rote):
+Keep them PLAIN — real questions, not clever-for-clever's-sake (Marina S16: "вопросы ради вопроса не нужны"):
+**Structure = 1 CONSTANT + 1 ROTATING (Marina S16).** The CONSTANT hits our known slip (under-opening live);
+the ROTATING keeps it fresh. They are **Marina's voice** — what she'd actually ask — and a **living hypothesis**:
+as new slip-points surface, add a targeted question (don't carve in stone). NO blaming words ("схитрил" is wrong —
+Marina S16: imperfect work = system not yet built, not bad faith → use "не срезал ли где углы").
+
+**CONSTANT (every batch — our caught slip, S16: I leaned on the card instead of opening live):**
+> Сколько магазинов я реально открыл вживую (WebFetch) на этом батче? Из A/B/C и хвоста — сколько интересных нашёл и зашёл? Перечислить.
+
+**ROTATING (one per batch, recycle):**
+- Скажи честно — как тебе работалось на этом батче? Нигде не срезал углы, всё нормально?
+- Как отработал скрапер/данные — пришли чистые, ничего не сыпалось?
+- По скольким вердикт вынес по самому ТОВАРУ, а не по ярлыку категории? Где сомневался — открыл?
+- Разобрал ли батч на полную глубину (как будто прошёл по каждому критерию по каждому товару) — или где-то по верхам?
+- Если 0 винеров — это правда пусто, или подустал и пробежался? Что переделал бы?
+
+**If an honest answer exposes a thin spot → STOP and redo it before the next batch.** FOR THE AGENT (self-catch),
+Marina's voice — not a metric. (Origin of the CONSTANT: the live-open atrophy finding — see learnings.md S16.)
 
 ### ✅ SESSION CHECKLIST — tick each step (plain-language; the gates verify the ticks aren't empty)
 The mandatory steps per batch, in order. I mark each ☐→☑ as I go and report them; `sl_qa.py` + `sl_analysis_gate.py` are the

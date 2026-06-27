@@ -1,5 +1,18 @@
 # OPERATIONAL RULES — PERMANENT (Store Leads)
 
+## ⭐ ANALYSIS CREED — read FIRST, every session. This is the SOUL; the gates below are only the FLOOR under it.
+*(Added S16 2026-06-27, Marina-authored. The S15 failure was Goodhart's law — green gates, lost winners. This creed is the antidote: judgment lives ABOVE the machinery, never replaced by it.)*
+
+1. **THE MISSION IS TO FIND THE WINNER — not to tick boxes.** Quality >> speed. "I processed N stores" means nothing; only a found (or *honestly-cleared-after-a-deep-look*) winner counts. An honest 0 is valid — but only AFTER digging, never instead of it. **Finding winners means digging through NOISE for rare diamonds** — if it were easy (250 stores → 5 instant winners) the market would already be saturated by everyone doing it. **1–2–3 winners per 250 is a GREAT result; 0 winners + a few borderline is normal**; some batches are pure noise and the ONE just-launching winner hides in them. **⛔ NEVER propose narrowing / shortcuts / "efficiency" that cuts coverage** (fewer scrapes, tighter filters, narrower guard keywords, skipping the noise) — the noise IS the job. Guard false-positives (1–2 stores/batch) are the *desired* cost of the safety net; bias the guard toward MORE inclusion, never less. (Marina S16: this instinct to narrow is the wrong one — kill it.)
+2. **EVERY BATCH = A FRESH SESSION (Marina S16, core).** Start batch 1, 2, 3, 4, 5, 6 — and every batch after a compact — with the EXACT same scrupulous, sleeves-rolled-up depth as batch 1, as if you just opened a brand-new session. Never "the system's built, I'll go fast"; never let depth decay on later batches (the b3/b4/b5 drift is the classic failure). A weak raw niche-mix is NOT "no winners" — dig to the end. **After EVERY batch, run the honest QUALITY CHECKPOINT** (see §1a) before moving on. **⛔ NO PIVOT this phase:** never abandon or down-prioritise a category that has visit statistics (1k–10k etc.) — we analyse all such stores over the long haul (months, millions of stores). **Never exclude a category either** — Store Leads cross-files non-matching products into any category, so excluding one loses winners. Patterns are observations for LATER, never a trigger to stop or pivot. **Supersedes the older S13/S13b "flag weak niche / pivot early" guidance.**
+3. **THE WINNER IGNORES OUR CATEGORY LABELS.** We open the niche as e.g. Home & Garden, but the winner may be a product from a COMPLETELY DIFFERENT category sitting inside it (Store Leads cross-files constantly), a just-launching store with 0 visits, or a store with wrong Store Leads counters. We hunt the WINNER, not the category. **No category is ever privileged or emphasised** — a small past sample (e.g. we've mined Nursery most) is never a hint about where winners live; that bias is exactly the trap. **Never discard by visits / class / label / "off-category"** — look critically at everything; missing/zero ≠ absent (RULE 24). A just-launching store is exactly what we want (earliest entry).
+4. **I AM THE OWNER.** A real pipeline depends on this find (→ Product Launch → product intelligence → website → creatives → launch). When in doubt, **OPEN AND CHECK — never skip** ("better over-check than miss one").
+5. **A GREEN GATE ≠ "all good."** At every checkpoint ask myself: am I genuinely comfortable with this result, or did the ticks just line up? The gate counts coverage; *I* find the winner.
+6. **JUDGE THE PRODUCT** (pain / wow / COGS / impulse / camera-proof), never a bare category label. A store matching something we've found before MUST get an explicit score — never silently browsed.
+7. **THE SYSTEM ITSELF MUST KEEP IMPROVING.** Guard + rules are prototypes, not final truth. Fix the obvious (via proposal) — never coast on an outdated system "because that's how it's written."
+
+---
+
 **These rules never expire. Apply to every Store Leads session without exception.**
 Read BEFORE `learnings.md` at session start (load order: op-rules → founder-feedback → learnings).
 
@@ -254,7 +267,7 @@ store enters via my explicit browse-tag (so my judgment, logged, overrides the p
 
 > **⭐ FLOOR-NOT-CEILING PRINCIPLE (Marina, S6 — applies to ALL gates/rules here).** These checkpoints define the MINIMUM that must
 > always be covered — never the maximum. The agent is ALWAYS free to surface more than the rule yields and MUST flag anything notable
-> beyond it: an off-pattern outlier, a convergence/pattern, a "this niche looks weak — consider a pivot," a creative angle. A rule must
+> beyond it: an off-pattern outlier, a convergence/pattern, an emerging cross-category observation, a creative angle. A rule must
 > never suppress judgment or silence a useful observation. If a frame starts to feel like it's hiding something worth showing, say so and
 > we adjust it. (Marina's principle: over-constraining a worker kills the creativity and the heads-up flags you actually want.)
 
