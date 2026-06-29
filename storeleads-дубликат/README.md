@@ -1,12 +1,7 @@
 # Store Leads Department
 
-Third sourcing department. **Store-first discovery** via storeleads.app (~2.85M active Shopify
-stores; ~3.59M Shopify all-status; + WooCommerce 4.26M), using a downloaded CSV universe as the funnel's data source.
-
-> 🗂️ **Revision backup (S17, 2026-06-29).** A frozen snapshot of this folder as it was at the start of the
-> S17 system-rebuild lives at the repo root: **`storeleads-дубликат/`** — NOT a live department (never loaded,
-> never routed). It exists so the declutter can be done safely; in a future revision we cross-check it to confirm
-> no experience was lost, then delete it. Canonical live department = THIS folder.
+Third sourcing department. **Store-first discovery** at SCALE via storeleads.app (~2.85M
+active Shopify stores; ~3.59M Shopify all-status), using its internal JSON API as the funnel's Stage-0 source.
 
 > **Status: SYSTEM-BUILD / in active development (started 2026-05-30).** Access solved; internal
 > data-API fully mapped incl. the advanced **`bq` (Bleve) query** — created≥2020, multi-category OR,
@@ -48,14 +43,10 @@ workflow, founder-taste, product-validation, analysis skills).
   email + the emailed code via `scripts/sl_email_login.py` (ssh -t). Session persists in
   `cookies/storeleads_state.json` + `cookies/storeleads_profile` (gitignored). Re-login with a
   fresh code when it expires. Verify with `scripts/sl_check_login.py`.
-- Plan = **Pro through 2026-06-29 (CSV export done); auto-renew OFF (Marina S17)** → reverts to Premium after today.
-  Ongoing analysis runs off the **captured CSV universe** (`methods/csv-export.md`) + session-enrich — **no Pro needed**.
-  Re-enable Pro only to pull a fresh/new universe. The session-API is used for login + live filter-counts. Stay gentle.
-  *(History: Premium $75 = 2k–4k searches/mo, no export → quota wall; Pro upgrade 2026-06-08 → whole universe captured.)*
+- Plan = **Premium $75**: 2 platforms (Shopify selected), ~2000–4000 searches/mo, **NO export /
+  API / workflow** (Pro+ only) → we use the internal session-API the UI itself calls. Stay gentle.
 
 ## Entry points
-- `operational-memory/data-inventory.md` — **«где что лежит» (CSV-вселенная, резервуары, состояние, VPS-коннект) — read at session start.**
-- `operational-memory/strategy.md` — **приоритет ниш (🟢🟡🔵🔴) + порядок полос визитов — read at session start.**
 - `workflow.md` — session entry point (thin → methods/). Load order: op-rules → founder-feedback → learnings.
 - `operational-memory/op-rules.md` — **PERMANENT rules (read FIRST every session)** — the department's discipline.
 - `capabilities.md` — what Store Leads exposes + what we inherit.

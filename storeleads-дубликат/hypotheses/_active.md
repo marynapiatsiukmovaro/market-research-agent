@@ -1,8 +1,5 @@
 # Active Hypothesis — Store Leads
 
-> 🧭 **Куда/в каком порядке заходим (приоритет ниш 🟢🟡🔵🔴 + полосы визитов) → `operational-memory/strategy.md`
-> (зафиксировано S17, Marina-set).** Этот файл = МЕТОД/философия (КАК ищем); strategy.md = ПОРЯДОК (куда/когда).
-
 > 🆕 **S14 UPDATE (2026-06-08) — Pro plan + CSV export changes the DATA-ACQUISITION step only.** We no longer
 > paginate-dump per niche; the **whole active universe is captured as CSV** (Shopify-Active 2,890,820 +
 > WooCommerce 4,255,809 = 7,146,629, 162 cols incl. price/products_sold — see `methods/csv-export.md`). Next-niche

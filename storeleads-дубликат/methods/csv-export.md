@@ -1,9 +1,5 @@
 # Store Leads — CSV Universe Export (Pro plan) — METHOD & RULES
 
-> ⭐ **THIS IS THE CURRENT Stage-0 data-acquisition method.** Where the captured files live + the completeness
-> verification → `operational-memory/data-inventory.md`. The old paginated API dump (`sl_dump*.py`) is **RETIRED**
-> (kept for reference in `methods/interface-guide.md` + `methods/discovery-funnel.md`).
-
 **Status:** LIVE since 2026-06-08 (S14). This is the **upgraded data-acquisition method** — it **replaces the
 old paginated dump** (`sl_dump*.py` → `/json/auth/domains`, which burned the Premium 2,000-search/mo quota →
 HTTP 402; see [[project_storeleads_quota]]). Pro plan = **unlimited searches + Export-to-CSV**, so we pull a

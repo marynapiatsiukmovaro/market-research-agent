@@ -1,10 +1,5 @@
 # Store Leads — Interface & API Guide
 
-> **Status (S17):** the JSON API is **still LIVE for: login (email-code), session-check, and live filter-counts**
-> (`sl_filter_count.py` verification). What is **RETIRED** is the **paginated API DUMP as data-acquisition**
-> (`sl_dump*.py` — quota-limited, HTTP 402); data acquisition is now the **CSV universe** (`methods/csv-export.md`
-> + `operational-memory/data-inventory.md`). The `bq`/filter knowledge below stays valid for counts/verification.
-
 How to drive Store Leads on the VPS. The dashboard is a Vaadin **Shadow-DOM** SPA (so
 `body.innerText` is empty — judge screenshots, not text), but it is powered by a clean
 **authenticated JSON API** that we call directly with the logged-in session. Mapped 2026-05-30.
@@ -19,22 +14,6 @@ How to drive Store Leads on the VPS. The dashboard is a Vaadin **Shadow-DOM** SP
 - `scripts/sl_check_login.py <url>` — verify session (loads state, screenshots a page).
 - Session persists for days/weeks; re-run sl_email_login with a fresh code when it expires.
 - Account = babbystorecom@gmail.com. invisible reCAPTCHA Enterprise present → stay gentle.
-
-> **🤖 Driving the email-code login when the AGENT runs it (S17).** The script blocks on TWO `input()`s
-> (email, then code) inside ONE persistent browser — it can't be split into two SSH calls. Drive it via a
-> FIFO that stays open across both writes:
-> ```
-> rm -f /tmp/sl_login.fifo /tmp/sl_login.out; mkfifo /tmp/sl_login.fifo
-> nohup bash -c "sleep 900 > /tmp/sl_login.fifo" >/dev/null 2>&1 &   # holds FIFO open (no EOF between writes)
-> nohup python3 scripts/sl_email_login.py < /tmp/sl_login.fifo > /tmp/sl_login.out 2>&1 &
-> printf "babbystorecom@gmail.com\n" > /tmp/sl_login.fifo            # → triggers the code email to Marina
-> #  ...Marina sends the 6-char code in chat...
-> printf "<CODE>\n" > /tmp/sl_login.fifo                             # → completes login
-> ```
-> Read `/tmp/sl_login.out`; **success = `url=…/dashboard/domains`** (failure = `…/login_otp?error=unrecognized` → re-request a fresh code).
-> **Gotchas (S17):** (a) dashboard text is empty (Vaadin) → the script's `logged_in hints:False` is a FALSE negative; judge by the URL.
-> (b) Don't `pkill -f "sleep 900"` to clean up — the pattern matches your own shell's command line → kills the SSH session (exit 255); just `rm` the temp files (the sleep self-expires).
-> (c) `ps aux|grep claude` credit-guard FALSE-positives on your own command text (it contains "claude") — read it as a self-match, not a real process.
 
 ## How we read the data: the internal JSON API
 All calls are `POST` to `https://storeleads.app/json/auth/<endpoint>`, replayed via the page's
@@ -91,12 +70,10 @@ ranking signal) · **`mpv`**(100) (Est PageViews) · **`apf`**(96)/`minpf`/`maxp
 `mrpp` (most-recent product) · `tech` (stack, incl. FB Pixel) · `apps` available too.
 ⚠️ **No social follower / 30-day-growth counts in this response** (dropped from our table 2026-05-31).
 
-### Plan status (S17)
-**Pro through 2026-06-29 (CSV export done); auto-renew OFF (Marina) → reverts to Premium after today.** Pro =
-unlimited searches + CSV Export — that's WHY dump-as-acquisition is retired (we export the whole universe, `methods/csv-export.md`).
-**Ongoing analysis needs no Pro** (runs off the captured CSV + session-enrich); re-enable Pro only to pull a fresh universe.
-The session-API is still used for **login + live filter-counts** (`sl_filter_count.py`).
-*(History: Premium $75 ≈ 2k–4k searches/mo, no export → quota wall HTTP 402; Pro 2026-06-08 → universe captured.)*
+### Plan limits (Premium $75)
+`max_searches` ≈ 2000–4000/mo · 2 platforms · export/API/workflow = Pro+ only. A "search" =
+a query/lookup; paginating a filter is browsing (Marina's read — confirm via the in-app
+account/usage counter at the first real run). For a 200-store pilot the quota is irrelevant.
 
 ## Helper scripts (active — repo `scripts/`, run on VPS)
 - `sl_email_login.py` (login) · `sl_check_login.py` (verify session)

@@ -12,7 +12,7 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 > until the Stage-2 ENTRY CHECKLIST below passes (RULE 25 canonical reader + RULE 26 QA-gate PASS + acceptance statement).
 > The S5 failure (analysed an ad-hoc reader showing 1 product of 3) is now structurally blocked: `sl_qa.py` certifies the
 > DATA, the canonical `sl_stage2_table.py` self-cert banner certifies the READING. Reservoir data is intact — do NOT re-pull.
-> *(Background: `archive/storeleads-prescale-hardening-plan-S5-RESOLVED.md` = the S5 agenda (ARCHIVED S17); its Q1–Q5 were resolved in S6 — grouped-11
+> *(Background: `operational-memory/prescale-hardening-plan.md` = the S5 agenda; its Q1–Q5 were resolved in S6 — grouped-11
 > layout locked, single canonical generator, QA-completeness gate, entry checklist, b9 end-to-end re-run + sverka done.)*
 
 > 🆕 **DATA ACQUISITION UPGRADED (S14, 2026-06-08) — CSV export replaces the paginated dump.** On the **Pro plan**
@@ -26,11 +26,9 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 - Confirm this is a **Store Leads** session. Operate only inside this department; never apply
   FB scraper or ShopHunter mechanics here, never read another department's operational memory.
 - Load the ALWAYS files (core/ + shared/, incl. `shared/founder-taste.md`) + this department's
-  operational memory in order: **`operational-memory/op-rules.md` (CREED + permanent rules — read FIRST)** →
-  **`operational-memory/data-inventory.md` (где данные лежат + VPS-коннект)** →
-  **`operational-memory/strategy.md` (приоритет ниш 🟢🟡🔵🔴 + порядок полос визитов)** →
+  operational memory in order: **`operational-memory/op-rules.md` (permanent rules — read FIRST)** →
   `founder-feedback.md` → `operational-memory/learnings.md` (read the **HANDOFF** block first).
-- Current direction: `operational-memory/strategy.md` (куда/в каком порядке) + `hypotheses/_active.md` (метод).
+- Current direction: `hypotheses/_active.md`.
 - Verify session: `scripts/sl_check_login.py` (re-login via `sl_email_login.py` + emailed code if expired).
 - Credit guard (Marina's rule): `ps aux | grep claude` on the VPS before any run; parallelism =
   Playwright **workers**, never parallel claude processes.
@@ -47,12 +45,12 @@ After loading context, read the prompt + the **HANDOFF "▶ NEXT" line**, then r
 A new-niche build also runs the cross-niche dedup first (§1b). Both modes share §0 preflight (credit-guard, session, paths).
 
 ## 1. Run the discovery funnel
-Follow `methods/discovery-funnel.md` (Stage 0 = slice the captured CSV universe, `methods/csv-export.md` → Stage 1 select → Stage 2 live
-enrich → Stage 3 deep-score). Heavy lifting on the
+Follow `methods/discovery-funnel.md` (Stage 0 dump → Stage 1 client-filter+table → Stage 2 live
+enrich → Stage 3 deep-score). Drive the API per `methods/interface-guide.md`. Heavy lifting on the
 VPS; only finalists enter chat. **Stage 3 is the real filter — read ALL, confirm heroes on the live
 site, run 100-pt + Marina Veto, lead with WOW/taste, never trust the proxy A/B/C tier.**
 Supporting method docs:
-- `methods/interface-guide.md` — the JSON API (login + live filter-counts) + cracked `bq` (filters/fields). *(dump-as-acquisition RETIRED → `csv-export.md`.)*
+- `methods/interface-guide.md` — the JSON API + cracked `bq` (filters, created≥2020, 25k-window bypass, fields).
 - `methods/subagent-spec.md` — the Stage-2 enricher's exact job (fields, `desc` rule, what NOT to write, success test).
 - `methods/shophunter-enrichment.md` — OPTIONAL cross-dept enrichment of finalists via ShopHunter (lookup ladder, SH fields).
 - `reference/cross-dept-patterns.md` — patterns observed in SH/FB, not adopted yet (reference only).

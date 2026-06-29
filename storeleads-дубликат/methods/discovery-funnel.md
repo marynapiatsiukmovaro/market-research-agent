@@ -18,14 +18,7 @@ site before asserting. The browse-pool ensures the founder can catch what the ag
 
 ## The chain (numbers illustrative)
 
-**Stage 0 — Data acquisition. ⭐ CURRENT = the captured CSV universe** (`methods/csv-export.md` +
-`operational-memory/data-inventory.md`): the whole active universe is already downloaded (Shopify 2.89M +
-Woo 4.26M, 162 cols). Slice the CSV to a niche → Stage 1. No per-niche dump needed anymore.
-
-> **⚠️ RETIRED below — the old paginated API dump (preserved, do NOT use).** Superseded S14 by the CSV export;
-> it burned the Premium 2,000-search/mo quota → HTTP 402. Kept for reference «вдруг вернёмся».
-
-**(RETIRED) Dump (VPS, API, ~0 tokens).** `sl_dump_full.py "<cat path>" <slug>`: POST `/json/auth/domains`
+**Stage 0 — Dump (VPS, API, ~0 tokens).** `sl_dump_full.py "<cat path>" <slug>`: POST `/json/auth/domains`
 with the advanced **`bq` (Bleve)** query — Platform=Shopify, Status=Active, Category(`match`),
 **Created≥2020** server-side (`cratyyyymm` TermRange). Big subcategories (>25k) are split into
 **created windows** (each <25k) and merged → no ceiling loss (HI 27,052 collected exact). `cursor`

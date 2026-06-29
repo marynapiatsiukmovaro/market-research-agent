@@ -33,7 +33,7 @@ Goal of the first month = build + harden the chain on real niches, not chase a s
 - Niche rotation; record niche-yield facts (like ShopHunter) without closing niches.
 
 ## Open questions to test
-1. ✅ MOOT (S17) — Pro plan = unlimited searches + CSV export; the quota question is resolved (we no longer paginate-dump).
+1. Exact "search" accounting vs the ~2000–4000/mo quota (per query vs per page) — check the in-app counter.
 2. ✅ Answered: >25k niches segmented via `bq` created windows (each <25k), paginate+merge (HI 27,052 exact).
 3. Revenue-estimate accuracy: Store Leads `erf` vs live reality vs ShopHunter.
 4. Which sort surfaces the best white-label pool (Created vs Est-Sales-asc vs social-growth).

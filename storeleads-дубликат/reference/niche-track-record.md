@@ -1,14 +1,9 @@
 # Store Leads — Niche Track-Record (coverage + yield, all sessions S1–S14)
 
-> ⚠️ **ЭТО НАБЛЮДЕНИЯ О ПОКРЫТИИ, НЕ ВЕРДИКТЫ/ШТАМПЫ (Marina S17).** Здесь — что мы УЖЕ копали и что ВИДЕЛИ
-> на малой выборке. Это **НЕ** ранжирование «где живут винеры» и **НЕ** основание сузить/закрыть/деприоритизировать
-> нишу. Приоритет ниш задаётся отдельно и а-приори → `operational-memory/strategy.md` (🟢🟡🔵🔴), НЕ выводится из
-> прошлого выхода. Корень ошибки S15 был именно в том, что вывод («ниша X лучшая») превратился в штамп. Винер =
-> бриллиант в шуме любого пула; каждый batch отрабатываем с нуля (op-rules CREED).
-
 **Purpose (Marina, S14 2026-06-08):** one place to see WHAT we've already analysed — which niches, how many
-stores, which visit-bands, what we saw so far — so we don't re-dig the same ground. Updated at end-of-session.
-(Coverage truth = `operational-memory/processed_domains.json` on the VPS; monitored/browse store links = `operational-memory/keep-list.md`.)
+stores, which visit-bands, how many real winners, how saturated/productive each niche was — so we pick the next
+dumps by evidence, not by guess. Updated at end-of-session. (Coverage truth = `operational-memory/processed_domains.json`
+on the VPS; monitored/browse store links = `operational-memory/keep-list.md`.)
 
 > **Reminder — two score layers.** The enricher **proxy A/B/C** is a revenue/price SORT-AID (fooled by convergence) —
 > NOT quality. "Winners" below = the **final 100-pt deep-score ≥ 65** (the agent's read), and Founder Review is Marina's
@@ -20,7 +15,7 @@ stores, which visit-bands, what we saw so far — so we don't re-dig the same gr
 
 | Niche | Stores analysed | Sessions / batches | Visits range covered | Real winners (65+) | Where winners sat | Verdict |
 |---|---|---|---|---|---|---|
-| **Nursery & Playroom** | **6,715** | S3–S8 (visits-band + visits-desc deep tail + vNone) | 50k → deep tail (268–447) → vNone | **~9+ winners** (на этой выборке) | **DEEP tail** (v363–447) + mid | наблюдение: дала находки (выборка мала — НЕ вердикт) |
+| **Nursery & Playroom** | **6,715** | S3–S8 (visits-band + visits-desc deep tail + vNone) | 50k → deep tail (268–447) → vNone | **~9+ winners** (richest niche) | **DEEP tail** (v363–447) + mid | 🟢 **PRODUCTIVE — our best niche so far** |
 | **Cats** | **4,635** | S9 + S12 (b1–b19, visits-desc full) | ≥1020 (b1) → vNone | **2** (SiiPet LitterLens 74 · Catboxy Nova 72) | **TOP-visit tier only** (b1, v≥1020) | 🟡 Weak (2 winners, both top-tier; tail empty) |
 | **Dogs** | **5,250** | S13/S13b/S14 (b1–b21, visits-desc full) → **CLOSED** | 6.3M → 17 → vNone | **1** (Gerty 65) | top tier (b2) | 🔴 Weak — CLOSED (designer-collar/food/service heavy) |
 | **Home Improvement** | **3,004** | S2 (b1–4) + S14 (b1–6 fresh top tier) | 13.8k→4k (S2) · 2.9M→948 (S14) | **0 real** (Watchlist-only) | n/a | 🔴 Heavy/trade — abandoned (RULE 11) |
@@ -32,10 +27,10 @@ stores, which visit-bands, what we saw so far — so we don't re-dig the same gr
 
 ## Per-niche detail (winners + notable)
 
-### Nursery & Playroom — 6,715 stores — дала находки на этой выборке (наблюдение, не вердикт)
+### 🟢 Nursery & Playroom — 6,715 stores — THE productive niche (the bar to beat)
 - **Winners / Consider (65+):** WellnessBaby/Doppler **83** (Approved) · WonderBee fetal doppler **77** · LatchLight nursing nightlight **76** · Rockit stroller-rocker **74** · KinderSense crib safety tent **73** · Crib Tent **73** · Kaiya sleep sack **72** · WaterLand carrier **72** · Roar monitor **69** · WriggleBum nappy harness **68** · JoSeat high-chair cover **68** · Kanga stability pouch **67** · UpPro cordless dryer **67** · Omni/Jili/BabyBond **66** · Waiu cooler **65** + many Watchlist.
 - **Key fact (S4):** winners hid in the **DEEP visits-tail** (Doppler @ v387, Crib Tent @ v363) — the old "established-band" filter would have LOST them → why RULE 24 (never field-filter by visits) exists.
-- **Что видели:** real parent pains (safety / sleep / feeding / soothing) + camera-demoable + impulse + white-labelable. (Наблюдение на малой выборке — не «лучшая ниша».)
+- **Why it worked:** real parent pains (safety / sleep / feeding / soothing) + camera-demoable + impulse + white-labelable. **Marina's taste lands here most.**
 
 ### 🟡 Cats — 4,635 stores — 2 winners, both top-tier
 - **Winners:** SiiPet LitterLens (litter health-monitor) **74** · Catboxy Nova **72** — BOTH in **b1 (visits ≥1020)**; b2–b19 (visits 1014→vNone) = **0**.

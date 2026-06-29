@@ -34,7 +34,7 @@ Spend · Last Plan Change · Employees · Theme Cost. *(We don't use server sort
 **Saved Lists + weekly email** on a saved filter = the monitoring layer (to wire later).
 
 ## vs ShopHunter (key differences)
-| | ShopHunter | Store Leads (captured CSV universe) |
+| | ShopHunter | Store Leads (Premium $75) |
 |---|---|---|
 | Universe | ~800/category tracked subset | ~2.85M active Shopify, filterable |
 | Data in result | open every store | almost all store-level data in the dump |
@@ -43,8 +43,7 @@ Spend · Last Plan Change · Employees · Theme Cost. *(We don't use server sort
 | Emerging stores | weak (mature subset) | strong (Created≥2020 server-side via `bq`) |
 | Hero product | given (Top Products) | derive from live catalog (best-selling collection) |
 
-## Gaps / limits (S17)
-No per-PRODUCT revenue (= Elite $450 Product Search) → hero via live catalog. The whole universe was already
-captured via **Pro CSV Export** (**Pro auto-renew OFF → reverts to Premium after 2026-06-29**; ongoing analysis
-needs no Pro — runs off the captured CSV + session-enrich; re-enable Pro only for a fresh universe).
-Multi-country still queried per-country (AND bug). No social follower/growth data in API.
+## Gaps / limits (Premium $75)
+No per-PRODUCT revenue (= Elite $450 Product Search) → hero via live catalog. No CSV export / API /
+workflow (Pro+) → internal session-API, stay gentle. ~2000–4000 searches/mo. 25k/query ceiling (bypassed
+via `bq` created-windows). Multi-country must be queried per-country (AND bug). No social follower/growth data in API.

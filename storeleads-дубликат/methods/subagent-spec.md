@@ -54,7 +54,7 @@
 
 ## Where this fits in the funnel
 ```
-Stage 0  Slice the captured CSV universe to a niche (methods/csv-export.md)   [dump-via-bq RETIRED]
+Stage 0  Dump via bq (Shopify+Active+Category+Created≥2020, windowed)        [sl_dump_full.py — reuse]
 Stage 1  sl_select_all.py → next 250 UNPROCESSED, NO field filters (RULE 24); visits = ORDER only
 Stage 2  ← THIS SPEC. Enricher reads the LIVE catalog of every selected store, writes a Candidate Sheet.
 Stage 3  Main agent reads ALL sheets → live hero+price confirm + open EVERY needs_live → Veto + 100-pt → 65+ forward.
