@@ -5,7 +5,8 @@ ONE command per reservoir-build chunk that prints ONE verdict line, so chunk-acc
 MECHANICAL + UNIFORM + VISIBLE (system, not discipline). It does NOT change anything that
 already works — it only WRAPS the existing checks:
   - count-reconcile  : enriched == selected (catches a silent worker crash)        [in-script]
-  - credit-guard     : ps aux | grep claude on this host (RULE 13, every chunk)    [in-script]
+  - credit-guard     : real `claude` procs (RULE 13) + concurrent `sl_enrich4`, self-tree-excluded
+                       so it can't false-⚠ on its own command text (S17 fix)            [in-script]
   - QA-gate          : calls scripts/sl_qa.py  (the canonical QA — single source)  [subprocess]
   - ACCEPT-logic     : encodes §1b — a benign products.json/vNone STOP is ACCEPTed, a genuine
                        breakage is STOPped (RULE 30). The agent no longer eyeballs this.
@@ -72,13 +73,31 @@ def main():
     n_enr, n_sel = len(e), len(s)
     count_ok = (n_enr == n_sel)
 
-    # 2. credit-guard (this host) — every chunk, no exceptions (RULE 13)
-    try:
-        ps = subprocess.run(["bash", "-c", "ps aux | grep '[s]l_enrich4' | wc -l"],
-                            capture_output=True, text=True, timeout=15)
-        claude_procs = int(ps.stdout.strip() or "0")
-    except Exception:
-        claude_procs = -1  # unknown
+    # 2. credit-guard + concurrent-enrich check (this host) — every chunk, no exceptions (RULE 13).
+    #    ROBUST (S17 fix): exclude our OWN process tree (self + parent wrapper) and any grep, so the
+    #    check can't self-match a command line that merely MENTIONS "claude"/"sl_enrich4". The old code
+    #    grepped '[s]l_enrich4' but labelled it "claude_procs" AND self-matched the wrapper → a false ⚠
+    #    every chunk (which trains us to ignore the guard — exactly what RULE 13 must not allow).
+    def count_procs(needle):
+        me = {os.getpid(), os.getppid()}
+        try:
+            out = subprocess.run(["ps", "-eo", "pid=,args="], capture_output=True, text=True, timeout=15).stdout
+        except Exception:
+            return -1  # unknown
+        n = 0
+        for ln in out.splitlines():
+            pid_s, _, args = ln.strip().partition(" ")
+            try:
+                pid = int(pid_s)
+            except ValueError:
+                continue
+            if pid in me or args.startswith("grep ") or " grep " in args:
+                continue
+            if needle in args:
+                n += 1
+        return n
+    claude_procs = count_procs("claude")      # RULE 13 — the real credit risk; MUST be 0 on the VPS
+    enrich_procs = count_procs("sl_enrich4")  # don't double-run the scraper on the single proxy IP
 
     # 3. QA-gate — call the canonical sl_qa.py (single source of truth, NOT duplicated)
     qa = subprocess.run([sys.executable, os.path.join(HERE, "sl_qa.py"), enr],
@@ -122,10 +141,11 @@ def main():
 
     qa_tag = "PASS" if gate_pass else ("ACCEPT*" if accept else "STOP")
     cg = "0" if claude_procs == 0 else (f"⚠{claude_procs}" if claude_procs > 0 else "?")
+    eg = "0" if enrich_procs == 0 else (f"⚠{enrich_procs}" if enrich_procs > 0 else "?")
     verdict = "ACCEPT" if accept else "STOP"
     note = "" if (gate_pass or not accept) else f" (benign:{'/'.join(stop_reasons)})"
     line = (f"{verdict} {chunk} · reach {reach}% · count {n_enr}=={n_sel} "
-            f"{'OK' if count_ok else 'MISMATCH'} · cur_null {cur_null} · QA {qa_tag}{note} · claude-procs {cg}")
+            f"{'OK' if count_ok else 'MISMATCH'} · cur_null {cur_null} · QA {qa_tag}{note} · claude-procs {cg} · enrich-procs {eg}")
     if not accept:
         line += "  <-- " + "; ".join(hard)
     print(line)

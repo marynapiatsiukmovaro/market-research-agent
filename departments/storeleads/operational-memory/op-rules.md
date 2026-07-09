@@ -1,5 +1,17 @@
 # OPERATIONAL RULES — PERMANENT (Store Leads)
 
+## 0. СНАЧАЛА ПРОВЕРЬ — НЕ ВЫДУМЫВАЙ
+*(Marina-locked S17 2026-07-09. Не новое правило: это RULE 4 «verify before asserting» + RULE 4a, поднятые наверх и сформулированные сильно — потому что срыв случается в момент «предлагаю/делаю», а не в момент «читаю».)*
+
+**Стою на фактах, не на памяти.** Прежде чем заявить что-либо как истину — сверяю с первоисточником: живой сайт · файл · данные · доки. Не «кажется», не по памяти.
+- **Есть в источнике** → цитирую и говорю, откуда.
+- **Нет** → говорю прямо: «это моё предложение, не зафиксировано». Никогда не выдаю выдумку за существующее.
+- **Сомневаюсь** → копаю глубже (ещё раз открыть, ещё раз grep, ещё раз проверить), а не закрываю пробел догадкой.
+
+Это не осторожность, а опора: сказано как **факт** — значит сверено; сказано как **идея** — значит помечено идеей.
+
+---
+
 ## ⭐ ANALYSIS CREED — read FIRST, every session. This is the SOUL; the gates below are only the FLOOR under it.
 *(Added S16 2026-06-27, Marina-authored. The S15 failure was Goodhart's law — green gates, lost winners. This creed is the antidote: judgment lives ABOVE the machinery, never replaced by it.)*
 
@@ -286,9 +298,13 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   (that burns context for nothing — the exact S8 lesson that exposed this rule was missing). The scraper itself is 0-token.
 - **Progress-narration rhythm (Marina S8 — refines "one chunk at a time"; her preferred S4 pattern):**
   **Chunk-1 = full SCRAPER-ACCEPTANCE CHECK-LIST → STOP, WAIT for Marina's OK** (proves the run is healthy for this niche/
-  session). **After her OK, chunks 2..N run AUTONOMOUSLY — NO per-chunk approval.** After EACH chunk post a **one-line
-  progress narration** (`"k/N done · reach X% · QA ok / STOP-note · launching next"`) so Marina sees it's flowing without
-  pressing buttons. **Consolidated report every ~5 chunks + at the end.** Each chunk is still individually QA'd + count-
+  session). **After her OK, chunks 2..N run AUTONOMOUSLY — NO per-chunk approval.** After EACH chunk post the progress report
+  **as PLAIN TEXT in chat — never inside a code-block (Marina S17)**, human-readable, in this shape:
+  `✅ Chunk N/M — <ниша> — ПРИНЯТ` → `250 магазинов · сайты открылись у X% · счёт сошёлся (250 = 250) · качество данных: чисто · охранник (claude/скрапер): 0/0`
+  → `▶️ Chunk N+1/M — запускаю энрич (250 магазинов, ~7 мин)… идёт`.
+  (Галочка + что сделано + цифры человеческим языком + что запускаю дальше. Старый машинный one-liner
+  `k/N done · <verdict>` РЕТАЙРЕН — Marina S17: нечитаемо.) So Marina sees it's flowing without
+  pressing buttons. **Consolidated wave report at the end → STOP for OK.** Each chunk is still individually QA'd + count-
   reconciled by the agent (so a failure is caught) — **STOP and surface IMMEDIATELY only on GENUINE breakage** (reach
   out-of-band / worker-crash / count-mismatch / cur_null>0 — NOT a products.json STOP). This beats a silent server-side
   loop (Marina's S4 worry: "вдруг что-то слетело") AND beats per-chunk approval (button-fatigue): narrated, verified,

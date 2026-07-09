@@ -35,6 +35,18 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 - Credit guard (Marina's rule): `ps aux | grep claude` on the VPS before any run; parallelism =
   Playwright **workers**, never parallel claude processes.
 
+## 0.4 THE WORK IN ONE PICTURE — 3 этапа · Stage 0–3 · 2 пути (S17, Marina-locked) ⭐
+**Три этапа работы:**
+1. **Выгрузка магазинов** = **Stage 0** — срез ниши из захваченной CSV-вселенной (`sl_slice_from_csv`, ниша+полоса по `operational-memory/strategy.md`).
+2. **Подготовка файла к анализу** = **Stage 1** (select 250 unprocessed) + **Stage 2** (enrich → `*_enriched.json` = «Stage-2 enriched»). ← это и есть «скрапер готовит документ».
+3. **Анализ и поиск винера** = **Stage 3** — read ALL → живой заход → 100-pt + Marina Veto → winners / borderline / browse → checkpoint → Notion.
+
+**Два пути получить Stage-2 файл для анализа — оба валидны, оба храним:**
+- **Путь A — decoupled (предпочтительный сейчас):** отдельная **🏭 RESERVOIR-BUILD** сессия готовит чанки впрок (§1b, волновой ритм) → позже **🔬 ANALYSIS** сессия берёт готовый `_enriched.json` и сразу анализирует. Ожидание скрапера ≈0 контекста → за сессию разбираем много батчей.
+- **Путь B — coupled (как начинали; так же работает ShopHunter):** в ОДНОЙ сессии: взял 250 → запустил скрапер → дождался → проанализировал.
+
+> ⚠️ **Никогда не анализируй Stage-1 файл вместо Stage-2** — это была ошибка S5 (взял недоготовленный файл). Вход в анализ защищён **STAGE-2 ACCEPTANCE** (§1a): заявить *«Loaded Stage-2 enriched, not Stage-1»* + QA PASS.
+
 ## 0.5 SESSION MODE — pick ONE before doing anything (S8) ⭐
 After loading context, read the prompt + the **HANDOFF "▶ NEXT" line**, then route to exactly one mode:
 - **🔬 ANALYSIS** — score a ready/enriched reservoir → winners → checkpoint → Notion. **Go to §1a** (Stage-2 entry checklist
@@ -160,16 +172,23 @@ a time, every chunk accepted** (RULE 30). Per chunk, in order:
 > `niches/.../slug`). `sl_qa.py` / `sl_analysis_gate.py` / `sl_stage2_table.py` take a **CWD-relative path**
 > (full `logs/storeleads/niches/.../file`). Mixing them = `FileNotFound` / doubled path. Use the template verbatim.
 
-**Launch template — DECOUPLED (S11): `enriched_index` exclusion, NO SKIP. `<D>=niches/<L1>/<niche>/<slug_dedup>`.**
-The cross-niche dedup (`sl_master_dedup … --apply`) runs ONCE per new niche first (→ `<slug>_dedup_full.json`).
+**Launch template — DECOUPLED (S11): `enriched_index` exclusion, NO SKIP. `<D>=niches/<L1>/<niche>/<slug>`.**
 ```
+# 0. SLICE from the captured CSV universe → the niche's _full.json (Stage 0, S17). Run ONCE per niche/band.
+#    Pick the L1 category + visit band per operational-memory/strategy.md (Ось А priority + Ось Б band):
+python3 scripts/sl_slice_from_csv.py storeleads_shopify_active_2026-06-08.csv <D> "<L1 Category>" <vlo> <vhi>
+#    Cross-niche overlap is handled automatically by the enriched_index exclusion in step 1 (a store already
+#    enriched in another niche is skipped) → the old `sl_master_dedup` pass is LEGACY (was for the dump era).
 # 1. SELECT — next 250, excludes processed ∪ enriched_index (NO SKIP; order=visits desc, RULE 24):
 python3 scripts/sl_select_build.py <D> <D>_s<S>_b<N> 250
 # 2. LAUNCH enrich detached — minimal one-line nohup, 8 workers (proven safe on the single ISP IP):
 cd /opt/market-research-agent; R=<D>_s<S>_b<N>; rm -f logs/storeleads/${R}.sentinel; \
   nohup python3 scripts/sl_enrich4.py ${R}.json ${R}_enriched.json ${R}.sentinel 8 \
   > logs/storeleads/${R}_enrich.log 2>&1 &
-# 3. WAIT + ACCEPT — run_in_background Bash ends with the accept-line so the notification carries the verdict:
+# 3. WAIT + ACCEPT — run_in_background Bash ends with the accept-line so the notification carries the verdict.
+#    ⚠ KEEPALIVE (S17 fix): the Mac→VPS ssh for THIS wait-loop MUST carry keepalive, else it drops on a blip
+#    (S17: ssh 255 mid-wait — enrich survives, it's nohup, but the loop dies & no notification fires). Use:
+#    ssh -i ~/.ssh/market_research_vps -o ServerAliveInterval=30 -o ServerAliveCountMax=20 root@<host> '<loop>'
 until [ -f logs/storeleads/${R}.sentinel ]; do sleep 15; done; \
   python3 scripts/sl_accept_chunk.py logs/storeleads/${R}_enriched.json
 # 4. MARK ENRICHED — record the built chunk so build skips it forever AND parallel analysis can consume it safely:
@@ -186,7 +205,8 @@ python3 scripts/sl_mark_enriched.py logs/storeleads/${R}_enriched.json <niche> s
 A big niche (50–90 chunks) runs in **waves of 7**, hands-off-but-verified:
 - **chunk-1** = full SCRAPER-ACCEPTANCE check-list → **STOP, WAIT for Marina's OK** (proves the niche/run is healthy).
 - **chunk-2** = verify clean (one accept-line). If clean → run the rest of the niche in **waves of 7 chunks**.
-- **Inside a wave:** per chunk, one-line progress narration `N/7 done · <sl_accept_chunk verdict>` — Marina watches, presses nothing.
+- **Inside a wave:** per chunk, post the human-readable progress report — **format lives in op-rules RULE 30** (Marina-locked S17:
+  ✅ Chunk N/M — ниша — ПРИНЯТ + цифры словами + ▶️ что запускаю дальше; **plain text, never a code-block**). Marina watches, presses nothing.
   Per-chunk acceptance is MECHANICAL via `sl_accept_chunk.py` (credit-guard runs EVERY chunk — system, not discipline).
 - **End of each wave:** canonical HTML of the **last** chunk → Desktop + a consolidated wave report → **STOP, WAIT for OK**
   before the next wave. **Never auto-chain waves** (the "STOP between waves" rule). STOP mid-wave only on GENUINE breakage
@@ -198,7 +218,7 @@ list at chunk-1 then every 3rd chunk. Grouped so a glance tells run-health vs da
 ```
 SCRAPER-ACCEPTANCE — <niche> reservoir, chunk N (stores X–Y)
 — RUN HEALTH (was the run itself clean?) —
-☐ 1. Select: 250 via `sl_select_build` (excludes processed ∪ enriched_index, NO SKIP — S11 decoupled) · all ≥2020
+☐ 1. Select: 250 via `sl_select_build` from the niche slice (Stage 0) — excludes processed ∪ enriched_index, NO SKIP (S11 decoupled)
 ☐ 2. Enrich: sl_enrich4 8 workers DONE · sentinel present · ps aux | grep claude clean (RULE 13)
 ☐ 3. Count reconcile: enriched == selected (catches a silent worker crash mid-run)
 ☐ 4. Reach-band: reach ~90–97% = normal. Low reach in the deep/vNone tail is USUALLY `products.json`-disabled stores
@@ -212,7 +232,8 @@ SCRAPER-ACCEPTANCE — <niche> reservoir, chunk N (stores X–Y)
 ☐ 6. QA-gate sl_qa.py → ✅ PASS  (⛔ STOP → see ACCEPT-logic below: a products.json STOP at reach≥~90 = ACCEPT+note; re-enrich ONLY on genuine breakage)
 ☐ 7. Card: ≥1top · img · in_range · descConf · 5 essence fields ≥ thresholds
 — RESERVOIR hygiene —
-☐ 8. Cross-niche dedup vs master (sl_master_dedup.py — only for a NEW niche; same-niche = N/A) · master grown
+☐ 8. Cross-niche overlap — handled automatically by the enriched_index exclusion in select_build (step 1).
+      (`sl_master_dedup.py` = LEGACY dump-era pass; not needed with CSV slicing.)
 ☐ 9. File in reservoir path · enriched ≠ processed held (0 marked)
 ☐ 10. Verdict: chunk ACCEPTED / RE-ENRICH
 ```
@@ -228,9 +249,10 @@ duration blow-up (pt 5). These three turn "data looks full" into "the run was so
 says thresholds are revisable; a false STOP only forces the look — which we did). Only a STOP with reach OUT of band /
 global degradation is a real "re-enrich" case.
 
-**Cross-niche dedup (new niche only):** before enriching a NEW niche's dump, run
-`python3 scripts/sl_master_dedup.py dedup logs/storeleads/master_domains.json <new>_full.json <niche> --apply` → it removes
-multi-category overlaps already ours, reports `dumped → removed → unique`, and grows `master_domains.json` (RULE 19 cross-niche, S8).
+**Cross-niche dedup — LEGACY (S17 note):** in the dump era we ran `sl_master_dedup.py` to drop multi-category
+overlaps before enriching a new niche. With CSV slicing + the `enriched_index` exclusion in `sl_select_build`,
+a store already enriched under another niche is **skipped automatically** — so this pass is no longer part of the
+flow. Kept for reference only: `sl_master_dedup.py dedup logs/storeleads/master_domains.json <new>_full.json <niche> --apply`.
 
 ## 2. Mode & checkpoints (STANDING)
 - **Human-in-loop, with EARNED in-session autonomy for ANALYSIS (RULE 33, S13 — supersedes the old "NOT autonomous" line).**

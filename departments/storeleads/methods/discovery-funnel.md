@@ -35,7 +35,7 @@ target markets). Per-country query+merge is only needed IF we later restrict mar
 one country per query then merge — TO BUILD). Persist raw JSON; reuse, don't re-pull. (`sl_dump3.py` = quick sample.)
 
 **Stage 1 — Select next 250 unprocessed (VPS, ~0 tokens). ⚠ SUPERSEDED by RULE 24 (S3, Marina-locked) — NO field filters.**
-Use **`sl_select_all.py`** (NOT `sl_select.py`): the ONLY exclusion is already-processed (RULE 19). `visits` (`mvis`) is used
+Use **`sl_select_build.py`** (current, decoupled: excludes processed ∪ enriched_index; `sl_select_all.py` = legacy positional selector, `sl_select.py` = retired band-filter): the ONLY exclusion is already-processed/enriched (RULE 19/24). `visits` (`mvis`) is used
 **for batch ORDER only** (desc; missing-visits sorted last but KEPT, never dropped) — **never as a gate**. Do NOT filter by
 `erf`/`apf`/`pc`/weight: these fields are unreliable and missing≠dead (Marina killed even the catalog-giant `pc>2000` cut:
 "pc-данные тоже могут врать… пусть будет"). `cat_flag` from `pc` may still be shown as CONTEXT in the table, but it gates nothing.
