@@ -60,7 +60,7 @@ workflow, founder-taste, product-validation, analysis skills).
 - `operational-memory/op-rules.md` — **PERMANENT rules (read FIRST every session)** — the department's discipline.
 - `capabilities.md` — what Store Leads exposes + what we inherit.
 - `methods/interface-guide.md` — the JSON-API mechanics (login, endpoints, `bq`, filter format, fields, limits).
-- `methods/discovery-funnel.md` — the chain (Stage 0–3): Stage-1 = `sl_select_all` (RULE 24 — NO field filters, analyse every unprocessed store; conservative-cut RETIRED) + data-trust map + discipline.
+- `methods/discovery-funnel.md` — the chain (Stage 0–3): Stage-1 = `sl_select_build` (RULE 24 — NO field filters, analyse every unprocessed store; excludes processed ∪ enriched_index; conservative-cut RETIRED; `sl_select_all` = legacy positional selector) + data-trust map + discipline.
 - `methods/subagent-spec.md` — the Stage-2 enricher's exact job spec (fields, `desc` rule, what NOT to write).
 - `methods/shophunter-enrichment.md` — OPTIONAL cross-dept enrichment of finalists via ShopHunter.
 - `reference/cross-dept-patterns.md` — patterns observed in SH/FB, not adopted yet (reference / archivable).

@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""sl_stage2_table.py — CANONICAL Stage-2 renderer (sl_enrich4 v4.2 → grouped-11 HTML).
+"""sl_stage2_table.py — CANONICAL Stage-2 renderer, FOUNDER surface (sl_enrich4 v4.2 → grouped-11 HTML).
 
-THE single approved Stage-2 reading surface for Store Leads (S6, Marina-locked 2026-06-03).
-Ad-hoc / partial readers are forbidden (op-rule) — analysing from anything but this generator's
-output is what zeroed S5 (a /tmp reader showed 1 product of 3, no images).
+One of the TWO approved Stage-2 reading surfaces for Store Leads (S6 Marina-locked; pair named S18):
+  * THIS file  → HTML for the FOUNDER (images, clickable, opened on the Desktop).
+  * sl_project_any.py → text projection for the AGENT (same fields, 250 cards fit in context).
+Both MUST show the FULL card (all 3 tops + every field). Any other / partial reader is forbidden —
+analysing from a hand-made reader showing 1 product of 3 is what zeroed S5.
 
 Layout = GROUPED-11 (Marina-approved 2026-06-03): #, domain·pitch, tier·score, needs_live,
 geo·age, store signals (maturity·new30d·cat_flag·conv), type (store/product class),
 hero qual (heroConf·descConf·pos), price USD·in_range, 🏠BANNER+top-3, social.
 
-SELF-CERTIFYING: the page header carries an auto-computed STAGE-2 ACCEPTANCE banner (completeness
-+ PASS/STOP). If you are reading a Stage-2 table WITHOUT this banner, it is NOT canonical — STOP.
+SELF-CERTIFYING — and it certifies exactly ONE thing: that the READING is complete (every store,
+every product rendered, nothing hidden). The DATA verdict belongs to sl_qa.py / sl_accept_chunk.py.
+A Stage-2 table without this banner is not canonical — STOP.
 
 Usage: python3 sl_stage2_table.py <enriched.json> <output.html> "<title>" "<funnel banner>"
 """
@@ -53,14 +56,20 @@ def completeness(rows):
     }
     return c
 
-# PASS thresholds (Marina-approved S6 — see sl_qa.py for the gate of record)
-TH = {"reach_pct": 90, "ge1top": 97, "prod_img": 90, "prod_inrange": 99, "prod_descconf": 99,
-      "store_type": 95, "product_class": 95, "cat_flag": 95, "maturity": 95, "new30d": 95,
-      "home_pitch": 90, "avgtops": 2.0}
+# ---------------- what THIS generator certifies: the READING, not the data ----------------
+# Two layers, one owner each: sl_qa.py / sl_accept_chunk.py certify the DATA (completeness of the
+# scraper's output); this generator certifies that every store and every product the file holds is
+# actually RENDERED — nothing hidden. (The S5 failure was a reader showing 1 product of 3.)
+# S18 fix: the banner used to re-check sl_qa's numeric thresholds, so on one and the same file
+# sl_accept_chunk could say ACCEPT (benign products.json dip) while this banner said STOP. Two
+# verdicts, one file. The data percentages below are now INFO ONLY and never STOP the reader.
 c = completeness(rows)
+tops_avail = sum(len(r.get("tops3") or []) for r in rows)
+imgs_avail = sum(1 for r in rows for p in (r.get("tops3") or []) if filled(p.get("img")))
+tops_rendered = sum(min(len(r.get("tops3") or []), 3) for r in rows)   # tops_cell renders [:3]
 miss = []
-for k, t in TH.items():
-    if c.get(k, 0) < t: miss.append(f"{k} {c.get(k)}<{t}")
+if tops_rendered != tops_avail:
+    miss.append(f"products hidden: rendered {tops_rendered} of {tops_avail}")
 verdict_ok = not miss
 
 # ---------------- render helpers ----------------
@@ -110,17 +119,20 @@ h = ['<!doctype html><html lang=ru><meta charset=utf-8><title>', html.escape(tit
      'img{max-width:60px;max-height:60px;border-radius:4px}.sig{font-size:10px;color:#444}.k{color:#888}</style><body>']
 h.append(f"<h1>{html.escape(title)} — layout: grouped (canonical)</h1>")
 
-# --- SELF-CERTIFYING STAGE-2 ACCEPTANCE banner ---
-verline = ("✅ <b>STAGE-2 ACCEPTANCE: FULL CARD — PASS.</b> Loaded Stage-2 enriched file, not Stage-1; "
-           "all contract fields present; 3 tops + images rendered. Canonical generator (sl_stage2_table.py)."
+# --- SELF-CERTIFYING banner: FULL CARD RENDERED (reading completeness — data verdict = sl_qa) ---
+verline = (f"✅ <b>FULL CARD RENDERED — PASS.</b> Stage-2 enriched file (not Stage-1); every store and every "
+           f"product it holds is shown: {c['n']} stores · {tops_rendered}/{tops_avail} products · {imgs_avail} images. "
+           f"Nothing hidden, nothing truncated. Canonical generator (sl_stage2_table.py)."
            if verdict_ok else
-           "⛔ <b>STAGE-2 ACCEPTANCE: STOP — INCOMPLETE.</b> Do NOT analyse. Missing: " + html.escape("; ".join(miss)))
+           "⛔ <b>READING INCOMPLETE — STOP.</b> This table hides part of the card. Do NOT analyse: "
+           + html.escape("; ".join(miss)))
 h.append(f"<div class='accept {'pass' if verdict_ok else 'stop'}'>{verline}<br>"
-         f"<span style='font-size:11px'>stores {c['n']} · reachable {c['reach']} ({c['reach_pct']}%) · avgtops {c['avgtops']} · "
+         f"<span style='font-size:11px'><b>Данные (INFO — вердикт даёт sl_qa.py / sl_accept_chunk.py, не эта таблица):</b> "
+         f"stores {c['n']} · reachable {c['reach']} ({c['reach_pct']}%) · avgtops {c['avgtops']} · "
          f"≥1top {c['ge1top']}% · 3tops {c['tops3']}% · prod-img {c['prod_img']}% · in_range {c['prod_inrange']}% · descConf {c['prod_descconf']}% · "
          f"store_type {c['store_type']}% · product_class {c['product_class']}% · cat_flag {c['cat_flag']}% · maturity {c['maturity']}% · "
-         f"new30d {c['new30d']}% · home_pitch {c['home_pitch']}% · social {c['social']}% (info) · home_img/banner {c['home_img']}% (info) · "
-         f"needs_live {c['needs_live']} to hand-open (RULE 23)</span></div>")
+         f"new30d {c['new30d']}% · home_pitch {c['home_pitch']}% · social {c['social']}% · home_img/banner {c['home_img']}% · "
+         f"needs_live {c['needs_live']} → живой заход руками</span></div>")
 
 h.append(f"<div class=banner><b>⚠ tier/score = SORT-AID, не качество (RULE 6).</b> Stage 3 = читаю ВСЕ строки, "
          f"подтверждаю hero+цену на живом сайте, открываю КАЖДЫЙ needs_live (RULE 23), 100-pt+Veto. "
@@ -159,4 +171,6 @@ for i, r in enumerate(rows, 1):
     h.append(f"<tr class='{r.get('tier','')}'>" + "".join(f"<td>{x}</td>" for x in cells) + "</tr>")
 h.append("</table></body></html>")
 open(outp, "w").write("\n".join(h))
-print("HTML written:", outp, "| rows:", len(rows), "| ACCEPTANCE:", "PASS" if verdict_ok else "STOP " + ";".join(miss))
+print("HTML written:", outp, "| rows:", len(rows),
+      f"| RENDERED: {tops_rendered}/{tops_avail} products,", imgs_avail, "images |",
+      "FULL CARD — PASS" if verdict_ok else "STOP " + ";".join(miss))

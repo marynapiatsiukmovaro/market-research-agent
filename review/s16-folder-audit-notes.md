@@ -11,7 +11,10 @@
 
 ## Findings
 
-### AUDIT-1 — Universe CSV (11 GB) has no top-level pointer · OPEN
+### AUDIT-1 — Universe CSV (11 GB) has no top-level pointer · ✅ DONE (S17)
+**Resolved:** `operational-memory/data-inventory.md` created (paths · sizes · row-counts · reservoirs · state files) and added to the
+session load order in `workflow.md` §0. Verified live in S18: found the CSVs instantly, re-sliced T&H → 7,639, domain-for-domain match.
+<details><summary>original note</summary>
 **What:** the two universe CSVs (Shopify-Active 5.7G + WooCommerce 4.6G = ~11 GB) live on **VPS**
 `logs/storeleads/exports/` (backup) + **Desktop** `~/Desktop/StoreLeads_Exports/` (origin). They are NOT
 in git (too big — correct). The only in-repo pointer is buried in `methods/csv-export.md` ("where they live").
@@ -22,11 +25,11 @@ quickly and wrongly looked on Marina's Desktop — the pointer should not requir
 on VPS, processed_domains mirror, keep-list — the canonical "where everything is" map. Surface it in the session
 load order so it's read at start.
 
-### AUDIT-2 — VPS connection details not pinned centrally · OPEN
-**What:** host `root@5.78.217.133`, key `~/.ssh/market_research_vps`, base `/opt/market-research-agent`. To find
-these I had to grep `scripts/sl_email_login.py` + `README.md`. Already flagged as a gap in S13b learnings ("pin
-VPS connection (key path/host)").
-**Fix idea:** put a one-line CONNECTION block in the same DATA INVENTORY / department README (host · key · base path).
+</details>
+
+### AUDIT-2 — VPS connection details not pinned centrally · ✅ DONE (S17)
+**Resolved:** `operational-memory/data-inventory.md` opens with a 🔌 CONNECTION block (host · key · base · credit-guard · login).
+Verified S18: connected on the first try, no grepping.
 
 ### AUDIT-3 — Doc overload + attention skew (the S15 root cause) · OPEN (Tier-2, big)
 **What:** mandatory-load ≈ 2252 lines; op-rules attention skew ≈ 41:4 (gate/contract machinery vs product-first
@@ -83,6 +86,25 @@ SEED, NOT the open; (b) every UNREACHABLE store MUST be genuinely WebFetched + l
 opens.jsonl verdict must come from a genuine open, not the curl title. This restores RULE 23's intent and stops RULE 29
 from eroding it again. **Meta-lesson (Marina): we replaced a working rule instead of improving it — track WHERE/WHEN each
 discipline erodes (rule-provenance), don't let tooling silently redefine a verb.**
+
+### AUDIT-6 — «слово ≠ дело»: три расхождения на Этапах 1–2 · ✅ DONE (S18, Marina-approved)
+**What (found by walking Stage 0→2 by hand, not by reading docs):**
+1. **The agent's reader was partial AND outside git.** RULE 25 named ONE canonical reader (the HTML). But 250 HTML cards don't fit a
+   context window, so every session actually read via `sl_project_any.py` — VPS-only, untracked, and it **dropped `home_hero`**
+   (the banner product v4.2 added *because* the best-seller pick misfires), truncated `desc` to 58 chars, hid `desc_confidence`/`pust`/
+   `kind`/unreachable-reason. **The agent judged on less than the founder saw, for 27 batches.**
+2. **Two verdicts, one file.** The HTML banner re-checked `sl_qa`'s thresholds → on T&H `s1_b4`, `sl_accept_chunk` said ACCEPT
+   (benign `products.json` dip) while the banner said STOP. A gate you must choose between is not a gate.
+3. **The last funnel step still rested on discipline:** analysis entry read RAW `sl_qa` output and the agent decided by hand whether a
+   ⛔ was benign. Now it asks `sl_accept_chunk` — the script that owns that branch.
+**Fixed:** RULE 25 names both surfaces (founder HTML + agent text, both full-card, both self-certifying the READING only);
+RULE 26 gains "one verdict, one owner" (data = `sl_qa`/`sl_accept_chunk`; reading = the readers); projector rewritten + committed.
+**Also swept:** `conv_subcat`→`conv_batch` (real field), `hero_confidence` is per-STORE not per-product, Stage-1 selector = `sl_select_build`
+everywhere, glossary «чанк сборки ≠ батч анализа» (workflow §0.4), wave 7→1+9, HTML cadence unified (first · every 5th · last).
+**Meta-lesson (reinforces AUDIT-5):** the S13b note called this "docs-level, un-blessed but it works" — a shrug. It wasn't. **A rule that
+describes work nobody does protects nothing.** Rewriting rules must start from watching the work, not from reading the rules.
+
+---
 
 ## How to use
 Append a finding the moment it's noticed (don't wait for end-of-session). One block per item:

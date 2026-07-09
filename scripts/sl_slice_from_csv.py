@@ -4,7 +4,7 @@
 New data-acquisition path: instead of a paginated dump, we filter the captured universe CSV
 (see methods/csv-export.md) by TOP-LEVEL category + visit band, and emit the same `_full.json`
 schema that `sl_select_build.py` consumes. The rest of the pipeline (select_build → enrich4 →
-accept_chunk → mark_enriched, waves of 7) is UNCHANGED. Dedup vs processed∪enriched is automatic
+accept_chunk → mark_enriched, waves of 10 = 1+9) is UNCHANGED. Dedup vs processed∪enriched is automatic
 inside sl_select_build, so this just defines the strategic slice.
 
 Usage:

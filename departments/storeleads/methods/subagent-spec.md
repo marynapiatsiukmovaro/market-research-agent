@@ -86,18 +86,18 @@ SKUs: shipping protection / gift card / warranty / subscription):
 | `price` + `in_range` | REAL price **normalized to USD** (NOT the Store Leads estimate; convert AUD/ZAR/EUR/INR) | variant price + currency code | Margin (price is the #1 unreliable field; ShopHunter lost stores to ₹/AUD mistaken for $) |
 | `niche` / `kind` | type + class (physical / ingestible / skincare / apparel) | title + desc keyword scan | Market / mandatory filters / Veto |
 | `desc` | **1–2 lines: what it IS → what pain it solves → wow / пустышка-claim** | body_html (stripped) | the bridge for the main agent to judge Problem/Wow/Emotion |
-| `hero_confidence` | `high` (from a sales-ordered collection) / `low` (from `all` / homepage HTML) | which ladder rung produced it | tells main agent which candidates to live-confirm first |
+| `hero_confidence` (+ `hero_src`) | `high` (from a sales-ordered collection) / `low` (from `all` / homepage HTML) | which ladder rung produced it | tells main agent which stores to live-confirm first. ⚠ NOTE (S18): emitted **per STORE, not per product** (one ladder rung serves the whole card). |
 | `desc_confidence` | `ok` / `empty` / `mismatched` | desc present & matches title? | empty/mismatched → main agent MUST WebFetch before scoring (anti "winner killed by bad desc") |
 | `storefront_pos` | position in the merchant's own best-selling/featured order | collection order | the merchant saying "THIS is my main one" — works with zero revenue |
 | `investment` | desc length · #images · #variants · badges (Bestseller/As-seen-on) | catalog | effort put in ≠ filler — an early-signal of the store's real hero |
-| `conv_subcat` | how many OTHER stores **in the dumped subcategory** sell the same type (**geo-mirrors deduped** — 7 country-mirrors of one domain = 1) | cross-store title tokens over the ~27k dump | demand validation WITHOUT revenue |
+| `conv_batch` | how many OTHER stores **in the same batch** sell the same type (**geo-mirrors deduped** — 7 country-mirrors of one domain = 1) | cross-store title tokens | demand validation WITHOUT revenue. ⚠ NOTE (S18): the field the enricher actually emits is **`conv_batch`** (batch-scoped), not the `conv_subcat` (whole-dump-scoped) this spec used to name. Convergence is a NOTED observation only — never a score or tier input (Marina S6). |
 | `cat_flag` | hero (pc≤300) / mid / catalog-giant (pc>2000) | Store Leads `pc` | high pc = product is one of many = weaker hero |
 | `maturity` | store age + SKU + revenue band — `emerging` / `established` | `created` + `sl_pc` + `erf` | **`established` ≠ drop** (Marina S2): a proven store invisible in ShopHunter/FB is OUR edge, not a reject |
 | `pust` flag | пустышка claim (detox/lymphatic/circulation/"grow back"…) | title+desc scan | Marina Veto |
 | `image` | main product image URL | catalog | wow is visual — glance without opening |
 | SL metrics | `sl_rev`(erf) · `sl_avg`(apf) · `sl_pc` · `created` · visits(mvis) | from the dump row | context (treat as ESTIMATE) |
 | social | FB / IG / TikTok / Pinterest account links | `identifiers` | ad-research / Notion |
-| `proxy_score` + tier (A/B/C/DROP) | RELIABLE signals only: in-range + conv_subcat + storefront_pos + investment + cat_flag (**NOT revenue** — early winner has none) | computed | **a SORT-AID — NOT quality, NOT final; main agent reads ALL, leads with WOW/taste** |
+| `proxy_score` + tier (A/B/C/DROP) | RELIABLE signals only: in-range + conv_batch + storefront_pos + investment + cat_flag (**NOT revenue** — early winner has none) | computed | **a SORT-AID — NOT quality, NOT final; main agent reads ALL, leads with WOW/taste** |
 
 ### How to write `desc` (the key field)
 Two short factual lines, in order: (1) **what it is** (object + mechanism: "cordless infrared heated seat cushion");
@@ -126,8 +126,9 @@ This is the structural guard against "we lost/мis-scored a winner because the s
 ## Division of labour
 - **Enricher (script):** SCRAPES facts (real catalog) + computes flags/signals + ranks (proxy sort-aid).
   NEVER judges wow / emotion / problem-strength. Its text = a lead, not a verdict.
-- **Main agent (me):** ENTRY GATE first (RULE 25/26) — `sl_qa.py` PASS + read ONLY via the canonical `sl_stage2_table.py`
-  (grouped-11, self-cert banner), never an ad-hoc/partial reader (the S5 zeroing) → read ALL sheets (no gut top-N) → live
+- **Main agent (me):** ENTRY GATE first (RULE 25/26) — `sl_qa.py` PASS + read ONLY via a canonical surface: the AGENT one is
+  `sl_project_any.py` (full-card text; the HTML `sl_stage2_table.py` is the FOUNDER's) — never an ad-hoc/partial reader (the
+  S5 zeroing); each prints `FULL CARD RENDERED — PASS` → read ALL sheets (no gut top-N) → live
   WebFetch confirm of hero+price+desc (mandatory for low-confidence/edge cases) → Marina Veto + 100-pt judgment → 65+ →
   checkpoint → (Marina OK) → Notion.
 

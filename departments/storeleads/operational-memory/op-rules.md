@@ -236,24 +236,45 @@ passes: it excludes only processed, keeps missing-visit stores (sorts them last 
 applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
 pc>2000 cut: "pc-данные тоже могут врать… пусть будет.") Honest low-yield is fine (RULE 11) — but coverage must be total.
 
-### RULE 25 — Canonical Stage-2 reader ONLY; ad-hoc/partial readers forbidden (S6, Marina-approved 2026-06-03) ⭐ THE S5 FIX
-Stage-2 enriched data is read for analysis **ONLY** via the canonical generator **`scripts/sl_stage2_table.py`** (rebuilt S6 →
-**grouped-11 layout, Marina-locked**, full v4.2 contract incl. the 4 fields the old table dropped: `store_type · product_class ·
-new_products_30d · cat_flag`). **Never build an ad-hoc / `/tmp` / partial reader** — that is exactly what zeroed S5 (a hand-made
-reader showed 1 product of 3, no images → invalid "0 winners"). The canonical output **self-certifies**: its page header carries a
-`STAGE-2 ACCEPTANCE` banner (auto-computed completeness + PASS/STOP). **A Stage-2 table WITHOUT that banner is NOT canonical → STOP.**
-Deliver previews as **HTML, not PNG** (Marina S6). *(Root cause: S5 had no single canonical reader, so an ad-hoc one silently truncated.)*
+### RULE 25 — TWO canonical Stage-2 readers (founder + agent); ad-hoc/partial readers forbidden (S6; corrected S18) ⭐ THE S5 FIX
+Stage-2 enriched data is read **ONLY** through the two canonical generators. They render the SAME card in two forms —
+one for each pair of eyes — and **both MUST show the FULL card (every store, all 3 tops, every field). Neither may truncate.**
+- **`scripts/sl_stage2_table.py` → HTML, the FOUNDER surface** (grouped-11, Marina-locked; images, clickable). Goes to Desktop.
+- **`scripts/sl_project_any.py` → text, the AGENT surface** (same fields; 250 cards fit a context window). 250-card HTML does not.
+
+**Never build an ad-hoc / `/tmp` / partial reader** — that is exactly what zeroed S5 (a hand-made reader showed 1 product of 3 →
+invalid "0 winners"). Both generators **self-certify**, and each certifies exactly ONE thing: **that the READING is complete**
+(`FULL CARD RENDERED — PASS: N/N products`). **The DATA verdict is NOT theirs** — it belongs to `sl_qa.py` / `sl_accept_chunk.py`
+(RULE 26). A Stage-2 surface without its FULL-CARD line is not canonical → STOP. Previews as **HTML, never PNG** (Marina S6).
+
+> **S18 correction — why this rule was rewritten (the "слово ≠ дело" class of bug).** The rule named ONE reader (the HTML), but the
+> agent physically cannot read 250 HTML cards in context, so every analysis session actually read through `sl_project_any.py` —
+> a script that **lived only on the VPS, outside git**, and was itself **partial**: it dropped the `home_hero` (the homepage-banner
+> product v4.2 added *because* the best-seller auto-pick misfires — swaddlean/dingle), truncated `desc` to 58 chars, and never showed
+> `desc_confidence` / `pust` / `kind` / the unreachable reason. **So the agent judged on less than the founder saw, while a rule
+> claimed the reader was canonical.** Fixed S18: the projector is in git, prints the whole contract, and self-certifies.
+> Second half of the same bug: the HTML banner re-checked `sl_qa`'s numeric thresholds, so on ONE file `sl_accept_chunk` could say
+> ACCEPT (benign `products.json` dip) while the banner said STOP. Two verdicts, one file, agent forced to pick — a gate that must be
+> chosen between is not a gate. Now: **one verdict, one owner.**
 
 ### RULE 26 — QA-gate PASS + acceptance statement BEFORE any analysis (S6, Marina-approved 2026-06-03)
 Before scoring ANY batch: run **`scripts/sl_qa.py <enriched.json>`** (extended S6 to CARD COMPLETENESS — essence fields +
 per-product image/in_range/descConf, not just reach/price/cur). It must print **✅ PASS**. If **⛔ STOP**, do NOT analyse — report the
 flags and re-enrich. Then state in the human-visible checkpoint, **verbatim**: *"Loaded Stage-2 enriched file, not Stage-1; full card
 (3 tops + images + all fields) — QA PASS."* **Two-layer logic:** `sl_qa.py` certifies DATA completeness (scraper output); the canonical
-reader's self-cert banner (RULE 25) certifies READING completeness — together they close both S5 holes (the gate alone would have
+readers' self-cert line (RULE 25) certifies READING completeness — together they close both S5 holes (the gate alone would have
 PASSED S5, since the data was fine; the reader was not). **PASS thresholds = PROVISIONAL (revisit after b10; failure direction is safe —
 a false STOP only forces a look):** reach≥90 · ≥1top≥97 · prod_img≥90 · in_range≥99 · descConf≥99 · avgtops≥2.0 ·
 store_type/product_class/cat_flag/maturity/new30d≥95 · home_pitch≥90 · price≥95 · cur_null=0. Informational (non-gating): 3tops% ·
 social% · home_img/banner% (these legitimately vary). Pairs with RULE 1 (funnel transparency) + RULE 23 (open every needs_live).
+
+**⭐ ONE VERDICT, ONE OWNER (S18 — the two-layer logic above, now enforced in code, not just prose):**
+- **DATA** (is the scraper's output complete/healthy?) → `sl_qa.py`, and for a build chunk the wrapper `sl_accept_chunk.py`,
+  which alone knows the ACCEPT-logic (a benign `products.json`/vNone dip = ACCEPT; genuine breakage = STOP).
+- **READING** (does the surface show me the whole card?) → the two RULE-25 generators' `FULL CARD RENDERED` line.
+- **The readers no longer re-check data thresholds.** They used to, with a third copy of the numbers — so on the same file the
+  wrapper said ACCEPT and the HTML banner said STOP (live case: T&H `s1_b4`, S18). Duplicate thresholds are how a gate starts lying.
+  A number lives in exactly ONE script; every other place points at it.
 
 ### RULE 27 — Analysis self-verification gate: prove the steps ran, from files not memory (S6, Marina-approved 2026-06-03)
 The analysis side must be machine-verified like Stage-2 is — not trusted to discipline (the ShopHunter lesson: system beats
@@ -328,9 +349,16 @@ the work is **system-driven, never discipline-driven**. Three locked invariants:
   non-decoupled use; not for parallel build.)*
 - **Per-chunk acceptance = `scripts/sl_accept_chunk.py <enriched.json>` (S11, Marina-approved 2026-06-07).** One verdict
   line = count-reconcile + credit-guard (`ps aux | grep claude`, EVERY chunk) + canonical `sl_qa.py` + encoded ACCEPT-logic
-  (benign products.json STOP → ACCEPT; genuine breakage → STOP). System, not discipline. **Rhythm: chunk-1 full check-list →
-  STOP/OK · chunk-2 verify · then waves of 7** (one-line `N/7` narration per chunk · HTML of last chunk + report at wave end →
-  STOP/OK · never auto-chain waves). See workflow §1b "WAVE RHYTHM".
+  (benign products.json STOP → ACCEPT; genuine breakage → STOP). System, not discipline.
+- **⭐ WAVE = 1 + 9 = 10 chunks (Marina S18; was 7).** Chunk-1 → full SCRAPER-ACCEPTANCE check-list → **STOP, wait for OK**
+  (proves the niche/run is healthy). Then **9 chunks run without stopping between them** — each still machine-accepted by
+  `sl_accept_chunk.py` and narrated (RULE 30 report format). At the end of the wave: consolidated report → **STOP for OK.**
+  **Never auto-chain waves.** Mid-wave STOP only on GENUINE breakage (the wrapper prints STOP) — then come to Marina at once.
+  *Why the length is safe: safety rests on the per-chunk machine check, not on the wave being short — the wrapper is as awake
+  at chunk 9 as at chunk 2. There is no unattended server loop; the agent launches each chunk, it just doesn't ask permission.*
+- **⭐ HTML cadence — ONE rule, both modes (Marina S18): first · every 5th · last** (so 1, 5, 10 in a wave of ten). Canonical
+  HTML (`sl_stage2_table.py`) → Marina's Desktop. Anything else on request. *(Was: "last chunk of each wave" in build vs
+  "batch-1 + every 4th" in analysis — two answers to one question, in two files.)*
 
 ### RULE 31 — Checkpoint contract: the report is GATE-GUARDED, never shrinkable (S13, Marina-approved 2026-06-07) ⭐ THE b3/b4 FIX
 The checkpoint REPORT was the ONE step with no machine gate → so when "stop-after-each-batch" was lifted, it silently

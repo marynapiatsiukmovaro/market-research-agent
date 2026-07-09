@@ -124,6 +124,12 @@ Marina sets each item to: **Promote → Wait → Reject**
 **Confidence:** High (read-surface used cleanly across S12 Cats + S13 Dogs = 27 batches; the partial-reader risk is the proven S5 failure mode).
 **Recommendation:** Promote (docs-only). Open when prepping the next session / dept.
 **Added:** 2026-06-07, Session S13b. **Source:** S13b prompt self-assessment (the 2 genuine gaps were docs-level, not prompt-level).
+**✅ RESOLVED S18 (2026-07-09, Marina-approved) — and the "docs-only" framing was WRONG.** The projector was NOT merely un-blessed:
+it was itself **partial** (dropped `home_hero`, truncated `desc` to 58 chars, hid `desc_confidence`/`pust`/`kind`/unreachable-reason)
+and lived **only on the VPS, outside git** — i.e. the agent judged on less than the founder saw, for 27 batches, while RULE 25 claimed
+the reading was canonical. Fixed: `scripts/sl_project_any.py` rewritten to print the full contract + self-certify (`FULL CARD RENDERED
+— PASS: N/N products`), committed to git; RULE 25 now names BOTH surfaces (founder HTML + agent text). VPS connection was pinned in
+`operational-memory/data-inventory.md` (S17). **Lesson: "it works, it's just un-blessed" deserved a look, not a shrug.**
 
 ---
 

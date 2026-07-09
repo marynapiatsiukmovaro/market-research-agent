@@ -1,9 +1,12 @@
 # Store Leads — REBUILD PLAN + PROBLEM STATEMENT (set S16 2026-06-27)
 
-> ✅ **STATUS (S17, 2026-07-09): Блоки 1–2 ВЫПОЛНЕНЫ.** Block 1 = data-acquisition + strategy (commit `f1f88ca`).
-> Block 2 = scraper/enricher prep, verified in деле on 3 real chunks (commit `03c2eff`).
+> ✅ **STATUS (S18, 2026-07-09): Блоки 1–2 ВЫПОЛНЕНЫ и ПЕРЕПРОВЕРЕНЫ РУКАМИ.** Block 1 = data-acquisition + strategy (`f1f88ca`).
+> Block 2 = scraper/enricher prep (`03c2eff`). **S18: прошёл Этапы 1–2 вживую на новом чанке T&H `s1_b4`** — оба работают;
+> сломаны были только СЛОВА о них. Исправлены 3 расхождения «слово ≠ дело»: два канонических ридера (агентский проектор был
+> partial и вне git) · один вердикт — один хозяин (баннер спорил с приёмкой на одном файле) · волна 1+9 и единая каденция HTML.
 > **Остался Блок 3 — система АНАЛИЗА** (op-rules 33→~10 · human-in-loop · вернуть живой заход · не плодить гейты).
-> Актуальное состояние → `departments/storeleads/operational-memory/learnings.md` (HANDOFF **S17**).
+> Проверка: сначала **Toys & Hobbies с батча 1** (честный полигон), затем **H&G b1–b5** (контроль на потерю — ответ известен).
+> Актуальное состояние → `departments/storeleads/operational-memory/learnings.md` (HANDOFF **S18**).
 
 > **Purpose (Marina S16):** capture the problem + the staged plan to rebuild a CLEAN base, so next session
 > we execute it step-by-step (Marina will formalize/approve each step). **We delete NOTHING — the system works;

@@ -47,6 +47,16 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 
 > ⚠️ **Никогда не анализируй Stage-1 файл вместо Stage-2** — это была ошибка S5 (взял недоготовленный файл). Вход в анализ защищён **STAGE-2 ACCEPTANCE** (§1a): заявить *«Loaded Stage-2 enriched, not Stage-1»* + QA PASS.
 
+### 📖 СЛОВАРЬ — «чанк» ≠ «батч» (S18, Marina-locked)
+Оба означают 250 магазинов, но это **разные счётчики, и они не совпадают**:
+- **Чанк сборки** (`s<S>_b<N>`) — 250 магазинов, которые СКРАПЕР подготовил. Считается по `enriched_index`. Волна = 10 чанков.
+- **Батч анализа** — 250 магазинов, которые АГЕНТ разбирает. Считается по `processed_domains.json`.
+
+Ниша может иметь 4 готовых чанка и **ноль** проанализированных батчей (ровно так у Toys & Hobbies на S18).
+**Анализ всегда начинается с батча 1** — то есть с чанка `b1`, самого верха по визитам, — независимо от того,
+сколько чанков успела построить сборка. «Мы уже сделали b4» относится к скраперу, а не к анализу.
+*(Инвариант RULE 30: `enriched ≠ processed`. Сборка помечает enriched; только анализ помечает processed.)*
+
 ## 0.5 SESSION MODE — pick ONE before doing anything (S8) ⭐
 After loading context, read the prompt + the **HANDOFF "▶ NEXT" line**, then route to exactly one mode:
 - **🔬 ANALYSIS** — score a ready/enriched reservoir → winners → checkpoint → Notion. **Go to §1a** (Stage-2 entry checklist
@@ -73,21 +83,27 @@ Supporting method docs:
 Never start analysis until ALL pass, in order:
 1. **Preflight** — `ps aux | grep claude` on the VPS (credit guard, RULE 13) · proxy health-check (RULE 14) · verify the
    enriched file exists for this batch.
-2. **QA-gate** — `python3 scripts/sl_qa.py <enriched.json>` → **✅ PASS** = analyse. (Gate checks card completeness: 3 tops ·
-   images · in_range · descConf · the 5 essence fields — not just reach/price.) **⛔ STOP → branch (S8 — do NOT blindly
-   re-enrich):** if the STOP is the **vNone/products.json artifact** (reach ≥ ~90% · cur_null=0 · count reconciled · cand/
-   product_class just under 95 from `products.json`-off unreachable) → **PROCEED to analysis**, the unreachable are alive
-   micro-stores opened by hand (RULE 23, §1b ACCEPT-logic) — re-enriching does NOT recover them (proven S8 ch2 redo→0/20).
-   Re-enrich ONLY for genuine breakage: reach OUT of band · cur_null>0 · enriched≠selected · a real card-completeness gap.
-3. **Canonical reader ONLY** — render via `python3 scripts/sl_stage2_table.py <enriched.json> <out.html> "<title>" "<funnel>"`
-   (grouped-11, self-certifying). **Never** an ad-hoc/`/tmp`/partial reader (RULE 25). Confirm the page header shows the green
-   `STAGE-2 ACCEPTANCE: FULL CARD — PASS` banner.
+2. **DATA verdict — ask the owner, don't interpret raw thresholds (S18).** Run
+   `python3 scripts/sl_accept_chunk.py <enriched.json>` → **ACCEPT** = analyse · **STOP** = genuine breakage, do NOT analyse.
+   It wraps the canonical `sl_qa.py` (the single source of the thresholds) and encodes the branch that used to sit in the
+   agent's head: a **vNone/`products.json` artifact STOP** (reach ≥ ~90% · cur_null=0 · count reconciled · cand/product_class
+   just under 95 because of `products.json`-off unreachable stores) is **ACCEPT-with-note** — those are alive micro-stores,
+   hand-opened at analysis (RULE 23); re-enriching does NOT recover them (proven S8 ch2 redo → 0/20). Genuine breakage =
+   reach OUT of band · cur_null>0 · enriched≠selected · a real card-completeness gap → re-enrich.
+   *(Raw `sl_qa.py` alone still runs and still prints its own ⛔ on those provisional fields — that is expected and is NOT a
+   verdict. Reading it directly is what left the last step of the funnel resting on discipline. Same reason RULE 26 says: one
+   verdict, one owner.)*
+3. **Canonical readers ONLY — two surfaces, both full-card (RULE 25).** Agent reads via
+   `python3 scripts/sl_project_any.py <enriched.json>` (text; 250 cards fit in context). Founder gets
+   `python3 scripts/sl_stage2_table.py <enriched.json> <out.html> "<title>" "<funnel>"` (HTML, images).
+   **Never** an ad-hoc/`/tmp`/partial reader. Confirm each prints its `FULL CARD RENDERED — PASS: N/N products` line.
+   *(That line certifies the READING only. The DATA verdict is `sl_qa.py` / `sl_accept_chunk.py` — RULE 26.)*
 4. **Acceptance statement** — state verbatim in the checkpoint: *"Loaded Stage-2 enriched file, not Stage-1; full card (3 tops
    + images + all fields) — QA PASS."*
-5. **HTML preview to Desktop** — deliver the canonical HTML (NOT PNG — Marina S6) for **batch-1 of the session + every 4th
-   batch** so Marina can spot-audit quality.
+5. **HTML preview to Desktop** — canonical HTML (NOT PNG — Marina S6) on the **first batch · every 5th · the last**
+   (op-rules RULE 30 — same cadence as build), so Marina can spot-audit quality. More on request.
 
-### STAGE-2 ACCEPTANCE CHECKPOINT (show Marina, batch-1 + every 4th)
+### STAGE-2 ACCEPTANCE CHECKPOINT (show Marina: batch 1 · every 5th · the last — RULE 30)
 ```
 STAGE-2 ACCEPTANCE CHECKPOINT
 Batch: [N]            Source file: [path]
@@ -143,10 +159,10 @@ The mandatory steps per batch, in order. I mark each ☐→☑ as I go and repor
 machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 28: I always surface anything notable beyond this list.)**
 ```
 ☐ 1. Preflight: VPS credit-guard (ps aux | grep claude) · proxy health · enriched file present
-☐ 2. Stage-2 QA-gate: sl_qa.py → ✅ PASS  (⛔ STOP: re-enrich ONLY for genuine breakage; a vNone products.json-STOP at reach≥~90 = PROCEED + hand-open, §1a pt2 / §1b ACCEPT-logic)
-☐ 3. Render canonical Stage-2 table (sl_stage2_table.py, grouped HTML) — green ACCEPTANCE banner present
+☐ 2. Stage-2 DATA verdict: sl_accept_chunk.py → ACCEPT (it wraps sl_qa.py + encodes the benign-vs-breakage branch; STOP = re-enrich)
+☐ 3. Read via the canonical AGENT surface (sl_project_any.py) — "FULL CARD RENDERED — PASS: N/N products" present (RULE 25)
 ☐ 4. State acceptance line: "Loaded Stage-2 enriched, not Stage-1; full card — QA PASS"
-☐ 5. HTML preview to Desktop (batch-1 of session + every 4th batch)
+☐ 5. Canonical HTML (sl_stage2_table.py) → Marina's Desktop on batch 1 · every 5th · the last (RULE 30)
 ☐ 6. Read ALL stores (no gut top-N, RULE 6)
 ☐ 7. Hand-open EVERY needs_live + unreachable → log each in opens.jsonl (RULE 23)
 ☐ 8. Live-confirm hero + price for every genuine candidate (RULE 7) → score → scores.jsonl
@@ -168,9 +184,10 @@ ready file). The point: prep ahead so tomorrow's analysis starts instantly on re
 a time, every chunk accepted** (RULE 30). Per chunk, in order:
 
 > 🧭 **PATH CONVENTION (the trap that cost time in S8 — memorise it):**
-> `sl_select_all.py` & `sl_enrich4.py` args are **RELATIVE to `logs/storeleads`** (the script prepends it →
-> `niches/.../slug`). `sl_qa.py` / `sl_analysis_gate.py` / `sl_stage2_table.py` take a **CWD-relative path**
-> (full `logs/storeleads/niches/.../file`). Mixing them = `FileNotFound` / doubled path. Use the template verbatim.
+> `sl_select_build.py` (& legacy `sl_select_all.py`) & `sl_enrich4.py` args are **RELATIVE to `logs/storeleads`**
+> (the script prepends it → `niches/.../slug`). `sl_qa.py` / `sl_accept_chunk.py` / `sl_analysis_gate.py` /
+> `sl_stage2_table.py` / `sl_project_any.py` take a **CWD-relative path** (full `logs/storeleads/niches/.../file`).
+> Mixing them = `FileNotFound` / doubled path. Use the template verbatim.
 
 **Launch template — DECOUPLED (S11): `enriched_index` exclusion, NO SKIP. `<D>=niches/<L1>/<niche>/<slug>`.**
 ```
@@ -201,16 +218,17 @@ python3 scripts/sl_mark_enriched.py logs/storeleads/${R}_enriched.json <niche> s
 > *(Backfill `enriched_index` once from any chunks built before this existed: loop `sl_mark_enriched` over them.)*
 > `sl_qa.py` alone still works as the raw gate; `sl_accept_chunk` WRAPS it (count-reconcile + credit-guard + ACCEPT-logic).
 
-### ⭐ WAVE RHYTHM for large builds (S11, Marina-approved 2026-06-07)
-A big niche (50–90 chunks) runs in **waves of 7**, hands-off-but-verified:
+### ⭐ WAVE RHYTHM for large builds (S11; wave length + HTML cadence set by Marina S18)
+A big niche runs in **waves of 10 = 1 + 9**, hands-off-but-verified:
 - **chunk-1** = full SCRAPER-ACCEPTANCE check-list → **STOP, WAIT for Marina's OK** (proves the niche/run is healthy).
-- **chunk-2** = verify clean (one accept-line). If clean → run the rest of the niche in **waves of 7 chunks**.
-- **Inside a wave:** per chunk, post the human-readable progress report — **format lives in op-rules RULE 30** (Marina-locked S17:
-  ✅ Chunk N/M — ниша — ПРИНЯТ + цифры словами + ▶️ что запускаю дальше; **plain text, never a code-block**). Marina watches, presses nothing.
-  Per-chunk acceptance is MECHANICAL via `sl_accept_chunk.py` (credit-guard runs EVERY chunk — system, not discipline).
-- **End of each wave:** canonical HTML of the **last** chunk → Desktop + a consolidated wave report → **STOP, WAIT for OK**
-  before the next wave. **Never auto-chain waves** (the "STOP between waves" rule). STOP mid-wave only on GENUINE breakage
-  (sl_accept_chunk prints STOP: reach<90 / count mismatch / cur_null>0 / reachable-card gap — NOT a benign products.json STOP).
+- **chunks 2–10** = run **without stopping between them**. Per chunk, post the human-readable progress report — **format lives
+  in op-rules RULE 30** (✅ Chunk N/M — ниша — ПРИНЯТ + цифры словами + ▶️ что запускаю дальше; **plain text, never a code-block**).
+  Marina watches, presses nothing. Per-chunk acceptance is MECHANICAL via `sl_accept_chunk.py` (credit-guard EVERY chunk —
+  system, not discipline). Safety comes from that per-chunk check, not from the wave being short.
+- **HTML → Desktop on chunks 1, 5, 10** (first · every 5th · last — the single cadence, op-rules RULE 30).
+- **End of the wave:** consolidated wave report → **STOP, WAIT for OK** before the next wave. **Never auto-chain waves.**
+  STOP mid-wave ONLY on GENUINE breakage (sl_accept_chunk prints STOP: reach<90 / count mismatch / cur_null>0 / reachable-card
+  gap — NOT a benign products.json STOP) → come to Marina immediately.
 
 ### SCRAPER-ACCEPTANCE CHECK-LIST (present to Marina at chunk-1 + every 3 chunks; any QA fail → STOP + show now)
 The agent ticks ☐→☑ from the actual run output. `sl_qa.py` runs on EVERY chunk (machine, 0-cost); the founder sees this

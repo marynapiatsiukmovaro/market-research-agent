@@ -42,15 +42,15 @@
 ## 🛢️ Энрич-резервуары (готовые Stage-2 файлы для анализа) — на VPS
 `logs/storeleads/niches/<niche>/`:
 - `home-and-garden/` — `hg_b1..b22_enriched.json` (**5,500 магазинов**, полоса 1k–10k) + `_table.html`; у `b1` есть `_crossref/_opens/_scores.jsonl`
-- `toys-and-hobbies/` — `th_1k10k_full.json` (срез 7,639) + `th_1k10k_s1_b1..b3_enriched.json` (**750 магазинов**, полоса 1k–10k, построены S17; ещё ~28 чанков в срезе)
+- `toys-and-hobbies/` — `th_1k10k_full.json` (срез 7,639) + `th_1k10k_s1_b1..b4_enriched.json` (**1,000 магазинов**, полоса 1k–10k; b1–b3 построены S17, b4 — S18; ещё ~27 чанков в срезе). **Проанализировано: 0** — сюда идёт Этап 3, батч 1.
 - `pets-and-animals/` — Dogs/Cats прошлых сессий
 
-**Итого соэнричено (enriched_index): 27,749 магазинов.** `processed` (проанализировано) = 19,604 — **enriched ≠ processed**, это инвариант: сборка не помечает processed, только анализ.
+**Итого соэнричено (enriched_index): 27,999 магазинов.** `processed` (проанализировано) = 19,604 — **enriched ≠ processed**, это инвариант: сборка не помечает processed, только анализ. ⚠️ Ниша может иметь готовые чанки и ноль проанализированных батчей (ровно так у T&H) — см. словарь «чанк ≠ батч» в `workflow.md` §0.4.
 
 ## 📒 Состояние (single source of truth — на VPS, зеркало в репо)
 `logs/storeleads/` на VPS:
 - `processed_domains.json` — мастер-запись проанализированных магазинов (RULE 19/20). **Зеркало в репо:** `operational-memory/processed_domains.json`.
-- `master_domains.json` — кросс-нишевый dedup (RULE 19).
+- `master_domains.json` — кросс-нишевый dedup (RULE 19), **LEGACY** (поглощён `enriched_index`, см. workflow §1b). Структура: `{_meta, domains}` — доменов **60,306**; наивный `len()` верхнего словаря даёт «2» (S18: на этом легко ошибиться).
 - `enriched_index.json` — что уже соэнричено (decoupled build, RULE 30).
 - `_visits_map.json` — карта визитов.
 - `operational-memory/keep-list.md` (в репо) — strong/borderline магазины для будущего newest-first монитора (RULE 20).
