@@ -164,6 +164,17 @@ CUR_RATE = {"USD":1.0,"GBP":1.27,"EUR":1.08,"CAD":0.73,"AUD":0.66,"NZD":0.61,"IN
             "PLN":0.25,"AED":0.27,"SGD":0.74,"HKD":0.128,"CZK":0.043,"RON":0.22,"HUF":0.0028}
 
 def store_currency(pg, dom):
+    """Returns (currency, suspect) — `suspect` = the store's two sources disagree.
+
+    S19, live case: `magnetichoop.com` declares `currency: USD` in /meta.json while its storefront
+    charges HK$. A HK$680 hoop (real ≈ $87) reached the card as `$680 [out of range]` and would have
+    been silently dropped as too expensive. The old code asked /meta.json FIRST and returned on the
+    first answer, so /cart.json — which already said HKD — was never consulted.
+
+    **/cart.json wins on disagreement: it is what the buyer is actually charged.** Price is the #1
+    unreliable field (RULE 7); a currency lie is the one bug that drops a candidate without a symptom.
+    """
+    seen = {}
     for ep in ("/meta.json", "/cart.json"):
         try:
             pg.goto("https://%s%s" % (dom, ep), wait_until="domcontentloaded", timeout=15000)
@@ -171,10 +182,14 @@ def store_currency(pg, dom):
             if body.strip().startswith("{"):
                 d = json.loads(body)
                 c = d.get("currency") or (d.get("shop") or {}).get("currency")
-                if c: return c.upper()
+                if c:
+                    seen[ep] = c.upper()
         except Exception:
             pass
-    return None
+    meta, cart = seen.get("/meta.json"), seen.get("/cart.json")
+    if meta and cart and meta != cart:
+        return cart, True          # the cart is the truth; the declared currency lied
+    return (cart or meta), False
 
 def usd(price, cur):
     rate = CUR_RATE.get((cur or "").upper(), 1.0)
@@ -370,8 +385,14 @@ def work(args):
                     if hh["handle"] and hh["handle"] not in [r.get("handle") for r in rows]:
                         rows = [hh] + rows
                         hconf = "high"; o["hero_confidence"] = "high"; o["hero_src"] = src + "+home-hero"
-            store_cur = store_currency(pg, dom) or CC_CUR.get((cc or "").upper(), ("?", 1.0))[0]
+            store_cur, cur_suspect = store_currency(pg, dom)
+            store_cur = store_cur or CC_CUR.get((cc or "").upper(), ("?", 1.0))[0]
             o["store_currency"] = store_cur
+            # The store contradicted itself about its own currency → every price on this card is
+            # derived from /cart.json, and the agent must confirm it live (RULE 7). The FLAG and the
+            # needs_live decision are set by their own owners below (lines ~510 and ~529) — setting
+            # them here would be silently overwritten. One field, one owner.
+            o["currency_suspect"] = bool(cur_suspect)
             clean = []
             for r in rows:
                 if has(r["t"], JUNK): continue
@@ -490,6 +511,7 @@ if __name__ == "__main__":
         if not inr: flags.append("price-out")
         if pcl in TRADE_CLASSES: flags.append("TRADE:%s" % pcl)
         if dc != "ok": flags.append("desc:%s→WebFetch" % dc)
+        if r.get("currency_suspect"): flags.append("currency-suspect→live")   # S19: /meta.json lied
         if r["hero_confidence"].startswith("low"): flags.append("hero:low→confirm")
         if r.get("new_products_30d", 0) >= 1: flags.append("new30d:%d" % r["new_products_30d"])
         if r["maturity"] == "established": flags.append("established")
@@ -511,6 +533,9 @@ if __name__ == "__main__":
             dc = r.get("desc_confidence")
             if dc and dc != "ok": nl = True; why.append("desc-" + dc)
             if r.get("tier") == "PRICE-CHECK": nl = True; why.append("price-unknown")
+            # S19: the store's declared currency contradicted its cart → the price cannot be judged
+            # from the card at all. This is the one bug that drops a candidate with no symptom.
+            if r.get("currency_suspect"): nl = True; why.append("currency-suspect")
             pitch_ok = bool((r.get("home_pitch") or "").strip())
             cand_readable = (dc == "ok") and bool((r.get("desc") or "").strip())
             if not pitch_ok and not cand_readable: nl = True; why.append("card-thin")

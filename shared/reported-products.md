@@ -198,6 +198,13 @@ Read this file at the START of every session to prevent duplicate reporting.
 | 2026-06-27 | **The Wriggler — Anti-Roll Changing Mat** | Kids | 68 | Patented-kneepad anti-roll changing mat $43; real frequent nappy-change pain, video+testimonials, camera-demoable impulse. ⚠ Convergence w/ Yogorgeous (Watchlist) + WriggleBum (Consider); patented = white-label-exact no. **THE S15-MISS store — redeemed by guard cross-ref + restored live-open.** → Notion. | Store Leads (S16 H&G b5) / thewriggler.com |
 | 2026-06-27 | **OtterSpace — Total Blackout Curtain Kit** | Home | 66 | Magnetic tool-free 100%-blackout kit $129, portable (home/travel), neuroscientist single-product DT; real sleep pain + demoable wow. Premium tier (margin cap). Found via restored live-open (was a thin-card needs_live flag). → Notion. | Store Leads (S16 H&G b5) / inotterspace.com |
 
+### Store Leads S19 — Toys & Hobbies (batch 2, visits 1k–10k; first batch with the AGENT'S OWN store-selection restored) — IN NOTION 2026-07-09
+| 2026-07-09 | Halftoys Magnetic Anatomy Dinosaur (Half-Dino) | Kids | 69 | Animal splits in half on magnets, skeleton puzzle inside — 3-second demo, adults fidget with it too; $80 6-pack / $16 each. ⚠ Needs Verification: brand ownership NOT confirmed ("curating **and** creating") — if Halftoys is a protected third-party brand, only the mechanism is copyable. **Agent-selected, not a robot flag.** | Store Leads (S19 T&H b2) / learnplay.com |
+| 2026-07-09 | Bumpeez Self-Inflating Bumper Car | Kids | 59 | agent <65 — FOUNDER-RAISED (Marina). Patented self-inflating ride-on, Shark Tank, 4.8★/60+. ⚠ patented + bulky + lithium (RULE 10). **⭐ The scraper's `products.json` exposes ONLY spare parts ($14.99 battery, $9.99 remotes) — the $149.99 car is absent from the data. Found by the live open alone** (re-verified 2026-07-09). | Store Leads (S18b T&H b1) / bumpeeztoys.com |
+| 2026-07-09 | MOLUK Bilibo — open-ended shell toy | Kids | 52 | agent <65 — FOUNDER-RAISED (Marina). 20× spiel gut + TOTY Preschool Toy of the Year; no batteries/screens, every child invents a use. ⚠ store prices in **CHF** (19.90 CHF ≈ $24 = below the $39 floor); shell is trivial to source, the design is the brand. | Store Leads (S19 T&H b2, browse) / moluk.com |
+
+*(b2 also produced borderline Sewtalent magnetic embroidery hoop 64 — [magnetichoop.com](https://www.magnetichoop.com), real ≈$87 — the card showed `$680 [out of range]` because the store declares `currency: USD` in `/meta.json` while selling in HK$. Not entered; kept as the live proof that a currency lie silently drops a candidate. Also MorisMos anatomy frog plush 55, $37.)*
+
 ## Rules
 - Do not remove old entries. This log is cumulative.
 - Add one row per reported product (score 65+) at the end of each session.

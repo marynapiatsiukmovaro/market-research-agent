@@ -51,6 +51,12 @@ Dedupe by domain. Note WHY in 4–5 words. Keep clickable.
 | 2026-06-27 | [chickcozy.com](https://chickcozy.com) | 63 | solar auto chicken-coop door (H&G b5) | S16 borderline; real pain (predator-safety/convenience) + demo, but $159 premium + niche (chicken keepers, growing trend) — watch the backyard-chicken vector |
 | 2026-06-27 | [claymoreoutdoor.com](https://claymoreoutdoor.com) | ~50 | portable outdoor fan V600+ (H&G b5) | S16 browse — found by LIVE-OPENING an "unreachable" store (title hid it!); Red Dot fan $64.95 in-range but branded/commodity-adjacent — proof that opening unreachable matters |
 
+| 2026-07-09 | [learnplay.com](https://learnplay.com) | 69 | magnetic anatomy toy (Kids) | S19 WINNER → Notion; Halftoys snap-apart dino w/ skeleton; watch what else they launch (brand ownership unverified) |
+| 2026-07-09 | [magnetichoop.com](https://www.magnetichoop.com) | 64 | magnetic embroidery hoop (Craft) | S19 borderline; real ≈$87 (card said $680 — HKD lie); 364 rev / 94% 5★; magnets = air-freight limits — watch for a lighter version |
+| 2026-07-09 | [morismosplush.com](https://morismosplush.com) | 55 | anatomy plush w/ removable organs (Kids) | S19 borderline; own brand, novel mechanism, $37 below floor — watch if a premium version appears |
+| 2026-07-09 | [bumpeeztoys.com](https://bumpeeztoys.com) | 59 | self-inflating bumper car (Kids) | S18b founder-raised → Notion; Shark Tank, patented; the store's data shows ONLY spare parts — proof the live open is irreplaceable |
+| 2026-07-09 | [thesteadyhandshop.com](https://thesteadyhandshop.com) | ~48 | modular storage inserts (Craft) | S19 browse; own brand, sewn in Tennessee, positioned for ADHD/neurodivergent makers — unusual angle, $28–34 below floor |
+
 ---
 
 ## How to add

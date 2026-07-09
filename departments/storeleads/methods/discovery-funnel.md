@@ -81,9 +81,12 @@ shared iProyal proxy-check; Store Leads uses the same `cookies/proxy.creds` + de
 > enrichment (provisional — decide after batch 6 whether it earns its paid sub).
 
 **Stage 3 — Deep-score (chat) — the real filter. NEVER skip / never eyeball the proxy tier.**
-- **ENTRY GATE FIRST (RULE 25 + 26 — the S5 fix):** before reading anything, run `sl_qa.py <enriched.json>` → must be ✅ PASS;
-  render via the **canonical** `sl_stage2_table.py` (grouped-11, self-cert `STAGE-2 ACCEPTANCE` banner) — **never** an ad-hoc/partial
-  reader (analysing a hand-made reader that showed 1 product of 3 is what zeroed S5); state the acceptance line in the checkpoint.
+- **ENTRY GATE FIRST (RULE 25 + 26 — the S5 fix; updated S18/S19):** run **`sl_accept_chunk.py <enriched.json>` → ACCEPT**
+  (it owns the DATA verdict and wraps `sl_qa.py`; reading raw `sl_qa` output and interpreting its ⛔ by hand is what left the
+  last funnel step on discipline). Then **`sl_card_parity.py <enriched.json>` → ✅ PARITY PASS** — it proves the FOUNDER's HTML
+  (`sl_stage2_table.py`) and the AGENT's text (`sl_project_any.py`) render the same card. **Never** an ad-hoc/partial reader
+  (a hand-made reader showing 1 product of 3 is what zeroed S5). State the acceptance **numbers** in the checkpoint, never a
+  memorised sentence.
 - Read **ALL** candidate sheets (A+B+C), no gut top-N (FB RULE 8). The enricher's A/B/C/`score`
   is a **revenue/price sort-aid, NOT quality** — lead with WOW + founder-taste, never the tier.
 - **Hero-confirmation gate:** for every genuine-looking white-label candidate, **WebFetch the
@@ -102,6 +105,10 @@ links only. Convergence/revenue earns at most Watchlist, never auto-Consider.
 Service data is directional. Per field:
 - **Price (`apf`/min/max) — NEVER trust; ALWAYS confirm on the live site** before scoring (the #1 unreliable field;
   ShopHunter caught $45 vs real $159.95 repeatedly; en-route currencies/locale formatting also distort it).
+- **⚠ Store currency — `/meta.json` CAN LIE (found S19, live case).** `magnetichoop.com` (HK) declares `currency: USD`
+  in `/meta.json` while its storefront sells in **HK$** → a HK$680 hoop (real ≈ $87) reached the card as `$680 [out of
+  range]` and would have been dropped as too expensive. The S2 learning "the TRUE store currency comes from `/meta.json`"
+  is **not always true**. Treat the normalized price as directional; the live site decides (RULE 7).
 - **Est revenue (`erf`) — directional only.** Cross-validated OK for Stoov ($314k≈SH $332k) but off for CompoCloset
   ($344k vs SH $1M). Use for rough banding, corroborate (ShopHunter, ad activity) before relying.
 - **Est Visits/PageViews (`mvis`/`mpv`) — good as a RANKING signal**, not an absolute. Start >1000, don't exclude lower.

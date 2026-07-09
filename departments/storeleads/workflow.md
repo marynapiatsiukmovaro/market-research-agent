@@ -120,7 +120,7 @@ Decision: proceed / stop
 
 ### ANALYSIS CHECKPOINT (after deep-score, before Notion — proves the system ran, not memory)
 As I analyse I keep two artifact files, then a gate verifies them (RULE 27) — the numbers below are COMPUTED by the gate, not typed from memory:
-- **`np_bN_opens.jsonl`** — one line per hand-opened store `{domain, verdict}` (every needs_live + unreachable). **Generate it with `python3 scripts/sl_open_flags.py <enriched.json> np_bN_opens.jsonl` (RULE 29, P1+P3):** the tool seeds every flag + device-class-in-range store (domain·status·prices, with 503-retry) so completeness is enforced by the tool; the agent only fills each `verdict`. (Do NOT run the P2 consumer-other sweep — dropped S7; the RULE-6 full read is the net.)
+- **`np_bN_opens.jsonl`** — one line per store the agent GENUINELY opened (WebFetch + looked). `scripts/sl_open_flags.py` may seed the lines, but **it is a curl, not an open (RULE 29, corrected S19)**: it answers "is the site alive", never "what is this product". **A `verdict` may only be written after a real live open.** Running the seeder to green the gate is forbidden — that is how S15 lost three winners behind a green dashboard. (Do NOT run the P2 consumer-other sweep — dropped S7; the RULE-6 full read is the net.)
 - **`np_bN_scores.jsonl`** — one line per deep-scored candidate `{domain, hero, price, problem/wow/emotion/margin/market, veto, score, bucket}`.
 - **`python3 scripts/sl_analysis_gate.py <enriched> <opens.jsonl> <scores.jsonl>`** → must be **✅ PASS** (STOPs if a flag is unopened or a device-class candidate has no verdict). It also emits the deterministic BROWSE-POOL (RULE 28).
 ```
@@ -173,8 +173,7 @@ machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 
 ☐ 9. Analysis-gate: sl_analysis_gate.py → ✅ PASS  (else STOP, fill gaps) — now ALSO STOPs if browse < 7 (RULE 32 floor)
 ☐ 10. Checkpoint to Marina — CONTRACT-COMPLETE (RULE 31): ALL sections present (winners / borderline / browse / funnel+ABC / loss-audit,
       each with the 1–2-line plain-language description) + the gate PASS line pasted. Missing any section = not canonical = STOP.
-      Rhythm (RULE 33): batch-1 + batch-2 → STOP & WAIT for OK; within an approved block (batches 3–6) → post the FULL checkpoint
-      but DON'T wait — continue, UNLESS a winner 65+ (pause before Notion) or breakage. "No stop" NEVER means "less report".
+      Rhythm (RULE 33, S19): **EVERY batch → STOP & WAIT for Marina's OK.** No autonomous blocks. Depth over count.
 ☐ 11. After OK / end-of-block: Notion + reported-products + sl_mark_processed + keep-list + learnings/HANDOFF
 ```
 > ⭐ **S13 contract (Marina-approved 2026-06-07) — op-rules RULE 31/32/33.** The checkpoint REPORT is now gate-guarded like every
@@ -277,10 +276,12 @@ a store already enriched under another niche is **skipped automatically** — so
 flow. Kept for reference only: `sl_master_dedup.py dedup logs/storeleads/master_domains.json <new>_full.json <niche> --apply`.
 
 ## 2. Mode & checkpoints (STANDING)
-- **Human-in-loop, with EARNED in-session autonomy for ANALYSIS (RULE 33, S13 — supersedes the old "NOT autonomous" line).**
-  Batch-1 + batch-2 → full checkpoint → **WAIT for OK**; once stable, **batches 3–6 run as one block** (full contract-complete
-  checkpoint EACH, no per-batch stop) UNLESS a **winner 65+** (pause before Notion) or **breakage** (gate STOP). Still
-  human-gated at: batch-1/2, end-of-block, and **ANY Notion write (always WAIT for OK).** (RESERVOIR-BUILD keeps RULE 30's wave-rhythm.)
+- **HUMAN-IN-LOOP. Autonomous analysis is RETIRED (RULE 33, rewritten S19 — the contradiction with line 9 is gone).**
+  **Every batch** → full contract-complete checkpoint → **STOP, WAIT for Marina's OK.** Any Notion write → after her
+  explicit OK. Any winner 65+ → pause. Breakage → come at once. *Why: the old "earned autonomy" block is where S15
+  happened — six batches, zero links opened by hand, three winners lost, all gates green.*
+  **Depth over count:** an honest 3 batches beat 6 skimmed ones. (RESERVOIR-BUILD keeps RULE 30's wave-rhythm — a
+  scraper run has no judgment to lose.)
 - Checkpoint = winners 65+ / borderline 55–64 / patterns / **browse-pool — FLOOR 7, no ceiling (RULE 32; when unsure INCLUDE; tail
   is a priority)** / full funnel+ABC / loss-audit — **all sections present + gate PASS line (contract, RULE 31).** Every link clickable.
   Convergence/revenue earns at most Watchlist, never auto-Consider.

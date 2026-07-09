@@ -11,8 +11,8 @@
 > universe** (its product cards need a non-Shopify enrich path — `products.json` doesn't exist there; scope before use).
 
 **ACTIVE:** `niche-store-first-at-scale.md` — pick a niche → ~~dump with 3 server-side filters~~ **filter the captured
-universe CSV (or self-export the niche, `methods/csv-export.md`)** → **`sl_select_all.py` (RULE 24: NO field filters;
-visits = order only; analyse EVERY unprocessed store)** → live-enrich heroes + open EVERY needs_live → 100-pt + Veto →
+universe CSV (or self-export the niche, `methods/csv-export.md`)** → **`sl_select_build.py` (RULE 24: NO field filters;
+visits = order only; analyse EVERY unprocessed store; `sl_select_all.py` = legacy — corrected S19)** → live-enrich heroes + open EVERY needs_live → 100-pt + Veto →
 65+/55–64/browse. Pilot 2026-05-30 (K&D 200) validated the chain; S4 (Nursery, 1000 stores) confirmed RULE-24
 no-gate catches deep-tail winners the old band-filter would lose.
 

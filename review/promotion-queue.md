@@ -12,6 +12,34 @@ Marina sets each item to: **Promote → Wait → Reject**
 
 ## Pending Review
 
+### ⭐ RULE 23 — «открыть каждый флаг» → «открыть каждый магазин БЕЗ карточки; флаг = вход в суждение» (Store Leads S19)
+**Observation (три независимых замера, не мнение):** (1) b1 T&H — открыты все 32 «лишних» флага (desc-empty/mismatched) → **0 находок**; (2) b2 T&H — вскрыты 10 случайных из 35 отброшенных по карточке → **0 скрытых винеров**; (3) S3 Nursery — вскрыты 20 отброшенных → **0 потерь**. При этом «робот не видел магазин вообще» даёт обратную статистику: S16 — живой заход в 18 недоступных нашёл `claymoreoutdoor` (вентилятор $64.95 за нечитаемым заголовком); S1 — потерян реальный винер в куче unreachable.
+**Проблема:** пока список робота ОБЯЗАТЕЛЕН, а выбор агента — нет, выбор агента отмирает (доказано: b1 = 54 захода, **все** из списка робота, своих 0; работа при этом выглядела полной, гейт зелёный). Это тот же Goodhart, что в S15.
+**Proposal:** развести две сущности, как это устроено в ShopHunter (SH-8):
+- **ОБЯЗАТЕЛЬНО открыть:** магазин недоступен · каталог пуст · вместо сайта страница-заглушка. «Карточки нет» = судить нечем.
+- **`needs_live` (кривое/пустое описание, hero:low, price-unknown) = НЕ обязанность, а вход в суждение.** Если магазин попал в мой отбор — плохое описание **запрещает** судить по карточке (заход обязателен). Если не попал — сужу по карточке и называю причину **по товару**.
+- **Страховка вместо веры:** каждый батч вскрывать случайную выборку (~10) отброшенных флагов. Найден винер → правило немедленно откатывается.
+- `sl_analysis_gate.py` переписать под это (сейчас он STOP-нет по букве старого правила; озеленять его `sl_open_flags`-ом = curl = как родился S15).
+**Affected:** `op-rules.md` RULE 23 + RULE 29, `scripts/sl_analysis_gate.py`, `workflow.md` §1a.
+**Confidence:** High по замерам; правило Marina-locked S3 → **агент НЕ трогал.**
+**Recommendation:** Promote. **Added:** 2026-07-09, S19. **Source:** `review/s19-experience.md` §4.
+
+### ✅ ИСПРАВЛЕНО В КОДЕ (S19, Marina-directed) — Энричер: `/meta.json` может врать про валюту
+**Observation (живой случай):** `magnetichoop.com` (HK) объявляет в `/meta.json` `currency: USD`, а витрина торгует в **HK$**. Магнитные пяльцы HK$680 (реально ≈ **$87**) пришли в карточку как `$680 [out of range]` — кандидат был бы выброшен как «слишком дорогой». Правило из learnings S2 («истинная валюта магазина = поле `currency` в `/meta.json`») **опровергнуто**.
+**Proposal:** в `sl_enrich4.py` сверять `/meta.json` с фактической витриной (символ валюты в money-format / `/cart.json` / Shopify `Shopify.currency`), при расхождении — ставить флаг `currency-suspect→live` и НЕ выбрасывать товар по цене. Плюс sanity-clamp: цена >$300 при `sl_avg` <$100 → `PRICE-CHECK`, а не `price-out`.
+**Why:** это единственный известный механизм, который **молча выкидывает кандидата за диапазон**. Цена — поле №1 по ненадёжности (RULE 7).
+**⚠ Проверенный факт (RULE 0):** конвертацию валют построил **Store Leads** (S2, случай `renpho.uk`), а **НЕ ShopHunter** — в `sh_enrich_final.py` слова «currency» нет вообще, он сравнивает голое `variants[0].price` с $39–170. Заимствовать было неоткуда; чинили своё.
+**✅ Сделано (S19):** `store_currency()` больше не возвращает первый попавшийся ответ. Спрашивает оба источника; **при расхождении побеждает `/cart.json`** (это то, что покупатель реально платит), магазин получает `currency_suspect` → флаг `currency-suspect→live` → **обязательный живой заход**. Проверено сквозным прогоном энричера на 3 магазинах: `magnetichoop.com` HKD → **$87.04, in_range=True** (было `$680 [out]`); `moluk.com` (CHF) и `learnplay.com` (USD) не сдвинулись. Тестовые файлы → `logs/_trash/`.
+**Affected:** `scripts/sl_enrich4.py` ✅ · `methods/discovery-funnel.md` (карта доверия) ✅ · `methods/subagent-spec.md` — ещё не обновлён.
+**Confidence:** High (воспроизведено и на живом магазине, и сквозным прогоном). **Added:** 2026-07-09, S19.
+
+### Энричер: страница-заглушка записывается как «питч магазина» (Store Leads S19)
+**Observation:** в батче b2 **12 магазинов из 250** отдали роботу не сайт, а заглушку — «There was a problem loading this website» / «Your connection needs to be verified before you can proceed» / «Sign in». Робот честно положил это в `home_pitch` и пошёл дальше вытаскивать товары. **Помечены `needs_live` только 3.** Остальные девять выглядят как совершенно нормальные карточки — домен, тир, три товара, цены. Ни один гейт этого не видит.
+**Proposal:** энричер распознаёт паттерны страниц-заглушек (Cloudflare challenge, Shopify error, «Sign in», пустой `<title>`) → ставит `needs_live` + `card-untrusted` и НЕ пишет заглушку в `home_pitch`.
+**Why:** это класс «карточка внутренне непротиворечива, но ложна» — тот же класс, что урезанный ридер (S18) и валюта (выше). Отсутствие правды не имеет симптома.
+**Affected:** `scripts/sl_enrich4.py`, `methods/subagent-spec.md`.
+**Confidence:** High (12 живых случаев в одном батче). **Recommendation:** Promote. **Added:** 2026-07-09, S19.
+
 ### Reservoir-build canonical RHYTHM + `sl_accept_chunk.py` per-chunk acceptance — Store Leads S11 (Marina-approved 2026-06-07)
 **Observation (n=16 chunks, Dogs reservoir, 2 waves of 7 + chunk-1/2):** the reservoir-build ran clean end-to-end — count-reconcile 16/16 MATCH, reach 92.8–96.8% (all in-band), cur_null=0 throughout, 0 worker crashes, no proxy degradation. Two discipline-dependencies surfaced: (1) credit-guard (`ps aux | grep claude`) was being run only at control points, not every chunk; (2) per-chunk acceptance was 2–3 separate commands + manual assembly (a step could be skipped). Built **`scripts/sl_accept_chunk.py`** — a read-only wrapper that prints ONE verdict line per chunk (count-reconcile + credit-guard EVERY chunk + calls canonical `sl_qa.py` + encodes §1b ACCEPT-logic). Tested on b1–b8 → reproduced the manual verdicts 1-for-1; ran live on b9–b16. Nothing that worked was changed (`sl_qa` stays the QA source of truth).
 **Proposal (Marina said OK, S11 — codify the rhythm):** for large reservoir-build runs: **chunk-1 = full SCRAPER-ACCEPTANCE check-list → STOP for OK · chunk-2 = verify clean · then run in WAVES of 7 chunks** with a one-line progress narration per chunk (`N/7 done · ACCEPT/STOP line`) using `sl_accept_chunk.py`, and at the **end of each wave**: canonical HTML of the last chunk → Desktop + a consolidated wave report → **STOP for Marina's OK** before the next wave (never auto-chain waves — the S11 "STOP between waves" rule). Per-chunk acceptance is mechanical via `sl_accept_chunk.py` (system, not discipline).

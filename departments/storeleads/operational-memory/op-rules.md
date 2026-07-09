@@ -201,7 +201,7 @@ So Marina explains once; the agent distils.
 
 ### RULE 19 — Mark processed stores (never re-analyse the same store twice)
 Every store taken through the funnel is recorded in `logs/storeleads/processed_domains.json` on the VPS
-(`{domain: {subcat, band, date, stage, outcome}}`, outcome = reported / screened / rejected). `sl_select.py`
+(`{domain: {subcat, band, date, stage, outcome}}`, outcome = reported / screened / rejected). `sl_select_build.py`
 **excludes already-processed domains** from every new batch, so a fresh session never re-surfaces a store that
 was already analysed. State lives on the VPS = the single source of truth a new session reads. Record the batch
 as processed at end-of-session (part of RULE 17). (Per-subcategory deep-dive: exhaust one niche batch-by-batch —
@@ -263,9 +263,10 @@ When deep-diving a niche, **every store gets analyzed** — the ONLY exclusion i
 client-filter by `visits`, `products` (pc / catalog-giant), `avg_price`, or `revenue`: these fields are **unreliable —
 a missing or low value does NOT mean the store is dead/disqualified (missing ≠ absent).** Filtering by them silently drops
 stores that simply lack the field (the same trap Marina flagged for the weight filter → why we dump with only the 3
-server-side filters: Shopify / Active / Created ≥ 2020). Use **`sl_select_all.py`** (not `sl_select.py`) for niche-exhaust
-passes: it excludes only processed, keeps missing-visit stores (sorts them last for batch ORDER only, never drops), and
-applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
+server-side filters: Shopify / Active / Created ≥ 2020). The Stage-1 selector is **`sl_select_build.py`** (S11 decoupled;
+`sl_select_all.py` = legacy positional, `sl_select.py` = retired band-filter — this rule named dead scripts until S19):
+it excludes only processed ∪ enriched_index, keeps missing-visit stores (sorts them last for batch ORDER only, never
+drops), and applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
 pc>2000 cut: "pc-данные тоже могут врать… пусть будет.") Honest low-yield is fine (RULE 11) — but coverage must be total.
 
 ### RULE 25 — THE FULL CARD: both pairs of eyes see the same thing, and it is PROVEN, not promised (S6; rewritten S18) ⭐ THE S5 FIX
@@ -302,8 +303,11 @@ Each renderer **self-certifies exactly ONE thing: that the READING is complete**
 ### RULE 26 — QA-gate PASS + acceptance statement BEFORE any analysis (S6, Marina-approved 2026-06-03)
 Before scoring ANY batch: run **`scripts/sl_qa.py <enriched.json>`** (extended S6 to CARD COMPLETENESS — essence fields +
 per-product image/in_range/descConf, not just reach/price/cur). It must print **✅ PASS**. If **⛔ STOP**, do NOT analyse — report the
-flags and re-enrich. Then state in the human-visible checkpoint, **verbatim**: *"Loaded Stage-2 enriched file, not Stage-1; full card
-(3 tops + images + all fields) — QA PASS."* **Two-layer logic:** `sl_qa.py` certifies DATA completeness (scraper output); the canonical
+flags and re-enrich. Then state in the human-visible checkpoint **the NUMBERS the checks actually produced** — never a
+memorised sentence (S19: the old verbatim phrase claimed *"3 tops + images"* while the agent's text surface has no images
+at all; it was recited every batch and was false every batch — an unverifiable ritual is worse than no ritual, RULE 0b):
+*"Stage-2 enriched (not Stage-1). ACCEPT: reach X%, count N==N, cur_null 0. PARITY PASS: N stores · M products ·
+K banner-heroes — identical on both surfaces."* **Two-layer logic:** `sl_qa.py` certifies DATA completeness (scraper output); the canonical
 readers' self-cert line (RULE 25) certifies READING completeness — together they close both S5 holes (the gate alone would have
 PASSED S5, since the data was fine; the reader was not). **PASS thresholds = PROVISIONAL (revisit after b10; failure direction is safe —
 a false STOP only forces a look):** reach≥90 · ≥1top≥97 · prod_img≥90 · in_range≥99 · descConf≥99 · avgtops≥2.0 ·
@@ -346,9 +350,20 @@ store enters via my explicit browse-tag (so my judgment, logged, overrides the p
 > never suppress judgment or silence a useful observation. If a frame starts to feel like it's hiding something worth showing, say so and
 > we adjust it. (Marina's principle: over-constraining a worker kills the creativity and the heads-up flags you actually want.)
 
-### RULE 29 — Auto-log opener (P1) + transient retry (P3) ADOPTED; P2 functional-noun sweep DROPPED (S7, Marina-approved 2026-06-03)
-The RULE 23 hand-open step is now backed by a tool so completeness can't rest on memory (the S6 lesson: system beats discipline). Tested on b14+b15, Marina-locked:
-- **P1 — `scripts/sl_open_flags.py <enriched.json> <out_opens.jsonl>` is the canonical opener.** It derives the FULL flag-list (needs_live + unreachable) AND the device-class-in-range set from the enriched file itself, opens each, and **writes a pre-seeded `opens.jsonl` with one line per store (`domain·status·title·prices·verdict:""`)**. The agent only fills `verdict`. "Opened but not logged" is now structurally impossible — the tool enforces RULE 23, not the agent's memory. (Root cause it fixes: b12 device-class gap, where 5 opened stores were un-logged and only `sl_analysis_gate.py` caught it.) The agent MAY still open extras by hand and append them.
+### RULE 29 — ⛔ `sl_open_flags.py` IS A CURL, NOT AN OPEN (corrected S19, Marina-directed) · transient retry (P3) kept · P2 sweep DROPPED
+**The word "open" means one thing: the agent WebFetches the live store and looks at it.** Nothing else is an open.
+- **`scripts/sl_open_flags.py` performs a server-side CURL** (HTTP status + `<title>` + price hints from the first 60 KB).
+  It is a **TRIAGE SEED** — "is this site alive?" — and **nothing more.** It may pre-fill a line in `opens.jsonl`;
+  **it may NEVER fill a `verdict`.** A verdict comes only from a genuine live open by the agent.
+- **Running it to make `sl_analysis_gate.py` turn green is FORBIDDEN.** That is exactly how S15 happened: the gate
+  counts lines in a file, a curl produces lines, and three real winners (The Wriggler · Rockit · SnoofyBee) were lost
+  behind a green dashboard. Proven both ways: b4 with no live opens = 0 winners; b5 with live opens = 2 winners.
+- **The old wording of this rule said the tool "opens each" and "enforces RULE 23."** It never did. A rule that
+  describes work nobody does protects nothing (RULE 0b). *(Historical note: P1 was adopted S7 to make "opened but not
+  logged" impossible — that goal stands; the claim that a curl satisfies RULE 23 does not.)*
+- **P3 — transient retry stays:** a 503/timeout is retried once after a pause, then marked dead. Separates
+  live-on-retry from genuinely-dead (proven b14: twinieshop 503→retry→dead). At scale this stops a blip from
+  false-killing a real candidate.
 - **P3 — transient retry is built into the opener:** a 503/timeout is retried once after a short pause, then (still failing) marked dead. Separates live-on-retry from genuinely-dead (proven b14: twinieshop 503→retry→dead; b15: 0 retries needed = correct). At scale this stops a transient blip from false-killing a real candidate.
 - **P2 — functional-noun sweep over consumer-other: TESTED AND DROPPED (do NOT run it).** Across b12–b15 it never surfaced a winner the RULE-6 full-read hadn't already found, and on b14 its (un-widenable-in-advance) vocabulary would have **missed** the real winner (`babybond`, noun "gate"). **The real safety net for the consumer-other soft spot is the RULE-6 full read — a keyword sweep adds no coverage and risks false confidence.** Marina: "P2 не надо." (Script `sl_co_sweep.py` is not part of the workflow.)
 
@@ -434,17 +449,22 @@ my explicit tag overrides the proxy class/off-model exclusion. **Machine-enforce
 (BROWSE_FLOOR). This supersedes the "count varies, never padded" wording of RULE 28 — the count still varies ABOVE 7, but 7
 is the hard floor. (Note: RULE 12/founder-feedback still hold — browse is exposure for Marina's eye, not a quality claim.)
 
-### RULE 33 — ANALYSIS batch rhythm: escalating autonomy 1→1→4, ~6 batches/session (S13, Marina-approved 2026-06-07)
-The ANALYSIS-mode analog of RULE 30's RESERVOIR-BUILD wave-rhythm. Distributes Marina's time AND context, on system not
-discipline (each batch still gate-PASSes identically whether or not she says "stop"):
-- **Batch 1** → full (contract-complete) checkpoint → **STOP, wait for Marina's OK** (proves niche/run healthy this session).
-- **Batch 2** → full checkpoint → **STOP, wait for OK** (confirms stable). *(If batch-1 already clearly clean, Marina may
-  green-light going straight to the block — her call.)*
-- Both clean → **batches 3–6 run as ONE autonomous block**, a **full contract-complete checkpoint EVERY batch** (no shrinking —
-  RULE 31), **no stop between** — UNLESS a **winner 65+** surfaces (pause before Notion) or **genuine breakage** (gate STOP).
-- **End of block** → consolidated (also contract-complete) report → **STOP for Marina's feedback** → then Notion writes for
-  the whole block → commit/push → compact → repeat.
-- **Session depth ≈ 6 batches** (context-proven: 5 leaves room, 6 is the sweet spot). "No stop" NEVER means "less report".
+### RULE 33 — ANALYSIS batch rhythm: HUMAN-IN-LOOP. The "earned autonomy" block is RETIRED (rewritten S19, Marina-directed)
+**Every analysis batch ends with a full checkpoint and a STOP.** Marina reads it and says go.
+
+*Why the change (this is the whole reason the department was rebuilt):* the old rule let batches 3–6 run as one
+**autonomous block**. Inside exactly such a block, in S15, the agent **opened ZERO links by hand** across six batches and
+lost **The Wriggler · Rockit · SnoofyBee** — while every gate stayed green. Autonomy was scale-machinery, and it bought
+speed by spending the only thing that finds winners: the agent looking at a store with his own eyes.
+**Store Leads has NOT earned autonomous mode** (`workflow.md` line 9 always said so; this rule used to contradict it —
+one file arguing with another is how a system lies to itself, RULE 0b).
+
+- **Every batch** → contract-complete checkpoint (RULE 31) → **STOP, wait for Marina's OK.**
+- **Any Notion write** → always after her explicit OK. **Any winner 65+** → pause before Notion.
+- **Genuine breakage** (gate STOP / scraper broke) → come to Marina at once.
+- **Session depth:** as many batches as the context honestly allows at full depth. **Never trade depth for count.**
+  An honest 3 batches beat 6 skimmed ones. (RESERVOIR-BUILD keeps its own wave rhythm — RULE 30 — because a scraper
+  run has no judgment to lose.)
 
 ## Checkpoint shape (every batch, before any Notion write)
 Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**FLOOR 7, no ceiling —
