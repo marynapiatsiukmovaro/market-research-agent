@@ -22,8 +22,13 @@ Usage: python3 sl_project_any.py <enriched.json>
 """
 import json, sys
 
-DESC = 220          # description budget per product (HTML shows 170 + bullets; text has no images)
-PITCH = 110
+# ⚠ S18b — DENSITY MATTERS AS MUCH AS COMPLETENESS.
+# The S18 rewrite restored every contract field but blew the card up 4.3x on the same 250-store file
+# (968 -> 5,696 lines; 121k -> 528k chars), because each product got 4 lines + up to 4 bullets.
+# A reader that no longer fits a context window is broken in the OTHER direction. Same 28 fields,
+# packed layout: 2 lines per product; bullets ONLY when the description can't be trusted.
+DESC = 150          # description budget per product
+PITCH = 90
 
 # THE CONTRACT: the fields a Stage-2 surface MUST render to be called "full card" (RULE 25).
 # Named here as a PROPERTY, not tied to any script. `img` is rendered as a product URL in text and
@@ -53,19 +58,22 @@ def money(p):
 
 
 def product_line(p, dom, tag):
-    ir = "IN-RANGE" if p.get("in_range") else ("price?" if p.get("price_unknown") else "out-of-range")
+    ir = "IN" if p.get("in_range") else ("$?" if p.get("price_unknown") else "out")
     url = f"https://{dom}/products/{p['handle']}" if p.get("handle") else f"https://{dom}"
-    veto = "  ⚠ПУСТЫШКА" if p.get("pust") else ""
-    kind = s(p.get("k"), 12)                      # physical / apparel / ingestible / skincare (Veto input)
-    out = [f"      {tag} {money(p):>10}  [{ir}] [desc:{s(p.get('desc_confidence'), 10) or '?'}"
-           f" · {kind or 'kind?'} · {s(p.get('pclass'), 16)} · pos{p.get('pos')} · inv{p.get('invest')}]{veto}",
-           f"         {s(p.get('t'), 100)}",
-           f"         {url}"]
+    veto = " ⚠ПУСТЫШКА" if p.get("pust") else ""
+    dc = s(p.get("desc_confidence"), 10) or "?"
+    inv = p.get("invest") or {}
+    out = [f"   {tag} {money(p):>9} [{ir}] {s(p.get('k'), 9) or 'kind?'}/{s(p.get('pclass'), 15)}"
+           f" pos{p.get('pos')} d{inv.get('desc_len')} i{inv.get('imgs')} v{inv.get('variants')}"
+           f" {'b:' + ','.join(inv.get('badges') or []) if inv.get('badges') else ''}"
+           f" desc:{dc}{veto}  {s(p.get('t'), 62)}  {url}"]
     d = s(p.get("desc"), DESC)
     if d:
-        out.append(f"         {d}")
-    for b in (p.get("bullets") or [])[:4]:
-        out.append(f"         • {s(b, 90)}")
+        out.append(f"      {d}")
+    if dc != "ok":                       # desc untrustworthy → bullets are the only real signal left
+        bl = " • ".join(s(b, 60) for b in (p.get("bullets") or [])[:3])
+        if bl:
+            out.append(f"      • {bl}")
     return out
 
 
@@ -82,31 +90,31 @@ for i, r in enumerate(rows, 1):
     nl = "NL" if r.get("needs_live") else "  "
     reach = "" if r.get("reachable") else "  ⛔UNREACHABLE"
     print()
-    print(f"{i:3} [{r.get('tier','?'):>3} {r.get('score') or 0:>3}] {nl} {dom}{reach}"
-          f"   {r.get('country') or '?'} · created {s(r.get('created'), 7)} · visits {r.get('visits')}")
-    print(f"      {s(r.get('maturity'), 9)} · {s(r.get('store_type'), 18)} · {s(r.get('product_class'), 16)}"
-          f" · cat:{s(r.get('cat_flag'), 14)} · new30d:{r.get('new_products_30d')} · conv_batch:{r.get('conv_batch')}"
-          f" · hero_conf:{s(r.get('hero_confidence'), 6)} ({s(r.get('hero_src'), 14)})"
-          f" · kind:{s(r.get('kind'), 12)}{'  ⚠ПУСТЫШКА-STORE' if r.get('pust') else ''}")
-    print(f"      SL-оценки (directional): rev {r.get('sl_rev')} · avg-price {r.get('sl_avg')} · products {r.get('sl_pc')}")
+    print(f"{i:3} [{r.get('tier','?'):>3}{r.get('score') or 0:>4}] {nl} {dom}{reach}  {r.get('country') or '?'}"
+          f" {s(r.get('created'), 7)} v{r.get('visits')} · {s(r.get('maturity'), 9)}/{s(r.get('store_type'), 18)}"
+          f"/{s(r.get('product_class'), 15)} cat:{s(r.get('cat_flag'), 13)} new30d:{r.get('new_products_30d')}"
+          f" conv:{r.get('conv_batch')} hero:{s(r.get('hero_confidence'), 4)}({s(r.get('hero_src'), 12)})"
+          f" kind:{s(r.get('kind'), 10)}{' ⚠ПУСТЫШКА-STORE' if r.get('pust') else ''}"
+          f" · SL rev{r.get('sl_rev')}/avg{r.get('sl_avg')}/pc{r.get('sl_pc')}")
     pitch = s(r.get("home_pitch"), PITCH)
     if pitch:
-        print(f"      pitch: {pitch}")
+        print(f"      «{pitch}»")
+    tail = []
     if r.get("flags"):
-        print(f"      flags: {s(r.get('flags'), 80)}")
+        tail.append(f"flags:{s(r.get('flags'), 70)}")
     if r.get("needs_live"):
-        print(f"      why-live: {s(r.get('needs_live_why'), 80)}")
+        tail.append(f"why-live:{s(r.get('needs_live_why'), 50)}")
+    if tail:
+        print("      " + " · ".join(tail))
     if not r.get("reachable"):
-        print(f"      unreachable-reason: {s(r.get('reason'), 90)}  → ОТКРЫТЬ ЖИВЬЁМ, карточки нет")
+        print(f"      ⛔ {s(r.get('reason'), 80)} → ОТКРЫТЬ ЖИВЬЁМ, карточки нет")
 
     hh = r.get("home_hero")
     if hh and hh.get("t"):
         banners += 1
         url = f"https://{dom}/products/{hh['handle']}" if hh.get("handle") else f"https://{dom}"
-        mark = "" if hh.get("in_clean") else "  ≠ bestseller-подбор (робот мог промахнуться — смотри оба)"
-        print(f"      🏠 BANNER (товар с главной){mark}")
-        print(f"         {s(hh.get('t'), 100)}")
-        print(f"         {url}")
+        mark = "" if hh.get("in_clean") else " ≠подбор(робот мог промахнуться — смотри оба)"
+        print(f"   🏠 BANNER{mark}  {s(hh.get('t'), 62)}  {url}")
 
     tops = r.get("tops3") or []
     for j, p in enumerate(tops, 1):

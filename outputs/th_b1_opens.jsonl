@@ -1,0 +1,63 @@
+{"domain":"www.actionman.com","open":"live-webfetch","verdict":"off-model: licensed Action Man collector figures, no prices shown, collectibles"}
+{"domain":"ribel.jp","open":"live-webfetch","verdict":"off-model: Japanese ribbon/craft-supply catalog, ¥210-34k"}
+{"domain":"www.sagadisplay.com","open":"live-webfetch","verdict":"off-model: B2B retail display fixtures + jewelry boxes $2-60"}
+{"domain":"browntoybox.com","open":"live-webfetch","verdict":"off-model: STEAM kits $10-45, mission-brand, no single hero"}
+{"domain":"sewingbysarah.com","open":"live-webfetch","verdict":"off-model: sewing notions/presser feet $15-59"}
+{"domain":"scorchedparts.co.uk","open":"live-webfetch","verdict":"off-model: RC spare parts/upgrades £4.70-38"}
+{"domain":"store.fabricworkshopandmuseum.org","open":"live-webfetch","verdict":"off-model: museum shop, artist editions/textiles"}
+{"domain":"www.nomadbeads.com","open":"live-webfetch","verdict":"off-model: beads/findings + classes, no prices"}
+{"domain":"jogani.com","open":"live-webfetch","verdict":"off-model: rare gemstones via Sotheby's, luxury"}
+{"domain":"bubblies.co","open":"live-403-then-search","verdict":"off-model: bubble slides (footwear/apparel); 403 to bots, resolved via search"}
+{"domain":"andysbrickshop.com","open":"live-webfetch","verdict":"off-model: LEGO buy/trade/sell, physical mall store"}
+{"domain":"wowowtoys.co.uk","open":"live-webfetch","verdict":"DEAD: store closed, only processing outstanding orders"}
+{"domain":"thismonthscraft.com","open":"live-webfetch","verdict":"off-model: $35.97/mo craft subscription box, 35k sold"}
+{"domain":"www.meyspring.com","open":"live-webfetch","verdict":"off-model: mica pigments for resin art, sample set $19.95"}
+{"domain":"www.nccshop.org","open":"live-vps-curl","verdict":"off-model: Northern Clay Center gallery/nonprofit; price-unknown items are volunteer shifts, not products"}
+{"domain":"www.peachloft.com","open":"live-webfetch","verdict":"GUARD-HIT scored REJECT: general AliExpress-style dropship catalog (8 divisions, posture belt $25.99 below floor, no differentiation). Pop-up beverage opener $39.99 = only notable SKU"}
+{"domain":"goosewaddle.com","open":"live-webfetch","verdict":"GUARD-HIT scored REJECT: bamboo swaddles/plush/Pello floor cushion $69.99 - plain baby textile, no tactile differentiator (founder: apparel off-model)"}
+{"domain":"sleepsova.com","open":"live-webfetch","verdict":"CANDIDATE -> scored 60 borderline: The One Sheet $135, twice-patented connected sheet, 341 reviews, CBS Mornings"}
+{"domain":"bumpeeztoys.com","open":"live-webfetch","verdict":"CANDIDATE -> scored 59 borderline: patented self-inflating bumper car $149.99, Shark Tank, 60+ reviews 4.8*; robot showed only $9.99 spare parts (desc empty)"}
+{"domain":"click-blocks.com","open":"live-webfetch","verdict":"browse: magnetic build-a-world blocks $29.95, emerging 2025, anti-screen-time angle, below price floor"}
+{"domain":"tricktechtoys.com","open":"live-webfetch","verdict":"CANDIDATE -> scored 64 borderline: Web Shooter V2 $34.99, 100M+ impressions (@jlaservideo), 30k customers, 700+ 5-star; price below $39 floor"}
+{"domain":"www.nooktales.com","open":"live-webfetch","verdict":"CANDIDATE -> scored 63 borderline: DIY book-nook kits $54.99-139.99, own brand, 82k customers, 589k social; Rolife-clone saturation"}
+{"domain":"indotrickscooter.com","open":"live-webfetch","verdict":"browse: INDO PRO V2 wheelless trampoline scooter EUR119.90, novel mechanism, 50k IG likes; niche + bulky"}
+{"domain":"www.directsewing.co.nz","open":"live-webfetch","verdict":"browse: Lumos rechargeable LED neck light NZ$75 (~$45), real eye-strain pain, but commodity + reseller + zero reviews"}
+{"domain":"topbrighttoys.com","open":"live-webfetch","verdict":"browse: Topbright/Science Can manufacturer brand (Smart Circuit STEM $49.99); manufacturer not white-label target"}
+{"domain":"coolesttoysonearth.com","open":"live-webfetch-loss-audit","verdict":"off-model confirmed: local toy store reselling Snap Circuits $54.95 etc, licensed brands"}
+{"domain":"hobbyisthaven.com","open":"live-webfetch-loss-audit","verdict":"browse: DSPIAE electric reciprocating sander $59.95, 111 reviews 87% 5-star; branded hobby tool, narrow scale-modeller audience"}
+{"domain":"shop.thetinychefshow.com","open":"live-webfetch-loss-audit","verdict":"browse: Tiny Chef talking plush $44.99, licensed IP (cannot white-label)"}
+{"domain":"goki-toys.com","open":"live-webfetch-loss-audit","verdict":"off-model confirmed: Goki wooden-toy wholesale distributor, EU-made, $13-140"}
+{"domain":"mikesvintagetoys.com","open":"live-webfetch","verdict":"off-model: vintage collectible figures (Star Wars/TMNT/Funko) $5-100"}
+{"domain":"happy99.online","open":"live-webfetch","verdict":"off-model: streetwear apparel $28-375"}
+{"domain":"ob-watches.com","open":"live-webfetch","verdict":"off-model: HK watch reseller (LIGE/OLEVS), heavy discounting $57-99"}
+{"domain":"www.carron.paris","open":"live-webfetch","verdict":"off-model: handmade French ceramics EUR50-340"}
+{"domain":"eushop.loveramics.com","open":"live-webfetch","verdict":"off-model: premium barista ceramics/glassware EUR8.60-75"}
+{"domain":"nojumper.com","open":"live-webfetch","verdict":"off-model: kendama skill toys $30-40 + music promo service; below floor, niche"}
+{"domain":"step2.mx","open":"live-webfetch","verdict":"off-model: licensed distributor (Step2/LittleTikes/Melissa&Doug), bulky playsets"}
+{"domain":"paintmebear.com","open":"live-webfetch","verdict":"off-model: in-person Bearbrick painting classes (service, not product)"}
+{"domain":"simplycreativemn.com","open":"live-webfetch","verdict":"off-model: craft/jewelry classes from $125 (service)"}
+{"domain":"www.brickheadscollectables.com","open":"live-webfetch","verdict":"off-model: licensed collectibles (Pokemon/Squishmallow/LEGO), no own brand"}
+{"domain":"kazoodlestoys.com","open":"live-webfetch","verdict":"off-model: local specialty toy store, balloons + licensed plush"}
+{"domain":"nuevosol.co","open":"live-webfetch","verdict":"off-model: artisan apparel + decor"}
+{"domain":"www.gaugeyarn.com","open":"live-webfetch","verdict":"off-model: yarn $12-50/skein, no gadget"}
+{"domain":"www.magiamexica.com","open":"live-webfetch","verdict":"off-model: Oaxacan alebrije wood carvings $239-240, handmade art"}
+{"domain":"wedreamincolour.com","open":"live-webfetch","verdict":"off-model: designer brass/silver jewelry $65-250"}
+{"domain":"zartart.com.au","open":"live-webfetch","verdict":"off-model: AU school art-supply distributor (own Slicks line, but B2B education)"}
+{"domain":"toysuper.it","open":"live-webfetch","verdict":"off-model: IT toy reseller (Hot Wheels/Rastar) EUR2-25"}
+{"domain":"morepolishpottery.com","open":"live-webfetch","verdict":"off-model: Polish stoneware $26-95, no wow/impulse"}
+{"domain":"laborsofloveneedlepoint.shop","open":"live-webfetch","verdict":"off-model: needlepoint canvases/threads, local shop"}
+{"domain":"birchfabrics.com","open":"live-webfetch","verdict":"off-model: organic quilting fabric $87-124/bolt"}
+{"domain":"parkersartsupplies.com","open":"live-webfetch","verdict":"off-model: 1918 Sydney art-supply house, brushes $14-19"}
+{"domain":"www.catawbaindiancrafts.com","open":"live-webfetch","verdict":"off-model: Native American cultural-center crafts, plates $29.50, art $460-500"}
+{"domain":"www.luckydeluxefabrics.com","open":"live-webfetch","verdict":"off-model: fabric/notions thrift, $1-6 items"}
+{"domain":"www.mypops.ca","open":"live-webfetch","verdict":"off-model: Funko/TCG retail chain, licensed only"}
+{"domain":"cadettejewelry.com","open":"live-webfetch","verdict":"off-model: fine engagement jewelry CAD 9,990-41,500"}
+{"domain":"ch.doxawatches.com","open":"live-webfetch","verdict":"off-model: Swiss dive watches CHF 1,150-3,990"}
+{"domain":"de.papo-france.com","open":"live-webfetch","verdict":"off-model: Papo own-brand figurines EUR6.50-129.99, 30yr toy brand"}
+{"domain":"jilzarah.com","open":"live-webfetch","verdict":"off-model: polymer-clay jewelry + wrist keychains $19-29, below floor"}
+{"domain":"prestigeembroidery.com","open":"live-webfetch","verdict":"off-model: Judaica leather goods (tallis/tefillin bags), Brooklyn"}
+{"domain":"shop.smartdoll.jp","open":"live-webfetch","verdict":"off-model: Smart Doll own-brand ball-jointed dolls, Tokyo, premium"}
+{"domain":"banzaihobby.com","open":"live-webfetch","verdict":"off-model: JP hobby reseller (Tamiya/Bandai/KATO)"}
+{"domain":"www.peterbeaton.com","open":"live-webfetch","verdict":"off-model: handmade straw hats $345-475 (apparel, luxury)"}
+{"domain":"mastercontrolstoyshop.com","open":"live-webfetch","verdict":"DEVICE-CLASS reject: handmade hardwood boards/trays $10-95 + BDSM paddles (discontinuing); IT-consulting SKUs. Ad-policy risk, no white-label."}
+{"domain":"selfservetoys.com","open":"live-webfetch","verdict":"DEVICE-CLASS reject: sex-positive adult retailer (Albuquerque). Meta ad-policy prohibited category."}
