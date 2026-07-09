@@ -20,6 +20,13 @@ Usage: python3 sl_stage2_table.py <enriched.json> <output.html> "<title>" "<funn
 import json, html, sys
 from collections import Counter
 
+# THE CONTRACT: the fields a Stage-2 surface MUST render to be called "full card" (RULE 25).
+# A PROPERTY, not a script name. Kept byte-identical in sl_project_any.py; sl_card_parity.py diffs them.
+FIELDS_RENDERED = ["domain", "tier", "needs_live", "needs_live_why", "unreachable_reason", "geo", "created",
+                   "visits", "maturity", "store_type", "product_class", "cat_flag", "new30d", "conv_batch",
+                   "hero_confidence", "kind", "pust", "home_pitch", "flags", "home_hero",
+                   "tops3", "price", "in_range", "desc", "bullets", "desc_confidence", "img", "social"]
+
 inp, outp, title = sys.argv[1], sys.argv[2], sys.argv[3]
 banner = sys.argv[4] if len(sys.argv) > 4 else ""
 rows = json.load(open(inp))
@@ -155,12 +162,22 @@ for i, r in enumerate(rows, 1):
     dom_cell = link(dom, html.escape(dom)) + himg + (f"<br><span style='color:#777;font-size:10px'>{pitch}</span>" if pitch else "")
     nl = r.get("needs_live"); nlw = ",".join(r.get("needs_live_why") or [])
     nl_cell = (f"<b style='color:#c60'>OPEN</b><br><span style='font-size:9px;color:#a60'>{html.escape(nlw)}</span>") if nl else "<span style='color:#8a8'>ok</span>"
+    if not r.get("reachable"):   # S18: the unreachable reason was rendered NOWHERE — the highest-risk pile
+        nl_cell += (f"<br><b style='color:#d33'>⛔UNREACHABLE</b><br><span style='font-size:9px;color:#a33'>"
+                    f"{html.escape(str(r.get('reason') or ''))[:60]}</span>")
     geo = (f"{html.escape(str(r.get('country') or ''))}<br><span class=k>{html.escape(str(r.get('created') or '')[:10])}</span>"
            f"<br>v{html.escape(str(r.get('visits') if r.get('visits') is not None else '—'))}")
     sigs = (f"<span class=sig>mat: <b>{html.escape(str(r.get('maturity') or ''))}</b><br>"
             f"new30d: {html.escape(str(r.get('new_products_30d') or ''))}<br>"
             f"cat: {html.escape(str(r.get('cat_flag') or ''))}<br>conv: {html.escape(str(r.get('conv_batch') or ''))}</span>")
-    typ = f"<span class=sig>{html.escape(str(r.get('store_type') or ''))}<br><span class=k>{html.escape(str(r.get('product_class') or ''))}</span></span>"
+    # S18: kind / pust / flags were collected by the enricher but rendered NOWHERE — and pust+kind
+    # are direct inputs to the Marina Veto. A surface that hides a Veto input is not a full card.
+    pust_s = "<br><b style='color:#d33'>⚠ПУСТЫШКА</b>" if r.get("pust") else ""
+    flags_s = (f"<br><span style='font-size:9px;color:#a60'>{html.escape(', '.join(r.get('flags') or []))[:70]}</span>"
+               if r.get("flags") else "")
+    typ = (f"<span class=sig>{html.escape(str(r.get('store_type') or ''))}"
+           f"<br><span class=k>{html.escape(str(r.get('product_class') or ''))}</span>"
+           f"<br><span class=k>kind: {html.escape(str(r.get('kind') or '—'))}</span>{pust_s}{flags_s}</span>")
     hq = (f"<span class=sig>hero: {hc_s}<br>desc: {html.escape(str(dc))}<br>pos: {html.escape(str(r.get('storefront_pos') or ''))}</span>")
     price = (html.escape(str(r.get("price") or "")) + (f" <span class=est>{html.escape(str(r.get('store_currency') or ''))}</span>" if r.get("store_currency") else "")
              + "<br>" + ("✓" if r.get("in_range") else "✗"))
@@ -174,3 +191,7 @@ open(outp, "w").write("\n".join(h))
 print("HTML written:", outp, "| rows:", len(rows),
       f"| RENDERED: {tops_rendered}/{tops_avail} products,", imgs_avail, "images |",
       "FULL CARD — PASS" if verdict_ok else "STOP " + ";".join(miss))
+# Machine-readable certificate — compared against the agent's text surface by sl_card_parity.py.
+banners_html = sum(1 for r in rows if (r.get("home_hero") or {}).get("t"))
+print(f"CERT surface=founder-html stores={len(rows)} products={tops_rendered} banners={banners_html} "
+      f"fields={','.join(FIELDS_RENDERED)}")

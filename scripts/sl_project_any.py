@@ -25,6 +25,14 @@ import json, sys
 DESC = 220          # description budget per product (HTML shows 170 + bullets; text has no images)
 PITCH = 110
 
+# THE CONTRACT: the fields a Stage-2 surface MUST render to be called "full card" (RULE 25).
+# Named here as a PROPERTY, not tied to any script. `img` is rendered as a product URL in text and
+# as a thumbnail in HTML — both count as "the product is visually reachable".
+FIELDS_RENDERED = ["domain", "tier", "needs_live", "needs_live_why", "unreachable_reason", "geo", "created",
+                   "visits", "maturity", "store_type", "product_class", "cat_flag", "new30d", "conv_batch",
+                   "hero_confidence", "kind", "pust", "home_pitch", "flags", "home_hero",
+                   "tops3", "price", "in_range", "desc", "bullets", "desc_confidence", "img", "social"]
+
 rows = json.load(open(sys.argv[1]))
 order = {"A": 0, "B": 1, "C": 2, "PRICE-CHECK": 3, "MANUAL": 4, "DROP-noPhysical": 5}
 rows.sort(key=lambda r: (order.get(r.get("tier"), 9), -(r.get("score") or 0)))
@@ -118,4 +126,9 @@ ok = tops_printed == tops_avail
 print(f"# FULL CARD RENDERED — {'PASS' if ok else 'STOP — PRODUCTS HIDDEN'}: "
       f"{tops_printed}/{tops_avail} products · {banners} banner-heroes · {len(rows)} stores.")
 print("# Данные (reach/полнота полей) сертифицирует sl_qa.py / sl_accept_chunk.py, не этот файл.")
+# Machine-readable certificate — compared against the founder's HTML surface by sl_card_parity.py.
+# `fields` = the contract fields THIS surface actually renders. The S18 bug was invisible precisely
+# because nobody ever compared the two surfaces' field lists (absence of a field has no symptom).
+print(f"CERT surface=agent-text stores={len(rows)} products={tops_printed} banners={banners} "
+      f"fields={','.join(FIELDS_RENDERED)}")
 sys.exit(0 if ok else 1)

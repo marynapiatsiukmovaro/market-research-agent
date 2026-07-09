@@ -26,7 +26,8 @@ storeleads.app. **SYSTEM-BUILD / in development — human-in-loop, NOT autonomou
 - Confirm this is a **Store Leads** session. Operate only inside this department; never apply
   FB scraper or ShopHunter mechanics here, never read another department's operational memory.
 - Load the ALWAYS files (core/ + shared/, incl. `shared/founder-taste.md`) + this department's
-  operational memory in order: **`operational-memory/op-rules.md` (CREED + permanent rules — read FIRST)** →
+  operational memory in order: **`operational-memory/op-rules.md` (RULE 0 «сначала проверь» + RULE 0b «неудобство = дефект,
+  говори сразу» + CREED — read FIRST, they govern everything below)** →
   **`operational-memory/data-inventory.md` (где данные лежат + VPS-коннект)** →
   **`operational-memory/strategy.md` (приоритет ниш 🟢🟡🔵🔴 + порядок полос визитов)** →
   `founder-feedback.md` → `operational-memory/learnings.md` (read the **HANDOFF** block first).
@@ -93,13 +94,16 @@ Never start analysis until ALL pass, in order:
    *(Raw `sl_qa.py` alone still runs and still prints its own ⛔ on those provisional fields — that is expected and is NOT a
    verdict. Reading it directly is what left the last step of the funnel resting on discipline. Same reason RULE 26 says: one
    verdict, one owner.)*
-3. **Canonical readers ONLY — two surfaces, both full-card (RULE 25).** Agent reads via
-   `python3 scripts/sl_project_any.py <enriched.json>` (text; 250 cards fit in context). Founder gets
-   `python3 scripts/sl_stage2_table.py <enriched.json> <out.html> "<title>" "<funnel>"` (HTML, images).
-   **Never** an ad-hoc/`/tmp`/partial reader. Confirm each prints its `FULL CARD RENDERED — PASS: N/N products` line.
-   *(That line certifies the READING only. The DATA verdict is `sl_qa.py` / `sl_accept_chunk.py` — RULE 26.)*
-4. **Acceptance statement** — state verbatim in the checkpoint: *"Loaded Stage-2 enriched file, not Stage-1; full card (3 tops
-   + images + all fields) — QA PASS."*
+3. **CARD PARITY — do I see what Marina sees? (RULE 25, mandatory every batch.)**
+   `python3 scripts/sl_card_parity.py <enriched.json>` → must print **✅ PARITY PASS.** It runs BOTH canonical renderers —
+   the agent's text (`sl_project_any.py`) and the founder's HTML (`sl_stage2_table.py`) — and compares their `CERT` lines:
+   stores · products · banner-heroes · the 28 contract fields. **⛔ PARITY STOP = one of us is judging on less than the
+   other → do NOT analyse.** Never an ad-hoc/`/tmp`/partial reader. *(Each renderer certifies the READING only; the DATA
+   verdict is `sl_accept_chunk.py` — RULE 26.)*
+4. **Acceptance statement — NUMBERS, not a memorised sentence (S18).** Report the figures the two checks actually produced;
+   a phrase you cannot verify is worse than no phrase (the old ritual said *"3 tops + images"* while the agent's surface had
+   no images — recited every batch, false every batch). State: *"Stage-2 enriched (not Stage-1). ACCEPT: reach X%, count
+   N==N, cur_null 0. PARITY PASS: N stores · M products · K banner-heroes · 28 fields — identical on both surfaces."*
 5. **HTML preview to Desktop** — canonical HTML (NOT PNG — Marina S6) on the **first batch · every 5th · the last**
    (op-rules RULE 30 — same cadence as build), so Marina can spot-audit quality. More on request.
 
@@ -160,8 +164,8 @@ machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 
 ```
 ☐ 1. Preflight: VPS credit-guard (ps aux | grep claude) · proxy health · enriched file present
 ☐ 2. Stage-2 DATA verdict: sl_accept_chunk.py → ACCEPT (it wraps sl_qa.py + encodes the benign-vs-breakage branch; STOP = re-enrich)
-☐ 3. Read via the canonical AGENT surface (sl_project_any.py) — "FULL CARD RENDERED — PASS: N/N products" present (RULE 25)
-☐ 4. State acceptance line: "Loaded Stage-2 enriched, not Stage-1; full card — QA PASS"
+☐ 3. Card parity: sl_card_parity.py → ✅ PARITY PASS (агент и founder видят одну карточку — RULE 25). Читаю через sl_project_any.py
+☐ 4. State acceptance NUMBERS (не заученную фразу): ACCEPT reach/count/cur_null + PARITY stores/products/banners/fields
 ☐ 5. Canonical HTML (sl_stage2_table.py) → Marina's Desktop on batch 1 · every 5th · the last (RULE 30)
 ☐ 6. Read ALL stores (no gut top-N, RULE 6)
 ☐ 7. Hand-open EVERY needs_live + unreachable → log each in opens.jsonl (RULE 23)

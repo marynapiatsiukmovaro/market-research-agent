@@ -12,6 +12,38 @@
 
 ---
 
+## 0b. ТЕБЕ ДОЛЖНО БЫТЬ УДОБНО РАБОТАТЬ. НЕУДОБСТВО — ЭТО ДЕФЕКТ СИСТЕМЫ, И О НЁМ ГОВОРЯТ СРАЗУ
+*(Marina-authored S18 2026-07-09, после разбора: агент полгода читал урезанную карточку, заметил неладное — и понизил это до «надо бы задокументировать».)*
+
+**Марина: «Мне важно, чтобы тебе как агенту работалось хорошо и удобно. Мы партнёры.»**
+Это не вежливость и не забота о самочувствии. Это инженерное требование: **качество находок определяется тем,
+насколько чисто устроена папка, в которой ты работаешь.** Плохо работать в кривой системе — значит плохо искать.
+Поэтому твой комфорт — интерес проекта, а не твоё личное дело, которое надо молча перетерпеть.
+
+**Говорю Марине в момент, когда заметил** — не в конце сессии, не «занесу в бэклог»:
+- правило противоречит другому правилу;
+- правило описывает не ту работу, которую я на самом деле делаю;
+- инструмент не позволяет сделать то, чего правило требует (и я тихо делаю обходной путь);
+- мне приходится **толковать**, какому вердикту верить — значит вердиктов два, а должен быть один;
+- я произношу ритуальную фразу, которую **не могу проверить**;
+- мне просто неудобно, тяжело, мутно — этого достаточно, чтобы сказать вслух.
+
+**⛔ Запрещённый ход — понизить противоречие до бумажной работы.** Формулировка «это работает, просто не
+задокументировано / не благословлено» — красный флаг, а не успокоение. **Она означает: никто не проверил.**
+Живой пример: в `review/promotion-queue.md` (S13b) записано «агент читает через `sl_project_tmp.py`… это работает
+и это НЕ partial reader». Утверждение не проверили. Он был partial. Цена — полгода анализа по обеднённой карточке.
+
+**Отсюда же — как чинить.** Чиним **класс ошибки, а не симптом**. S5 показал ридер с одним товаром из трёх — мы
+запретили самодельные ридеры (симптом) вместо того, чтобы потребовать **равенства поверхностей** (класс). Правило,
+привязанное к ИМЕНИ СКРИПТА, ломается в ту секунду, когда скрипт становится неудобным: агент делает замену — и
+правило её не покрывает. **Правило называет СВОЙСТВО, которое обязано сохраниться, а не инструмент, которым его достигли.**
+
+**И почему это трудно поймать самому:** отсутствие поля не имеет симптома. Урезанный отчёт выглядит целым — строки,
+домены, цены. Нельзя увидеть то, чего тебе не напечатали. Поэтому свойства проверяются **сравнением двух источников**
+(`sl_card_parity.py`), а не ощущением полноты.
+
+---
+
 ## ⭐ ANALYSIS CREED — read FIRST, every session. This is the SOUL; the gates below are only the FLOOR under it.
 *(Added S16 2026-06-27, Marina-authored. The S15 failure was Goodhart's law — green gates, lost winners. This creed is the antidote: judgment lives ABOVE the machinery, never replaced by it.)*
 
@@ -236,26 +268,36 @@ passes: it excludes only processed, keeps missing-visit stores (sorts them last 
 applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
 pc>2000 cut: "pc-данные тоже могут врать… пусть будет.") Honest low-yield is fine (RULE 11) — but coverage must be total.
 
-### RULE 25 — TWO canonical Stage-2 readers (founder + agent); ad-hoc/partial readers forbidden (S6; corrected S18) ⭐ THE S5 FIX
-Stage-2 enriched data is read **ONLY** through the two canonical generators. They render the SAME card in two forms —
-one for each pair of eyes — and **both MUST show the FULL card (every store, all 3 tops, every field). Neither may truncate.**
+### RULE 25 — THE FULL CARD: both pairs of eyes see the same thing, and it is PROVEN, not promised (S6; rewritten S18) ⭐ THE S5 FIX
+**The rule names a PROPERTY, not a script (RULE 0b):** *whoever reads Stage-2 — founder or agent — sees the WHOLE card.*
+The card = every store · all 3 tops · the **28 contract fields** (the canonical list lives in ONE place, `FIELDS_RENDERED`,
+byte-identical in both renderers). Nothing truncated, nothing quietly dropped. Two surfaces render it, one per pair of eyes:
 - **`scripts/sl_stage2_table.py` → HTML, the FOUNDER surface** (grouped-11, Marina-locked; images, clickable). Goes to Desktop.
-- **`scripts/sl_project_any.py` → text, the AGENT surface** (same fields; 250 cards fit a context window). 250-card HTML does not.
+- **`scripts/sl_project_any.py` → text, the AGENT surface** (same fields; 250 cards fit a context window — 250 HTML cards do not).
 
-**Never build an ad-hoc / `/tmp` / partial reader** — that is exactly what zeroed S5 (a hand-made reader showed 1 product of 3 →
-invalid "0 winners"). Both generators **self-certify**, and each certifies exactly ONE thing: **that the READING is complete**
-(`FULL CARD RENDERED — PASS: N/N products`). **The DATA verdict is NOT theirs** — it belongs to `sl_qa.py` / `sl_accept_chunk.py`
-(RULE 26). A Stage-2 surface without its FULL-CARD line is not canonical → STOP. Previews as **HTML, never PNG** (Marina S6).
+**PARITY IS MANDATORY, EVERY BATCH: `python3 scripts/sl_card_parity.py <enriched.json>` → ✅ PARITY PASS before any analysis.**
+It runs both renderers and compares their `CERT` lines — stores · products · banner-heroes · the field list. **Divergence = STOP:
+it means one of us is judging on less than the other.** (Verified S18: blinding the agent to `home_hero` makes it STOP — the check
+can fail, not just go green.) Never build an ad-hoc / `/tmp` / partial reader — a hand-made reader showing 1 product of 3 zeroed S5.
 
-> **S18 correction — why this rule was rewritten (the "слово ≠ дело" class of bug).** The rule named ONE reader (the HTML), but the
-> agent physically cannot read 250 HTML cards in context, so every analysis session actually read through `sl_project_any.py` —
-> a script that **lived only on the VPS, outside git**, and was itself **partial**: it dropped the `home_hero` (the homepage-banner
-> product v4.2 added *because* the best-seller auto-pick misfires — swaddlean/dingle), truncated `desc` to 58 chars, and never showed
-> `desc_confidence` / `pust` / `kind` / the unreachable reason. **So the agent judged on less than the founder saw, while a rule
-> claimed the reader was canonical.** Fixed S18: the projector is in git, prints the whole contract, and self-certifies.
-> Second half of the same bug: the HTML banner re-checked `sl_qa`'s numeric thresholds, so on ONE file `sl_accept_chunk` could say
-> ACCEPT (benign `products.json` dip) while the banner said STOP. Two verdicts, one file, agent forced to pick — a gate that must be
-> chosen between is not a gate. Now: **one verdict, one owner.**
+Each renderer **self-certifies exactly ONE thing: that the READING is complete** (`FULL CARD RENDERED — PASS: N/N products`).
+**The DATA verdict is NOT theirs** — it belongs to `sl_qa.py` / `sl_accept_chunk.py` (RULE 26). Previews as HTML, never PNG (Marina S6).
+
+> **S18 — what actually happened, kept here so we never re-learn it (the "слово ≠ дело" class, RULE 0b).**
+> The old rule named ONE reader (the HTML). But 250 HTML cards do not fit a context window, so every analysis session actually read
+> through a text projector — a script that **lived only on the VPS, outside git** (born 2026-06-07, six days *after* the enricher
+> started emitting `home_hero`) and was itself **partial**: no `home_hero` (the homepage-banner product v4.2 added *because* the
+> best-seller auto-pick misfires — swaddlean/dingle), `desc` cut to 58 chars, no `bullets` / `desc_confidence` / `pust` / `kind` /
+> unreachable-reason. **For ~27 batches the agent judged on less than the founder saw.** The HTML was not innocent either: it rendered
+> neither `pust` nor `kind` — both direct Marina-Veto inputs. **Neither surface was complete, and nothing ever compared them.**
+> **Why it survived so long:** (a) the rule froze a TOOL, so the substitute fell outside it; (b) the substitute was named `..._tmp.py` —
+> nobody reviews a throwaway; (c) it never entered git, so no audit, no backup, no diff; (d) the acceptance ritual demanded the agent
+> say aloud *"full card — 3 tops **+ images** + all fields"* while its surface had **no images at all** — an unverifiable sentence,
+> recited every batch; (e) **absence of a field has no symptom** — the output looked complete.
+> Second half of the same bug: the HTML banner re-checked `sl_qa`'s thresholds, so on ONE file `sl_accept_chunk` said ACCEPT (benign
+> `products.json` dip) while the banner said STOP. A gate you must choose between is not a gate. Now: **one verdict, one owner.**
+> **Fixed S18:** both renderers in git, both print the full 28-field contract, both self-certify, and `sl_card_parity.py` proves each
+> batch that the two surfaces are the same card. The property is now checked by a machine instead of promised by a sentence.
 
 ### RULE 26 — QA-gate PASS + acceptance statement BEFORE any analysis (S6, Marina-approved 2026-06-03)
 Before scoring ANY batch: run **`scripts/sl_qa.py <enriched.json>`** (extended S6 to CARD COMPLETENESS — essence fields +
