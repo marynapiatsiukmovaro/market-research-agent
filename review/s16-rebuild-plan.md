@@ -1,4 +1,9 @@
-# Store Leads — REBUILD PLAN + PROBLEM STATEMENT (set S16 2026-06-27, for NEXT session)
+# Store Leads — REBUILD PLAN + PROBLEM STATEMENT (set S16 2026-06-27)
+
+> ✅ **STATUS (S17, 2026-07-09): Блоки 1–2 ВЫПОЛНЕНЫ.** Block 1 = data-acquisition + strategy (commit `f1f88ca`).
+> Block 2 = scraper/enricher prep, verified in деле on 3 real chunks (commit `03c2eff`).
+> **Остался Блок 3 — система АНАЛИЗА** (op-rules 33→~10 · human-in-loop · вернуть живой заход · не плодить гейты).
+> Актуальное состояние → `departments/storeleads/operational-memory/learnings.md` (HANDOFF **S17**).
 
 > **Purpose (Marina S16):** capture the problem + the staged plan to rebuild a CLEAN base, so next session
 > we execute it step-by-step (Marina will formalize/approve each step). **We delete NOTHING — the system works;
@@ -6,10 +11,19 @@
 > **Decision (agent + Marina): NOT a from-scratch rebuild — surgical declutter + rewrite the ONE rotten file (op-rules).**
 
 ## THE PROBLEM (why the folder went heavy — root cause)
-1. **Goal drift → machinery.** ShopHunter was simple because the HUMAN (Marina) was the quality backstop. Store Leads
-   aimed at SCALE/autonomy → to remove the human we built MACHINE GATES. But a machine can only measure COVERAGE
-   (250 read, flags opened, browse≥7), NOT JUDGMENT (is this a winner?). So every gate measured coverage and called
-   it quality = **Goodhart**. The cart (scale) before the horse (reliably finding winners).
+1. **⚠️ CORRECTED S17 (Marina) — the old wording here was WRONG and misled the next session.**
+   The old text said: *«ShopHunter was simple because the HUMAN (Marina) was the quality backstop; Store Leads chased
+   SCALE, so we replaced the human with machine gates.»* **Both halves are false:**
+   - **(a)** In ShopHunter the **AGENT** finds the winner (dump → open every store → enrich → judge the PRODUCT →
+     present winners / borderline / browse). Marina's role is **Founder Review** on what is presented, plus deciding
+     how many sessions to run. She does not pick winners by eye out of the raw pool.
+   - **(b)** Store Leads never chased scale: we run the **same number of batches per session** as ShopHunter. The huge
+     universe is an **ASSET** (it solves the wall we hit when ShopHunter's stores ran out), not a race.
+   **The real root cause:** over sessions the RULES duplicated and layered (33 rules, ~30 ideas restated 4–5×), and the
+   agent's genuine analysis — actually opening a store and judging the product — was displaced by **ticking checkpoint
+   boxes**. The gates measure COVERAGE (250 read, flags «opened», browse≥7), never JUDGMENT — so the dashboard stayed
+   green while a real winner was dropped = **Goodhart**. Store Leads' core must be **IDENTICAL to ShopHunter's**; only
+   (i) data acquisition differs (more stores) and (ii) a few parts we genuinely strengthened (enricher, reports, guard).
 2. **Archaeology of failures.** Each failure spawned a NEW gate instead of restoring the simple practice:
    S5→RULE 25/26 · S6→RULE 27 · S7→RULE 29 (`sl_open_flags` — where "open" silently became "curl") · b3/b4→RULE 31/32/33.
    33 rules accreted. The machinery built to PREVENT winner-loss CAUSED it (gate passed on curl+card → genuine live-open faded).

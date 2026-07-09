@@ -39,10 +39,13 @@
 Инструменты сверки: `scripts/sl_filter_count.py` (живой счётчик по фильтру `bq`), `scripts/sl_csv_check.py` (счётчик по CSV).
 Замечено: **категория** фильтруется на сервере (`bq cat match`), **визиты** — на стороне клиента (из данных).
 
-## 🛢️ Энрич-резервуары (готовые батчи для анализа) — на VPS
-`logs/storeleads/niches/<niche>/` — например:
-- `home-and-garden/` — `hg_b1..b22_enriched.json` (+ `_table.html`, `b1` с `_crossref/_opens/_scores.jsonl`)
+## 🛢️ Энрич-резервуары (готовые Stage-2 файлы для анализа) — на VPS
+`logs/storeleads/niches/<niche>/`:
+- `home-and-garden/` — `hg_b1..b22_enriched.json` (**5,500 магазинов**, полоса 1k–10k) + `_table.html`; у `b1` есть `_crossref/_opens/_scores.jsonl`
+- `toys-and-hobbies/` — `th_1k10k_full.json` (срез 7,639) + `th_1k10k_s1_b1..b3_enriched.json` (**750 магазинов**, полоса 1k–10k, построены S17; ещё ~28 чанков в срезе)
 - `pets-and-animals/` — Dogs/Cats прошлых сессий
+
+**Итого соэнричено (enriched_index): 27,749 магазинов.** `processed` (проанализировано) = 19,604 — **enriched ≠ processed**, это инвариант: сборка не помечает processed, только анализ.
 
 ## 📒 Состояние (single source of truth — на VPS, зеркало в репо)
 `logs/storeleads/` на VPS:
