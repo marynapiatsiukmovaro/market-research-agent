@@ -471,5 +471,6 @@ Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal
 RULE 32; when unsure INCLUDE; tail is a priority, never padded-down**) · Patterns · the full funnel breakdown
 (RULE 1) **including the explicit A/B/C tier counts** (Marina cross-checks against the ABC split). Every link = a
 clickable markdown hyperlink. **The report is contract-complete + carries the gate PASS line (RULE 31).** Then **STOP and
-wait for Marina's OK before writing to Notion** (within an approved block, batches 3–6 do NOT stop per-batch — RULE 33 —
-but STILL post the full checkpoint; only a winner 65+ or breakage pauses the block).
+wait for Marina's OK** — every batch, no exceptions (RULE 33). Nothing goes to Notion before her explicit OK.
+*(S20: the old tail here said "within an approved block, batches 3–6 do NOT stop per-batch — RULE 33" — it cited RULE 33
+while stating the opposite of it. Leftover from the pre-S19 wording; removed, not re-decided.)*

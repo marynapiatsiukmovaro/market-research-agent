@@ -179,7 +179,8 @@ machine that confirms the work behind the ticks. **(Floor, not ceiling — RULE 
 > ⭐ **S13 contract (Marina-approved 2026-06-07) — op-rules RULE 31/32/33.** The checkpoint REPORT is now gate-guarded like every
 > other step ("external controller", not discipline): the gate self-STOPs until flags+device+browse-floor pass, and the report is
 > valid only if contract-complete + carries the PASS line. **Browse FLOOR = 7 per batch, no ceiling — when unsure INCLUDE; the tail
-> is a priority (Marina finds tail gems on other niches), never padded-down.** Rhythm = escalating autonomy 1→1→4, ~6 batches/session.
+> is a priority (Marina finds tail gems on other niches), never padded-down.** *(Rhythm: the S13 line "escalating autonomy
+> 1→1→4, ~6 batches/session" is RETIRED — RULE 33, rewritten S19: **every batch → checkpoint → STOP**. Removed S20.)*
 
 ## 1b. RESERVOIR-BUILD MODE (scraper-prep — S8, Marina-approved 2026-06-03) ⭐
 Use this when the session's job is to **run the scraper to PREP data** for a later analysis session (not to analyse a
