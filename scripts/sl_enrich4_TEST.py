@@ -32,6 +32,13 @@ OUT = "/opt/market-research-agent/logs/storeleads"
 INF, OUTF, SENT = sys.argv[1], sys.argv[2], sys.argv[3]
 NW = int(sys.argv[4]) if len(sys.argv) > 4 else 8   # v4.1: 8 workers (Playwright, credit-safe) — ~2x faster, 0 quality loss
 LIMIT = int(sys.argv[5]) if len(sys.argv) > 5 else 0
+# S21 — TWO LIGHT PASSES instead of one heavy (Marina). The combined two-block pass fired ~15 requests per
+# store (sales shelf + front shelf + collection pagination + currency + banner self-check); under 6 workers
+# these lower-visit stores challenge-walled → reach 48% where the old light ladder got 90% on the SAME 250.
+# PASS 1 = the FRAME: all fields + 3 витрina products (frontpage/featured, else homepage). No Shopify sort,
+#          no self-checks. Light as the old ladder → reach recovers. Accepted on its own.
+# PASS 2 = a SECOND run over the accepted frame that ADDS the ПРОДАЖИ block (?sort_by=best-selling).
+PASS = int(sys.argv[6]) if len(sys.argv) > 6 else 1
 creds = {}
 for line in open("/opt/market-research-agent/cookies/proxy.creds"):
     if "=" in line:
@@ -393,8 +400,8 @@ def rows_from_handles(pg, dom, hs, src):
     return rows
 
 
-def existing_collections(pg, dom):
-    """ONE request instead of five blind 404s.
+def existing_collections(pg, dom, pages=1):
+    """ONE request instead of five blind 404s. (pages>1 only for the heavy pass — kept light by default.)
 
     S20 lesson, measured: probing best-selling/bestsellers/best-sellers/frontpage/featured blindly costs
     5 requests per store, and on a store that has none of them each miss burns 2 attempts. Request count
@@ -412,7 +419,7 @@ def existing_collections(pg, dom):
     requests, not with the logic.)
     """
     handles = set()
-    for page in (1, 2, 3):
+    for page in range(1, pages + 1):
         j = get_json(pg, "https://%s/collections.json?limit=250&page=%d" % (dom, page), tries=1)
         cs = (j or {}).get("collections") or []
         handles |= {c.get("handle") for c in cs if c.get("handle")}
@@ -496,6 +503,21 @@ def collect_products_two_blocks(pg, dom, home_html):
     return [], ("homepage-noprod" if home_html else "unreachable"), "low"
 
 
+def collect_front_only(pg, dom, home_html):
+    """PASS 1 (S21) — the FRAME's products: витрина ONLY, light request load.
+    frontpage/featured collection (1 request) else the homepage handles (already downloaded, 3 product
+    fetches). No sales shelf, no `?sort_by=best-selling` html, no collection pagination. This is the same
+    weight as the old ladder that got 90% reach. The ПРОДАЖИ block is added later by pass 2."""
+    colls = existing_collections(pg, dom, pages=1)
+    b, src_b = front_shelf(pg, dom, colls, home_html)
+    if b:
+        return b, src_b or "homepage", "low"
+    j = get_json(pg, "https://%s/products.json?limit=50" % dom)
+    if j and j.get("products"):
+        return [prod_row(p, i, "all") for i, p in enumerate(j["products"])][:3], "all", "low"
+    return [], ("homepage-noprod" if home_html else "unreachable"), "low"
+
+
 def collect_products(pg, dom):
     """The LADDER — ordered by 'does this rung reflect what the merchant actually sells?'
 
@@ -559,7 +581,9 @@ def work(args):
             dom = (d.get("name") or "").replace("https://", "").replace("http://", "").rstrip("/")
             cc = d.get("country")
             home_html = get_html(pg, "https://%s/" % dom, tries=2)   # ONE fetch, used by both blocks + the pitch
-            rows, src, hconf = collect_products_two_blocks(pg, dom, home_html)
+            # S21: PASS 1 = light frame (витрина only). PASS 2 (heavy, adds sales) uses the two-block path.
+            rows, src, hconf = (collect_front_only(pg, dom, home_html) if PASS == 1
+                                else collect_products_two_blocks(pg, dom, home_html))
             pc = d.get("pc") or 0
             o = {"store": (d.get("merch") or dom)[:26], "domain": dom, "country": cc,
                  # S20: the index's price envelope + declared currency. Present for the first time —
@@ -594,7 +618,9 @@ def work(args):
             home_handle = "" if o["homepage_blocked"] else hm["hero_handle"]
             # SELF-CHECK (1): when the source was weak (hconf=low: we fell to `all`/homepage, hero unreliable), promote
             # the homepage banner-featured product to the front (heatka/hanboost case). High-conf sales collection → skip.
-            if hconf == "low" and home_handle:
+            # S21: skip in PASS 1 — it re-fetches a product json PER store (hconf is always low here) = the request
+            # weight we are removing. The banner still reaches the card via home_img (0 extra requests).
+            if PASS != 1 and hconf == "low" and home_handle:
                 jp = get_json(pg, "https://%s/products/%s.json" % (dom, home_handle), tries=2)
                 if jp and jp.get("product"):
                     hh = prod_row(jp["product"], -1, "home-hero")
@@ -636,7 +662,7 @@ def work(args):
                 in_clean = next((r for r in clean if r.get("handle") == home_handle), None)
                 if in_clean is not None:
                     o["home_hero"] = {"t": in_clean["t"][:60], "handle": home_handle, "in_clean": True}
-                else:
+                elif PASS != 1:      # S21: the extra banner-product fetch is pass-2 weight; free when in_clean
                     jph = get_json(pg, "https://%s/products/%s.json" % (dom, home_handle), tries=2)
                     if jph and jph.get("product"):
                         hr = prod_row(jph["product"], -1, "home-featured")
@@ -705,7 +731,7 @@ def work(args):
             known = [t for t in o["tops3"] if not t["price_unknown"]]
             cand = inr[0] if inr else (known[0] if known else o["tops3"][0])
             # SELF-CHECK (2): if the chosen candidate's desc is empty/mismatched → re-fetch its own page to correct
-            if cand.get("desc_confidence") != "ok" and cand.get("handle"):
+            if PASS != 1 and cand.get("desc_confidence") != "ok" and cand.get("handle"):   # S21: pass-2 weight
                 fixed = recheck_desc(pg, dom, {"handle": cand["handle"], "pos": cand["pos"], "src": "cand"})
                 if fixed.get("desc") and desc_conf(fixed["t"], fixed["desc"]) == "ok":
                     cand["desc"] = fixed["desc"][:550]; cand["desc_confidence"] = "ok"; cand["pclass"] = fixed["pclass"]
@@ -722,14 +748,9 @@ def work(args):
         b.close()
     return res
 
-if __name__ == "__main__":
-    rows = json.load(open(OUT + "/" + INF))
-    if LIMIT: rows = rows[:LIMIT]
-    chunks = [(w, rows[w::NW]) for w in range(NW)]
-    t0 = time.time()
-    with Pool(NW) as pool:
-        parts = pool.map(work, chunks)
-    res = [x for part in parts for x in part]
+def finalize(res):
+    """conv_batch + score + tier + needs_live over `res`. ONE formula, called by pass-1 __main__ AND by
+    pass-2 (sl_enrich_sales) so the two passes can never drift on how a store is scored (S21)."""
     cands = [r for r in res if r.get("candidate")]
     for r in cands:
         rt = toks(r["candidate"]); cores = set()
@@ -801,6 +822,17 @@ if __name__ == "__main__":
             if hh and not hh.get("in_clean") and hh.get("handle") and hh.get("k") == "physical" and not hh.get("desc"):
                 nl = True; why.append("banner-hero-unreadable")
         r["needs_live"] = nl; r["needs_live_why"] = why
+    return res
+
+
+if __name__ == "__main__":
+    rows = json.load(open(OUT + "/" + INF))
+    if LIMIT: rows = rows[:LIMIT]
+    chunks = [(w, rows[w::NW]) for w in range(NW)]
+    t0 = time.time()
+    with Pool(NW) as pool:
+        parts = pool.map(work, chunks)
+    res = finalize([x for part in parts for x in part])
     order = {"A": 0, "B": 1, "C": 2, "PRICE-CHECK": 3, "MANUAL": 4, "DROP-noPhysical": 5, "DROP": 6}
     res.sort(key=lambda r: (order.get(r.get("tier"), 9), -r.get("score", -999)))
     json.dump(res, open(OUT + "/" + OUTF, "w"), ensure_ascii=False, indent=1)
