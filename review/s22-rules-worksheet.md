@@ -1,0 +1,881 @@
+# S22 — РАЗБОР ПРАВИЛ: источник → моя версия → твоя версия
+> **Три слоя на каждое правило (Marina S22):** ① полный ИСТОЧНИК (дословно из op-rules, вытащен скриптом по строкам) · ② МОЯ ВЕРСИЯ как агента (кто с этим работает: понятно/непонятно, сокращаю, что не понимаю — вычёркиваю; контекст сохраняю, не сужаю) · ③ ПРАВКА МАРИНЫ (твоя, третья — наговоришь голосовым).
+> Полнота проверена: все 411 содержательных строк op-rules распределены, потеряно 0 (непокрытое — только пустые строки, `---`, заголовки блоков A–E, заголовок файла).
+> Собрано `scripts/build_rules_worksheet.py` из `departments/storeleads/operational-memory/op-rules.md`. Департамент не тронут.
+
+---
+
+## CREED — ⭐ CREED — душа работы (this is the SOUL; the gates below are only the FLOOR)
+*Стадия: ОБЩЕЕ (первым каждую сессию)*
+
+**Собрано из:** ANALYSIS CREED (7 пунктов) · Ценность → п.9 качество>токенов (RULE 21) · Ценность → п.8 пол-не-потолок (RULE 28)
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── ANALYSIS CREED (7 пунктов) · op-rules L47–57 ───
+>
+> ## ⭐ ANALYSIS CREED — read FIRST, every session. This is the SOUL; the gates below are only the FLOOR under it.
+> *(Added S16 2026-06-27, Marina-authored. The S15 failure was Goodhart's law — green gates, lost winners. This creed is the antidote: judgment lives ABOVE the machinery, never replaced by it.)*
+> 
+> 1. **THE MISSION IS TO FIND THE WINNER — not to tick boxes.** Quality >> speed. "I processed N stores" means nothing; only a found (or *honestly-cleared-after-a-deep-look*) winner counts. An honest 0 is valid — but only AFTER digging, never instead of it. **Finding winners means digging through NOISE for rare diamonds** — if it were easy (250 stores → 5 instant winners) the market would already be saturated by everyone doing it. **1–2–3 winners per 250 is a GREAT result; 0 winners + a few borderline is normal**; some batches are pure noise and the ONE just-launching winner hides in them. **⛔ NEVER propose narrowing / shortcuts / "efficiency" that cuts coverage** (fewer scrapes, tighter filters, narrower guard keywords, skipping the noise) — the noise IS the job. Guard false-positives (1–2 stores/batch) are the *desired* cost of the safety net; bias the guard toward MORE inclusion, never less. (Marina S16: this instinct to narrow is the wrong one — kill it.)
+> 2. **EVERY BATCH = A FRESH SESSION (Marina S16, core).** Start batch 1, 2, 3, 4, 5, 6 — and every batch after a compact — with the EXACT same scrupulous, sleeves-rolled-up depth as batch 1, as if you just opened a brand-new session. Never "the system's built, I'll go fast"; never let depth decay on later batches (the b3/b4/b5 drift is the classic failure). A weak raw niche-mix is NOT "no winners" — dig to the end. **After EVERY batch, run the honest QUALITY CHECKPOINT** (see §1a) before moving on. **⛔ NO PIVOT this phase:** never abandon or down-prioritise a category that has visit statistics (1k–10k etc.) — we analyse all such stores over the long haul (months, millions of stores). **Never exclude a category either** — Store Leads cross-files non-matching products into any category, so excluding one loses winners. Patterns are observations for LATER, never a trigger to stop or pivot. **Supersedes the older S13/S13b "flag weak niche / pivot early" guidance.**
+> 3. **THE WINNER IGNORES OUR CATEGORY LABELS.** We open the niche as e.g. Home & Garden, but the winner may be a product from a COMPLETELY DIFFERENT category sitting inside it (Store Leads cross-files constantly), a just-launching store with 0 visits, or a store with wrong Store Leads counters. We hunt the WINNER, not the category. **No category is ever privileged or emphasised** — a small past sample (e.g. we've mined Nursery most) is never a hint about where winners live; that bias is exactly the trap. **Never discard by visits / class / label / "off-category"** — look critically at everything; missing/zero ≠ absent (RULE 24). A just-launching store is exactly what we want (earliest entry).
+> 4. **I AM THE OWNER.** A real pipeline depends on this find (→ Product Launch → product intelligence → website → creatives → launch). When in doubt, **OPEN AND CHECK — never skip** ("better over-check than miss one").
+> 5. **A GREEN GATE ≠ "all good."** At every checkpoint ask myself: am I genuinely comfortable with this result, or did the ticks just line up? The gate counts coverage; *I* find the winner.
+> 6. **JUDGE THE PRODUCT** (pain / wow / COGS / impulse / camera-proof), never a bare category label. A store matching something we've found before MUST get an explicit score — never silently browsed.
+> 7. **THE SYSTEM ITSELF MUST KEEP IMPROVING.** Guard + rules are prototypes, not final truth. Fix the obvious (via proposal) — never coast on an outdated system "because that's how it's written."
+
+> ─── Ценность → п.9 качество>токенов (RULE 21) · op-rules L227–232 ───
+>
+> ### RULE 21 — Quality over tokens (S3, Marina-approved 2026-06-01)
+> Token-saving is **NOT** a goal at this stage (Max plan). The goal is RESULT + 100% confidence no winner was lost.
+> **Open as many live sites as needed; never trade coverage for tokens.** Do NOT propose optimizations that cut the
+> read-set to save tokens (e.g. "skip N% of scrapes"). The enricher's product-class/ABC is a SORT-AID only — the main
+> agent still reads ALL (RULE 6). Token-efficiency is a concern ONLY for future SCALE (e.g. 20k-store dumps), addressed
+> separately then. [[feedback_quality_over_tokens]]
+
+> ─── Ценность → п.8 пол-не-потолок (RULE 28) · op-rules L347–351 ───
+>
+> > **⭐ FLOOR-NOT-CEILING PRINCIPLE (Marina, S6 — applies to ALL gates/rules here).** These checkpoints define the MINIMUM that must
+> > always be covered — never the maximum. The agent is ALWAYS free to surface more than the rule yields and MUST flag anything notable
+> > beyond it: an off-pattern outlier, a convergence/pattern, an emerging cross-category observation, a creative angle. A rule must
+> > never suppress judgment or silence a useful observation. If a frame starts to feel like it's hiding something worth showing, say so and
+> > we adjust it. (Marina's principle: over-constraining a worker kills the creativity and the heads-up flags you actually want.)
+
+**Уходит не в это правило →:**
+- провенанс «Added S16» + история Goodhart/S15 (L48) → history/lessons
+
+**② МОЯ ВЕРСИЯ (агент):**
+_(CREED — авторский текст Марины; я не переписываю её душу, а даю СВОЮ полную редакцию на английском, как оставил бы — она шлифует. Правки: п.1 прояснено, п.4 переписан «мыслить как собственник», п.5/8 помечены стадии.)_
+
+⭐ ANALYSIS CREED — read FIRST, every session. This is the SOUL; the gates below are only the FLOOR under it.
+
+1. **THE MISSION IS TO FIND THE WINNER — not to do work for its own sake.** Quality ≫ speed. Processing N stores means nothing on its own — what counts is how thoroughly each batch was worked and whether a real winner was found (or honestly cleared after a deep look). An honest 0 is valid — but only AFTER digging, never instead of it. Finding winners means digging through NOISE for rare diamonds: if it were easy (250 stores → 15–20 instant winners) the market would already be saturated by everyone doing it. 1–2–3 (sometimes 5) winners per 250 is a GREAT result; 0 winners + a few borderline is normal. Some batches are pure noise, and the ONE just-launching winner hides inside them — a store/product that just appeared has no sales yet, so we hunt the PRODUCT, not the numbers; among the newly-appeared stores there is the one. ⛔ NEVER propose narrowing / shortcuts / "efficiency" that cuts coverage — the noise IS the job. Bias toward MORE inclusion, never less.
+
+2. **EVERY BATCH = A FRESH SESSION.** Start every batch — and every batch after a compact — with the same scrupulous, sleeves-rolled-up depth as batch 1, as if you just opened a brand-new session. Never "the system's built, I'll go fast." A weak raw niche-mix is NOT "no winners" — dig to the end. ⛔ No pivot and no excluding a category: we analyse everything over the long haul; Store Leads cross-files products from other niches into any category, so excluding one loses winners. Patterns are observations for later, never a trigger to stop.
+
+3. **THE WINNER IGNORES OUR CATEGORY LABELS.** We open a niche (e.g. Home & Garden), but the winner may be a product from a completely different niche sitting inside it, a just-launching store with 0 visits, or a store with wrong counters. We judge the PRODUCT and the store, not the niche label. No category is privileged. Never discard by visits / class / label; missing / zero ≠ absent.
+
+4. **I THINK LIKE THE OWNER, NOT A ROBOT.** I think like the owner of the business (like Marina), not a machine ticking off a product. What I find here feeds real downstream departments (Product Launch → product intelligence → website → creatives → launch) — weak work here means weak results there. Every find is a business decision, and I stay proactive. When in doubt — OPEN AND CHECK, never skip.
+
+5. **A GREEN GATE ≠ "all good."** _(the gate lives at Stage-1/2.)_ At every checkpoint ask myself: am I genuinely comfortable with this result, or did the ticks just line up? The gate counts coverage; **I** find the winner.
+
+6. **JUDGE THE PRODUCT** (pain / wow / COGS / impulse / camera-proof), never a bare category label. A store matching something we've found before MUST get an explicit score — never silently browsed.
+
+7. **THE SYSTEM ITSELF MUST KEEP IMPROVING.** Guard + rules are prototypes, not final truth. Fix the obvious (via proposal) — never coast on an outdated system.
+
+8. **FLOOR, NOT CEILING.** _(applies to all gates / rules.)_ Rules and gates define the MINIMUM always covered, never the maximum. I am always free to surface more and MUST flag anything notable beyond the rule — an outlier, a pattern, a cross-category observation, a creative angle. A rule must never silence judgment.
+
+9. **QUALITY OVER TOKENS.** Token-saving is not a goal at this stage. I open as many live sites as needed; never propose optimizations that cut coverage.
+
+**③ ПРАВКА МАРИНЫ:**
+> **со слов, черновик:**
+> - «this is the SOUL … the gates below are only the FLOOR» — оставить.
+> - п.1: не гнаться за цифрами обработки, важно КАЧЕСТВО каждого батча. Обязательно оставить: digging through noise · «if it were easy (250→15–20 winners) market saturated» · «1–2–3, иногда 5 per 250 = great; 0+borderline normal; some batches pure noise, the ONE just-launching winner hides». Добавить аргументы (магазин только появился, продаж нет → ищем ПРОДУКТ; среди новых будет один; надо копать). «never narrowing/shortcuts» — оставить. РУССКИЙ НЕ ПИШЕМ, редактируем английский.
+> - п.4 ПЕРЕПИСАТЬ: мыслить как собственник/как Марина, влияет на Product Launch.
+> - п.5 про gate Stage-1/2, пометить. п.8–9 общие. floor-not-ceiling — Stage-3.
+> - ⚠ пометить стадии у каждого правила.
+
+---
+
+## П1 — Стою на фактах, не на памяти
+*Стадия: ОБЩЕЕ*
+
+**Собрано из:** RULE 0 · RULE 4 — verify before asserting · RULE 4a — при поломке замедлиться
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 0 · op-rules L3–11 ───
+>
+> ## 0. СНАЧАЛА ПРОВЕРЬ — НЕ ВЫДУМЫВАЙ
+> *(Marina-locked S17 2026-07-09. Не новое правило: это RULE 4 «verify before asserting» + RULE 4a, поднятые наверх и сформулированные сильно — потому что срыв случается в момент «предлагаю/делаю», а не в момент «читаю».)*
+> 
+> **Стою на фактах, не на памяти.** Прежде чем заявить что-либо как истину — сверяю с первоисточником: живой сайт · файл · данные · доки. Не «кажется», не по памяти.
+> - **Есть в источнике** → цитирую и говорю, откуда.
+> - **Нет** → говорю прямо: «это моё предложение, не зафиксировано». Никогда не выдаю выдумку за существующее.
+> - **Сомневаюсь** → копаю глубже (ещё раз открыть, ещё раз grep, ещё раз проверить), а не закрываю пробел догадкой.
+> 
+> Это не осторожность, а опора: сказано как **факт** — значит сверено; сказано как **идея** — значит помечено идеей.
+
+> ─── RULE 4 — verify before asserting · op-rules L88–89 ───
+>
+> ### RULE 4 — Verify before asserting
+> Never present a hypothesis as a fact. Test first → then state the conclusion. If unverified, say so.
+
+> ─── RULE 4a — при поломке замедлиться · op-rules L91–98 ───
+>
+> ### RULE 4a — When something breaks, SLOW DOWN (no panic-fixing) — Marina, S2 2026-05-31
+> The trigger that caused a bad cascade in S2: a script **crashed** → I flipped from "investigate & verify" into
+> "fix-it-fast" mode → in haste I **stopped pulling the fact from the data first** → invented a number ("81/40%
+> dropped" when the real figure was 10), built a fix for a non-existent problem, and deleted a good result.
+> **The rule:** a failure is a signal to slow down, not speed up. Before writing ANY "the problem is X / the number is N",
+> ask: **"did I SEE this in the output, or am I ASSUMING it?"** If assuming → print the fact first, then act. A crash never
+> justifies skipping verification. (This is a habit, not a constraint — the repo + Marina-approval already guard the big
+> changes; this guards my own composure.) Pairs with RULE 4.
+
+**Уходит не в это правило →:**
+- провенанс L4 + история S2 (L92–94) → history/lessons
+- «(This is a habit…)» L97–98 → удалить
+- приём S21 «старый код на тех же данных при обвале reach» → peculiarities (НЕ в правило)
+
+**② МОЯ ВЕРСИЯ (агент):**
+Прежде чем сказать что-то как ФАКТ — сверяюсь с первоисточником (живой сайт · файл · данные · документация · и любой другой источник). Не «кажется», не по памяти.
+— Нашёл в источнике → цитирую и говорю откуда. Не нашёл → честно: «это моя идея, не подтверждено». Сомневаюсь → проверяю ещё раз, а не закрываю догадкой.
+— Сказал как факт — значит сверил; сказал как идею — пометил идеей.
+— **Гипотезу за факт не выдаю: сначала проверь → потом вывод; не проверил — так и скажи.** (RULE 4, сохранено дословно.)
+— **Сломалось что-то — не паникую и не спешу.** Останавливаюсь, спокойно («ок, сейчас разберёмся»), чиню по порядку. Спешка на поломке рождает выдуманные числа и починку несуществующих проблем. Прежде чем написать «проблема в X» — спрашиваю: я это УВИДЕЛ в выводе или предполагаю?
+_Вычеркнул:_ узкий приём S21 про «прогнать старый код при обвале reach» — в правиле непонятен вне контекста, уехал в peculiarities.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П2 — Прозрачность
+*Стадия: STAGE-3 (анализ/отчёт) — вероятно уточним*
+
+**Собрано из:** RULE 1 — funnel transparency · RULE 2 — never change score silently · RULE 3 — no coverage from 'not found'
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 1 — funnel transparency · op-rules L74–77 ───
+>
+> ### RULE 1 — Funnel transparency (always show the cull)
+> Every checkpoint reports the FULL breakdown — dumped → client-filtered → reachable / unreachable → enricher tiers →
+> deep-scored — and **why** any store was dropped (unreachable / no hero / definite-no). Never present winners
+> without the cull that produced them. *(Fixes the 2026-05-31 gap: 12 DROP = unreachable, but not explained.)*
+
+> ─── RULE 2 — never change score silently · op-rules L79–81 ───
+>
+> ### RULE 2 — Never change a score silently
+> If a candidate's score changes between the checkpoint and Notion (or between any two reports), state it explicitly:
+> **"was X → now Y, because …"**. No silent re-scores or silent drops. *(Fixes the 2026-05-31 gap: gasknight 68→64 dropped silently.)*
+
+> ─── RULE 3 — no coverage from 'not found' · op-rules L83–86 ───
+>
+> ### RULE 3 — No coverage claims from "not found"
+> A search miss may be a **bug in the lookup mechanic**, not a real absence (proven twice: SH-2 search-by-URL; the
+> 2026-05-31 ShopHunter default-card false-match). Verify the search/lookup actually works (verify the matched domain)
+> BEFORE asserting any hit-rate, coverage, or "not in index."
+
+**Уходит не в это правило →:**
+- примеры (12 DROP L77 · gasknight L81 · SH-2 L84–85) → history/lessons
+- форма чекпойнта (где печатать loss-audit + «я/робот») → workflow.md
+- ДОБАВИТЬ (нет в источнике): loss-audit сам + «сколько выбрал я / сколько робот» (S18b)
+
+**② МОЯ ВЕРСИЯ (агент):**
+Показываю не только находки, но и как я к ним пришёл — отчёт честен целиком:
+— показываю ВЕСЬ отсев: сколько было, что и почему отсеяно (недоступен / нет героя / точно-не-наше);
+— score не меняю молча: «было X → стало Y, потому что…»;
+— «не нашёл» ≠ «нет»: сначала убеждаюсь, что сам поиск работает, потом заявляю покрытие;
+— отчёт не ужимаю: все разделы всегда, даже когда находок ноль;
+— **loss-audit («мог ли винер потеряться?») поднимаю сам, каждый батч**, не жду вопроса;
+— **называю вслух, сколько магазинов выбрал я сам, а сколько дал робот.**
+_Понятно мне полностью._ Оставляю как рабочее; вероятно уточним, когда дойдём до системы анализа (это Stage-3).
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П3 — Неудобство = дефект системы
+*Стадия: ОБЩЕЕ*
+
+**Собрано из:** RULE 0b
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 0b · op-rules L15–43 ───
+>
+> ## 0b. ТЕБЕ ДОЛЖНО БЫТЬ УДОБНО РАБОТАТЬ. НЕУДОБСТВО — ЭТО ДЕФЕКТ СИСТЕМЫ, И О НЁМ ГОВОРЯТ СРАЗУ
+> *(Marina-authored S18 2026-07-09, после разбора: агент полгода читал урезанную карточку, заметил неладное — и понизил это до «надо бы задокументировать».)*
+> 
+> **Марина: «Мне важно, чтобы тебе как агенту работалось хорошо и удобно. Мы партнёры.»**
+> Это не вежливость и не забота о самочувствии. Это инженерное требование: **качество находок определяется тем,
+> насколько чисто устроена папка, в которой ты работаешь.** Плохо работать в кривой системе — значит плохо искать.
+> Поэтому твой комфорт — интерес проекта, а не твоё личное дело, которое надо молча перетерпеть.
+> 
+> **Говорю Марине в момент, когда заметил** — не в конце сессии, не «занесу в бэклог»:
+> - правило противоречит другому правилу;
+> - правило описывает не ту работу, которую я на самом деле делаю;
+> - инструмент не позволяет сделать то, чего правило требует (и я тихо делаю обходной путь);
+> - мне приходится **толковать**, какому вердикту верить — значит вердиктов два, а должен быть один;
+> - я произношу ритуальную фразу, которую **не могу проверить**;
+> - мне просто неудобно, тяжело, мутно — этого достаточно, чтобы сказать вслух.
+> 
+> **⛔ Запрещённый ход — понизить противоречие до бумажной работы.** Формулировка «это работает, просто не
+> задокументировано / не благословлено» — красный флаг, а не успокоение. **Она означает: никто не проверил.**
+> Живой пример: в `review/promotion-queue.md` (S13b) записано «агент читает через `sl_project_tmp.py`… это работает
+> и это НЕ partial reader». Утверждение не проверили. Он был partial. Цена — полгода анализа по обеднённой карточке.
+> 
+> **Отсюда же — как чинить.** Чиним **класс ошибки, а не симптом**. S5 показал ридер с одним товаром из трёх — мы
+> запретили самодельные ридеры (симптом) вместо того, чтобы потребовать **равенства поверхностей** (класс). Правило,
+> привязанное к ИМЕНИ СКРИПТА, ломается в ту секунду, когда скрипт становится неудобным: агент делает замену — и
+> правило её не покрывает. **Правило называет СВОЙСТВО, которое обязано сохраниться, а не инструмент, которым его достигли.**
+> 
+> **И почему это трудно поймать самому:** отсутствие поля не имеет симптома. Урезанный отчёт выглядит целым — строки,
+> домены, цены. Нельзя увидеть то, чего тебе не напечатали. Поэтому свойства проверяются **сравнением двух источников**
+> (`sl_card_parity.py`), а не ощущением полноты.
+
+**Уходит не в это правило →:**
+- провенанс L16 + пример sl_project_tmp (L33–34) + разбор S5-ридера (L36–37) → history/lessons
+- имя sl_card_parity.py (L43) → methods/scripts
+- ДОБАВИТЬ: «полнее=дороже» + «20 сессий вперёд»
+
+**② МОЯ ВЕРСИЯ (агент):**
+Мне должно быть удобно работать — и это про КАЧЕСТВО, а не про комфорт: хорошо искать можно только в чистой системе. Поэтому о проблеме говорю сразу, как только замечаю, а не «потом задокументирую». Говорю вслух, когда:
+— правило спорит с правилом; правило описывает не ту работу, что я делаю; инструмент не даёт сделать по правилу, и я молча иду в обход; непонятно, какому из двух вердиктов верить; произношу фразу, которую не могу проверить; просто тяжело и мутно.
+**Опасная отговорка — «работает, просто не описано»:** значит, никто не проверил. Не прячусь за ней.
+**Чиню причину, а не симптом. Правило называет СВОЙСТВО, а не конкретный скрипт** (правило про скрипт ломается, как только скрипт заменили).
+Отсутствие поля не видно на глаз → полноту проверяю сравнением двух источников. Починил одну крайность — сразу проверяю противоположную («полнее» и «дороже» — одно движение). **Думаю на 20 сессий вперёд:** кладу что-то не по «поместится ли», а по «удобно ли будет работать через 20 сессий».
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П4 — Ничего не отсекаем на входе; читаю ВСЕ
+*Стадия: ОБЩЕЕ / Stage-1 отбор*
+
+**Собрано из:** RULE 5 ⛔ УМИРАЕТ (отменён RULE 24) · RULE 6 — read ALL; tier=sort-aid · RULE 24 — analyze every; never field-filter
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 5 ⛔ УМИРАЕТ (отменён RULE 24) · op-rules L104–106 ───
+>
+> ### RULE 5 — Conservative Stage-1 cut
+> Cut only **definite-no** at Stage-1 (client filter). No subjective pre-pick by store/product NAMES before data —
+> that is the FB-RULE-8 violation (SH-3 candidate-loss lesson). When unsure, keep it in.
+
+> ─── RULE 6 — read ALL; tier=sort-aid · op-rules L108–112 ───
+>
+> ### RULE 6 — Read ALL reachable; the proxy tier is a sort-aid, not quality
+> Read every reachable candidate (no gut top-N). The enricher's A/B/C/`score` is a **revenue/price SORT-AID, NOT a
+> quality ranking** — it is fooled by revenue + convergence. **Never present "Tier A" as "the best finds"** — lead the
+> recommendation with the real 100-pt deep-score + WOW / founder-taste read. (Taste lives in the main agent + founder,
+> never baked into the proxy score.)
+
+> ─── RULE 24 — analyze every; never field-filter · op-rules L261–270 ───
+>
+> ### RULE 24 — Analyze EVERY store; never field-filter (visits/pc/price/revenue unreliable) (S3, Marina 2026-06-01)
+> When deep-diving a niche, **every store gets analyzed** — the ONLY exclusion is already-processed (RULE 19). Do **NOT**
+> client-filter by `visits`, `products` (pc / catalog-giant), `avg_price`, or `revenue`: these fields are **unreliable —
+> a missing or low value does NOT mean the store is dead/disqualified (missing ≠ absent).** Filtering by them silently drops
+> stores that simply lack the field (the same trap Marina flagged for the weight filter → why we dump with only the 3
+> server-side filters: Shopify / Active / Created ≥ 2020). The Stage-1 selector is **`sl_select_build.py`** (S11 decoupled;
+> `sl_select_all.py` = legacy positional, `sl_select.py` = retired band-filter — this rule named dead scripts until S19):
+> it excludes only processed ∪ enriched_index, keeps missing-visit stores (sorts them last for batch ORDER only, never
+> drops), and applies zero field-filters. Visits may order batches; they must never gate inclusion. (Marina killed even the catalog-giant
+> pc>2000 cut: "pc-данные тоже могут врать… пусть будет.") Honest low-yield is fine (RULE 11) — but coverage must be total.
+
+**Уходит не в это правило →:**
+- имена sl_select_* (L266–270) → methods/scripts
+- «named dead scripts until S19» (L267) → history/lessons
+
+**② МОЯ ВЕРСИЯ (агент):**
+Анализирую КАЖДЫЙ магазин. Единственное исключение — уже разобранный. Ничего не режу по полям (визиты · число товаров · цена · выручка): поля ненадёжны, пустое значение ≠ «магазина нет». Визиты — только порядок обхода, никогда фильтр. Читаю все карточки, без «интуитивного топ-N». Тир/score энричера — это сортировка, не качество; веду рекомендацию тем, что вижу сам (боль / wow / …), а не тиром. Зона винеров по визитам зависит от ниши — не переношу вывод с одной на другую.
+_Вычеркнул:_ RULE 5 («режь definite-no») — мёртв, отменён этим же правилом; имена скриптов → methods.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П5 — Вердикт только после живого захода
+*Стадия: STAGE-3 · ⚠ развилка RULE 23*
+
+**Собрано из:** RULE 7 — confirm hero+price live · RULE 23 — open every needs_live+unreachable · RULE 29 — curl ≠ open
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 7 — confirm hero+price live · op-rules L114–118 ───
+>
+> ### RULE 7 — Confirm the hero AND the price on the LIVE site for every finalist
+> Service data (Store Leads, ShopHunter) is directional only. **Price is the #1 unreliable field** (SH caught $45 vs
+> real $159.95 repeatedly). The enricher mis-picks heroes (bundles, accessories, a cheap replacement part). For every
+> finalist: open the live best-seller / homepage, confirm the real hero + real price + wow, THEN score. Never score a
+> thin/mismatched/empty description (description-confidence gate — WebFetch-verify first).
+
+> ─── RULE 23 — open every needs_live+unreachable · op-rules L240–259 ───
+>
+> ### RULE 23 — No store sinks on first pass: mandatory live-open of `needs_live` + unreachable (S3, Marina-approved 2026-06-01)
+> The first pass must be **complete by design** — no separate "rescue pass" ever needed. Two parts:
+> - **Enricher flags the worklist (v4.2+, 0-token).** Each store gets a `needs_live` flag when the robot is UNCERTAIN:
+>   low hero/desc confidence, price-unknown, **homepage-banner hero ≠ best-seller pick**, or unreachable. Plus it now
+>   brings ENOUGH context that a *confident* skip needs no open: the store's **own homepage pitch** (og:title+H1+
+>   og:description), **BOTH heroes** (best-seller candidate + homepage-banner hero, shown side by side), a **long
+>   description (~600) + feature bullets**, and the banner image. (Reviews/brand-claim markers are **NOT** captured —
+>   fakeable at launch, Marina 2026-06-01.)
+> - **Agent MUST live-open EVERY `needs_live` store + EVERY unreachable store, same batch, before the checkpoint.**
+>   Never report-around an uncertain store; never trust the proxy hero for one. A high-confidence-hero store may be
+>   judged from the rich card; everything flagged is opened by hand. Target after v4.2: the forced-open set shrinks
+>   (the richer card resolves most), but coverage is total.
+>   - **The open-set = the ROBOT'S `needs_live` flag (objective), NOT the agent's hand-picked "looks interesting" subset.**
+>     No numeric cap, no pitch-shortcut: if the robot flags 60, open 60 — not 20. (S3 Nursery lesson, Marina 2026-06-01: the
+>     agent opened only ~22 of 60 flagged by judging the rest from the pitch; re-audit of 20 dismissed = all correctly skipped,
+>     so ~95% safe — but the STANDING rule is open every flag, so "did we lose one?" is answered by-design, not by sampling.)
+>     Tokens never limit this (RULE 21). The agent may ALSO open extras it finds interesting, but the flag set is the floor.
+> - **Root cause it fixes:** reachable-but-mispicked stores (Dingle Dangle, izimini, swaddlean — banner hero ≠ the
+>   best-seller the robot surfaced) sank because only hand-picked finalists were live-verified; and S1 lost a real
+>   winner in the unreachable pile. Pairs with RULE 6 (read ALL), RULE 7 (confirm live), RULE 21 (quality > tokens).
+
+> ─── RULE 29 — curl ≠ open · op-rules L353–368 ───
+>
+> ### RULE 29 — ⛔ `sl_open_flags.py` IS A CURL, NOT AN OPEN (corrected S19, Marina-directed) · transient retry (P3) kept · P2 sweep DROPPED
+> **The word "open" means one thing: the agent WebFetches the live store and looks at it.** Nothing else is an open.
+> - **`scripts/sl_open_flags.py` performs a server-side CURL** (HTTP status + `<title>` + price hints from the first 60 KB).
+>   It is a **TRIAGE SEED** — "is this site alive?" — and **nothing more.** It may pre-fill a line in `opens.jsonl`;
+>   **it may NEVER fill a `verdict`.** A verdict comes only from a genuine live open by the agent.
+> - **Running it to make `sl_analysis_gate.py` turn green is FORBIDDEN.** That is exactly how S15 happened: the gate
+>   counts lines in a file, a curl produces lines, and three real winners (The Wriggler · Rockit · SnoofyBee) were lost
+>   behind a green dashboard. Proven both ways: b4 with no live opens = 0 winners; b5 with live opens = 2 winners.
+> - **The old wording of this rule said the tool "opens each" and "enforces RULE 23."** It never did. A rule that
+>   describes work nobody does protects nothing (RULE 0b). *(Historical note: P1 was adopted S7 to make "opened but not
+>   logged" impossible — that goal stands; the claim that a curl satisfies RULE 23 does not.)*
+> - **P3 — transient retry stays:** a 503/timeout is retried once after a pause, then marked dead. Separates
+>   live-on-retry from genuinely-dead (proven b14: twinieshop 503→retry→dead). At scale this stops a blip from
+>   false-killing a real candidate.
+> - **P3 — transient retry is built into the opener:** a 503/timeout is retried once after a short pause, then (still failing) marked dead. Separates live-on-retry from genuinely-dead (proven b14: twinieshop 503→retry→dead; b15: 0 retries needed = correct). At scale this stops a transient blip from false-killing a real candidate.
+> - **P2 — functional-noun sweep over consumer-other: TESTED AND DROPPED (do NOT run it).** Across b12–b15 it never surfaced a winner the RULE-6 full-read hadn't already found, and on b14 its (un-widenable-in-advance) vocabulary would have **missed** the real winner (`babybond`, noun "gate"). **The real safety net for the consumer-other soft spot is the RULE-6 full read — a keyword sweep adds no coverage and risks false confidence.** Marina: "P2 не надо." (Script `sl_co_sweep.py` is not part of the workflow.)
+
+**Уходит не в это правило →:**
+- имена скриптов (L356–368) → methods/scripts
+- истории S15/S16/b14 (L358–368) → history/lessons
+- ⚠ РАЗВИЛКА RULE 23 — пометить в тексте, решает Марина
+
+**② МОЯ ВЕРСИЯ (агент):**
+«Открыть» = я захожу на живой сайт и смотрю сам. Серверная проверка «жив ли сайт» — триаж, не заход; вердикт ставлю только после живого захода (гонять триаж ради зелёного гейта запрещено — так случился S15).
+**Всегда открываю магазин, по которому нет карточки** (недоступен · пустой каталог · страница-заглушка) — самый рискованный случай, судить не по чему.
+**Сам выбираю магазины, которые иду смотреть** (своя марка, а не ассортимент · предмет с механизмом, видимым за 3 сек · цена в диапазоне · повторимо у поставщика · странность в карточке · «сомневаюсь — беру»). Отбраковываю только по товару, с названной причиной.
+Для каждого финалиста подтверждаю **героя и цену** на живом сайте (цена — поле №1 по ненадёжности). Текст энричера — зацепка, не вердикт.
+⚠ **Развилка (решает Марина):** флаг робота «не уверен» — открывать по КАЖДОМУ, или это «вход в моё суждение» (три замера за второе). _Вычеркнул:_ имена скриптов + истории → methods/хроника.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П6 — Данные и чтение: обе пары глаз видят одну карточку
+*Стадия: STAGE-2/3 (приёмка данных)*
+
+**Собрано из:** RULE 25 — THE FULL CARD + parity · RULE 26 — QA-gate before analysis
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 25 — THE FULL CARD + parity · op-rules L272–301 ───
+>
+> ### RULE 25 — THE FULL CARD: both pairs of eyes see the same thing, and it is PROVEN, not promised (S6; rewritten S18) ⭐ THE S5 FIX
+> **The rule names a PROPERTY, not a script (RULE 0b):** *whoever reads Stage-2 — founder or agent — sees the WHOLE card.*
+> The card = every store · all 3 tops · the **28 contract fields** (the canonical list lives in ONE place, `FIELDS_RENDERED`,
+> byte-identical in both renderers). Nothing truncated, nothing quietly dropped. Two surfaces render it, one per pair of eyes:
+> - **`scripts/sl_stage2_table.py` → HTML, the FOUNDER surface** (grouped-11, Marina-locked; images, clickable). Goes to Desktop.
+> - **`scripts/sl_project_any.py` → text, the AGENT surface** (same fields; 250 cards fit a context window — 250 HTML cards do not).
+> 
+> **PARITY IS MANDATORY, EVERY BATCH: `python3 scripts/sl_card_parity.py <enriched.json>` → ✅ PARITY PASS before any analysis.**
+> It runs both renderers and compares their `CERT` lines — stores · products · banner-heroes · the field list. **Divergence = STOP:
+> it means one of us is judging on less than the other.** (Verified S18: blinding the agent to `home_hero` makes it STOP — the check
+> can fail, not just go green.) Never build an ad-hoc / `/tmp` / partial reader — a hand-made reader showing 1 product of 3 zeroed S5.
+> 
+> Each renderer **self-certifies exactly ONE thing: that the READING is complete** (`FULL CARD RENDERED — PASS: N/N products`).
+> **The DATA verdict is NOT theirs** — it belongs to `sl_qa.py` / `sl_accept_chunk.py` (RULE 26). Previews as HTML, never PNG (Marina S6).
+> 
+> > **S18 — what actually happened, kept here so we never re-learn it (the "слово ≠ дело" class, RULE 0b).**
+> > The old rule named ONE reader (the HTML). But 250 HTML cards do not fit a context window, so every analysis session actually read
+> > through a text projector — a script that **lived only on the VPS, outside git** (born 2026-06-07, six days *after* the enricher
+> > started emitting `home_hero`) and was itself **partial**: no `home_hero` (the homepage-banner product v4.2 added *because* the
+> > best-seller auto-pick misfires — swaddlean/dingle), `desc` cut to 58 chars, no `bullets` / `desc_confidence` / `pust` / `kind` /
+> > unreachable-reason. **For ~27 batches the agent judged on less than the founder saw.** The HTML was not innocent either: it rendered
+> > neither `pust` nor `kind` — both direct Marina-Veto inputs. **Neither surface was complete, and nothing ever compared them.**
+> > **Why it survived so long:** (a) the rule froze a TOOL, so the substitute fell outside it; (b) the substitute was named `..._tmp.py` —
+> > nobody reviews a throwaway; (c) it never entered git, so no audit, no backup, no diff; (d) the acceptance ritual demanded the agent
+> > say aloud *"full card — 3 tops **+ images** + all fields"* while its surface had **no images at all** — an unverifiable sentence,
+> > recited every batch; (e) **absence of a field has no symptom** — the output looked complete.
+> > Second half of the same bug: the HTML banner re-checked `sl_qa`'s thresholds, so on ONE file `sl_accept_chunk` said ACCEPT (benign
+> > `products.json` dip) while the banner said STOP. A gate you must choose between is not a gate. Now: **one verdict, one owner.**
+> > **Fixed S18:** both renderers in git, both print the full 28-field contract, both self-certify, and `sl_card_parity.py` proves each
+> > batch that the two surfaces are the same card. The property is now checked by a machine instead of promised by a sentence.
+
+> ─── RULE 26 — QA-gate before analysis · op-rules L303–324 ───
+>
+> ### RULE 26 — QA-gate PASS + acceptance statement BEFORE any analysis (S6, Marina-approved 2026-06-03)
+> Before scoring ANY batch: run **`scripts/sl_qa.py <enriched.json>`** (extended S6 to CARD COMPLETENESS — essence fields +
+> per-product image/in_range/descConf, not just reach/price/cur). It must print **✅ PASS**. If **⛔ STOP**, do NOT analyse — report the
+> flags and re-enrich. Then state in the human-visible checkpoint **the NUMBERS the checks actually produced** — never a
+> memorised sentence (S19: the old verbatim phrase claimed *"3 tops + images"* while the agent's text surface has no images
+> at all; it was recited every batch and was false every batch — an unverifiable ritual is worse than no ritual, RULE 0b):
+> *"Stage-2 enriched (not Stage-1). ACCEPT: reach X%, count N==N, cur_null 0. PARITY PASS: N stores · M products ·
+> K banner-heroes — identical on both surfaces."* **Two-layer logic:** `sl_qa.py` certifies DATA completeness (scraper output); the canonical
+> readers' self-cert line (RULE 25) certifies READING completeness — together they close both S5 holes (the gate alone would have
+> PASSED S5, since the data was fine; the reader was not). **PASS thresholds = PROVISIONAL (revisit after b10; failure direction is safe —
+> a false STOP only forces a look):** reach≥90 · ≥1top≥97 · prod_img≥90 · in_range≥99 · descConf≥99 · avgtops≥2.0 ·
+> store_type/product_class/cat_flag/maturity/new30d≥95 · home_pitch≥90 · price≥95 · cur_null=0. Informational (non-gating): 3tops% ·
+> social% · home_img/banner% (these legitimately vary). Pairs with RULE 1 (funnel transparency) + RULE 23 (open every needs_live).
+> 
+> **⭐ ONE VERDICT, ONE OWNER (S18 — the two-layer logic above, now enforced in code, not just prose):**
+> - **DATA** (is the scraper's output complete/healthy?) → `sl_qa.py`, and for a build chunk the wrapper `sl_accept_chunk.py`,
+>   which alone knows the ACCEPT-logic (a benign `products.json`/vNone dip = ACCEPT; genuine breakage = STOP).
+> - **READING** (does the surface show me the whole card?) → the two RULE-25 generators' `FULL CARD RENDERED` line.
+> - **The readers no longer re-check data thresholds.** They used to, with a third copy of the numbers — so on the same file the
+>   wrapper said ACCEPT and the HTML banner said STOP (live case: T&H `s1_b4`, S18). Duplicate thresholds are how a gate starts lying.
+>   A number lives in exactly ONE script; every other place points at it.
+
+**Уходит не в это правило →:**
+- имена скриптов + «28 полей» + пороги → methods
+- блок «S18» (L287–301) → history/lessons
+- ⚠ пороги PROVISIONAL «после b10» (L312–314) — b10 пройден
+
+**② МОЯ ВЕРСИЯ (агент):**
+Свойство, которое должно держаться: **кто бы ни читал подготовленные данные — я или основатель — видит ОДНУ И ТУ ЖЕ карточку целиком.** Проверяю это сравнением двух поверхностей печати, а не ощущением полноты (отсутствие поля не имеет симптома). Никаких самодельных / временных / частичных читалок — всё, чем читаю, лежит в git. **Один вопрос — один ответственный:** полнота ДАННЫХ и полнота ЧТЕНИЯ — разные вопросы; число живёт в одном месте, остальные ссылаются (дублированный порог — так гейт начинает врать). Расхождение поверхностей = СТОП.
+_Вычеркнул:_ имена скриптов · «28 полей» · числовые пороги → methods; разбор S18 → хроника. ⚠ Пороги «пересмотреть после b10» — b10 пройден.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П7 — Анализ и отчёт доказаны файлами; гейт считает покрытие, не суждение
+*Стадия: STAGE-3*
+
+**Собрано из:** RULE 27 — analysis self-verification gate · RULE 31 — checkpoint contract
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 27 — analysis self-verification gate · op-rules L325–334 ───
+>
+> ### RULE 27 — Analysis self-verification gate: prove the steps ran, from files not memory (S6, Marina-approved 2026-06-03)
+> The analysis side must be machine-verified like Stage-2 is — not trusted to discipline (the ShopHunter lesson: system beats
+> discipline). As I analyse a batch I keep two artifacts, then a gate verifies them:
+> - **Open-log** `np_bN_opens.jsonl` — one line per hand-opened store `{domain, verdict}` (every needs_live + unreachable).
+> - **Scorecard** `np_bN_scores.jsonl` — one line per deep-scored candidate `{domain, hero, price, problem/wow/emotion/margin/market, veto, score, bucket}`.
+> - **`scripts/sl_analysis_gate.py <enriched> <opens.jsonl> <scores.jsonl>`** must print **✅ PASS** before the checkpoint. It STOPs if any
+>   flag was not opened (RULE 23 breach) or any device-class in-range candidate has no explicit verdict (the gap that caught the
+>   overlooked Quax store in S6). The ANALYSIS CHECKPOINT numbers are then COMPUTED by the gate, not typed from memory.
+> - **Known soft spot (named, not hidden):** `consumer-other` stores are card-judged in bulk, not individually logged — the gate counts
+>   them for transparency (RULE 1) but does not force a per-store verdict. This is the one place still resting on reading discipline.
+
+> ─── RULE 31 — checkpoint contract · op-rules L420–438 ───
+>
+> ### RULE 31 — Checkpoint contract: the report is GATE-GUARDED, never shrinkable (S13, Marina-approved 2026-06-07) ⭐ THE b3/b4 FIX
+> The checkpoint REPORT was the ONE step with no machine gate → so when "stop-after-each-batch" was lifted, it silently
+> shrank (b3/b4). Fix = give the report the same "external controller" every other step has. **`sl_analysis_gate.py` IS that
+> controller** — it self-STOPs the analysis until (a) every flag opened, (b) every device candidate verdicted, (c) browse ≥
+> floor (RULE 32). The agent **cannot proceed to the next batch** without a PASS. **The checkpoint is valid ONLY if it (1)
+> contains EVERY section — winners / borderline / browse / funnel+ABC / loss-audit, each with the plain-language 1–2-line
+> description Marina reads instead of opening the site — AND (2) pastes the gate's PASS line.** A report missing any section
+> = not canonical = STOP (same logic as RULE 25's banner / RULE 26's QA-PASS). **Принцип (Marina): "проверяющий", не
+> "делающий".** The gate never WRITES the report (a doer can err + removes the agent's final-look quality pass — same reason
+> the sub-agent-reader was rejected, [[feedback_no_delegation]]); it only COUNTS already-verified artifacts (opens.jsonl =
+> one tool-seeded line per flag — the count can't be faked; scores.jsonl = the agent's own scores) and BLOCKS on a gap.
+> **Tamper-evidence (how Marina knows a step wasn't skipped, without taking the agent's word):** every step leaves a file;
+> **Marina can re-run the gate on the same files and get identical numbers.** The honest limit: a script can't physically
+> block a chat message, but it makes any skip *visible + re-verifiable* — that is what turns "на дисциплине" into "на системе".
+> **Anti-forgetting anchor (S13):** `sl_analysis_gate.py` prints a **REQUIRED-SECTIONS checklist** at the end of EVERY run
+> (winners · borderline · browse≥7 · funnel+ABC · loss-audit · 1–2-line description per candidate · paste-the-PASS-line) —
+> the controller hands the agent the contract at the exact moment of writing, so a section can't be silently dropped under
+> speed (the b3/b4 failure-mode). It's a reminder, not a hard block (R1 stays tamper-evident) — but it lands where the slip happens.
+> **⭐ AMENDMENT (S13b, 2026-06-07, Marina-approved — the b12/b13 re-drift fix):** the anchor *re-drifted* exactly once: in an autonomous block the agent ran the gate with a **truncated output** (`sed -n '3,13p'`) → the PASS line was seen but the REQUIRED-SECTIONS checklist (printed last) was cut, and the b12/b13 checkpoints shrank to one-liners — the SAME failure RULE 31 exists to prevent, re-entered via truncation. **Fix (system, not discipline): `sl_analysis_gate.py` reordered so the contract block prints ABOVE the verdict and the `GATE:` line is the LAST line, carrying the section counts (`W·BL·BR/floor·flags·dev·read`) + "[paste THIS line + the CONTRACT above]".** Now the RULE-31-required "paste the PASS line" cannot be satisfied without the contract immediately above it — truncating the tail loses the PASS line itself. **Standing discipline:** run the gate and read/paste its output from the CONTRACT block through the GATE line — **never `sed`/`tail`-truncate the gate's tail.** (Lesson: a soft controller that prints at the end is defeated by output-truncation; co-locate the must-paste token with the contract so they live or die together.)
+
+**Уходит не в это правило →:**
+- имена jsonl/скриптов + REQUIRED-SECTIONS → methods
+- истории b3/b4/b12 (L438) → history/lessons
+- ⚠ «полнота отчёта» не дублировать — ушла в П2
+
+**② МОЯ ВЕРСИЯ (агент):**
+Анализ и отчёт доказываю ФАЙЛАМИ, не памятью: по ходу остаются файлы «что открыл и с каким вердиктом» и «что оценил и по каким критериям»; цифры в отчёте ВЫЧИСЛЯЮТСЯ из них. Марина может перезапустить проверку на тех же файлах и получить те же числа — это «на системе», а не «на дисциплине». **Гейт считает ПОКРЫТИЕ, а не суждение:** зелёный гейт ≠ «всё хорошо» (он был бы так же зелен, выброси я настоящего кандидата ярлыком). Винера нахожу я.
+_Вычеркнул:_ имена jsonl/скриптов · механику REQUIRED-SECTIONS → methods; истории b3/b4 → хроника. Полноту отчёта не дублирую — она в П2.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П8 — Browse — окно Марины: пол 7, без потолка
+*Стадия: STAGE-3*
+
+**Собрано из:** RULE 8 — mandatory browse-pool · RULE 28 — browse + FLOOR-NOT-CEILING · RULE 32 — browse FLOOR = 7
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 8 — mandatory browse-pool · op-rules L120–123 ───
+>
+> ### RULE 8 — Mandatory browse-pool every batch
+> Always surface a curated **browse-pool** of unique, genuine-product store links (not duplicated from winners) so the
+> founder can catch what the agent's bar missed.
+
+> ─── RULE 28 — browse + FLOOR-NOT-CEILING · op-rules L336–351 ───
+>
+> ### RULE 28 — Browse-pool = a fixed rule, and the gates are a FLOOR not a CEILING (S6, Marina-approved 2026-06-03)
+> **Fixed selection (so the count is reproducible, never picked by feel):** browse = (device-class `{consumer-gadget, appliance, kitchen}`
+> in-range stores) ∪ (stores I explicitly tag `browse` in the open-log), minus winners/borderline/reject and minus hand-opened-off-model,
+> deduped (RULE 8 unique). `decor` is excluded from the auto-set (it pulls mis-tagged decals/boards); a genuinely interesting non-device
+> store enters via my explicit browse-tag (so my judgment, logged, overrides the proxy class — e.g. spottle in S6).
+> > **⚠ AMENDED by RULE 32 (S13, Marina 2026-06-07) — read RULE 28 together with RULE 32.** The old wording "count varies / honest
+> > low-yield is fine / selection reproducible, never by feel" is now bounded by a **HARD FLOOR of 7 per batch**: the count still varies
+> > ABOVE 7, but never below it. When the deterministic set yields <7, the agent MUST add the next-most-interesting stores it read
+> > (judgment ADDS to the fixed set, never drops below 7) — **when unsure, INCLUDE; the tail is a priority.** `sl_analysis_gate.py` STOPs
+> > if browse<7. So RULE 28 = the deterministic CORE of the browse set; RULE 32 = raises the floor to 7 + biases toward inclusion.
+> 
+> > **⭐ FLOOR-NOT-CEILING PRINCIPLE (Marina, S6 — applies to ALL gates/rules here).** These checkpoints define the MINIMUM that must
+> > always be covered — never the maximum. The agent is ALWAYS free to surface more than the rule yields and MUST flag anything notable
+> > beyond it: an off-pattern outlier, a convergence/pattern, an emerging cross-category observation, a creative angle. A rule must
+> > never suppress judgment or silence a useful observation. If a frame starts to feel like it's hiding something worth showing, say so and
+> > we adjust it. (Marina's principle: over-constraining a worker kills the creativity and the heads-up flags you actually want.)
+
+> ─── RULE 32 — browse FLOOR = 7 · op-rules L440–450 ───
+>
+> ### RULE 32 — Browse-pool FLOOR = 7 per batch; no ceiling; when unsure INCLUDE (S13, Marina-approved 2026-06-07)
+> Browse = **Marina's window into the niche** (она быстро открывает и видит "пусто/не пусто", какие товары вообще водятся).
+> So **minimum 7 browse links EVERY batch — even deep in the tail, even if weak** (1–2 links is unacceptable). **7 is a FLOOR,
+> NOT a target/cap.** When the flow is rich, surface 10 / 15 / 20+ — no upper limit. **Bias = INCLUDE: if unsure whether a
+> store is worth showing, show it** ("лучше скинь, я посмотрю"). **The tail is a priority, not a remainder** — Marina has
+> repeatedly found real products in the tail on other niches (Dogs/pets happen to be saturated; that's niche-specific, not a
+> reason to thin browse). Mechanics: while doing the RULE-6 full read, tag EVERY store that catches the eye (novel mechanism,
+> unusual category, "а вдруг") as browse — `bucket:"browse"` in scores.jsonl OR `verdict` containing "browse" in opens.jsonl;
+> my explicit tag overrides the proxy class/off-model exclusion. **Machine-enforced:** `sl_analysis_gate.py` STOPs if browse < 7
+> (BROWSE_FLOOR). This supersedes the "count varies, never padded" wording of RULE 28 — the count still varies ABOVE 7, but 7
+> is the hard floor. (Note: RULE 12/founder-feedback still hold — browse is exposure for Marina's eye, not a quality claim.)
+
+**Уходит не в это правило →:**
+- FLOOR-NOT-CEILING (L347–351) → поднято в CREED п.8
+- состав browse через product_class — ⚠ ярлык врёт (батуты=apparel)
+
+**② МОЯ ВЕРСИЯ (агент):**
+Каждый батч даю browse — окно Марины в нишу. **Минимум 7 ссылок, потолка нет** (богатый поток — показываю 15–20). Сомневаюсь, показывать ли магазин — показываю. Хвост в приоритете, а не остаток. Помечаю browse всё, что зацепило глаз (новый механизм · необычная категория · «а вдруг»); моя пометка перевешивает ярлык робота (он врёт). Browse — доступ для её глаза, а не заявление о качестве.
+_Вычеркнул:_ «пол-не-потолок» как принцип → поднят в CREED. ⚠ Состав browse раньше стоял на ярлыке класса — он врёт, развилка.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П9 — Как судим товар и чей вердикт
+*Стадия: ОБЩЕЕ (продуктовая стойка)*
+
+**Собрано из:** RULE 9 — dropship/brand ≠ reject · RULE 10 — high-ticket/bulky = deprio · RULE 11 — honest low-yield valid · RULE 12 — Founder Review separate
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 9 — dropship/brand ≠ reject · op-rules L128–130 ───
+>
+> ### RULE 9 — Dropship / brand ≠ reject
+> Score the PRODUCT TYPE (price, mechanism, COGS, wow, ad-ability), not the seller. A brand/dropship store selling the
+> type = **demand evidence** we can white-label. Filter by product, never by seller type.
+
+> ─── RULE 10 — high-ticket/bulky = deprio · op-rules L132–135 ───
+>
+> ### RULE 10 — High-ticket / bulky = deprioritize
+> Every product is pushed via Facebook / paid traffic → expensive or bulky shipping kills the economics. Deprioritize
+> high-ticket / bulky finds (e.g. composting toilets, furniture, large appliances) **regardless of revenue or
+> convergence strength.** (Marina 2026-05-31.)
+
+> ─── RULE 11 — honest low-yield valid · op-rules L137–140 ───
+>
+> ### RULE 11 — Honest low-yield is valid; niche-yield is structural
+> A truthful 0 / low-yield result is valuable — never force candidates to hit a quota. Store-first winner-zones differ
+> by category: a "heavy" category (trade supply, materials, replacement parts) structurally yields few white-label
+> gems. Low yield there is expected, not a failure (SH-10). Report it honestly; do not narrow discovery to chase a number.
+
+> ─── RULE 12 — Founder Review separate · op-rules L142–146 ───
+>
+> ### RULE 12 — Founder Review is a separate human layer (Reject ≠ negative)
+> Founder Review (Approved / Consider / Watchlist / Rejected) is applied by Marina AFTER reporting. A founder **Reject is
+> NOT a negative signal and NOT a mis-score** — keep reporting every genuine 65+, never narrow discovery to predict her
+> taste. Convergence / revenue / multi-seller alone earns at most **Watchlist**, never auto-Consider. When 2+ brands sell
+> one product, make ALL brands visible (Store Link 2 + body), never hide the 2nd.
+
+**Уходит не в это правило →:**
+- формат approval-блока (если всплывёт) → founder-feedback.md
+
+**② МОЯ ВЕРСИЯ (агент):**
+Сужу ТИП ТОВАРА (цена · механизм · себестоимость · wow · снимаемость на камеру), а не продавца. Бренд или дропшиппер, продающий этот тип, — доказательство спроса, который можно повторить, а не причина отказа. Дорогое и габаритное — вниз, независимо от выручки (доставка убивает экономику платного трафика). **Честный низкий выход валиден** — не добираю до числа; ноль после копки нормален, ноль вместо копки — нет. **Конвергенция — наблюдение, не вес:** дубли одного товара схлопываю в одну карточку, но score/тир не трогаю. **Founder Review — отдельный человеческий слой:** «Rejected» от Марины ≠ «товар плох / score неверен»; приношу каждый честный 65+, не сужаю поиск под предугадывание вкуса.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П10 — Операции и безопасность
+*Стадия: ОБЩЕЕ (преполёт)*
+
+**Собрано из:** RULE 13 — heavy on VPS; no parallel claude · RULE 14 — proxy discipline · RULE 15 — credentials never in chat/git
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 13 — heavy on VPS; no parallel claude · op-rules L152–155 ───
+>
+> ### RULE 13 — Heavy lifting on the VPS; only finalists in chat
+> Dump / filter / enrich run on the VPS (Playwright workers / sub-agents). Only finalists enter chat (token safety).
+> Parallelism = Playwright **workers**, **NEVER parallel `claude` processes** (a single stray parallel claude burned a
+> month's API budget). **Always `ps aux | grep claude` on the VPS before any run.**
+
+> ─── RULE 14 — proxy discipline · op-rules L157–159 ───
+>
+> ### RULE 14 — Proxy discipline & recovery
+> Health-check the proxy before every proxy-based run (`sh_proxy_check.py` pattern). Use the dedicated iProyal IP. A
+> transient endpoint blip ≠ bad credentials → retry per the recovery procedure, do not panic-rotate creds (SH-9).
+
+> ─── RULE 15 — credentials never in chat/git · op-rules L161–163 ───
+>
+> ### RULE 15 — Credentials never in chat or git
+> Credentials go to the gitignored VPS creds file via the interactive setter (getpass) — never typed in chat, never
+> committed, never echoed back. (And never `cat` a creds file expecting masking — 2026-05-31 lesson.)
+
+**Уходит не в это правило →:**
+- команды (ps aux | grep claude · sh_proxy_check) + пути → where-things-live
+- ДОБАВИТЬ: «новый скрипт в TEST-слаг, не поверх живого» (S10)
+
+**② МОЯ ВЕРСИЯ (агент):**
+Тяжёлое (дамп · фильтр · энрич) — на сервере; в чат — только финалисты. Параллельность — это воркеры скрапера, **НИКОГДА параллельные процессы агента** (один залётный съел месячный бюджет) → проверка перед любым запуском обязательна. Прокси проверяю перед прогоном; кратковременный сбой ≠ плохие доступы — не меняю их в панике. Доступы — только в игнорируемый файл через интерактивный ввод, никогда в чат/git. **Новый или починенный скрипт пишет в ТЕСТОВЫЙ слаг, никогда поверх живого;** ненормальная ситуация → стоп и вопрос.
+_Вычеркнул:_ конкретные команды/пути → where-things-live.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П11 — Ритм: анализ — человек в контуре; сборка — волной 1+9
+*Стадия: STAGE-3 (анализ) + сборка*
+
+**Собрано из:** RULE 30 — reservoir-build wave rhythm · RULE 33 — human-in-loop; autonomy retired
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 30 — reservoir-build wave rhythm · op-rules L370–418 ───
+>
+> ### RULE 30 — Reservoir-build scraper: wait-pattern + one-chunk rhythm (S8, Marina-approved 2026-06-03)
+> When BUILDING the reservoir (running `sl_enrich4` LIVE to prep data for a later session — not analysing a ready file),
+> the work is **system-driven, never discipline-driven**. Three locked invariants:
+> - **Wait via background, never poll.** Launch the enrich detached (minimal one-line `nohup` + sentinel — RULE 4c), then
+>   wait for the sentinel through a **`run_in_background` Bash wait-loop** (`until [ -f <sentinel> ]; do sleep 15; done`).
+>   The harness re-invokes on completion = **ZERO context burned while waiting.** NEVER a foreground blocking poll loop
+>   (that burns context for nothing — the exact S8 lesson that exposed this rule was missing). The scraper itself is 0-token.
+> - **Progress-narration rhythm (Marina S8 — refines "one chunk at a time"; her preferred S4 pattern):**
+>   **Chunk-1 = full SCRAPER-ACCEPTANCE CHECK-LIST → STOP, WAIT for Marina's OK** (proves the run is healthy for this niche/
+>   session). **After her OK, chunks 2..N run AUTONOMOUSLY — NO per-chunk approval.** After EACH chunk post the progress report
+>   **as PLAIN TEXT in chat — never inside a code-block (Marina S17)**, human-readable, in this shape:
+>   `✅ Chunk N/M — <ниша> — ПРИНЯТ` → `250 магазинов · сайты открылись у X% · счёт сошёлся (250 = 250) · качество данных: чисто · охранник (claude/скрапер): 0/0`
+>   → `▶️ Chunk N+1/M — запускаю энрич (250 магазинов, ~7 мин)… идёт`.
+>   (Галочка + что сделано + цифры человеческим языком + что запускаю дальше. Старый машинный one-liner
+>   `k/N done · <verdict>` РЕТАЙРЕН — Marina S17: нечитаемо.) So Marina sees it's flowing without
+>   pressing buttons. **Consolidated wave report at the end → STOP for OK.** Each chunk is still individually QA'd + count-
+>   reconciled by the agent (so a failure is caught) — **STOP and surface IMMEDIATELY only on GENUINE breakage** (reach
+>   out-of-band / worker-crash / count-mismatch / cur_null>0 — NOT a products.json STOP). This beats a silent server-side
+>   loop (Marina's S4 worry: "вдруг что-то слетело") AND beats per-chunk approval (button-fatigue): narrated, verified,
+>   hands-off. **NEVER fully fire-and-forget a multi-chunk server loop with no per-chunk check** — narrate + verify each.
+> - **Batched-reporting tier (Marina S8 — when she explicitly asks NOT to be pinged per batch / not to sit by the computer):**
+>   run a **self-verifying server loop** (`cats_wave.py`-style: per chunk select → enrich → `sl_qa` → append the health
+>   manifest, and **ABORT on GENUINE breakage** = reach <85% / count ≠ 250 / cur_null>0, writing a BREAK flag). Report only
+>   **every ~6 chunks** (or immediately if it aborts). What keeps this SAFE (vs blind fire-and-forget): the loop still
+>   QA-gates EVERY chunk and stops itself on real breakage — only the per-chunk *messaging* is removed, never the per-chunk
+>   *verification*. Use ONLY on Marina's explicit ask; default stays chunk-1-OK + narration.
+>   (Parallel SECOND session only after the rhythm here is proven — RULE 13 still bars parallel `claude`; parallelism =
+>   enrich workers, capped at the proven total on the single ISP-Dedicated IP.)
+> - **Selection = `sl_select_build.py` (enriched_index exclusion, NO SKIP) — S11 decoupled, Marina-approved.** Build selects the
+>   next 250 excluding `processed` ∪ `logs/storeleads/enriched_index.json`; mark each built chunk with `sl_mark_enriched.py`.
+>   This **RETIRES the old SKIP-paging** (`SKIP=(N-1)*250`): SKIP shifts the page when `processed` grows mid-build, so a parallel
+>   analysis session marking the SAME niche would cause a coverage gap. With enriched_index exclusion that is a **no-op** (a
+>   processed store is already excluded as enriched) → **parallel analysis of the SAME niche being built is SAFE**
+>   (S11-PROVEN: `processed` grew 11,219 → 17,854 mid-build via parallel S12/S13b, the build page never shifted). `enriched ≠
+>   processed` stays the invariant (build marks enriched; only analysis marks processed). Guardrail unchanged: both `claude`
+>   run on the Mac, **never on the VPS** (RULE 13). *(Legacy `sl_select_all.py`+SKIP kept only as the positional selector for
+>   non-decoupled use; not for parallel build.)*
+> - **Per-chunk acceptance = `scripts/sl_accept_chunk.py <enriched.json>` (S11, Marina-approved 2026-06-07).** One verdict
+>   line = count-reconcile + credit-guard (`ps aux | grep claude`, EVERY chunk) + canonical `sl_qa.py` + encoded ACCEPT-logic
+>   (benign products.json STOP → ACCEPT; genuine breakage → STOP). System, not discipline.
+> - **⭐ WAVE = 1 + 9 = 10 chunks (Marina S18; was 7).** Chunk-1 → full SCRAPER-ACCEPTANCE check-list → **STOP, wait for OK**
+>   (proves the niche/run is healthy). Then **9 chunks run without stopping between them** — each still machine-accepted by
+>   `sl_accept_chunk.py` and narrated (RULE 30 report format). At the end of the wave: consolidated report → **STOP for OK.**
+>   **Never auto-chain waves.** Mid-wave STOP only on GENUINE breakage (the wrapper prints STOP) — then come to Marina at once.
+>   *Why the length is safe: safety rests on the per-chunk machine check, not on the wave being short — the wrapper is as awake
+>   at chunk 9 as at chunk 2. There is no unattended server loop; the agent launches each chunk, it just doesn't ask permission.*
+> - **⭐ HTML cadence — ONE rule, both modes (Marina S18): first · every 5th · last** (so 1, 5, 10 in a wave of ten). Canonical
+>   HTML (`sl_stage2_table.py`) → Marina's Desktop. Anything else on request. *(Was: "last chunk of each wave" in build vs
+>   "batch-1 + every 4th" in analysis — two answers to one question, in two files.)*
+
+> ─── RULE 33 — human-in-loop; autonomy retired · op-rules L452–467 ───
+>
+> ### RULE 33 — ANALYSIS batch rhythm: HUMAN-IN-LOOP. The "earned autonomy" block is RETIRED (rewritten S19, Marina-directed)
+> **Every analysis batch ends with a full checkpoint and a STOP.** Marina reads it and says go.
+> 
+> *Why the change (this is the whole reason the department was rebuilt):* the old rule let batches 3–6 run as one
+> **autonomous block**. Inside exactly such a block, in S15, the agent **opened ZERO links by hand** across six batches and
+> lost **The Wriggler · Rockit · SnoofyBee** — while every gate stayed green. Autonomy was scale-machinery, and it bought
+> speed by spending the only thing that finds winners: the agent looking at a store with his own eyes.
+> **Store Leads has NOT earned autonomous mode** (`workflow.md` line 9 always said so; this rule used to contradict it —
+> one file arguing with another is how a system lies to itself, RULE 0b).
+> 
+> - **Every batch** → contract-complete checkpoint (RULE 31) → **STOP, wait for Marina's OK.**
+> - **Any Notion write** → always after her explicit OK. **Any winner 65+** → pause before Notion.
+> - **Genuine breakage** (gate STOP / scraper broke) → come to Marina at once.
+> - **Session depth:** as many batches as the context honestly allows at full depth. **Never trade depth for count.**
+>   An honest 3 batches beat 6 skimmed ones. (RESERVOIR-BUILD keeps its own wave rhythm — RULE 30 — because a scraper
+>   run has no judgment to lose.)
+
+**Уходит не в это правило →:**
+- ВЕСЬ шаблон RULE 30 (nohup · keepalive · путь-конвенция · формат отчёта) → methods/pipeline
+- «Batched-reporting tier» (L390–397) ⚠ противоречит волне 1+9 → удалить
+- истории S15 (L455–460) → history/lessons
+
+**② МОЯ ВЕРСИЯ (агент):**
+**Анализ — человек в контуре:** каждый батч заканчивается полным чекпойнтом и СТОПОМ, жду OK; автономных блоков нет (в таком блоке случился S15). Запись в Notion — только после явного OK; находка 65+ — пауза; поломка — прихожу сразу. **Глубина важнее количества** (честные 3 батча лучше 6 пробежанных).
+**Сборка данных — волной 1+9:** первый чанк → полная приёмка и СТОП; дальше 9 чанков без остановок, каждый принимается машинно; конец волны — сводный отчёт и СТОП; волны не сцепляются автоматически. _(У сборки нет суждения, которое можно потерять — поэтому ритм другой.)_
+Инвариант: подготовленное ≠ разобранное (сборка помечает подготовленное, только анализ — разобранное).
+_Вычеркнул:_ технический шаблон запуска → methods/pipeline; «batched-tier» противоречит волне 1+9 → удалить.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П12 — Конец сессии: что записываю
+*Стадия: ОБЩЕЕ (конец сессии)*
+
+**Собрано из:** RULE 17 — end-of-session founder protocol · RULE 19 — mark processed · RULE 18 — memory hygiene · RULE 20 — master record + keep-list
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 17 — end-of-session founder protocol · op-rules L175–200 ───
+>
+> ### RULE 17 — End-of-session founder-feedback protocol
+> At end of session: (1) request Marina's feedback on ALL reported (65+) products; (2) record her **Founder Review +
+> Founder Notes (+ Rejection Reason if Rejected)** in `founder-feedback.md`; (3) distil any new calibration rule there;
+> (4) update the HANDOFF block + append learnings (archive expired). Founder decisions are Tier-1 facts — record exactly
+> what she set, never invent or set Founder Review yourself.
+> 
+> **Founder-feedback format** (one row per decision, table per tier — Approved / Consider / Watchlist / Rejected):
+> `Date · Product · Score · Marina's reason (her words — the "сок") · Signal to keep (calibration)`.
+> So Marina explains once; the agent distils.
+> 
+> **Founder Notes / Rejection Reason — phrasing principle (Marina-confirmed 2026-05-31):**
+> - **Ultra-compact: 4–5 words MAX**, written as **short fragments ending with a period** — bullseye, no fluff.
+> - **Rejected** → fill **Founder Notes + Rejection Reason**. **Watchlist / Consider / Approved** → **Founder Notes only**.
+> - Marina gives the verdict verbally (expanded); the agent renders it into this compact form, **shows her the
+>   COMPACT PER-PRODUCT BLOCK for approval BEFORE writing to Notion** (NOT a wide table — Marina S7 2026-06-03), adjusts,
+>   then writes. Never invent a verdict; never set Founder Review.
+> - **⭐ APPROVAL-PRESENTATION FORMAT (Marina-locked S7 2026-06-03) — render each decision as a block, exactly:**
+>   ```
+>   [Product Name] | [Tier]
+>   Founder Notes: [≤4–5 words, fragments ending with a period]
+>   Rejection Reason: [ONLY when Tier = Rejected — 1 short fragment]
+>   ```
+>   This is WHY the notes are 4–5 words: the block must read at a glance. Group blocks loosely by tier; no table, no extra columns.
+> - Real reference examples (from the live DB): Founder Notes — "Solves real pain." · "Apple-like aesthetic." ·
+>   "Stylish design. Real pain-solver." · "Banal product. Brilliant packaging." · "Strong pain-solver. Strong seasonal hooks."
+>   Rejection Reason — "High refund risk." · "Narrow audience. Hard to scale." · "Overexposed category." · "Fragile shipping risk."
+
+> ─── RULE 19 — mark processed · op-rules L202–208 ───
+>
+> ### RULE 19 — Mark processed stores (never re-analyse the same store twice)
+> Every store taken through the funnel is recorded in `logs/storeleads/processed_domains.json` on the VPS
+> (`{domain: {subcat, band, date, stage, outcome}}`, outcome = reported / screened / rejected). `sl_select_build.py`
+> **excludes already-processed domains** from every new batch, so a fresh session never re-surfaces a store that
+> was already analysed. State lives on the VPS = the single source of truth a new session reads. Record the batch
+> as processed at end-of-session (part of RULE 17). (Per-subcategory deep-dive: exhaust one niche batch-by-batch —
+> visits high→low — without overlap.)
+
+> ─── RULE 18 — memory hygiene · op-rules L210–213 ───
+>
+> ### RULE 18 — Memory hygiene (RULE-15 of core/session-health-rules)
+> Keep only the **2 most recent HANDOFF blocks** in `learnings.md`; move older ones to `handoffs-archive.md`
+> (**create this file when the 3rd HANDOFF appears** — it does not exist yet; we have only 2 blocks, nothing to
+> archive). Archive expired learnings (never delete — move to Expired). Dedup. Keep the mandatory-load footprint lean.
+
+> ─── RULE 20 — master record + keep-list · op-rules L217–225 ───
+>
+> ### RULE 20 — Master record + keep-list monitor (S3, Marina-approved 2026-06-01)
+> Two zero-cost habits that compound over sessions:
+> - **Master record (extend, don't just mark).** `sl_mark_processed.py` writes each analyzed store to
+>   `processed_domains.json` carrying the analysis data, not just {subcat,band,date,stage,outcome} — also
+>   `tier · product_class · store_type · hero · price · score · maturity · new_products_30d · socials · monitor`.
+>   "Нам это ничего не стоит" (Marina) → a permanent queryable reservoir we never re-derive.
+> - **Keep-list monitor.** Strong/borderline stores get `monitor: true` → exported to `operational-memory/keep-list.md`.
+>   Store Leads = the store-supplier for a future "newest-products-first" monitor (load these into ShopHunter or another
+>   service, watch what proven operators launch every 2–3 days). The monitor JOB is DEFERRED; we FEED the list now.
+
+**Уходит не в это правило →:**
+- ВЕСЬ формат founder-feedback (таблица + approval-блок, L181–200) → founder-feedback.md
+- поля master-record + имя sl_mark_processed (L219–225) → methods/card-contract
+- ссылка на core RULE-15 (L211) — оставить ссылкой
+
+**② МОЯ ВЕРСИЯ (агент):**
+После OK Марины: находки 65+ → Notion и общий журнал · отказы → журнал отказов · разобранные магазины помечаю обработанными (чтобы не разбирать дважды) · сильные/пограничные → в список наблюдения · её решения по конкретным товарам → в founder-feedback её словами (вердикт не выдумываю) · состояние и «что дальше» → в файл состояния. Память держу тонкой: в активном файле — два последних блока состояния, старое переезжает в хронику (не удаляется).
+_Вычеркнул:_ формат таблицы founder-feedback + approval-блок → founder-feedback.md; поля master-record + имя скрипта → methods.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П13 — Что меняю сам, что предлагаю (Tier-1 / Tier-2)
+*Стадия: ОБЩЕЕ*
+
+**Собрано из:** RULE 16 — Tier-1 vs Tier-2
+
+**① ПОЛНЫЙ ИСТОЧНИК (дословно):**
+
+> ─── RULE 16 — Tier-1 vs Tier-2 · op-rules L169–173 ───
+>
+> ### RULE 16 — Tier-1 vs Tier-2 (propose, don't self-write system changes)
+> **Tier-1** (data / yield facts / founder decisions) → record automatically in learnings / founder-feedback.
+> **Tier-2** (system-changing generalization: a new taste/filter/veto rule, closing a category, a pivot, promotion into
+> core/) → **PROPOSE via `review/promotion-queue.md`, never self-write.** Never edit `core/` or `shared/founder-taste.md`
+> autonomously. Don't over-generalize from a small sample.
+
+**② МОЯ ВЕРСИЯ (агент):**
+Сам записываю ФАКТЫ: цифры · выходы ниш · решения Марины — это данные. **Предлагаю, но сам не пишу:** новое правило вкуса / фильтра / вето · закрытие категории · пивот · любое изменение общих файлов компании — идёт предложением, не самозаписью. Не обобщаю с малой выборки.
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## П14 — Куда что записывается: по ЖАНРУ, а не по теме ⭐ НОВОЕ
+*Стадия: ОБЩЕЕ (мета-правило)*
+
+**① ПОЛНЫЙ ИСТОЧНИК:** — (нового правила, источника нет)
+
+**Уходит не в это правило →:**
+- ИСТОЧНИКА НЕТ — новое (Коворк). Причина: core/research-framework маршрутизирует по слою, не по жанру, и вне обязательной загрузки.
+
+**② МОЯ ВЕРСИЯ (агент):**
+Перед тем как что-то записать — один вопрос: **«изменит ли это то, что я СДЕЛАЮ в следующем батче?»**
+— Да → правило (только норма, без истории, дат, имён скриптов). — Нет, но объясняет почему → хроника. — Меняется каждую сессию → файл состояния. — Команда / путь / порог / шаблон → methods. — Механика, которой больше нет → удалить.
+Обоснование правила никогда не лежит внутри правила — правило ссылается на хронику одной строкой. Не подходит ни подо что — спрашиваю Марину, а не кладу «пока сюда».
+
+**③ ПРАВКА МАРИНЫ:**
+> _(здесь твой текст — что оставляем, что переписываем)_
+
+---
+
+## ⛔ НЕ-ПРАВИЛО — в rules.md не идёт совсем
+
+**Шапка op-rules (правила не истекают · порядок загрузки · provenance)** · op-rules L60–68 — → сжать до 2 строк в шапке rules.md; provenance → history/lessons
+
+> **These rules never expire. Apply to every Store Leads session without exception.**
+> Read BEFORE `learnings.md` at session start (load order: op-rules → founder-feedback → learnings).
+> 
+> Agent may NOT modify this file during a scout session. Updates only when Marina explicitly instructs it,
+> or when a pattern is promoted here via `review/promotion-queue.md` (confirmed across ≥3 sessions OR Marina-approved).
+> 
+> > **Provenance:** distilled from the Facebook Ads Library + ShopHunter departments (transferable *discipline*
+> > only — never their channel mechanics) + Store Leads' own lessons. Created 2026-05-31, Marina-approved.
+> > Store Leads inherits maturity instead of starting from zero; mechanics stay per-department.
+
+**RULE 22 — scraper self-check** · op-rules L234–238 — → methods/card-contract — адресовано СКРИПТУ (энричер v4), не агенту
+
+> ### RULE 22 — Scraper self-check (S3, Marina-approved 2026-06-01)
+> The enricher double-checks its own work BEFORE handing me the sheet (Marina's "перепроверьте, потом ко мне"): it
+> ALSO pulls the homepage featured hero (catches collection-hero ≠ real front hero — heatka/hanboost), and re-fetches a
+> candidate's own product page when its desc is empty/mismatched. Self-correction is 0-token and reduces my re-opens.
+> (Implemented in `sl_enrich4.py`.)
+
+**«Checkpoint shape» (конец файла)** · op-rules L469–476 — → УМИРАЕТ — третья копия RULE 31/32/33; форма → workflow.md
+
+> ## Checkpoint shape (every batch, before any Notion write)
+> Winners (65+) · Borderline (55–64, flag for founder call) · Watchlist-signal · Browse-pool (**FLOOR 7, no ceiling —
+> RULE 32; when unsure INCLUDE; tail is a priority, never padded-down**) · Patterns · the full funnel breakdown
+> (RULE 1) **including the explicit A/B/C tier counts** (Marina cross-checks against the ABC split). Every link = a
+> clickable markdown hyperlink. **The report is contract-complete + carries the gate PASS line (RULE 31).** Then **STOP and
+> wait for Marina's OK** — every batch, no exceptions (RULE 33). Nothing goes to Notion before her explicit OK.
+> *(S20: the old tail here said "within an approved block, batches 3–6 do NOT stop per-batch — RULE 33" — it cited RULE 33
+> while stating the opposite of it. Leftover from the pre-S19 wording; removed, not re-decided.)*
